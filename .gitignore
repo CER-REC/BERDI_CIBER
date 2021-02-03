@@ -1,0 +1,24 @@
+# Node files
+node_modules/
+npm-debug.log
+.cache/
+
+# IDE files
+.vscode/
+*.sublime-workspace
+
+# Generated files that don't need tracking
+LAST_MODIFIED
+VERSION
+storybook-static
+.storybook/__snapshots__/
+public/script/
+.env
+
+# System files
+.DS_Store
+*.~lock*
+
+# Test results
+coverage/
+test-reports/
