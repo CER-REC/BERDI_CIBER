@@ -4,20 +4,14 @@ import { createBrowserHistory } from 'history';
 import queryString from 'query-string';
 
 import { initialState, getReducer } from './reducer';
-import useAPI from './useAPI';
 import { NOOP } from '../utilities/parseData';
 
-const parameters = ['page', 'mainSelection', 'yearId', 'sector', 'unit', 'view', 'baseYear', 'compareYear', 'noCompare'];
-const delimitedParameters = ['scenarios', 'provinces', 'provinceOrder', 'sources', 'sourceOrder'];
+const parameters = ['page'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => {
-  const { regions, sources, sectors, yearIdIterations } = useAPI();
-  const reducer = useMemo(
-    () => getReducer(regions, sources, sectors, yearIdIterations),
-    [regions, sources, sectors, yearIdIterations],
-  );
+  const reducer = useMemo(() => getReducer(), []);
   const [config, configDispatch] = useReducer(reducer, initialState);
 
   /**
@@ -27,19 +21,6 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const query = queryString.parse(history.location.search);
 
     configDispatch({ type: 'page/changed', payload: query.page });
-    configDispatch({ type: 'mainSelection/changed', payload: query.mainSelection });
-    configDispatch({ type: 'yearId/changed', payload: query.yearId });
-    configDispatch({ type: 'unit/changed', payload: query.unit });
-    configDispatch({ type: 'view/changed', payload: query.view });
-    configDispatch({ type: 'sector/changed', payload: query.sector });
-    configDispatch({ type: 'scenarios/changed', payload: query.scenarios?.split(',') });
-    configDispatch({ type: 'provinces/changed', payload: query.provinces?.split(',') });
-    configDispatch({ type: 'provinceOrder/changed', payload: query.provinceOrder?.split(',') });
-    configDispatch({ type: 'sources/changed', payload: query.sources?.split(',') });
-    configDispatch({ type: 'sourceOrder/changed', payload: query.sourceOrder?.split(',') });
-    configDispatch({ type: 'baseYear/changed', payload: query.baseYear });
-    configDispatch({ type: 'compareYear/changed', payload: query.compareYear });
-    configDispatch({ type: 'noCompare/changed', payload: query.noCompare });
   }, [configDispatch]);
 
   /**
@@ -49,13 +30,10 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const queryParameters = parameters.map(
       parameter => `${parameter}=${config[parameter] || ''}`,
     );
-    const delimitedQueryParameters = delimitedParameters.map(
-      parameter => `${parameter}=${config[parameter]?.join(',') || ''}`,
-    );
 
     history.replace({
       pathname: history.location.pathname,
-      search: `?${queryParameters.concat(delimitedQueryParameters).join('&')}`,
+      search: `?${queryParameters.join('&')}`,
     });
   }, [config]);
 

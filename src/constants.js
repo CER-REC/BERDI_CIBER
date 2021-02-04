@@ -1,9 +1,3 @@
-import {
-  IconDemand, IconTransportation, IconCommercial, IconResidential, IconIndustrial,
-  IconElectricity, IconOil, IconGas, IconBiomass, IconBiofuel,
-  IconCoal, IconHydro, IconNuclear, IconRenewable,
-} from './icons';
-
 export const applicationPath = {
   en: 'energy-future',
   fr: 'avenir-energetique',
@@ -74,25 +68,21 @@ export const PAGES = [
 export const CONFIG_LAYOUT = {
   energyDemand: {
     name: 'Total Demand',
-    icon: IconDemand,
     unit: ['petajoules', 'kilobarrelEquivalents'],
     pages: ['by-region', 'by-sector', 'scenarios'],
   },
   electricityGeneration: {
     name: 'Electricity Generation',
-    icon: IconElectricity,
     unit: ['gigawattHours', 'petajoules', 'kilobarrelEquivalents'],
     pages: ['by-region', 'electricity', 'scenarios'],
   },
   oilProduction: {
     name: 'Oil Production',
-    icon: IconOil,
     unit: ['kilobarrels', 'thousandCubicMetres'],
     pages: ['by-region', 'scenarios', 'oil-and-gas'],
   },
   gasProduction: {
     name: 'Gas Production',
-    icon: IconGas,
     unit: ['cubicFeet', 'millionCubicMetres'],
     pages: ['by-region', 'scenarios', 'oil-and-gas'],
   },
@@ -169,35 +159,6 @@ export const SOURCE_COLORS = {
     DIESEL: '#FF821E',
     OIL: '#FF821E',
   },
-};
-
-export const SOURCE_ICONS = {
-  electricity: {
-    BIO: IconBiomass,
-    COAL: IconCoal,
-    HYDRO: IconHydro,
-    GAS: IconGas,
-    OIL: IconOil,
-    RENEWABLE: IconRenewable,
-    NUCLEAR: IconNuclear,
-  },
-  energy: {
-    BIO: IconBiofuel,
-    COAL: IconCoal,
-    ELECTRICITY: IconElectricity,
-    GAS: IconGas,
-    OIL: IconOil,
-  },
-  gas: {},
-  oil: {},
-  transportation: {},
-};
-
-export const SECTOR_ICONS = {
-  RESIDENTIAL: IconResidential,
-  COMMERCIAL: IconCommercial,
-  INDUSTRIAL: IconIndustrial,
-  TRANSPORTATION: IconTransportation,
 };
 
 export const CHART_PROPS = {

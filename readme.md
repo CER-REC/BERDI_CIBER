@@ -1,7 +1,7 @@
-Energy Futures Visualization
+ESA Visualization
 ============================
 
-Energy Futures visualization for CER.
+ESA visualization for CER.
 
 Quick Start
 -----------

@@ -5,7 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import proxyMiddleware from './.storybook/middleware';
 import webpackConfig from './webpack.config.babel';
 
-const PATH = '/energy-future/';
+const PATH = '/esa/';
 // const PATH = '/avenir-energetique/';
 
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
