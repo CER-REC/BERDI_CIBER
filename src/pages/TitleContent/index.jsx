@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import useConfig from '../../hooks/useConfig';
 
-const useStyles = makeStyles(theme => createStyles({
+const useStyles = makeStyles(() => createStyles({
   pageButton: {
     height: 100,
     margin: '0px 100px 0px 100px',

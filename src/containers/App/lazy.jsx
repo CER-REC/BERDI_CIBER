@@ -12,8 +12,6 @@ import Page3 from '../../pages/Page3';
 const Content = () => {
   const { config } = useConfig();
 
-  console.log(config);
-
   return (
     <>
       <TitleContent />
