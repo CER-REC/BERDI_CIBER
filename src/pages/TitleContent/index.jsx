@@ -35,7 +35,7 @@ const TitleContent = () => {
       </header>
       <hr />
       <section>
-        <Grid>
+        <Grid justify='space-evenly'>
           <Grid item>
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}><Typography variant="h3">The Project</Typography></Button>
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}><Typography variant="h3">The Data</Typography></Button>
