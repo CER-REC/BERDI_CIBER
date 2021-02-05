@@ -1,19 +1,20 @@
 import React from 'react';
 import {
   useMediaQuery, Typography, Button, makeStyles, createStyles, Grid,
-  /* Grid, ButtonBase, Button, Fab,   Dialog, DialogContent, */
 } from '@material-ui/core';
 import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles(() => createStyles({
   pageButton: {
-    height: 100,
-    margin: '0px 100px 0px 100px',
+    height: 125,
+    width: 330,
+    margin: '0px 20px 0px 20px',
+    border: '3px solid #8fb9d4',
   },
 }));
 
 const TitleContent = () => {
-  const { configDispatch } = useConfig();
+  const { configDispatch, config } = useConfig();
   const classes = useStyles();
 
   /**
@@ -35,14 +36,18 @@ const TitleContent = () => {
       <hr />
       <section>
         <Grid>
-          <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}><Typography variant="h3">Page1</Typography></Button>
-          <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}><Typography variant="h3">Page2</Typography></Button>
-          <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page3')}><Typography variant="h3">Page3</Typography></Button>
+          <Grid item>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}><Typography variant="h3">The Project</Typography></Button>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}><Typography variant="h3">The Data</Typography></Button>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page3')}><Typography variant="h3">The Methods</Typography></Button>
+          </Grid>
+          <Grid item>
+            {config.page !== 'search' && <Button onClick={() => handleRedirect('search')}><Typography variant='body1'>Back to Search</Typography></Button>}
+          </Grid>
         </Grid>
       </section>
       <hr />
       <br />
-
     </>
   );
 };

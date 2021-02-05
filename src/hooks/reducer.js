@@ -1,5 +1,5 @@
 export const initialState = {
-  page: 'page1',
+  page: 'search',
 };
 
 export const getReducer = () => (state, action) => {

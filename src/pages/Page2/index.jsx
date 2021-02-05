@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Page2 = () => <><p>Page2</p></>;
+const Page2 = () => <><p>The Data</p></>;
 
 export default Page2;

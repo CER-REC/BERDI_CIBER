@@ -8,6 +8,7 @@ import useConfig, { ConfigProvider } from '../../hooks/useConfig';
 import Page1 from '../../pages/Page1';
 import Page2 from '../../pages/Page2';
 import Page3 from '../../pages/Page3';
+import Search from '../../pages/Search';
 
 const Content = () => {
   const { config } = useConfig();
@@ -18,6 +19,7 @@ const Content = () => {
       {config.page === 'page1' && <Page1 />}
       {config.page === 'page2' && <Page2 />}
       {config.page === 'page3' && <Page3 />}
+      {config.page === 'search' && <Search />}
     </>
   );
 };
