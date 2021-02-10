@@ -10,6 +10,12 @@ const useStyles = makeStyles(() => createStyles({
     width: 330,
     margin: '0px 20px 0px 20px',
     border: '3px solid #8fb9d4',
+    textAlign: 'left',
+
+    '& h3': {
+      color: '#284162',
+      textDecoration: 'underline',
+    },
   },
 }));
 
@@ -37,9 +43,24 @@ const TitleContent = () => {
       <section>
         <Grid justify='space-evenly'>
           <Grid item>
-            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}><Typography variant="h3">The Project</Typography></Button>
-            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}><Typography variant="h3">The Data</Typography></Button>
-            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page3')}><Typography variant="h3">The Methods</Typography></Button>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}>
+              <div>
+                <Typography variant="h3">The Project</Typography>
+                {config.page === 'search' && <Typography variant="body1">The opportunity of a legacy, driven by policy - and our plans for the future.</Typography>}
+              </div>
+            </Button>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}>
+              <div>
+                <Typography variant="h3">The Data</Typography>
+                {config.page === 'search' && <Typography variant='body1'>An introduction to Environmental and Socio-Economic Assessments(&quot;ESA&quot;s).</Typography>}
+              </div>
+            </Button>
+            <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page3')}>
+              <div>
+                <Typography variant="h3">The Methods</Typography>
+                {config.page === 'search' && <Typography variant='body1'>Learn how we turned regulatory documents into structured data.</Typography>}
+              </div>
+            </Button>
           </Grid>
           <Grid item>
             {config.page !== 'search' && <Button onClick={() => handleRedirect('search')}><Typography variant='body1'>Back to Search</Typography></Button>}

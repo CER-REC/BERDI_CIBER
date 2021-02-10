@@ -3,6 +3,8 @@ import {
   Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
 
+import CustomPaginationActionsTable from './Table';
+
 const useStyles = makeStyles(() => createStyles({
   searchBox: {
     height: '20vh',
@@ -13,7 +15,13 @@ const useStyles = makeStyles(() => createStyles({
     backgroundColor: '#e5e5e5',
   },
   selection: {
-    width: '15vw',
+    width: '20vw',
+  },
+  searchIcon: {
+    width: '8vh',
+    height: '8vh',
+    border: '5px solid black',
+    margin: '1vw',
   },
 }));
 
@@ -26,8 +34,24 @@ const Search = () => {
       <Grid container direction='column' style={{ marginBottom: '1vh' }}>
         <Typography variant='h2'> Search the Data</Typography>
         <Grid item className={classes.searchBox}>
-          <Typography variant='h6' style={{ marginLeft: '10px' }}>Try custom keywords</Typography>
-          <input style={{ marginLeft: '10px' }} />
+          <Grid item>
+            <Typography variant='h6' style={{ marginLeft: '10px' }}>Try custom keywords</Typography>
+            <input style={{ marginLeft: '10px' }} />
+          </Grid>
+          <Grid container>
+            <Grid item className={classes.searchIcon}>
+            Icon
+            </Grid>
+            <Grid item className={classes.searchIcon}>
+            Icon
+            </Grid>
+            <Grid item className={classes.searchIcon}>
+            Icon
+            </Grid>
+            <Grid item className={classes.searchIcon}>
+            Icon
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
       <Typography variant='h6'>Try one of many of the filter options below. Unselect your choice to clear the filter.</Typography>
@@ -154,6 +178,8 @@ const Search = () => {
           </Grid>
         </Grid>
       </Grid>
+      {/* Table Section */}
+      <CustomPaginationActionsTable />
     </>
   );
 };
