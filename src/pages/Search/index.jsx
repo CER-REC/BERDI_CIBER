@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
+import MyTreeMap from './Treemap';
 
 import CustomPaginationActionsTable from './Table';
 
@@ -155,7 +156,7 @@ const Search = () => {
       </Grid>
 
       <Grid style={{ height: '20vh', backgroundColor: '#63b440', marginTop: '1vh' }}>
-          Treemap
+        <MyTreeMap />
       </Grid>
 
       {/* List section */}
