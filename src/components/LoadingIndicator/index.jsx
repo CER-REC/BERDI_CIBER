@@ -6,8 +6,8 @@ import {
 import propTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-const useStyles = makeStyles(theme => createStyles({
-  container: props => ({
+const useStyles = makeStyles((theme) => createStyles({
+  container: (props) => ({
     height: props.fullHeight ? '100vh' : 'auto',
     minHeight: 250,
     '& > div': { margin: 'auto' },

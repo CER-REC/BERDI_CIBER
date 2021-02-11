@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Fonts = props => (
+const Fonts = ({ fontSize }) => (
   <>
     <h1> Fonts </h1>
-    <div style={{ fontSize: props.fontSize }}>
+    <div style={{ fontSize }}>
       <span style={{ fontFamily: 'FiraSansCondensed' }}>Fira Sans Condensed regular</span>
       <br />
       <span style={{ fontFamily: 'FiraSansCondensedLight' }}>Fira Sans Condensed light</span>

@@ -204,7 +204,7 @@ export const CHART_PATTERNS = [
     rotation: 90,
     lineWidth: 3,
   },
-].map(pattern => ({ ...pattern, background: '#FFF', color: '#000' }));
+].map((pattern) => ({ ...pattern, background: '#FFF', color: '#000' }));
 
 export const OIL_SUBGROUP = ['AVIATION', 'GASOLINE', 'DIESEL', 'OIL'];
 

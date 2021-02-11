@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import { SvgIcon } from '@material-ui/core';
 
@@ -5,7 +6,7 @@ import { SvgIcon } from '@material-ui/core';
  * Social media
  */
 
-export const IconFacebook = props => (
+export const IconFacebook = (props) => (
   <SvgIcon {...props} viewBox="0 0 310 310">
     <path d="M81.703,165.106h33.981V305c0,2.762,2.238,5,5,5h57.616c2.762,0,5-2.238,5-5V165.765h39.064
     c2.54,0,4.677-1.906,4.967-4.429l5.933-51.502c0.163-1.417-0.286-2.836-1.234-3.899c-0.949-1.064-2.307-1.673-3.732-1.673h-44.996
@@ -16,7 +17,7 @@ export const IconFacebook = props => (
   </SvgIcon>
 );
 
-export const IconLinkedIn = props => (
+export const IconLinkedIn = (props) => (
   <SvgIcon {...props} viewBox="0 0 22.258 22.258">
     <path d="M5.366,2.973c0,1.376-1.035,2.479-2.699,2.479H2.636C1.034,5.453,0,4.348,0,2.973c0-1.409,1.067-2.482,2.698-2.482
     C4.331,0.49,5.336,1.564,5.366,2.973z M0.28,21.766h4.772V7.413H0.28V21.766z M16.764,7.077c-2.531,0-3.664,1.39-4.301,2.37v0.046
@@ -27,7 +28,7 @@ export const IconLinkedIn = props => (
   </SvgIcon>
 );
 
-export const IconTwitter = props => (
+export const IconTwitter = (props) => (
   <SvgIcon {...props} viewBox="0 0 24 24">
     <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127
     1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64
@@ -42,7 +43,7 @@ export const IconTwitter = props => (
 /**
  * Others
  */
-export const IconDownload = props => (
+export const IconDownload = (props) => (
   <SvgIcon {...props} viewBox="0 0 100 100">
     <g>
       <path d="M48.4,68.7c0.8,0.2,1.9,0.4,3,0c0.6-0.3,0.7-0.4,1.1-0.8l16-16c1.5-1.5,1.5-3.8,0-5.3c-1.5-1.5-3.8-1.5-5.3,0
@@ -57,7 +58,7 @@ export const IconDownload = props => (
   </SvgIcon>
 );
 
-export const IconExternal = props => (
+export const IconExternal = (props) => (
   <SvgIcon {...props} viewBox="0 0 100 100">
     <g>
       <path d="M72.8,50c-2.3,0-3.8,1.5-3.8,3.8v22.8c0,2.3-1.5,3.8-3.8,3.8H23.4c-2.3,0-3.8-1.5-3.8-3.8V34.8

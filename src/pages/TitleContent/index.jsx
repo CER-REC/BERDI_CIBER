@@ -41,7 +41,7 @@ const TitleContent = () => {
       </header>
       <hr />
       <section>
-        <Grid justify='space-evenly'>
+        <Grid justify="space-evenly">
           <Grid item>
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}>
               <div>
@@ -52,18 +52,18 @@ const TitleContent = () => {
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page2')}>
               <div>
                 <Typography variant="h3">The Data</Typography>
-                {config.page === 'search' && <Typography variant='body1'>An introduction to Environmental and Socio-Economic Assessments(&quot;ESA&quot;s).</Typography>}
+                {config.page === 'search' && <Typography variant="body1">An introduction to Environmental and Socio-Economic Assessments(&quot;ESA&quot;s).</Typography>}
               </div>
             </Button>
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page3')}>
               <div>
                 <Typography variant="h3">The Methods</Typography>
-                {config.page === 'search' && <Typography variant='body1'>Learn how we turned regulatory documents into structured data.</Typography>}
+                {config.page === 'search' && <Typography variant="body1">Learn how we turned regulatory documents into structured data.</Typography>}
               </div>
             </Button>
           </Grid>
           <Grid item>
-            {config.page !== 'search' && <Button onClick={() => handleRedirect('search')}><Typography variant='body1'>Back to Search</Typography></Button>}
+            {config.page !== 'search' && <Button onClick={() => handleRedirect('search')}><Typography variant="body1">Back to Search</Typography></Button>}
           </Grid>
         </Grid>
       </section>

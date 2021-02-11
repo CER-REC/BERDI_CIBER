@@ -81,5 +81,5 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
       },
     }),
-  ].filter(v => !!v),
+  ].filter((v) => !!v),
 };

@@ -53,13 +53,13 @@ client.query({ query: ITERATIONS_TRANSLATIONS }).then((result) => {
   setIntlConfig({
     locales,
     defaultLocale: lang,
-    getMessages: locale => messages[locale],
+    getMessages: (locale) => messages[locale],
   });
 }).catch(() => {
   setIntlConfig({
     locales,
     defaultLocale: lang,
-    getMessages: locale => i18nMessages[locale],
+    getMessages: (locale) => i18nMessages[locale],
   });
 
   // eslint-disable-next-line no-console
@@ -98,7 +98,7 @@ client.query({ query: ITERATIONS_TRANSLATIONS }).then((result) => {
     documentationStories.keys()
       // Sorting Documentation|Introduction to the top
       .sort((a, b) => (a.startsWith('./Introduction/') ? -1 : a.localeCompare(b)))
-      .forEach(filename => documentationStories(filename));
-    componentStories.keys().forEach(filename => componentStories(filename));
+      .forEach((filename) => documentationStories(filename));
+    componentStories.keys().forEach((filename) => componentStories(filename));
   }, module);
 });

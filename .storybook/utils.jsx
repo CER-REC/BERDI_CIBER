@@ -6,7 +6,10 @@ import withStatus from './addon-status';
 
 // eslint-disable-next-line react/prop-types
 const DocPreview = ({ children }) => (
-  <div style={{ padding: '0 40px 40px' }}> {children}</div>
+  <div style={{ padding: '0 40px 40px' }}>
+    {' '}
+    {children}
+  </div>
 );
 
 export const storiesForComponent = (name, m, readme) => {

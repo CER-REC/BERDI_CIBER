@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesForView } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 import App from '.';
-import ErrorBoundary from '../../components/ErrorBoundary';
 
 storiesForView('Containers|App', module, ReadMe)
   .add('default', () => <App />)
@@ -33,7 +32,8 @@ storiesForView('Containers|App', module, ReadMe)
                   <li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
                   <li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
                   <li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
-                  <li id="wb-lng"><h2>Language selection</h2>
+                  <li id="wb-lng">
+                    <h2>Language selection</h2>
                     <ul className="list-inline">
                       <li><a href="content-fr.html">Français</a></li>
                     </ul>
@@ -167,15 +167,4 @@ storiesForView('Containers|App', module, ReadMe)
       <script src="./themes-dist-4.0.20-theme-gcwu-fegc/theme-gcwu-fegc/js/theme.min.js"></script>
     </>
     /* eslint-enable */
-  ))
-  .add('WithErrors', () => {
-    const BuggyComponent = () => {
-      throw new Error('I crashed!');
-    };
-
-    return (
-      <ErrorBoundary>
-        <BuggyComponent />
-      </ErrorBoundary>
-    );
-  });
+  ));

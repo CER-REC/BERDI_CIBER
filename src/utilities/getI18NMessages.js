@@ -1,4 +1,4 @@
-export default translations => (
+export default (translations) => (
   translations.reduce((i18nMessages, translation) => {
     let key;
 

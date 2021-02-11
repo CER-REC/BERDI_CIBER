@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 export default () => (
@@ -33,13 +34,30 @@ export default () => (
     <br />
     <s>This text has a strikethrough</s>
     <br />
-    <span>This is a <sup>sup</sup> element</span>
+    <span>
+  This is a
+      {' '}
+      <sup>sup</sup>
+      {' '}
+element
+    </span>
     <br />
-    <span>This is a <sub>sub</sub> element</span>
+    <span>
+This is a
+      {' '}
+      <sub>sub</sub>
+      {' '}
+element
+    </span>
     <br />
     <small>This small text is small for for fine print, etc.</small>
     <br />
-    <span> Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></span>
+    <span>
+      {' '}
+Abbreviation:
+      {' '}
+      <abbr title="HyperText Markup Language">HTML</abbr>
+    </span>
     <br />
     <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation</q>
     <br />
@@ -53,7 +71,8 @@ export default () => (
 
     <h2>Preformatted</h2>
 
-    <pre>! # $ % &amp; ( ) * + , - . /
+    <pre>
+! # $ % &amp; ( ) * + , - . /
     0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
     @ A B C D E F G H I J K L M N O
     P Q R S T U V W X Y Z [ \ ] ^ _

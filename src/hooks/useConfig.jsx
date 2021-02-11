@@ -28,7 +28,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
    */
   useEffect(() => {
     const queryParameters = parameters.map(
-      parameter => `${parameter}=${config[parameter] || ''}`,
+      (parameter) => `${parameter}=${config[parameter] || ''}`,
     );
 
     history.replace({

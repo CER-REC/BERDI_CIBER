@@ -56,7 +56,7 @@ const iconPath = (
   />
 );
 
-const useStyles = makeStyles(theme => createStyles({
+const useStyles = makeStyles((theme) => createStyles({
   root: {
     maxWidth: 750,
     margin: `${theme.spacing(1.5)}px auto`,
