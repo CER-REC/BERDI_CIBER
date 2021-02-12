@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl, Box,
+  Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
 
 const useStyles = makeStyles(() => createStyles({
