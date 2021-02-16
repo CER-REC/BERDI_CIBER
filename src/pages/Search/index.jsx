@@ -3,6 +3,7 @@ import {
   Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
 import MyTreeMap from './Treemap';
+import useESAData from '../../hooks/useESAData';
 
 import CustomPaginationActionsTable from './Table';
 
@@ -28,6 +29,14 @@ const useStyles = makeStyles(() => createStyles({
 
 const Search = () => {
   const classes = useStyles();
+
+  const { loading, error, data } = useESAData();
+
+  if (!data) {
+    return null;
+  }
+
+  console.log(data);
 
   return (
     <>
