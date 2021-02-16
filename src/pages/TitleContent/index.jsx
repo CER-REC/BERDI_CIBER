@@ -36,7 +36,7 @@ const TitleContent = () => {
     <>
       <header>
         <Typography variant={desktop ? 'h4' : 'h5'}>Open Corridor</Typography>
-        <Typography variant={desktop ? 'h5' : 'h6'}>Lorem ipsum frontline workers isolation virtual this claim is disputed social distance. Virtual Among Us virtual happy hour COVID-19 droplet hurricane Greek alphabet the new normal. Joe Exotic into quarantine storm Area 51 Netflix protests about March 213th sweatpants isolation. N95 virtual happy hour virtual Mr. Peanut self care herd immunity Quibi hurricane Greek alphabet. Murder hornets COVID-19 schadenfreude mail-in vote. Four seasons total landscaping stimulus home school.</Typography>
+        <Typography variant={desktop ? 'h5' : 'h6'}>Search over 20,000 tables extracted from 37 pipeline applications and their Environmental and Socio-Econonmic Assesments - the start of something new, at the Canada Energy Regulator.</Typography>
 
       </header>
       <hr />

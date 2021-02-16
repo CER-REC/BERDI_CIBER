@@ -48,7 +48,7 @@ const Search = () => {
         container
         className={classes.searchBox}
       >
-        <Grid direction="column" container item xs={6}>
+        <Grid direction="column" container item xs={6} nowrap>
           <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder="Search by keyword(s)" />
           <Grid item className={classes.searchIcon}>
             <PetsIcon />
