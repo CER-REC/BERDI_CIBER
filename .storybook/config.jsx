@@ -15,11 +15,8 @@ import '@formatjs/intl-relativetimeformat/polyfill';
 import '@formatjs/intl-relativetimeformat/locale-data/en';
 import '@formatjs/intl-relativetimeformat/locale-data/fr';
 
-import client from './apolloClient';
 import { lang } from '../src/constants';
 import i18nMessages from '../src/i18n';
-import { ITERATIONS_TRANSLATIONS } from '../src/hooks/queries';
-import getI18NMessages from '../src/utilities/getI18NMessages';
 import theme from '../src/containers/App/theme';
 
 const locales = Object.keys(i18nMessages);
@@ -42,63 +39,45 @@ const viewports = {
   },
 };
 
-client.query({ query: ITERATIONS_TRANSLATIONS }).then((result) => {
-  const apiI18NMessages = getI18NMessages(result.data.translations);
-  const messages = {};
+// Automatically import all files named stories.jsx
+const documentationStories = requireContext('../documentation/', true, /stories.jsx$/);
+const componentStories = requireContext('../src/', true, /stories.jsx$/);
 
-  locales.forEach((locale) => {
-    messages[locale] = { ...apiI18NMessages[locale], ...i18nMessages[locale], about: ' ' };
-  });
-
-  setIntlConfig({
-    locales,
-    defaultLocale: lang,
-    getMessages: (locale) => messages[locale],
-  });
-}).catch(() => {
-  setIntlConfig({
-    locales,
-    defaultLocale: lang,
-    getMessages: (locale) => i18nMessages[locale],
-  });
-
-  // eslint-disable-next-line no-console
-  console.warn('Unable to load API translations.');
-}).finally(() => {
-  // Automatically import all files named stories.jsx
-  const documentationStories = requireContext('../documentation/', true, /stories.jsx$/);
-  const componentStories = requireContext('../src/', true, /stories.jsx$/);
-
-  addDecorator(withIntl);
-  addDecorator(addReadme);
-
-  configureReadme({
-    // eslint-disable-next-line react/prop-types
-    StoryPreview: ({ children }) => (
-      <div style={{ padding: '32px 32px 0' }}>{children}</div>
-    ),
-  });
-
-  addParameters({ viewport: { viewports, defaultViewport: 'fullscreen' } });
-  addParameters({
-    options: {
-      brandTitle: 'Energy Future 2.0 DevDoc',
-      panelPosition: 'bottom',
-    },
-  });
-
-  addDecorator((storyFn, context) => {
-    if (context.id === 'containers-app--within-wet') { return storyFn(); }
-    return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
-  });
-
-  enzyme({ adapter: new Adapter() });
-
-  configure(() => {
-    documentationStories.keys()
-      // Sorting Documentation|Introduction to the top
-      .sort((a, b) => (a.startsWith('./Introduction/') ? -1 : a.localeCompare(b)))
-      .forEach((filename) => documentationStories(filename));
-    componentStories.keys().forEach((filename) => componentStories(filename));
-  }, module);
+setIntlConfig({
+  locales,
+  defaultLocale: lang,
+  getMessages: (locale) => i18nMessages[locale],
 });
+
+addDecorator(withIntl);
+addDecorator(addReadme);
+
+configureReadme({
+  // eslint-disable-next-line react/prop-types
+  StoryPreview: ({ children }) => (
+    <div style={{ padding: '32px 32px 0' }}>{children}</div>
+  ),
+});
+
+addParameters({ viewport: { viewports, defaultViewport: 'fullscreen' } });
+addParameters({
+  options: {
+    brandTitle: 'Energy Future 2.0 DevDoc',
+    panelPosition: 'bottom',
+  },
+});
+
+addDecorator((storyFn, context) => {
+  if (context.id === 'containers-app--within-wet') { return storyFn(); }
+  return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
+});
+
+enzyme({ adapter: new Adapter() });
+
+configure(() => {
+  documentationStories.keys()
+    // Sorting Documentation|Introduction to the top
+    .sort((a, b) => (a.startsWith('./Introduction/') ? -1 : a.localeCompare(b)))
+    .forEach((filename) => documentationStories(filename));
+  componentStories.keys().forEach((filename) => componentStories(filename));
+}, module);
