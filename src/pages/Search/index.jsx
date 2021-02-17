@@ -55,7 +55,7 @@ const Search = () => {
         container
         className={classes.searchBox}
       >
-        <Grid direction="column" container item xs={6} nowrap>
+        <Grid direction="column" container item xs={6} wrap="nowrap">
           <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder="Search by keyword(s)" />
           <Grid item className={classes.searchIcon}>
             <PetsIcon />
@@ -74,7 +74,7 @@ const Search = () => {
       </Grid>
 
       {/* Grey filter selection box */}
-      <FilterPanel />
+      <FilterPanel data={configData.configuration} />
 
       {/* TreeMap Section */}
       <TreeMapPanel />

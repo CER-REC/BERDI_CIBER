@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
@@ -13,45 +14,43 @@ const useStyles = makeStyles(() => createStyles({
   },
   selection: {
     width: '20vw',
+    padding: '20px',
   },
 }));
 
-const FilterPanel = () => {
+const dropdownTitles = {
+  applicationNames: 'Project Name',
+  applicationTypes: 'Project Type (NEB Act)',
+  // FIXME: this is a typo on the back end
+  commondities: 'Commodity',
+  regions: 'Province',
+  statuses: 'Pipeline Status',
+};
+
+const FilterPanel = ({ data }) => {
   const classes = useStyles();
 
+  const createDropdown = (title) => (dropdownTitles[title] ? (
+    <Grid item xs={4}>
+      <Typography variant="h6">{dropdownTitles[title]}</Typography>
+      <FormControl className={classes.selection}>
+        <NativeSelect
+          id="demo-customized-select-native"
+        >
+          {data[title].map((entry) => <option key={`${entry}Dropdown`} value={entry}>{entry}</option>)}
+        </NativeSelect>
+      </FormControl>
+    </Grid>
+  ) : null);
   return (
     <>
       {/* Grey filter selection box */}
       <Typography variant="h6">Try one of many of the filter options below. Unselect your choice to clear the filter.</Typography>
 
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
-        <Grid item xs={6}>
-          <Typography variant="h6">Project Name</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
-              <option value="all">(All)</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6">Province</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
-              <option value="all">(All)</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
+        {createDropdown('applicationNames')}
+        {createDropdown('regions')}
+        <Grid item xs={4}>
           <Typography variant="h6">Date project was filed</Typography>
           <FormControl className={classes.selection}>
             <NativeSelect
@@ -64,47 +63,24 @@ const FilterPanel = () => {
             </NativeSelect>
           </FormControl>
         </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6">Commodity</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
-              <option value="all">(All)</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6">Project Type (NEB Act)</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
-              <option value="all">(All)</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
-        <Grid item xs={6}>
-          <Typography variant="h6">Pipeline Status</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
-              <option value="all">(All)</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
-        </Grid>
+        {createDropdown('commondities')}
+        {createDropdown('applicationTypes')}
+        {createDropdown('statuses')}
       </Grid>
     </>
   );
+};
+
+FilterPanel.propTypes = {
+  data: PropTypes.shape({
+    applicationNames: PropTypes.arrayOf(PropTypes.string),
+    applicationTypes: PropTypes.arrayOf(PropTypes.string),
+    commondities: PropTypes.arrayOf(PropTypes.string),
+    contentTypes: PropTypes.arrayOf(PropTypes.string),
+    maxFilingDate: PropTypes.string,
+    minFilingDate: PropTypes.string,
+    regions: PropTypes.arrayOf(PropTypes.string),
+    statuses: PropTypes.arrayOf(PropTypes.string),
+  }).isRequired,
 };
 export default FilterPanel;
