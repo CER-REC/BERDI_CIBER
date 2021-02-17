@@ -1,9 +1,19 @@
-// import React, { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import * as queries from './queries';
 
+const getQuery = (queryString) => {
+  switch (queryString) {
+    case 'configuration':
+      return queries.CONFIGURATION;
+    case 'applications':
+      return queries.APPLICATIONS;
+    default:
+      return queries.NULL_QUERY;
+  }
+};
+
 export default (queryString) => {
-  const query = queryString === 'configuration' ? queries.CONFIGURATION : queries.APPLICATIONS;
+  const query = getQuery(queryString);
 
   const { loading, error, data } = useQuery(query);
 
