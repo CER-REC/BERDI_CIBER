@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {
   Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
 } from '@material-ui/core';
+import DatePicker from '../../components/DatePicker';
 
 const useStyles = makeStyles(() => createStyles({
   filterBox: {
@@ -13,8 +14,10 @@ const useStyles = makeStyles(() => createStyles({
     },
   },
   selection: {
-    width: '20vw',
-    padding: '20px',
+    width: '100%',
+    '& div': {
+      width: '95%',
+    },
   },
 }));
 
@@ -31,9 +34,9 @@ const FilterPanel = ({ data }) => {
   const classes = useStyles();
 
   const createDropdown = (title) => (dropdownTitles[title] ? (
-    <Grid item xs={4}>
+    <Grid item xs={4} className={classes.selection}>
       <Typography variant="h6">{dropdownTitles[title]}</Typography>
-      <FormControl className={classes.selection}>
+      <FormControl>
         <NativeSelect
           id="demo-customized-select-native"
         >
@@ -50,8 +53,8 @@ const FilterPanel = ({ data }) => {
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
         {createDropdown('applicationNames')}
         {createDropdown('regions')}
-        <Grid item xs={4}>
-          <Typography variant="h6">Date project was filed</Typography>
+        <Grid item xs={4} className={classes.selection}>
+          {/* <Typography variant="h6">Date project was filed</Typography>
           <FormControl className={classes.selection}>
             <NativeSelect
               id="demo-customized-select-native"
@@ -61,7 +64,8 @@ const FilterPanel = ({ data }) => {
               <option value={20}>Twenty</option>
               <option value={30}>Thirty</option>
             </NativeSelect>
-          </FormControl>
+          </FormControl> */}
+          <DatePicker />
         </Grid>
         {createDropdown('commondities')}
         {createDropdown('applicationTypes')}
