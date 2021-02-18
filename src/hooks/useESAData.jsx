@@ -12,8 +12,9 @@ const getQuery = (queryString) => {
   }
 };
 
-export default (queryString) => {
-  const query = getQuery(queryString);
+// eslint-disable-next-line no-unused-vars
+export default (queryString, variables = {}) => {
+  const query = getQuery(queryString, { variables });
 
   const { loading, error, data } = useQuery(query);
 
