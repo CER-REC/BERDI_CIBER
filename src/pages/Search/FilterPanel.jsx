@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
+  Typography, makeStyles, createStyles, Grid,
 } from '@material-ui/core';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => createStyles({
   },
   selection: {
     margin: '0px',
-    '& div': {
+    '& .MuiFormControl-root': {
       width: '95%',
     },
 

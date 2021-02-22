@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
-import { Typography, InputLabel } from '@material-ui/core';
+import { InputLabel } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -64,6 +64,7 @@ const dropdownTitles = {
 
 export default function DropDown({ title, data }) {
   const classes = useStyles();
+  // eslint-disable-next-line no-unused-vars
   const [val, setVal] = React.useState(data[0]);
   // const handleChange = (event) => {
   //   setVal(event.target.value);

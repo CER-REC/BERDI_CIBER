@@ -1,16 +1,27 @@
 import 'date-fns';
+import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
-import Grid from '@material-ui/core/Grid';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-  MuiPickersUtilsProvider,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
 import DatePicker from 'react-datepicker';
-import { makeStyles, createStyles, InputLabel, FormControl } from '@material-ui/core';
+import { makeStyles, createStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => createStyles({
-
+  root: {
+    '& .react-datepicker': {
+      fontSize: '1.3rem !important',
+    },
+    '& .react-datepicker__current-month': {
+      fontSize: '1.3rem !important',
+    },
+    '& .react-datepicker__header': {
+      paddingTop: '6px !important',
+    },
+    '& .react-datepicker__navigation': {
+      top: '13px !important',
+    },
+    '& .react-datepicker__day-name, .react-datepicker__day': {
+      margin: '0.5rem !important',
+    },
+  },
   datePicker: {
     borderRadius: 4,
     position: 'relative',
@@ -48,53 +59,32 @@ const useStyles = makeStyles((theme) => createStyles({
 }));
 
 export default function MaterialUIPickers() {
-  // The first commit of Material-UI
-  // const [selectedDate, setSelectedDate] = React.useState(new Date());
-
   const classes = useStyles();
 
-  // const handleDateChange = (date) => {
-  //   setSelectedDate(date);
-  // };
-
-  const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-  const [endDate, setEndDate] = useState(new Date('2014/02/10'));
-
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
   return (
-  // <FormControl className={classes.margin}>
-  //   <MuiPickersUtilsProvider utils={DateFnsUtils}>
-  //     <InputLabel className={classes.label}>Date</InputLabel>
-  //     <KeyboardDatePicker
-  //       className={classes.datePicker}
-  //       disableToolbar
-  //       variant="inline"
-  //       format="MM/dd/yyyy"
-  //       margin="normal"
-  //       value={selectedDate}
-  //       onChange={handleDateChange}
-  //       KeyboardButtonProps={{
-  //         'aria-label': 'change date',
-  //       }}
-  //     />
-  //   </MuiPickersUtilsProvider>
-  // </FormControl>
-
     <>
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        selectsStart
-        startDate={startDate}
-        endDate={endDate}
-      />
-      <DatePicker
-        selected={endDate}
-        onChange={(date) => setEndDate(date)}
-        selectsEnd
-        startDate={startDate}
-        endDate={endDate}
-        minDate={startDate}
-      />
+      <div className={classes.root}>
+        <DatePicker
+          className={classes.datePicker}
+          selected={startDate}
+          onChange={onChange}
+          startDate={startDate}
+          endDate={endDate}
+          selectsRange
+          shouldCloseOnSelect={false}
+          // minDate={subDays(new Date(), 5)}
+          // maxDate={addDays(new Date(), 5)}
+          monthsShown={2}
+          placeholderText={startDate && endDate ? `${startDate} - ${endDate}` : ''}
+        />
+      </div>
     </>
   );
 }
