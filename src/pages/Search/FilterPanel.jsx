@@ -21,7 +21,6 @@ const useStyles = makeStyles(() => createStyles({
 const dropdownTitles = {
   applicationNames: 'Project Name',
   applicationTypes: 'Project Type (NEB Act)',
-  // FIXME: this is a typo on the back end
   commondities: 'Commodity',
   regions: 'Province',
   statuses: 'Pipeline Status',
@@ -34,9 +33,7 @@ const FilterPanel = ({ data }) => {
     <Grid item xs={4}>
       <Typography variant="h6">{dropdownTitles[title]}</Typography>
       <FormControl className={classes.selection}>
-        <NativeSelect
-          id="demo-customized-select-native"
-        >
+        <NativeSelect>
           {data[title].map((entry) => <option key={`${entry}Dropdown`} value={entry}>{entry}</option>)}
         </NativeSelect>
       </FormControl>
@@ -53,9 +50,7 @@ const FilterPanel = ({ data }) => {
         <Grid item xs={4}>
           <Typography variant="h6">Date project was filed</Typography>
           <FormControl className={classes.selection}>
-            <NativeSelect
-              id="demo-customized-select-native"
-            >
+            <NativeSelect>
               <option value="date">Mar 17 2003 - Apr 04 2019</option>
               <option value={10}>Ten</option>
               <option value={20}>Twenty</option>

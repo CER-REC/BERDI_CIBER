@@ -1,17 +1,10 @@
-// import { useMemo } from 'react';
-// import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
-// import getI18NMessages from '../utilities/getI18NMessages';
-// import { ITERATIONS_TRANSLATIONS } from './queries';
+import { CONFIGURATION } from './queries';
 
-export default () => null;
+export default () => {
+  const { loading, error, data } = useQuery(CONFIGURATION);
 
-// const { loading, error, data } = useQuery(ITERATIONS_TRANSLATIONS);
-
-// const translations = useMemo(
-//   () => (data ? getI18NMessages(data.translations) : {}),
-//   [data],
-// );
-
-// return { loading, error, translations };
+  return { loading, error, data };
+};
 

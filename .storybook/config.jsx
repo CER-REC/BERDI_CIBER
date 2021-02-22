@@ -62,7 +62,7 @@ configureReadme({
 addParameters({ viewport: { viewports, defaultViewport: 'fullscreen' } });
 addParameters({
   options: {
-    brandTitle: 'Energy Future 2.0 DevDoc',
+    brandTitle: 'ESA DevDoc',
     panelPosition: 'bottom',
   },
 });
