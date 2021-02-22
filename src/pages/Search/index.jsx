@@ -6,6 +6,7 @@ import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
 import EcoIcon from '@material-ui/icons/Eco';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
+import useAPI from '../../hooks/useAPI';
 import TreeMapPanel from './Treemap';
 import FilterPanel from './FilterPanel';
 
@@ -40,6 +41,12 @@ const useStyles = makeStyles(() => createStyles({
 const Search = () => {
   const classes = useStyles();
 
+  const { data: configData } = useAPI();
+
+  if (!configData) {
+    return null;
+  }
+
   return (
     <>
       {/* green search box */}
@@ -48,9 +55,9 @@ const Search = () => {
         container
         className={classes.searchBox}
       >
-        <Grid direction="column" container item xs={6} nowrap>
+        <Grid direction="column" container item xs={6}>
           <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder="Search by keyword(s)" />
-          <Grid item className={classes.searchIcon}>
+          <Grid item className={classes.searchIcon} wrap="nowrap">
             <PetsIcon />
             <PoolIcon />
             <EcoIcon />
@@ -67,7 +74,7 @@ const Search = () => {
       </Grid>
 
       {/* Grey filter selection box */}
-      <FilterPanel />
+      <FilterPanel data={configData.configuration} />
 
       {/* TreeMap Section */}
       <TreeMapPanel />
@@ -82,9 +89,7 @@ const Search = () => {
           <Grid container style={{ paddingRight: '3px' }}>
             <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
             <FormControl className={classes.selection}>
-              <NativeSelect
-                id="demo-customized-select-native"
-              >
+              <NativeSelect>
                 <option value="all">Table</option>
                 <option value={10}>Figure</option>
               </NativeSelect>

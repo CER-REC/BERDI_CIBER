@@ -41,7 +41,7 @@ const TitleContent = () => {
       </header>
       <hr />
       <section>
-        <Grid justify="space-evenly">
+        <Grid>
           <Grid item>
             <Button className={classes.pageButton} variant="outlined" onClick={() => handleRedirect('page1')}>
               <div>

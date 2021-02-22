@@ -15,7 +15,7 @@ import { /* lang, */ API_HOST } from '../../constants';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: `${API_HOST}/energy-future/graphql`,
+  uri: `${API_HOST}/esa/graphql`,
   credentials: 'same-origin',
 });
 const client = new ApolloClient({ cache, link, fetch });
@@ -23,7 +23,7 @@ const LazyApp = React.lazy(() => import('./lazy'));
 
 export default () => (
   <ApolloProvider client={client}>
-    <Suspense fallback="Error">
+    <Suspense fallback="Loading">
       <LazyApp />
     </Suspense>
   </ApolloProvider>

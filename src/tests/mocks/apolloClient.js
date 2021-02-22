@@ -27,9 +27,6 @@ const client = new ApolloClient({ cache, link });
 // Apollo's MockLink uses timeouts to simulate requests from links instead of cache
 // Synchronous Promise won't be able to run the query requests synchronously if they are not cached
 // Storybook snapshots need the "configure" for Storybooks configuration to be called synchronously
-mocks.forEach((mock) => client.writeQuery({
-  query: mock.request.query,
-  data: mock.result.data,
-}));
+// TODO: Create mocks for GraphQL
 
 export default client;
