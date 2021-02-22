@@ -71,7 +71,7 @@ export default function DropDown({ title, data }) {
   // };
 
   return (
-    <FormControl>
+    <FormControl className="formControl">
       <InputLabel className={classes.label}>{dropdownTitles[title]}</InputLabel>
       <Select
         value={val}

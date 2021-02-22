@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => createStyles({
   },
   selection: {
     margin: '0px',
-    '& .MuiFormControl-root': {
+    '& .formControl': {
       width: '95%',
     },
 
@@ -37,7 +37,7 @@ const FilterPanel = ({ data }) => {
         {createDropdown('applicationNames')}
         {createDropdown('regions')}
         <Grid item xs={4} className={classes.selection}>
-          <DatePicker />
+          <DatePicker maxDate={data?.maxFilingDate} minDate={data?.minFilingDate} />
         </Grid>
         {createDropdown('commondities')}
         {createDropdown('applicationTypes')}

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { makeStyles, createStyles } from '@material-ui/core';
+import { makeStyles, createStyles, InputLabel } from '@material-ui/core';
+// import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => createStyles({
   root: {
@@ -21,8 +23,12 @@ const useStyles = makeStyles((theme) => createStyles({
     '& .react-datepicker__day-name, .react-datepicker__day': {
       margin: '0.5rem !important',
     },
+    '& .react-datepicker-wrapper': {
+      width: '100%',
+    },
   },
   datePicker: {
+    width: '95%',
     borderRadius: 4,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
@@ -50,7 +56,7 @@ const useStyles = makeStyles((theme) => createStyles({
     },
   },
   label: {
-    fontSize: '100%',
+    fontSize: '120%',
     color: '#3d6a88',
   },
   margin: {
@@ -58,33 +64,53 @@ const useStyles = makeStyles((theme) => createStyles({
   },
 }));
 
-export default function MaterialUIPickers() {
+export default ({ maxDate, minDate }) => {
   const classes = useStyles();
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [startDate, setStartDate] = useState(new Date(minDate));
+  const [endDate, setEndDate] = useState();
   const onChange = (dates) => {
     const [start, end] = dates;
     setStartDate(start);
     setEndDate(end);
   };
+
+  const shortenDate = (date) => {
+    const shortDate = new Date(date);
+
+    return shortDate.toDateString();
+  };
+
+  /*
+    FIXME: there is a console warning about passing refs to functional components.
+    Should this be a class component?
+   */
+  const CustomInput = ({ onClick }) => (
+    <input
+      className={classes.datePicker}
+      value={startDate && endDate ? `${shortenDate(startDate)} - ${shortenDate(endDate)}` : ''}
+      onClick={onClick}
+      readOnly
+    />
+  );
   return (
     <>
       <div className={classes.root}>
+        <InputLabel className={classes.label}>Date</InputLabel>
+
         <DatePicker
-          className={classes.datePicker}
           selected={startDate}
           onChange={onChange}
           startDate={startDate}
           endDate={endDate}
           selectsRange
           shouldCloseOnSelect={false}
-          // minDate={subDays(new Date(), 5)}
-          // maxDate={addDays(new Date(), 5)}
+          minDate={new Date(minDate)}
+          maxDate={new Date(maxDate)}
           monthsShown={2}
-          placeholderText={startDate && endDate ? `${startDate} - ${endDate}` : ''}
+          customInput={<CustomInput />}
         />
       </div>
     </>
   );
-}
+};
