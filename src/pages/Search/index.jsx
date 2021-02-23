@@ -6,7 +6,7 @@ import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
 import EcoIcon from '@material-ui/icons/Eco';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
-import useESAData from '../../hooks/useESAData';
+import useAPI from '../../hooks/useAPI';
 import TreeMapPanel from './Treemap';
 import FilterPanel from './FilterPanel';
 
@@ -41,7 +41,7 @@ const useStyles = makeStyles(() => createStyles({
 const Search = () => {
   const classes = useStyles();
 
-  const { data: configData } = useESAData('configuration');
+  const { data: configData } = useAPI();
 
   if (!configData) {
     return null;
@@ -89,9 +89,7 @@ const Search = () => {
           <Grid container style={{ paddingRight: '3px' }}>
             <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
             <FormControl className={classes.selection}>
-              <NativeSelect
-                id="demo-customized-select-native"
-              >
+              <NativeSelect>
                 <option value="all">Table</option>
                 <option value={10}>Figure</option>
               </NativeSelect>
