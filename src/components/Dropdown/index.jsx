@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import InputBase from '@material-ui/core/InputBase';
-import { InputLabel } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
   label: {
-    fontSize: '150%',
     color: '#3d6a88',
   },
 }));
@@ -65,17 +64,18 @@ const dropdownTitles = {
 const DropDown = ({ title, data }) => {
   const classes = useStyles();
 
-  const [val, setVal] = React.useState(data[0]);
+  const [val, setVal] = React.useState([]);
   const handleChange = (event) => {
     setVal(event.target.value);
   };
 
   return (
     <FormControl className="formControl">
-      <InputLabel className={classes.label}>{dropdownTitles[title]}</InputLabel>
+      <Typography className={classes.label}>{dropdownTitles[title]}</Typography>
       <Select
         value={val}
         onChange={handleChange}
+        multiple
         input={<BootstrapInput />}
       >
         {data.map((entry) => <MenuItem key={`${entry}Dropdown`} value={entry}>{entry}</MenuItem>)}
