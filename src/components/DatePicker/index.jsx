@@ -1,33 +1,13 @@
-/* eslint-disable react/prop-types */
 import 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { makeStyles, createStyles, InputLabel } from '@material-ui/core';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const useStyles = makeStyles((theme) => createStyles({
-  root: {
-    '& .react-datepicker': {
-      fontSize: '1.3rem !important',
-    },
-    '& .react-datepicker__current-month': {
-      fontSize: '1.3rem !important',
-    },
-    '& .react-datepicker__header': {
-      paddingTop: '6px !important',
-    },
-    '& .react-datepicker__navigation': {
-      top: '13px !important',
-    },
-    '& .react-datepicker__day-name, .react-datepicker__day': {
-      margin: '0.5rem !important',
-    },
-    '& .react-datepicker-wrapper': {
-      width: '100%',
-    },
-  },
+const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
+    marginTop: '24px',
     width: '95%',
     borderRadius: 4,
     position: 'relative',
@@ -55,37 +35,51 @@ const useStyles = makeStyles((theme) => createStyles({
       boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
     },
   },
-  label: {
-    fontSize: '120%',
-    color: '#3d6a88',
-  },
-  margin: {
-    margin: '0px',
-  },
 }));
 
-export default ({ maxDate, minDate }) => {
-  const classes = useStyles();
+const useStyles = makeStyles({
+  root: {
+    '& .react-datepicker': {
+      fontSize: '1.3rem !important',
+    },
+    '& .react-datepicker__current-month': {
+      fontSize: '1.3rem !important',
+    },
+    '& .react-datepicker__header': {
+      paddingTop: '6px !important',
+    },
+    '& .react-datepicker__navigation': {
+      top: '13px !important',
+    },
+    '& .react-datepicker__day-name, .react-datepicker__day': {
+      margin: '0.5rem !important',
+    },
+    '& .react-datepicker-wrapper': {
+      width: '100%',
+    },
+    '& .react-datepicker__input-container': {
+      lineHeight: '1.1876em',
 
-  const [startDate, setStartDate] = useState(new Date(minDate));
-  const [endDate, setEndDate] = useState();
-  const onChange = (dates) => {
-    const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
+    },
+  },
+  label: {
+    position: 'absolute',
+    fontSize: '150%',
+    color: '#3d6a88',
+    transform: ' translate(0, 1.5px) scale(0.75)',
+    transformOrigin: 'top left',
+  },
+});
 
-  const shortenDate = (date) => {
-    const shortDate = new Date(date);
-
-    return shortDate.toDateString();
-  };
-
-  /*
+/*
     FIXME: there is a console warning about passing refs to functional components.
     Should this be a class component?
    */
-  const CustomInput = ({ onClick }) => (
+const CustomInput = ({ onClick, startDate, endDate }) => {
+  const classes = inputStyles();
+  const shortenDate = (date) => new Date(date).toDateString();
+
+  return (
     <input
       className={classes.datePicker}
       value={startDate && endDate ? `${shortenDate(startDate)} - ${shortenDate(endDate)}` : ''}
@@ -93,24 +87,58 @@ export default ({ maxDate, minDate }) => {
       readOnly
     />
   );
-  return (
-    <>
-      <div className={classes.root}>
-        <InputLabel className={classes.label}>Date</InputLabel>
+};
 
-        <DatePicker
-          selected={startDate}
-          onChange={onChange}
-          startDate={startDate}
-          endDate={endDate}
-          selectsRange
-          shouldCloseOnSelect={false}
-          minDate={new Date(minDate)}
-          maxDate={new Date(maxDate)}
-          monthsShown={2}
-          customInput={<CustomInput />}
-        />
-      </div>
-    </>
+const CustomDatePicker = ({ maxDate, minDate }) => {
+  const classes = useStyles();
+
+  const [startDate, setStartDate] = useState(new Date(minDate));
+  const [endDate, setEndDate] = useState();
+
+  const onChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  };
+
+  return (
+    <div className={classes.root}>
+      <InputLabel className={classes.label}>Date</InputLabel>
+      <DatePicker
+        selected={startDate}
+        onChange={onChange}
+        startDate={startDate}
+        endDate={endDate}
+        selectsRange
+        shouldCloseOnSelect={false}
+        minDate={new Date(minDate)}
+        maxDate={new Date(maxDate)}
+        monthsShown={2}
+        customInput={<CustomInput startDate={startDate} endDate={endDate} />}
+      />
+    </div>
   );
 };
+
+export default CustomDatePicker;
+
+CustomDatePicker.propTypes = {
+  maxDate: PropTypes.string,
+  minDate: PropTypes.string,
+};
+CustomInput.propTypes = {
+  onClick: PropTypes.func,
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+};
+
+CustomDatePicker.defaultProps = {
+  maxDate: undefined,
+  minDate: undefined,
+};
+CustomInput.defaultProps = {
+  onClick: undefined,
+  startDate: undefined,
+  endDate: undefined,
+};
+

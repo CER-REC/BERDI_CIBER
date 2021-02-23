@@ -62,20 +62,20 @@ const dropdownTitles = {
   date: 'Date',
 };
 
-export default function DropDown({ title, data }) {
+const DropDown = ({ title, data }) => {
   const classes = useStyles();
-  // eslint-disable-next-line no-unused-vars
+
   const [val, setVal] = React.useState(data[0]);
-  // const handleChange = (event) => {
-  //   setVal(event.target.value);
-  // };
+  const handleChange = (event) => {
+    setVal(event.target.value);
+  };
 
   return (
     <FormControl className="formControl">
       <InputLabel className={classes.label}>{dropdownTitles[title]}</InputLabel>
       <Select
         value={val}
-          // onChange={handleChange}
+        onChange={handleChange}
         input={<BootstrapInput />}
       >
         {data.map((entry) => <MenuItem key={`${entry}Dropdown`} value={entry}>{entry}</MenuItem>)}
@@ -83,7 +83,9 @@ export default function DropDown({ title, data }) {
     </FormControl>
 
   );
-}
+};
+
+export default DropDown;
 
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
