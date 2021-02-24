@@ -2,12 +2,11 @@ import 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
-import { makeStyles, createStyles, InputLabel } from '@material-ui/core';
+import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
-    marginTop: '24px',
     width: '95%',
     borderRadius: 4,
     position: 'relative',
@@ -38,6 +37,9 @@ const inputStyles = makeStyles((theme) => createStyles({
 }));
 
 const useStyles = makeStyles({
+  /*
+  These are style rules to scale up the date picker pop up
+  */
   root: {
     '& .react-datepicker': {
       fontSize: '1.3rem !important',
@@ -63,11 +65,7 @@ const useStyles = makeStyles({
     },
   },
   label: {
-    position: 'absolute',
-    fontSize: '150%',
     color: '#3d6a88',
-    transform: ' translate(0, 1.5px) scale(0.75)',
-    transformOrigin: 'top left',
   },
 });
 
@@ -103,7 +101,7 @@ const CustomDatePicker = ({ maxDate, minDate }) => {
 
   return (
     <div className={classes.root}>
-      <InputLabel className={classes.label}>Date</InputLabel>
+      <Typography className={classes.label}>Date</Typography>
       <DatePicker
         selected={startDate}
         onChange={onChange}
