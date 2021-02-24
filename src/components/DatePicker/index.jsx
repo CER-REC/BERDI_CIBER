@@ -1,4 +1,3 @@
-import 'date-fns';
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
@@ -15,19 +14,6 @@ const inputStyles = makeStyles((theme) => createStyles({
     fontSize: 16,
     padding: '10px 26px 10px 12px',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    // Use the system font instead of the default Roboto font.
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
     '&:focus': {
       borderRadius: 4,
       borderColor: '#80bdff',
@@ -42,19 +28,19 @@ const useStyles = makeStyles({
   */
   root: {
     '& .react-datepicker': {
-      fontSize: '1.3rem !important',
+      fontSize: '1.3rem',
     },
     '& .react-datepicker__current-month': {
-      fontSize: '1.3rem !important',
+      fontSize: '1.3rem',
     },
     '& .react-datepicker__header': {
-      paddingTop: '6px !important',
+      paddingTop: '6px',
     },
     '& .react-datepicker__navigation': {
-      top: '13px !important',
+      top: '13px',
     },
     '& .react-datepicker__day-name, .react-datepicker__day': {
-      margin: '0.5rem !important',
+      margin: '0.5rem',
     },
     '& .react-datepicker-wrapper': {
       width: '100%',
@@ -73,7 +59,8 @@ const useStyles = makeStyles({
     FIXME: there is a console warning about passing refs to functional components.
     Should this be a class component?
    */
-const CustomInput = ({ onClick, startDate, endDate }) => {
+// eslint-disable-next-line no-unused-vars
+const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
   const classes = inputStyles();
   const shortenDate = (date) => new Date(date).toDateString();
 
@@ -85,7 +72,7 @@ const CustomInput = ({ onClick, startDate, endDate }) => {
       readOnly
     />
   );
-};
+});
 
 const CustomDatePicker = ({ maxDate, minDate }) => {
   const classes = useStyles();
