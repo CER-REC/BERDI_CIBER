@@ -1,44 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
+  Typography, makeStyles, createStyles, Grid,
 } from '@material-ui/core';
+import DatePicker from '../../components/DatePicker';
+import Dropdown from '../../components/Dropdown';
 
 const useStyles = makeStyles(() => createStyles({
   filterBox: {
     padding: '10px',
     backgroundColor: '#e5e5e5',
-    '& div': {
-      textAlign: 'center',
-    },
   },
   selection: {
-    width: '20vw',
-    padding: '20px',
+    margin: '0px',
+    '& .formControl': {
+      width: '95%',
+    },
+
   },
 }));
-
-const dropdownTitles = {
-  applicationNames: 'Project Name',
-  applicationTypes: 'Project Type (NEB Act)',
-  commondities: 'Commodity',
-  regions: 'Province',
-  statuses: 'Pipeline Status',
-};
 
 const FilterPanel = ({ data }) => {
   const classes = useStyles();
 
-  const createDropdown = (title) => (dropdownTitles[title] ? (
-    <Grid item xs={4}>
-      <Typography variant="h6">{dropdownTitles[title]}</Typography>
-      <FormControl className={classes.selection}>
-        <NativeSelect>
-          {data[title].map((entry) => <option key={`${entry}Dropdown`} value={entry}>{entry}</option>)}
-        </NativeSelect>
-      </FormControl>
+  const createDropdown = (title) => (
+    <Grid item xs={4} className={classes.selection}>
+      <Dropdown title={title} data={data[title] ?? {}} />
     </Grid>
-  ) : null);
+  );
   return (
     <>
       {/* Grey filter selection box */}
@@ -47,16 +36,8 @@ const FilterPanel = ({ data }) => {
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
         {createDropdown('applicationNames')}
         {createDropdown('regions')}
-        <Grid item xs={4}>
-          <Typography variant="h6">Date project was filed</Typography>
-          <FormControl className={classes.selection}>
-            <NativeSelect>
-              <option value="date">Mar 17 2003 - Apr 04 2019</option>
-              <option value={10}>Ten</option>
-              <option value={20}>Twenty</option>
-              <option value={30}>Thirty</option>
-            </NativeSelect>
-          </FormControl>
+        <Grid item xs={4} className={classes.selection}>
+          <DatePicker maxDate={data?.maxFilingDate} minDate={data?.minFilingDate} />
         </Grid>
         {createDropdown('commondities')}
         {createDropdown('applicationTypes')}
