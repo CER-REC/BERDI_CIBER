@@ -6,26 +6,17 @@ export default (translations) => (
       case 'REGION':
         key = `common.regions.${translation.key}`;
         break;
-      case 'SCENARIO':
-        key = `common.scenarios.${translation.key}`;
+      case 'CONTENT_TYPE':
+        key = `common.content.${translation.key}`;
         break;
-      case 'ELECTRICITY_SOURCE':
-        key = `common.sources.electricity.${translation.key}`;
+      case 'STATUS':
+        key = `common.statuses.${translation.key}`;
         break;
-      case 'ENERGY_SOURCE':
-        key = `common.sources.energy.${translation.key}`;
+      case 'PROJECT_TYPE':
+        key = `common.projects.${translation.key}`;
         break;
-      case 'GAS_SOURCE':
-        key = `common.sources.gas.${translation.key}`;
-        break;
-      case 'OIL_SOURCE':
-        key = `common.sources.oil.${translation.key}`;
-        break;
-      case 'TRANSPORTATION_OIL_ENERGY_SOURCE':
-        key = `common.sources.transportation.${translation.key}`;
-        break;
-      case 'SECTOR':
-        key = `common.sectors.${translation.key}`;
+      case 'COMMODITY':
+        key = `common.commodities.${translation.key}`;
         break;
       default:
         return i18nMessages;

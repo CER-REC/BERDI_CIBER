@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
+import useAPI from '../../hooks/useAPI';
 
 const useStyles = makeStyles(() => createStyles({
   filterBox: {
@@ -22,10 +23,10 @@ const useStyles = makeStyles(() => createStyles({
 
 const FilterPanel = ({ data }) => {
   const classes = useStyles();
-
-  const createDropdown = (title) => (
+  const { regions, statuses, projectTypes, commodities } = useAPI();
+  const createDropdown = (title, dataItem) => (
     <Grid item xs={4} className={classes.selection}>
-      <Dropdown title={title} data={data[title] ?? {}} />
+      <Dropdown title={title} data={dataItem ?? {}} />
     </Grid>
   );
   return (
@@ -34,14 +35,13 @@ const FilterPanel = ({ data }) => {
       <Typography variant="h6">Try one of many of the filter options below. Unselect your choice to clear the filter.</Typography>
 
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
-        {createDropdown('applicationNames')}
-        {createDropdown('regions')}
+        {createDropdown('REGIONS', regions)}
         <Grid item xs={4} className={classes.selection}>
           <DatePicker maxDate={data?.maxFilingDate} minDate={data?.minFilingDate} />
         </Grid>
-        {createDropdown('commondities')}
-        {createDropdown('applicationTypes')}
-        {createDropdown('statuses')}
+        {createDropdown('COMMODITIES', commodities)}
+        {createDropdown('PROJECT_TYPES', projectTypes)}
+        {createDropdown('STATUSES', statuses)}
       </Grid>
     </>
   );
