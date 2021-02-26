@@ -1,6 +1,6 @@
 export const applicationPath = {
-  en: 'energy-future',
-  fr: 'avenir-energetique',
+  en: 'esa',
+  fr: 'ees',
 };
 
 export const lang = (typeof document !== 'undefined'

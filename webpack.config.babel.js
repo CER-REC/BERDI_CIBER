@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    publicPath: '/energy-future/script/',
+    publicPath: '/esa/script/',
     filename: '[name].js',
   },
   devtool: devMode ? 'cheap-module-eval-source-map' : 'none',
