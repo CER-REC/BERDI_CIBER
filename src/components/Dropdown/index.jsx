@@ -1,11 +1,12 @@
-import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import InputBase from '@material-ui/core/InputBase';
 import { Typography } from '@material-ui/core';
+import FormControl from '@material-ui/core/FormControl';
+import InputBase from '@material-ui/core/InputBase';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { useIntl } from 'react-intl';
 
 const BootstrapInput = withStyles((theme) => ({
   root: {
@@ -38,18 +39,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const dropdownTitles = {
-  applicationNames: 'Project Name',
-  applicationTypes: 'Project Type (NEB Act)',
-  // FIXME: this is a typo on the back end
-  commondities: 'Commodity',
-  regions: 'Province',
-  statuses: 'Pipeline Status',
-  date: 'Date',
+const getDropdownItemName = (title, name) => {
+  switch (title) {
+    case 'REGIONS':
+      return `common.regions.${name}`;
+
+    case 'COMMODITIES':
+      return `common.commodities.${name}`;
+
+    case 'STATUSES':
+      return `common.statuses.${name}`;
+
+    case 'PROJECT_TYPES':
+      return `common.projects.${name}`;
+
+    case 'CONTENT':
+      return `common.content.${name}`;
+
+    default:
+      return name;
+  }
 };
 
 const DropDown = ({ title, data }) => {
   const classes = useStyles();
+  const intl = useIntl();
 
   const [val, setVal] = React.useState([]);
   const handleChange = (event) => {
@@ -58,14 +72,14 @@ const DropDown = ({ title, data }) => {
 
   return (
     <FormControl className="formControl">
-      <Typography className={classes.label}>{dropdownTitles[title]}</Typography>
+      <Typography className={classes.label}>{intl.formatMessage({ id: `dropdowns.${title}` })}</Typography>
       <Select
         value={val}
         onChange={handleChange}
         multiple
         input={<BootstrapInput />}
       >
-        {data.map((entry) => <MenuItem key={`${entry}Dropdown`} value={entry}>{entry}</MenuItem>)}
+        {data.map((entry) => <MenuItem key={`${entry}Dropdown`} value={entry}>{intl.formatMessage({ id: getDropdownItemName(title, entry) })}</MenuItem>)}
       </Select>
     </FormControl>
 

@@ -4,13 +4,15 @@ export const CONFIGURATION = gql`
   query {
     configuration {
       applicationNames
-      applicationTypes
-      commondities
-      contentTypes
       maxFilingDate
       minFilingDate
-      statuses
       regions
+      translations {
+        group
+        key
+        english
+        french
+      }
     }
   }
 `;
@@ -28,8 +30,7 @@ export const APPLICATIONS = gql`
       hearingOrder
       tableCount
       figureCount
-      csvCount
-      zippedURL
+      url
     }
   }
 `;

@@ -92,6 +92,13 @@
       "sliderYearCompare": "year selected for comparison"
     }
   },
+  "dropdowns":{
+    "REGIONS": "Province",
+    "STATUSES": "Pipeline Status",
+    "COMMODITIES": "Commodity",
+    "PROJECT_TYPES": "Project Type (NEB Act)",
+    "DATE": "Date project was filed"
+  },
   "components": {
     "draggableVerticalList": {
       "all": "All",
