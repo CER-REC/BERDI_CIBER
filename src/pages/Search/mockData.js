@@ -1,34 +1,47 @@
 export default {
-  name: 'data',
+  name: 'esa',
+  color: 'hsl(0,0%,100%)',
   children: [
     {
-      name: 'CL',
-      color: 'hsl(130, 70%, 55%)',
-      value: 13,
+      shortName: 'C5',
+      color: 'hsl(102,48%,48%)',
+      tableCount: 98.91053068421976,
     },
     {
-      name: 'CH',
-      color: 'hsl(130, 70%, 70%)',
-      value: 8,
+      shortName: 'CONDENSATE',
+      color: 'hsl(102,48%,48%)',
+      tableCount: 40.14923563038366,
     },
     {
-      name: 'C5+',
-      color: 'hsl(130, 70%, 45%)',
-      value: 5,
+      shortName: 'HEAVY',
+      color: 'hsl(102,48%,48%)',
+      tableCount: 183.6218663643784,
     },
     {
-      name: 'FC',
-      color: 'hsl(130, 70%, 40%)',
-      value: 3,
+      shortName: 'ISB',
+      color: 'hsl(102,48%,48%)',
+
+      tableCount: 438.39905999999996,
     },
     {
-      name: 'MB',
-      color: 'hsl(130, 70%, 60%)',
-      value: 2,
-    }, {
-      name: 'iSB',
-      color: 'hsl(130, 70%, 50%)',
-      value: 1,
+      shortName: 'LIGHT',
+      children: [{
+        shortName: 'LIGHT',
+        color: 'hsl(102,48%,48%)',
+
+        tableCount: 387.5075697903656,
+      }],
+    },
+    {
+      name: 'something',
+      children: [{
+        name: 'something',
+        children: [{
+          shortName: 'MB',
+          color: 'hsl(102,48%,40%)',
+          tableCount: 626.46408,
+        }],
+      }],
     },
   ],
 };
