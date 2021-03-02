@@ -1,8 +1,7 @@
-import React from 'react';
+import { createStyles, Grid, makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import {
-  Typography, makeStyles, createStyles, Grid,
-} from '@material-ui/core';
+import React from 'react';
+import { useIntl } from 'react-intl';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
 import useAPI from '../../hooks/useAPI';
@@ -23,6 +22,7 @@ const useStyles = makeStyles(() => createStyles({
 
 const FilterPanel = ({ data }) => {
   const classes = useStyles();
+  const intl = useIntl();
   const { regions, statuses, projectTypes, commodities } = useAPI();
   const createDropdown = (title, dataItem) => (
     <Grid item xs={4} className={classes.selection}>
@@ -32,7 +32,7 @@ const FilterPanel = ({ data }) => {
   return (
     <>
       {/* Grey filter selection box */}
-      <Typography variant="h6">Try one of many of the filter options below. Unselect your choice to clear the filter.</Typography>
+      <Typography variant="h6">{intl.formatMessage({ id: 'components.filterPanel.title' })}</Typography>
 
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
         {createDropdown('REGIONS', regions)}

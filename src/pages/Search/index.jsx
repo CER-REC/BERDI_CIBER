@@ -1,16 +1,14 @@
-import React from 'react';
-import {
-  Typography, makeStyles, createStyles, Grid, NativeSelect, FormControl,
-} from '@material-ui/core';
-import PetsIcon from '@material-ui/icons/Pets';
-import PoolIcon from '@material-ui/icons/Pool';
+import { createStyles, FormControl, Grid, makeStyles, NativeSelect, Typography } from '@material-ui/core';
 import EcoIcon from '@material-ui/icons/Eco';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
+import PetsIcon from '@material-ui/icons/Pets';
+import PoolIcon from '@material-ui/icons/Pool';
+import React from 'react';
+import { useIntl } from 'react-intl';
 import useAPI from '../../hooks/useAPI';
-import TreeMapPanel from './Treemap';
 import FilterPanel from './FilterPanel';
-
 import CustomPaginationActionsTable from './Table';
+import TreeMapPanel from './Treemap';
 
 const useStyles = makeStyles(() => createStyles({
   searchBox: {
@@ -40,6 +38,7 @@ const useStyles = makeStyles(() => createStyles({
 
 const Search = () => {
   const classes = useStyles();
+  const intl = useIntl();
 
   const { data: configData } = useAPI();
 
@@ -50,13 +49,13 @@ const Search = () => {
   return (
     <>
       {/* green search box */}
-      <Typography variant="h2"> Search the Data</Typography>
+      <Typography variant="h2">{intl.formatMessage({ id: 'components.searchPanel.title' })}</Typography>
       <Grid
         container
         className={classes.searchBox}
       >
         <Grid direction="column" container item xs={6}>
-          <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder="Search by keyword(s)" />
+          <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder={intl.formatMessage({ id: 'components.searchPanel.inputPlaceholder' })} />
           <Grid container item className={classes.searchIcon} wrap="nowrap">
             <PetsIcon />
             <PoolIcon />
@@ -66,10 +65,10 @@ const Search = () => {
         </Grid>
         <Grid item xs={6}>
           <Typography>
-            Environmental and Socio-Economic Assessments cover as many as 19 categories of
-            &quot;components&quot; for assessment! Learn more.
+            {intl.formatMessage({ id: 'components.searchPanel.description' })}
+            <a href={intl.formatMessage({ id: 'components.searchPanel.link1' })}>{` ${intl.formatMessage({ id: 'components.searchPanel.linkText1' })}`}</a>
           </Typography>
-          <Typography>Read our disclaimer for considerations</Typography>
+          <Typography><a href={intl.formatMessage({ id: 'components.searchPanel.link2' })}>{intl.formatMessage({ id: 'components.searchPanel.linkText2' })}</a></Typography>
         </Grid>
       </Grid>
 
