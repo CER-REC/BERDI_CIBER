@@ -1,23 +1,19 @@
-const getColor = (x) => {
-  // if (x > 80) {
-  //   return '#00441b';
-  // }
-  if (x > 90) {
-    return '#006d2c';
-  } if (x > 80) {
-    return '#238b45';
-  }
-  if (x > 40) {
-    return '#41ab5d';
-  } if (x > 30) {
-    return '#74c476';
-  } if (x > 10) {
-    return '#a1d99b';
-  } if (x > 5) {
-    return '#c7e9c0';
-  }
-  return '#e5f5e0';
+const getColor = (r, g, b, lightR, lightG, lightB, percent) => {
+  let r2 = Math.round((r - lightR) * percent + r);
+  let g2 = Math.round((g - lightG) * percent + g);
+  let b2 = Math.round((b - lightB) * percent + b);
+  r2 = (r2 < 255) ? r2 : 255;
+  g2 = (g2 < 255) ? g2 : 255;
+  b2 = (b2 < 255) ? b2 : 255;
+  r2 = (r2 > 0) ? r2 : 0;
+  g2 = (g2 > 0) ? g2 : 0;
+  b2 = (b2 > 0) ? b2 : 0;
+  return `rgb(${r2}, ${g2}, ${b2})`;
 };
+
+// rgb values
+const darkGreen = [99, 180, 64];
+const lightGreen = [194, 225, 181];
 
 export default (data) => {
   const sortedData = data?.sort((a, b) => b.tableCount - a.tableCount);
@@ -25,16 +21,11 @@ export default (data) => {
     return null;
   }
   const largestDataPoint = sortedData[0].tableCount;
-  // const smallestDataPoint = sortedData[sortedData.length - 1].tableCount;
-
-  const getHSL = (x) => `hsl(102,${(largestDataPoint / x) * 100}%,48%)`;
 
   const parsedData = sortedData?.reduce((acc, val) => {
-    // console.log('largest', largestDataPoint, 'smallest', smallestDataPoint);
-    // if (acc.children.length < 3) {
-    console.log(val.tableCount / largestDataPoint);
-    acc.children.push({ ...val, color: getColor((val.tableCount / largestDataPoint) * 100) });
-    // }
+    const percentage = (val.tableCount / largestDataPoint);
+    const color = getColor(...darkGreen, ...lightGreen, percentage);
+    acc.children.push({ ...val, color });
     return acc;
   }, { name: 'esaData', children: [] });
 

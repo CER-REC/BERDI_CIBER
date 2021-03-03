@@ -3,20 +3,11 @@
 import React from 'react';
 import { ResponsiveTreeMap } from '@nivo/treemap';
 import { Typography, Grid } from '@material-ui/core';
-import data from './mockData';
 import useESAData from '../../hooks/useESAData';
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
+
 const TreeMapPanel = () => {
-  const d = useESAData('applications');
-  console.log(d);
-  // if (d) {
-  //   return null;
-  // }
-  if (!d) {
+  const data = useESAData('applications');
+  if (!data) {
     return null;
   }
   return (
@@ -37,18 +28,15 @@ const TreeMapPanel = () => {
 
       <Grid style={{ height: '30vh', marginTop: '1vh' }}>
         <ResponsiveTreeMap
-          root={d}
+          root={data}
           identity="shortName"
           tile="squarify"
           value="tableCount"
           valueFormat=".02s"
           orientLabel={false}
-          // margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
-          colors={(datum) => console.log(datum.color) || datum.color}
-          // colors={{ scheme: 'blues' }}
+          colors={(d) => d.color}
           labelSkipSize={40}
           labelTextColor="white"
-          // parentLabelTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
           borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
           borderWidth={2}
         />
