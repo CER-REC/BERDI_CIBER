@@ -27,7 +27,7 @@ export default (data) => {
     const color = getColor(...darkGreen, ...lightGreen, percentage);
     acc.children.push({ ...val, color });
     return acc;
-  }, { name: 'esaData', children: [] });
+  }, { shortName: 'esaData', children: [] });
 
   return parsedData;
 };
