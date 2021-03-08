@@ -42,7 +42,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        searches: action.payload,
       };
     case 'applicationNames/changed':
       if (!action.payload || (action.payload === initialState.applicationNames)) {
@@ -50,7 +50,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        applicationNames: action.payload,
       };
 
     case 'regions/changed':
@@ -59,7 +59,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        regions: action.payload,
       };
     case 'startDate/changed':
       if (!action.payload || (action.payload === initialState.startDate)) {
@@ -67,7 +67,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        startDate: action.payload,
       };
     case 'endDate/changed':
       if (!action.payload || (action.payload === initialState.endDate)) {
@@ -75,7 +75,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        endDate: action.payload,
       };
     case 'commodities/changed':
       if (!action.payload || (action.payload === initialState.commodities)) {
@@ -83,7 +83,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        commodities: action.payload,
       };
     case 'projectTypes/changed':
       if (!action.payload || (action.payload === initialState.projectTypes)) {
@@ -91,7 +91,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        projectTypes: action.payload,
       };
     case 'statuses/changed':
       if (!action.payload || (action.payload === initialState.statuses)) {
@@ -99,7 +99,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        statuses: action.payload,
       };
     case 'sort/changed':
       if (!action.payload || (action.payload === initialState.sort)) {
@@ -107,7 +107,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        sort: action.payload,
       };
     case 'first/changed':
       if (!action.payload || (action.payload === initialState.first)) {
@@ -115,7 +115,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        first: action.payload,
       };
     case 'offset/changed':
       if (!action.payload || (action.payload === initialState.offset)) {
@@ -123,7 +123,7 @@ export const getReducer = () => (state, action) => {
       }
       return {
         ...state,
-        page: action.payload,
+        offset: action.payload,
       };
     default:
       return state;
