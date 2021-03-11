@@ -3,9 +3,11 @@ import EcoIcon from '@material-ui/icons/Eco';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
+
 import useAPI from '../../hooks/useAPI';
+import useConfig from '../../hooks/useConfig';
 import FilterPanel from './FilterPanel';
 import CustomPaginationActionsTable from './Table';
 import TreeMapPanel from './Treemap';
@@ -39,13 +41,27 @@ const useStyles = makeStyles(() => createStyles({
 const Search = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const { loading } = useAPI();
+  const [search, setSearch] = useState('');
+  const { config, configDispatch } = useConfig();
+  const handleSearchChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
+  const handleClick = useCallback(() => {
+    const searches = search.split(' ').filter((term) => term);
 
-  const { data: configData } = useAPI();
+    configDispatch({ type: 'searches/changed', payload: searches });
+  }, [search, configDispatch]);
+  const handleKeyDown = useCallback((event) => (event.key === 'Enter') && handleClick(), [handleClick]);
+  const handleSortChange = useCallback((event) => configDispatch({ type: 'sort/changed', payload: event.target.value }), [configDispatch]);
 
-  if (!configData) {
+  useEffect(() => {
+    setSearch(config.searches.join(' '));
+  }, [config.searches]);
+
+  if (loading) {
     return null;
   }
 
+  // TODO: Replace enums in the native select sort with the list from useAPI to make it dynamic
   return (
     <>
       {/* green search box */}
@@ -55,7 +71,8 @@ const Search = () => {
         className={classes.searchBox}
       >
         <Grid direction="column" container item xs={6}>
-          <input style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder={intl.formatMessage({ id: 'components.searchPanel.inputPlaceholder' })} />
+          <input value={search} onKeyDown={handleKeyDown} onChange={handleSearchChange} style={{ marginTop: '10px', marginLeft: '10px', width: '12vw' }} placeholder={intl.formatMessage({ id: 'components.searchPanel.inputPlaceholder' })} />
+          <button type="button" onClick={handleClick}>Search</button>
           <Grid container item className={classes.searchIcon} wrap="nowrap">
             <PetsIcon />
             <PoolIcon />
@@ -73,7 +90,7 @@ const Search = () => {
       </Grid>
 
       {/* Grey filter selection box */}
-      <FilterPanel data={configData.configuration} />
+      <FilterPanel />
 
       {/* TreeMap Section */}
       <TreeMapPanel />
@@ -88,9 +105,9 @@ const Search = () => {
           <Grid container style={{ paddingRight: '3px' }}>
             <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
             <FormControl className={classes.selection}>
-              <NativeSelect>
-                <option value="all">Table</option>
-                <option value={10}>Figure</option>
+              <NativeSelect value={ config.sort || '' } onChange={ handleSortChange }>
+                <option value="TABLE">Table</option>
+                <option value="FIGURE">Figure</option>
               </NativeSelect>
             </FormControl>
           </Grid>
