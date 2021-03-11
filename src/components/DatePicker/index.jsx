@@ -51,7 +51,7 @@ const useStyles = makeStyles({
 });
 
 // eslint-disable-next-line no-unused-vars
-const CustomInput = React.forwardRef(({ startDate, endDate }, ref) => {
+const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
   const classes = inputStyles();
   const shortenDate = (date) => new Date(date).toDateString();
 
@@ -59,6 +59,7 @@ const CustomInput = React.forwardRef(({ startDate, endDate }, ref) => {
     <input
       className={classes.datePicker}
       value={startDate && endDate ? `${shortenDate(startDate)} - ${shortenDate(endDate)}` : ''}
+      onClick={onClick}
       readOnly
     />
   );
@@ -95,6 +96,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
     setDatePickerEndDate(endDate);
   }, [startDate, endDate]);
 
+  // DatePicker passes down the onClick event for customInput
   return (
     <div className={classes.root}>
       <Typography className={classes.label}>Date</Typography>
@@ -127,6 +129,7 @@ CustomDatePicker.propTypes = {
 CustomInput.propTypes = {
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date),
+  onClick: PropTypes.func,
 };
 
 CustomDatePicker.defaultProps = {
@@ -139,4 +142,5 @@ CustomDatePicker.defaultProps = {
 CustomInput.defaultProps = {
   startDate: null,
   endDate: null,
+  onClick: null,
 };
