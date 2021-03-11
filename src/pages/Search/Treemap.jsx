@@ -6,10 +6,12 @@ import { Typography, Grid } from '@material-ui/core';
 import useESAData from '../../hooks/useESAData';
 
 const TreeMapPanel = () => {
-  const data = useESAData('applications');
+  const { applications: data } = useESAData();
+
   if (!data) {
     return null;
   }
+
   return (
     <>
       <Typography variant="h3"> View results</Typography>

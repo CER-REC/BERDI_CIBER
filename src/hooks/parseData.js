@@ -19,7 +19,7 @@ const darkGreen = [99, 180, 64];
 const lightGreen = [194, 225, 181];
 
 export default (data) => {
-  if (!data) {
+  if (!data?.length) {
     return null;
   }
   const sortedData = data.sort((a, b) => b.tableCount - a.tableCount);
