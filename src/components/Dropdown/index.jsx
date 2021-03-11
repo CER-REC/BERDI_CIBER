@@ -87,6 +87,10 @@ export default DropDown;
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.string).isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.arrayOf(PropTypes.string),
   onChange: PropTypes.func.isRequired,
+};
+
+DropDown.defaultProps = {
+  value: [],
 };
