@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -64,10 +64,7 @@ const getDropdownItemName = (title, name) => {
 const DropDown = ({ title, data, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
-
-  const handleChange = (event) => {
-    onChange(event.target.value);
-  };
+  const handleChange = useCallback((event) => onChange(event.target.value), [onChange]);
 
   return (
     <FormControl className="formControl">

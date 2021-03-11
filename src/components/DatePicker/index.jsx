@@ -1,5 +1,5 @@
 import 'react-datepicker/dist/react-datepicker.css';
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
@@ -76,7 +76,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
 
     return new Date(`${date.toJSON().substring(0, 8)}01T00:00:00`);
   }, [maxDate]);
-  const handleChange = (dates) => {
+  const handleChange = useCallback((dates) => {
     const [start, end] = dates;
 
     setDatePickerStartDate(start);
@@ -85,7 +85,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
     if (start && end) {
       onChange(start, end);
     }
-  };
+  }, [setDatePickerStartDate, setDatePickerEndDate, onChange]);
 
   useEffect(() => {
     setDatePickerStartDate(startDate);
