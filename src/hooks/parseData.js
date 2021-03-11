@@ -16,13 +16,13 @@ const darkGreen = [99, 180, 64];
 const lightGreen = [194, 225, 181];
 
 export default (data) => {
-  const sortedData = data?.sort((a, b) => b.tableCount - a.tableCount);
-  if (!sortedData) {
+  if (!data) {
     return null;
   }
+  const sortedData = data.sort((a, b) => b.tableCount - a.tableCount);
   const largestDataPoint = sortedData[0].tableCount;
 
-  const parsedData = sortedData?.reduce((acc, val) => {
+  const parsedData = sortedData.reduce((acc, val) => {
     const percentage = (val.tableCount / largestDataPoint);
     const color = getColor(...darkGreen, ...lightGreen, percentage);
     acc.children.push({ ...val, color });
