@@ -1,5 +1,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import { useMemo } from 'react';
+
+import { toDateOnly } from '../utilities/date';
 import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
 
@@ -67,13 +69,11 @@ export default () => {
     [data],
   );
   const maxDate = useMemo(
-    // TODO: Move all date time resets to utility functions
-    () => (data ? new Date(`${data.configuration.maxFilingDate.substring(0, 10)}T00:00:00`) : new Date()),
+    () => (data ? toDateOnly(data.configuration.maxFilingDate) : new Date()),
     [data],
   );
   const minDate = useMemo(
-    // TODO: Move all date time resets to utility functions
-    () => (data ? new Date(`${data.configuration.minFilingDate.substring(0, 10)}T00:00:00`) : new Date()),
+    () => (data ? toDateOnly(data.configuration.minFilingDate) : new Date()),
     [data],
   );
 

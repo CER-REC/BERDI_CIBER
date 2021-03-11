@@ -4,6 +4,8 @@ import DatePicker from 'react-datepicker';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
+import { toDateOnly, toDateOnlyString } from '../../utilities/date';
+
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
     width: '95%',
@@ -67,7 +69,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
   const [datePickerStartDate, setDatePickerStartDate] = useState(minDate);
   const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate);
   const minMonthDate = useMemo(
-    () => new Date(`${minDate.toJSON().substring(0, 8)}01T00:00:00`),
+    () => toDateOnly(`${toDateOnlyString(minDate).substring(0, 8)}01`),
     [minDate],
   );
   const maxMonthDate = useMemo(() => {
@@ -75,7 +77,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
 
     date.setMonth(date.getMonth() + 1);
 
-    return new Date(`${date.toJSON().substring(0, 8)}01T00:00:00`);
+    return toDateOnly(`${toDateOnlyString(date).substring(0, 8)}01`);
   }, [maxDate]);
   const handleChange = useCallback((dates) => {
     const [start, end] = dates;

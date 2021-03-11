@@ -1,5 +1,6 @@
 import { useQuery } from '@apollo/react-hooks';
 
+import { toDateOnlyString } from '../utilities/date';
 import { RESULT_COUNT } from '../constants';
 import parseData from './parseData';
 import useConfig from './useConfig';
@@ -25,9 +26,8 @@ export default () => {
       searches: config.searches,
       applicationNames: config.applicationNames,
       regions: config.regions,
-      // Remove time from date to avoid mismatches due to timezones
-      startDate: config.startDate?.toJSON().substring(0, 10),
-      endDate: config.endDate?.toJSON().substring(0, 10),
+      startDate: toDateOnlyString(config.startDate),
+      endDate: toDateOnlyString(config.endDate),
       commodities: config.commodities,
       projectTypes: config.projectTypes,
       statuses: config.statuses,

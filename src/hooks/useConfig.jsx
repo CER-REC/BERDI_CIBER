@@ -4,9 +4,10 @@ import { createBrowserHistory } from 'history';
 import LZUTF8 from 'lzutf8';
 import queryString from 'query-string';
 
+import { toDateOnly, toDateOnlyString } from '../utilities/date';
+import { NOOP } from '../utilities/parseData';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
-import { NOOP } from '../utilities/parseData';
 
 const parameters = ['page', 'sort', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
@@ -85,9 +86,8 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
    */
   useEffect(() => {
     const query = queryString.parse(history.location.search);
-    // Reset to local time midnight to avoid mismatches due to timezones
-    const startDate = query.startDate ? new Date(`${query.startDate}T00:00:00`) : null;
-    const endDate = query.endDate ? new Date(`${query.endDate}T00:00:00`) : null;
+    const startDate = query.startDate ? toDateOnly(query.startDate) : null;
+    const endDate = query.endDate ? toDateOnly(query.endDate) : null;
     const searchIndex = parseInt(query.searchIndex, 10);
 
     configDispatch({ type: 'page/changed', payload: query.page });
@@ -116,9 +116,8 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const queryParameters = parameters.map(
       (parameter) => `${parameter}=${config[parameter] || ''}`,
     );
-    // TODO: Move all date time resets to utility functions
     const dateQueryParameters = dateParameters.map(
-      (parameter) => `${parameter}=${config[parameter] ? config[parameter].toJSON().substring(0, 10) : ''}`,
+      (parameter) => `${parameter}=${toDateOnlyString(config[parameter])}`,
     );
     const delimitedQueryParameters = delimitedParameters.map(
       (parameter) => `${parameter}=${config[parameter]?.join(',') || ''}`,
