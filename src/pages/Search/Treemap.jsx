@@ -1,17 +1,26 @@
-// install (please make sure versions match peerDependencies)
-// yarn add @nivo/core @nivo/treemap
-import React from 'react';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
-import { Typography, Grid, makeStyles, Button } from '@material-ui/core';
+import React from 'react';
 import useESAData from '../../hooks/useESAData';
 
 const useStyles = makeStyles({
+  titleTypography: {
+    paddingLeft: '5px',
+    marginTop: '2%',
+  },
   labelInner: {
-    padding: '10px 0 0 10px',
+    padding: '14px 0 0 14px',
     width: '100%',
     overflow: 'hidden',
-    // textOverflow: 'ellipsis',
-    wordWrap: 'break-word',
+    '&::before': {
+      content: '""',
+      height: '100%',
+      display: 'inline-block',
+    },
+    '& > span': {
+      display: 'inline-block',
+      float: 'left',
+    },
   },
   treeMap: {
     // select all Nivo spans but not our custom spans
@@ -33,15 +42,8 @@ const TreeMapPanel = () => {
   return (
     <>
       <Grid container direction="row" justify="space-between" alignItems="center">
-        <Grid item style={{ paddingLeft: '5px', marginTop: '2%' }}>
-          <Typography
-            variant="h6"
-            style={{
-              fontFamily: 'Noto Sans',
-              fontStyle: 'normal',
-              fontWeight: 'normal',
-            }}
-          >
+        <Grid item className={classes.titleTypography}>
+          <Typography variant="h6">
             Select a box to filter by project and access project details.
           </Typography>
         </Grid>
@@ -58,46 +60,29 @@ const TreeMapPanel = () => {
           valueFormat=".02s"
           orientLabel={false}
           tile="squarify"
-          label={(d) => (
-            <>
-              <div className="emptyPlaceholder" style={{ width: '100%' }} />
-              <div className={classes.labelInner}>
-                <span style={{ fontSize: '130%' }}>{d.shortName}</span>
-              </div>
-
-              <div className={classes.labelInner}>
-                <span style={{ display: 'block', marginTop: '5%' }}>{`${d.tableCount} tables`}</span>
-              </div>
-
-              <div className={classes.labelInner}>
-                <span style={{ display: 'block' }}>{`${d.figureCount} figures`}</span>
-              </div>
-
-            </>
-          )}
           labelSkipSize={0}
           labelTextColor="black"
           borderWidth={3}
           borderColor="#ffffff"
-          // isInteractive={false}
           colors={(d) => d.color}
+          label={(d) => (
+            <>
+              <div className="emptyPlaceholder" style={{ width: '100%' }} />
+              <div className={classes.labelInner}>
+                <span style={{ fontSize: '130%', marginTop: '4px' }}>{d.shortName}</span>
+              </div>
+              <div className={classes.labelInner}>
+                <span style={{ whiteSpace: 'nowrap' }}>{`${d.tableCount} tables`}</span>
+              </div>
+              <div className={classes.labelInner} style={{ paddingTop: '0' }}>
+                <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} figures`}</span>
+              </div>
+
+            </>
+          )}
         />
       </Grid>
-      <Grid style={{ padding: '5px', textAlign: 'right' }}>
-        <Button style={{
-          height: '1%',
-          textTransform: 'none',
-          background: '#284162',
-          borderRadius: '5px',
-          color: 'white',
-          padding: '0.5% 2%',
-        }}
-        >
-          Access full dataset
-        </Button>
-      </Grid>
     </>
-
   );
 };
 export default TreeMapPanel;

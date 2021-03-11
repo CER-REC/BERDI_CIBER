@@ -1,7 +1,7 @@
 const getColor = (r, g, b, lightR, lightG, lightB, percent) => {
-  let r2 = Math.round((r - lightR) * percent + r);
-  let g2 = Math.round((g - lightG) * percent + g);
-  let b2 = Math.round((b - lightB) * percent + b);
+  let r2 = Math.round(lightR - Math.abs(r - lightR) * percent);
+  let g2 = Math.round(lightG - Math.abs(g - lightG) * percent);
+  let b2 = Math.round(lightB - Math.abs(b - lightB) * percent);
   r2 = (r2 < 255) ? r2 : 255;
   g2 = (g2 < 255) ? g2 : 255;
   b2 = (b2 < 255) ? b2 : 255;
