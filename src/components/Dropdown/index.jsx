@@ -61,20 +61,19 @@ const getDropdownItemName = (title, name) => {
   }
 };
 
-const DropDown = ({ title, data }) => {
+const DropDown = ({ title, data, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
 
-  const [val, setVal] = React.useState([]);
   const handleChange = (event) => {
-    setVal(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
     <FormControl className="formControl">
       <Typography className={classes.label}>{intl.formatMessage({ id: `dropdowns.${title}` })}</Typography>
       <Select
-        value={val}
+        value={value || []}
         onChange={handleChange}
         multiple
         input={<BootstrapInput />}
@@ -91,4 +90,6 @@ export default DropDown;
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
