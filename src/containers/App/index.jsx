@@ -20,7 +20,7 @@ import aboutFrench from '../../languages/about.french.md';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: `${API_HOST}/esa/graphql`,
+  uri: `${API_HOST}/esa/graphql?lang=${lang}`,
   credentials: 'same-origin',
 });
 const client = new ApolloClient({ cache, link, fetch });
