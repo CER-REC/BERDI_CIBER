@@ -38,7 +38,6 @@ const getContentTypes = (translations) => {
 
 export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
-
   const regions = useMemo(
     () => (data ? data.configuration.regions : []),
     [data],
@@ -59,20 +58,28 @@ export default () => {
     () => (data ? getContentTypes(data.configuration.translations) : []),
     [data],
   );
-
   const translations = useMemo(
     () => (data ? getI18NMessages(data.configuration.translations) : {}),
     [data],
   );
-
   const applicationNames = useMemo(
     () => (data ? data.configuration.applicationNames : []),
     [data],
   );
+  const maxDate = useMemo(
+    // TODO: Move all date time resets to utility functions
+    () => (data ? new Date(`${data.configuration.maxFilingDate.substring(0, 10)}T00:00:00`) : new Date()),
+    [data],
+  );
+  const minDate = useMemo(
+    // TODO: Move all date time resets to utility functions
+    () => (data ? new Date(`${data.configuration.minFilingDate.substring(0, 10)}T00:00:00`) : new Date()),
+    [data],
+  );
+
   return {
     loading,
     error,
-    data,
     regions,
     statuses,
     projectTypes,
@@ -80,6 +87,8 @@ export default () => {
     contentTypes,
     applicationNames,
     translations,
+    maxDate,
+    minDate,
   };
 };
 
