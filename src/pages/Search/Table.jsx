@@ -74,7 +74,7 @@ const TablePaginationActions = ({ count, page, rowsPerPage, onChangePage }) => {
       </IconButton>
     </div>
   );
-}
+};
 
 TablePaginationActions.propTypes = {
   count: PropTypes.number.isRequired,

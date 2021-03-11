@@ -105,7 +105,7 @@ const Search = () => {
           <Grid container style={{ paddingRight: '3px' }}>
             <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
             <FormControl className={classes.selection}>
-              <NativeSelect value={ config.sort || '' } onChange={ handleSortChange }>
+              <NativeSelect value={config.sort || ''} onChange={handleSortChange}>
                 <option value="TABLE">Table</option>
                 <option value="FIGURE">Figure</option>
               </NativeSelect>

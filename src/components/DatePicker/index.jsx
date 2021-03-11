@@ -48,6 +48,7 @@ const useStyles = makeStyles({
   },
 });
 
+// eslint-disable-next-line no-unused-vars
 const CustomInput = React.forwardRef(({ startDate, endDate }, ref) => {
   const classes = inputStyles();
   const shortenDate = (date) => new Date(date).toDateString();
