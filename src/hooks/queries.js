@@ -24,6 +24,8 @@ export const APPLICATIONS = gql`
     shortName
     companyName
     consultants
+    commodity
+    regdocsURL
     status
     type
     filingDate

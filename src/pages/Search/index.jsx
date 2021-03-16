@@ -5,10 +5,10 @@ import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import TreeMapPanel from '../../components/TreeMapPanel/Treemap';
 import useAPI from '../../hooks/useAPI';
 import FilterPanel from './FilterPanel';
 import CustomPaginationActionsTable from './Table';
-import TreeMapPanel from './Treemap';
 
 const useStyles = makeStyles(() => createStyles({
   searchBox: {

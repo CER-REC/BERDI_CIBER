@@ -1,58 +1,43 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
-import React from 'react';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
+import TreeMapDialog from './TreeMapDialog';
+import styles from './TreeMapStyles';
 
-const useStyles = makeStyles({
-  titleTypography: {
-    paddingLeft: '5px',
-    marginTop: '2%',
-  },
-  labelInner: {
-    padding: '14px 0 0 14px',
-    width: '100%',
-    overflow: 'hidden',
-    '&::before': {
-      content: '""',
-      height: '100%',
-      display: 'inline-block',
-    },
-    '& > span': {
-      display: 'inline-block',
-      float: 'left',
-    },
-  },
-  treeMap: {
-    // select all Nivo spans but not our custom spans
-    '& div:not([class]) > span': {
-      display: 'flex',
-      flexFlow: 'column wrap',
-      height: '100%',
-      width: '100%',
-    },
-  },
-});
+const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
   const data = useESAData('applications');
+  const intl = useIntl();
   const classes = useStyles();
+
+  const [open, setOpen] = useState(false);
+  const [selectedBoxData, setSelectedBoxData] = useState(null);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   if (!data) {
     return null;
   }
   return (
     <>
-      <Grid container direction="row" justify="space-between" alignItems="center">
-        <Grid item className={classes.titleTypography}>
-          <Typography variant="h6">
-            Select a box to filter by project and access project details.
-          </Typography>
-        </Grid>
+      <Grid className={classes.titleTypography}>
+        <Typography variant="h6">
+          {intl.formatMessage({ id: 'components.treeMap.title' })}
+        </Typography>
       </Grid>
 
-      <Grid
-        style={{ height: '35vh' }}
-        className={classes.treeMap}
-      >
+      <TreeMapDialog open={open} handleClose={handleClose} leafData={selectedBoxData} />
+
+      <Grid style={{ height: '35vh' }} className={classes.treeMap}>
         <ResponsiveTreeMapHtml
           root={data}
           identity="shortName"
@@ -65,6 +50,7 @@ const TreeMapPanel = () => {
           borderWidth={3}
           borderColor="#ffffff"
           colors={(d) => d.color}
+          onClick={(node) => { setSelectedBoxData(node?.data); handleClickOpen(); }}
           label={(d) => (
             <>
               <div className="emptyPlaceholder" style={{ width: '100%' }} />
@@ -72,10 +58,10 @@ const TreeMapPanel = () => {
                 <span style={{ fontSize: '130%', marginTop: '4px' }}>{d.shortName}</span>
               </div>
               <div className={classes.labelInner}>
-                <span style={{ whiteSpace: 'nowrap' }}>{`${d.tableCount} tables`}</span>
+                <span style={{ whiteSpace: 'nowrap' }}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
               </div>
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
-                <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} figures`}</span>
+                <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
               </div>
 
             </>
