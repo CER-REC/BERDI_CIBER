@@ -15,8 +15,6 @@ import LoadingIndicator from '../../components/LoadingIndicator';
 import { API_HOST, lang } from '../../constants';
 import useAPI from '../../hooks/useAPI';
 import i18nMessages from '../../i18n';
-import aboutEnglish from '../../languages/about.english.md';
-import aboutFrench from '../../languages/about.french.md';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
@@ -30,7 +28,7 @@ const Loader = () => {
   let content;
   const { loading, error, translations } = useAPI();
   const messages = useMemo(
-    () => ({ ...translations[lang], ...i18nMessages[lang], about: lang === 'fr' ? aboutFrench : aboutEnglish }),
+    () => ({ ...translations[lang], ...i18nMessages[lang] }),
     [translations],
   );
 
