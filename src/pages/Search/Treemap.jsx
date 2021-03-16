@@ -30,6 +30,10 @@ const useStyles = makeStyles({
       height: '100%',
       width: '100%',
     },
+    height: '35vh',
+  },
+  emptyPlaceholder: {
+    width: '100%',
   },
 });
 
@@ -49,10 +53,7 @@ const TreeMapPanel = () => {
         </Grid>
       </Grid>
 
-      <Grid
-        style={{ height: '35vh' }}
-        className={classes.treeMap}
-      >
+      <Grid className={classes.treeMap}>
         <ResponsiveTreeMapHtml
           root={data}
           identity="shortName"
@@ -67,7 +68,7 @@ const TreeMapPanel = () => {
           colors={(d) => d.color}
           label={(d) => (
             <>
-              <div className="emptyPlaceholder" style={{ width: '100%' }} />
+              <div className={classes.emptyPlaceholder} />
               <div className={classes.labelInner}>
                 <span style={{ fontSize: '130%', marginTop: '4px' }}>{d.shortName}</span>
               </div>
@@ -77,7 +78,6 @@ const TreeMapPanel = () => {
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
                 <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} figures`}</span>
               </div>
-
             </>
           )}
         />
