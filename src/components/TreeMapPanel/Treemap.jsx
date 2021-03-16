@@ -37,7 +37,7 @@ const TreeMapPanel = () => {
 
       <TreeMapDialog open={open} handleClose={handleClose} leafData={selectedBoxData} />
 
-      <Grid style={{ height: '35vh' }} className={classes.treeMap}>
+      <Grid className={classes.treeMap}>
         <ResponsiveTreeMapHtml
           root={data}
           identity="shortName"
@@ -53,7 +53,7 @@ const TreeMapPanel = () => {
           onClick={(node) => { setSelectedBoxData(node?.data); handleClickOpen(); }}
           label={(d) => (
             <>
-              <div className="emptyPlaceholder" style={{ width: '100%' }} />
+              <div className={classes.emptyPlaceholder} />
               <div className={classes.labelInner}>
                 <span style={{ fontSize: '130%', marginTop: '4px' }}>{d.shortName}</span>
               </div>
@@ -63,7 +63,6 @@ const TreeMapPanel = () => {
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
                 <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
               </div>
-
             </>
           )}
         />
