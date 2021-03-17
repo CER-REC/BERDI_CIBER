@@ -27,6 +27,7 @@ export const initialState = {
   statuses: null,
   // The content type to sort the results by
   sort: null,
+  // The page of the search results (starting at 0)
   searchIndex: 0,
 };
 

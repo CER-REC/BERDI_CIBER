@@ -19,7 +19,7 @@ const theme = createMuiTheme({
     secondary: { main: defaultTheme.palette.secondary.main },
   },
   typography: {
-    fontFamily: '"FiraSansCondensed", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Noto Sans", sans-serif',
     fontSize: 22,
   },
   overrides: {
@@ -99,7 +99,6 @@ const theme = createMuiTheme({
     },
     MuiDialog: {
       root: {
-        fontFamily: '"FiraSansCondensed", "Roboto", "Helvetica", "Arial", sans-serif',
         '& button': { height: 'auto' },
       },
     },
