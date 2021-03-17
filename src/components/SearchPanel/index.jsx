@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     padding: '1.5em',
   },
-  filterBlock: {
+  sideBlock: {
     margin: 'auto',
     textAlign: 'right',
   },
@@ -41,7 +41,7 @@ const SearchPanel = ({ hasFilter }) => {
       <Grid item xs={9}>
         <SearchBar hasShrink={hasFilter} />
       </Grid>
-      <Grid item xs={3} classes={{ root: classes.filterBlock }}>
+      <Grid item xs={3} classes={{ root: classes.sideBlock }}>
         {
           hasFilter && (
             <>
