@@ -49,7 +49,7 @@ const Search = () => {
   // TODO: Replace enums in the native select sort with the list from useAPI to make it dynamic
   return (
     <>
-      <SearchPanel />
+      <SearchPanel hasFilter />
 
       {/* Grey filter selection box */}
       <FilterPanel />

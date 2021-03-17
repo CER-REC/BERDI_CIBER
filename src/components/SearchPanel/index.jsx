@@ -60,11 +60,7 @@ const SearchPanel = ({ hasFilter }) => {
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool,
-};
-
-SearchPanel.defaultProps = {
-  hasFilter: false,
+  hasFilter: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;
