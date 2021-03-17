@@ -21,7 +21,7 @@ const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: '"FiraSansCondensed", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Noto Sans", sans-serif',
   },
   overrides: {
     MuiTypography: {
@@ -100,7 +100,6 @@ const theme = createMuiTheme({
     },
     MuiDialog: {
       root: {
-        fontFamily: '"FiraSansCondensed", "Roboto", "Helvetica", "Arial", sans-serif',
         '& button': { height: 'auto' },
       },
     },
