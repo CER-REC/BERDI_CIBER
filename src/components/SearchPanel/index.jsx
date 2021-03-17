@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
+import ExploreButton from './ExploreButton';
 import Keywords from './Keywords';
 
 const useStyles = makeStyles((theme) => ({
@@ -64,10 +65,6 @@ const SearchPanel = ({ hasFilter }) => {
     configDispatch({ type: 'searches/changed', payload: searches });
   }, [search, configDispatch]);
   const handleKeyDown = useCallback((event) => (event.key === 'Enter') && handleSearchClick(), [handleSearchClick]);
-  const handleExploreClick = useCallback(() => {
-    configDispatch({ type: 'filters/removed' });
-    configDispatch({ type: 'searches/changed', payload: null });
-  }, [configDispatch]);
 
   useEffect(() => {
     if (inputRef.current && buttonRef.current) {
@@ -127,17 +124,7 @@ const SearchPanel = ({ hasFilter }) => {
             </>
           )
         }
-        {
-          !hasFilter && (
-            <Button
-              variant="contained"
-              onClick={handleExploreClick}
-              disableElevation
-            >
-              {intl.formatMessage({ id: 'components.searchPanel.exploreButton' })}
-            </Button>
-          )
-        }
+        { !hasFilter && <ExploreButton /> }
       </Grid>
       { !hasFilter && <Keywords /> }
     </Grid>
