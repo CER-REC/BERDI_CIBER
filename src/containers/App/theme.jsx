@@ -29,9 +29,16 @@ const theme = createMuiTheme({
       h6: {
         fontSize: 20,
         fontWeight: 700,
+        lineHeight: 'normal',
       },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
+      subtitle1: {
+        color: defaultTheme.palette.primary.main,
+        fontSize: 20,
+        lineHeight: 'normal',
+        paddingTop: '1em',
+      },
       caption: {
         fontSize: 12,
         lineHeight: 1.3,
@@ -45,10 +52,13 @@ const theme = createMuiTheme({
         color: defaultTheme.palette.common.white,
         padding: '0.5em 2em',
         '&:hover': {
-          backgroundColor: defaultTheme.palette.secondary.main,
+          backgroundColor: '#4F8537',
         },
       },
-      label: { fontSize: 16 },
+      label: {
+        fontSize: 16,
+        textTransform: 'capitalize',
+      },
     },
     MuiSwitch: {
       root: {

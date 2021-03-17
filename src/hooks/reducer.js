@@ -117,6 +117,18 @@ export const getReducer = (
         ...state,
         searchIndex: action.payload || initialState.searchIndex,
       };
+    case 'filters/removed':
+      return {
+        ...state,
+        applicationNames,
+        regions,
+        startDate: minDate,
+        endDate: maxDate,
+        commodities,
+        projectTypes,
+        statuses,
+        searchIndex: 0,
+      };
     default:
       return state;
   }

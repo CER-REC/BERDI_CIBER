@@ -37,10 +37,21 @@
     "DATE": "Date project was filed"
   },
   "components": {
-    "searchPanel":{
-      "button": "Search",
-      "filter": "Show filters",
-      "input": "Search by keyword(s)"
+    "searchPanel": {
+      "exploreButton": "Explore Catalogue",
+      "exploreLabel": "Explore results from:",
+      "filterLabel": "Show filters",
+      "searchButton": "Search",
+      "searchLabel": "Find data:",
+      "searchPlaceHolder": "Search by keyword(s)",
+      "keywords": {
+        "fish": "fish",
+        "plants": "plants",
+        "emissions": "emissions",
+        "health": "health",
+        "community": "community",
+        "risk": "risk"
+      }
     },
     "filterPanel":{
       "title":"Search by one or many of the filter options below.",
