@@ -1,8 +1,10 @@
 import 'react-datepicker/dist/react-datepicker.css';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+
+import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
@@ -33,12 +35,6 @@ const useStyles = makeStyles({
     '& .react-datepicker__current-month': {
       fontSize: '1.3rem',
     },
-    '& .react-datepicker__header': {
-      paddingTop: '6px',
-    },
-    '& .react-datepicker__navigation': {
-      top: '13px',
-    },
     '& .react-datepicker__day-name, .react-datepicker__day': {
       margin: '0.5rem',
     },
@@ -47,7 +43,6 @@ const useStyles = makeStyles({
     },
     '& .react-datepicker__input-container': {
       lineHeight: '1.1876em',
-
     },
   },
   label: {
@@ -55,10 +50,6 @@ const useStyles = makeStyles({
   },
 });
 
-/*
-    FIXME: there is a console warning about passing refs to functional components.
-    Should this be a class component?
-   */
 // eslint-disable-next-line no-unused-vars
 const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
   const classes = inputStyles();
@@ -74,32 +65,52 @@ const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
   );
 });
 
-const CustomDatePicker = ({ maxDate, minDate }) => {
+const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   const classes = useStyles();
+  const [datePickerStartDate, setDatePickerStartDate] = useState(minDate);
+  const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate);
+  const minMonthDate = useMemo(
+    () => toDateOnly(`${toDateOnlyString(minDate).substring(0, 8)}01`),
+    [minDate],
+  );
+  const maxMonthDate = useMemo(() => {
+    const date = new Date(maxDate);
 
-  const [startDate, setStartDate] = useState(new Date(minDate));
-  const [endDate, setEndDate] = useState();
+    date.setMonth(date.getMonth() + 1);
 
-  const onChange = (dates) => {
+    return toDateOnly(`${toDateOnlyString(date).substring(0, 8)}01`);
+  }, [maxDate]);
+  const handleChange = useCallback((dates) => {
     const [start, end] = dates;
-    setStartDate(start);
-    setEndDate(end);
-  };
 
+    setDatePickerStartDate(start);
+    setDatePickerEndDate(end);
+
+    if (start && end) {
+      onChange(start, end);
+    }
+  }, [setDatePickerStartDate, setDatePickerEndDate, onChange]);
+
+  useEffect(() => {
+    setDatePickerStartDate(startDate);
+    setDatePickerEndDate(endDate);
+  }, [startDate, endDate]);
+
+  // DatePicker passes down the onClick event for customInput
   return (
     <div className={classes.root}>
       <Typography className={classes.label}>Date</Typography>
       <DatePicker
-        selected={startDate}
-        onChange={onChange}
-        startDate={startDate}
-        endDate={endDate}
+        onChange={handleChange}
+        selected={datePickerStartDate}
+        startDate={datePickerStartDate}
+        endDate={datePickerEndDate}
         selectsRange
         shouldCloseOnSelect={false}
-        minDate={new Date(minDate)}
-        maxDate={new Date(maxDate)}
-        monthsShown={2}
+        minDate={minMonthDate}
+        maxDate={maxMonthDate}
         customInput={<CustomInput startDate={startDate} endDate={endDate} />}
+        showMonthYearPicker
       />
     </div>
   );
@@ -108,22 +119,28 @@ const CustomDatePicker = ({ maxDate, minDate }) => {
 export default CustomDatePicker;
 
 CustomDatePicker.propTypes = {
-  maxDate: PropTypes.string,
-  minDate: PropTypes.string,
-};
-CustomInput.propTypes = {
-  onClick: PropTypes.func,
+  maxDate: PropTypes.instanceOf(Date),
+  minDate: PropTypes.instanceOf(Date),
   startDate: PropTypes.instanceOf(Date),
   endDate: PropTypes.instanceOf(Date),
+  onChange: PropTypes.func.isRequired,
+};
+
+CustomInput.propTypes = {
+  startDate: PropTypes.instanceOf(Date),
+  endDate: PropTypes.instanceOf(Date),
+  onClick: PropTypes.func,
 };
 
 CustomDatePicker.defaultProps = {
-  maxDate: undefined,
-  minDate: undefined,
-};
-CustomInput.defaultProps = {
-  onClick: undefined,
-  startDate: undefined,
-  endDate: undefined,
+  maxDate: null,
+  minDate: null,
+  startDate: null,
+  endDate: null,
 };
 
+CustomInput.defaultProps = {
+  startDate: null,
+  endDate: null,
+  onClick: null,
+};

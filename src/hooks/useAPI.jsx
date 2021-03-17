@@ -1,5 +1,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import { useMemo } from 'react';
+
+import { toDateOnly } from '../utilities/date';
 import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
 
@@ -38,7 +40,6 @@ const getContentTypes = (translations) => {
 
 export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
-
   const regions = useMemo(
     () => (data ? data.configuration.regions : []),
     [data],
@@ -59,20 +60,26 @@ export default () => {
     () => (data ? getContentTypes(data.configuration.translations) : []),
     [data],
   );
-
   const translations = useMemo(
     () => (data ? getI18NMessages(data.configuration.translations) : {}),
     [data],
   );
-
   const applicationNames = useMemo(
     () => (data ? data.configuration.applicationNames : []),
     [data],
   );
+  const maxDate = useMemo(
+    () => (data ? toDateOnly(data.configuration.maxFilingDate) : new Date()),
+    [data],
+  );
+  const minDate = useMemo(
+    () => (data ? toDateOnly(data.configuration.minFilingDate) : new Date()),
+    [data],
+  );
+
   return {
     loading,
     error,
-    data,
     regions,
     statuses,
     projectTypes,
@@ -80,6 +87,8 @@ export default () => {
     contentTypes,
     applicationNames,
     translations,
+    maxDate,
+    minDate,
   };
 };
 

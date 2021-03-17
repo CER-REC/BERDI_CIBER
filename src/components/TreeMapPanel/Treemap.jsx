@@ -9,7 +9,7 @@ import styles from './TreeMapStyles';
 const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
-  const data = useESAData('applications');
+  const { applications: data } = useESAData();
   const intl = useIntl();
   const classes = useStyles();
 
@@ -27,6 +27,7 @@ const TreeMapPanel = () => {
   if (!data) {
     return null;
   }
+
   return (
     <>
       <Grid className={classes.titleTypography}>

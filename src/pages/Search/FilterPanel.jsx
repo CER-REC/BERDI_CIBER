@@ -1,10 +1,10 @@
 import { createStyles, Grid, makeStyles, Typography } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
 import useAPI from '../../hooks/useAPI';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles(() => createStyles({
   filterBox: {
@@ -20,43 +20,51 @@ const useStyles = makeStyles(() => createStyles({
   },
 }));
 
-const FilterPanel = ({ data }) => {
+const FilterPanel = () => {
+  const { maxDate, minDate } = useAPI();
+  const { config, configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
   const { regions, statuses, projectTypes, commodities } = useAPI();
-  const createDropdown = (title, dataItem) => (
-    <Grid item xs={4} className={classes.selection}>
-      <Dropdown title={title} data={dataItem ?? {}} />
-    </Grid>
-  );
+  // TODO: Extract into own component
+  const createDropdown = (title, dataItem, dispatchAction, value) => {
+    const handleChange = (items) => {
+      configDispatch({ type: dispatchAction, payload: items });
+    };
+
+    return (
+      <Grid item xs={4} className={classes.selection}>
+        <Dropdown title={title} data={dataItem ?? {}} onChange={handleChange} value={value} />
+      </Grid>
+    );
+  };
+  const handleDatePickerChange = useCallback((start, end) => {
+    configDispatch({ type: 'startDate/changed', payload: start });
+    configDispatch({ type: 'endDate/changed', payload: end });
+  }, [configDispatch]);
+
   return (
     <>
       {/* Grey filter selection box */}
       <Typography variant="h6">{intl.formatMessage({ id: 'components.filterPanel.title' })}</Typography>
 
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
-        {createDropdown('REGIONS', regions)}
+        {createDropdown('REGIONS', regions, 'regions/changed', config.regions)}
         <Grid item xs={4} className={classes.selection}>
-          <DatePicker maxDate={data?.maxFilingDate} minDate={data?.minFilingDate} />
+          <DatePicker
+            maxDate={maxDate}
+            minDate={minDate}
+            onChange={handleDatePickerChange}
+            startDate={config.startDate}
+            endDate={config.endDate}
+          />
         </Grid>
-        {createDropdown('COMMODITIES', commodities)}
-        {createDropdown('PROJECT_TYPES', projectTypes)}
-        {createDropdown('STATUSES', statuses)}
+        {createDropdown('COMMODITIES', commodities, 'commodities/changed', config.commodities)}
+        {createDropdown('PROJECT_TYPES', projectTypes, 'projectTypes/changed', config.projectTypes)}
+        {createDropdown('STATUSES', statuses, 'statuses/changed', config.statuses)}
       </Grid>
     </>
   );
 };
 
-FilterPanel.propTypes = {
-  data: PropTypes.shape({
-    applicationNames: PropTypes.arrayOf(PropTypes.string),
-    applicationTypes: PropTypes.arrayOf(PropTypes.string),
-    commondities: PropTypes.arrayOf(PropTypes.string),
-    contentTypes: PropTypes.arrayOf(PropTypes.string),
-    maxFilingDate: PropTypes.string,
-    minFilingDate: PropTypes.string,
-    regions: PropTypes.arrayOf(PropTypes.string),
-    statuses: PropTypes.arrayOf(PropTypes.string),
-  }).isRequired,
-};
 export default FilterPanel;
