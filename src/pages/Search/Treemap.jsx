@@ -38,11 +38,13 @@ const useStyles = makeStyles({
 });
 
 const TreeMapPanel = () => {
-  const data = useESAData('applications');
+  const { applications: data } = useESAData();
   const classes = useStyles();
+
   if (!data) {
     return null;
   }
+
   return (
     <>
       <Grid container direction="row" justify="space-between" alignItems="center">

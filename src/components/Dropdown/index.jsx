@@ -5,7 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -61,20 +61,16 @@ const getDropdownItemName = (title, name) => {
   }
 };
 
-const DropDown = ({ title, data }) => {
+const DropDown = ({ title, data, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
-
-  const [val, setVal] = React.useState([]);
-  const handleChange = (event) => {
-    setVal(event.target.value);
-  };
+  const handleChange = useCallback((event) => onChange(event.target.value), [onChange]);
 
   return (
     <FormControl className="formControl">
       <Typography className={classes.label}>{intl.formatMessage({ id: `dropdowns.${title}` })}</Typography>
       <Select
-        value={val}
+        value={value || []}
         onChange={handleChange}
         multiple
         input={<BootstrapInput />}
@@ -91,4 +87,10 @@ export default DropDown;
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
   data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func.isRequired,
+};
+
+DropDown.defaultProps = {
+  value: [],
 };
