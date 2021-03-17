@@ -30,14 +30,11 @@ const Keywords = () => {
   const communityKeyword = intl.formatMessage({ id: 'components.searchPanel.keywords.community' });
   const riskKeyword = intl.formatMessage({ id: 'components.searchPanel.keywords.risk' });
   const { configDispatch } = useConfig();
-  const handleKeywordClick = useCallback((keyword) => {
+  const handleClick = useCallback((keyword) => {
     configDispatch({ type: 'filters/removed' });
     configDispatch({ type: 'searches/changed', payload: [keyword] });
   }, [configDispatch]);
-  const createHandleKeywordClick = useCallback(
-    (keyword) => (() => handleKeywordClick(keyword)),
-    [handleKeywordClick],
-  );
+  const createHandleClick = useCallback((keyword) => (() => handleClick(keyword)), [handleClick]);
 
   return (
     <div className={`Keywords ${classes.root}`}>
@@ -50,32 +47,32 @@ const Keywords = () => {
         <SvgButton
           src={fish}
           label={fishKeyword}
-          onClick={createHandleKeywordClick(fishKeyword)}
+          onClick={createHandleClick(fishKeyword)}
         />
         <SvgButton
           src={plants}
           label={plantsKeyword}
-          onClick={createHandleKeywordClick(plantsKeyword)}
+          onClick={createHandleClick(plantsKeyword)}
         />
         <SvgButton
           src={water}
           label={emissionsKeyword}
-          onClick={createHandleKeywordClick(emissionsKeyword)}
+          onClick={createHandleClick(emissionsKeyword)}
         />
         <SvgButton
           src={health}
           label={healthKeyword}
-          onClick={createHandleKeywordClick(healthKeyword)}
+          onClick={createHandleClick(healthKeyword)}
         />
         <SvgButton
           src={building}
           label={communityKeyword}
-          onClick={createHandleKeywordClick(communityKeyword)}
+          onClick={createHandleClick(communityKeyword)}
         />
         <SvgButton
           src={warning}
           label={riskKeyword}
-          onClick={createHandleKeywordClick(riskKeyword)}
+          onClick={createHandleClick(riskKeyword)}
         />
       </Grid>
     </div>
