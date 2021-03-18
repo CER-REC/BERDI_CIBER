@@ -35,9 +35,15 @@ const theme = createMuiTheme({
       body2: { fontSize: 14 },
       subtitle1: {
         color: defaultTheme.palette.primary.main,
+        fontSize: 29,
+        lineHeight: '1em',
+      },
+      subtitle2: {
+        color: defaultTheme.palette.primary.main,
         fontSize: 20,
-        lineHeight: 'normal',
-        paddingTop: '1em',
+        lineHeight: '1em',
+        paddingBottom: '0.5em',
+        paddingTop: '0.5em',
       },
       caption: {
         fontSize: 12,
