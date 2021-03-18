@@ -6,6 +6,15 @@
       "colon": ":",
       "percent": "%"
     },
+    "tables":"Tables",
+    "figures":"Figures",
+    "fullProjectName":"Full Project Name", 
+    "applicationType":"Application Type", 
+    "commodity":"Commodity",
+    "consultant":"Consultant",
+    "companyName":"Company Name",
+    "hearingOrder":"Hearing Order", 
+    "filingDate":"Filing Date", 
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -57,7 +66,11 @@
       "title":"Search by one or many of the filter options below.",
       "clearButton":"Clear all filters."
     },
-    "treeMap":{},
+    "treeMap":{
+      "title":"Select a box to filter by project and access project details.",
+      "REGDOCSButton":"View REGDOCS Folder",
+      "tablesButton":"Download Project Tables"
+    },
     "resultsList":{},
     "loadingIndicator": {
       "api": "connecting",

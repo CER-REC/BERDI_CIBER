@@ -2,11 +2,11 @@ import React, { useCallback } from 'react';
 import { Button, FormControl, Grid, NativeSelect, Typography, createStyles, makeStyles } from '@material-ui/core';
 
 import SearchPanel from '../../components/SearchPanel';
+import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import FilterPanel from './FilterPanel';
 import CustomPaginationActionsTable from './Table';
-import TreeMapPanel from './Treemap';
 
 const useStyles = makeStyles(() => createStyles({
   searchBox: {
