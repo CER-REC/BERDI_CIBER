@@ -15,6 +15,7 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 
+import { Typography } from '@material-ui/core';
 import { RESULT_COUNT } from '../../constants';
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
@@ -100,28 +101,22 @@ const CustomPaginationActionsTable = () => {
   const handleChangePage = useCallback((event, number) => {
     configDispatch({ type: 'searchIndex/changed', payload: number });
   }, [configDispatch]);
-
-  // TODO: Get ID from query and replace the random table row key
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
         <TableBody>
           {contents.map((content) => (
-            <TableRow key={Math.random()}>
-              <TableCell component="th" scope="row">
-                Title:
-                { content.title }
+            <TableRow key={content.id}>
+              <TableCell component="th" scope="row" style={{ border: '1px solid black' }}>
+                <Typography variant="body1">{`Title: ${content.title}`}</Typography>
                 <br />
-                Full Project Name:
-                { content.application.name }
+                <Typography variant="body2">{`Full Project Name: ${content.application.name}`}</Typography>
                 <br />
-                Project Filed Date:
-                { content.application.filingDate.substring(0, 10) }
+                <Typography variant="body2">{'Project Filed Date: { content.application.filingDate.substring(0, 10) }'}</Typography>
                 <br />
-                ESA Consultant(s):
-                { content.application.consultants }
+                <Typography variant="body2">{'ESA Consultant(s): { content.application.consultants }'}</Typography>
                 <br />
-                { content.url && <a href={content.url} target="_blank" rel="noreferrer">Download</a> }
+                { content.url && <Typography variant="body1"><a href={content.url} target="_blank" rel="noreferrer">Download</a></Typography> }
               </TableCell>
             </TableRow>
           ))}

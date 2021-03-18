@@ -69,6 +69,7 @@ export const SEARCH = gql`
       offset: $offset
     ) {
       contents {
+        id
         title
         esaSections
         pageNumber

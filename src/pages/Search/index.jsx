@@ -1,4 +1,4 @@
-import { Button, createStyles, FormControl, Grid, makeStyles, NativeSelect, Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles, Typography } from '@material-ui/core';
 import EcoIcon from '@material-ui/icons/Eco';
 import HomeWorkIcon from '@material-ui/icons/HomeWork';
 import PetsIcon from '@material-ui/icons/Pets';
@@ -9,7 +9,8 @@ import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import FilterPanel from './FilterPanel';
-import CustomPaginationActionsTable from './Table';
+import ListSection from '../../components/SearchList';
+// import CustomPaginationActionsTable from './Table';
 
 const useStyles = makeStyles(() => createStyles({
   searchBox: {
@@ -95,35 +96,7 @@ const Search = () => {
       <TreeMapPanel />
 
       {/* List section */}
-      <Grid container justify="space-between" alignItems="center" style={{ backgroundColor: '#e5e5e5', marginTop: '1vh', height: '5vh' }}>
-        <Grid item>
-          <Grid container style={{ paddingRight: '3px' }}>
-            <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
-            <FormControl className={classes.selection}>
-              <NativeSelect value={config.sort || ''} onChange={handleSortChange}>
-                <option value="TABLE">Table</option>
-                <option value="FIGURE">Figure</option>
-              </NativeSelect>
-            </FormControl>
-          </Grid>
-        </Grid>
-        <Grid item style={{ textAlign: 'right' }}>
-          <Button style={{
-            width: 'auto',
-            textTransform: 'none',
-            background: '#284162',
-            borderRadius: '5px',
-            color: 'white',
-            padding: '0.5% 2%',
-            whiteSpace: 'nowrap',
-          }}
-          >
-            Access full dataset
-          </Button>
-        </Grid>
-      </Grid>
-      {/* Table Section */}
-      <CustomPaginationActionsTable />
+      <ListSection onChange={handleSortChange} />
     </>
   );
 };
