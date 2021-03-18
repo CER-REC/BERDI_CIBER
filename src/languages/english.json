@@ -44,14 +44,7 @@
       "searchButton": "Search",
       "searchLabel": "Find data:",
       "searchPlaceHolder": "Search by keyword(s)",
-      "keywords": {
-        "fish": "fish",
-        "plants": "plants",
-        "emissions": "emissions",
-        "health": "health",
-        "community": "community",
-        "risk": "risk"
-      }
+      "keywords": {}
     },
     "filterPanel":{
       "title":"Search by one or many of the filter options below.",
