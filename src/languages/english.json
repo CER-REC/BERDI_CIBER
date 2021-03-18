@@ -46,14 +46,21 @@
     "DATE": "Date project was filed"
   },
   "components": {
-    "searchPanel":{
-      "title":"Search the Data",
-      "inputPlaceholder":"Search by keyword(s)",
-      "description":"Environmental and Socio-Economic Assessments cover as many as 19 categories of \"components\" for assessment!",
-      "linkText1":"Learn more.",
-      "link1":"https://www.cer-rec.gc.ca/",
-      "linkText2":"Read our disclaimer for considerations",
-      "link2":"https://www.cer-rec.gc.ca/"
+    "searchPanel": {
+      "exploreButton": "Explore Catalogue",
+      "exploreLabel": "Explore results from:",
+      "filterLabel": "Show filters",
+      "searchButton": "Search",
+      "searchLabel": "Find data:",
+      "searchPlaceHolder": "Search by keyword(s)",
+      "keywords": {
+        "fish": "fish",
+        "plants": "plants",
+        "emissions": "emissions",
+        "health": "health",
+        "community": "community",
+        "risk": "risk"
+      }
     },
     "filterPanel":{
       "title":"Search by one or many of the filter options below.",
