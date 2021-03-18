@@ -1,4 +1,4 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Typography, Icon } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import IconDownload from '../../assets/svgs/icons';
+import downloadIcon from '../../images/Download.svg';
 import styles from './TreeMapStyles';
 
 const useStyles = makeStyles(styles);
@@ -42,7 +42,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
           </Grid>
 
           <Grid item>
-            <Typography variant="h5">
+            <Typography variant="h5" style={{ textTransform: 'uppercase' }}>
               {leafData.shortName}
             </Typography>
           </Grid>
@@ -121,7 +121,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
         <Grid item>
           <Typography>
             <span>{`${intl.formatMessage({ id: 'common.filingDate' })}: `}</span>
-            {leafData.filingDate}
+            {new Date(leafData.filingDate).toLocaleDateString()}
           </Typography>
         </Grid>
       </Grid>
@@ -179,7 +179,12 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
               variant="contained"
               style={{ backgroundColor: '#284162' }}
             >
-              <IconDownload fill="white" style={{ height: '20px' }} />
+              <Icon className={classes.downloadIcon}>
+                <img
+                  src={downloadIcon}
+                  alt="download button"
+                />
+              </Icon>
               <Typography>
                 <a
                   href={leafData.url}

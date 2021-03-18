@@ -1,4 +1,9 @@
 export default {
+  downloadIcon: {
+    overflow: 'visible',
+    height: 'unset',
+    marginRight: '5px',
+  },
   topRight: {
     '& div': {
       textAlign: 'right',
@@ -75,5 +80,8 @@ export default {
       width: '100%',
     },
     height: '35vh',
+  },
+  emptyPlaceholder: {
+    width: '100%',
   },
 };

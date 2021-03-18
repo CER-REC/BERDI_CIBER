@@ -5,7 +5,7 @@ import PetsIcon from '@material-ui/icons/Pets';
 import PoolIcon from '@material-ui/icons/Pool';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
-import TreeMapPanel from '../../components/TreeMapPanel/Treemap';
+import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import FilterPanel from './FilterPanel';
