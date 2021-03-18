@@ -48,6 +48,8 @@ export const SEARCH = gql`
       name
       shortName
       companyName
+      commodity
+      regdocsURL
       consultants
       status
       type
