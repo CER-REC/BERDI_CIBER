@@ -6,7 +6,9 @@
       "colon": ":",
       "percent": "%"
     },
+    "table":"Tables",
     "tables":"Tables",
+    "figure":"Figure",
     "figures":"Figures",
     "fullProjectName":"Full Project Name", 
     "applicationType":"Application Type", 

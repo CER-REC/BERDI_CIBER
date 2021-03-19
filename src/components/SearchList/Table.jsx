@@ -85,6 +85,23 @@ TablePaginationActions.propTypes = {
 };
 
 const useStyles2 = makeStyles({
+  tableHeader: {
+    borderBottom: '1px solid black',
+    '& p': {
+      marginTop: '5px',
+    },
+    '& span': {
+      fontWeight: '900',
+    },
+    '& h6': {
+      textTransform: 'uppercase',
+      textDecoration: 'underline',
+      fontWeight: 'normal',
+    },
+  },
+  tableParent: {
+    boxShadow: 'none',
+  },
   table: {
     minWidth: 500,
   },
@@ -101,21 +118,32 @@ const CustomPaginationActionsTable = () => {
   const handleChangePage = useCallback((event, number) => {
     configDispatch({ type: 'searchIndex/changed', payload: number });
   }, [configDispatch]);
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={classes.tableParent}>
       <Table className={classes.table} aria-label="custom pagination table">
         <TableBody>
           {contents.map((content) => (
             <TableRow key={content.id}>
-              <TableCell component="th" scope="row" style={{ border: '1px solid black' }}>
-                <Typography variant="body1">{`Title: ${content.title}`}</Typography>
-                <br />
-                <Typography variant="body2">{`Full Project Name: ${content.application.name}`}</Typography>
-                <br />
-                <Typography variant="body2">{'Project Filed Date: { content.application.filingDate.substring(0, 10) }'}</Typography>
-                <br />
-                <Typography variant="body2">{'ESA Consultant(s): { content.application.consultants }'}</Typography>
-                <br />
+
+              <TableCell component="th" scope="row" className={classes.tableHeader}>
+                <Typography variant="h6">{content.title}</Typography>
+
+                <Typography variant="body2" style={{ marginTop: '20px' }}>
+                  <span>{'Full Project Name: '}</span>
+                  {content.application.name}
+                </Typography>
+
+                <Typography variant="body2">
+                  <span>{'Project Filed Date: '}</span>
+                  {content.application.filingDate.substring(0, 10)}
+                </Typography>
+
+                <Typography variant="body2">
+                  <span>{'ESA Consultant(s): '}</span>
+                  {content.application.consultants}
+                </Typography>
+
                 { content.url && <Typography variant="body1"><a href={content.url} target="_blank" rel="noreferrer">Download</a></Typography> }
               </TableCell>
             </TableRow>

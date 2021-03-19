@@ -1,46 +1,72 @@
-import { Button, createStyles, FormControl, Grid, makeStyles, NativeSelect, Typography } from '@material-ui/core';
+import { Button, createStyles, FormControl, Grid, makeStyles, Select, Typography } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import CustomPaginationActionsTable from './Table';
 
 const useStyles = makeStyles(() => createStyles({
-
-  selection: {
-    width: '20vw',
+  root: {
+    marginTop: '1vh',
+    height: '10vh',
   },
-
+  dropDownLabel: {
+    marginRight: '10px',
+    display: 'inline',
+    fontWeight: '900',
+  },
+  innerSelect: {
+    width: '20%',
+    border: '2px solid black',
+    borderRadius: '5%',
+    '& div': {
+      paddingLeft: '5px',
+    },
+  },
+  innerGrid: {
+    height: '100%',
+    marginTop: '5px',
+  },
+  selection: {
+    width: 'auto',
+    display: 'inline',
+    '& :before': {
+      content: 'none',
+    },
+  },
+  dataButton: {
+    width: 'auto',
+    textTransform: 'none',
+    background: '#284162',
+    borderRadius: '5px',
+    color: 'white',
+    whiteSpace: 'nowrap',
+    padding: '15px',
+    '& span': {
+      margin: '10px 10px',
+    },
+  },
 }));
 
 const ListSection = ({ onChange }) => {
   const { config } = useConfig();
   const classes = useStyles();
+  const intl = useIntl();
 
   return (
     <>
-      <Grid container justify="space-between" alignItems="center" style={{ backgroundColor: '#e5e5e5', marginTop: '1vh', height: '5vh' }}>
-        <Grid item>
-          <Grid container style={{ paddingRight: '3px' }}>
-            <Typography variant="body1" style={{ marginRight: '3px' }}>Sort by data type</Typography>
-            <FormControl className={classes.selection}>
-              <NativeSelect value={config.sort || ''} onChange={onChange}>
-                <option value="TABLE">Table</option>
-                <option value="FIGURE">Figure</option>
-              </NativeSelect>
-            </FormControl>
-          </Grid>
+      <Grid container justify="space-between" alignItems="center" className={classes.root}>
+        <Grid item xs={6} className={classes.innerGrid}>
+          <Typography variant="body1" className={classes.dropDownLabel}>Sort by data type</Typography>
+          <FormControl className={classes.selection}>
+            <Select value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
+              <option style={{ paddingLeft: '5px' }} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</option>
+              <option style={{ paddingLeft: '5px' }} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</option>
+            </Select>
+          </FormControl>
         </Grid>
-        <Grid item style={{ textAlign: 'right' }}>
-          <Button style={{
-            width: 'auto',
-            textTransform: 'none',
-            background: '#284162',
-            borderRadius: '5px',
-            color: 'white',
-            padding: '0.5% 2%',
-            whiteSpace: 'nowrap',
-          }}
-          >
+        <Grid item xs={6} className={classes.innerGrid} style={{ textAlign: 'right' }}>
+          <Button className={classes.dataButton}>
             Access full dataset
           </Button>
         </Grid>
