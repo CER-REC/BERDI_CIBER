@@ -80,6 +80,11 @@
         "title": "BETA",
         "body": "This site will change as we test ideas.",
         "link": "Learn how you can help."
+      },
+      "disclaimer": {
+        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
+        "button": "Read Our Disclaimer",
+        "link": "Learn more about the data."
       }
     }
   }
