@@ -6,10 +6,12 @@
       "colon": ":",
       "percent": "%"
     },
-    "table":"Tables",
+    "table":"Table",
     "tables":"Tables",
     "figure":"Figure",
     "figures":"Figures",
+    "previous":"Previous",
+    "next":"Next",
     "fullProjectName":"Full Project Name", 
     "applicationType":"Application Type", 
     "commodity":"Commodity",

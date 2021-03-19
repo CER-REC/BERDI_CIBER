@@ -8,7 +8,7 @@ import CustomPaginationActionsTable from './Table';
 const useStyles = makeStyles(() => createStyles({
   root: {
     marginTop: '1vh',
-    height: '10vh',
+    height: 'auto',
   },
   dropDownLabel: {
     marginRight: '10px',
@@ -41,10 +41,7 @@ const useStyles = makeStyles(() => createStyles({
     borderRadius: '5px',
     color: 'white',
     whiteSpace: 'nowrap',
-    padding: '15px',
-    '& span': {
-      margin: '10px 10px',
-    },
+
   },
 }));
 
@@ -58,8 +55,9 @@ const ListSection = ({ onChange }) => {
       <Grid container justify="space-between" alignItems="center" className={classes.root}>
         <Grid item xs={6} className={classes.innerGrid}>
           <Typography variant="body1" className={classes.dropDownLabel}>Sort by data type</Typography>
+          {/* FIXME: Throws warning when selection is made.  */}
           <FormControl className={classes.selection}>
-            <Select value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
+            <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
               <option style={{ paddingLeft: '5px' }} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</option>
               <option style={{ paddingLeft: '5px' }} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</option>
             </Select>
