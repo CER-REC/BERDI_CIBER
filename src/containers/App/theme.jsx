@@ -5,23 +5,22 @@ import { createMuiTheme } from '@material-ui/core';
  */
 const defaultTheme = createMuiTheme({
   palette: {
-    primary: { main: '#4A93C7' },
+    primary: { main: '#000000' },
     secondary: {
-      main: '#5D5D5D',
-      light: '#83868E',
+      main: '#63B440',
+      dark: '#1C5204',
     },
   },
 });
+
 const theme = createMuiTheme({
   palette: {
     primary: { main: defaultTheme.palette.primary.main },
-    secondary: {
-      main: defaultTheme.palette.secondary.main,
-      light: defaultTheme.palette.secondary.light,
-    },
+    secondary: { main: defaultTheme.palette.secondary.main },
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',
+    fontSize: 22,
   },
   overrides: {
     MuiTypography: {
@@ -30,9 +29,16 @@ const theme = createMuiTheme({
       h6: {
         fontSize: 20,
         fontWeight: 700,
+        lineHeight: 'normal',
       },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
+      subtitle1: {
+        color: defaultTheme.palette.primary.main,
+        fontSize: 20,
+        lineHeight: 'normal',
+        paddingTop: '1em',
+      },
       caption: {
         fontSize: 12,
         lineHeight: 1.3,
@@ -41,52 +47,45 @@ const theme = createMuiTheme({
       overline: { fontSize: 12 },
     },
     MuiButton: {
-      root: {
-        height: 23,
-        minWidth: 60,
-        borderRadius: 0,
-        fontSize: 14,
-      },
-      label: { margin: 'auto' },
-      containedPrimary: {
-        fontWeight: 700,
+      contained: {
+        backgroundColor: defaultTheme.palette.secondary.dark,
         color: defaultTheme.palette.common.white,
-        backgroundColor: defaultTheme.palette.primary.main,
-        border: `1px solid ${defaultTheme.palette.primary.main}`,
-        boxShadow: defaultTheme.shadows[0],
+        padding: '0.5em 2em',
         '&:hover': {
-          border: '1px solid #33668b',
+          backgroundColor: '#4F8537',
         },
       },
-      containedSecondary: {
-        minWidth: 0,
-        color: defaultTheme.palette.secondary.light,
-        backgroundColor: '#F3EFEF',
-        boxShadow: defaultTheme.shadows[0],
-        '&:hover': {
-          backgroundColor: '#F3EFEF',
-          boxShadow: defaultTheme.shadows[2],
+      label: {
+        fontSize: 16,
+        textTransform: 'capitalize',
+      },
+    },
+    MuiSwitch: {
+      root: {
+        width: 'calc(3em + 6px)',
+        height: 'calc(1.5em + 6px)',
+        padding: 0,
+      },
+      switchBase: {
+        padding: '3px',
+        color: defaultTheme.palette.common.white,
+        '&$checked': {
+          transform: 'translateX(1em)',
+          '& + $track': {
+            backgroundColor: defaultTheme.palette.secondary.dark,
+            opacity: 1,
+          },
         },
       },
-      containedSizeSmall: {
-        fontSize: 13,
-        padding: defaultTheme.spacing(0, 0.25),
+      thumb: {
+        boxShadow: 'none',
+        height: '1em',
+        width: '1em',
       },
-      outlinedPrimary: {
-        fontWeight: 500,
-        color: defaultTheme.palette.secondary.light,
-        backgroundColor: defaultTheme.palette.common.white,
-        border: `1px solid ${defaultTheme.palette.secondary.light}`,
-        boxShadow: defaultTheme.shadows[0],
-        '&:hover': {
-          color: defaultTheme.palette.secondary.main,
-          border: `1px solid ${defaultTheme.palette.secondary.main}`,
-          boxShadow: defaultTheme.shadows[2],
-        },
-      },
-      outlinedSizeSmall: {
-        fontSize: 13,
-        padding: defaultTheme.spacing(0, 0.25),
+      track: {
+        backgroundColor: '#E0E0E0',
+        borderRadius: '1em',
+        opacity: 1,
       },
     },
     MuiTooltip: {
