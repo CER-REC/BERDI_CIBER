@@ -24,7 +24,7 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiTypography: {
-      h4: { fontSize: 34 },
+      h4: { fontSize: 40 },
       h5: { fontSize: 22 },
       h6: {
         fontSize: 20,
@@ -60,10 +60,23 @@ const theme = createMuiTheme({
         '&:hover': {
           backgroundColor: '#4F8537',
         },
+        '& > $label': {
+          fontSize: 16,
+          textTransform: 'capitalize',
+        },
       },
-      label: {
-        fontSize: 16,
-        textTransform: 'capitalize',
+      outlined: {
+        border: '2px solid #26374A',
+        borderRadius: 10,
+        boxShadow: '0px -4px 0px 0px #26374A inset',
+        padding: '1.5em',
+        '& > $label': {
+          flexFlow: 'column',
+          textTransform: 'none',
+        },
+        '&:hover': {
+          backgroundColor: '#EDF1F4',
+        },
       },
     },
     MuiSwitch: {

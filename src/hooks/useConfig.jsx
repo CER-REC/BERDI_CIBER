@@ -90,7 +90,6 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const endDate = query.endDate ? toDateOnly(query.endDate) : null;
     const searchIndex = parseInt(query.searchIndex, 10);
 
-    configDispatch({ type: 'page/changed', payload: query.page });
     configDispatch({
       type: 'searches/changed',
       payload: decodeParameter(query.searches),
@@ -107,6 +106,8 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     configDispatch({ type: 'statuses/changed', payload: query.statuses?.split(',') });
     configDispatch({ type: 'sort/changed', payload: query.sort });
     configDispatch({ type: 'searchIndex/changed', payload: searchIndex });
+    // Dispatch the page last since the search will change the page
+    configDispatch({ type: 'page/changed', payload: query.page });
   }, [configDispatch]);
 
   /**

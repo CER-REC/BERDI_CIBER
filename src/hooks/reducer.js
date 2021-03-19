@@ -8,7 +8,7 @@ const getValidEnums = (enums, validEnums) => {
 
 export const initialState = {
   // Page Name
-  page: 'search',
+  page: 'landing',
   // A list of the terms to find in the application name, ESA section, or extracted tables
   searches: [],
   // A list of the application names to include
