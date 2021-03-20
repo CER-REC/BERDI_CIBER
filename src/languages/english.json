@@ -85,6 +85,25 @@
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
         "button": "Read Our Disclaimer",
         "link": "Learn more about the data."
+      },
+      "discoveries": {
+        "title": "Check out these cool discoveries",
+        "accreditations": {
+          "title": "Accreditations",
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+        },
+        "wetlands": {
+          "title": "Unnamed Wetlands",
+          "body": "Areas of land that may have never before been documented."
+        },
+        "nests": {
+          "title": "Raptor nests",
+          "body": "Bird nests that fall along a pipeline corridor."
+        },
+        "fish": {
+          "title": "Ditch fish",
+          "body": "A fish species documented in a tributary off the Fraser River."
+        }
       }
     }
   }

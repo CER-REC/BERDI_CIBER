@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Button, Grid, makeStyles } from '@material-ui/core';
+import { Button, Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
@@ -40,9 +40,9 @@ const Disclaimer = () => {
   return (
     <Grid container className={`Disclaimer ${classes.root}`}>
       <Grid item xs={9}>
-        <p>
+        <Typography component="p">
           {intl.formatMessage({ id: 'pages.landing.disclaimer.body' })}
-        </p>
+        </Typography>
         <Button
           variant="text"
           onClick={handleLinkClick}
