@@ -62,19 +62,6 @@ const theme = createMuiTheme({
           textTransform: 'capitalize',
         },
       },
-      outlined: {
-        border: '2px solid #26374A',
-        borderRadius: 10,
-        boxShadow: '0px -4px 0px 0px #26374A inset',
-        padding: '1.5em',
-        '& > $label': {
-          flexFlow: 'column',
-          textTransform: 'none',
-        },
-        '&:hover': {
-          backgroundColor: '#EDF1F4',
-        },
-      },
       text: {
         fontSize: 20,
         fontWeight: 700,

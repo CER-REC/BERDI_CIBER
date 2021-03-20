@@ -3,8 +3,19 @@ import { Button, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
+  button: {
+    border: '2px solid #26374A',
+    borderRadius: 10,
+    boxShadow: '0px -4px 0px 0px #26374A inset',
+    padding: '1.5em',
+    '&:hover': {
+      backgroundColor: '#EDF1F4',
+    },
+  },
   buttonLabel: {
     textAlign: 'left',
+    flexFlow: 'column',
+    textTransform: 'none',
     '&> div': {
       paddingBottom: '1em',
       width: '100%',
@@ -30,7 +41,12 @@ const ContentButton = ({ title, body, onClick }) => {
   const classes = useStyles();
 
   return (
-    <Button className="PageButton" classes={{ label: classes.buttonLabel }} variant="outlined" onClick={onClick}>
+    <Button
+      className="PageButton"
+      classes={{ outlined: classes.button, label: classes.buttonLabel }}
+      variant="outlined"
+      onClick={onClick}
+    >
       <div>
         <Typography classes={{ root: classes.title }} variant="h6">{title}</Typography>
         <span className={classes.arrow} />

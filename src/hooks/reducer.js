@@ -55,7 +55,7 @@ export const getReducer = (
         projectTypes: state.projectTypes || projectTypes,
         statuses: state.statuses || statuses,
         sort: state.sort || defaultContentType,
-        searchIndex: state.searches || initialState.searchIndex,
+        searchIndex: state.searchIndex || initialState.searchIndex,
       };
     case 'searches/changed':
       return {
