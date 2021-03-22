@@ -22,6 +22,17 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.green.dark,
     '&:hover': { color: theme.palette.green.light },
   },
+  link: {
+    fontSize: 20,
+    fontWeight: 700,
+    padding: 0,
+    lineHeight: 'normal',
+    textDecoration: 'underline',
+    textTransform: 'none',
+    '&:hover': {
+      backgroundColor: 'inherit',
+    },
+  },
   sideBlock: {
     margin: 'auto',
     textAlign: 'right',
@@ -44,6 +55,7 @@ const Disclaimer = () => {
           {intl.formatMessage({ id: 'pages.landing.disclaimer.body' })}
         </Typography>
         <Button
+          classes={{ text: classes.link }}
           variant="text"
           onClick={handleLinkClick}
           disableRipple

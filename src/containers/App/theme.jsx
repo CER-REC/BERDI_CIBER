@@ -62,17 +62,6 @@ const theme = createMuiTheme({
           textTransform: 'capitalize',
         },
       },
-      text: {
-        fontSize: 20,
-        fontWeight: 700,
-        padding: 0,
-        lineHeight: 'normal',
-        textDecoration: 'underline',
-        textTransform: 'none',
-        '&:hover': {
-          backgroundColor: 'inherit',
-        },
-      },
     },
     MuiSwitch: {
       root: {
