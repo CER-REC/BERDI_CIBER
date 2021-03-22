@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
+import useAPI from '../../../hooks/useAPI';
 import useConfig from '../../../hooks/useConfig';
 import building from '../../../images/building.svg';
 import fish from '../../../images/fish.svg';
@@ -29,6 +30,7 @@ const Keywords = () => {
   const healthKeyword = intl.formatMessage({ id: 'components.searchPanel.keywords.health' });
   const communityKeyword = intl.formatMessage({ id: 'components.searchPanel.keywords.community' });
   const riskKeyword = intl.formatMessage({ id: 'components.searchPanel.keywords.risk' });
+  const { keywordCounts } = useAPI();
   const { configDispatch } = useConfig();
   const handleClick = useCallback((keyword) => {
     configDispatch({ type: 'filters/removed' });
@@ -46,32 +48,38 @@ const Keywords = () => {
       <Grid item xs={12} classes={{ root: classes.buttons }}>
         <SvgButton
           src={fish}
-          label={fishKeyword}
+          caption={fishKeyword}
+          label={keywordCounts.fish}
           onClick={createHandleClick(fishKeyword)}
         />
         <SvgButton
           src={plants}
-          label={plantsKeyword}
+          caption={plantsKeyword}
+          label={keywordCounts.plants}
           onClick={createHandleClick(plantsKeyword)}
         />
         <SvgButton
           src={water}
-          label={emissionsKeyword}
+          caption={emissionsKeyword}
+          label={keywordCounts.emissions}
           onClick={createHandleClick(emissionsKeyword)}
         />
         <SvgButton
           src={health}
-          label={healthKeyword}
+          caption={healthKeyword}
+          label={keywordCounts.health}
           onClick={createHandleClick(healthKeyword)}
         />
         <SvgButton
           src={building}
-          label={communityKeyword}
+          caption={communityKeyword}
+          label={keywordCounts.community}
           onClick={createHandleClick(communityKeyword)}
         />
         <SvgButton
           src={warning}
-          label={riskKeyword}
+          caption={riskKeyword}
+          label={keywordCounts.risk}
           onClick={createHandleClick(riskKeyword)}
         />
       </Grid>

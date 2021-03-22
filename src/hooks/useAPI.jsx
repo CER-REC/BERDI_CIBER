@@ -76,6 +76,16 @@ export default () => {
     () => (data ? toDateOnly(data.configuration.minFilingDate) : new Date()),
     [data],
   );
+  const keywordCounts = useMemo(() => {
+    if (!data) {
+      return {};
+    }
+
+    return data.configuration.keywords.reduce((counts, keyword) => ({
+      ...counts,
+      [keyword.key]: keyword.count,
+    }), {});
+  }, [data]);
 
   return {
     loading,
@@ -89,6 +99,7 @@ export default () => {
     translations,
     maxDate,
     minDate,
+    keywordCounts,
   };
 };
 

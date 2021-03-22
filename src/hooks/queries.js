@@ -7,6 +7,10 @@ export const CONFIGURATION = gql`
       maxFilingDate
       minFilingDate
       regions
+      keywords {
+        key
+        count
+      }
       translations {
         group
         key

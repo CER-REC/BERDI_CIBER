@@ -18,6 +18,9 @@ export default (translations) => (
       case 'COMMODITY':
         key = `common.commodities.${translation.key}`;
         break;
+      case 'KEYWORD':
+        key = `components.searchPanel.keywords.${translation.key}`;
+        break;
       default:
         return i18nMessages;
     }

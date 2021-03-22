@@ -6,18 +6,24 @@ const useStyles = makeStyles(() => ({
   root: {
     borderRadius: 0,
     height: '7em',
+    padding: '0.5em',
     width: '7em',
     '&:hover': {
       boxShadow: '4px 4px 6px 0px rgba(28, 82, 4, 0.3)',
       border: '1px solid #1C5204',
     },
   },
-  buttonLabel: { display: 'block' },
+  buttonLabel: {
+    display: 'flex',
+    flexFlow: 'column',
+    height: '100%',
+    width: '100%',
+  },
   icon: {
-    display: 'block',
-    height: '3em',
-    margin: 'auto',
-    width: '3em',
+    flex: 1,
+    height: '100%',
+    padding: '0.2em',
+    width: '100%',
   },
   svg: {
     height: '100%',
@@ -25,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const SvgButton = ({ src, label, onClick }) => {
+const SvgButton = ({ src, caption, label, onClick }) => {
   const classes = useStyles();
 
   return (
@@ -37,6 +43,7 @@ const SvgButton = ({ src, label, onClick }) => {
           alt={label}
         />
       </Icon>
+      <Typography variant="subtitle2">{caption}</Typography>
       <Typography variant="subtitle1">{label}</Typography>
     </IconButton>
   );
@@ -44,6 +51,7 @@ const SvgButton = ({ src, label, onClick }) => {
 
 SvgButton.propTypes = {
   src: PropTypes.string.isRequired,
+  caption: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
