@@ -1,6 +1,6 @@
 /* Overwriting styles from theme */
 #reactRoot {
-  line-height: unset;
+  line-height: normal;
 }
 
 #reactRoot legend {
