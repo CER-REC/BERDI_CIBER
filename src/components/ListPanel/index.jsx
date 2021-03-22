@@ -1,14 +1,17 @@
-import { Button, createStyles, FormControl, Grid, makeStyles, Select, Typography } from '@material-ui/core';
+import { Button, FormControl, Grid, makeStyles, Select, Typography } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
-import CustomPaginationActionsTable from './Table';
+import SearchList from './SearchList';
 
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles({
   root: {
     marginTop: '1vh',
     height: 'auto',
+  },
+  option: {
+    paddingLeft: '5px',
   },
   dropDownLabel: {
     marginRight: '10px',
@@ -43,7 +46,7 @@ const useStyles = makeStyles(() => createStyles({
     whiteSpace: 'nowrap',
 
   },
-}));
+});
 
 const ListSection = ({ onChange }) => {
   const { config } = useConfig();
@@ -54,23 +57,30 @@ const ListSection = ({ onChange }) => {
     <>
       <Grid container justify="space-between" alignItems="center" className={classes.root}>
         <Grid item xs={6} className={classes.innerGrid}>
-          <Typography variant="body1" className={classes.dropDownLabel}>Sort by data type</Typography>
+
+          <Typography variant="body1" className={classes.dropDownLabel}>
+            {intl.formatMessage({ id: 'components.resultsList.sortLabel' })}
+          </Typography>
+
           {/* FIXME: Throws warning when selection is made.  */}
           <FormControl className={classes.selection}>
             <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
-              <option style={{ paddingLeft: '5px' }} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</option>
-              <option style={{ paddingLeft: '5px' }} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</option>
+              <option className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</option>
+              <option className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</option>
             </Select>
           </FormControl>
+
         </Grid>
         <Grid item xs={6} className={classes.innerGrid} style={{ textAlign: 'right' }}>
+
           <Button className={classes.dataButton}>
-            Access full dataset
+            {intl.formatMessage({ id: 'components.resultsList.accessDataButton' })}
           </Button>
+
         </Grid>
       </Grid>
-      {/* Table Section */}
-      <CustomPaginationActionsTable />
+
+      <SearchList />
     </>
   );
 };

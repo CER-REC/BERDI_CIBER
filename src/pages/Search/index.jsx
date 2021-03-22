@@ -5,7 +5,7 @@ import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import FilterPanel from './FilterPanel';
-import ListSection from '../../components/SearchList';
+import ListSection from '../../components/ListPanel';
 
 const Search = () => {
   const { loading } = useAPI();

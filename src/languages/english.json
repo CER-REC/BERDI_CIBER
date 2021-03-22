@@ -11,6 +11,7 @@
     "figure":"Figure",
     "figures":"Figures",
     "previous":"Previous",
+    "download":"Download",
     "next":"Next",
     "fullProjectName":"Full Project Name", 
     "applicationType":"Application Type", 
@@ -75,7 +76,10 @@
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
-    "resultsList":{},
+    "resultsList":{
+      "accessDataButton":"Access Full Dataset",
+      "sortLabel":"Sort by data type"
+    },
     "loadingIndicator": {
       "api": "connecting",
       "app": "loading"
