@@ -1,4 +1,4 @@
-import { Button, FormControl, Grid, makeStyles, Select, Typography } from '@material-ui/core';
+import { Button, FormControl, Grid, makeStyles, MenuItem, Select, Typography } from '@material-ui/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -65,8 +65,8 @@ const ListSection = ({ onChange }) => {
           {/* FIXME: Throws warning when selection is made.  */}
           <FormControl className={classes.selection}>
             <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
-              <option className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</option>
-              <option className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</option>
+              <MenuItem className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</MenuItem>
+              <MenuItem className={classes.MenuItem} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</MenuItem>
             </Select>
           </FormControl>
 
