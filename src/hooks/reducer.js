@@ -42,6 +42,21 @@ export const getReducer = (
   defaultContentType,
 ) => (state, action) => {
   switch (action.type) {
+    case 'changed':
+      return {
+        ...state,
+        page: action.payload.page || initialState.page,
+        searches: action.payload.searches || initialState.searches,
+        applicationNames: getValidEnums(action.payload.applicationNames, applicationNames),
+        regions: getValidEnums(action.payload.regions, regions),
+        startDate: action.payload.startDate || minDate,
+        endDate: action.payload.endDate || maxDate,
+        commodities: getValidEnums(action.payload.commodities, commodities),
+        projectTypes: getValidEnums(action.payload.projectTypes, projectTypes),
+        statuses: getValidEnums(action.payload.statuses, statuses),
+        sort: action.payload.sort || defaultContentType,
+        searchIndex: action.payload.searchIndex || initialState.searchIndex,
+      };
     case 'page/changed':
       return {
         ...state,
