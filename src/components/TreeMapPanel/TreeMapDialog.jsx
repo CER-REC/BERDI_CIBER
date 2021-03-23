@@ -78,7 +78,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
       <Grid container direction="column" className={classes.dialogContent}>
         <Grid item>
           <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.tables' })}: `}</span>
+            <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
             {leafData.name}
           </Typography>
         </Grid>
