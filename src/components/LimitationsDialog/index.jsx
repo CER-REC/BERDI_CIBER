@@ -68,13 +68,13 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.title' })}
         </Typography>
-        <Typography component="p">
+        <Typography>
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' })}
         </Typography>
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.title' })}
         </Typography>
-        <Typography component="p">
+        <Typography>
           {
             intl.formatMessage(
               { id: 'components.limitationsDialog.termsTitle.body' },
@@ -91,7 +91,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.citation.title' })}
         </Typography>
-        <Typography component="p">
+        <Typography>
           {
             intl.formatMessage(
               { id: 'components.limitationsDialog.citation.body' },
