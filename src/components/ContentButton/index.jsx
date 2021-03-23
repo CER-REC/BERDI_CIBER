@@ -2,19 +2,22 @@ import React from 'react';
 import { Button, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     border: '2px solid #26374A',
     borderRadius: 10,
     boxShadow: '0px -4px 0px 0px #26374A inset',
+    height: '100%',
     padding: '1.5em',
     '&:hover': {
       backgroundColor: '#EDF1F4',
     },
   },
   buttonLabel: {
-    textAlign: 'left',
+    display: 'block',
     flexFlow: 'column',
+    height: '100%',
+    textAlign: 'left',
     textTransform: 'none',
     '&> div': {
       paddingBottom: '1em',
@@ -32,7 +35,7 @@ const useStyles = makeStyles(() => ({
     width: '1em',
   },
   title: {
-    color: '#284162',
+    color: theme.palette.blue.dark,
     display: 'inline-block',
   },
 }));
