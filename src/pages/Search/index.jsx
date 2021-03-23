@@ -71,16 +71,7 @@ const Search = () => {
           </Grid>
         </Grid>
         <Grid item style={{ textAlign: 'right' }}>
-          <Button style={{
-            width: 'auto',
-            textTransform: 'none',
-            background: '#284162',
-            borderRadius: '5px',
-            color: 'white',
-            padding: '0.5% 2%',
-            whiteSpace: 'nowrap',
-          }}
-          >
+          <Button color="primary" variant="contained" disableElevation>
             Access full dataset
           </Button>
         </Grid>

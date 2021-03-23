@@ -1,4 +1,4 @@
-export default {
+export default (theme) => ({
   downloadIcon: {
     overflow: 'visible',
     height: 'unset',
@@ -84,4 +84,8 @@ export default {
   emptyPlaceholder: {
     width: '100%',
   },
-};
+  folderLink: {
+    color: theme.palette.blue.dark,
+    '&:hover': { color: theme.palette.blue.dark },
+  },
+});
