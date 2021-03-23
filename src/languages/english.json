@@ -46,6 +46,24 @@
     "DATE": "Date project was filed"
   },
   "components": {
+    "limitationsDialog": {
+      "title": "General Limitations",
+      "close": "Close",
+      "accuracy": {
+        "title": "Accuracy",
+        "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
+      },
+      "termsTitle": {
+        "title": "Terms and Conditions",
+        "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
+        "link": "\"Terms and Conditions\""
+      },
+      "citation": {
+        "title": "Citation",
+        "body": "To cite this data bank, please use the following {cite} To cite individual data tables, please also cite the original ESA PDF in REGDOCS.",
+        "cite": "Canada Energy Regulator (2020): Environmental and Socio-Economic Assessment Data Bank."
+      }
+    },
     "searchPanel": {
       "exploreButton": "Explore Catalogue",
       "exploreLabel": "Explore results from:",
