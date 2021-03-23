@@ -46,7 +46,7 @@ const Disclaimer = () => {
   const intl = useIntl();
   const { configDispatch } = useConfig();
   const handleLinkClick = useCallback(
-    () => configDispatch({ type: 'page/changed', payload: 'page2' }),
+    () => configDispatch({ type: 'page/changed', payload: 'data' }),
     [configDispatch],
   );
   const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);

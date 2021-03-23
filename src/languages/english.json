@@ -23,21 +23,6 @@
       "downloadReport": "download report"
     }
   },
-  "navigation":{
-    "page1":{
-      "title":"The project",
-      "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
-    },
-    "page2":{
-      "title":"The data",
-      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
-    },
-    "page3":{
-      "title":"The methods",
-      "description":"Learn how we turned regulatory documents into structured data."
-    },
-    "back":"Back to Search"
-  },
   "dropdowns":{
     "REGIONS": "Province",
     "STATUSES": "Pipeline Status",
@@ -123,6 +108,18 @@
           "body": "A fish species documented in a tributary off the Fraser River."
         }
       }
+    },
+    "project":{
+      "title":"The project",
+      "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
+    },
+    "data":{
+      "title":"The data",
+      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
+    },
+    "methods":{
+      "title":"The methods",
+      "description":"Learn how we turned regulatory documents into structured data."
     }
   }
 }
