@@ -11,13 +11,13 @@
     "previous":"Previous",
     "download":"Download",
     "next":"Next",
-    "fullProjectName":"Full Project Name", 
-    "applicationType":"Application Type", 
+    "fullProjectName":"Full Project Name",
+    "applicationType":"Application Type",
     "commodity":"Commodity",
     "consultant":"Consultant",
     "companyName":"Company Name",
-    "hearingOrder":"Hearing Order", 
-    "filingDate":"Filing Date", 
+    "hearingOrder":"Hearing Order",
+    "filingDate":"Filing Date",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -28,15 +28,15 @@
   },
   "navigation":{
     "page1":{
-      "title":"The Project",
+      "title":"The project",
       "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
     },
     "page2":{
-      "title":"The Data",
+      "title":"The data",
       "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
     },
     "page3":{
-      "title":"The Methods",
+      "title":"The methods",
       "description":"Learn how we turned regulatory documents into structured data."
     },
     "back":"Back to Search"
@@ -92,5 +92,37 @@
       "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
     }
   },
-  "landing": {}
+  "pages": {
+    "landing": {
+      "alert": {
+        "title": "BETA",
+        "body": "This site will change as we test ideas.",
+        "link": "Learn how you can help."
+      },
+      "disclaimer": {
+        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
+        "button": "Read Our Disclaimer",
+        "link": "Learn more about the data."
+      },
+      "discoveries": {
+        "title": "Check out these cool discoveries",
+        "accreditations": {
+          "title": "Accreditations",
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+        },
+        "wetlands": {
+          "title": "Unnamed Wetlands",
+          "body": "Areas of land that may have never before been documented."
+        },
+        "nests": {
+          "title": "Raptor nests",
+          "body": "Bird nests that fall along a pipeline corridor."
+        },
+        "fish": {
+          "title": "Ditch fish",
+          "body": "A fish species documented in a tributary off the Fraser River."
+        }
+      }
+    }
+  }
 }

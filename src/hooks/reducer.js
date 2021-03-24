@@ -8,7 +8,7 @@ const getValidEnums = (enums, validEnums) => {
 
 export const initialState = {
   // Page Name
-  page: 'search',
+  page: 'landing',
   // A list of the terms to find in the application name, ESA section, or extracted tables
   searches: [],
   // A list of the application names to include
@@ -42,6 +42,21 @@ export const getReducer = (
   defaultContentType,
 ) => (state, action) => {
   switch (action.type) {
+    case 'changed':
+      return {
+        ...state,
+        page: action.payload.page || initialState.page,
+        searches: action.payload.searches || initialState.searches,
+        applicationNames: getValidEnums(action.payload.applicationNames, applicationNames),
+        regions: getValidEnums(action.payload.regions, regions),
+        startDate: action.payload.startDate || minDate,
+        endDate: action.payload.endDate || maxDate,
+        commodities: getValidEnums(action.payload.commodities, commodities),
+        projectTypes: getValidEnums(action.payload.projectTypes, projectTypes),
+        statuses: getValidEnums(action.payload.statuses, statuses),
+        sort: action.payload.sort || defaultContentType,
+        searchIndex: action.payload.searchIndex || initialState.searchIndex,
+      };
     case 'page/changed':
       return {
         ...state,
@@ -55,7 +70,7 @@ export const getReducer = (
         projectTypes: state.projectTypes || projectTypes,
         statuses: state.statuses || statuses,
         sort: state.sort || defaultContentType,
-        searchIndex: state.searches || initialState.searchIndex,
+        searchIndex: state.searchIndex || initialState.searchIndex,
       };
     case 'searches/changed':
       return {
