@@ -65,8 +65,8 @@ const ListSection = ({ onChange }) => {
           {/* FIXME: Throws warning when selection is made.  */}
           <FormControl className={classes.selection}>
             <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
-              <option className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.content.TABLE' })}</option>
-              <option className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.content.FIGURE' })}</option>
+              <MenuItem className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.content.TABLE' })}</MenuItem>
+              <MenuItem className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.content.FIGURE' })}</MenuItem>
             </Select>
           </FormControl>
 

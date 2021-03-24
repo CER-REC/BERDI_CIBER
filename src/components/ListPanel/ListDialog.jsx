@@ -5,7 +5,7 @@ import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import styles from './dialogStyles';
@@ -16,6 +16,12 @@ const ListDialog = ({ open, handleClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [canSeeMore, setCanSeeMore] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setCanSeeMore(false);
+    }
+  }, [open, setCanSeeMore]);
 
   const createEsaSection = (sections) => {
     if (sections.length < 260 || canSeeMore) {
