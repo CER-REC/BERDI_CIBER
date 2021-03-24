@@ -88,6 +88,6 @@ export default (theme) => ({
   },
   folderLink: {
     color: theme.palette.blue.dark,
-    '&:hover': { color: theme.palette.blue.dark },
+    '&:hover, &:visited': { color: theme.palette.blue.dark },
   },
 });
