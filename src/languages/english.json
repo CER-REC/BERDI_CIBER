@@ -70,6 +70,13 @@
     "resultsList":{
       "accessDataButton":"Access Full Dataset",
       "sortLabel":"Sort by data type",
+      "downloadTable":"Download table",
+      "downloadFigure":"Download figure",
+      "seeMore":"See more...",
+      "esaSectionTitle":"ESA Section",
+      "figureOccursOnPage":"Figure occurs on page: ",
+      "tableOccursOnPage":"Table occurs on page: ",
+      "viewOriginalDocument":"View original document",
       "titles":{
         "fullProjectName":"Full Project Name",
         "filedDate":"Project Filed Date",

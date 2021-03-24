@@ -6,12 +6,13 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import figureIcon from '../../images/figure.svg';
 import tableIcon from '../../images/table.svg';
+import ListDialog from './ListDialog';
 import PaginationBar from './PaginationBar';
 
 const useStyles = makeStyles({
@@ -27,7 +28,9 @@ const useStyles = makeStyles({
       textTransform: 'uppercase',
       textDecoration: 'underline',
       fontWeight: 'normal',
-      color: '##434343',
+      color: '#434343',
+      display: 'inline',
+      cursor: 'pointer',
     },
     '& img': {
       height: '70%',
@@ -40,9 +43,6 @@ const useStyles = makeStyles({
     '& .MuiTablePagination-caption': {
       display: 'none',
     },
-  },
-  table: {
-    minWidth: 500,
   },
   iconCaption: {
     margin: '5px 2px 0 0',
@@ -66,8 +66,22 @@ const SearchList = () => {
     [totalCount, config.searchIndex],
   );
 
+  const [open, setOpen] = useState(false);
+  const [selectedLineData, setSelectedLineData] = useState(null);
+
+  const handleClickOpen = (content) => {
+    setOpen(true);
+    setSelectedLineData(content);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
+      <ListDialog open={open} handleClose={handleClose} data={selectedLineData} />
+
       <TableContainer component={Paper} className={classes.tableParent}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
@@ -77,7 +91,7 @@ const SearchList = () => {
 
                   <Grid container>
                     <Grid item xs={11}>
-                      <Typography variant="h6" style={{ display: 'inline' }}>
+                      <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
                         {content.title}
                       </Typography>
                     </Grid>
