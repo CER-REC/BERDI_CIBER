@@ -1,8 +1,10 @@
 export default (theme) => ({
   downloadIcon: {
     overflow: 'visible',
-    height: 'unset',
     marginRight: '5px',
+    '& img': {
+      verticalAlign: 'text-top',
+    },
   },
   topRight: {
     '& div': {
