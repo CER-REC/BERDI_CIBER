@@ -10,13 +10,13 @@
     "figures":"Figures",
     "previous":"Previous",
     "next":"Suivant",
-    "fullProjectName":"Nom complet du projet", 
-    "applicationType":"Type de demande", 
+    "fullProjectName":"Nom complet du projet",
+    "applicationType":"Type de demande",
     "commodity":"Produit",
     "consultant":"Consultant",
     "companyName":"Nom de la société",
-    "hearingOrder":"Ordonnance d’audience", 
-    "filingDate":"Date de dépôt", 
+    "hearingOrder":"Ordonnance d’audience",
+    "filingDate":"Date de dépôt",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -24,21 +24,6 @@
       "close": "close",
       "downloadReport": "download report"
     }
-  },
-  "navigation":{
-    "page1":{
-      "title":"Le projet",
-      "description":"L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir."
-    },
-    "page2":{
-      "title":"Les données",
-      "description":"Présentation des évaluations environnementales et socioéconomiques (« EES »)."
-    },
-    "page3":{
-      "title":"La méthode",
-      "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées."
-    },
-    "back":"Back to Open Corridor"
   },
   "dropdowns":{
     "REGIONS": "Province",
@@ -48,6 +33,24 @@
     "DATE": "Date du dépôt du projet"
   },
   "components": {
+    "limitationsDialog": {
+      "title": "Restrictions générales",
+      "close": "Fermeture ",
+      "accuracy": {
+        "title": "Exactitude",
+        "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
+      },
+      "termsTitle": {
+        "title": "Avis",
+        "body": "Veuillez vous reporter à l’Avis qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
+        "link": "\"Avis\""
+      },
+      "citation": {
+        "title": "Référence des citations ",
+        "body": "Veuillez utiliser la référence suivante pour citer la banque de données {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
+        "cite": "Régie de l’énergie du Canada (2020) - Banque de données d’évaluation environnementale et socioéconomique."
+      }
+    },
     "searchPanel": {
       "exploreButton": "Explorer le catalogue ",
       "exploreLabel": "Explorer les résultats liés à ce qui suit :",
@@ -89,5 +92,50 @@
       "resolution": "Cette visualisation a été conçue pour des ordinateurs ou tablettes disposant d’un écran d’une largeur minimale de 768 pixels.\nMerci!"
     }
   },
-  "landing": {}
+  "pages": {
+    "landing": {
+      "alert": {
+        "title": "BÊTA",
+        "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
+        "link": "Voyez comment vous pouvez aider."
+      },
+      "disclaimer": {
+        "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine.",
+        "button": "Lisez notre avertissement",
+        "link": "Pour en savoir plus sur les données."
+      },
+      "discoveries": {
+        "title": "Voyez ces intéressantes découvertes",
+        "accreditations": {
+          "title": "Accreditations",
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+        },
+        "wetlands": {
+          "title": "Milieux humides sans nom",
+          "body": "Des terres qui n’avaient peut-être jamais été documentées auparavant."
+        },
+        "nests": {
+          "title": "Nids de rapaces",
+          "body": "Nids d’oiseaux le long d’un couloir pipelinier."
+        },
+        "fish": {
+          "title": "Poissons de ruisseau",
+          "body": "Espèces de poissons répertoriées dans un affluent du fleuve Fraser."
+        }
+      }
+    },
+    "project":{
+      "title":"Le projet",
+      "description":"L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir."
+    },
+    "data":{
+      "title":"Les données",
+      "description":"Présentation des évaluations environnementales et socioéconomiques (« EES »)."
+    },
+    "methods":{
+      "title":"La méthode",
+      "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées."
+    },
+    "back":"Back to Open Corridor"
+  }
 }
