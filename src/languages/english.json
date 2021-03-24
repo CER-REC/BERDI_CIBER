@@ -9,7 +9,6 @@
     "tables":"Tables",
     "figures":"Figures",
     "previous":"Previous",
-    "download":"Download",
     "next":"Next",
     "fullProjectName":"Full Project Name", 
     "applicationType":"Application Type", 
@@ -39,7 +38,7 @@
       "title":"The Methods",
       "description":"Learn how we turned regulatory documents into structured data."
     },
-    "back":"Back to Search"
+    "back":"Back to Open Corridor"
   },
   "dropdowns":{
     "REGIONS": "Province",

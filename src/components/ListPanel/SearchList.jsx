@@ -111,7 +111,7 @@ const SearchList = () => {
                   </Grid>
 
                   <Typography variant="body2">
-                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.fullProjectName' })}: `}</span>
+                    <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
                     {content.application.name}
                   </Typography>
                   <Typography variant="body2">
