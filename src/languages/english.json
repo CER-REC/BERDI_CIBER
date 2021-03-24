@@ -71,7 +71,12 @@
     },
     "resultsList":{
       "accessDataButton":"Access Full Dataset",
-      "sortLabel":"Sort by data type"
+      "sortLabel":"Sort by data type",
+      "titles":{
+        "fullProjectName":"Full Project Name",
+        "filedDate":"Project Filed Date",
+        "consultants":"ESA Consultant(s)"
+      }
     },
     "loadingIndicator": {
       "api": "connecting",
