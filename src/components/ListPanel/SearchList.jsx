@@ -45,9 +45,14 @@ const useStyles = makeStyles({
     },
   },
   iconCaption: {
-    marginTop: '5px',
-    paddingRight: '12px',
+    margin: '5px 2px 0 0',
+    padding: '2px 6px',
     display: 'block',
+    textTransform: 'uppercase',
+    width: 'max-content',
+    float: 'right',
+    backgroundColor: '#D7FAFF',
+    fontWeight: '900',
   },
 });
 
@@ -85,12 +90,12 @@ const SearchList = () => {
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
 
                   <Grid container>
-                    <Grid item xs={9}>
-                      <Typography variant="h6" onClick={() => handleClickOpen(content)}>
+                    <Grid item xs={11}>
+                      <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
                         {content.title}
                       </Typography>
                     </Grid>
-                    <Grid item container direction="column" spacing={0} xs={3} style={{ textAlign: 'right' }}>
+                    <Grid item container direction="column" spacing={0} xs={1} style={{ textAlign: 'right' }}>
                       <Grid item>
                         <Icon>
                           <img
@@ -98,31 +103,25 @@ const SearchList = () => {
                             alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
                           />
                         </Icon>
-                        <Typography variant="caption" className={classes.iconCaption}>
-                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'common.figure' }) : intl.formatMessage({ id: 'common.table' })}
+                        <Typography variant="caption" component="p" className={classes.iconCaption}>
+                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' })}
                         </Typography>
                       </Grid>
                     </Grid>
                   </Grid>
 
                   <Typography variant="body2">
-                    <span>{'Full Project Name: '}</span>
+                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.fullProjectName' })}: `}</span>
                     {content.application.name}
                   </Typography>
                   <Typography variant="body2">
-                    <span>{'Project Filed Date: '}</span>
+                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
                     {content.application.filingDate.substring(0, 10)}
                   </Typography>
                   <Typography variant="body2">
-                    <span>{'ESA Consultant(s): '}</span>
+                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.consultants' })}: `}</span>
                     {content.application.consultants}
                   </Typography>
-                  { content.url
-                  && (
-                  <Typography variant="body2">
-                    <a href={content.url} target="_blank" rel="noreferrer">{intl.formatMessage({ id: 'common.download' })}</a>
-                  </Typography>
-                  ) }
 
                 </TableCell>
               </TableRow>
@@ -130,12 +129,10 @@ const SearchList = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
       <PaginationBar
         count={totalCount}
         page={pageNumber}
       />
-
     </>
   );
 };

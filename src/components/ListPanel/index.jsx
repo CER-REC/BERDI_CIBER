@@ -7,7 +7,7 @@ import SearchList from './SearchList';
 
 const useStyles = makeStyles({
   root: {
-    marginTop: '1vh',
+    marginTop: '15px',
     height: 'auto',
   },
   option: {
@@ -65,8 +65,8 @@ const ListSection = ({ onChange }) => {
           {/* FIXME: Throws warning when selection is made.  */}
           <FormControl className={classes.selection}>
             <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
-              <MenuItem className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.table' })}</MenuItem>
-              <MenuItem className={classes.MenuItem} value="FIGURE">{intl.formatMessage({ id: 'common.figure' })}</MenuItem>
+              <option className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.content.TABLE' })}</option>
+              <option className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.content.FIGURE' })}</option>
             </Select>
           </FormControl>
 

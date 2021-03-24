@@ -78,7 +78,12 @@
       "esaSectionTitle":"ESA Section",
       "figureOccursOnPage":"Figure occurs on page: ",
       "tableOccursOnPage":"Table occurs on page: ",
-      "viewOriginalDocument":"View original document"
+      "viewOriginalDocument":"View original document",
+      "titles":{
+        "fullProjectName":"Full Project Name",
+        "filedDate":"Project Filed Date",
+        "consultants":"ESA Consultant(s)"
+      }
     },
     "loadingIndicator": {
       "api": "connecting",

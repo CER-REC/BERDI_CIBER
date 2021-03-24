@@ -13,7 +13,7 @@ import { useIntl } from 'react-intl';
 import { RESULT_COUNT } from '../../constants';
 import useConfig from '../../hooks/useConfig';
 
-const usePaginationStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
@@ -21,9 +21,10 @@ const usePaginationStyles = makeStyles((theme) => ({
 }));
 
 const PaginationBar = ({ count, page }) => {
-  const classes = usePaginationStyles();
+  const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
+  const pageCount = Math.ceil(count / RESULT_COUNT);
 
   const handlePageSelect = useCallback((pageIndex) => {
     configDispatch({ type: 'searchIndex/changed', payload: pageIndex });
@@ -32,104 +33,105 @@ const PaginationBar = ({ count, page }) => {
   const createHandlePageSelect = (pageIndex) => () => handlePageSelect(pageIndex);
 
   return count !== 0 && (
-  <Grid container justify="center" className={classes.root}>
+    <Grid container justify="center" className={classes.root}>
 
-    <Grid item>
-      <ul className="pagination">
+      <Grid item>
+        {/* TODO: Make a list item component to reduce repetition */}
+        <ul className="pagination">
 
-        {page > 0 && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 1)} rel="prev">{intl.formatMessage({ id: 'common.previous' })}</a>
-        </li>
-        )}
-
-        {(page + 5 >= 8) && (
-        <li>
-          <a onClick={createHandlePageSelect(0)}>{1}</a>
-        </li>
-        )}
-
-        {(page - 4 >= 1) && (page === Math.ceil(count / RESULT_COUNT) - 1) && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 5)}>{page - 4}</a>
-        </li>
-        )}
-
-        {(page - 3 >= 1) && (page >= Math.ceil(count / RESULT_COUNT) - 2) && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 4)}>{page - 3}</a>
-        </li>
-        )}
-
-        {(page - 2 >= 1) && (page >= Math.ceil(count / RESULT_COUNT) - 3) && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 3)}>{page - 2}</a>
-        </li>
-        )}
-
-        {(page - 1 >= 1) && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 2)}>{page - 1}</a>
-        </li>
-        )}
-
-        {(page >= 1) && (
-        <li>
-          <a onClick={createHandlePageSelect(page - 1)}>{page}</a>
-        </li>
-        )}
-
-        <li className="active">
-          <a>{page + 1}</a>
-        </li>
-
-        {(page + 2 < Math.ceil(count / RESULT_COUNT)) && (
-        <li>
-          <a onClick={createHandlePageSelect(page + 1)}>{page + 2}</a>
-        </li>
-        )}
-
-        {(page + 3 < Math.ceil(count / RESULT_COUNT)) && (
-        <li>
-          <a onClick={createHandlePageSelect(page + 2)}>{page + 3}</a>
-        </li>
-        )}
-
-        {(page + 4 < Math.ceil(count / RESULT_COUNT)) && (page < 3) && (
-        <li>
-          <a onClick={createHandlePageSelect(page + 3)}>{page + 4}</a>
-        </li>
-        )}
-
-        {(page + 5 < Math.ceil(count / RESULT_COUNT)) && (page < 2) && (
-        <li>
-          <a onClick={createHandlePageSelect(page + 4)}>{page + 5}</a>
-        </li>
-        )}
-
-        {(page + 6 < Math.ceil(count / RESULT_COUNT)) && (page === 0) && (
-        <li>
-          <a onClick={createHandlePageSelect(page + 5)}>{page + 6}</a>
-        </li>
-        )}
-
-        {page + 1 < Math.ceil(count / RESULT_COUNT) && (
-        <>
+          {page > 0 && (
           <li>
-            <a onClick={createHandlePageSelect(Math.ceil(count / RESULT_COUNT) - 1)}>
-              {Math.ceil(count / RESULT_COUNT)}
-            </a>
+            <a onClick={createHandlePageSelect(page - 1)} rel="prev">{intl.formatMessage({ id: 'common.previous' })}</a>
+          </li>
+          )}
+
+          {(page + 5 >= 8) && (
+          <li>
+            <a onClick={createHandlePageSelect(0)}>{1}</a>
+          </li>
+          )}
+
+          {(page - 4 >= 1) && (page === pageCount - 1) && (
+          <li>
+            <a onClick={createHandlePageSelect(page - 5)}>{page - 4}</a>
+          </li>
+          )}
+
+          {(page - 3 >= 1) && (page >= pageCount - 2) && (
+          <li>
+            <a onClick={createHandlePageSelect(page - 4)}>{page - 3}</a>
+          </li>
+          )}
+
+          {(page - 2 >= 1) && (page >= pageCount - 3) && (
+          <li>
+            <a onClick={createHandlePageSelect(page - 3)}>{page - 2}</a>
+          </li>
+          )}
+
+          {(page - 1 >= 1) && (
+          <li>
+            <a onClick={createHandlePageSelect(page - 2)}>{page - 1}</a>
+          </li>
+          )}
+
+          {(page >= 1) && (
+          <li>
+            <a onClick={createHandlePageSelect(page - 1)}>{page}</a>
+          </li>
+          )}
+
+          <li className="active">
+            <a>{page + 1}</a>
           </li>
 
+          {(page + 2 < pageCount) && (
           <li>
-            <a onClick={createHandlePageSelect(page + 1)} rel="next">{intl.formatMessage({ id: 'common.next' })}</a>
+            <a onClick={createHandlePageSelect(page + 1)}>{page + 2}</a>
           </li>
-        </>
-        )}
+          )}
 
-      </ul>
+          {(page + 3 < pageCount) && (
+          <li>
+            <a onClick={createHandlePageSelect(page + 2)}>{page + 3}</a>
+          </li>
+          )}
+
+          {(page + 4 < pageCount) && (page < 3) && (
+          <li>
+            <a onClick={createHandlePageSelect(page + 3)}>{page + 4}</a>
+          </li>
+          )}
+
+          {(page + 5 < pageCount) && (page < 2) && (
+          <li>
+            <a onClick={createHandlePageSelect(page + 4)}>{page + 5}</a>
+          </li>
+          )}
+
+          {(page + 6 < pageCount) && (page === 0) && (
+          <li>
+            <a onClick={createHandlePageSelect(page + 5)}>{page + 6}</a>
+          </li>
+          )}
+
+          {page + 1 < pageCount && (
+          <>
+            <li>
+              <a onClick={createHandlePageSelect(pageCount - 1)}>
+                {pageCount}
+              </a>
+            </li>
+
+            <li>
+              <a onClick={createHandlePageSelect(page + 1)} rel="next">{intl.formatMessage({ id: 'common.next' })}</a>
+            </li>
+          </>
+          )}
+
+        </ul>
+      </Grid>
     </Grid>
-  </Grid>
   );
 };
 
