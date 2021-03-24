@@ -8,6 +8,9 @@
     },
     "tables":"Tables",
     "figures":"Figures",
+    "previous":"Previous",
+    "download":"Download",
+    "next":"Next",
     "fullProjectName":"Full Project Name",
     "applicationType":"Application Type",
     "commodity":"Commodity",
@@ -64,7 +67,22 @@
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
-    "resultsList":{},
+    "resultsList":{
+      "accessDataButton":"Access Full Dataset",
+      "sortLabel":"Sort by data type",
+      "downloadTable":"Download table",
+      "downloadFigure":"Download figure",
+      "seeMore":"See more...",
+      "esaSectionTitle":"ESA Section",
+      "figureOccursOnPage":"Figure occurs on page: ",
+      "tableOccursOnPage":"Table occurs on page: ",
+      "viewOriginalDocument":"View original document",
+      "titles":{
+        "fullProjectName":"Full Project Name",
+        "filedDate":"Project Filed Date",
+        "consultants":"ESA Consultant(s)"
+      }
+    },
     "loadingIndicator": {
       "api": "connecting",
       "app": "loading"
