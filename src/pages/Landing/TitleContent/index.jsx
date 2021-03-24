@@ -36,23 +36,23 @@ const TitleContent = () => {
         <Grid container spacing={5}>
           <Grid item xs={4}>
             <ContentButton
-              title={intl.formatMessage({ id: 'navigation.page1.title' })}
-              body={intl.formatMessage({ id: 'navigation.page1.description' })}
-              onClick={createHandleClick('page1')}
+              title={intl.formatMessage({ id: 'pages.project.title' })}
+              body={intl.formatMessage({ id: 'pages.project.description' })}
+              onClick={createHandleClick('project')}
             />
           </Grid>
           <Grid item xs={4}>
             <ContentButton
-              title={intl.formatMessage({ id: 'navigation.page2.title' })}
-              body={intl.formatMessage({ id: 'navigation.page2.description' })}
-              onClick={createHandleClick('page2')}
+              title={intl.formatMessage({ id: 'pages.data.title' })}
+              body={intl.formatMessage({ id: 'pages.data.description' })}
+              onClick={createHandleClick('data')}
             />
           </Grid>
           <Grid item xs={4}>
             <ContentButton
-              title={intl.formatMessage({ id: 'navigation.page3.title' })}
-              body={intl.formatMessage({ id: 'navigation.page3.description' })}
-              onClick={createHandleClick('page3')}
+              title={intl.formatMessage({ id: 'pages.methods.title' })}
+              body={intl.formatMessage({ id: 'pages.methods.description' })}
+              onClick={createHandleClick('methods')}
             />
           </Grid>
         </Grid>

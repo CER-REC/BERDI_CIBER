@@ -128,10 +128,10 @@ const ListDialog = ({ open, handleClose, data }) => {
             >
               <Typography>
                 <a
+                  className={classes.pdfLink}
                   href={data.pdfURL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#284162' }}
                 >
                   {intl.formatMessage({ id: 'components.resultsList.viewOriginalDocument' })}
                 </a>
@@ -146,7 +146,6 @@ const ListDialog = ({ open, handleClose, data }) => {
               onClick={handleClose}
               color="primary"
               variant="contained"
-              style={{ backgroundColor: '#284162' }}
             >
               <Icon className={classes.downloadIcon}>
                 <img

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
       width: '1.5em',
     },
     '& > span': {
-      backgroundColor: '#D7FAFF',
+      backgroundColor: theme.palette.blue.light,
       borderRadius: '3px',
       display: 'inline-flex',
       fontSize: 14,

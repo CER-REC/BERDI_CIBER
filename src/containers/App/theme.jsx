@@ -3,6 +3,8 @@ import { createMuiTheme } from '@material-ui/core';
 const black = '#000000';
 const white = '#FFFFFF';
 const green = '#63B440';
+const darkBlue = '#284162';
+const lightBlue = '#D7FAFF';
 const darkGreen = '#1C5204';
 const lightGreen = '#DCF2D2';
 
@@ -10,6 +12,10 @@ const theme = createMuiTheme({
   palette: {
     primary: { main: black },
     secondary: { main: green },
+    blue: {
+      dark: darkBlue,
+      light: lightBlue,
+    },
     green: {
       dark: darkGreen,
       light: lightGreen,
@@ -60,6 +66,12 @@ const theme = createMuiTheme({
         '& > $label': {
           fontSize: 16,
           textTransform: 'capitalize',
+        },
+      },
+      containedPrimary: {
+        backgroundColor: darkBlue,
+        '&:hover': {
+          backgroundColor: '#5B7495',
         },
       },
     },

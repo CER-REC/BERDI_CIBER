@@ -37,15 +37,6 @@ const useStyles = makeStyles({
       content: 'none',
     },
   },
-  dataButton: {
-    width: 'auto',
-    textTransform: 'none',
-    background: '#284162',
-    borderRadius: '5px',
-    color: 'white',
-    whiteSpace: 'nowrap',
-
-  },
 });
 
 const ListSection = ({ onChange }) => {
@@ -73,7 +64,7 @@ const ListSection = ({ onChange }) => {
         </Grid>
         <Grid item xs={6} className={classes.innerGrid} style={{ textAlign: 'right' }}>
 
-          <Button className={classes.dataButton}>
+          <Button color="primary" variant="contained" disableElevation>
             {intl.formatMessage({ id: 'components.resultsList.accessDataButton' })}
           </Button>
 

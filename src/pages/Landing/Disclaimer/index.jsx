@@ -1,7 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
+import LimitationsDialog from '../../../components/LimitationsDialog';
 import useConfig from '../../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,13 +41,16 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Disclaimer = () => {
+  const [open, setOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
   const handleLinkClick = useCallback(
-    () => configDispatch({ type: 'page/changed', payload: 'page2' }),
+    () => configDispatch({ type: 'page/changed', payload: 'data' }),
     [configDispatch],
   );
+  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
+  const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   return (
     <Grid container className={`Disclaimer ${classes.root}`}>
@@ -67,10 +71,16 @@ const Disclaimer = () => {
         <Button
           classes={{ root: classes.button }}
           variant="contained"
+          onClick={handleButtonClick}
           disableElevation
         >
           {intl.formatMessage({ id: 'pages.landing.disclaimer.button' })}
         </Button>
+        <LimitationsDialog
+          open={open}
+          hasDownload={false}
+          onClose={handleClose}
+        />
       </Grid>
     </Grid>
   );

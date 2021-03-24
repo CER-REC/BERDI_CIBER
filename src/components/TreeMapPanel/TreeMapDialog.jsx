@@ -159,10 +159,10 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
             >
               <Typography>
                 <a
+                  className={classes.folderLink}
                   href={leafData.regdocsURL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: '#284162' }}
                 >
                   {intl.formatMessage({ id: 'components.treeMap.REGDOCSButton' })}
                 </a>
@@ -177,7 +177,6 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
               onClick={handleClose}
               color="primary"
               variant="contained"
-              style={{ backgroundColor: '#284162' }}
             >
               <Icon className={classes.downloadIcon}>
                 <img
