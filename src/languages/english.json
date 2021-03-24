@@ -10,13 +10,13 @@
     "figures":"Figures",
     "previous":"Previous",
     "next":"Next",
-    "fullProjectName":"Full Project Name", 
-    "applicationType":"Application Type", 
+    "fullProjectName":"Full Project Name",
+    "applicationType":"Application Type",
     "commodity":"Commodity",
     "consultant":"Consultant",
     "companyName":"Company Name",
-    "hearingOrder":"Hearing Order", 
-    "filingDate":"Filing Date", 
+    "hearingOrder":"Hearing Order",
+    "filingDate":"Filing Date",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -24,21 +24,6 @@
       "close": "close",
       "downloadReport": "download report"
     }
-  },
-  "navigation":{
-    "page1":{
-      "title":"The Project",
-      "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
-    },
-    "page2":{
-      "title":"The Data",
-      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
-    },
-    "page3":{
-      "title":"The Methods",
-      "description":"Learn how we turned regulatory documents into structured data."
-    },
-    "back":"Back to Open Corridor"
   },
   "dropdowns":{
     "REGIONS": "Province",
@@ -48,6 +33,24 @@
     "DATE": "Date project was filed"
   },
   "components": {
+    "limitationsDialog": {
+      "title": "General Limitations",
+      "close": "Close",
+      "accuracy": {
+        "title": "Accuracy",
+        "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
+      },
+      "termsTitle": {
+        "title": "Terms and Conditions",
+        "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
+        "link": "\"Terms and Conditions\""
+      },
+      "citation": {
+        "title": "Citation",
+        "body": "To cite this data bank, please use the following {cite} To cite individual data tables, please also cite the original ESA PDF in REGDOCS.",
+        "cite": "Canada Energy Regulator (2020): Environmental and Socio-Economic Assessment Data Bank."
+      }
+    },
     "searchPanel": {
       "exploreButton": "Explore Catalogue",
       "exploreLabel": "Explore results from:",
@@ -91,5 +94,49 @@
       "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
     }
   },
-  "landing": {}
+  "pages": {
+    "landing": {
+      "alert": {
+        "title": "BETA",
+        "body": "This site will change as we test ideas.",
+        "link": "Learn how you can help."
+      },
+      "disclaimer": {
+        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
+        "button": "Read Our Disclaimer",
+        "link": "Learn more about the data."
+      },
+      "discoveries": {
+        "title": "Check out these cool discoveries",
+        "accreditations": {
+          "title": "Accreditations",
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+        },
+        "wetlands": {
+          "title": "Unnamed Wetlands",
+          "body": "Areas of land that may have never before been documented."
+        },
+        "nests": {
+          "title": "Raptor nests",
+          "body": "Bird nests that fall along a pipeline corridor."
+        },
+        "fish": {
+          "title": "Ditch fish",
+          "body": "A fish species documented in a tributary off the Fraser River."
+        }
+      }
+    },
+    "project":{
+      "title":"The project",
+      "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
+    },
+    "data":{
+      "title":"The data",
+      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
+    },
+    "methods":{
+      "title":"The methods",
+      "description":"Learn how we turned regulatory documents into structured data."
+    }
+  }
 }

@@ -1,22 +1,25 @@
 import { createMuiTheme } from '@material-ui/core';
 
-/**
- * Customize the look-and-feel of UI components here.
- */
-const defaultTheme = createMuiTheme({
-  palette: {
-    primary: { main: '#000000' },
-    secondary: {
-      main: '#63B440',
-      dark: '#1C5204',
-    },
-  },
-});
+const black = '#000000';
+const white = '#FFFFFF';
+const green = '#63B440';
+const darkBlue = '#284162';
+const lightBlue = '#D7FAFF';
+const darkGreen = '#1C5204';
+const lightGreen = '#DCF2D2';
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: defaultTheme.palette.primary.main },
-    secondary: { main: defaultTheme.palette.secondary.main },
+    primary: { main: black },
+    secondary: { main: green },
+    blue: {
+      dark: darkBlue,
+      light: lightBlue,
+    },
+    green: {
+      dark: darkGreen,
+      light: lightGreen,
+    },
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',
@@ -24,7 +27,7 @@ const theme = createMuiTheme({
   },
   overrides: {
     MuiTypography: {
-      h4: { fontSize: 34 },
+      h4: { fontSize: 40 },
       h5: { fontSize: 22 },
       h6: {
         fontSize: 20,
@@ -34,12 +37,12 @@ const theme = createMuiTheme({
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
       subtitle1: {
-        color: defaultTheme.palette.primary.main,
+        color: black,
         fontSize: 29,
         lineHeight: '1em',
       },
       subtitle2: {
-        color: defaultTheme.palette.primary.main,
+        color: black,
         fontSize: 20,
         lineHeight: '1em',
         paddingBottom: '0.5em',
@@ -54,16 +57,22 @@ const theme = createMuiTheme({
     },
     MuiButton: {
       contained: {
-        backgroundColor: defaultTheme.palette.secondary.dark,
-        color: defaultTheme.palette.common.white,
+        backgroundColor: darkGreen,
+        color: white,
         padding: '0.5em 2em',
         '&:hover': {
           backgroundColor: '#4F8537',
         },
+        '& > $label': {
+          fontSize: 16,
+          textTransform: 'capitalize',
+        },
       },
-      label: {
-        fontSize: 16,
-        textTransform: 'capitalize',
+      containedPrimary: {
+        backgroundColor: darkBlue,
+        '&:hover': {
+          backgroundColor: '#5B7495',
+        },
       },
     },
     MuiSwitch: {
@@ -74,11 +83,11 @@ const theme = createMuiTheme({
       },
       switchBase: {
         padding: '3px',
-        color: defaultTheme.palette.common.white,
+        color: white,
         '&$checked': {
           transform: 'translateX(1em)',
           '& + $track': {
-            backgroundColor: defaultTheme.palette.secondary.dark,
+            backgroundColor: darkGreen,
             opacity: 1,
           },
         },
@@ -96,10 +105,10 @@ const theme = createMuiTheme({
     },
     MuiTooltip: {
       tooltip: {
-        backgroundColor: defaultTheme.palette.common.white,
-        color: defaultTheme.palette.secondary.main,
+        backgroundColor: white,
+        color: green,
         fontSize: 12,
-        border: `1px solid ${defaultTheme.palette.secondary.main}`,
+        border: `1px solid ${green}`,
         borderRadius: 0,
       },
     },

@@ -49,37 +49,37 @@ const Keywords = () => {
         <SvgButton
           src={fish}
           caption={fishKeyword}
-          label={keywordCounts.fish}
+          label={keywordCounts.fish.toString()}
           onClick={createHandleClick(fishKeyword)}
         />
         <SvgButton
           src={plants}
           caption={plantsKeyword}
-          label={keywordCounts.plants}
+          label={keywordCounts.plants.toString()}
           onClick={createHandleClick(plantsKeyword)}
         />
         <SvgButton
           src={water}
           caption={emissionsKeyword}
-          label={keywordCounts.emissions}
+          label={keywordCounts.emissions.toString()}
           onClick={createHandleClick(emissionsKeyword)}
         />
         <SvgButton
           src={health}
           caption={healthKeyword}
-          label={keywordCounts.health}
+          label={keywordCounts.health.toString()}
           onClick={createHandleClick(healthKeyword)}
         />
         <SvgButton
           src={building}
           caption={communityKeyword}
-          label={keywordCounts.community}
+          label={keywordCounts.community.toString()}
           onClick={createHandleClick(communityKeyword)}
         />
         <SvgButton
           src={warning}
           caption={riskKeyword}
-          label={keywordCounts.risk}
+          label={keywordCounts.risk.toString()}
           onClick={createHandleClick(riskKeyword)}
         />
       </Grid>

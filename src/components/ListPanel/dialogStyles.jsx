@@ -53,7 +53,7 @@ export default (theme) => createStyles({
     marginTop: '20px',
   },
   seeMoreButton: {
-    color: '#284162',
+    color: theme.palette.blue.dark,
     fontWeight: '900',
     fontFamily: theme.typography.fontFamily,
     verticalAlign: 'unset',
@@ -67,5 +67,8 @@ export default (theme) => createStyles({
       textTransform: 'none',
     },
   },
-
+  pdfLink: {
+    color: theme.palette.blue.dark,
+    '&:hover, &:visited': { color: theme.palette.blue.dark },
+  },
 });

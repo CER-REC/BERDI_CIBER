@@ -15,7 +15,7 @@ import tableIcon from '../../images/table.svg';
 import ListDialog from './ListDialog';
 import PaginationBar from './PaginationBar';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   tableHeader: {
     borderBottom: '1px solid black',
     '& p': {
@@ -51,10 +51,10 @@ const useStyles = makeStyles({
     textTransform: 'uppercase',
     width: 'max-content',
     float: 'right',
-    backgroundColor: '#D7FAFF',
+    backgroundColor: theme.palette.blue.light,
     fontWeight: '900',
   },
-});
+}));
 
 const SearchList = () => {
   const classes = useStyles();
