@@ -19,12 +19,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1.5em',
     width: '100%',
   },
-  selection: {
-    margin: '0px',
-    '& .formControl': {
-      width: '100%',
-    },
-  },
 }));
 
 const FilterPanel = () => {
@@ -38,7 +32,7 @@ const FilterPanel = () => {
     const handleChange = (items) => configDispatch({ type: dispatchAction, payload: items });
 
     return (
-      <Grid item xs={4} className={classes.selection}>
+      <Grid item xs={4}>
         <Dropdown title={title} data={dataItem ?? {}} onChange={handleChange} value={value} />
       </Grid>
     );
@@ -54,7 +48,7 @@ const FilterPanel = () => {
       <Grid container spacing={5}>
         {createDropdown('APPLICATION_NAMES', applicationNames, 'applicationNames/changed', config.applicationNames)}
         {createDropdown('REGIONS', regions, 'regions/changed', config.regions)}
-        <Grid item xs={4} className={classes.selection}>
+        <Grid item xs={4}>
           <DatePicker
             maxDate={maxDate}
             minDate={minDate}
