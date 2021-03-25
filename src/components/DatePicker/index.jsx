@@ -8,7 +8,7 @@ import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
-    width: '95%',
+    width: '100%',
     borderRadius: 4,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
