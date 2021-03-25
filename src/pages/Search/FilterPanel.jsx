@@ -1,6 +1,5 @@
-import { createStyles, Grid, makeStyles, Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
-import { useIntl } from 'react-intl';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
 import useAPI from '../../hooks/useAPI';
@@ -24,7 +23,7 @@ const FilterPanel = () => {
   const { maxDate, minDate } = useAPI();
   const { config, configDispatch } = useConfig();
   const classes = useStyles();
-  const intl = useIntl();
+  // const intl = useIntl();
   const { regions, statuses, projectTypes, commodities } = useAPI();
   // TODO: Extract into own component
   const createDropdown = (title, dataItem, dispatchAction, value) => {
@@ -46,8 +45,6 @@ const FilterPanel = () => {
   return (
     <>
       {/* Grey filter selection box */}
-      <Typography variant="h6">{intl.formatMessage({ id: 'components.filterPanel.title' })}</Typography>
-
       <Grid container direction="row" alignItems="center" className={classes.filterBox}>
         {createDropdown('REGIONS', regions, 'regions/changed', config.regions)}
         <Grid item xs={4} className={classes.selection}>
