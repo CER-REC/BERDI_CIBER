@@ -32,7 +32,9 @@
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
       "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
-      "DATE": "Date du dépôt du projet"
+      "DATE": "Date du dépôt du projet",
+      "all": "(Tous)",
+      "multiple": "(Plusieurs sélectionnés)"
     },
     "limitationsDialog": {
       "title": "Restrictions générales",

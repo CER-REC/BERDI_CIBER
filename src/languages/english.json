@@ -32,7 +32,9 @@
       "STATUSES": "Pipeline Status",
       "COMMODITIES": "Commodity",
       "PROJECT_TYPES": "Project Type (NEB Act)",
-      "DATE": "Date project was filed"
+      "DATE": "Date project was filed",
+      "all": "(All)",
+      "multiple": "(Multiple selected)"
     },
     "limitationsDialog": {
       "title": "General Limitations",
