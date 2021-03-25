@@ -68,7 +68,7 @@ const DropDown = ({ title, data, value, onChange }) => {
 
   return (
     <FormControl className="formControl">
-      <Typography className={classes.label}>{intl.formatMessage({ id: `dropdowns.${title}` })}</Typography>
+      <Typography className={classes.label}>{intl.formatMessage({ id: `components.dropdown.${title}` })}</Typography>
       <Select
         value={value || []}
         onChange={handleChange}

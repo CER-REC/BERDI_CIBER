@@ -25,14 +25,15 @@
       "downloadReport": "download report"
     }
   },
-  "dropdowns":{
-    "REGIONS": "Province",
-    "STATUSES": "État – pipeline ",
-    "COMMODITIES": "Produit",
-    "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
-    "DATE": "Date du dépôt du projet"
-  },
   "components": {
+    "dropdown":{
+      "APPLICATION_NAMES": "Projet",
+      "REGIONS": "Province",
+      "STATUSES": "État – pipeline ",
+      "COMMODITIES": "Produit",
+      "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
+      "DATE": "Date du dépôt du projet"
+    },
     "limitationsDialog": {
       "title": "Restrictions générales",
       "close": "Fermeture ",
@@ -61,7 +62,7 @@
       "keywords": {}
     },
     "filterPanel":{
-      "clearButton":"Effacer tous les filtres."
+      "clearButton": "Effacer tous les filtres"
     },
     "treeMap":{
       "title":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",

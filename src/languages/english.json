@@ -25,14 +25,15 @@
       "downloadReport": "download report"
     }
   },
-  "dropdowns":{
-    "REGIONS": "Province",
-    "STATUSES": "Pipeline Status",
-    "COMMODITIES": "Commodity",
-    "PROJECT_TYPES": "Project Type (NEB Act)",
-    "DATE": "Date project was filed"
-  },
   "components": {
+    "dropdown":{
+      "APPLICATION_NAMES": "Project",
+      "REGIONS": "Province",
+      "STATUSES": "Pipeline Status",
+      "COMMODITIES": "Commodity",
+      "PROJECT_TYPES": "Project Type (NEB Act)",
+      "DATE": "Date project was filed"
+    },
     "limitationsDialog": {
       "title": "General Limitations",
       "close": "Close",
@@ -61,8 +62,7 @@
       "keywords": {}
     },
     "filterPanel":{
-      "title":"Search by one or many of the filter options below.",
-      "clearButton":"Clear all filters."
+      "clearButton": "Clear all filters"
     },
     "treeMap":{
       "title":"Select a box to filter by project and access project details.",
