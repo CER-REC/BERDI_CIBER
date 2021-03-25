@@ -9,18 +9,14 @@ import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
     width: '100%',
-    borderRadius: 4,
+    borderRadius: 5,
     position: 'relative',
     backgroundColor: theme.palette.background.paper,
-    border: '1px solid #ced4da',
+    border: '2px solid #000000',
     fontSize: 16,
-    padding: '10px 26px 10px 12px',
+    padding: '0.5em',
     transition: theme.transitions.create(['border-color', 'box-shadow']),
-    '&:focus': {
-      borderRadius: 4,
-      borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
+    '&:focus': { borderRadius: 5 },
   },
 }));
 
@@ -45,9 +41,7 @@ const useStyles = makeStyles({
       lineHeight: '1.1876em',
     },
   },
-  label: {
-    color: '#3d6a88',
-  },
+  label: { fontWeight: 600 },
 });
 
 // eslint-disable-next-line no-unused-vars
