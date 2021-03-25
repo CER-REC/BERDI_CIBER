@@ -1,6 +1,5 @@
-import { createStyles, Grid, makeStyles, Typography } from '@material-ui/core';
+import { createStyles, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
-import { useIntl } from 'react-intl';
 import DatePicker from '../../components/DatePicker';
 import Dropdown from '../../components/Dropdown';
 import useAPI from '../../hooks/useAPI';
