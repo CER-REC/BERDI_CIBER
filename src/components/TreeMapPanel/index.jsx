@@ -35,7 +35,7 @@ const TreeMapPanel = () => {
   return (
     <>
       <Grid className={classes.titleTypography}>
-        <Typography variant="h6">
+        <Typography>
           {intl.formatMessage({ id: 'components.treeMap.title' })}
         </Typography>
       </Grid>

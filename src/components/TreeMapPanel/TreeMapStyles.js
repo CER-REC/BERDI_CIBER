@@ -56,8 +56,8 @@ export default (theme) => ({
     },
   },
   titleTypography: {
-    paddingLeft: '5px',
-    marginTop: '2%',
+    paddingBottom: '0.5em',
+    paddingTop: '1.5em',
   },
   labelInner: {
     padding: '14px 0 0 14px',
