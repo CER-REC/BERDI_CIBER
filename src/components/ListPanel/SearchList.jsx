@@ -8,10 +8,12 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
+
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import figureIcon from '../../images/figure.svg';
 import tableIcon from '../../images/table.svg';
+import { reportContent } from '../../utilities/analytics';
 import ListDialog from './ListDialog';
 import PaginationBar from './PaginationBar';
 
@@ -70,6 +72,14 @@ const SearchList = () => {
   const [selectedLineData, setSelectedLineData] = useState(null);
 
   const handleClickOpen = (content) => {
+    reportContent(
+      config.regions,
+      config.commodities,
+      config.projectTypes,
+      config.statuses,
+      content.application.name,
+      content.title,
+    );
     setOpen(true);
     setSelectedLineData(content);
   };

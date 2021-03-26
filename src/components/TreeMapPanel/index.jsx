@@ -2,13 +2,17 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+
+import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
+import { reportProject } from '../../utilities/analytics';
 import TreeMapDialog from './TreeMapDialog';
 import styles from './TreeMapStyles';
 
 const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
+  const { config } = useConfig();
   const { applications: data } = useESAData();
   const intl = useIntl();
   const classes = useStyles();
@@ -51,7 +55,19 @@ const TreeMapPanel = () => {
           borderWidth={3}
           borderColor="#ffffff"
           colors={(d) => d.color}
-          onClick={(node) => { setSelectedBoxData(node?.data); handleClickOpen(); }}
+          onClick={
+            (node) => {
+              reportProject(
+                config.regions,
+                config.commodities,
+                config.projectTypes,
+                config.statuses,
+                node.data.name,
+              );
+              setSelectedBoxData(node.data);
+              handleClickOpen();
+            }
+          }
           label={(d) => (
             <>
               <div className={classes.emptyPlaceholder} />

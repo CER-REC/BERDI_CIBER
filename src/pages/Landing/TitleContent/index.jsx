@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import ContentButton from '../../../components/ContentButton';
 import useConfig from '../../../hooks/useConfig';
+import { reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,10 +20,10 @@ const TitleContent = () => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
-  const handleClick = useCallback(
-    (page) => configDispatch({ type: 'page/changed', payload: page }),
-    [configDispatch],
-  );
+  const handleClick = useCallback((page) => {
+    reportSection(page);
+    configDispatch({ type: 'page/changed', payload: page });
+  }, [configDispatch]);
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
   return (
