@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Dialog, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import { mockFileSize, mockCSVCount, mockPDFCount, API_HOST } from '../../constants';
+import { mockFileSize, mockCSVCount, mockPDFCount, API_HOST, applicationPath, lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& a': {
       backgroundColor: '#DFE1E3',
-      color: '#284162',
+      color: theme.palette.blue.dark,
       marginTop: '1.5em',
     },
     '& a:visited': {
@@ -144,8 +144,8 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             {intl.formatMessage(
               { id: 'components.limitationsDialog.dataSection.countsText' },
               {
-                csvCount: (mockCSVCount),
-                tableCount: (mockPDFCount),
+                csvCount: mockCSVCount.toLocaleString(),
+                tableCount: mockPDFCount.toLocaleString(),
                 part2: (
                   <span style={{ fontWeight: 'normal' }}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
@@ -166,7 +166,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           color="primary"
           variant="contained"
           onClick={onClose}
-          href={`${API_HOST}/esa/${intl.formatMessage({ id: 'components.limitationsDialog.dataSection.url' })}`}
+          href={`${API_HOST}/${applicationPath[lang]}/${intl.formatMessage({ id: 'components.limitationsDialog.dataSection.url' })}`}
           disableElevation
         >
           <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
@@ -177,7 +177,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
       <hr />
       <div className={classes.footer}>
         <Button
-          style={{ backgroundColor: '#DFE1E3' }}
+          color="primary"
           variant="contained"
           onClick={onClose}
           disableElevation
