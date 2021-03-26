@@ -9,6 +9,7 @@
     "tables":"Tables",
     "figures":"Figures",
     "previous":"Previous",
+    "download":"Download",
     "next":"Next",
     "fullProjectName":"Full Project Name",
     "applicationType":"Application Type",
@@ -51,12 +52,21 @@
       "termsTitle": {
         "title": "Terms and Conditions",
         "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
-        "link": "\"Terms and Conditions\""
+        "link": "\"Terms and Conditions\"",
+        "url":"https://www.cer-rec.gc.ca/en/terms-conditions.html"
       },
       "citation": {
         "title": "Citation",
         "body": "To cite this data bank, please use the following {cite} To cite individual data tables, please also cite the original ESA PDF in REGDOCS.",
         "cite": "Canada Energy Regulator (2020): Environmental and Socio-Economic Assessment Data Bank."
+      },
+      "dataSection":{
+        "zipText":"You are about to download a ZIP package including the below:",
+        "countsText":"{csvCount} CSV files ({tableCount} tables) {part2}",
+        "countsPart2":"packaged in their respective Application folders, and including an index of tables",
+        "limitationsText":"By downloading these files, you understand the above limitations and agree to adhere to all requirements.",
+        "buttonLabel":"Download all tables ",
+        "url":"csv/en/en.zip"
       }
     },
     "searchPanel": {
@@ -77,7 +87,10 @@
       "tablesButton":"Download Project Tables"
     },
     "resultsList":{
-      "accessDataButton":"Access Full Dataset",
+      "dataButton":{
+        "label":"Access Full Dataset",
+        "link":"csv/en/en.zip"
+      },
       "sortLabel":"Sort by data type",
       "downloadTable":"Download table",
       "downloadFigure":"Download figure",
@@ -87,6 +100,7 @@
       "tableOccursOnPage":"Table occurs on page: ",
       "viewOriginalDocument":"View original document",
       "titles":{
+        "fullProjectName":"Full Project Name",
         "filedDate":"Project Filed Date",
         "consultants":"ESA Consultant(s)"
       }
