@@ -45,10 +45,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   downloadSection: {
-    margin: '1.5em',
     padding: '1.5em',
-    border: '2px solid #theme.palette.blue.dark',
-    marginBottom: '2em',
+    borderColor: theme.palette.blue.dark,
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    margin: '0 1.5em 2em 1.5em',
     '& p': {
       fontSize: '14px',
       lineHeight: 'normal',
