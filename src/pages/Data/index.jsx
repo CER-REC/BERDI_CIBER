@@ -1,4 +1,4 @@
-import { Grid, Typography, makeStyles, Icon } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 import React from 'react';
 import BetaAlert from '../../components/BetaAlert';
@@ -7,6 +7,11 @@ import studyArea from '../../images/studyArea.png';
 import NavButtons from '../../components/NavButtons';
 
 const useStyles = makeStyles({
+  root: {
+    '& p': {
+      padding: '1em 0',
+    },
+  },
   imageContainer: {
     textAlign: 'center',
     border: '2px solid #C0C0C0',
@@ -26,32 +31,42 @@ const Data = () => {
       <BetaAlert />
       <br />
       <NavButtons />
-      <Grid>
+      <Grid container direction="column" className={classes.root}>
         <Grid item>
           <Typography variant="h5">{intl.formatMessage({ id: 'pages.data.body.title' })}</Typography>
         </Grid>
 
-        <br />
-
         <Grid item>
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text1' })}</Typography>
         </Grid>
-
-        {/* <br /> */}
 
         <Grid item className={classes.imageContainer}>
           <img alt="Sketch showing process of esa's from submission to decision." src={sketch} />
         </Grid>
 
         <Grid item>
-          <Typography>{intl.formatMessage({ id: 'pages.data.body.text2' })}</Typography>
+          <Typography>
+            {intl.formatMessage(
+              { id: 'pages.data.body.text2' },
+              {
+                bold1: (
+                  <strong>
+                    {intl.formatMessage({ id: 'pages.data.body.bold1' })}
+                  </strong>
+                ),
+                bold2: (
+                  <strong>
+                    {intl.formatMessage({ id: 'pages.data.body.bold2' })}
+                  </strong>
+                ),
+              },
+            )}
+          </Typography>
         </Grid>
 
         <Grid item>
           <Typography variant="h6"><strong>{intl.formatMessage({ id: 'pages.data.body.header1' })}</strong></Typography>
         </Grid>
-
-        <br />
 
         <Grid item>
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text3' })}</Typography>
@@ -70,7 +85,7 @@ const Data = () => {
             {intl.formatMessage({ id: 'pages.data.body.text4' })}
           </Typography>
         </Grid>
-        <br />
+
         <Grid item>
           <Typography>
             {intl.formatMessage({ id: 'pages.data.body.footer' }, {
@@ -82,7 +97,6 @@ const Data = () => {
 
           </Typography>
         </Grid>
-
       </Grid>
     </>
   );

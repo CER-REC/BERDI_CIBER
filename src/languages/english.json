@@ -151,7 +151,9 @@
       "body":{
         "title":"The data - baseline and effects from ESAs",
         "text1":"Data in this tool comes from Environmental and Socio-Economic Assessments (ESAs), which are reports filed with every application for a new pipeline. ESA’s have been described as a “snapshot in time” because of their evolution throughout a hearing; so, it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies. More specificially, from the Assessment and Abandonment stages, of both large and small projects, between the years 2003 and 2019.",
-        "text2":"Two key pieces of information in an ESA regard the baseline of the area where a pipeline is proposed, and the effects of the pipeline to that baseline.",
+        "text2":"Two key pieces of information in an ESA regard the {bold1} of the area where a pipeline is proposed, and the {bold2} of the pipeline to that baseline.",
+        "bold1":"baseline",
+        "bold2":"effects",
         "header1":"Baseline Information",
         "text3":"Baseline information details the current state of an area where a proposed pipeline might be implemented and may source from a combination of desk and field research, or public engagement activities. This information includes a wide variety of topics, or “Valued Components,” which ranges from wetlands, species at risk, and air emissions, to traditional land use, social and cultural well-being, and human health. The Filing Manual details such topics to consider, under biophysical and socio-economic categories.",
         "header2":"(Proposed) Effects Analyses",
