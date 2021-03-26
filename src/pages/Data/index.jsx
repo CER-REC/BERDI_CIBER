@@ -6,7 +6,15 @@ import sketch from '../../images/sketch.png';
 import studyArea from '../../images/studyArea.png';
 import NavButtons from '../../components/NavButtons';
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+  imageContainer: {
+    textAlign: 'center',
+    border: '2px solid #C0C0C0',
+    backgroundColor: '#F8F8F8',
+    padding: '1em',
+    margin: '1em 0',
+  },
+});
 
 const Data = () => {
   const classes = useStyles({});
@@ -29,9 +37,9 @@ const Data = () => {
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text1' })}</Typography>
         </Grid>
 
-        <br />
+        {/* <br /> */}
 
-        <Grid item>
+        <Grid item className={classes.imageContainer}>
           <img alt="Sketch showing process of esa's from submission to decision." src={sketch} />
         </Grid>
 
@@ -49,7 +57,7 @@ const Data = () => {
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text3' })}</Typography>
         </Grid>
 
-        <Grid item>
+        <Grid item className={classes.imageContainer}>
           <img alt="Graph showing effects and baseline" src={studyArea} />
         </Grid>
 
