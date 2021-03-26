@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
+import AccuracyAlert from '../../components/AccuracyAlert';
 import SearchPanel from '../../components/SearchPanel';
 import FilterPanel from '../../components/FilterPanel';
 import ListSection from '../../components/ListPanel';
@@ -38,6 +39,7 @@ const Search = () => {
   // TODO: Replace enums in the native select sort with the list from useAPI to make it dynamic
   return (
     <>
+      <AccuracyAlert />
       <SearchPanel hasFilter onChange={handleFilterChange} />
 
       { open && <FilterPanel /> }
