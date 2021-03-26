@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   downloadSection: {
     margin: '1.5em',
     padding: '1.5em',
-    border: '2px solid #284162',
+    border: '2px solid #theme.palette.blue.dark',
     marginBottom: '2em',
     '& p': {
       fontSize: '14px',
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '1.5em',
     },
     '& a:visited': {
-      color: '#284162',
+      color: '#theme.palette.blue.dark',
     },
   },
   footer: {
