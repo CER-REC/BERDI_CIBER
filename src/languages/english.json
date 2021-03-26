@@ -34,7 +34,12 @@
       "PROJECT_TYPES": "Project Type (NEB Act)",
       "DATE": "Date project was filed",
       "all": "(All)",
-      "multiple": "(Multiple selected)"
+      "multiple": "(Multiple selected)",
+      "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
+      "nebAct": "NEB Act",
+      "cerAct": "CER Act",
+      "nebLink": "https://lois-laws.justice.gc.ca/eng/acts/N-7/",
+      "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/"
     },
     "limitationsDialog": {
       "title": "General Limitations",

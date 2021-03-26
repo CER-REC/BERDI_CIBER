@@ -28,12 +28,18 @@ const FilterPanel = () => {
   const { applicationNames, regions, statuses, projectTypes, commodities } = useAPI();
   const intl = useIntl();
   // TODO: Extract into own component
-  const createDropdown = (title, dataItem, dispatchAction, value) => {
+  const createDropdown = (title, hasHelp, dataItem, dispatchAction, value) => {
     const handleChange = (items) => configDispatch({ type: dispatchAction, payload: items });
 
     return (
       <Grid item xs={4}>
-        <Dropdown title={title} data={dataItem ?? {}} onChange={handleChange} value={value} />
+        <Dropdown
+          title={title}
+          hasHelp={hasHelp}
+          data={dataItem || []}
+          onChange={handleChange}
+          value={value}
+        />
       </Grid>
     );
   };
@@ -46,8 +52,8 @@ const FilterPanel = () => {
   return (
     <div className={`FilterPanel ${classes.root}`}>
       <Grid container spacing={5}>
-        {createDropdown('APPLICATION_NAMES', applicationNames, 'applicationNames/changed', config.applicationNames)}
-        {createDropdown('REGIONS', regions, 'regions/changed', config.regions)}
+        {createDropdown('APPLICATION_NAMES', false, applicationNames, 'applicationNames/changed', config.applicationNames)}
+        {createDropdown('REGIONS', false, regions, 'regions/changed', config.regions)}
         <Grid item xs={4}>
           <DatePicker
             maxDate={maxDate}
@@ -59,9 +65,9 @@ const FilterPanel = () => {
         </Grid>
       </Grid>
       <Grid container spacing={5}>
-        {createDropdown('COMMODITIES', commodities, 'commodities/changed', config.commodities)}
-        {createDropdown('PROJECT_TYPES', projectTypes, 'projectTypes/changed', config.projectTypes)}
-        {createDropdown('STATUSES', statuses, 'statuses/changed', config.statuses)}
+        {createDropdown('COMMODITIES', false, commodities, 'commodities/changed', config.commodities)}
+        {createDropdown('PROJECT_TYPES', true, projectTypes, 'projectTypes/changed', config.projectTypes)}
+        {createDropdown('STATUSES', false, statuses, 'statuses/changed', config.statuses)}
       </Grid>
       <Grid container spacing={5}>
         <Grid item xs={4}>

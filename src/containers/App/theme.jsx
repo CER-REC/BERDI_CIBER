@@ -106,10 +106,7 @@ const theme = createMuiTheme({
     MuiTooltip: {
       tooltip: {
         backgroundColor: white,
-        color: green,
-        fontSize: 12,
-        border: `1px solid ${green}`,
-        borderRadius: 0,
+        padding: 0,
       },
     },
     MuiDialog: {
