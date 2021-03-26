@@ -1,9 +1,10 @@
 import { Button, FormControl, Grid, makeStyles, MenuItem, Select, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import SearchList from './SearchList';
+import LimitationsDialog from '../LimitationsDialog';
 
 const useStyles = makeStyles({
   root: {
@@ -44,6 +45,10 @@ const ListSection = ({ onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
 
+  const [open, setOpen] = useState(false);
+  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
+  const handleClose = useCallback(() => setOpen(false), [setOpen]);
+
   return (
     <>
       <Grid container justify="space-between" alignItems="center" className={classes.root}>
@@ -64,9 +69,14 @@ const ListSection = ({ onChange }) => {
         </Grid>
         <Grid item xs={6} className={classes.innerGrid} style={{ textAlign: 'right' }}>
 
-          <Button color="primary" variant="contained" disableElevation>
-            {intl.formatMessage({ id: 'components.resultsList.accessDataButton' })}
+          <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
+            {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
           </Button>
+          <LimitationsDialog
+            open={open}
+            hasDownload
+            onClose={handleClose}
+          />
 
         </Grid>
       </Grid>

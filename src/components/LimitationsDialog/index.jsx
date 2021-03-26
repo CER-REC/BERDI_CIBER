@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Dialog, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import { mockFileSize, mockCSVCount, mockPDFCount, API_HOST, applicationPath, lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -36,10 +37,33 @@ const useStyles = makeStyles((theme) => ({
       background: '#BBEBFF',
       paddingLeft: 0,
       paddingRight: '0.5em',
+      fontFamily: 'Courier',
     },
     '& span': {
       display: 'block',
       padding: '0.5em 0',
+    },
+  },
+  downloadSection: {
+    margin: '1.5em',
+    padding: '1.5em',
+    border: '2px solid #theme.palette.blue.dark',
+    marginBottom: '2em',
+    '& p': {
+      fontSize: '14px',
+      lineHeight: 'normal',
+      '&:not(:first-child)': { paddingTop: '1.5em' },
+    },
+    '& span': {
+      fontWeight: '700',
+    },
+    '& a': {
+      backgroundColor: '#DFE1E3',
+      color: theme.palette.blue.dark,
+      marginTop: '1.5em',
+    },
+    '& a:visited': {
+      color: '#theme.palette.blue.dark',
     },
   },
   footer: {
@@ -80,7 +104,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               { id: 'components.limitationsDialog.termsTitle.body' },
               {
                 link: (
-                  <a href="https://www.cer-rec.gc.ca/">
+                  <a href={intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.url' })}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.link' })}
                   </a>
                 ),
@@ -108,8 +132,48 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           }
         </Typography>
       </div>
-      { /* TODO: Add data download */ }
-      { hasDownload && 'Download' }
+      { hasDownload
+      && (
+      <div className={classes.downloadSection}>
+        <Typography>
+          {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.zipText' })}
+        </Typography>
+        <Typography>
+          <span>
+            &#8226;
+            {intl.formatMessage(
+              { id: 'components.limitationsDialog.dataSection.countsText' },
+              {
+                csvCount: mockCSVCount.toLocaleString(),
+                tableCount: mockPDFCount.toLocaleString(),
+                part2: (
+                  <span style={{ fontWeight: 'normal' }}>
+                    {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
+                  </span>
+                ),
+              },
+            )}
+          </span>
+        </Typography>
+
+        <Typography>
+          <span>
+            {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.limitationsText' })}
+          </span>
+        </Typography>
+
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={onClose}
+          href={`${API_HOST}/${applicationPath[lang]}/${intl.formatMessage({ id: 'components.limitationsDialog.dataSection.url' })}`}
+          disableElevation
+        >
+          <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
+          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>{`[${mockFileSize} MB]`}</span>
+        </Button>
+      </div>
+      ) }
       <hr />
       <div className={classes.footer}>
         <Button

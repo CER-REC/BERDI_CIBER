@@ -8,7 +8,7 @@
     },
     "tables":"Tableaux",
     "figures":"Figures",
-    "previous":"Previous",
+    "previous":"Précédente",
     "next":"Suivant",
     "fullProjectName":"Nom complet du projet",
     "applicationType":"Type de demande",
@@ -38,17 +38,26 @@
       "close": "Fermeture ",
       "accuracy": {
         "title": "Exactitude",
-        "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
+        "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
       "termsTitle": {
         "title": "Avis",
-        "body": "Veuillez vous reporter à l’Avis qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
-        "link": "\"Avis\""
+        "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
+        "link": "\"l’Avis\"",
+        "url":"https://www.cer-rec.gc.ca/fr/avis.html"
       },
       "citation": {
         "title": "Référence des citations ",
         "body": "Veuillez utiliser la référence suivante pour citer la banque de données {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
         "cite": "Régie de l’énergie du Canada (2020) - Banque de données d’évaluation environnementale et socioéconomique."
+      },
+      "dataSection":{
+        "zipText":"Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit:",
+        "countsText":"{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
+        "countsPart2":"fichiers regroupés par dossier de demande, y compris un index des tableaux.",
+        "limitationsText":"En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
+        "buttonLabel":"Télécharger tous les tableaux",
+        "url":"csv/fr/fr.zip"
       }
     },
     "searchPanel": {
@@ -69,18 +78,21 @@
       "tablesButton":"Télécharger les tableaux"
     },
     "resultsList":{
-      "accessDataButton":"Accès à l’ensemble de données complet",
+      "dataButton":{
+        "label":"Accès à l’ensemble de données complet",
+        "link":"csv/fr/fr.zip"
+      },
       "sortLabel":"Trier par type de données",
       "downloadTable":"Télécharger le tableau",
-      "downloadFigure":"Download figure",
-      "seeMore":"See more...",
-      "esaSectionTitle":"ESA Section",
-      "figureOccursOnPage":"Figure occurs on page: ",
-      "tableOccursOnPage":"Le tableau se trouve à la page: ",
+      "downloadFigure":"Télécharger la figure",
+      "seeMore":"Voir plus...",
+      "esaSectionTitle":"Section de l'ÉES",
+      "figureOccursOnPage":"La figure est sur  page:",
+      "tableOccursOnPage":"La figure est sur  page:",
       "viewOriginalDocument":"Consulter le document original",
       "titles":{
-        "filedDate":"Project Filed Date",
-        "consultants":"ESA Consultant(s)"
+        "filedDate":"Date du dépôt du projet ",
+        "consultants":"Nom du consultant de l'ÉES"
       }
     },
     "loadingIndicator": {
@@ -107,8 +119,8 @@
       "discoveries": {
         "title": "Voyez ces intéressantes découvertes",
         "accreditations": {
-          "title": "Accreditations",
-          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+          "title": "Accréditations",
+          "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart"
         },
         "wetlands": {
           "title": "Milieux humides sans nom",
@@ -136,6 +148,7 @@
       "title":"La méthode",
       "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées."
     },
-    "back":"Retourner à [tool name] "
+    "back":"Retourner à [tool name]"
+
   }
 }
