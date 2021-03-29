@@ -90,19 +90,21 @@
       "REGDOCSButton":"Consulter le dossier REGDOCS",
       "tablesButton":"Télécharger les tableaux"
     },
-    "resultsList":{
-      "dataButton":{
-        "label":"Accès à l’ensemble de données complet",
-        "link":"csv/fr/fr.zip"
-      },
-      "sortLabel":"Trier par type de données",
+    "resultDialog": {
       "downloadTable":"Télécharger le tableau",
       "downloadFigure":"Télécharger la figure",
       "seeMore":"Voir plus...",
       "esaSectionTitle":"Section de l'ÉES",
       "figureOccursOnPage":"La figure est sur  page:",
       "tableOccursOnPage":"La figure est sur  page:",
-      "viewOriginalDocument":"Consulter le document original",
+      "viewOriginalDocument":"Consulter le document original"
+    },
+    "resultsList":{
+      "dataButton":{
+        "label":"Accès à l’ensemble de données complet",
+        "link":"csv/fr/fr.zip"
+      },
+      "sortLabel":"Trier par type de données",
       "titles":{
         "filedDate":"Date du dépôt du projet ",
         "consultants":"Nom du consultant de l'ÉES"
