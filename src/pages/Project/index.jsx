@@ -100,7 +100,7 @@ const Project = () => {
               {
                 boldText: (
                   <strong>
-                    {intl.formatMessage({ id: 'pages.project.help.bold1' })}
+                    {intl.formatMessage({ id: 'common.toolName' })}
                   </strong>
                 ),
               },

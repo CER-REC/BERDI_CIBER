@@ -51,8 +51,8 @@ export default () => {
   return (
     <Grid container direction="column">
       <Grid item>
-        <ButtonBase onClick={createHandleClick('')} className={classes.returnLink}>
-          {`> ${intl.formatMessage({ id: 'pages.back' })}`}
+        <ButtonBase onClick={createHandleClick('landing')} className={classes.returnLink}>
+          {`> ${intl.formatMessage({ id: 'pages.back' }, { toolName: intl.formatMessage({ id: 'common.toolName' }) })}`}
         </ButtonBase>
       </Grid>
 
