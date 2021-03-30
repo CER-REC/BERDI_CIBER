@@ -25,14 +25,22 @@
       "downloadReport": "download report"
     }
   },
-  "dropdowns":{
-    "REGIONS": "Province",
-    "STATUSES": "État – pipeline ",
-    "COMMODITIES": "Produit",
-    "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
-    "DATE": "Date du dépôt du projet"
-  },
   "components": {
+    "dropdown":{
+      "APPLICATION_NAMES": "Projet",
+      "REGIONS": "Province",
+      "STATUSES": "État – pipeline ",
+      "COMMODITIES": "Produit",
+      "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
+      "DATE": "Date du dépôt du projet",
+      "all": "(Tous)",
+      "multiple": "(Plusieurs sélectionnés)",
+      "tooltip": "Cet ensemble de données se limite aux projets visés par l’ancienne {nebAct}. La {cerAct} actuelle a modifié et ajouté des catégories de projets.",
+      "nebAct": "Loi sur l’Office national de l’énergie",
+      "cerAct": "Loi sur la Régie canadienne de l’énergie",
+      "nebLink": "https://lois-laws.justice.gc.ca/fra/lois/N-7/",
+      "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/"
+    },
     "limitationsDialog": {
       "title": "Restrictions générales",
       "close": "Fermeture ",
@@ -70,7 +78,7 @@
       "keywords": {}
     },
     "filterPanel":{
-      "clearButton":"Effacer tous les filtres."
+      "clearButton": "Effacer tous les filtres"
     },
     "treeMap":{
       "title":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",

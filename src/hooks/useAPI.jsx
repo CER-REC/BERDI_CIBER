@@ -45,7 +45,7 @@ export default () => {
     [data],
   );
   const statuses = useMemo(
-    () => (data ? getStatuses(data.configuration.translations) : []),
+    () => (data ? getStatuses(data.configuration.translations).sort() : []),
     [data],
   );
   const projectTypes = useMemo(
@@ -65,7 +65,7 @@ export default () => {
     [data],
   );
   const applicationNames = useMemo(
-    () => (data ? data.configuration.applicationNames : []),
+    () => (data ? data.configuration.applicationNames.sort() : []),
     [data],
   );
   const maxDate = useMemo(

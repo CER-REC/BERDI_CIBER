@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchPanel = ({ hasFilter }) => {
+const SearchPanel = ({ hasFilter, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
 
@@ -48,7 +48,7 @@ const SearchPanel = ({ hasFilter }) => {
               <Typography classes={{ root: classes.filterLabel }} variant="h6">
                 {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
               </Typography>
-              <Switch color="default" />
+              <Switch color="default" onChange={onChange} />
             </>
           )
         }
@@ -61,6 +61,11 @@ const SearchPanel = ({ hasFilter }) => {
 
 SearchPanel.propTypes = {
   hasFilter: PropTypes.bool.isRequired,
+  onChange: PropTypes.func,
+};
+
+SearchPanel.defaultProps = {
+  onChange: () => {},
 };
 
 export default SearchPanel;
