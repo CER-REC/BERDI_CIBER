@@ -146,7 +146,57 @@
     },
     "methods":{
       "title":"La méthode",
-      "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées."
+      "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées.",
+      "body":{
+        "title":"",
+        "section1":{
+          "paragraph1":"",
+          "paragraph2":"",
+          "paragraph3":"",
+          "link":"",
+          "url":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
+        },
+        "section2":{
+          "header":"",
+          "paragraph1":"",
+          "link1":"",
+          "url1":"https://apps.cer-rec.gc.ca/REGDOCS/Accueil/Index/",
+          "link2":"",
+          "url2":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
+        },
+        "section3":{
+          "header":"",
+          "paragraph1":"",
+          "link1":"",
+          "url1":"https://github.com/chrismattmann/tika-python"
+        },
+        "section4":{
+          "header":"",
+          "paragraph1":"",
+          "link1":"",
+          "url1":"https://pymupdf.readthedocs.io/en/latest/intro/",
+          "paragraph2":"",
+          "link2":"",
+          "url2":"https://camelot-py.readthedocs.io/en/master/"
+        },
+        "section5":{
+          "header":"",
+          "paragraph1":""
+        },
+        "section6":{
+          "header":"",
+          "paragraph1":"",
+          "paragraph2":"",
+          "paragraph3":"",
+          "paragraph4":""
+        },
+        "section7":{
+          "header":"",
+          "paragraph1":"",
+          "link1":"",
+          "url1":"https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
+        }
+      }
     },
     "back":"Retourner à [tool name]"
 

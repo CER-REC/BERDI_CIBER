@@ -179,7 +179,7 @@
           "header":"Step 1: Collect the relevant PDF documents",
           "paragraph1":"CER staff manually identified 1,902 ESA PDF documents in REGDOCS. {link1} is the CER's on-line repository of public documents related to the design, construction, operation, and abandonment of federally regulated pipelines. A file that indexes all of these documents is available in our {link2}.",
           "link1":"REGDOCS",
-          "url1":"/REGDOCS/Home/Index",
+          "url1":"https://apps.cer-rec.gc.ca/REGDOCS/Home/Index",
           "link2":"CER's GitHub repository",
           "url2":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },

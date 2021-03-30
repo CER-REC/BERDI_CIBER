@@ -67,7 +67,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section2.paragraph1' },
               {
                 link1: (
-                  <a href={`${API_HOST}/${applicationPath[lang]}${intl.formatMessage({ id: 'pages.methods.body.section2.url1' })}`}>
+                  <a href={intl.formatMessage({ id: 'pages.methods.body.section2.url1' })}>
                     {intl.formatMessage({ id: 'pages.methods.body.section2.link1' })}
                   </a>
                 ),
