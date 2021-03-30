@@ -90,4 +90,10 @@ export default (theme) => ({
     color: theme.palette.blue.dark,
     '&:hover, &:visited': { color: theme.palette.blue.dark },
   },
+  tooltip: {
+    '& p': {
+      margin: '0px',
+      '&:not(:last-child)': { paddingBottom: '1em' },
+    },
+  },
 });

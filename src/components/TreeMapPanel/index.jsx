@@ -40,9 +40,16 @@ const TreeMapPanel = () => {
 
       <Grid className={classes.treeMap}>
         <ResponsiveTreeMapHtml
+          tooltip={(application) => (
+            <div className={classes.tooltip}>
+              <p>{ application.data.shortName }</p>
+              <p>{ `${application.data.tableCount} Tables` }</p>
+              <p>{ `${application.data.figureCount} Figures` }</p>
+            </div>
+          )}
           root={data}
           identity="shortName"
-          value="tableCount"
+          value="totalCount"
           valueFormat=".02s"
           orientLabel={false}
           tile="squarify"
