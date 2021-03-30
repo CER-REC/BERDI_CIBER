@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "Open Corridor",
+    "toolName": "Open Corridor",
     "description": "Search over 20,000 tables extracted from 37 pipeline applications and their Environmental and Socio-Econonmic Assesments - the start of something new, at the Canada Energy Regulator.",
     "char": {
       "colon": ":",
@@ -155,15 +155,94 @@
     },
     "project":{
       "title":"The project",
-      "description":"The opportunity of a legacy, driven by policy - and our plans for the future."
+      "description":"The opportunity of a legacy, driven by policy - and our plans for the future.",
+      "body":{
+        "header":"About the project",
+        "boldText1":"Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings all of which is available in our library.",
+        "paragraph1":"{boldText} With the introduction of REGDOCS in 2003, we have been digitizing thousands more. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where considerable data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
+        "boldText2":"While this data is publicly available, it is not easily accessible and difficult to navigate.",
+        "paragraph2":"{boldText} Led by the Government of Canada’s Directive on Open Government, we endeavor to understand how best to mine, structure, and present regulatory data to the people we serve. This pilot project is our first step towards meeting that goal.",
+        "boldText3":"This work is ongoing.",
+        "paragraph3":"{boldText} We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications, follow us on Github."
+      },
+      "help":{
+        "title":"Learn how you can help",
+        "text1":"{boldText}, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can create, validate, and prioritize features that improve this use.",
+        "text2":"If you work or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. {boldText}",
+        "bold2":"Please email us with your feedback at {link}"
+      }
     },
     "data":{
       "title":"The data",
-      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")"
+      "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
+      "body":{
+        "title":"The data - baseline and effects from ESAs",
+        "text1":"Data in this tool comes from Environmental and Socio-Economic Assessments (ESAs), which are reports filed with every application for a new pipeline. ESA’s have been described as a “snapshot in time” because of their evolution throughout a hearing; so, it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies. More specificially, from the Assessment and Abandonment stages, of both large and small projects, between the years 2003 and 2019.",
+        "text2":"Two key pieces of information in an ESA regard the {bold1} of the area where a pipeline is proposed, and the {bold2} of the pipeline to that baseline.",
+        "bold1":"baseline",
+        "bold2":"effects",
+        "header1":"Baseline Information",
+        "text3":"Baseline information details the current state of an area where a proposed pipeline might be implemented and may source from a combination of desk and field research, or public engagement activities. This information includes a wide variety of topics, or “Valued Components,” which ranges from wetlands, species at risk, and air emissions, to traditional land use, social and cultural well-being, and human health. The Filing Manual details such topics to consider, under biophysical and socio-economic categories.",
+        "header2":"(Proposed) Effects Analyses",
+        "text4":"Effects analyses detail mitigation measures taken to sustain this baseline, like fencing at a certain time of year to avoid interrupting bird nesting seasons. These analyses also detail impact, or “Evaluation of Significance,” like how likely work camps are to impact communities.",
+        "footer":"For a brief overview that details the environmental aspect of ESAs, view the Canada Energy Regulator’s {link}.",
+        "linkLabel":"video on Environmental Protection"
+      }
     },
     "methods":{
       "title":"The methods",
-      "description":"Learn how we turned regulatory documents into structured data."
-    }
+      "description":"Learn how we turned regulatory documents into structured data.",
+      "body":{
+        "title":"Our Methods",
+        "section1":{
+          "paragraph1":"Environmental and Socio-Economic Assessments (ESAs) can be several hundred pages long and are submitted to the CER as a series of PDF documents. These PDFs contain qualitative and quantitative data, including text, tables, figures, maps and satellite images.",
+          "paragraph2":"While the information contained in each ESA is comprehensive, it is not easily searchable or accessible due to the limitations of the PDF format. No raw data files, such as tables in CSV format, are filed with the CER -- all relevant information is contained within the PDF file. Those interested in analysing, comparing, or processing the data must extract it manually, by copying and pasting information from the PDF into other software programs, such as spreadsheet software. This is time-intensive and tedious.",
+          "paragraph3":"A team of data scientists at the CER created the process for automatically identifying ESA table and figure titles and extracting table data as a CSV. This process uses several open-source libraries in the Python programming language. All code is open source and available on the {link}.",
+          "link":"CER's GitHub repository",
+          "url":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
+        },
+        "section2":{
+          "header":"Step 1: Collect the relevant PDF documents",
+          "paragraph1":"CER staff manually identified 1,902 ESA PDF documents in REGDOCS. {link1} is the CER's on-line repository of public documents related to the design, construction, operation, and abandonment of federally regulated pipelines. A file that indexes all of these documents is available in our {link2}.",
+          "link1":"REGDOCS",
+          "url1":"https://apps.cer-rec.gc.ca/REGDOCS/Home/Index",
+          "link2":"CER's GitHub repository",
+          "url2":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
+        },
+        "section3":{
+          "header":"Step 2: Convert PDF documents to text files",
+          "paragraph1":"Each PDF was converted into a more computer-friendly text format using the {link1}.",
+          "link1":"Python Tika library",
+          "url1":"https://github.com/chrismattmann/tika-python"
+        },
+        "section4":{
+          "header":"Step 3: Extract tables and figures",
+          "paragraph1":"The next step was to identify unique features of each PDF page and their location coordinates. This information allows users to identify pages that have image features (ex. size of blocks, presence of text, etc.) and is used in modeling to identify ESA Figures. The {link1} was used to extract these page-level PDF details.",
+          "link1":"Python PyMuPDF library",
+          "url1":"https://pymupdf.readthedocs.io/en/latest/intro/",
+          "paragraph2":"The extraction of tables from each PDF relied on a separate process. The {link2} was used to convert all tables from the PDFs into CSV (comma-separated value) files. Camelot relies on the presence of unique table features, (e.g. demarcated lines or presence of white space between cells) to identify tables in a PDF document. Once tables and figures were identified, the next task was to label them with their respective title.",
+          "link2":"Python Camelot library",
+          "url2":"https://camelot-py.readthedocs.io/en/master/"
+        },
+        "section5":{
+          "header":"Step 4: Identify table and figure titles",
+          "paragraph1":"The team used the ESA tables of contents from the PDF files (when available) together with a set of regular expressions to identify table and figure titles. Titles were then matched with their respective table or figure using regular expressions. In some instances, titles as they appear in the table of contents differed from the title spelling in the actual table or figure. Some calibration on matching was employed to match titles with figures or tables in such instances."
+        },
+        "section6":{
+          "header":"Step 5: Validate and verify",
+          "paragraph1":"In general, programming the extraction of data out of PDFs is an imperfect process because each PDF can contain different table formats and be prepared and saved using different techniques. For example, tables with clear, black borders are easier to extract accurately compared to tables that have unclear or no borders. Our team employed a manual validation process for a sample of the tables, figures, and PDFs. It is possible that there are tables in PDFs that were not extracted or tables that were extracted, but are missing some data. It is estimated that 94% to 98% of all tables in PDF have been extracted, and that 88% to 94% of all tables have complete data (based on a random sample of 384 tables). ",
+          "paragraph2":"As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, Leismer to Kettle River Crossover). What does problematic mean: 1)  files only contain one column or one row; 2) contains more than 72% blank cells; 3) contains more than 80% cells with non-identified characters; or 4)  two or more files are indexed with the same title and page, even though they are different. Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version.",
+          "paragraph3":"All images were inspected and it was found that 92.1% of images had correct page numbers, 89.4% had correct titles, and 99.95% were faithful to the original image. Figure extraction was not perfect because of different titles for the same figure appearing in the table of contents vs. the body of text (due to spelling variability, inconsistency in labeling formats, or no title present). Secondly, figure titles that were embedded as images were undetected with a text-based extraction approach. Finally, in a small percentage of PDF files (0.95%), the extraction process led to corrupt images where the text/image blocks are partially retained and the rest of the figure is replaced by black colour.",
+          "paragraph4":"While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both possibilities that did not exist previously."
+        },
+        "section7":{
+          "header":"Acknowledgements",
+          "paragraph1":"The data science team at the University of British Columbia was instrumental in guiding this project in its early days. The Canada Energy Regulator acknowledges the work of Nipun Goyal, Louis (Xiang) Luo, and Prakhar Sinha (with support from Martha Essak, Erin Martin-Serrano, Stuart Donald, and Gene Moo Lee) at the {link1}, UBC Sauder School of Business. ",
+          "link1":"Centre for Operations Excellence",
+          "url1":"https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
+        }
+      }
+    },
+    "back":"Back to {toolName}"
   }
 }
