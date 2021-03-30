@@ -55,10 +55,7 @@ export default (theme) => ({
       padding: '4px 0',
     },
   },
-  titleTypography: {
-    paddingLeft: '5px',
-    marginTop: '2%',
-  },
+  titleTypography: { padding: '1.5em 0 0.5em 0' },
   labelInner: {
     padding: '14px 0 0 14px',
     width: '100%',

@@ -19,33 +19,34 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const BetaAlert = () => {
+// TODO: Refactor this component along with BetaAlert
+const AccuracyAlert = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
   const handleClick = useCallback(() => {
-    reportSection('project');
-    configDispatch({ type: 'page/changed', payload: 'project' });
+    reportSection('methods');
+    configDispatch({ type: 'page/changed', payload: 'methods' });
   }, [configDispatch]);
 
   return (
-    <div className="BetaAlert alert alert-info">
+    <div className="AccuracyAlert alert alert-warning">
       <span>
         &nbsp;
-        <strong>{intl.formatMessage({ id: 'pages.landing.alert.title' })}</strong>
+        <strong>{intl.formatMessage({ id: 'components.accuracyAlert.title' })}</strong>
         &nbsp;-&nbsp;
-        {intl.formatMessage({ id: 'pages.landing.alert.body' })}
+        {intl.formatMessage({ id: 'components.accuracyAlert.body' })}
         &nbsp;
         <Button
           classes={{ text: classes.link }}
           variant="text"
           onClick={handleClick}
         >
-          {intl.formatMessage({ id: 'pages.landing.alert.link' })}
+          {intl.formatMessage({ id: 'components.accuracyAlert.link' })}
         </Button>
       </span>
     </div>
   );
 };
 
-export default BetaAlert;
+export default AccuracyAlert;

@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import LimitationsDialog from '../../../components/LimitationsDialog';
 import useConfig from '../../../hooks/useConfig';
+import { reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,10 +46,10 @@ const Disclaimer = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
-  const handleLinkClick = useCallback(
-    () => configDispatch({ type: 'page/changed', payload: 'data' }),
-    [configDispatch],
-  );
+  const handleLinkClick = useCallback(() => {
+    reportSection('data');
+    configDispatch({ type: 'page/changed', payload: 'data' });
+  }, [configDispatch]);
   const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
   const handleClose = useCallback(() => setOpen(false), [setOpen]);
 

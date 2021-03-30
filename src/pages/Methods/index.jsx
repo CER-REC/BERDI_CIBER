@@ -3,7 +3,6 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import BetaAlert from '../../components/BetaAlert';
 import NavButtons from '../../components/NavButtons';
-import { API_HOST, applicationPath, lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {

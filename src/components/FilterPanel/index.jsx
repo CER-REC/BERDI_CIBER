@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
+import { reportFilter } from '../../utilities/analytics';
 import DatePicker from '../DatePicker';
 import Dropdown from '../Dropdown';
 
@@ -29,7 +30,10 @@ const FilterPanel = () => {
   const intl = useIntl();
   // TODO: Extract into own component
   const createDropdown = (title, hasHelp, dataItem, dispatchAction, value) => {
-    const handleChange = (items) => configDispatch({ type: dispatchAction, payload: items });
+    const handleChange = (items) => {
+      reportFilter(title, items);
+      configDispatch({ type: dispatchAction, payload: items });
+    };
 
     return (
       <Grid item xs={4}>

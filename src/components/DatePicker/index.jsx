@@ -25,8 +25,11 @@ const useStyles = makeStyles({
   These are style rules to scale up the date picker pop up
   */
   root: {
-    '& .react-datepicker': {
+    '& .react-datepicker, .react-datepicker__header': {
       fontSize: '1.3rem',
+      lineHeight: '2.3rem',
+      marginTop: '-0.3rem',
+      paddingTop: '0.3rem',
     },
     '& .react-datepicker__current-month': {
       fontSize: '1.3rem',

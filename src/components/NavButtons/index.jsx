@@ -1,7 +1,9 @@
 import { Button, ButtonBase, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
+
 import useConfig from '../../hooks/useConfig';
+import { reportSection } from '../../utilities/analytics';
 
 const useStyles = makeStyles({
   returnLink: {
@@ -42,10 +44,10 @@ export default () => {
   const { config, configDispatch } = useConfig();
 
   const intl = useIntl();
-  const handleClick = useCallback(
-    (page) => configDispatch({ type: 'page/changed', payload: page }),
-    [configDispatch],
-  );
+  const handleClick = useCallback((page) => {
+    reportSection(page);
+    configDispatch({ type: 'page/changed', payload: page });
+  }, [configDispatch]);
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
   return (
