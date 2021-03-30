@@ -129,7 +129,7 @@ const SearchList = () => {
                     {content.application.filingDate.substring(0, 10)}
                   </Typography>
                   <Typography variant="body2">
-                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.consultants' })}: `}</span>
+                    <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
                     {content.application.consultants}
                   </Typography>
 

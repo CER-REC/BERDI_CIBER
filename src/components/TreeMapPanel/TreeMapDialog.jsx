@@ -99,7 +99,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
 
         <Grid item>
           <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.consultant' })}: `}</span>
+            <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
             {leafData.consultants}
           </Typography>
         </Grid>
