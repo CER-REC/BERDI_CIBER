@@ -1,18 +1,36 @@
 import React, { useCallback, useState } from 'react';
 
+import AccuracyAlert from '../../components/AccuracyAlert';
 import SearchPanel from '../../components/SearchPanel';
 import FilterPanel from '../../components/FilterPanel';
+import ListSection from '../../components/ListPanel';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
-import ListSection from '../../components/ListPanel';
+import { reportShowFilter, reportSort } from '../../utilities/analytics';
 
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
-  const { configDispatch } = useConfig();
-  const handleFilterChange = useCallback((event) => setOpen(event.target.checked), [setOpen]);
-  const handleSortChange = useCallback((event) => configDispatch({ type: 'sort/changed', payload: event.target.value }), [configDispatch]);
+  const { config, configDispatch } = useConfig();
+  const handleFilterChange = useCallback((event) => {
+    if (event.target.checked) {
+      reportShowFilter();
+    }
+
+    setOpen(event.target.checked);
+  }, [setOpen]);
+  const handleSortChange = useCallback((event) => {
+    reportSort(
+      config.regions,
+      config.commodities,
+      config.projectTypes,
+      config.statuses,
+      config.applicationNames,
+      event.target.value,
+    );
+    configDispatch({ type: 'sort/changed', payload: event.target.value });
+  }, [config, configDispatch]);
 
   if (loading) {
     return null;
@@ -21,6 +39,7 @@ const Search = () => {
   // TODO: Replace enums in the native select sort with the list from useAPI to make it dynamic
   return (
     <>
+      <AccuracyAlert />
       <SearchPanel hasFilter onChange={handleFilterChange} />
 
       { open && <FilterPanel /> }

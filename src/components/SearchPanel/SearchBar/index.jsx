@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
+import { reportSearch } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: { width: '100%' },
@@ -48,6 +49,7 @@ const SearchBar = ({ hasShrink }) => {
   const handleClick = useCallback(() => {
     const searches = search.split(' ').filter((term) => term);
 
+    reportSearch(search);
     configDispatch({ type: 'searches/changed', payload: searches });
   }, [search, configDispatch]);
   const handleKeyDown = useCallback((event) => (event.key === 'Enter') && handleClick(), [handleClick]);

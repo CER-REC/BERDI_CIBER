@@ -26,6 +26,11 @@
     }
   },
   "components": {
+    "accuracyAlert": {
+      "title": "NOTE SUR L’EXACTITUDE",
+      "body": "Les résultats peuvent être limités. Certaines données ont été exclues.",
+      "link": "Renseignez-vous sur nos méthodes."
+    },
     "dropdown":{
       "APPLICATION_NAMES": "Projet",
       "REGIONS": "Province",
