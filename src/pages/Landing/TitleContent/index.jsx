@@ -28,7 +28,7 @@ const TitleContent = () => {
   return (
     <div className={`TitleContent ${classes.root} `}>
       <header>
-        <Typography variant="h4" gutterBottom>{intl.formatMessage({ id: 'common.title' })}</Typography>
+        <Typography variant="h4" gutterBottom>{intl.formatMessage({ id: 'common.toolName' })}</Typography>
         <Typography classes={{ root: classes.subtitle }} variant="h5">{intl.formatMessage({ id: 'common.description' })}</Typography>
       </header>
       <hr />

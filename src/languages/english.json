@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "Open Corridor",
+    "toolName": "Open Corridor",
     "description": "Search over 20,000 tables extracted from 37 pipeline applications and their Environmental and Socio-Econonmic Assesments - the start of something new, at the Canada Energy Regulator.",
     "char": {
       "colon": ":",
@@ -154,7 +154,6 @@
       "help":{
         "title":"Learn how you can help",
         "text1":"{boldText}, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can create, validate, and prioritize features that improve this use.",
-        "bold1":"BERDI",
         "text2":"If you work or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. {boldText}",
         "bold2":"Please email us with your feedback at {link}"
       }
@@ -167,6 +166,6 @@
       "title":"The methods",
       "description":"Learn how we turned regulatory documents into structured data."
     },
-    "back":"Back to [tool name]"
+    "back":"Back to {toolName}"
   }
 }
