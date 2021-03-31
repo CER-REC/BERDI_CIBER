@@ -210,7 +210,7 @@
         }
       }
     },
-    "back":"Retourner à [tool name]"
+    "back":"Retourner à {toolName}"
 
   }
 }
