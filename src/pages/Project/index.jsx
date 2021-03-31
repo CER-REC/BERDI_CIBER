@@ -1,13 +1,17 @@
-import { Grid, Typography, makeStyles, Icon } from '@material-ui/core';
+import { Grid, Typography, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import BetaAlert from '../../components/BetaAlert';
-import informationIcon from '../../images/informationIcon.png';
 import stacksOfPaperImage from '../../images/stacksOfPaper.png';
 import paperToSearchImage from '../../images/paperToSearch.png';
 import NavButtons from '../../components/NavButtons';
 
 const useStyles = makeStyles({
+  root: {
+    '& .alert-info > :first-child::before': {
+      paddingTop: '4px',
+    },
+  },
   imageSection: {
     '& img': {
       marginLeft: '20%',
@@ -26,7 +30,7 @@ const Project = () => {
       <br />
       <NavButtons />
 
-      <Grid container direction="column">
+      <Grid container direction="column" className={classes.root}>
         <Grid item container direction="row" spacing={2}>
           <Grid item xs={8}>
             <Typography variant="h6">
@@ -86,47 +90,46 @@ const Project = () => {
           </Grid>
         </Grid>
 
-        <Grid item style={{ padding: '2em', backgroundColor: '#EAF9FF' }}>
-          <Typography variant="h6">
-            <Icon style={{ marginRight: '5px' }}>
-              <img src={informationIcon} alt="Information symbol" />
-            </Icon>
-            {intl.formatMessage({ id: 'pages.project.help.title' })}
-          </Typography>
-          <br />
-          <Typography>
-            {intl.formatMessage(
-              { id: 'pages.project.help.text1' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage({ id: 'common.toolName' })}
-                  </strong>
-                ),
-              },
-            )}
+        <Grid item>
+          <section className="alert alert-info">
+            <Typography variant="h6">
+              {intl.formatMessage({ id: 'pages.project.help.title' })}
+            </Typography>
+            <br />
+            <Typography>
+              {intl.formatMessage(
+                { id: 'pages.project.help.text1' },
+                {
+                  boldText: (
+                    <strong>
+                      {intl.formatMessage({ id: 'common.toolName' })}
+                    </strong>
+                  ),
+                },
+              )}
 
-            <br />
-            <br />
-            {intl.formatMessage(
-              { id: 'pages.project.help.text2' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage(
-                      { id: 'pages.project.help.bold2' },
-                      {
-                        link: (
-                          <a href="mailto:data.donnees@cer-rec.gc.ca">
-                            data.donnees@cer-rec.gc.ca
-                          </a>
-                        ),
-                      },
-                    )}
-                  </strong>),
-              },
-            )}
-          </Typography>
+              <br />
+              <br />
+              {intl.formatMessage(
+                { id: 'pages.project.help.text2' },
+                {
+                  boldText: (
+                    <strong>
+                      {intl.formatMessage(
+                        { id: 'pages.project.help.bold2' },
+                        {
+                          link: (
+                            <a href="mailto:data.donnees@cer-rec.gc.ca">
+                              data.donnees@cer-rec.gc.ca
+                            </a>
+                          ),
+                        },
+                      )}
+                    </strong>),
+                },
+              )}
+            </Typography>
+          </section>
         </Grid>
       </Grid>
     </>
