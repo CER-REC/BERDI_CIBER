@@ -14,7 +14,7 @@
     "fullProjectName":"Full Project Name",
     "applicationType":"Application Type",
     "commodity":"Commodity",
-    "consultant":"Consultant",
+    "consultants":"ESA Consultant(s)",
     "companyName":"Company Name",
     "hearingOrder":"Hearing Order",
     "filingDate":"Filing Date",
@@ -105,9 +105,7 @@
       "tableOccursOnPage":"Table occurs on page: ",
       "viewOriginalDocument":"View original document",
       "titles":{
-        "fullProjectName":"Full Project Name",
-        "filedDate":"Project Filed Date",
-        "consultants":"ESA Consultant(s)"
+        "filedDate":"Project Filed Date"
       }
     },
     "loadingIndicator": {
