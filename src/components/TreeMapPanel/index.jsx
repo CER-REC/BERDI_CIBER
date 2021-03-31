@@ -43,8 +43,14 @@ const TreeMapPanel = () => {
           tooltip={(application) => (
             <div className={classes.tooltip}>
               <p>{ application.data.shortName }</p>
-              <p>{ `${application.data.tableCount} Tables` }</p>
-              <p>{ `${application.data.figureCount} Figures` }</p>
+              <p>
+                <strong>{application.data.tableCount}</strong>
+                {` ${intl.formatMessage({ id: 'common.tables' })}`}
+              </p>
+              <p>
+                <strong>{application.data.figureCount}</strong>
+                {` ${intl.formatMessage({ id: 'common.figures' })}`}
+              </p>
             </div>
           )}
           root={data}
