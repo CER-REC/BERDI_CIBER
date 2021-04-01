@@ -19,7 +19,9 @@ export default (data) => {
   if (!data?.length) {
     return null;
   }
-  const sortedData = data.sort((a, b) => b.tableCount - a.tableCount);
+  const sortedData = data.sort(
+    (a, b) => (b.tableCount + b.figureCount) - (a.tableCount + a.figureCount),
+  );
   const largestDataPoint = sortedData[0].tableCount + sortedData[0].figureCount;
 
   const parsedData = sortedData.reduce((acc, val) => {

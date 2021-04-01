@@ -69,13 +69,13 @@ const TreeMapPanel = () => {
             <>
               <div className={classes.emptyPlaceholder} />
               <div className={classes.labelInner}>
-                <span style={{ fontSize: '130%', marginTop: '4px' }}>{d.shortName}</span>
+                <span className={classes.labelInnerTitle}>{d.shortName}</span>
               </div>
               <div className={classes.labelInner}>
-                <span style={{ whiteSpace: 'nowrap' }}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
+                <span className={classes.labelInnerCounts}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
               </div>
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
-                <span style={{ whiteSpace: 'nowrap' }}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
+                <span className={classes.labelInnerCounts}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
               </div>
             </>
           )}

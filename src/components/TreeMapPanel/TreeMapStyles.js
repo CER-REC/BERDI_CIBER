@@ -73,6 +73,14 @@ export default (theme) => ({
       float: 'left',
     },
   },
+  labelInnerTitle: {
+    fontSize: '130%',
+    marginTop: '4px',
+  },
+  labelInnerCounts: {
+    whiteSpace: 'nowrap',
+    textTransform: 'lowercase',
+  },
   treeMap: {
     // select all Nivo spans but not our custom spans
     '& div:not([class]) > span': {
@@ -93,7 +101,7 @@ export default (theme) => ({
   tooltip: {
     '& p': {
       margin: '0px',
-      '&:not(:last-child)': { paddingBottom: '1em' },
+      '&:first-child': { paddingBottom: '1em' },
     },
   },
 });
