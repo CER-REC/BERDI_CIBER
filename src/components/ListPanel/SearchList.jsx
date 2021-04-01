@@ -1,4 +1,4 @@
-import { Grid, Icon, Typography } from '@material-ui/core';
+import { Grid, Typography, ButtonBase } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -18,6 +18,28 @@ import ListDialog from './ListDialog';
 import PaginationBar from './PaginationBar';
 
 const useStyles = makeStyles((theme) => ({
+  imgSection: {
+    textAlign: 'right',
+    '& p': {
+      margin: 'auto',
+      padding: '2px 6px',
+      display: 'block',
+      textTransform: 'uppercase',
+      width: 'max-content',
+      backgroundColor: theme.palette.blue.light,
+      fontWeight: '900',
+      fontSize: '10px',
+      clear: 'right',
+    },
+    '& img': {
+      display: 'block',
+      margin: 'auto',
+      height: '2.5em',
+    },
+    '& button': {
+      display: 'block',
+    },
+  },
   tableHeader: {
     borderBottom: '1px solid black',
     '& p': {
@@ -34,9 +56,6 @@ const useStyles = makeStyles((theme) => ({
       display: 'inline',
       cursor: 'pointer',
     },
-    '& img': {
-      height: '70%',
-    },
   },
   tableParent: {
     boxShadow: 'none',
@@ -45,16 +64,6 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiTablePagination-caption': {
       display: 'none',
     },
-  },
-  iconCaption: {
-    margin: '5px 2px 0 0',
-    padding: '2px 6px',
-    display: 'block',
-    textTransform: 'uppercase',
-    width: 'max-content',
-    float: 'right',
-    backgroundColor: theme.palette.blue.light,
-    fontWeight: '900',
   },
 }));
 
@@ -98,41 +107,42 @@ const SearchList = () => {
             {contents.map((content) => (
               <TableRow key={content.id}>
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
-
                   <Grid container>
+
                     <Grid item xs={11}>
                       <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
                         {content.title}
                       </Typography>
+                      <Typography variant="body2">
+                        <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
+                        {content.application.name}
+                      </Typography>
+                      <Typography variant="body2">
+                        <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
+                        {content.application.filingDate.substring(0, 10)}
+                      </Typography>
+                      <Typography variant="body2">
+                        <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
+                        {content.application.consultants}
+                      </Typography>
                     </Grid>
-                    <Grid item container direction="column" spacing={0} xs={1} style={{ textAlign: 'right' }}>
-                      <Grid item>
-                        <Icon>
-                          <img
-                            src={content.type === 'FIGURE' ? figureIcon : tableIcon}
-                            alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
-                          />
-                        </Icon>
-                        <Typography variant="caption" component="p" className={classes.iconCaption}>
+
+                    <Grid
+                      item
+                      xs={1}
+                      className={classes.imgSection}
+                    >
+                      <ButtonBase onClick={() => handleClickOpen(content)}>
+                        <img
+                          src={content.type === 'FIGURE' ? figureIcon : tableIcon}
+                          alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
+                        />
+                        <Typography variant="caption" component="p">
                           {content.type === 'FIGURE' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' })}
                         </Typography>
-                      </Grid>
+                      </ButtonBase>
                     </Grid>
                   </Grid>
-
-                  <Typography variant="body2">
-                    <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
-                    {content.application.name}
-                  </Typography>
-                  <Typography variant="body2">
-                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
-                    {content.application.filingDate.substring(0, 10)}
-                  </Typography>
-                  <Typography variant="body2">
-                    <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
-                    {content.application.consultants}
-                  </Typography>
-
                 </TableCell>
               </TableRow>
             ))}
