@@ -70,6 +70,14 @@ export default (theme) => ({
       float: 'left',
     },
   },
+  labelInnerTitle: {
+    fontSize: '130%',
+    marginTop: '4px',
+  },
+  labelInnerCounts: {
+    whiteSpace: 'nowrap',
+    textTransform: 'lowercase',
+  },
   treeMap: {
     // select all Nivo spans but not our custom spans
     '& div:not([class]) > span': {
@@ -86,5 +94,12 @@ export default (theme) => ({
   folderLink: {
     color: theme.palette.blue.dark,
     '&:hover, &:visited': { color: theme.palette.blue.dark },
+  },
+  tooltip: {
+    '& p': {
+      margin: '0px',
+      '&:first-child': { paddingBottom: '1em' },
+      '&:not(:first-child)': { textTransform: 'lowercase' },
+    },
   },
 });

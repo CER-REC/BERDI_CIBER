@@ -19,13 +19,16 @@ export default (data) => {
   if (!data?.length) {
     return null;
   }
-  const sortedData = data.sort((a, b) => b.tableCount - a.tableCount);
-  const largestDataPoint = sortedData[0].tableCount;
+  const sortedData = data.sort(
+    (a, b) => (b.tableCount + b.figureCount) - (a.tableCount + a.figureCount),
+  );
+  const largestDataPoint = sortedData[0].tableCount + sortedData[0].figureCount;
 
   const parsedData = sortedData.reduce((acc, val) => {
-    const percentage = (val.tableCount / largestDataPoint);
+    const totalCount = val.tableCount + val.figureCount;
+    const percentage = (totalCount / largestDataPoint);
     const color = getColor(...darkGreen, ...lightGreen, percentage);
-    acc.children.push({ ...val, color });
+    acc.children.push({ ...val, color, totalCount });
     return acc;
   }, { shortName: 'esaData', children: [] });
 
