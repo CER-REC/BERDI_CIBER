@@ -1,6 +1,6 @@
 {
   "common": {
-    "title": "Libre passage",
+    "toolName": "Libre passage",
     "description": "Explorez plus de 20 000 tableaux extraits de 37 demandes visant des pipelines et des évaluations environnementales et socioéconomiques y afférentes – le début de quelque chose de nouveau à la Régie de l’énergie du Canada.",
     "char": {
       "colon": ":",
@@ -150,62 +150,105 @@
     },
     "project":{
       "title":"Le projet",
-      "description":"L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir."
+      "description":"L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
+      "body":{
+        "header":"",
+        "boldText1":"",
+        "paragraph1":"",
+        "boldText2":"",
+        "paragraph2":"",
+        "boldText3":"",
+        "paragraph3":""
+      },
+      "help":{
+        "title":"",
+        "text1":"",
+        "text2":"",
+        "bold2":""
+      }
     },
     "data":{
       "title":"Les données",
-      "description":"Présentation des évaluations environnementales et socioéconomiques (« EES »)."
+      "description":"Présentation des évaluations environnementales et socioéconomiques (« EES »).",
+      "body":{
+        "title":"Les données des EES – les conditions de base et les effets",
+        "text1":"Les données de cet outil proviennent des évaluations environnementales et socioéconomiques (« EES »), qui sont des rapports déposés avec chaque demande visant un nouveau pipeline. On conçoit les EES comme des « instantanés » en raison de leur évolution tout au long d’une audience. Il est donc important de noter que les EES recensées pour l’extraction des données correspondent aux documents initialement soumis par les sociétés. Plus précisément, les documents portent sur les étapes de l’évaluation et de la cessation d’exploitation de projets de grande et de moindre envergure et ont été déposés de 2003 à 2019.",
+        "text2":"Les conditions de {bold1} de la zone visée par un pipeline projeté et les {bold2} potentiels du pipeline sur ces conditions sont deux éléments essentiels des EES.",
+        "bold1":"base",
+        "bold2":"effets",
+        "header1":"Renseignements sur les conditions de base",
+        "text3":"Les renseignements sur les conditions de base décrivent l’état actuel d’une zone où on projette la construction d’un pipeline. Ils proviennent généralement d’une combinaison de recherches documentaires et sur le terrain ou d’activités de mobilisation du public. Ces renseignements portent sur un vaste éventail de sujets, ou « composantes valorisées », qui vont des milieux humides, des espèces en péril et des émissions atmosphériques à l’utilisation des terres à des fins traditionnelles, au bien-être social et culturel et à la santé humaine. Le {link1} et les {link2} de la Régie fournissent des précisions sur les sujets à examiner dans les catégories biophysiques et socioéconomiques.",
+        "link1":"Guide de dépôt et la liste de contrôle",
+        "url1":"https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-annexe-1-listes-controle-guide-depot.html",
+        "link2":"Listes de contrôle du Guide de dépôt",
+        "url2":"https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-rubrique-a-demandes-ayant-trait-installations-a2.html",
+        "header2":"Analyse des effets",
+        "text4":"Ce type d’analyse permet de prédire les effets associés à un projet proposé. Les sociétés sont tenues de proposer des mesures d’atténuation pour préserver les conditions de base, par exemple en effectuant avant la construction des études visant à éviter d’interrompre la nidification de certains oiseaux à une période précise de l’année. Ces analyses évaluent également les effets éventuels d’un projet une fois les mesures d’atténuation appliquées, afin de mesurer la probabilité d’effets environnementaux et socioéconomiques négatifs résiduels, ainsi que leur portée. Le degré de précision des renseignements demandés par la Régie sera fonction de la nature et de l’envergure du projet.",
+        "footer":"Pour obtenir un aperçu de l’aspect environnemental des EES, visionnez la {link} de la Régie de l’énergie du Canada.",
+        "link3":"vidéo sur la protection de l’environnement",
+        "url3":"https://www.youtube.com/watch?v=Lmg_qIJtQmo"
+      }
     },
     "methods":{
       "title":"La méthode",
       "description":"Voyez comment nous avons transformé des documents de réglementation en données structurées.",
       "body":{
-        "title":"",
+        "title":"Méthodes",
         "section1":{
-          "paragraph1":"",
-          "paragraph2":"",
-          "paragraph3":"",
-          "link":"",
+          "paragraph1":"Les évaluations environnementales et socioéconomiques (« EES ») peuvent compter plusieurs centaines de pages et sont soumises à la Régie de l’énergie du Canada sous forme de fichiers PDF. Ces fichiers renferment des données qualitatives et quantitatives, notamment du texte, des tableaux, des figures, des cartes et des images satellites.",
+          "paragraph2":"Bien que l’information contenue dans les EES soit détaillée, elle n’est pas facilement consultable ni accessible en raison des limites inhérentes aux fichiers PDF. Aucun fichier de données brutes, comme des tableaux en format CSV, n’est déposé auprès de la Régie; toute l’information pertinente se trouve dans les fichiers PDF. Les personnes qui souhaitent analyser, comparer ou traiter les données doivent les extraire manuellement, en copiant et en collant l’information du fichier PDF dans d’autres logiciels, comme des tableurs. C’est un processus long et fastidieux.",
+          "paragraph3":"Une équipe de scientifiques de données de la Régie a établi un processus permettant de repérer automatiquement les titres des tableaux et des figures des EES ainsi que d’extraire les données contenues dans les tableaux en format CSV. Ce processus nécessite l’utilisation de plusieurs bibliothèques ouvertes dans le langage de programmation Python. Tous les codes sont ouverts et accessibles à partir {link}.",
+          "link":"du dépôt GitHub de la Régie",
           "url":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section2":{
-          "header":"",
-          "paragraph1":"",
-          "link1":"",
+          "header":"Étape 1 – Recueillir les documents PDF pertinents",
+          "paragraph1":"Le personnel de la Régie a répertorié manuellement 1 902 EES en format PDF dans {link1}, le dépôt en ligne de la Régie qui renferme des documents publics sur la conception, la construction, l’exploitation et la cessation d’exploitation des pipelines de ressort fédéral. Un fichier qui répertorie tous ces documents se trouve dans {link2}.",
+          "link1":"REGDOCS",
           "url1":"https://apps.cer-rec.gc.ca/REGDOCS/Accueil/Index/",
-          "link2":"",
+          "link2":"le dépôt GitHub de la Régie",
           "url2":"https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section3":{
-          "header":"",
-          "paragraph1":"",
-          "link1":"",
+          "header":"Étape 2 – Convertir les fichiers PDF en fichiers texte",
+          "paragraph1":"Chaque fichier PDF a été converti dans un format texte plus convivial au moyen de la {link1}.",
+          "link1":"bibliothèque Tika Python",
           "url1":"https://github.com/chrismattmann/tika-python"
         },
         "section4":{
-          "header":"",
-          "paragraph1":"",
-          "link1":"",
+          "header":"Étape 3 – Extraire des tableaux et des figures",
+          "paragraph1":"L’étape suivante a consisté à recenser les caractéristiques uniques sur chaque page du PDF et les coordonnées de leurs emplacements. Cette information permet aux utilisateurs de repérer les pages qui ont des caractéristiques d’image (p. ex., taille des blocs, présence de texte) et est utilisée lors de la modélisation pour répertorier les figures qui se trouvent dans les EES. La {link1} a été utilisée pour extraire les détails au niveau de la page.",
+          "link1":"bibliothèque PyMuPDF de Python",
           "url1":"https://pymupdf.readthedocs.io/en/latest/intro/",
-          "paragraph2":"",
-          "link2":"",
+          "paragraph2":"L’extraction des tableaux de chaque fichier PDF s’est faite au moyen d’un processus distinct. La {link2} a servi à convertir tous les tableaux des fichiers PDF en fichiers CSV (valeurs séparées par des virgules). La bibliothèque Camelot se sert des caractéristiques uniques (p. ex., lignes de délimitation ou espace blanc entre les cellules) pour repérer les tableaux dans un fichier PDF. Une fois que les tableaux et les figures ont été répertoriés, la tâche suivante a consisté à les étiqueter.",
+          "link2":"bibliothèque Camelot de Python",
           "url2":"https://camelot-py.readthedocs.io/en/master/"
         },
         "section5":{
-          "header":"",
-          "paragraph1":""
+          "header":"Étape 4 – Titres de tableaux et de figures",
+          "paragraph1":"L’équipe a utilisé les tables des matières des EES dans les fichiers PDF (lorsqu’elles étaient présentes) ainsi qu’un ensemble d’expressions courantes pour repérer les titres des tableaux et des figures. Les titres ont ensuite été appariés à leur tableau ou figure respectifs à l’aide d’expressions courantes. Dans certains cas, les titres figurant dans la table des matières différaient des titres apparaissant dans les tableaux ou les figures. Une calibration a donc été nécessaire pour apparier certains titres avec des figures ou des tableaux."
         },
         "section6":{
-          "header":"",
-          "paragraph1":"",
-          "paragraph2":"",
-          "paragraph3":"",
-          "paragraph4":""
+          "header":"Étape 5 – Valider et vérifier",
+          "paragraph1":"En général, la programmation de l’extraction des données de fichiers PDF est un processus imparfait, car chaque fichier PDF peut renfermer divers formats de tableau et avoir été préparé et enregistré au moyen de techniques différentes. Par exemple, les tableaux à bordure noire claire sont plus faciles à extraire avec précision que ceux dont la bordure est floue ou inexistante. Notre équipe a utilisé un processus de validation manuel pour un ensemble de tableaux, de figures et de fichiers PDF. Il est possible qu’il y ait des tableaux dans les fichiers PDF qui n’ont pas été extraits ou qui l’ont été mais pour lesquels il manque certaines données. On estime que de 94 % à 98 % de tous les tableaux en format PDF ont été extraits et que de 88 % à 94 % de ceux-ci présentent des données complètes (sur la base d’un échantillon de 384 tableaux pris au hasard).",
+          "paragraph2":{
+            "part1":"Dans le cadre des vérifications aux fins d’assurance de la qualité, nous avons constaté que 84 % des tableaux dont l’extraction s’avérait problématique provenaient de 30 fichiers PDF. Ceux-ci se rapportent à cinq projets en particulier (Towerbirch, Brunswick, Réseau principal Est, Wolverine, croisement de Leismer à Kettle River).",
+            "table":{
+              "title":"Qu’entend-on par « problématique »?",
+              "bullet1":"Les tableaux contiennent une seule colonne ou une seule rangée.",
+              "bullet2":"Ils contiennent plus de 72 % de cellules vides.",
+              "bullet3":"Ils contiennent plus de 80 % de cellules dont les caractères non identifiés.",
+              "bullet4":"Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page."
+            },
+            "part2":"Les tableaux appartenant à ces fichiers PDF sont indexés, mais ne peuvent pas être téléchargés dans la version actuelle. Ils seront incorporés à une version ultérieure."
+          },
+          "paragraph3":"Toutes les images ont été revues et on a ainsi constaté que 92,1 % d’entre elles montraient le bon numéro de page, 89,4 % avaient le bon titre et 99,95 % étaient fidèles à l’image originale. L’extraction des figures n’était pas parfaite en raison de titres différents dans la table des matières (au niveau de l’orthographe ou des formats d’étiquetage), parfois même de l’absence totale de titre. Aussi, les titres des figures intégrés aux images demeuraient invisibles en raison de la méthode d’extraction choisie, fondée sur le texte. Enfin, dans un faible pourcentage de fichiers PDF (0,95 %), le processus d’extraction a mené à des images corrompues où des blocs texte/image étaient partiellement conservés alors que le reste de la figure était tout noir.",
+          "paragraph4":"Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux possibilités qui n’existaient pas auparavant."
         },
         "section7":{
-          "header":"",
-          "paragraph1":"",
-          "link1":"",
+          "header":"Remerciements",
+          "paragraph1":"L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la ColombieBritannique.",
+          "link1":"Centre for Operations Excellence",
           "url1":"https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
         }
       }

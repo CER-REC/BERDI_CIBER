@@ -133,7 +133,40 @@ const Methods = () => {
           </Typography>
 
           <Typography>
-            {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2' })}
+            {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.part1' })}
+          </Typography>
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.title' })}
+          </Typography>
+          <ul>
+            <li>
+              <Typography>
+                {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet1' })}
+              </Typography>
+            </li>
+
+            <li>
+              <Typography>
+                {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet2' })}
+              </Typography>
+            </li>
+
+            <li>
+              <Typography>
+                {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet3' })}
+              </Typography>
+            </li>
+
+            <li>
+              <Typography>
+                {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet4' })}
+              </Typography>
+            </li>
+          </ul>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.part2' })}
+
           </Typography>
 
           <Typography>
