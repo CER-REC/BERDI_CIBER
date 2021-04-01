@@ -102,6 +102,7 @@ export default (theme) => ({
     '& p': {
       margin: '0px',
       '&:first-child': { paddingBottom: '1em' },
+      '&:not(:first-child)': { textTransform: 'lowercase' },
     },
   },
 });
