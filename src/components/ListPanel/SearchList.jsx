@@ -122,7 +122,7 @@ const SearchList = () => {
                         {content.application.filingDate.substring(0, 10)}
                       </Typography>
                       <Typography variant="body2">
-                        <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.consultants' })}: `}</span>
+                        <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
                         {content.application.consultants}
                       </Typography>
                     </Grid>
@@ -143,6 +143,20 @@ const SearchList = () => {
                       </ButtonBase>
                     </Grid>
                   </Grid>
+
+                  <Typography variant="body2">
+                    <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
+                    {content.application.name}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
+                    {content.application.filingDate.substring(0, 10)}
+                  </Typography>
+                  <Typography variant="body2">
+                    <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
+                    {content.application.consultants}
+                  </Typography>
+
                 </TableCell>
               </TableRow>
             ))}

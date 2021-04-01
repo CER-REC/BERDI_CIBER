@@ -13,7 +13,7 @@
     "fullProjectName":"Nom complet du projet",
     "applicationType":"Type de demande",
     "commodity":"Produit",
-    "consultant":"Consultant",
+    "consultants":"Nom du consultant de l'ÉES",
     "companyName":"Nom de la société",
     "hearingOrder":"Ordonnance d’audience",
     "filingDate":"Date de dépôt",
@@ -104,8 +104,7 @@
       "tableOccursOnPage":"La figure est sur  page:",
       "viewOriginalDocument":"Consulter le document original",
       "titles":{
-        "filedDate":"Date du dépôt du projet ",
-        "consultants":"Nom du consultant de l'ÉES"
+        "filedDate":"Date du dépôt du projet "
       }
     },
     "loadingIndicator": {
@@ -211,7 +210,7 @@
         }
       }
     },
-    "back":"Retourner à [tool name]"
+    "back":"Retourner à {toolName}"
 
   }
 }
