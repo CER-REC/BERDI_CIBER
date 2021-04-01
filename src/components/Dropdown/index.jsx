@@ -2,39 +2,18 @@ import React, { useCallback } from 'react';
 import {
   Checkbox,
   FormControl,
-  InputBase,
   MenuItem,
   Select,
   Typography,
   makeStyles,
-  withStyles,
 } from '@material-ui/core';
 import { KeyboardArrowDown } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import IconCheckbox from '../IconCheckbox';
+import BootstrapInput from './BootstrapInput';
 import DataTooltip from './DataTooltip';
-
-const BootstrapInput = withStyles((theme) => ({
-  root: {
-    '& svg': {
-      color: theme.palette.primary.main,
-      height: '1.4em',
-      marginTop: '-0.2em',
-      marginRight: '0.2em',
-      width: '1.4em',
-    },
-  },
-  input: {
-    border: '2px solid #000000',
-    borderRadius: 5,
-    fontSize: 16,
-    padding: '0.5em',
-    '&:focus': { borderRadius: 5 },
-    '&.MuiSelect-select.MuiSelect-select': { paddingRight: '2em' },
-  },
-}))(InputBase);
 
 const useStyles = makeStyles(() => ({
   root: { width: '100%' },
@@ -99,7 +78,7 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
   }, [data, intl, getDropdownItemName, title]);
 
   return (
-    <FormControl className={`FormControl ${classes.root}`}>
+    <FormControl className={`DropDown ${classes.root}`}>
       <Typography classes={{ root: classes.label }}>
         {intl.formatMessage({ id: `components.dropdown.${title}` })}
         {hasHelp && (<DataTooltip />)}
@@ -140,8 +119,6 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
   );
 };
 
-export default DropDown;
-
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
   hasHelp: PropTypes.bool.isRequired,
@@ -153,3 +130,5 @@ DropDown.propTypes = {
 DropDown.defaultProps = {
   value: [],
 };
+
+export default DropDown;
