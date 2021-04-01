@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '0.2em',
     verticalAlign: 'bottom',
     width: '1.2em',
-    '&:hover': { cursor: 'pointer' },
+    cursor: 'pointer',
   },
   tooltip: {
     border: '1px solid #BBBBBB',
