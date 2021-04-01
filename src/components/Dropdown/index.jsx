@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import {
+  Checkbox,
   ClickAwayListener,
   FormControl,
   InputBase,
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   label: { fontWeight: 600 },
   item: {
     fontSize: 16,
-    '& > .IconCheckbox': { paddingRight: '0.5em' },
+    '& > span': { padding: '0 0.5em 0 0' },
     '&.Mui-selected': { backgroundColor: 'transparent' },
   },
   menu: {
@@ -76,7 +77,22 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
   const [open, setOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
-  const handleChange = useCallback((event) => onChange(event.target.value), [onChange]);
+  const handleChange = useCallback((event) => {
+    const selected = event.target.value;
+
+    // 0 is used as the value to avoid collision with any strings in the data
+    if (selected[selected.length - 1] === 0) {
+      if (selected.length > data.length) {
+        onChange([]);
+      } else {
+        onChange(data);
+      }
+
+      return;
+    }
+
+    onChange(selected);
+  }, [data, onChange]);
   const getDropdownItemName = useCallback((type, name) => {
     switch (type) {
       case 'REGIONS':
@@ -168,6 +184,13 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
         IconComponent={KeyboardArrowDown}
         renderValue={renderValue}
       >
+        <MenuItem classes={{ root: classes.item }} value={0}>
+          <Checkbox
+            checked={(data.length > 0) && (value.length === data.length)}
+            indeterminate={(value.length > 0) && (value.length < data.length)}
+          />
+          {intl.formatMessage({ id: 'components.dropdown.all' })}
+        </MenuItem>
         {
           data.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
