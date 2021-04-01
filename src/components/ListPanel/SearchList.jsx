@@ -14,7 +14,7 @@ import useESAData from '../../hooks/useESAData';
 import figureIcon from '../../images/figure.svg';
 import tableIcon from '../../images/table.svg';
 import { reportContent } from '../../utilities/analytics';
-import ListDialog from './ListDialog';
+import ResultDialog from '../ResultDialog';
 import PaginationBar from './PaginationBar';
 
 const useStyles = makeStyles((theme) => ({
@@ -99,7 +99,7 @@ const SearchList = () => {
 
   return (
     <>
-      <ListDialog open={open} handleClose={handleClose} data={selectedLineData} />
+      <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
 
       <TableContainer component={Paper} className={classes.tableParent}>
         <Table className={classes.table} aria-label="custom pagination table">

@@ -1,18 +1,24 @@
-/* eslint-disable react/prop-types */
-import { ButtonBase, Grid, Icon, makeStyles, Typography } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import IconButton from '@material-ui/core/IconButton';
+import React, { useState, useEffect } from 'react';
+import {
+  Button,
+  ButtonBase,
+  Dialog,
+  Grid,
+  Icon,
+  IconButton,
+  Typography,
+  makeStyles,
+} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
 import { useIntl } from 'react-intl';
+
 import downloadIcon from '../../images/Download.svg';
-import styles from './dialogStyles';
+import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-const ListDialog = ({ open, handleClose, data }) => {
+const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [canSeeMore, setCanSeeMore] = useState(false);
@@ -45,8 +51,9 @@ const ListDialog = ({ open, handleClose, data }) => {
 
   return (
     <Dialog
+      className="ResultDialog"
       open={open}
-      onClose={handleClose}
+      onClose={onClose}
       maxWidth="md"
       fullWidth
     >
@@ -58,11 +65,10 @@ const ListDialog = ({ open, handleClose, data }) => {
         className={classes.topRight}
       >
         <Grid item>
-          <IconButton aria-label="close" onClick={handleClose}>
+          <IconButton aria-label="close" onClick={onClose}>
             <CloseIcon />
           </IconButton>
         </Grid>
-
       </Grid>
 
       {/* Content */}
@@ -79,7 +85,7 @@ const ListDialog = ({ open, handleClose, data }) => {
 
         <Grid item>
           <Typography className={classes.esaSectionTitle}>
-            {intl.formatMessage({ id: 'components.resultsList.esaSectionTitle' })}
+            {intl.formatMessage({ id: 'components.resultDialog.esaSectionTitle' })}
           </Typography>
           {createEsaSection(data.esaSections)}
         </Grid>
@@ -101,8 +107,8 @@ const ListDialog = ({ open, handleClose, data }) => {
           <Grid item>
             <Typography>
               {data.type === 'FIGURE'
-                ? intl.formatMessage({ id: 'components.resultsList.figureOccursOnPage' })
-                : intl.formatMessage({ id: 'components.resultsList.tableOccursOnPage' })}
+                ? intl.formatMessage({ id: 'components.resultDialog.figureOccursOnPage' })
+                : intl.formatMessage({ id: 'components.resultDialog.tableOccursOnPage' })}
               <span>{data.pageNumber}</span>
             </Typography>
           </Grid>
@@ -120,53 +126,53 @@ const ListDialog = ({ open, handleClose, data }) => {
         >
 
           {data.pdfURL && (
-          <Grid item>
-            <Button
-              onClick={handleClose}
-              color="primary"
-              variant="outlined"
-            >
-              <Typography>
-                <a
-                  className={classes.pdfLink}
-                  href={data.pdfURL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {intl.formatMessage({ id: 'components.resultsList.viewOriginalDocument' })}
-                </a>
-              </Typography>
-            </Button>
-          </Grid>
+            <Grid item>
+              <Button
+                onClick={onClose}
+                color="primary"
+                variant="outlined"
+              >
+                <Typography>
+                  <a
+                    className={classes.pdfLink}
+                    href={data.pdfURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'components.resultDialog.viewOriginalDocument' })}
+                  </a>
+                </Typography>
+              </Button>
+            </Grid>
           )}
 
           {data.url && (
-          <Grid item>
-            <Button
-              onClick={handleClose}
-              color="primary"
-              variant="contained"
-            >
-              <Icon className={classes.downloadIcon}>
-                <img
-                  src={downloadIcon}
-                  alt="download button"
-                />
-              </Icon>
-              <Typography>
-                <a
-                  href={data.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: 'white' }}
-                >
-                  {data.type === 'FIGURE'
-                    ? intl.formatMessage({ id: 'components.resultsList.downloadFigure' })
-                    : intl.formatMessage({ id: 'components.resultsList.downloadTable' })}
-                </a>
-              </Typography>
-            </Button>
-          </Grid>
+            <Grid item>
+              <Button
+                onClick={onClose}
+                color="primary"
+                variant="contained"
+              >
+                <Icon className={classes.downloadIcon}>
+                  <img
+                    src={downloadIcon}
+                    alt="download button"
+                  />
+                </Icon>
+                <Typography>
+                  <a
+                    href={data.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: 'white' }}
+                  >
+                    {data.type === 'FIGURE'
+                      ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
+                      : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
+                  </a>
+                </Typography>
+              </Button>
+            </Grid>
           )}
         </Grid>
       </Grid>
@@ -174,11 +180,9 @@ const ListDialog = ({ open, handleClose, data }) => {
   );
 };
 
-export default ListDialog;
-
-ListDialog.propTypes = {
+ResultDialog.propTypes = {
   open: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   data: PropTypes.shape({
     title: PropTypes.string,
     esaSections: PropTypes.string,
@@ -189,6 +193,8 @@ ListDialog.propTypes = {
   }),
 };
 
-ListDialog.defaultProps = {
+ResultDialog.defaultProps = {
   data: null,
 };
+
+export default ResultDialog;
