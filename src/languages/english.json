@@ -47,6 +47,13 @@
       "nebLink": "https://lois-laws.justice.gc.ca/eng/acts/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/"
     },
+    "errorBoundary": {
+      "errorMessage": "Something went wrong.",
+      "restoreLinkText": "Restore Session",
+      "restoreMessage": "Please click on the link to restore the session:",
+      "resetLinkText": "Reset Session",
+      "resetMessage": "Please click on the link to reset the session:"
+    },
     "limitationsDialog": {
       "title": "General Limitations",
       "close": "Close",
