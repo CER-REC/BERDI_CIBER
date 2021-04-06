@@ -175,16 +175,21 @@
       "description":"An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
       "body":{
         "title":"The data - baseline and effects from ESAs",
-        "text1":"Data in this tool comes from Environmental and Socio-Economic Assessments (ESAs), which are reports filed with every application for a new pipeline. ESA’s have been described as a “snapshot in time” because of their evolution throughout a hearing; so, it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies. More specificially, from the Assessment and Abandonment stages, of both large and small projects, between the years 2003 and 2019.",
-        "text2":"Two key pieces of information in an ESA regard the {bold1} of the area where a pipeline is proposed, and the {bold2} of the pipeline to that baseline.",
+        "text1":"Data in this tool comes from Environmental and Socio-Economic Assessments (ESAs), which are reports filed with every application for a new pipeline. ESAs have been described as a “snapshot in time” because of their evolution throughout a hearing, so it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies. More specifically from the Assessment and Abandonment stages, of both large and small projects, between the years 2003 and 2019.",
+        "text2":"Two key pieces of information in an ESA are the {bold1} of the area where a pipeline is proposed, and the {bold2} of the proposed pipeline to that baseline.",
         "bold1":"baseline",
         "bold2":"effects",
         "header1":"Baseline Information",
-        "text3":"Baseline information details the current state of an area where a proposed pipeline might be implemented and may source from a combination of desk and field research, or public engagement activities. This information includes a wide variety of topics, or “Valued Components,” which ranges from wetlands, species at risk, and air emissions, to traditional land use, social and cultural well-being, and human health. The Filing Manual details such topics to consider, under biophysical and socio-economic categories.",
-        "header2":"(Proposed) Effects Analyses",
-        "text4":"Effects analyses detail mitigation measures taken to sustain this baseline, like fencing at a certain time of year to avoid interrupting bird nesting seasons. These analyses also detail impact, or “Evaluation of Significance,” like how likely work camps are to impact communities.",
+        "text3":"Baseline information describes the current state of an area where a proposed pipeline might be built and may source from a combination of desktop and field research, or public engagement activities. This information includes a wide variety of topics, or “Valued Components,” which range from wetlands, species at risk and air emissions, to traditional land use, social and cultural well-being, and human health. The CER’s {link1} and {link2} provide details on the topics to consider, under biophysical and socio-economic categories.",
+        "link1":"Filing Manual",
+        "url1":"https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/filing-manual-guide-a-facilities-applications-a2.html",
+        "link2":"Filing Manual Checklist",
+        "url2":"https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/filing-manual-appendix-1-filing-manual-checklist.pdf",
+        "header2":"Effects Analyses",
+        "text4":"Effects analysis is used to predict the effects associated with a proposed project. Companies are required to propose mitigation measures they will undertake to sustain this baseline, like undertaking pre-construction surveys for nesting birds at certain time of the year to avoid interrupting bird nesting. These analyses also evaluate the potential impacts of a project once mitigation is applied, to assess the significance and likelihood of residual adverse environmental and socio-economic effects occurring. The level of detail required by the CER will vary with the nature and scale of the project.",
         "footer":"For a brief overview that details the environmental aspect of ESAs, view the Canada Energy Regulator’s {link}.",
-        "linkLabel":"video on Environmental Protection"
+        "link3":"video on Environmental Protection",
+        "url3":"https://www.youtube.com/watch?v=cXLfhAI9hhw"
       }
     },
     "methods":{
@@ -229,7 +234,17 @@
         "section6":{
           "header":"Step 5: Validate and verify",
           "paragraph1":"In general, programming the extraction of data out of PDFs is an imperfect process because each PDF can contain different table formats and be prepared and saved using different techniques. For example, tables with clear, black borders are easier to extract accurately compared to tables that have unclear or no borders. Our team employed a manual validation process for a sample of the tables, figures, and PDFs. It is possible that there are tables in PDFs that were not extracted or tables that were extracted, but are missing some data. It is estimated that 94% to 98% of all tables in PDF have been extracted, and that 88% to 94% of all tables have complete data (based on a random sample of 384 tables). ",
-          "paragraph2":"As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, Leismer to Kettle River Crossover). What does problematic mean: 1)  files only contain one column or one row; 2) contains more than 72% blank cells; 3) contains more than 80% cells with non-identified characters; or 4)  two or more files are indexed with the same title and page, even though they are different. Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version.",
+          "paragraph2":{
+            "part1":"As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, Leismer to Kettle River Crossover).",
+            "table":{
+              "title":"What does problematic mean?",
+              "bullet1":"files only contain one column or one row;",
+              "bullet2":"contains more than 72% blank cells;",
+              "bullet3":"contains more than 80% cells with non-identified characters; or",
+              "bullet4":"Two or more files are indexed with the same title and page, even though they are different."
+            },
+            "part2":"Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version."
+          },
           "paragraph3":"All images were inspected and it was found that 92.1% of images had correct page numbers, 89.4% had correct titles, and 99.95% were faithful to the original image. Figure extraction was not perfect because of different titles for the same figure appearing in the table of contents vs. the body of text (due to spelling variability, inconsistency in labeling formats, or no title present). Secondly, figure titles that were embedded as images were undetected with a text-based extraction approach. Finally, in a small percentage of PDF files (0.95%), the extraction process led to corrupt images where the text/image blocks are partially retained and the rest of the figure is replaced by black colour.",
           "paragraph4":"While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both possibilities that did not exist previously."
         },
