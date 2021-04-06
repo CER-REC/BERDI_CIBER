@@ -154,19 +154,28 @@
       "title":"Le projet",
       "description":"L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
       "body":{
-        "header":"",
-        "boldText1":"",
-        "paragraph1":"",
-        "boldText2":"",
-        "paragraph2":"",
-        "boldText3":"",
-        "paragraph3":""
-      },
-      "help":{
-        "title":"",
-        "text1":"",
-        "text2":"",
-        "bold2":""
+        "section1":{
+          "header":"Au sujet du projet",
+          "boldText1":"Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences, tous disponibles à la bibliothèque.",
+          "text1":"{boldText} Depuis le déploiement du système de dépôt électronique de documents (maintenant appelé REGDOCS), en 2003, des milliers d’autres documents ont été numérisés. Les évaluations environnementales et socioéconomiques, ou EES, comptent au nombre des documents qui renferment des données considérables sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
+          "boldText2":"Bien qu’il s’agisse de données publiques, il peut être difficile d’y accéder et de les consulter.",
+          "text2":"{boldText} Pour donner suite à la directive fédérale sur le gouvernement ouvert, la Régie s’efforce de déterminer la meilleure manière d’extraire, de structurer et de présenter au public les données liées à la réglementation. Le projet pilote constitue un premier pas en ce sens.",
+          "boldText3":"Il s’agit de travaux continus.",
+          "text3":"{boldText} La Régie entend en effet continuer d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour, suivez-nous sur Github."
+        },
+        "section2":{
+          "header1":"La prochaine étape : votre apport",
+          "text1":"Voyez ce que vous pouvez faire",
+          "bold1":"Séances de rétroaction prévues pour avril 2021",
+          "text2":"{toolName}, Le système CIBER, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de créer, valider et hiérarchiser les caractéristiques qui permettront de l’améliorer.",
+          "text3":"Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. {boldText}",
+          "bold2":"Veuillez nous faire parvenir vos commentaires par courriel à l’adresse {email}.",
+          "email1":"data.donnees@rec-cer.gc.ca"
+        },
+        "section3":{
+          "header1":"Amélioration continue",
+          "text1":"Il importe de souligner que cette initiative s’inscrit dans le cadre d’une démarche d’amélioration continue de ce produit."
+        }
       }
     },
     "data":{
