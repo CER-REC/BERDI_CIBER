@@ -1,57 +1,26 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import {
-  ClickAwayListener,
+  Checkbox,
   FormControl,
-  InputBase,
   MenuItem,
   Select,
-  Tooltip,
   Typography,
   makeStyles,
-  withStyles,
 } from '@material-ui/core';
-import { HelpOutline, KeyboardArrowDown } from '@material-ui/icons';
+import { KeyboardArrowDown } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import IconCheckbox from '../IconCheckbox';
+import BootstrapInput from './BootstrapInput';
+import DataTooltip from './DataTooltip';
 
-const BootstrapInput = withStyles((theme) => ({
-  root: {
-    '& svg': {
-      color: theme.palette.primary.main,
-      height: '1.4em',
-      marginTop: '-0.2em',
-      marginRight: '0.2em',
-      width: '1.4em',
-    },
-  },
-  input: {
-    border: '2px solid #000000',
-    borderRadius: 5,
-    fontSize: 16,
-    padding: '0.5em',
-    '&:focus': { borderRadius: 5 },
-    '&.MuiSelect-select.MuiSelect-select': { paddingRight: '2em' },
-  },
-}))(InputBase);
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: { width: '100%' },
-  help: {
-    color: '#5D5D5D',
-    fontSize: 16,
-    height: '1.2em',
-    marginLeft: '0.5em',
-    marginBottom: '0.2em',
-    verticalAlign: 'bottom',
-    width: '1.2em',
-    '&:hover': { cursor: 'pointer' },
-  },
   label: { fontWeight: 600 },
   item: {
     fontSize: 16,
-    '& > .IconCheckbox': { paddingRight: '0.5em' },
+    '& > span': { padding: '0 0.5em 0 0' },
     '&.Mui-selected': { backgroundColor: 'transparent' },
   },
   menu: {
@@ -59,24 +28,27 @@ const useStyles = makeStyles((theme) => ({
     border: '1px solid #9E9E9E',
     borderRadius: 0,
   },
-  tooltip: {
-    border: '1px solid #BBBBBB',
-    boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
-    borderRadius: 5,
-    padding: '2em',
-  },
-  tooltipBody: {
-    color: theme.palette.primary.main,
-    fontSize: 14,
-    lineHeight: 'normal',
-  },
 }));
 
 const DropDown = ({ title, hasHelp, data, value, onChange }) => {
-  const [open, setOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
-  const handleChange = useCallback((event) => onChange(event.target.value), [onChange]);
+  const handleChange = useCallback((event) => {
+    const selected = event.target.value;
+
+    // 0 is used as the value to avoid collision with any strings in the data
+    if (selected[selected.length - 1] === 0) {
+      if (selected.length > data.length) {
+        onChange([]);
+      } else {
+        onChange(data);
+      }
+
+      return;
+    }
+
+    onChange(selected);
+  }, [data, onChange]);
   const getDropdownItemName = useCallback((type, name) => {
     switch (type) {
       case 'REGIONS':
@@ -104,53 +76,12 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
   }, [data, intl, getDropdownItemName, title]);
-  const handleClose = useCallback(() => setOpen(false), [setOpen]);
-  const handleOpen = useCallback(() => setOpen(true), [setOpen]);
 
   return (
-    <FormControl className={`FormControl ${classes.root}`}>
+    <FormControl className={`DropDown ${classes.root}`}>
       <Typography classes={{ root: classes.label }}>
         {intl.formatMessage({ id: `components.dropdown.${title}` })}
-        {
-          // TODO: Extract into own component
-          hasHelp && (
-            <ClickAwayListener onClickAway={handleClose}>
-              <Tooltip
-                title={(
-                  <div className={classes.tooltip}>
-                    <Typography classes={{ root: classes.tooltipBody }}>
-                      {
-                        intl.formatMessage(
-                          { id: 'components.dropdown.tooltip' },
-                          {
-                            nebAct: (
-                              <a href={intl.formatMessage({ id: 'components.dropdown.nebLink' })}>
-                                {intl.formatMessage({ id: 'components.dropdown.nebAct' })}
-                              </a>
-                            ),
-                            cerAct: (
-                              <a href={intl.formatMessage({ id: 'components.dropdown.cerLink' })}>
-                                {intl.formatMessage({ id: 'components.dropdown.cerAct' })}
-                              </a>
-                            ),
-                          },
-                        )
-                      }
-                    </Typography>
-                  </div>
-                )}
-                open={open}
-                placement="right-start"
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                interactive
-              >
-                <HelpOutline classes={{ root: classes.help }} onClick={handleOpen} />
-              </Tooltip>
-            </ClickAwayListener>
-          )
-        }
+        {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select
         value={value || []}
@@ -168,6 +99,13 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
         IconComponent={KeyboardArrowDown}
         renderValue={renderValue}
       >
+        <MenuItem classes={{ root: classes.item }} value={0}>
+          <Checkbox
+            checked={(data.length > 0) && (value.length === data.length)}
+            indeterminate={(value.length > 0) && (value.length < data.length)}
+          />
+          {intl.formatMessage({ id: 'components.dropdown.all' })}
+        </MenuItem>
         {
           data.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
@@ -181,8 +119,6 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
   );
 };
 
-export default DropDown;
-
 DropDown.propTypes = {
   title: PropTypes.string.isRequired,
   hasHelp: PropTypes.bool.isRequired,
@@ -194,3 +130,5 @@ DropDown.propTypes = {
 DropDown.defaultProps = {
   value: [],
 };
+
+export default DropDown;

@@ -1,6 +1,4 @@
-import { createStyles } from '@material-ui/core';
-
-export default (theme) => createStyles({
+export default (theme) => ({
   downloadIcon: {
     overflow: 'visible',
     marginRight: '5px',

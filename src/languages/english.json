@@ -91,19 +91,21 @@
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
-    "resultsList":{
-      "dataButton":{
-        "label":"Access Full Dataset",
-        "link":"csv/en/en.zip"
-      },
-      "sortLabel":"Sort by data type",
+    "resultDialog": {
       "downloadTable":"Download table",
       "downloadFigure":"Download figure",
       "seeMore":"See more...",
       "esaSectionTitle":"ESA Section",
       "figureOccursOnPage":"Figure occurs on page: ",
       "tableOccursOnPage":"Table occurs on page: ",
-      "viewOriginalDocument":"View original document",
+      "viewOriginalDocument":"View original document"
+    },
+    "resultsList":{
+      "dataButton":{
+        "label":"Access Full Dataset",
+        "link":"csv/en/en.zip"
+      },
+      "sortLabel":"Sort by data type",
       "titles":{
         "filedDate":"Project Filed Date"
       }
