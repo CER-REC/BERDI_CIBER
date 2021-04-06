@@ -48,7 +48,7 @@ const Methods = () => {
               { id: 'pages.methods.body.section1.paragraph3' },
               {
                 link: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section1.url' })}>
+                  <a href={intl.messages['pages.methods.body.section1.url']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section1.link' })}
                   </a>
                 ),
@@ -66,12 +66,12 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section2.paragraph1' },
               {
                 link1: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section2.url1' })}>
+                  <a href={intl.messages['pages.methods.body.section2.url1']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section2.link1' })}
                   </a>
                 ),
                 link2: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section2.url2' })}>
+                  <a href={intl.messages['pages.methods.body.section2.url2']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section2.link2' })}
                   </a>
                 ),
@@ -88,7 +88,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section3.paragraph1' },
               {
                 link1: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section3.url1' })}>
+                  <a href={intl.messages['pages.methods.body.section3.url1']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section3.link1' })}
                   </a>
                 ),
@@ -105,7 +105,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section4.paragraph1' },
               {
                 link1: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section4.url1' })}>
+                  <a href={intl.messages['pages.methods.body.section4.url1']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section4.link1' })}
                   </a>
                 ),
@@ -166,7 +166,6 @@ const Methods = () => {
 
           <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.part2' })}
-
           </Typography>
 
           <Typography>
@@ -187,7 +186,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' },
               {
                 link1: (
-                  <a href={intl.formatMessage({ id: 'pages.methods.body.section7.url1' })}>
+                  <a href={intl.messages['pages.methods.body.section7.url1']}>
                     {intl.formatMessage({ id: 'pages.methods.body.section7.link1' })}
                   </a>
                 ),
