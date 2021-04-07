@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Button,
   ButtonBase,
@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
+import { reportDownload, reportView } from '../../utilities/analytics';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -44,6 +45,14 @@ const ResultDialog = ({ open, onClose, data }) => {
       </>
     );
   };
+  const handleViewClick = useCallback(() => {
+    reportView(data.type, data.title);
+    onClose();
+  }, [data, onClose]);
+  const handleDownloadClick = useCallback(() => {
+    reportDownload(data.title);
+    onClose();
+  }, [data, onClose]);
 
   if (!data) {
     return null;
@@ -128,7 +137,7 @@ const ResultDialog = ({ open, onClose, data }) => {
           {data.pdfURL && (
             <Grid item>
               <Button
-                onClick={onClose}
+                onClick={handleViewClick}
                 color="primary"
                 variant="outlined"
               >
@@ -149,7 +158,7 @@ const ResultDialog = ({ open, onClose, data }) => {
           {data.url && (
             <Grid item>
               <Button
-                onClick={onClose}
+                onClick={handleDownloadClick}
                 color="primary"
                 variant="contained"
               >
