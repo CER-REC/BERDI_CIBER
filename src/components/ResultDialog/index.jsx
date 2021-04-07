@@ -39,7 +39,7 @@ const ResultDialog = ({ open, onClose, data }) => {
           {sections.substring(0, 260).concat(' ')}
         </Typography>
         <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(true)}>
-          {intl.formatMessage({ id: 'components.resultsList.seeMore' })}
+          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
         </ButtonBase>
       </>
     );

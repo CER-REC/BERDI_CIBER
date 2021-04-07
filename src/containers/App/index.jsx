@@ -11,14 +11,17 @@ import { HttpLink } from 'apollo-link-http';
 import React, { Suspense, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
 import { fetch } from 'whatwg-fetch';
-import LoadingIndicator from '../../components/LoadingIndicator';
-import { API_HOST, lang } from '../../constants';
+
+import { API_HOST, applicationPath, lang } from '../../constants';
 import useAPI from '../../hooks/useAPI';
 import i18nMessages from '../../i18n';
+import ErrorBoundary from '../../components/ErrorBoundary';
+import LoadingIndicator from '../../components/LoadingIndicator';
+import UnsupportedWarning from '../../components/UnsupportedWarning';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({
-  uri: `${API_HOST}/esa/graphql?lang=${lang}`,
+  uri: `${API_HOST}/${applicationPath.en}/graphql?lang=${lang}`,
   credentials: 'same-origin',
 });
 const client = new ApolloClient({ cache, link, fetch });
@@ -32,10 +35,17 @@ const Loader = () => {
     [translations],
   );
 
-  if (loading) {
+  if (window.innerWidth < 746) {
+    content = <UnsupportedWarning type="resolution" />;
+  // This will detect any version of IE up to and including IE11
+  } else if (window.MSInputMethodContext && document.documentMode) {
+    content = <UnsupportedWarning type="browser" />;
+  } else if (loading) {
     content = <LoadingIndicator type="api" fullHeight />;
   } else if (error) {
-    content = 'Error';
+    const APIError = () => { throw new Error(error); };
+
+    content = <APIError />;
   } else {
     content = (
       <Suspense fallback={<LoadingIndicator type="app" fullHeight />}>
@@ -46,7 +56,9 @@ const Loader = () => {
 
   return (
     <IntlProvider locale={lang} defaultLocale={lang} messages={messages}>
-      {content}
+      <ErrorBoundary>
+        {content}
+      </ErrorBoundary>
     </IntlProvider>
   );
 };
