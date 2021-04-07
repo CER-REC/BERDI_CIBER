@@ -97,6 +97,7 @@
       "title":"Search Results",
       "countsText":"{tables} tables and {figures} figures found",
       "boxSelectText":"Select a box to filter by project and access project details.",
+      "noResultsText":"Sorry there are no results for {searches}",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
