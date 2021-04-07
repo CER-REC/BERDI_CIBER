@@ -72,7 +72,7 @@
         "cite": "Régie de l’énergie du Canada (2020) - Banque de données d’évaluation environnementale et socioéconomique."
       },
       "dataSection":{
-        "zipText":"Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit:",
+        "zipText":"Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
         "countsText":"{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
         "countsPart2":"fichiers regroupés par dossier de demande, y compris un index des tableaux.",
         "limitationsText":"En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
@@ -82,10 +82,10 @@
     },
     "searchPanel": {
       "exploreButton": "Explorer le catalogue ",
-      "exploreLabel": "Explorer les résultats liés à ce qui suit :",
+      "exploreLabel": "Explorer les résultats liés à ce qui suit : ",
       "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
-      "searchLabel": "Trouver des données:",
+      "searchLabel": "Trouver des données : ",
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
     },
@@ -104,8 +104,8 @@
       "downloadFigure":"Télécharger la figure",
       "seeMore":"Voir plus...",
       "esaSectionTitle":"Section de l'ÉES",
-      "figureOccursOnPage":"La figure est sur  page:",
-      "tableOccursOnPage":"La figure est sur  page:",
+      "figureOccursOnPage":"La figure est sur  page : ",
+      "tableOccursOnPage":"La figure est sur  page : ",
       "viewOriginalDocument":"Consulter le document original"
     },
     "resultsList":{
