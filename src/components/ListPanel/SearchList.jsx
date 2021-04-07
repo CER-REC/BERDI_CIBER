@@ -81,14 +81,7 @@ const SearchList = () => {
   const [selectedLineData, setSelectedLineData] = useState(null);
 
   const handleClickOpen = (content) => {
-    reportContent(
-      config.regions,
-      config.commodities,
-      config.projectTypes,
-      config.statuses,
-      content.application.name,
-      content.title,
-    );
+    reportContent(content.title);
     setOpen(true);
     setSelectedLineData(content);
   };
