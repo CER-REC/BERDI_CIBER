@@ -93,7 +93,9 @@
       "clearButton": "Effacer tous les filtres"
     },
     "treeMap":{
-      "title":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
+      "title":"Résultats de la recherche",
+      "countsText":"{tables} tableaux et {figures} figures trouvés",
+      "boxSelectText":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "REGDOCSButton":"Consulter le dossier REGDOCS",
       "tablesButton":"Télécharger les tableaux"
     },

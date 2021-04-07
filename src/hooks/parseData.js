@@ -28,9 +28,12 @@ export default (data) => {
     const totalCount = val.tableCount + val.figureCount;
     const percentage = (totalCount / largestDataPoint);
     const color = getColor(...darkGreen, ...lightGreen, percentage);
+
+    acc.tableCount += val.tableCount;
+    acc.figureCount += val.figureCount;
     acc.children.push({ ...val, color, totalCount });
     return acc;
-  }, { shortName: 'esaData', children: [] });
+  }, { shortName: 'esaData', tableCount: 0, figureCount: 0, children: [] });
 
   return parsedData;
 };

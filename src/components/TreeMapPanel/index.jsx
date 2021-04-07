@@ -34,12 +34,18 @@ const TreeMapPanel = () => {
 
   return (
     <>
-      <Grid className={classes.titleTypography}>
-        <Typography>
-          {intl.formatMessage({ id: 'components.treeMap.title' })}
-        </Typography>
-      </Grid>
-
+      <Typography variant="h6" className={classes.countsTitle}>
+        {intl.formatMessage({ id: 'components.treeMap.title' })}
+      </Typography>
+      <Typography variant="h6" className={classes.countsText}>
+        {intl.formatMessage({ id: 'components.treeMap.countsText' }, {
+          tables: data.tableCount,
+          figures: data.figureCount,
+        })}
+      </Typography>
+      <Typography style={{ padding: '0.5em 0 0.2em 0' }}>
+        {intl.formatMessage({ id: 'components.treeMap.boxSelectText' })}
+      </Typography>
       <TreeMapDialog open={open} handleClose={handleClose} leafData={selectedBoxData} />
 
       <Grid className={classes.treeMap}>
