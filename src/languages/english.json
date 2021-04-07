@@ -94,7 +94,7 @@
       "clearButton": "Clear all filters"
     },
     "treeMap":{
-      "title":"Select a box to filter by project and access project details.",
+      "title":"Select a box to view project details.",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
