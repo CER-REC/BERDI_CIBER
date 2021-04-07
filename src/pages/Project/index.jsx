@@ -1,15 +1,16 @@
-import { Grid, Typography, makeStyles } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import BetaAlert from '../../components/BetaAlert';
-import stacksOfPaperImage from '../../images/stacksOfPaper.png';
-import paperToSearchImage from '../../images/paperToSearch.png';
 import NavButtons from '../../components/NavButtons';
 
 const useStyles = makeStyles({
   root: {
     '& .alert-info > :first-child::before': {
       paddingTop: '4px',
+    },
+    '& h6, p': {
+      paddingBottom: '1em',
     },
   },
   imageSection: {
@@ -29,109 +30,115 @@ const Project = () => {
       <BetaAlert />
       <br />
       <NavButtons />
+      <div className={classes.root}>
 
-      <Grid container direction="column" className={classes.root}>
-        <Grid item container direction="row" spacing={2}>
-          <Grid item xs={8}>
-            <Typography variant="h6">
-              {intl.formatMessage({ id: 'pages.project.body.header' })}
-            </Typography>
-            <br />
-            <Typography>
-              {intl.formatMessage(
-                { id: 'pages.project.body.paragraph1' },
-                {
-                  boldText: (
-                    <strong>
-                      {intl.formatMessage(
-                        { id: 'pages.project.body.boldText1' },
-                      )}
-                    </strong>
-                  ),
-                },
-              )}
-            </Typography>
+        <section>
+          <Typography variant="h6">
+            {intl.formatMessage({ id: 'pages.project.body.section1.header' })}
+          </Typography>
 
-            <br />
-            <Typography>
-              {intl.formatMessage(
-                { id: 'pages.project.body.paragraph2' },
-                {
-                  boldText: (
-                    <strong>
-                      {intl.formatMessage(
-                        { id: 'pages.project.body.boldText2' },
-                      )}
-                    </strong>
-                  ),
-                },
-              )}
-            </Typography>
-            <br />
-            <Typography>
-              {intl.formatMessage(
-                { id: 'pages.project.body.paragraph3' },
-                {
-                  boldText: (
-                    <strong>
-                      {intl.formatMessage(
-                        { id: 'pages.project.body.boldText3' },
-                      )}
-                    </strong>
-                  ),
-                },
-              )}
-            </Typography>
-            <br />
-          </Grid>
-          <Grid item xs={4} className={classes.imageSection}>
-            <img src={stacksOfPaperImage} alt="A stack of paper" />
-            <img src={paperToSearchImage} alt="Paper being turned into a web search" />
-          </Grid>
-        </Grid>
+          <Typography>
+            {intl.formatMessage(
+              { id: 'pages.project.body.section1.text1' },
+              {
+                boldText: (
+                  <strong>
+                    {intl.formatMessage(
+                      { id: 'pages.project.body.section1.boldText1' },
+                    )}
+                  </strong>
+                ),
+              },
+            )}
+          </Typography>
 
-        <Grid item>
-          <section className="alert alert-info">
-            <Typography variant="h6">
-              {intl.formatMessage({ id: 'pages.project.help.title' })}
-            </Typography>
-            <br />
-            <Typography>
-              {intl.formatMessage(
-                { id: 'pages.project.help.text1' },
-                {
-                  boldText: (
-                    <strong>
-                      {intl.formatMessage({ id: 'common.toolName' })}
-                    </strong>
-                  ),
-                },
-              )}
+          <Typography>
+            {intl.formatMessage(
+              { id: 'pages.project.body.section1.text2' },
+              {
+                boldText: (
+                  <strong>
+                    {intl.formatMessage(
+                      { id: 'pages.project.body.section1.boldText2' },
+                    )}
+                  </strong>
+                ),
+              },
+            )}
+          </Typography>
 
-              <br />
-              <br />
-              {intl.formatMessage(
-                { id: 'pages.project.help.text2' },
-                {
-                  boldText: (
-                    <strong>
-                      {intl.formatMessage(
-                        { id: 'pages.project.help.bold2' },
-                        {
-                          link: (
-                            <a href="mailto:data.donnees@cer-rec.gc.ca">
-                              data.donnees@cer-rec.gc.ca
-                            </a>
-                          ),
-                        },
-                      )}
-                    </strong>),
-                },
-              )}
-            </Typography>
-          </section>
-        </Grid>
-      </Grid>
+          <Typography>
+            {intl.formatMessage(
+              { id: 'pages.project.body.section1.text3' },
+              {
+                boldText: (
+                  <strong>
+                    {intl.formatMessage(
+                      { id: 'pages.project.body.section1.boldText3' },
+                    )}
+                  </strong>
+                ),
+              },
+            )}
+          </Typography>
+        </section>
+
+        <section className="alert alert-info">
+          <Typography variant="h6">
+            {intl.formatMessage({ id: 'pages.project.body.section2.header1' })}
+          </Typography>
+
+          <Typography style={{ paddingBottom: '0' }}>
+            {intl.formatMessage({ id: 'pages.project.body.section2.text1' })}
+          </Typography>
+
+          <Typography style={{ fontWeight: '700', textAlign: 'right' }}>
+            {intl.formatMessage({ id: 'pages.project.body.section2.bold1' })}
+          </Typography>
+
+          <Typography style={{ paddingBottom: '0' }}>
+            {intl.formatMessage(
+              { id: 'pages.project.body.section2.text2' },
+              {
+                toolName: (
+                  <strong>
+                    {intl.formatMessage({ id: 'common.toolName' })}
+                  </strong>
+                ),
+              },
+            )}
+
+            {intl.formatMessage(
+              { id: 'pages.project.body.section2.text3' },
+              {
+                boldText: (
+                  <strong>
+                    {intl.formatMessage(
+                      { id: 'pages.project.body.section2.bold2' },
+                      {
+                        email: (
+                          <a href={`mailto:${intl.messages['pages.project.body.section2.email1']}`}>
+                            {intl.formatMessage({ id: 'pages.project.body.section2.email1' })}
+                          </a>
+                        ),
+                      },
+                    )}
+                  </strong>),
+              },
+            )}
+          </Typography>
+        </section>
+
+        <section>
+          <Typography variant="h6">
+            {intl.formatMessage({ id: 'pages.project.body.section3.header1' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.project.body.section3.text1' })}
+          </Typography>
+        </section>
+      </div>
     </>
   );
 };
