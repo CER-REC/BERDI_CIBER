@@ -12,7 +12,7 @@ import { reportShowFilter, reportSort } from '../../utilities/analytics';
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
-  const { config, configDispatch } = useConfig();
+  const { configDispatch } = useConfig();
   const handleFilterChange = useCallback((event) => {
     if (event.target.checked) {
       reportShowFilter();
@@ -21,16 +21,9 @@ const Search = () => {
     setOpen(event.target.checked);
   }, [setOpen]);
   const handleSortChange = useCallback((event) => {
-    reportSort(
-      config.regions,
-      config.commodities,
-      config.projectTypes,
-      config.statuses,
-      config.applicationNames,
-      event.target.value,
-    );
+    reportSort(event.target.value);
     configDispatch({ type: 'sort/changed', payload: event.target.value });
-  }, [config, configDispatch]);
+  }, [configDispatch]);
 
   if (loading) {
     return null;

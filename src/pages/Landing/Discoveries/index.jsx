@@ -8,6 +8,7 @@ import ResultDialog from '../../../components/ResultDialog';
 import fish from '../../../images/ditch-fish.png';
 import nests from '../../../images/rare-species.png';
 import wetlands from '../../../images/unnamed-wetlands.png';
+import { reportDiscovery } from '../../../utilities/analytics';
 
 // TODO: Pull content data from API when available
 // TODO: Add in the mocked content
@@ -88,6 +89,7 @@ const Discoveries = () => {
   const classes = useStyles();
   const intl = useIntl();
   const handleClick = useCallback((data) => {
+    reportDiscovery(data.title);
     setContent(data);
     setOpen(true);
   }, [setContent, setOpen]);

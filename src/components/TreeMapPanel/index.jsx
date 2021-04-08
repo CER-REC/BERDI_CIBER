@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
 
-import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import { reportProject } from '../../utilities/analytics';
 import TreeMapDialog from './TreeMapDialog';
@@ -13,7 +12,6 @@ import styles from './TreeMapStyles';
 const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
-  const { config } = useConfig();
   const { applications: data } = useESAData();
   const intl = useIntl();
   const classes = useStyles();
@@ -81,13 +79,7 @@ const TreeMapPanel = () => {
           colors={(d) => d.color}
           onClick={
             (node) => {
-              reportProject(
-                config.regions,
-                config.commodities,
-                config.projectTypes,
-                config.statuses,
-                node.data.name,
-              );
+              reportProject(node.data.shortName);
               setSelectedBoxData(node.data);
               handleClickOpen();
             }

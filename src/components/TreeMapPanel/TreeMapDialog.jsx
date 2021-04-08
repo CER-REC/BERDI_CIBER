@@ -1,12 +1,14 @@
+import React, { useCallback } from 'react';
 import { Grid, makeStyles, Typography, Icon } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { useIntl } from 'react-intl';
+
 import downloadIcon from '../../images/Download.svg';
+import { reportDownload, reportView } from '../../utilities/analytics';
 import styles from './TreeMapStyles';
 import { lang } from '../../constants';
 
@@ -15,6 +17,14 @@ const useStyles = makeStyles(styles);
 const TreeMapDialog = ({ open, handleClose, leafData }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const handleViewClick = useCallback(() => {
+    reportView('REGDOCS', leafData.name);
+    handleClose();
+  }, [leafData, handleClose]);
+  const handleDownloadClick = useCallback(() => {
+    reportDownload(leafData.name);
+    handleClose();
+  }, [leafData, handleClose]);
 
   const pluralize = (word, count) => {
     const singular = word === 'figure' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' });
@@ -163,7 +173,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
           {leafData.regdocsURL && (
           <Grid item>
             <Button
-              onClick={handleClose}
+              onClick={handleViewClick}
               color="primary"
               variant="outlined"
             >
@@ -184,7 +194,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
           {leafData.url && (
           <Grid item>
             <Button
-              onClick={handleClose}
+              onClick={handleDownloadClick}
               color="primary"
               variant="contained"
             >
