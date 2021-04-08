@@ -2,6 +2,7 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { lang } from '../../constants';
 
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
@@ -28,6 +29,16 @@ const TreeMapPanel = () => {
     setOpen(false);
   };
 
+  // TODO: break this out into its own util function
+  const pluralize = (word, count) => {
+    const singular = word === 'figure' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' });
+    const plural = word === 'figue' ? intl.formatMessage({ id: 'common.figures' }) : intl.formatMessage({ id: 'common.tables' });
+    if (lang === 'fr') {
+      return count > 1 ? plural : singular;
+    }
+    return count === 1 ? singular : plural;
+  };
+
   if (!data) {
     return null;
   }
@@ -49,11 +60,11 @@ const TreeMapPanel = () => {
               <p>{ application.data.shortName }</p>
               <p>
                 <strong>{application.data.tableCount}</strong>
-                {` ${intl.formatMessage({ id: 'common.tables' })}`}
+                {` ${pluralize('table', application.data.tableCount)}`}
               </p>
               <p>
                 <strong>{application.data.figureCount}</strong>
-                {` ${intl.formatMessage({ id: 'common.figures' })}`}
+                {` ${pluralize('figure', application.data.figureCount)}`}
               </p>
             </div>
           )}
@@ -88,10 +99,10 @@ const TreeMapPanel = () => {
                 <span className={classes.labelInnerTitle}>{d.shortName}</span>
               </div>
               <div className={classes.labelInner}>
-                <span className={classes.labelInnerCounts}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
+                <span className={classes.labelInnerCounts}>{`${d.tableCount} ${pluralize('table', d.tableCount)}`}</span>
               </div>
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
-                <span className={classes.labelInnerCounts}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
+                <span className={classes.labelInnerCounts}>{`${d.figureCount} ${pluralize('figure', d.figureCount)}`}</span>
               </div>
             </>
           )}

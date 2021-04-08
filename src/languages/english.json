@@ -82,7 +82,7 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explore Catalogue",
+      "exploreButton": "Explore catalogue",
       "exploreLabel": "Explore results from:",
       "filterLabel": "Show filters",
       "searchButton": "Search",
@@ -109,7 +109,7 @@
     },
     "resultsList":{
       "dataButton":{
-        "label":"Access Full Dataset",
+        "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
       "sortLabel":"Sort by data type",
@@ -135,7 +135,7 @@
       },
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
-        "button": "Read Our Disclaimer",
+        "button": "Read our disclaimer",
         "link": "Learn more about the data."
       },
       "discoveries": {
