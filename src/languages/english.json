@@ -95,7 +95,7 @@
     },
     "treeMap":{
       "title":"Search Results",
-      "countsText":"{tables} tables and {figures} figures found",
+      "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelectText":"Select a box to filter by project and access project details.",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
