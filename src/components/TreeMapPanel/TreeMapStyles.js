@@ -6,11 +6,6 @@ export default (theme) => ({
       verticalAlign: 'text-top',
     },
   },
-  topRight: {
-    '& div': {
-      textAlign: 'right',
-    },
-  },
   statusIndicator: {
     fontWeight: '700',
     border: '1px solid #a0a4a5',
@@ -19,6 +14,38 @@ export default (theme) => ({
     margin: '5px',
     padding: '2px 10px',
     whiteSpace: 'nowrap',
+  },
+  footerCounts: {
+    padding: '0 20px',
+    '& span': {
+      fontWeight: '900',
+    },
+  },
+  footerFigures: {
+    fontStyle: 'italic',
+    color: '#a0a4a5',
+  },
+  dialogRightSide: {
+    textAlign: 'right',
+    paddingRight: '1em',
+    '& button': {
+      fill: 'black',
+      paddingRight: '0',
+    },
+  },
+  dialogLeftSide: {
+    margin: '20px 0',
+    padding: '0 20px',
+    '& p > span': {
+      fontWeight: '900',
+    },
+    '& p': {
+      padding: '4px 0',
+    },
+    '& h5': {
+      textTransform: 'uppercase',
+      padding: '1em 0 0.7em 0',
+    },
   },
   dialogFooter: {
     backgroundColor: '#eaf9ff',
@@ -32,30 +59,9 @@ export default (theme) => ({
       textDecoration: 'none',
     },
   },
-  footerCounts: {
-    padding: '0 20px',
-    '& span': {
-      fontWeight: '900',
-    },
+  titleTypography: {
+    padding: '1.5em 0 0.5em 0',
   },
-  footerFigures: {
-    fontStyle: 'italic',
-    color: '#a0a4a5',
-  },
-  dialogHeader: {
-    padding: '0px 20px 0 20px',
-  },
-  dialogContent: {
-    margin: '20px 0',
-    padding: '0 20px',
-    '& p > span': {
-      fontWeight: '900',
-    },
-    '& p': {
-      padding: '4px 0',
-    },
-  },
-  titleTypography: { padding: '1.5em 0 0.5em 0' },
   labelInner: {
     padding: '14px 0 0 14px',
     width: '100%',
