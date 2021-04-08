@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import LimitationsDialog from '../../../components/LimitationsDialog';
 import useConfig from '../../../hooks/useConfig';
-import { reportSection } from '../../../utilities/analytics';
+import { reportDisclaimer, reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +50,10 @@ const Disclaimer = () => {
     reportSection('data');
     configDispatch({ type: 'page/changed', payload: 'data' });
   }, [configDispatch]);
-  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
+  const handleButtonClick = useCallback(() => {
+    reportDisclaimer();
+    setOpen(true);
+  }, [setOpen]);
   const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   return (
