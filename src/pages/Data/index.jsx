@@ -65,7 +65,9 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography variant="h6"><strong>{intl.formatMessage({ id: 'pages.data.body.header1' })}</strong></Typography>
+          <Typography variant="h6">
+            <strong>{intl.formatMessage({ id: 'pages.data.body.header1' })}</strong>
+          </Typography>
         </Grid>
 
         <Grid item>
@@ -91,7 +93,9 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography><strong>{intl.formatMessage({ id: 'pages.data.body.header2' })}</strong></Typography>
+          <Typography variant="h6">
+            <strong>{intl.formatMessage({ id: 'pages.data.body.header2' })}</strong>
+          </Typography>
         </Grid>
 
         <Grid item>
