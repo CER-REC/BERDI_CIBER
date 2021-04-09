@@ -109,7 +109,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
       {/* Footer */}
       <Grid container wrap="nowrap" className={classes.dialogFooter}>
         {/* Table / Figure Counts */}
-        <Grid item container spacing={1} xs={4} className={classes.footerCounts}>
+        <Grid item container spacing={1} xs={4} alignItems="center" className={classes.footerCounts}>
           <Grid item>
             <Typography>
               <span>{`${leafData.tableCount} `}</span>
