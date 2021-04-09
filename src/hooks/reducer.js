@@ -25,6 +25,8 @@ export const initialState = {
   projectTypes: null,
   // A list of the pipeline statuses to include
   statuses: null,
+  // A list of the content types to include
+  contentTypes: null,
   // The page of the search results (starting at 0)
   searchIndex: 0,
 };
@@ -37,6 +39,7 @@ export const getReducer = (
   commodities,
   projectTypes,
   statuses,
+  contentTypes,
 ) => (state, action) => {
   switch (action.type) {
     case 'changed':
@@ -51,6 +54,7 @@ export const getReducer = (
         commodities: getValidEnums(action.payload.commodities, commodities),
         projectTypes: getValidEnums(action.payload.projectTypes, projectTypes),
         statuses: getValidEnums(action.payload.statuses, statuses),
+        contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
       };
     case 'page/changed':
@@ -65,6 +69,7 @@ export const getReducer = (
         commodities: state.commodities || commodities,
         projectTypes: state.projectTypes || projectTypes,
         statuses: state.statuses || statuses,
+        contentTypes: state.contentTypes || contentTypes,
         searchIndex: state.searchIndex || initialState.searchIndex,
       };
     case 'searches/changed':
@@ -117,6 +122,12 @@ export const getReducer = (
         statuses: getValidEnums(action.payload, statuses),
         searchIndex: 0,
       };
+    case 'contentTypes/changed':
+      return {
+        ...state,
+        contentTypes: getValidEnums(action.payload, contentTypes),
+        searchIndex: 0,
+      };
     case 'searchIndex/changed':
       return {
         ...state,
@@ -132,6 +143,7 @@ export const getReducer = (
         commodities,
         projectTypes,
         statuses,
+        contentTypes,
         searchIndex: 0,
       };
     default:

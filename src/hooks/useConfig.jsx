@@ -11,7 +11,7 @@ import useAPI from './useAPI';
 
 const parameters = ['page', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
-const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses'];
+const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
 const encodedParameters = ['searches', 'applicationNames'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
@@ -58,6 +58,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     commodities,
     projectTypes,
     statuses,
+    contentTypes,
   } = useAPI();
   const reducer = useMemo(
     () => getReducer(
@@ -68,6 +69,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       commodities,
       projectTypes,
       statuses,
+      contentTypes,
     ), [
       applicationNames,
       regions,
@@ -76,6 +78,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       commodities,
       projectTypes,
       statuses,
+      contentTypes,
     ],
   );
   const [config, configDispatch] = useReducer(reducer, initialState);
@@ -99,6 +102,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         commodities: query.commodities?.split(','),
         projectTypes: query.projectTypes?.split(','),
         statuses: query.statuses?.split(','),
+        contentTypes: query.contentTypes?.split(','),
         searchIndex,
       },
     });
