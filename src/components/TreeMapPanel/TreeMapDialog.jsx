@@ -16,6 +16,7 @@ const useStyles = makeStyles(styles);
 const TreeMapDialog = ({ open, handleClose, leafData }) => {
   const classes = useStyles();
   const intl = useIntl();
+
   const handleViewClick = useCallback(() => {
     reportView('REGDOCS', leafData.name);
     handleClose();
@@ -25,9 +26,40 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
     handleClose();
   }, [leafData, handleClose]);
 
+  const createDialogField = (title, content) => (
+    <Typography key={title}>
+      <span>{intl.formatMessage({ id: title })}</span>
+      {content}
+    </Typography>
+  );
+
   if (!leafData) {
     return null;
   }
+
+  const dialogFields = [{
+    label: 'common.fullProjectName',
+    content: leafData.name,
+  }, {
+    label: 'common.applicationType',
+    content: intl.formatMessage({ id: `common.projects.${leafData.type}` }),
+  }, {
+    label: 'common.commodity',
+    content: intl.formatMessage({ id: `common.commodities.${leafData.commodity}` }),
+  }, {
+    label: 'common.consultants',
+    content: leafData.consultants,
+  }, {
+    label: 'common.companyName',
+    content: leafData.companyName,
+  }, {
+    label: 'common.hearingOrder',
+    content: leafData.hearingOrder,
+  }, {
+    label: 'common.filingDate',
+    content: new Date(leafData.filingDate).toLocaleDateString(),
+  },
+  ];
 
   return (
     <Dialog
@@ -36,38 +68,28 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
       maxWidth="md"
       fullWidth
     >
-      {/* Header */}
-      <Grid container className={classes.dialogHeader}>
-        <Grid
-          container
-          item
-          direction="column"
-          xs={9}
-          style={{ paddingTop: '20px' }}
-        >
-          <Grid item>
-            <Typography variant="h5">
-              {leafData.filingDate.substring(0, 4)}
-            </Typography>
-          </Grid>
+      <Grid container>
+        {/* Left Side */}
+        <Grid item xs={10} className={classes.dialogLeftSide}>
 
-          <Grid item>
-            <Typography variant="h5" style={{ textTransform: 'uppercase' }}>
-              {leafData.shortName}
-            </Typography>
-          </Grid>
+          <Typography variant="h5">
+            {leafData.shortName}
+          </Typography>
 
+          {dialogFields.map((item) => createDialogField(item.label, item.content))}
         </Grid>
 
+        {/* Right Side */}
         <Grid
-          container
+          xs={2}
           item
-          xs={3}
+          container
           direction="column"
-          className={classes.topRight}
+          alignContent="flex-end"
+          className={classes.dialogRightSide}
         >
           <Grid item>
-            <IconButton aria-label="close" style={{ fill: 'black' }} onClick={handleClose}>
+            <IconButton aria-label="close" onClick={handleClose}>
               <CloseIcon />
             </IconButton>
           </Grid>
@@ -80,68 +102,14 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
               {intl.formatMessage({ id: `common.statuses.${leafData.status}` }) }
             </Typography>
           </Grid>
-
-        </Grid>
-      </Grid>
-
-      {/* Content */}
-      <Grid container direction="column" className={classes.dialogContent}>
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
-            {leafData.name}
-          </Typography>
         </Grid>
 
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.applicationType' })}: `}</span>
-            {intl.formatMessage({ id: `common.projects.${leafData.type}` })}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.commodity' })}: `}</span>
-            {intl.formatMessage({ id: `common.commodities.${leafData.commodity}` })}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
-            {leafData.consultants}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.companyName' })}: `}</span>
-            {leafData.companyName}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.hearingOrder' })}: `}</span>
-            {leafData.hearingOrder}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography>
-            <span>{`${intl.formatMessage({ id: 'common.filingDate' })}: `}</span>
-            {new Date(leafData.filingDate).toLocaleDateString()}
-          </Typography>
-        </Grid>
       </Grid>
 
       {/* Footer */}
       <Grid container wrap="nowrap" className={classes.dialogFooter}>
-
         {/* Table / Figure Counts */}
-        <Grid item spacing={1} container xs={4} className={classes.footerCounts}>
-
+        <Grid item container spacing={1} xs={4} alignItems="center" className={classes.footerCounts}>
           <Grid item>
             <Typography>
               <span>{`${leafData.tableCount} `}</span>
@@ -155,6 +123,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
               {intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: leafData.figureCount })}
             </Typography>
           </Grid>
+
         </Grid>
 
         {/* Buttons */}
