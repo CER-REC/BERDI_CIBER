@@ -95,7 +95,7 @@
     },
     "treeMap":{
       "title":"Select a box to filter by project and access project details.",
-      "figureCount":"{figures, plural, =1 {figures} other {figures}}",
+      "figureCount":"{figures, plural, =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
