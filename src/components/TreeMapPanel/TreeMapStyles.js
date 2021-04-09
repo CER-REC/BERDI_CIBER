@@ -62,6 +62,14 @@ export default (theme) => ({
   titleTypography: {
     padding: '1.5em 0 0.5em 0',
   },
+  countsTitle: {
+    fontSize: '36px',
+    paddingTop: '0.5em',
+  },
+  countsText: {
+    fontSize: '24px',
+    paddingTop: '0.2em',
+  },
   labelInner: {
     padding: '14px 0 0 14px',
     width: '100%',
