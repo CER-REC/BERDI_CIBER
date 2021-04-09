@@ -65,7 +65,7 @@ const theme = createMuiTheme({
         },
         '& > $label': {
           fontSize: 16,
-          textTransform: 'capitalize',
+          textTransform: 'none',
         },
       },
       containedPrimary: {

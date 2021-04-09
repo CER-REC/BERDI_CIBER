@@ -53,11 +53,11 @@ const TreeMapPanel = () => {
               <p>{ application.data.shortName }</p>
               <p>
                 <strong>{application.data.tableCount}</strong>
-                {` ${intl.formatMessage({ id: 'common.tables' })}`}
+                {` ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: application.data.tableCount })}`}
               </p>
               <p>
                 <strong>{application.data.figureCount}</strong>
-                {` ${intl.formatMessage({ id: 'common.figures' })}`}
+                {` ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: application.data.figureCount })}`}
               </p>
             </div>
           )}
@@ -86,10 +86,14 @@ const TreeMapPanel = () => {
                 <span className={classes.labelInnerTitle}>{d.shortName}</span>
               </div>
               <div className={classes.labelInner}>
-                <span className={classes.labelInnerCounts}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
+                <span className={classes.labelInnerCounts}>
+                  {`${d.tableCount} ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: d.tableCount })}`}
+                </span>
               </div>
               <div className={classes.labelInner} style={{ paddingTop: '0' }}>
-                <span className={classes.labelInnerCounts}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
+                <span className={classes.labelInnerCounts}>
+                  {`${d.figureCount} ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: d.figureCount })}`}
+                </span>
               </div>
             </>
           )}
