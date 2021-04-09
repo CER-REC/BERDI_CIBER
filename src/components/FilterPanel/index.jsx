@@ -25,7 +25,7 @@ const FilterPanel = () => {
   const { maxDate, minDate } = useAPI();
   const { config, configDispatch } = useConfig();
   const classes = useStyles();
-  const { applicationNames, regions, statuses, projectTypes, commodities } = useAPI();
+  const { applicationNames, regions, statuses, projectTypes, commodities, contentTypes } = useAPI();
   const intl = useIntl();
   // TODO: Extract into own component
   const createDropdown = (title, hasHelp, dataItem, dispatchAction, value) => {
@@ -65,11 +65,12 @@ const FilterPanel = () => {
         </Grid>
       </Grid>
       <Grid container spacing={5}>
-        {createDropdown('COMMODITIES', false, commodities, 'commodities/changed', config.commodities)}
+        {createDropdown('CONTENT_TYPES', false, contentTypes, 'contentTypes/changed', config.contentTypes)}
         {createDropdown('PROJECT_TYPES', true, projectTypes, 'projectTypes/changed', config.projectTypes)}
-        {createDropdown('STATUSES', false, statuses, 'statuses/changed', config.statuses)}
       </Grid>
       <Grid container spacing={5}>
+        {createDropdown('COMMODITIES', false, commodities, 'commodities/changed', config.commodities)}
+        {createDropdown('STATUSES', false, statuses, 'statuses/changed', config.statuses)}
         <Grid item xs={4}>
           <Button
             classes={{ root: classes.button }}

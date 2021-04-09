@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Grid, makeStyles, MenuItem, Select } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import { Button, Grid, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import LimitationsDialog from '../LimitationsDialog';

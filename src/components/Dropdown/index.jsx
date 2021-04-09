@@ -68,7 +68,7 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
         return intl.formatMessage({ id: `common.statuses.${name}` });
       case 'PROJECT_TYPES':
         return intl.formatMessage({ id: `common.projects.${name}` });
-      case 'CONTENT':
+      case 'CONTENT_TYPES':
         return intl.formatMessage({ id: `common.content.${name}` });
       default:
         return name;
