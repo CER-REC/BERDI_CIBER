@@ -48,7 +48,7 @@ export default (theme) => ({
     },
   },
   dialogFooter: {
-    backgroundColor: '#eaf9ff',
+    backgroundColor: '#EAF9FF',
     padding: '10px 20px 10px 0',
     '& button': {
       borderRadius: '5px',

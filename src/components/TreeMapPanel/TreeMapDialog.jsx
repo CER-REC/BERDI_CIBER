@@ -27,8 +27,8 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
   }, [leafData, handleClose]);
 
   const createDialogField = (title, content) => (
-    <Typography key={intl.formatMessage({ id: title })}>
-      <span>{`${intl.formatMessage({ id: title })}: `}</span>
+    <Typography key={title}>
+      <span>{intl.formatMessage({ id: title })}</span>
       {content}
     </Typography>
   );
@@ -42,10 +42,10 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
     content: leafData.name,
   }, {
     label: 'common.applicationType',
-    content: leafData.type,
+    content: intl.formatMessage({ id: `common.projects.${leafData.type}` }),
   }, {
     label: 'common.commodity',
-    content: leafData.commodity,
+    content: intl.formatMessage({ id: `common.commodities.${leafData.commodity}` }),
   }, {
     label: 'common.consultants',
     content: leafData.consultants,
@@ -109,14 +109,21 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
       {/* Footer */}
       <Grid container wrap="nowrap" className={classes.dialogFooter}>
         {/* Table / Figure Counts */}
-        <Grid item spacing={1} container xs={4} className={classes.footerCounts}>
+        <Grid item container spacing={1} xs={4} className={classes.footerCounts}>
           <Grid item>
-            {createDialogField('common.tables', leafData.tableCount.toLocaleString())}
+            <Typography>
+              <span>{`${leafData.tableCount} `}</span>
+              {intl.formatMessage({ id: 'common.tables' })}
+            </Typography>
           </Grid>
 
-          <Grid item className={classes.footerFigures}>
-            {createDialogField('common.figures', leafData.figureCount.toLocaleString())}
+          <Grid item>
+            <Typography className={classes.footerFigures}>
+              {`${leafData.figureCount} `}
+              {intl.formatMessage({ id: 'common.figures' })}
+            </Typography>
           </Grid>
+
         </Grid>
 
         {/* Buttons */}
