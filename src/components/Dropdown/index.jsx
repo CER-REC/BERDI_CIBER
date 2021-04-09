@@ -103,6 +103,7 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
             vertical: 'bottom',
             horizontal: 'left',
           },
+          autoFocus: false,
           getContentAnchorEl: null,
         }}
         IconComponent={KeyboardArrowDown}
