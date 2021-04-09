@@ -15,7 +15,6 @@ const hasVariables = (config) => (
   && config.commodities
   && config.projectTypes
   && config.statuses
-  && config.sort
   && !Number.isNaN(config.searchIndex)
 );
 
@@ -31,7 +30,6 @@ export default () => {
       commodities: config.commodities,
       projectTypes: config.projectTypes,
       statuses: config.statuses,
-      sort: config.sort,
       first: RESULT_COUNT,
       offset: config.searchIndex * RESULT_COUNT,
     },

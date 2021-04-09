@@ -9,7 +9,7 @@ import { NOOP } from '../utilities/parseData';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
-const parameters = ['page', 'sort', 'searchIndex'];
+const parameters = ['page', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses'];
 const encodedParameters = ['searches', 'applicationNames'];
@@ -58,7 +58,6 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     commodities,
     projectTypes,
     statuses,
-    contentTypes,
   } = useAPI();
   const reducer = useMemo(
     () => getReducer(
@@ -69,9 +68,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       commodities,
       projectTypes,
       statuses,
-      contentTypes[0],
-    ),
-    [
+    ), [
       applicationNames,
       regions,
       minDate,
@@ -79,7 +76,6 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       commodities,
       projectTypes,
       statuses,
-      contentTypes,
     ],
   );
   const [config, configDispatch] = useReducer(reducer, initialState);
@@ -103,7 +99,6 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         commodities: query.commodities?.split(','),
         projectTypes: query.projectTypes?.split(','),
         statuses: query.statuses?.split(','),
-        sort: query.sort,
         searchIndex,
       },
     });

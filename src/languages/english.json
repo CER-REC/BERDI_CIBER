@@ -116,7 +116,6 @@
         "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
-      "sortLabel":"Sort by data type",
       "titles":{
         "filedDate":"Project Filed Date"
       }

@@ -31,7 +31,6 @@ export const SEARCH = gql`
     $commodities: [Commodity!]!,
     $projectTypes: [ProjectType!]!,
     $statuses: [Status!]!,
-    $sort: MediaType!,
     $first: Int!,
     $offset: Int!
   ) {
@@ -68,7 +67,6 @@ export const SEARCH = gql`
       commodities: $commodities,
       projectTypes: $projectTypes,
       statuses: $statuses,
-      sort: $sort,
       first: $first,
       offset: $offset
     ) {
