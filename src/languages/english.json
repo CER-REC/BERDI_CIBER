@@ -94,7 +94,9 @@
       "clearButton": "Clear all filters"
     },
     "treeMap":{
-      "title":"Select a box to filter by project and access project details.",
+      "title":"Search Results",
+      "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
+      "boxSelectText":"Select a box to filter by project and access project details.",
       "figureCount":"{figures, plural, =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
