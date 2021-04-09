@@ -145,7 +145,7 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
           <Grid item>
             <Typography>
               <span>{`${leafData.tableCount} `}</span>
-              { intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: leafData.tableCount })}
+              {intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: leafData.tableCount })}
             </Typography>
           </Grid>
 
