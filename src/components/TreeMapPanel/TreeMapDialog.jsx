@@ -10,7 +10,6 @@ import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
 import styles from './TreeMapStyles';
-import { lang } from '../../constants';
 
 const useStyles = makeStyles(styles);
 
@@ -25,15 +24,6 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
     reportDownload(leafData.name);
     handleClose();
   }, [leafData, handleClose]);
-
-  const pluralize = (word, count) => {
-    const singular = word === 'figure' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' });
-    const plural = word === 'figue' ? intl.formatMessage({ id: 'common.figures' }) : intl.formatMessage({ id: 'common.tables' });
-    if (lang === 'fr') {
-      return count > 1 ? plural : singular;
-    }
-    return count === 1 ? singular : plural;
-  };
 
   if (!leafData) {
     return null;
@@ -155,14 +145,14 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
           <Grid item>
             <Typography>
               <span>{`${leafData.tableCount} `}</span>
-              {pluralize('table', leafData.tableCount)}
+              { intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: leafData.tableCount })}
             </Typography>
           </Grid>
 
           <Grid item>
             <Typography className={classes.footerFigures}>
               {`${leafData.figureCount} `}
-              {pluralize('figure', leafData.figureCount)}
+              {intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: leafData.figureCount })}
             </Typography>
           </Grid>
         </Grid>
