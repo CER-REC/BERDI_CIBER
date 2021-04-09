@@ -105,7 +105,7 @@ export default (theme) => ({
   tooltip: {
     '& p': {
       margin: '0px',
-      '&:first-child': { paddingBottom: '1em' },
+      '&:first-child': { paddingBottom: '0.5em' },
       '&:not(:first-child)': { textTransform: 'lowercase' },
     },
   },
