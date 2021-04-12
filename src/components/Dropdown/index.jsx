@@ -11,6 +11,7 @@ import { KeyboardArrowDown } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import { reportFilter } from '../../utilities/analytics';
 import IconCheckbox from '../IconCheckbox';
 import BootstrapInput from './BootstrapInput';
 import DataTooltip from './DataTooltip';
@@ -39,16 +40,24 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
     // 0 is used as the value to avoid collision with any strings in the data
     if (selected[selected.length - 1] === 0) {
       if (selected.length > data.length) {
+        reportFilter(title, 'ALL', false);
         onChange([]);
       } else {
+        reportFilter(title, 'ALL', true);
         onChange(data);
       }
 
       return;
     }
 
+    const selectedItem = (
+      value.filter((item) => !selected.includes(item))[0]
+      || selected.filter((item) => !value.includes(item))[0]
+    );
+
+    reportFilter(title, selectedItem, (selected.length > value.length));
     onChange(selected);
-  }, [data, onChange]);
+  }, [title, data, value, onChange]);
   const getDropdownItemName = useCallback((type, name) => {
     switch (type) {
       case 'REGIONS':
@@ -94,6 +103,7 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
             vertical: 'bottom',
             horizontal: 'left',
           },
+          autoFocus: false,
           getContentAnchorEl: null,
         }}
         IconComponent={KeyboardArrowDown}

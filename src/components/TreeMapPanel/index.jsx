@@ -3,19 +3,19 @@ import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import { reportProject } from '../../utilities/analytics';
 import TreeMapDialog from './TreeMapDialog';
 import styles from './TreeMapStyles';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
-  const { config } = useConfig();
   const { applications: data } = useESAData();
   const intl = useIntl();
   const classes = useStyles();
+  const { config } = useConfig();
 
   const [open, setOpen] = useState(false);
   const [selectedBoxData, setSelectedBoxData] = useState(null);
@@ -65,11 +65,11 @@ const TreeMapPanel = () => {
                     <p>{ application.data.shortName }</p>
                     <p>
                       <strong>{application.data.tableCount}</strong>
-                      {` ${intl.formatMessage({ id: 'common.tables' })}`}
+                      {` ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: application.data.tableCount })}`}
                     </p>
                     <p>
                       <strong>{application.data.figureCount}</strong>
-                      {` ${intl.formatMessage({ id: 'common.figures' })}`}
+                      {` ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: application.data.figureCount })}`}
                     </p>
                   </div>
                 )}
@@ -84,17 +84,13 @@ const TreeMapPanel = () => {
                 borderWidth={3}
                 borderColor="#ffffff"
                 colors={(d) => d.color}
-                onClick={(node) => {
-                  reportProject(
-                    config.regions,
-                    config.commodities,
-                    config.projectTypes,
-                    config.statuses,
-                    node.data.name,
-                  );
-                  setSelectedBoxData(node.data);
-                  handleClickOpen();
-                }}
+                onClick={
+            (node) => {
+              reportProject(node.data.shortName);
+              setSelectedBoxData(node.data);
+              handleClickOpen();
+            }
+          }
                 label={(d) => (
                   <>
                     <div className={classes.emptyPlaceholder} />
@@ -102,10 +98,14 @@ const TreeMapPanel = () => {
                       <span className={classes.labelInnerTitle}>{d.shortName}</span>
                     </div>
                     <div className={classes.labelInner}>
-                      <span className={classes.labelInnerCounts}>{`${d.tableCount} ${intl.formatMessage({ id: 'common.tables' })}`}</span>
+                      <span className={classes.labelInnerCounts}>
+                        {`${d.tableCount} ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: d.tableCount })}`}
+                      </span>
                     </div>
                     <div className={classes.labelInner} style={{ paddingTop: '0' }}>
-                      <span className={classes.labelInnerCounts}>{`${d.figureCount} ${intl.formatMessage({ id: 'common.figures' })}`}</span>
+                      <span className={classes.labelInnerCounts}>
+                        {`${d.figureCount} ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: d.figureCount })}`}
+                      </span>
                     </div>
                   </>
                 )}

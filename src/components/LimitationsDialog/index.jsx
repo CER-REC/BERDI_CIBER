@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Button, Dialog, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+
+import { reportDownload } from '../../utilities/analytics';
 import { mockFileSize, mockCSVCount, mockPDFCount, API_HOST, applicationPath, lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -76,6 +78,10 @@ const useStyles = makeStyles((theme) => ({
 const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const handleClick = useCallback(() => {
+    reportDownload(intl.messages['components.limitationsDialog.dataSection.buttonLabel']);
+    onClose();
+  }, [intl, onClose]);
 
   return (
     <Dialog
@@ -166,7 +172,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Button
           color="primary"
           variant="contained"
-          onClick={onClose}
+          onClick={handleClick}
           href={`${API_HOST}/${applicationPath[lang]}/${intl.formatMessage({ id: 'components.limitationsDialog.dataSection.url' })}`}
           disableElevation
         >

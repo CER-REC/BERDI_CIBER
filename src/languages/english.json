@@ -11,13 +11,13 @@
     "previous":"Previous",
     "download":"Download",
     "next":"Next",
-    "fullProjectName":"Full Project Name",
-    "applicationType":"Application Type",
-    "commodity":"Commodity",
-    "consultants":"ESA Consultant(s)",
-    "companyName":"Company Name",
-    "hearingOrder":"Hearing Order",
-    "filingDate":"Filing Date",
+    "fullProjectName":"Full Project Name: ",
+    "applicationType":"Application Type: ",
+    "commodity":"Commodity: ",
+    "consultants":"ESA Consultant(s): ",
+    "companyName":"Company Name: ",
+    "hearingOrder":"Hearing Order: ",
+    "filingDate":"Filing Date: ",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -82,7 +82,7 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explore Catalogue",
+      "exploreButton": "Explore catalogue",
       "exploreLabel": "Explore results from:",
       "filterLabel": "Show filters",
       "searchButton": "Search",
@@ -95,9 +95,11 @@
     },
     "treeMap":{
       "title":"Search Results",
-      "countsText":"{tables} tables and {figures} figures found",
+      "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelectText":"Select a box to filter by project and access project details.",
       "noResultsText":"Sorry there are no results for {searches}",
+      "figureCount":"{figures, plural, =1 {figure} other {figures}}",
+      "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
@@ -112,7 +114,7 @@
     },
     "resultsList":{
       "dataButton":{
-        "label":"Access Full Dataset",
+        "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
       "sortLabel":"Sort by data type",
@@ -138,14 +140,14 @@
       },
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
-        "button": "Read Our Disclaimer",
+        "button": "Read our disclaimer",
         "link": "Learn more about the data."
       },
       "discoveries": {
         "title": "Check out these cool discoveries",
         "accreditations": {
           "title": "Accreditations",
-          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart; Table by IconMark"
         },
         "wetlands": {
           "title": "Unnamed Wetlands",
@@ -165,19 +167,28 @@
       "title":"The project",
       "description":"The opportunity of a legacy, driven by policy - and our plans for the future.",
       "body":{
-        "header":"About the project",
-        "boldText1":"Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings all of which is available in our library.",
-        "paragraph1":"{boldText} With the introduction of REGDOCS in 2003, we have been digitizing thousands more. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where considerable data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
-        "boldText2":"While this data is publicly available, it is not easily accessible and difficult to navigate.",
-        "paragraph2":"{boldText} Led by the Government of Canada’s Directive on Open Government, we endeavor to understand how best to mine, structure, and present regulatory data to the people we serve. This pilot project is our first step towards meeting that goal.",
-        "boldText3":"This work is ongoing.",
-        "paragraph3":"{boldText} We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications, follow us on Github."
-      },
-      "help":{
-        "title":"Learn how you can help",
-        "text1":"{boldText}, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can create, validate, and prioritize features that improve this use.",
-        "text2":"If you work or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. {boldText}",
-        "bold2":"Please email us with your feedback at {link}"
+        "section1":{
+          "header":"About the project",
+          "boldText1":"Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings all of which is available in our library.",
+          "text1":"{boldText} With the introduction of REGDOCS in 2003, we have been digitizing thousands more. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where considerable data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
+          "boldText2":"While this data is publicly available, it is not easily accessible and difficult to navigate.",
+          "text2":"{boldText} Led by the Government of Canada’s Directive on Open Government, we endeavor to understand how best to mine, structure, and present regulatory data to the people we serve. This pilot project is our first step towards meeting that goal.",
+          "boldText3":"This work is ongoing.",
+          "text3":"{boldText} We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications, follow us on Github."
+        },
+        "section2":{
+          "header1":"What’s next: your input",
+          "text1":"Learn how you can help",
+          "bold1":"Now scheduling feedback sessions for April 2021",
+          "text2":"{toolName}, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can create, validate, and prioritize features that improve this use.",
+          "text3":"If you work or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. {boldText}",
+          "bold2":"Please email us with your feedback at {email}.",
+          "email1":"data.donnees@cer-rec.gc.ca"
+        },
+        "section3":{
+          "header1":"Ongoing improvements",
+          "text1":"It is important to point out this is an ongoing effort to improve this product and to make it better."
+        }
       }
     },
     "data":{
