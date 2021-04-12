@@ -143,6 +143,7 @@
       },
       "discoveries": {
         "title": "Voyez ces intéressantes découvertes",
+        "disclaimer":"Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
         "accreditations": {
           "title": "Accréditations",
           "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"
