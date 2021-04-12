@@ -98,8 +98,7 @@
       "boxSelectText":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "figureCount":"{figures, plural, =0 {figure} =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton":"Consulter le dossier REGDOCS",
-      "tablesButton":"Télécharger les tableaux"
+      "REGDOCSButton":"Consulter le dossier REGDOCS"
     },
     "resultDialog": {
       "downloadTable":"Télécharger le tableau",
