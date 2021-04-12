@@ -36,44 +36,38 @@ const report = (category, action, data) => {
 
 const reportSection = (page) => report('section', 'click', { value: page });
 
+const reportDisclaimer = () => report('disclaimer', 'click', { value: 'Read Our Disclaimer' });
+
+const reportDiscovery = (name) => report('discovery', 'click', { value: name });
+
 const reportSearch = (search) => report('search', 'search', { value: search });
 
 const reportShowFilter = () => report('search', 'filter', { label: 'show' });
 
-const reportFilter = (type, filter) => report('search', 'filter', { label: type, value: filter.toString() });
-
-const reportProject = (regions, commodities, projectTypes, statuses, application) => (
-  report('project', 'view', {
-    filters: JSON.stringify({ commodities, projectTypes, statuses }),
-    label: application,
-    value: regions.toString(),
-  })
+const reportFilter = (type, value, checked) => (
+  report(type, 'filter', { label: value, value: (checked ? 'check' : 'uncheck') })
 );
 
-const reportSort = (regions, commodities, projectTypes, statuses, applicationNames, type) => (
-  report('title', 'sort', {
-    filters: JSON.stringify({ commodities, projectTypes, statuses }),
-    label: type,
-    project: applicationNames.toString(),
-    province: regions.toString(),
-  })
-);
+const reportProject = (application) => report('project', 'view', { label: application });
 
-const reportContent = (regions, commodities, projectTypes, statuses, applicationNames, content) => (
-  report('title', 'view', {
-    filters: JSON.stringify({ commodities, projectTypes, statuses }),
-    label: content,
-    project: applicationNames.toString(),
-    province: regions.toString(),
-  })
-);
+const reportSort = (type) => report('title', 'sort', { label: type });
+
+const reportContent = (content) => report('title', 'view', { label: content });
+
+const reportDownload = (name) => report('TABLE', 'Download', { value: name });
+
+const reportView = (type, name) => report(type, 'View', { value: name });
 
 export {
   reportSearch,
   reportSection,
+  reportDisclaimer,
+  reportDiscovery,
   reportShowFilter,
   reportFilter,
   reportProject,
   reportSort,
   reportContent,
+  reportDownload,
+  reportView,
 };

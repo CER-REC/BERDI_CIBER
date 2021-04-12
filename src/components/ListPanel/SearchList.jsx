@@ -81,14 +81,7 @@ const SearchList = () => {
   const [selectedLineData, setSelectedLineData] = useState(null);
 
   const handleClickOpen = (content) => {
-    reportContent(
-      config.regions,
-      config.commodities,
-      config.projectTypes,
-      config.statuses,
-      content.application.name,
-      content.title,
-    );
+    reportContent(content.title);
     setOpen(true);
     setSelectedLineData(content);
   };
@@ -114,7 +107,7 @@ const SearchList = () => {
                         {content.title}
                       </Typography>
                       <Typography variant="body2">
-                        <span>{`${intl.formatMessage({ id: 'common.fullProjectName' })}: `}</span>
+                        <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
                         {content.application.name}
                       </Typography>
                       <Typography variant="body2">
@@ -122,7 +115,7 @@ const SearchList = () => {
                         {content.application.filingDate.substring(0, 10)}
                       </Typography>
                       <Typography variant="body2">
-                        <span>{`${intl.formatMessage({ id: 'common.consultants' })}: `}</span>
+                        <span>{intl.formatMessage({ id: 'common.consultants' })}</span>
                         {content.application.consultants}
                       </Typography>
                     </Grid>

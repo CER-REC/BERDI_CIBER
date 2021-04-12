@@ -11,13 +11,13 @@
     "previous":"Previous",
     "download":"Download",
     "next":"Next",
-    "fullProjectName":"Full Project Name",
-    "applicationType":"Application Type",
-    "commodity":"Commodity",
-    "consultants":"ESA Consultant(s)",
-    "companyName":"Company Name",
-    "hearingOrder":"Hearing Order",
-    "filingDate":"Filing Date",
+    "fullProjectName":"Full Project Name: ",
+    "applicationType":"Application Type: ",
+    "commodity":"Commodity: ",
+    "consultants":"ESA Consultant(s): ",
+    "companyName":"Company Name: ",
+    "hearingOrder":"Hearing Order: ",
+    "filingDate":"Filing Date: ",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -82,7 +82,7 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explore Catalogue",
+      "exploreButton": "Explore catalogue",
       "exploreLabel": "Explore results from:",
       "filterLabel": "Show filters",
       "searchButton": "Search",
@@ -94,7 +94,11 @@
       "clearButton": "Clear all filters"
     },
     "treeMap":{
-      "title":"Select a box to view project details.",
+      "title":"Search Results",
+      "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
+      "boxSelectText":"Select a box to view project details.",
+      "figureCount":"{figures, plural, =1 {figure} other {figures}}",
+      "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
       "tablesButton":"Download Project Tables"
     },
@@ -109,7 +113,7 @@
     },
     "resultsList":{
       "dataButton":{
-        "label":"Access Full Dataset",
+        "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
       "sortLabel":"Sort by data type",
@@ -135,14 +139,14 @@
       },
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
-        "button": "Read Our Disclaimer",
+        "button": "Read our disclaimer",
         "link": "Learn more about the data."
       },
       "discoveries": {
         "title": "Check out these cool discoveries",
         "accreditations": {
           "title": "Accreditations",
-          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart"
+          "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart; Table by IconMark"
         },
         "wetlands": {
           "title": "Unnamed Wetlands",
