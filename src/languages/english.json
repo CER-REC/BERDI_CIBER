@@ -109,7 +109,9 @@
       "esaSectionTitle":"ESA Section",
       "figureOccursOnPage":"Figure occurs on page: ",
       "tableOccursOnPage":"Table occurs on page: ",
-      "viewOriginalDocument":"View original document"
+      "viewOriginalDocument":"View original document",
+      "previewTitle":"Preview data.",
+      "previewText":"Feature in development"
     },
     "resultsList":{
       "dataButton":{
