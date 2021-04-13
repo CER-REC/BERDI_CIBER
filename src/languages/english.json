@@ -101,7 +101,7 @@
       "figureCount":"{figures, plural, =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
-      "tablesButton":"Download Project Tables"
+      "tablesButton":"Download ESA Tables"
     },
     "resultDialog": {
       "downloadTable":"Download table",

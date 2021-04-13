@@ -97,8 +97,7 @@
       "countsText":"{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} and {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}} found",
       "figureCount":"{figures, plural, =0 {figure} =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton":"Consulter le dossier REGDOCS",
-      "tablesButton":"Télécharger les tableaux"
+      "REGDOCSButton":"Consulter le dossier REGDOCS"
     },
     "resultDialog": {
       "downloadTable":"Télécharger le tableau",
