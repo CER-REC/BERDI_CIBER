@@ -12,7 +12,7 @@ import useConfig from '../../hooks/useConfig';
 const useStyles = makeStyles(styles);
 
 const TreeMapPanel = () => {
-  const { applications: data } = useESAData();
+  const { applications: data, loading } = useESAData();
   const intl = useIntl();
   const classes = useStyles();
   const { config } = useConfig();
@@ -20,7 +20,7 @@ const TreeMapPanel = () => {
   const [open, setOpen] = useState(false);
   const [selectedBoxData, setSelectedBoxData] = useState(null);
 
-  const combinedSearches = config.searches.reduce((acc, val) => (`${acc} `).concat(val), '');
+  const combinedSearches = config.searches.join(' ');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,6 +29,10 @@ const TreeMapPanel = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  if (!data && loading) {
+    return null;
+  }
 
   return (
     <>
