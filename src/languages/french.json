@@ -105,7 +105,9 @@
       "esaSectionTitle":"Section de l'ÉES",
       "figureOccursOnPage":"La figure est sur page : ",
       "tableOccursOnPage":"La figure est sur page : ",
-      "viewOriginalDocument":"Consulter le document original"
+      "viewOriginalDocument":"Consulter le document original",
+      "previewTitle":"Aperçu des données",
+      "previewText":"Fonction en cours d’élaboration"
     },
     "resultsList":{
       "dataButton":{
