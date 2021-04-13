@@ -9,9 +9,9 @@ import { NOOP } from '../utilities/parseData';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
-const parameters = ['page', 'sort', 'searchIndex'];
+const parameters = ['page', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
-const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses'];
+const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
 const encodedParameters = ['searches', 'applicationNames'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
@@ -69,9 +69,8 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       commodities,
       projectTypes,
       statuses,
-      contentTypes[0],
-    ),
-    [
+      contentTypes,
+    ), [
       applicationNames,
       regions,
       minDate,
@@ -103,7 +102,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         commodities: query.commodities?.split(','),
         projectTypes: query.projectTypes?.split(','),
         statuses: query.statuses?.split(','),
-        sort: query.sort,
+        contentTypes: query.contentTypes?.split(','),
         searchIndex,
       },
     });

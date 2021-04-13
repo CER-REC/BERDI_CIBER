@@ -55,6 +55,7 @@ export default (theme) => ({
     fontWeight: '900',
     fontFamily: theme.typography.fontFamily,
     verticalAlign: 'unset',
+    paddingLeft: '1em',
   },
   esaSections: {
     paddingTop: '0',

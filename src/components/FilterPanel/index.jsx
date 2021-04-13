@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import DatePicker from '../DatePicker';
-import Dropdown from '../Dropdown';
+import Filter from './Filter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,24 +25,8 @@ const FilterPanel = () => {
   const { maxDate, minDate } = useAPI();
   const { config, configDispatch } = useConfig();
   const classes = useStyles();
-  const { applicationNames, regions, statuses, projectTypes, commodities } = useAPI();
+  const { applicationNames, regions, statuses, projectTypes, commodities, contentTypes } = useAPI();
   const intl = useIntl();
-  // TODO: Extract into own component
-  const createDropdown = (title, hasHelp, dataItem, dispatchAction, value) => {
-    const handleChange = (items) => configDispatch({ type: dispatchAction, payload: items });
-
-    return (
-      <Grid item xs={4}>
-        <Dropdown
-          title={title}
-          hasHelp={hasHelp}
-          data={dataItem || []}
-          onChange={handleChange}
-          value={value}
-        />
-      </Grid>
-    );
-  };
   const handleDatePickerChange = useCallback((start, end) => {
     configDispatch({ type: 'startDate/changed', payload: start });
     configDispatch({ type: 'endDate/changed', payload: end });
@@ -52,8 +36,20 @@ const FilterPanel = () => {
   return (
     <div className={`FilterPanel ${classes.root}`}>
       <Grid container spacing={5}>
-        {createDropdown('APPLICATION_NAMES', false, applicationNames, 'applicationNames/changed', config.applicationNames)}
-        {createDropdown('REGIONS', false, regions, 'regions/changed', config.regions)}
+        <Filter
+          type="APPLICATION_NAMES"
+          action="applicationNames/changed"
+          options={applicationNames}
+          value={config.applicationNames}
+          hasHelp={false}
+        />
+        <Filter
+          type="REGIONS"
+          action="regions/changed"
+          options={regions}
+          value={config.regions}
+          hasHelp={false}
+        />
         <Grid item xs={4}>
           <DatePicker
             maxDate={maxDate}
@@ -65,11 +61,36 @@ const FilterPanel = () => {
         </Grid>
       </Grid>
       <Grid container spacing={5}>
-        {createDropdown('COMMODITIES', false, commodities, 'commodities/changed', config.commodities)}
-        {createDropdown('PROJECT_TYPES', true, projectTypes, 'projectTypes/changed', config.projectTypes)}
-        {createDropdown('STATUSES', false, statuses, 'statuses/changed', config.statuses)}
+        <Filter
+          type="CONTENT_TYPES"
+          action="contentTypes/changed"
+          options={contentTypes}
+          value={config.contentTypes}
+          hasHelp={false}
+        />
+        <Filter
+          type="PROJECT_TYPES"
+          action="projectTypes/changed"
+          options={projectTypes}
+          value={config.projectTypes}
+          hasHelp
+        />
       </Grid>
       <Grid container spacing={5}>
+        <Filter
+          type="COMMODITIES"
+          action="commodities/changed"
+          options={commodities}
+          value={config.commodities}
+          hasHelp={false}
+        />
+        <Filter
+          type="STATUSES"
+          action="statuses/changed"
+          options={statuses}
+          value={config.statuses}
+          hasHelp={false}
+        />
         <Grid item xs={4}>
           <Button
             classes={{ root: classes.button }}

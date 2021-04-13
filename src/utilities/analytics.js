@@ -50,8 +50,6 @@ const reportFilter = (type, value, checked) => (
 
 const reportProject = (application) => report('project', 'view', { label: application });
 
-const reportSort = (type) => report('title', 'sort', { label: type });
-
 const reportContent = (content) => report('title', 'view', { label: content });
 
 const reportDownload = (name) => report('TABLE', 'Download', { value: name });
@@ -66,7 +64,6 @@ export {
   reportShowFilter,
   reportFilter,
   reportProject,
-  reportSort,
   reportContent,
   reportDownload,
   reportView,

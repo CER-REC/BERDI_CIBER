@@ -37,6 +37,7 @@
       "REGIONS": "Province",
       "STATUSES": "Pipeline Status",
       "COMMODITIES": "Commodity",
+      "CONTENT_TYPES": "View Results Type",
       "PROJECT_TYPES": "Project Type (NEB Act)",
       "DATE": "Date project was filed",
       "all": "(All)",
@@ -75,7 +76,7 @@
       "dataSection":{
         "zipText":"You are about to download a ZIP package including the below:",
         "countsText":"{csvCount} CSV files ({tableCount} tables) {part2}",
-        "countsPart2":"packaged in their respective Application folders, and including an index of tables",
+        "countsPart2":"packaged in their respective Project folders, and including an index of tables",
         "limitationsText":"By downloading these files, you understand the above limitations and agree to adhere to all requirements.",
         "buttonLabel":"Download all tables ",
         "url":"csv/en/en.zip"
@@ -96,12 +97,12 @@
     "treeMap":{
       "title":"Search Results",
       "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
-      "boxSelectText":"Select a box to filter by project and access project details.",
+      "boxSelectText":"Select a box to view project details.",
       "noResultsText":"Sorry there are no results for {searches}",
       "figureCount":"{figures, plural, =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
-      "tablesButton":"Download Project Tables"
+      "tablesButton":"Download ESA Tables"
     },
     "resultDialog": {
       "downloadTable":"Download table",
@@ -117,7 +118,6 @@
         "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
-      "sortLabel":"Sort by data type",
       "titles":{
         "filedDate":"Project Filed Date"
       }

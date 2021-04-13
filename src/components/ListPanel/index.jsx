@@ -1,47 +1,22 @@
-import { Button, FormControl, Grid, makeStyles, MenuItem, Select, Typography } from '@material-ui/core';
 import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
+import { Button, Grid, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
-import useConfig from '../../hooks/useConfig';
-import SearchList from './SearchList';
+
 import LimitationsDialog from '../LimitationsDialog';
+import SearchList from './SearchList';
 
 const useStyles = makeStyles({
   root: {
     marginTop: '15px',
     height: 'auto',
   },
-  option: {
-    paddingLeft: '5px',
-  },
-  dropDownLabel: {
-    marginRight: '10px',
-    display: 'inline',
-    fontWeight: '900',
-  },
-  innerSelect: {
-    width: '20%',
-    border: '2px solid black',
-    borderRadius: '5%',
-    '& div': {
-      paddingLeft: '5px',
-    },
-  },
   innerGrid: {
     height: '100%',
     marginTop: '5px',
   },
-  selection: {
-    width: 'auto',
-    display: 'inline',
-    '& :before': {
-      content: 'none',
-    },
-  },
 });
 
-const ListSection = ({ onChange }) => {
-  const { config } = useConfig();
+const ListSection = () => {
   const classes = useStyles();
   const intl = useIntl();
 
@@ -52,22 +27,7 @@ const ListSection = ({ onChange }) => {
   return (
     <>
       <Grid container justify="space-between" alignItems="center" className={classes.root}>
-        <Grid item xs={6} className={classes.innerGrid}>
-
-          <Typography variant="body1" className={classes.dropDownLabel}>
-            {intl.formatMessage({ id: 'components.resultsList.sortLabel' })}
-          </Typography>
-
-          {/* FIXME: Throws warning when selection is made.  */}
-          <FormControl className={classes.selection}>
-            <Select defaultValue={config.sort || ''} value={config.sort || ''} onChange={onChange} className={classes.innerSelect}>
-              <MenuItem className={classes.option} value="TABLE">{intl.formatMessage({ id: 'common.content.TABLE' })}</MenuItem>
-              <MenuItem className={classes.option} value="FIGURE">{intl.formatMessage({ id: 'common.content.FIGURE' })}</MenuItem>
-            </Select>
-          </FormControl>
-
-        </Grid>
-        <Grid item xs={6} className={classes.innerGrid} style={{ textAlign: 'right' }}>
+        <Grid item xs={12} className={classes.innerGrid} style={{ textAlign: 'right' }}>
 
           <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
             {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
@@ -87,7 +47,3 @@ const ListSection = ({ onChange }) => {
 };
 
 export default ListSection;
-
-ListSection.propTypes = {
-  onChange: PropTypes.func.isRequired,
-};
