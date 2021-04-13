@@ -30,6 +30,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     }
   }, [open, setCanSeeMore]);
 
+  // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createEsaSection = (sections) => {
     if (sections.length < 260 || canSeeMore) {
       return (<Typography className={classes.esaSections}>{sections}</Typography>);
@@ -37,7 +38,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     return (
       <>
         <Typography className={classes.esaSections}>
-          {sections.substring(0, 260).concat(' ')}
+          {sections.substring(0, 260).concat('...')}
         </Typography>
         <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(true)}>
           {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
@@ -45,6 +46,24 @@ const ResultDialog = ({ open, onClose, data }) => {
       </>
     );
   };
+
+  // TODO: make this a more generic function to be used whenever a see more button is needed.
+  const createTitleSection = (title) => {
+    if (title.length < 150 || canSeeMore) {
+      return (<Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>);
+    }
+    return (
+      <>
+        <Typography variant="h6" style={{ display: 'inline' }}>
+          {title.substring(0, 150).concat('...')}
+        </Typography>
+        <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(true)}>
+          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
+        </ButtonBase>
+      </>
+    );
+  };
+
   const handleViewClick = useCallback(() => {
     reportView(data.type, data.title);
     onClose();
@@ -87,9 +106,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         className={classes.dialogContent}
       >
         <Grid item>
-          <Typography variant="h6">
-            {data.title}
-          </Typography>
+          {createTitleSection(data.title)}
         </Grid>
 
         <Grid item>
