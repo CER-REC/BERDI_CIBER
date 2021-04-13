@@ -74,7 +74,6 @@
       "dataSection":{
         "zipText":"Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
         "countsText":"{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
-        "countsPart2":"fichiers regroupés par dossier de demande, y compris un index des tableaux.",
         "limitationsText":"En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
         "buttonLabel":"Télécharger tous les tableaux",
         "url":"csv/fr/fr.zip"
@@ -95,11 +94,9 @@
     "treeMap":{
       "title":"Résultats de la recherche",
       "countsText":"{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} and {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}} found",
-      "boxSelectText":"Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "figureCount":"{figures, plural, =0 {figure} =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton":"Consulter le dossier REGDOCS",
-      "tablesButton":"Télécharger les tableaux"
+      "REGDOCSButton":"Consulter le dossier REGDOCS"
     },
     "resultDialog": {
       "downloadTable":"Télécharger le tableau",
@@ -142,6 +139,7 @@
       },
       "discoveries": {
         "title": "Voyez ces intéressantes découvertes",
+        "disclaimer":"Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
         "accreditations": {
           "title": "Accréditations",
           "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"

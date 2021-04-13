@@ -65,6 +65,13 @@ const useStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
+  seeMoreButton: {
+    color: theme.palette.blue.dark,
+    fontWeight: '900',
+    fontFamily: theme.typography.fontFamily,
+    verticalAlign: 'unset',
+    paddingLeft: '1em',
+  },
 }));
 
 const SearchList = () => {
@@ -79,6 +86,7 @@ const SearchList = () => {
 
   const [open, setOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
+  const [expandedTitles, setExpandedTitles] = useState([]);
 
   const handleClickOpen = (content) => {
     reportContent(content.title);
@@ -88,6 +96,30 @@ const SearchList = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  // TODO: make this a more generic function to be used whenever a see more button is needed.
+  const createTitleSection = (title, content) => {
+    if (title.length < 150 || expandedTitles.find((entry) => entry === title)) {
+      return (
+        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+          {title}
+        </Typography>
+      );
+    }
+    return (
+      <>
+        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+          {title.substring(0, 150).concat('...')}
+        </Typography>
+        <ButtonBase
+          className={classes.seeMoreButton}
+          onClick={() => setExpandedTitles((list) => [...list, title])}
+        >
+          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
+        </ButtonBase>
+      </>
+    );
   };
 
   return (
@@ -103,9 +135,7 @@ const SearchList = () => {
                   <Grid container>
 
                     <Grid item xs={11}>
-                      <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
-                        {content.title}
-                      </Typography>
+                      {createTitleSection(content.title, content)}
                       <Typography variant="body2">
                         <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
                         {content.application.name}
