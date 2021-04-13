@@ -73,7 +73,7 @@ const useStyles = makeStyles(() => ({
   root: {
     paddingTop: '1em',
   },
-  accreditations: {
+  subtitle: {
     fontSize: 12,
     fontStyle: 'italic',
   },
@@ -99,6 +99,7 @@ const Discoveries = () => {
   return (
     <div className={`Discoveries ${classes.root}`}>
       <Typography variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.title' })}</Typography>
+      {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.disclaimer' })}</Typography>}
       <Grid container classes={{ root: classes.buttons }} spacing={3}>
         <Grid item xs={4}>
           <ImageButton
@@ -128,8 +129,8 @@ const Discoveries = () => {
           />
         </Grid>
       </Grid>
-      <Typography classes={{ root: classes.accreditations }} variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.title' })}</Typography>
-      <Typography classes={{ root: classes.accreditations }} component="p">{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.body' })}</Typography>
+      <Typography classes={{ root: classes.subtitle }} variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.title' })}</Typography>
+      <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.body' })}</Typography>
       <ResultDialog open={open} onClose={handleClose} data={content} />
     </div>
   );
