@@ -98,6 +98,7 @@
       "title":"Search Results",
       "countsText":"{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelectText":"Select a box to view project details.",
+      "noResultsText":"Sorry there are no results for {searches}",
       "figureCount":"{figures, plural, =1 {figure} other {figures}}",
       "tableCount":"{tables, plural, =1 {table} other {tables}}",
       "REGDOCSButton":"View REGDOCS Folder",
