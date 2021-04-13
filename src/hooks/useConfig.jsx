@@ -87,6 +87,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const startDate = query.startDate ? toDateOnly(query.startDate) : null;
     const endDate = query.endDate ? toDateOnly(query.endDate) : null;
     const searchIndex = parseInt(query.searchIndex, 10);
+    const fragment = location.hash ? location.hash.substring(1) : '';
 
     updatingState = true;
 
@@ -104,6 +105,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         statuses: query.statuses?.split(','),
         contentTypes: query.contentTypes?.split(','),
         searchIndex,
+        fragment,
       },
     });
   }, [configDispatch]);
@@ -137,6 +139,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     history.push({
       pathname: history.location.pathname,
       search: `?${allQueryParameters.join('&')}`,
+      hash: config.fragment ? `#${config.fragment}` : '',
     });
   }, [config]);
 
