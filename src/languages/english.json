@@ -37,6 +37,7 @@
       "REGIONS": "Province",
       "STATUSES": "Pipeline Status",
       "COMMODITIES": "Commodity",
+      "CONTENT_TYPES": "View Results Type",
       "PROJECT_TYPES": "Project Type (NEB Act)",
       "DATE": "Date project was filed",
       "all": "(All)",
@@ -116,7 +117,6 @@
         "label":"Access full dataset",
         "link":"csv/en/en.zip"
       },
-      "sortLabel":"Sort by data type",
       "titles":{
         "filedDate":"Project Filed Date"
       }

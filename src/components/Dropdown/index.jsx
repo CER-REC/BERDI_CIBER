@@ -31,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const DropDown = ({ title, hasHelp, data, value, onChange }) => {
+const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
   const handleChange = useCallback((event) => {
@@ -39,12 +39,12 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
 
     // 0 is used as the value to avoid collision with any strings in the data
     if (selected[selected.length - 1] === 0) {
-      if (selected.length > data.length) {
-        reportFilter(title, 'ALL', false);
+      if (selected.length > options.length) {
+        reportFilter(type, 'ALL', false);
         onChange([]);
       } else {
-        reportFilter(title, 'ALL', true);
-        onChange(data);
+        reportFilter(type, 'ALL', true);
+        onChange(options);
       }
 
       return;
@@ -55,10 +55,10 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
       || selected.filter((item) => !value.includes(item))[0]
     );
 
-    reportFilter(title, selectedItem, (selected.length > value.length));
+    reportFilter(type, selectedItem, (selected.length > value.length));
     onChange(selected);
-  }, [title, data, value, onChange]);
-  const getDropdownItemName = useCallback((type, name) => {
+  }, [type, options, value, onChange]);
+  const getDropdownItemName = useCallback((name) => {
     switch (type) {
       case 'REGIONS':
         return intl.formatMessage({ id: `common.regions.${name}` });
@@ -68,28 +68,28 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
         return intl.formatMessage({ id: `common.statuses.${name}` });
       case 'PROJECT_TYPES':
         return intl.formatMessage({ id: `common.projects.${name}` });
-      case 'CONTENT':
+      case 'CONTENT_TYPES':
         return intl.formatMessage({ id: `common.content.${name}` });
       default:
         return name;
     }
-  }, [intl]);
+  }, [type, intl]);
   const renderValue = useCallback((selected) => {
-    if (selected.length === data.length) {
+    if (selected.length === options.length) {
       return intl.formatMessage({ id: 'components.dropdown.all' });
     }
 
     if (selected.length === 1) {
-      return getDropdownItemName(title, selected[0]);
+      return getDropdownItemName(selected[0]);
     }
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
-  }, [data, intl, getDropdownItemName, title]);
+  }, [options, intl, getDropdownItemName]);
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
       <Typography classes={{ root: classes.label }}>
-        {intl.formatMessage({ id: `components.dropdown.${title}` })}
+        {intl.formatMessage({ id: `components.dropdown.${type}` })}
         {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select
@@ -111,16 +111,16 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
       >
         <MenuItem classes={{ root: classes.item }} value={0}>
           <Checkbox
-            checked={(data.length > 0) && (value.length === data.length)}
-            indeterminate={(value.length > 0) && (value.length < data.length)}
+            checked={(options.length > 0) && (value.length === options.length)}
+            indeterminate={(value.length > 0) && (value.length < options.length)}
           />
           {intl.formatMessage({ id: 'components.dropdown.all' })}
         </MenuItem>
         {
-          data.map((entry) => (
+          options.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
               <IconCheckbox checked={value.indexOf(entry) !== -1} />
-              {getDropdownItemName(title, entry)}
+              {getDropdownItemName(entry)}
             </MenuItem>
           ))
         }
@@ -130,9 +130,9 @@ const DropDown = ({ title, hasHelp, data, value, onChange }) => {
 };
 
 DropDown.propTypes = {
-  title: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   hasHelp: PropTypes.bool.isRequired,
-  data: PropTypes.arrayOf(PropTypes.string).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   value: PropTypes.arrayOf(PropTypes.string),
   onChange: PropTypes.func.isRequired,
 };
