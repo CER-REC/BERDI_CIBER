@@ -109,15 +109,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       },
     });
   }, [configDispatch]);
-
-  useEffect(() => {
-    // Don't update the URL if we're currently updating the state
-    if (updatingState) {
-      updatingState = false;
-
-      return;
-    }
-
+  const search = useMemo(() => {
     const queryParameters = parameters.map(
       (parameter) => `${parameter}=${config[parameter] || ''}`,
     );
@@ -136,12 +128,23 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       encodedQueryParameters,
     );
 
+    return `?${allQueryParameters.join('&')}`;
+  }, [config]);
+
+  useEffect(() => {
+    // Don't update the URL if we're currently updating the state
+    if (updatingState) {
+      updatingState = false;
+
+      return;
+    }
+
     history.push({
       pathname: history.location.pathname,
-      search: `?${allQueryParameters.join('&')}`,
+      search,
       hash: config.fragment ? `#${config.fragment}` : '',
     });
-  }, [config]);
+  }, [search, config.fragment]);
 
   useEffect(() => {
     unlistenHistory();
