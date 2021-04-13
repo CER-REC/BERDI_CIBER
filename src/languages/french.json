@@ -74,7 +74,6 @@
       "dataSection":{
         "zipText":"Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
         "countsText":"{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
-        "countsPart2":"fichiers regroupés par dossier de demande, y compris un index des tableaux.",
         "limitationsText":"En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
         "buttonLabel":"Télécharger tous les tableaux",
         "url":"csv/fr/fr.zip"
