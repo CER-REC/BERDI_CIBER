@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     border: '2px solid #054169',
     borderRadius: 0,
-    boxShadow: '4px 4px 0px rgba(0, 0, 0, 0.25)',
+    boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
     padding: '0',
     height: '100%',
   },
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '3px',
       display: 'inline-flex',
       fontSize: 14,
+      fontWeight: 'bold',
       marginRight: '0.5em',
       padding: '0.5em',
       textTransform: 'uppercase',
