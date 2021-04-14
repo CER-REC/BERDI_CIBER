@@ -68,18 +68,12 @@ const TreeMapPanel = () => {
                   <div className={classes.tooltip}>
                     <p>{ application.data.shortName }</p>
                     <p>
-                      {intl.formatMessage({ id: 'components.treeMap.tableCount' },
-                        {
-                          count: <strong>{application.data.tableCount}</strong>,
-                          tables: application.data.tableCount,
-                        })}
+                      <strong>{intl.formatNumber(application.data.tableCount)}</strong>
+                      {` ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: application.data.tableCount })}`}
                     </p>
                     <p>
-                      {intl.formatMessage({ id: 'components.treeMap.figureCount' },
-                        {
-                          count: <strong>{application.data.figureCount}</strong>,
-                          figures: application.data.figureCount,
-                        })}
+                      <strong>{intl.formatNumber(application.data.figureCount)}</strong>
+                      {` ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: application.data.figureCount })}`}
                     </p>
                   </div>
                 )}
@@ -109,12 +103,12 @@ const TreeMapPanel = () => {
                     </div>
                     <div className={classes.labelInner}>
                       <span className={classes.labelInnerCounts}>
-                        {intl.formatMessage({ id: 'components.treeMap.tableCount' }, { count: d.tableCount, tables: d.tableCount })}
+                        {`${intl.formatNumber(d.tableCount)} ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: d.tableCount })}`}
                       </span>
                     </div>
                     <div className={classes.labelInner} style={{ paddingTop: '0' }}>
                       <span className={classes.labelInnerCounts}>
-                        {intl.formatMessage({ id: 'components.treeMap.figureCount' }, { count: d.figureCount, figures: d.figureCount })}
+                        {`${intl.formatNumber(d.figureCount)} ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: d.figureCount })}`}
                       </span>
                     </div>
                   </>
