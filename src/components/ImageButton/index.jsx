@@ -8,7 +8,7 @@ import table from '../../images/table.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    border: '2px solid #054169',
+    border: `2px solid ${theme.palette.button.blue}`,
     borderRadius: 0,
     boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
     padding: '0',

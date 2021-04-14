@@ -4,16 +4,16 @@ import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   returnLink: {
     textDecoration: 'underline',
     fontWeight: '900',
-    color: '#054169',
+    color: theme.palette.button.blue,
     marginBottom: '1em',
   },
   selectedButton: {
     color: 'white',
-    backgroundColor: '#054169',
+    backgroundColor: theme.palette.button.blue,
   },
   buttonSection: {
     marginBottom: '1em',
@@ -27,30 +27,29 @@ const useStyles = makeStyles({
       paddingLeft: '15px',
       width: '80%',
       '&:hover': {
-        backgroundColor: '#054169',
+        backgroundColor: theme.palette.button.blue,
         color: 'white',
       },
     },
-
     '& div': {
       flex: 'auto',
     },
   },
-});
+}));
 
 export const BackButton = () => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
 
-  const handleClick = useCallback((page) => {
-    reportSection(page);
-    configDispatch({ type: 'page/changed', payload: page });
+  const handleClick = useCallback(() => {
+    reportSection('landing');
+    configDispatch({ type: 'page/changed', payload: 'landing' });
   }, [configDispatch]);
-  const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
+  const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 
   return (
-    <ButtonBase onClick={createHandleClick('landing')} className={classes.returnLink}>
+    <ButtonBase onClick={createHandleClick()} className={classes.returnLink}>
       {`> ${intl.formatMessage({ id: 'pages.back' }, { toolName: intl.formatMessage({ id: 'common.toolName' }) })}`}
     </ButtonBase>
   );

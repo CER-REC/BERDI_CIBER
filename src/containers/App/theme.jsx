@@ -4,6 +4,7 @@ const black = '#000000';
 const white = '#FFFFFF';
 const green = '#63B440';
 const darkBlue = '#284162';
+const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
 const darkGreen = '#1C5204';
 const lightGreen = '#DCF2D2';
@@ -12,6 +13,9 @@ const theme = createMuiTheme({
   palette: {
     primary: { main: black },
     secondary: { main: green },
+    button: {
+      blue: buttonBlue,
+    },
     blue: {
       dark: darkBlue,
       light: lightBlue,
