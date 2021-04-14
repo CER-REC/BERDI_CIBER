@@ -25,7 +25,10 @@ const BetaAlert = () => {
   const { configDispatch } = useConfig();
   const handleClick = useCallback(() => {
     reportSection('project');
-    configDispatch({ type: 'page/changed', payload: 'project' });
+    configDispatch({
+      type: 'page/fragment/changed',
+      payload: { page: 'project', fragment: 'learn' },
+    });
   }, [configDispatch]);
 
   return (

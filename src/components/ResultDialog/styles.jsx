@@ -45,6 +45,19 @@ export default (theme) => ({
       color: '#434343',
     },
   },
+  previewData: {
+    backgroundColor: '#EDEDED',
+    margin: '0 20px 20px 20px',
+    border: '2px dashed black',
+    textAlign: 'center',
+    padding: '5% 0',
+    '& strong': {
+      fontWeight: '700',
+    },
+    '& p': {
+      fontStyle: 'italic',
+    },
+  },
   esaSectionTitle: {
     paddingBottom: '0',
     fontWeight: '900',

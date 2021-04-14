@@ -1,10 +1,15 @@
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import DatePicker from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import fr from 'date-fns/locale/fr-CA';
+import { lang } from '../../constants';
 
 import { toDateOnly, toDateOnlyString } from '../../utilities/date';
+
+// This registers the locale for react-datepicker
+registerLocale('fr', fr);
 
 const inputStyles = makeStyles((theme) => createStyles({
   datePicker: {
@@ -50,8 +55,7 @@ const useStyles = makeStyles({
 // eslint-disable-next-line no-unused-vars
 const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
   const classes = inputStyles();
-  const shortenDate = (date) => new Date(date).toDateString();
-
+  const shortenDate = (date) => new Date(date).toLocaleDateString(`${lang}-CA`, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
   return (
     <input
       className={classes.datePicker}
@@ -107,6 +111,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         minDate={minMonthDate}
         maxDate={maxMonthDate}
         customInput={<CustomInput startDate={startDate} endDate={endDate} />}
+        locale={lang}
         showMonthYearPicker
       />
     </div>

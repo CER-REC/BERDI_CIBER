@@ -1,8 +1,10 @@
+import React, { useEffect, useRef } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
-import React from 'react';
 import { useIntl } from 'react-intl';
+
 import BetaAlert from '../../components/BetaAlert';
 import NavButtons from '../../components/NavButtons';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles({
   root: {
@@ -23,6 +25,14 @@ const useStyles = makeStyles({
 const Project = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const learnRef = useRef();
+  const { config } = useConfig();
+
+  useEffect(() => {
+    if (config.fragment === 'learn') {
+      learnRef.current.scrollIntoView(true);
+    }
+  }, [config]);
 
   return (
     <>
@@ -83,7 +93,7 @@ const Project = () => {
           </Typography>
         </section>
 
-        <section className="alert alert-info">
+        <section className="alert alert-info" ref={learnRef}>
           <Typography variant="h6">
             {intl.formatMessage({ id: 'pages.project.body.section2.header1' })}
           </Typography>

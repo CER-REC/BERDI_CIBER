@@ -87,6 +87,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
     const startDate = query.startDate ? toDateOnly(query.startDate) : null;
     const endDate = query.endDate ? toDateOnly(query.endDate) : null;
     const searchIndex = parseInt(query.searchIndex, 10);
+    const fragment = location.hash ? location.hash.substring(1) : '';
 
     updatingState = true;
 
@@ -104,18 +105,11 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         statuses: query.statuses?.split(','),
         contentTypes: query.contentTypes?.split(','),
         searchIndex,
+        fragment,
       },
     });
   }, [configDispatch]);
-
-  useEffect(() => {
-    // Don't update the URL if we're currently updating the state
-    if (updatingState) {
-      updatingState = false;
-
-      return;
-    }
-
+  const search = useMemo(() => {
     const queryParameters = parameters.map(
       (parameter) => `${parameter}=${config[parameter] || ''}`,
     );
@@ -134,11 +128,23 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       encodedQueryParameters,
     );
 
+    return `?${allQueryParameters.join('&')}`;
+  }, [config]);
+
+  useEffect(() => {
+    // Don't update the URL if we're currently updating the state
+    if (updatingState) {
+      updatingState = false;
+
+      return;
+    }
+
     history.push({
       pathname: history.location.pathname,
-      search: `?${allQueryParameters.join('&')}`,
+      search,
+      hash: config.fragment ? `#${config.fragment}` : '',
     });
-  }, [config]);
+  }, [search, config.fragment]);
 
   useEffect(() => {
     unlistenHistory();
