@@ -29,6 +29,8 @@ export const initialState = {
   contentTypes: null,
   // The page of the search results (starting at 0)
   searchIndex: 0,
+  // The URL fragment
+  fragment: '',
 };
 
 export const getReducer = (
@@ -56,6 +58,7 @@ export const getReducer = (
         statuses: getValidEnums(action.payload.statuses, statuses),
         contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
+        fragment: action.payload.fragment || initialState.searchIndex,
       };
     case 'page/changed':
       return {
@@ -71,6 +74,7 @@ export const getReducer = (
         statuses: state.statuses || statuses,
         contentTypes: state.contentTypes || contentTypes,
         searchIndex: state.searchIndex || initialState.searchIndex,
+        fragment: initialState.searchIndex,
       };
     case 'searches/changed':
       return {
@@ -78,6 +82,7 @@ export const getReducer = (
         page: 'search',
         searches: action.payload || initialState.searches,
         searchIndex: 0,
+        fragment: initialState.searchIndex,
       };
     case 'applicationNames/changed':
       return {
@@ -132,6 +137,12 @@ export const getReducer = (
       return {
         ...state,
         searchIndex: action.payload || initialState.searchIndex,
+      };
+    case 'page/fragment/changed':
+      return {
+        ...state,
+        page: action.payload.page || state.page,
+        fragment: action.payload.fragment || state.fragment,
       };
     case 'filters/removed':
       return {
