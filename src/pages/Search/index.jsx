@@ -5,6 +5,7 @@ import SearchPanel from '../../components/SearchPanel';
 import FilterPanel from '../../components/FilterPanel';
 import ListSection from '../../components/ListPanel';
 import TreeMapPanel from '../../components/TreeMapPanel';
+import NavButtons from '../../components/NavButtons';
 import useAPI from '../../hooks/useAPI';
 import { reportShowFilter } from '../../utilities/analytics';
 
@@ -26,6 +27,7 @@ const Search = () => {
   return (
     <>
       <AccuracyAlert />
+      <NavButtons />
       <SearchPanel hasFilter onChange={handleFilterChange} />
 
       { open && <FilterPanel /> }
