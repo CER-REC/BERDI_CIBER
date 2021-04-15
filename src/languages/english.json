@@ -113,7 +113,8 @@
       "tableOccursOnPage":"Table occurs on page: ",
       "viewOriginalDocument":"View original document",
       "previewTitle":"Preview data.",
-      "previewText":"Feature in development"
+      "previewText":"Feature in development",
+      "disclaimer":"Disclaimer: Data is shown in the original language it was filed in. Table and figure titles have been translated."
     },
     "resultsList":{
       "dataButton":{
