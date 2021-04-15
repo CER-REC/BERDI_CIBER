@@ -12,7 +12,7 @@ import useAPI from './useAPI';
 const parameters = ['page', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
-const encodedParameters = ['searches', 'applicationNames'];
+const encodedParameters = ['searches', 'applicationIds'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
 let updatingState = true;
@@ -51,7 +51,7 @@ const encodeParameter = (parameter) => {
 
 export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => {
   const {
-    applicationNames,
+    applicationIds,
     regions,
     minDate,
     maxDate,
@@ -62,7 +62,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
   } = useAPI();
   const reducer = useMemo(
     () => getReducer(
-      applicationNames,
+      applicationIds,
       regions,
       minDate,
       maxDate,
@@ -71,7 +71,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       statuses,
       contentTypes,
     ), [
-      applicationNames,
+      applicationIds,
       regions,
       minDate,
       maxDate,
@@ -96,7 +96,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
       payload: {
         page: query.page,
         searches: decodeParameter(query.searches),
-        applicationNames: decodeParameter(query.applicationNames),
+        applicationIds: decodeParameter(query.applicationIds),
         regions: query.regions?.split(','),
         startDate,
         endDate,
