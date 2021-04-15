@@ -6,6 +6,11 @@ import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
 const useStyles = makeStyles(() => ({
+  root: {
+    '& ::before': {
+      transform: 'translate(-0.5em)',
+    },
+  },
   link: {
     fontSize: 16,
     padding: 0,
@@ -30,9 +35,8 @@ const AccuracyAlert = () => {
   }, [configDispatch]);
 
   return (
-    <div className="AccuracyAlert alert alert-warning">
-      <span>
-        &nbsp;
+    <div className={`AccuracyAlert alert alert-warning ${classes.root}`}>
+      <span style={{ marginLeft: '1.5em' }}>
         <strong>{intl.formatMessage({ id: 'components.accuracyAlert.title' })}</strong>
         &nbsp;-&nbsp;
         {intl.formatMessage({ id: 'components.accuracyAlert.body' })}

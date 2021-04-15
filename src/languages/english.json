@@ -29,7 +29,7 @@
   "components": {
     "accuracyAlert": {
       "title": "A NOTE ON ACCURACY",
-      "body": "Results may be limited. Some data has been excluded.",
+      "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded.",
       "link": "Learn more about our methods."
     },
     "dropdown":{
@@ -113,7 +113,8 @@
       "tableOccursOnPage":"Table occurs on page: ",
       "viewOriginalDocument":"View original document",
       "previewTitle":"Preview data.",
-      "previewText":"Feature in development"
+      "previewText":"Feature in development",
+      "disclaimer":"Disclaimer: Data is shown in the original language it was filed in. Table and figure titles have been translated."
     },
     "resultsList":{
       "dataButton":{

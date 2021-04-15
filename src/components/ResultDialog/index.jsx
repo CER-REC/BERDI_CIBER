@@ -99,6 +99,12 @@ const ResultDialog = ({ open, onClose, data }) => {
         </Grid>
       </Grid>
 
+      <Grid>
+        <Typography className={classes.disclaimer}>
+          {intl.formatMessage({ id: 'components.resultDialog.disclaimer' })}
+        </Typography>
+      </Grid>
+
       {/* Preview */}
       <Grid className={classes.previewData}>
         <Typography component="strong">{intl.formatMessage({ id: 'components.resultDialog.previewTitle' })}</Typography>

@@ -83,4 +83,9 @@ export default (theme) => ({
     color: theme.palette.blue.dark,
     '&:hover, &:visited': { color: theme.palette.blue.dark },
   },
+  disclaimer: {
+    fontStyle: 'italic',
+    fontWeight: '600',
+    padding: '0 20px 20px 20px',
+  },
 });
