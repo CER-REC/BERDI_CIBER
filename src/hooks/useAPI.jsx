@@ -64,9 +64,31 @@ export default () => {
     () => (data ? getI18NMessages(data.configuration.translations) : {}),
     [data],
   );
-  const applicationNames = useMemo(
-    () => (data ? data.configuration.applicationNames.sort() : []),
-    [data],
+  const applicationIdLabels = useMemo(() => {
+    if (!data) {
+      return {};
+    }
+
+    return data.applications.reduce((idLabels, application) => ({
+      ...idLabels,
+      [application.id]: application.shortName,
+    }), {});
+  }, [data]);
+  const applicationIds = useMemo(
+    () => Object.keys(applicationIdLabels).sort((idA, idB) => {
+      const labelA = applicationIdLabels[idA];
+      const labelB = applicationIdLabels[idB];
+
+      if (labelA < labelB) {
+        return -1;
+      }
+      if (labelA > labelB) {
+        return 1;
+      }
+
+      return 0;
+    }),
+    [applicationIdLabels],
   );
   const maxDate = useMemo(
     () => (data ? toDateOnly(data.configuration.maxFilingDate) : new Date()),
@@ -95,7 +117,8 @@ export default () => {
     projectTypes,
     commodities,
     contentTypes,
-    applicationNames,
+    applicationIds,
+    applicationIdLabels,
     translations,
     maxDate,
     minDate,
