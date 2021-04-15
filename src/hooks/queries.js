@@ -3,7 +3,6 @@ import gql from 'graphql-tag';
 export const CONFIGURATION = gql`
   query {
     configuration {
-      applicationNames
       maxFilingDate
       minFilingDate
       regions
@@ -18,13 +17,17 @@ export const CONFIGURATION = gql`
         french
       }
     }
+    applications {
+      id
+      shortName
+    }
   }
 `;
 
 export const SEARCH = gql`
   query(
     $searches: [String!]!,
-    $applicationNames: [String!]!,
+    $applicationIds: [String!]!,
     $regions: [Region!]!,
     $startDate: DateTime!,
     $endDate: DateTime!,
@@ -37,7 +40,7 @@ export const SEARCH = gql`
   ) {
     applications(
       searches: $searches,
-      applicationNames: $applicationNames,
+      applicationIds: $applicationIds,
       regions: $regions,
       startDate: $startDate,
       endDate: $endDate,
@@ -61,7 +64,7 @@ export const SEARCH = gql`
     }
     contentSearch(
       searches: $searches,
-      applicationNames: $applicationNames,
+      applicationIds: $applicationIds,
       regions: $regions,
       startDate: $startDate,
       endDate: $endDate,

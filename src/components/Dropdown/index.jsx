@@ -11,6 +11,7 @@ import { KeyboardArrowDown } from '@material-ui/icons';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import useAPI from '../../hooks/useAPI';
 import { reportFilter } from '../../utilities/analytics';
 import IconCheckbox from '../IconCheckbox';
 import BootstrapInput from './BootstrapInput';
@@ -34,6 +35,7 @@ const useStyles = makeStyles(() => ({
 const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { applicationIdLabels } = useAPI();
   const handleChange = useCallback((event) => {
     const selected = event.target.value;
 
@@ -60,6 +62,8 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   }, [type, options, value, onChange]);
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
+      case 'APPLICATION_NAMES':
+        return applicationIdLabels[name];
       case 'REGIONS':
         return intl.formatMessage({ id: `common.regions.${name}` });
       case 'COMMODITIES':
@@ -73,7 +77,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
       default:
         return name;
     }
-  }, [type, intl]);
+  }, [type, applicationIdLabels, intl]);
   const renderValue = useCallback((selected) => {
     if (selected.length === options.length) {
       return intl.formatMessage({ id: 'components.dropdown.all' });

@@ -8,7 +8,7 @@ import { SEARCH } from './queries';
 
 const hasVariables = (config) => (
   config.searches
-  && config.applicationNames
+  && config.applicationIds
   && config.regions
   && config.startDate
   && config.endDate
@@ -24,7 +24,7 @@ export default () => {
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
       searches: config.searches,
-      applicationNames: config.applicationNames,
+      applicationIds: config.applicationIds,
       regions: config.regions,
       startDate: toDateOnlyString(config.startDate),
       endDate: toDateOnlyString(config.endDate),

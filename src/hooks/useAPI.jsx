@@ -11,6 +11,7 @@ const getStatuses = (translations) => {
   ).map(
     (translation) => translation.key,
   );
+
   return statuses;
 };
 const getProjectTypes = (translations) => {
@@ -19,6 +20,7 @@ const getProjectTypes = (translations) => {
   ).map(
     (translation) => translation.key,
   );
+
   return projects;
 };
 const getCommodities = (translations) => {
@@ -27,6 +29,7 @@ const getCommodities = (translations) => {
   ).map(
     (translation) => translation.key,
   );
+
   return commodities;
 };
 const getContentTypes = (translations) => {
@@ -35,47 +38,81 @@ const getContentTypes = (translations) => {
   ).map(
     (translation) => translation.key,
   );
+
   return contentTypes;
 };
 
 export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
+
   const regions = useMemo(
     () => (data ? data.configuration.regions : []),
     [data],
   );
+
   const statuses = useMemo(
     () => (data ? getStatuses(data.configuration.translations).sort() : []),
     [data],
   );
+
   const projectTypes = useMemo(
     () => (data ? getProjectTypes(data.configuration.translations) : []),
     [data],
   );
+
   const commodities = useMemo(
     () => (data ? getCommodities(data.configuration.translations) : []),
     [data],
   );
+
   const contentTypes = useMemo(
     () => (data ? getContentTypes(data.configuration.translations) : []),
     [data],
   );
+
   const translations = useMemo(
     () => (data ? getI18NMessages(data.configuration.translations) : {}),
     [data],
   );
-  const applicationNames = useMemo(
-    () => (data ? data.configuration.applicationNames.sort() : []),
-    [data],
+
+  const applicationIdLabels = useMemo(() => {
+    if (!data) {
+      return {};
+    }
+
+    return data.applications.reduce((idLabels, application) => ({
+      ...idLabels,
+      [application.id]: application.shortName,
+    }), {});
+  }, [data]);
+
+  const applicationIds = useMemo(
+    () => Object.keys(applicationIdLabels).sort((idA, idB) => {
+      const labelA = applicationIdLabels[idA];
+      const labelB = applicationIdLabels[idB];
+
+      if (labelA < labelB) {
+        return -1;
+      }
+      if (labelA > labelB) {
+        return 1;
+      }
+
+      return 0;
+    }),
+    [applicationIdLabels],
   );
+
   const maxDate = useMemo(
     () => (data ? toDateOnly(data.configuration.maxFilingDate) : new Date()),
     [data],
   );
+
   const minDate = useMemo(
     () => (data ? toDateOnly(data.configuration.minFilingDate) : new Date()),
     [data],
   );
+
   const keywordCounts = useMemo(() => {
     if (!data) {
       return {};
@@ -95,7 +132,8 @@ export default () => {
     projectTypes,
     commodities,
     contentTypes,
-    applicationNames,
+    applicationIds,
+    applicationIdLabels,
     translations,
     maxDate,
     minDate,
