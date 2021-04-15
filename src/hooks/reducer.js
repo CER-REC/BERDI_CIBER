@@ -11,8 +11,8 @@ export const initialState = {
   page: 'landing',
   // A list of the terms to find in the application name, ESA section, or extracted tables
   searches: [],
-  // A list of the application names to include
-  applicationNames: null,
+  // A list of the application IDs to include
+  applicationIds: null,
   // A list of the provinces to include
   regions: null,
   // The earliest filing date to include
@@ -34,7 +34,7 @@ export const initialState = {
 };
 
 export const getReducer = (
-  applicationNames,
+  applicationIds,
   regions,
   minDate,
   maxDate,
@@ -49,7 +49,7 @@ export const getReducer = (
         ...state,
         page: action.payload.page || initialState.page,
         searches: action.payload.searches || initialState.searches,
-        applicationNames: getValidEnums(action.payload.applicationNames, applicationNames),
+        applicationIds: getValidEnums(action.payload.applicationIds, applicationIds),
         regions: getValidEnums(action.payload.regions, regions),
         startDate: action.payload.startDate || minDate,
         endDate: action.payload.endDate || maxDate,
@@ -65,7 +65,7 @@ export const getReducer = (
         ...state,
         page: action.payload || initialState.page,
         searches: state.searches || initialState.searches,
-        applicationNames: state.applicationNames || applicationNames,
+        applicationIds: state.applicationIds || applicationIds,
         regions: state.regions || regions,
         startDate: state.startDate || minDate,
         endDate: state.endDate || maxDate,
@@ -84,10 +84,10 @@ export const getReducer = (
         searchIndex: 0,
         fragment: initialState.searchIndex,
       };
-    case 'applicationNames/changed':
+    case 'applicationIds/changed':
       return {
         ...state,
-        applicationNames: getValidEnums(action.payload, applicationNames),
+        applicationIds: getValidEnums(action.payload, applicationIds),
         searchIndex: 0,
       };
 
@@ -147,7 +147,7 @@ export const getReducer = (
     case 'filters/removed':
       return {
         ...state,
-        applicationNames,
+        applicationIds,
         regions,
         startDate: minDate,
         endDate: maxDate,

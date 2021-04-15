@@ -25,7 +25,7 @@ const FilterPanel = () => {
   const { maxDate, minDate } = useAPI();
   const { config, configDispatch } = useConfig();
   const classes = useStyles();
-  const { applicationNames, regions, statuses, projectTypes, commodities, contentTypes } = useAPI();
+  const { applicationIds, regions, statuses, projectTypes, commodities, contentTypes } = useAPI();
   const intl = useIntl();
   const handleDatePickerChange = useCallback((start, end) => {
     configDispatch({ type: 'startDate/changed', payload: start });
@@ -38,9 +38,9 @@ const FilterPanel = () => {
       <Grid container spacing={5}>
         <Filter
           type="APPLICATION_NAMES"
-          action="applicationNames/changed"
-          options={applicationNames}
-          value={config.applicationNames}
+          action="applicationIds/changed"
+          options={applicationIds}
+          value={config.applicationIds}
           hasHelp={false}
         />
         <Filter
