@@ -29,7 +29,7 @@
   "components": {
     "accuracyAlert": {
       "title": "A NOTE ON ACCURACY",
-      "body": "Results may be limited. Some data has been excluded.",
+      "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded.",
       "link": "Learn more about our methods."
     },
     "dropdown":{
