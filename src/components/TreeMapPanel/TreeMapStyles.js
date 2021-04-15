@@ -63,10 +63,12 @@ export default (theme) => ({
   countsTitle: {
     fontSize: '36px',
     paddingTop: '0.5em',
+    fontWeight: '100',
   },
   countsText: {
     fontSize: '24px',
     paddingTop: '0.2em',
+    fontWeight: '100',
   },
   labelInner: {
     padding: '14px 0 0 14px',
