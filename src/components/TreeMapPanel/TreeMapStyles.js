@@ -11,7 +11,7 @@ export default (theme) => ({
     border: '1px solid #a0a4a5',
     borderRadius: '5%',
     color: '#a0a4a5',
-    margin: '5px',
+    margin: '1em',
     padding: '2px 10px',
     whiteSpace: 'nowrap',
   },
@@ -27,10 +27,8 @@ export default (theme) => ({
   },
   dialogRightSide: {
     textAlign: 'right',
-    paddingRight: '1em',
     '& button': {
       fill: 'black',
-      paddingRight: '0',
     },
   },
   dialogLeftSide: {

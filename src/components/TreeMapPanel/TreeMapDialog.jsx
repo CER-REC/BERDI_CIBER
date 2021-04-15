@@ -112,14 +112,14 @@ const TreeMapDialog = ({ open, handleClose, leafData }) => {
         <Grid item container spacing={1} xs={4} alignItems="center" className={classes.footerCounts}>
           <Grid item>
             <Typography>
-              <span>{`${leafData.tableCount} `}</span>
+              <span>{`${intl.formatNumber(leafData.tableCount)} `}</span>
               {intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: leafData.tableCount })}
             </Typography>
           </Grid>
 
           <Grid item>
             <Typography className={classes.footerFigures}>
-              {`${leafData.figureCount} `}
+              {`${intl.formatNumber(leafData.figureCount)} `}
               {intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: leafData.figureCount })}
             </Typography>
           </Grid>
