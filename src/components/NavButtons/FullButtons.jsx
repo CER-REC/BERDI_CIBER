@@ -1,10 +1,9 @@
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useCallback } from 'react';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
-
-import ContentButton from '../../../components/ContentButton';
-import useConfig from '../../../hooks/useConfig';
-import { reportSection } from '../../../utilities/analytics';
+import useConfig from '../../hooks/useConfig';
+import { reportSection } from '../../utilities/analytics';
+import ContentButton from '../ContentButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,10 +15,11 @@ const useStyles = makeStyles((theme) => ({
   subtitle: { fontSize: 20 },
 }));
 
-const TitleContent = () => {
+const FullButtons = () => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
+
   const handleClick = useCallback((page) => {
     reportSection(page);
     configDispatch({ type: 'page/changed', payload: page });
@@ -62,4 +62,4 @@ const TitleContent = () => {
   );
 };
 
-export default TitleContent;
+export default FullButtons;

@@ -4,12 +4,12 @@ import BetaAlert from '../../components/BetaAlert';
 import SearchPanel from '../../components/SearchPanel';
 import Disclaimer from './Disclaimer';
 import Discoveries from './Discoveries';
-import TitleContent from './TitleContent';
+import NavButtons from '../../components/NavButtons';
 
 const Landing = () => (
   <div className="Landing">
     <BetaAlert />
-    <TitleContent />
+    <NavButtons />
     <SearchPanel hasFilter={false} />
     <Disclaimer />
     <Discoveries />
