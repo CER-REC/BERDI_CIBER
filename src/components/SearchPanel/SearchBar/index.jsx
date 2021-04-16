@@ -52,7 +52,13 @@ const SearchBar = ({ hasShrink }) => {
     reportSearch(search);
     configDispatch({ type: 'searches/changed', payload: searches });
   }, [search, configDispatch]);
-  const handleKeyDown = useCallback((event) => (event.key === 'Enter') && handleClick(), [handleClick]);
+  const handleKeyDown = useCallback((event) => {
+    if (event.key === 'Enter') {
+      handleClick();
+      // The ASP.NET template wraps the application in a form element that triggers on the enter key
+      event.preventDefault();
+    }
+  }, [handleClick]);
 
   useEffect(() => {
     if (inputRef.current && buttonRef.current) {
