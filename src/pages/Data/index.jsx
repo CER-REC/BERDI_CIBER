@@ -1,10 +1,13 @@
-import { Grid, Typography, makeStyles } from '@material-ui/core';
-import { useIntl } from 'react-intl';
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import { useIntl } from 'react-intl';
 import BetaAlert from '../../components/BetaAlert';
-import explainer from '../../images/Explainer-ESA-Transparent 1.png';
-import studyArea from '../../images/studyArea.png';
 import NavButtons from '../../components/NavButtons';
+import { lang } from '../../constants';
+import explainer from '../../images/explainer.svg';
+import explainerFR from '../../images/explainerFR.svg';
+import studyArea from '../../images/studyArea.svg';
+import studyAreaFR from '../../images/studyAreaFR.svg';
 
 const useStyles = makeStyles({
   root: {
@@ -18,11 +21,14 @@ const useStyles = makeStyles({
     backgroundColor: '#F8F8F8',
     padding: '1em',
     margin: '1em 0',
+    '& img': {
+      maxWidth: '50em',
+    },
   },
 });
 
 const Data = () => {
-  const classes = useStyles({});
+  const classes = useStyles();
   const intl = useIntl();
 
   return (
@@ -41,7 +47,7 @@ const Data = () => {
         </Grid>
 
         <Grid item className={classes.imageContainer} style={{ padding: '0' }}>
-          <img alt="Sketch showing process of esa's from submission to decision." src={explainer} />
+          <img alt="Sketch showing process of esa's from submission to decision." src={lang === 'en' ? explainer : explainerFR} />
         </Grid>
 
         <Grid item>
@@ -89,7 +95,7 @@ const Data = () => {
         </Grid>
 
         <Grid item className={classes.imageContainer}>
-          <img alt="Graph showing effects and baseline" src={studyArea} />
+          <img alt="Graph showing effects and baseline" src={lang === 'en' ? studyArea : studyAreaFR} />
         </Grid>
 
         <Grid item>
