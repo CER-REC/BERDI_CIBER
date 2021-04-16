@@ -88,7 +88,11 @@
     "searchPanel": {
       "exploreButton": "Explorer le catalogue ",
       "exploreLabel": "Explorer les résultats liés à ce qui suit : ",
-      "filterLabel": "Afficher les filtres"
+      "filterLabel": "Afficher les filtres",
+      "searchButton": "Recherche",
+      "searchLabel": "Trouver des données : ",
+      "searchPlaceHolder": "Recherche par mots-clés",
+      "keywords": {}
     },
     "filterPanel": {
       "clearButton": "Effacer tous les filtres"
