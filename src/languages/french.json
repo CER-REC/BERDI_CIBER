@@ -29,7 +29,7 @@
   "components": {
     "accuracyAlert": {
       "title": "NOTE SUR L’EXACTITUDE",
-      "body": ""
+      "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "betaAlert": {
       "title": "BÊTA",
@@ -41,6 +41,7 @@
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
+      "CONTENT_TYPES": "Afficher le type de résultats",
       "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
       "DATE": "Date du dépôt du projet",
       "all": "(Tous)",
@@ -99,6 +100,8 @@
     "treeMap": {
       "title": "Résultats de la recherche",
       "countsText": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} and {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}} found",
+      "boxSelectText": "Sélectionnez une case pour afficher les détails du projet.",
+      "noResultsText": "Désolé, il n’y a aucun résultat pour {searches}",
       "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
       "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
       "REGDOCSButton": "Consulter le dossier REGDOCS"
@@ -108,11 +111,13 @@
       "downloadFigure": "Télécharger la figure",
       "seeMore": "Voir plus...",
       "esaSectionTitle": "Section de l'ÉES",
+      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original. Renseignez-vous sur nos méthodes.",
       "figureOccursOnPage": "La figure est sur page : ",
       "tableOccursOnPage": "La figure est sur page : ",
       "viewOriginalDocument": "Consulter le document original",
       "previewTitle": "Aperçu des données",
-      "previewText": "Fonction en cours d’élaboration"
+      "previewText": "Fonction en cours d’élaboration",
+      "disclaimer":"Avertissement : Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres des tableaux et des figures ont été traduits."
     },
     "resultsList": {
       "dataButton": {
