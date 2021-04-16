@@ -27,13 +27,6 @@ const useStyles = makeStyles((theme) => ({
   link: {
     fontSize: 20,
     fontWeight: 700,
-    padding: 0,
-    lineHeight: 'normal',
-    textDecoration: 'underline',
-    textTransform: 'none',
-    '&:hover': {
-      backgroundColor: 'inherit',
-    },
   },
   sideBlock: {
     margin: 'auto',
@@ -64,7 +57,7 @@ const Disclaimer = () => {
         </Typography>
         <Button
           classes={{ text: classes.link }}
-          variant="text"
+          color="inherit"
           onClick={handleLinkClick}
           disableRipple
         >

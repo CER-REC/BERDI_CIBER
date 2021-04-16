@@ -78,6 +78,18 @@ const theme = createMuiTheme({
           backgroundColor: '#5B7495',
         },
       },
+      colorInherit: {
+        fontSize: 16,
+        fontWeight: 400,
+        padding: 0,
+        lineHeight: 'normal',
+        textDecoration: 'underline',
+        textTransform: 'none',
+        verticalAlign: 'text-bottom',
+        '&:hover': {
+          backgroundColor: 'inherit',
+        },
+      },
     },
     MuiSwitch: {
       root: {
