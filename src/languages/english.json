@@ -32,6 +32,11 @@
       "title": "A NOTE ON ACCURACY",
       "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded."
     },
+    "betaAlert": {
+      "title": "BETA",
+      "body": "This site will change as we test ideas.",
+      "link": "Learn how you can help."
+    },
     "dropdown": {
       "APPLICATION_NAMES": "Project",
       "REGIONS": "Province",
@@ -137,11 +142,6 @@
   },
   "pages": {
     "landing": {
-      "alert": {
-        "title": "BETA",
-        "body": "This site will change as we test ideas.",
-        "link": "Learn how you can help."
-      },
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
         "button": "Read our disclaimer",
