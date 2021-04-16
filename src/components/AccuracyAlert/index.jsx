@@ -11,17 +11,6 @@ const useStyles = makeStyles(() => ({
       transform: 'translate(-0.5em)',
     },
   },
-  link: {
-    fontSize: 16,
-    padding: 0,
-    lineHeight: 'normal',
-    textDecoration: 'underline',
-    textTransform: 'none',
-    verticalAlign: 'text-bottom',
-    '&:hover': {
-      backgroundColor: 'inherit',
-    },
-  },
 }));
 
 // TODO: Refactor this component along with BetaAlert
@@ -42,11 +31,11 @@ const AccuracyAlert = () => {
         {intl.formatMessage({ id: 'components.accuracyAlert.body' })}
         &nbsp;
         <Button
-          classes={{ text: classes.link }}
-          variant="text"
+          color="inherit"
           onClick={handleClick}
+          disableRipple
         >
-          {intl.formatMessage({ id: 'components.accuracyAlert.link' })}
+          {intl.formatMessage({ id: 'common.learnMethods' })}
         </Button>
       </span>
     </div>

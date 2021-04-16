@@ -1,26 +1,11 @@
 import React, { useCallback } from 'react';
-import { Button, makeStyles } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
-const useStyles = makeStyles(() => ({
-  link: {
-    fontSize: 16,
-    padding: 0,
-    lineHeight: 'normal',
-    textDecoration: 'underline',
-    textTransform: 'none',
-    verticalAlign: 'text-bottom',
-    '&:hover': {
-      backgroundColor: 'inherit',
-    },
-  },
-}));
-
 const BetaAlert = () => {
-  const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
   const handleClick = useCallback(() => {
@@ -40,9 +25,9 @@ const BetaAlert = () => {
         {intl.formatMessage({ id: 'pages.landing.alert.body' })}
         &nbsp;
         <Button
-          classes={{ text: classes.link }}
-          variant="text"
+          color="inherit"
           onClick={handleClick}
+          disableRipple
         >
           {intl.formatMessage({ id: 'pages.landing.alert.link' })}
         </Button>
