@@ -15,6 +15,7 @@ import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
+import DataNotice from './DataNotice';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -127,6 +128,8 @@ const ResultDialog = ({ open, onClose, data }) => {
           </Typography>
           {createEsaSection(data.esaSections)}
         </Grid>
+
+        {(data.type === 'TABLE') && !data.url && <DataNotice />}
       </Grid>
 
       {/* Footer */}
