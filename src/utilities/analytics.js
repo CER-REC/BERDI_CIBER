@@ -48,7 +48,7 @@ const reportFilter = (type, value, checked) => (
   report(type, 'filter', { label: value, value: (checked ? 'check' : 'uncheck') })
 );
 
-const reportProject = (application) => report('project', 'view', { label: application });
+const reportProject = (application) => report('project', 'view', { label: 'project name', value: application });
 
 const reportContent = (content) => report('title', 'view', { label: content });
 
