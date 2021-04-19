@@ -23,25 +23,46 @@ const useStyles = makeStyles(styles);
 const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const [canSeeMore, setCanSeeMore] = useState(false);
+  const [canSeeMoreTitles, setCanSeeMoreTitles] = useState(false);
+  const [canSeeMoreSections, setCanSeeMoreSections] = useState(false);
 
   useEffect(() => {
     if (open) {
-      setCanSeeMore(false);
+      setCanSeeMoreTitles(false);
+      setCanSeeMoreSections(false);
     }
-  }, [open, setCanSeeMore]);
+  }, [open, setCanSeeMoreTitles, setCanSeeMoreSections]);
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createEsaSection = (sections) => {
-    if (sections.length < 260 || canSeeMore) {
+    if (sections.length < 260) {
       return (<Typography className={classes.esaSections}>{sections}</Typography>);
     }
+    if (sections.length >= 260 && canSeeMoreSections) {
+      return (
+        <>
+          <Typography className={classes.esaSections}>
+            {sections}
+          </Typography>
+          <ButtonBase
+            className={classes.seeMoreButton}
+            onClick={() => setCanSeeMoreSections(false)}
+          >
+            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
+          </ButtonBase>
+        </>
+      );
+    }
+
     return (
       <>
         <Typography className={classes.esaSections}>
           {sections.substring(0, 260).concat('...')}
         </Typography>
-        <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(true)}>
+        <ButtonBase
+          className={classes.seeMoreButton}
+          onClick={() => setCanSeeMoreSections(true)}
+        >
           {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
         </ButtonBase>
       </>
@@ -50,15 +71,33 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title) => {
-    if (title.length < 150 || canSeeMore) {
-      return (<Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>);
+    if (title.length < 150) {
+      return (
+        <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+      );
+    }
+    if (title.length >= 150 && canSeeMoreTitles) {
+      return (
+        <>
+          <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+          <ButtonBase
+            className={classes.seeMoreButton}
+            onClick={() => setCanSeeMoreTitles(false)}
+          >
+            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
+          </ButtonBase>
+        </>
+      );
     }
     return (
       <>
         <Typography variant="h6" style={{ display: 'inline' }}>
           {title.substring(0, 150).concat('...')}
         </Typography>
-        <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(true)}>
+        <ButtonBase
+          className={classes.seeMoreButton}
+          onClick={() => setCanSeeMoreTitles(true)}
+        >
           {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
         </ButtonBase>
       </>

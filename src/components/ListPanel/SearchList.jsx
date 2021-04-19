@@ -100,11 +100,27 @@ const SearchList = () => {
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title, content) => {
-    if (title.length < 150 || expandedTitles.find((entry) => entry === title)) {
+    if (title.length < 150) {
       return (
         <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
           {title}
         </Typography>
+      );
+    }
+
+    if (title.length >= 150 && expandedTitles.find((entry) => entry === title)) {
+      return (
+        <>
+          <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+            {title}
+          </Typography>
+          <ButtonBase
+            className={classes.seeMoreButton}
+            onClick={() => setExpandedTitles((list) => [...list.filter((item) => item !== title)])}
+          >
+            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
+          </ButtonBase>
+        </>
       );
     }
     return (
