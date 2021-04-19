@@ -33,9 +33,22 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createEsaSection = (sections) => {
-    if (sections.length < 260 || canSeeMore) {
+    if (sections.length < 260) {
       return (<Typography className={classes.esaSections}>{sections}</Typography>);
     }
+    if (sections.length >= 260 && canSeeMore) {
+      return (
+        <>
+          <Typography className={classes.esaSections}>
+            {sections}
+          </Typography>
+          <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(false)}>
+            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
+          </ButtonBase>
+        </>
+      );
+    }
+
     return (
       <>
         <Typography className={classes.esaSections}>
@@ -50,8 +63,20 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title) => {
-    if (title.length < 150 || canSeeMore) {
-      return (<Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>);
+    if (title.length < 150) {
+      return (
+        <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+      );
+    }
+    if (title.length >= 150 && canSeeMore) {
+      return (
+        <>
+          <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+          <ButtonBase className={classes.seeMoreButton} onClick={() => setCanSeeMore(false)}>
+            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
+          </ButtonBase>
+        </>
+      );
     }
     return (
       <>
