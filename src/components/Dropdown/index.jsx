@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import {
   Checkbox,
   FormControl,
@@ -60,6 +60,14 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     reportFilter(type, selectedItem, (selected.length > value.length));
     onChange(selected);
   }, [type, options, value, onChange]);
+
+  useEffect(() => {
+    if (((options.length > 0) && (value.length === 0))) {
+      reportFilter(type, 'ALL', true);
+      onChange(options);
+    }
+  }, [options, value, onChange, type]);
+
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
       case 'APPLICATION_NAMES':
