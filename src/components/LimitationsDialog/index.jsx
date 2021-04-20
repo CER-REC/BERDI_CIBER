@@ -151,8 +151,8 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             {intl.formatMessage(
               { id: 'components.limitationsDialog.dataSection.countsText' },
               {
-                csvCount: mockCSVCount.toLocaleString(),
-                tableCount: mockPDFCount.toLocaleString(),
+                csvCount: intl.formatNumber(mockCSVCount),
+                tableCount: intl.formatNumber(mockPDFCount),
                 part2: (
                   <span style={{ fontWeight: 'normal' }}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
@@ -177,7 +177,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           disableElevation
         >
           <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
-          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>{`[${mockFileSize} MB]`}</span>
+          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>{`[${intl.formatNumber(mockFileSize)} MB]`}</span>
         </Button>
       </div>
       ) }

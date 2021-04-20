@@ -46,7 +46,7 @@ const Data = () => {
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text1' })}</Typography>
         </Grid>
 
-        <Grid item className={classes.imageContainer} style={{ padding: '0' }}>
+        <Grid item className={classes.imageContainer} style={{ padding: '0', minHeight: '28em' }}>
           <img alt="Sketch showing process of esa's from submission to decision." src={lang === 'en' ? explainer : explainerFR} />
         </Grid>
 
