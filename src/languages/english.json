@@ -154,17 +154,19 @@
           "title": "Accreditations",
           "body": "From the Noun Project: aid by Scribble.liners; help by hafiudin; Risks by Ralf Schmitzer; Image by Flatart; Table by IconMark"
         },
-        "wetlands": {
-          "title": "Unnamed Wetlands",
-          "body": "Areas of land that may have never before been documented."
-        },
-        "nests": {
-          "title": "Raptor nests",
-          "body": "Bird nests that fall along a pipeline corridor."
-        },
-        "fish": {
-          "title": "Ditch fish",
-          "body": "A fish species documented in a tributary off the Fraser River."
+        "cards": {
+          "0": {
+            "title": "Permafrost conditions",
+            "body": "Permafrost from the Tundra in the Canadian North."
+          },
+          "1": {
+            "title": "Raptor nests",
+            "body": "Bird nests on a pipeline corridor in Saskatchewan."
+          },
+          "2": {
+            "title": "Ditch fish",
+            "body": "A fish species documented in a ditch near Camrose, Alberta."
+          }
         }
       }
     },
