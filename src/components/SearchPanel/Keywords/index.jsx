@@ -45,7 +45,7 @@ const Keywords = () => {
           {intl.formatMessage({ id: 'components.searchPanel.exploreLabel' })}
         </Typography>
       </Grid>
-      <Grid item xs={12} classes={{ root: classes.buttons }}>
+      <Grid item container justify="space-between" xs={12} classes={{ root: classes.buttons }}>
         <SvgButton
           src={fish}
           caption={fishKeyword}
