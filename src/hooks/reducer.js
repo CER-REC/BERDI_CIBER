@@ -1,6 +1,6 @@
 const getValidEnums = (enums, validEnums) => {
   if (!enums) {
-    return validEnums;
+    return [];
   }
 
   return validEnums.filter((validEnum) => enums?.includes(validEnum));
@@ -12,21 +12,21 @@ export const initialState = {
   // A list of the terms to find in the application name, ESA section, or extracted tables
   searches: [],
   // A list of the application IDs to include
-  applicationIds: null,
+  applicationIds: [],
   // A list of the provinces to include
-  regions: null,
+  regions: [],
   // The earliest filing date to include
   startDate: null,
   // The latest filing date to include
   endDate: null,
   // A list of the commodities to include
-  commodities: null,
+  commodities: [],
   // A list of the application types to include
-  projectTypes: null,
+  projectTypes: [],
   // A list of the pipeline statuses to include
-  statuses: null,
+  statuses: [],
   // A list of the content types to include
-  contentTypes: null,
+  contentTypes: [],
   // The page of the search results (starting at 0)
   searchIndex: 0,
   // The URL fragment
@@ -147,14 +147,14 @@ export const getReducer = (
     case 'filters/removed':
       return {
         ...state,
-        applicationIds,
-        regions,
+        applicationIds: [],
+        regions: [],
         startDate: minDate,
         endDate: maxDate,
-        commodities,
-        projectTypes,
-        statuses,
-        contentTypes,
+        commodities: [],
+        projectTypes: [],
+        statuses: [],
+        contentTypes: [],
         searchIndex: 0,
       };
     default:

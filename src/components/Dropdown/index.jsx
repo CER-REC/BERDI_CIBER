@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import {
-  Checkbox,
   FormControl,
   MenuItem,
   Select,
@@ -39,19 +38,6 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const handleChange = useCallback((event) => {
     const selected = event.target.value;
 
-    // 0 is used as the value to avoid collision with any strings in the data
-    if (selected[selected.length - 1] === 0) {
-      if (selected.length > options.length) {
-        reportFilter(type, 'ALL', false);
-        onChange([]);
-      } else {
-        reportFilter(type, 'ALL', true);
-        onChange(options);
-      }
-
-      return;
-    }
-
     const selectedItem = (
       value.filter((item) => !selected.includes(item))[0]
       || selected.filter((item) => !value.includes(item))[0]
@@ -59,7 +45,8 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     reportFilter(type, selectedItem, (selected.length > value.length));
     onChange(selected);
-  }, [type, options, value, onChange]);
+  }, [type, value, onChange]);
+
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
       case 'APPLICATION_NAMES':
@@ -79,16 +66,12 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     }
   }, [type, applicationIdLabels, intl]);
   const renderValue = useCallback((selected) => {
-    if (selected.length === options.length) {
-      return intl.formatMessage({ id: 'components.dropdown.all' });
-    }
-
     if (selected.length === 1) {
       return getDropdownItemName(selected[0]);
     }
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
-  }, [options, intl, getDropdownItemName]);
+  }, [intl, getDropdownItemName]);
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
@@ -113,13 +96,6 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         IconComponent={KeyboardArrowDown}
         renderValue={renderValue}
       >
-        <MenuItem classes={{ root: classes.item }} value={0}>
-          <Checkbox
-            checked={(options.length > 0) && (value.length === options.length)}
-            indeterminate={(value.length > 0) && (value.length < options.length)}
-          />
-          {intl.formatMessage({ id: 'components.dropdown.all' })}
-        </MenuItem>
         {
           options.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
