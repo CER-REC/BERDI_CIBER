@@ -1,11 +1,11 @@
-import 'react-datepicker/dist/react-datepicker.css';
+import { createStyles, makeStyles, Typography } from '@material-ui/core';
+import fr from 'date-fns/locale/fr-CA';
+import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
-import { makeStyles, createStyles, Typography } from '@material-ui/core';
-import PropTypes from 'prop-types';
-import fr from 'date-fns/locale/fr-CA';
+import 'react-datepicker/dist/react-datepicker.css';
+import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
-
 import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 
 // This registers the locale for react-datepicker
@@ -68,6 +68,7 @@ const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
 
 const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   const classes = useStyles();
+  const intl = useIntl();
   const [datePickerStartDate, setDatePickerStartDate] = useState(minDate);
   const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate);
   const minMonthDate = useMemo(
@@ -100,7 +101,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
   // DatePicker passes down the onClick event for customInput
   return (
     <div className={classes.root}>
-      <Typography className={classes.label}>Date</Typography>
+      <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
       <DatePicker
         onChange={handleChange}
         selected={datePickerStartDate}

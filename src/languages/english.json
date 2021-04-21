@@ -45,6 +45,7 @@
       "CONTENT_TYPES": "View Results Type",
       "PROJECT_TYPES": "Project Type (NEB Act)",
       "DATE": "Date project was filed",
+      "dateLabel":"Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
