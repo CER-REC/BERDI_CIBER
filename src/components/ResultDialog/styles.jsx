@@ -36,7 +36,6 @@ export default (theme) => ({
   dialogContent: {
     marginBottom: '20px',
     padding: '0 20px',
-    '& > p:first-child': { paddingTop: '1em' },
     '& h6': {
       textTransform: 'uppercase',
       fontWeight: 'normal',
@@ -57,7 +56,7 @@ export default (theme) => ({
     },
   },
   esaSectionTitle: {
-    paddingBottom: '0',
+    padding: '1em 0 0 0',
     fontWeight: '900',
   },
   seeMoreButton: {
