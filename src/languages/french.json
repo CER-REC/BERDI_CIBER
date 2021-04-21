@@ -13,7 +13,7 @@
     "fullProjectName": "Nom complet du projet : ",
     "applicationType": "Type de demande : ",
     "commodity": "Produit : ",
-    "consultants": "Nom du consultant de l'ÉES : ",
+    "consultants": "Nom du consultant de l'EES : ",
     "companyName": "Nom de la société : ",
     "hearingOrder": "Ordonnance d’audience : ",
     "filingDate": "Date de dépôt : ",
@@ -80,6 +80,7 @@
       "dataSection": {
         "zipText": "Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
         "countsText": "{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
+        "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
         "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
         "buttonLabel": "Télécharger tous les tableaux",
         "url": "csv/fr/fr.zip"
@@ -99,21 +100,23 @@
     },
     "treeMap": {
       "title": "Résultats de la recherche",
-      "countsText": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} and {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}} found",
+      "countsText": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
       "boxSelectText": "Sélectionnez une case pour afficher les détails du projet.",
       "noResultsText": "Désolé, il n’y a aucun résultat pour {searches}",
       "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
       "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton": "Consulter le dossier REGDOCS"
+      "REGDOCSButton": "Consulter le dossier REGDOCS",
+      "tablesButton": "Télécharger les tableaux de l'EES"
     },
     "resultDialog": {
       "downloadTable": "Télécharger le tableau",
       "downloadFigure": "Télécharger la figure",
       "seeMore": "Voir plus...",
-      "esaSectionTitle": "Section de l'ÉES",
+      "seeLess":"Voir moin ...",
+      "esaSectionTitle": "Section de l'EES",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original. Renseignez-vous sur nos méthodes.",
-      "figureOccursOnPage": "La figure est sur page : ",
-      "tableOccursOnPage": "La figure est sur page : ",
+      "figureOccursOnPage": "La figure est à la page : ",
+      "tableOccursOnPage": "Le tableau est à la page : ",
       "viewOriginalDocument": "Consulter le document original",
       "previewTitle": "Aperçu des données",
       "previewText": "Fonction en cours d’élaboration",
@@ -170,10 +173,10 @@
       "description": "L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
       "body": {
         "section1": {
-          "header": "Au sujet du projet",
+          "header": "Le projet",
           "boldText1": "Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences, tous disponibles à la bibliothèque.",
           "text1": "{boldText} Depuis le déploiement du système de dépôt électronique de documents (maintenant appelé REGDOCS), en 2003, des milliers d’autres documents ont été numérisés. Les évaluations environnementales et socioéconomiques, ou EES, comptent au nombre des documents qui renferment des données considérables sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
-          "boldText2": "Bien qu’il s’agisse de données publiques, il peut être difficile d’y accéder et de les consulter.",
+          "boldText2": "Bien qu’il s’agisse de données publiques, il peut-être difficile d’y accéder et de les consulter.",
           "text2": "{boldText} Pour donner suite à la directive fédérale sur le gouvernement ouvert, la Régie s’efforce de déterminer la meilleure manière d’extraire, de structurer et de présenter au public les données liées à la réglementation. Le projet pilote constitue un premier pas en ce sens.",
           "boldText3": "Il s’agit de travaux continus.",
           "text3": "{boldText} La Régie entend en effet continuer d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour, suivez-nous sur Github."
@@ -182,8 +185,8 @@
           "header1": "La prochaine étape : votre apport",
           "text1": "Voyez ce que vous pouvez faire",
           "bold1": "Séances de rétroaction prévues pour avril 2021",
-          "text2": "{toolName}, Le système CIBER, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de créer, valider et hiérarchiser les caractéristiques qui permettront de l’améliorer.",
-          "text3": "Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. {boldText}",
+          "text2": "{toolName}, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de créer, valider et hiérarchiser les caractéristiques qui permettront de l’améliorer. ",
+          "text3": "Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. ",
           "bold2": "Veuillez nous faire parvenir vos commentaires par courriel à l’adresse {email}.",
           "email1": "data.donnees@rec-cer.gc.ca"
         },
@@ -216,10 +219,10 @@
       }
     },
     "methods": {
-      "title": "La méthode",
+      "title": "Les méthodes",
       "description": "Voyez comment nous avons transformé des documents de réglementation en données structurées.",
       "body": {
-        "title": "Méthodes",
+        "title": "Les méthodes",
         "section1": {
           "paragraph1": "Les évaluations environnementales et socioéconomiques (« EES ») peuvent compter plusieurs centaines de pages et sont soumises à la Régie de l’énergie du Canada sous forme de fichiers PDF. Ces fichiers renferment des données qualitatives et quantitatives, notamment du texte, des tableaux, des figures, des cartes et des images satellites.",
           "paragraph2": "Bien que l’information contenue dans les EES soit détaillée, elle n’est pas facilement consultable ni accessible en raison des limites inhérentes aux fichiers PDF. Aucun fichier de données brutes, comme des tableaux en format CSV, n’est déposé auprès de la Régie; toute l’information pertinente se trouve dans les fichiers PDF. Les personnes qui souhaitent analyser, comparer ou traiter les données doivent les extraire manuellement, en copiant et en collant l’information du fichier PDF dans d’autres logiciels, comme des tableurs. C’est un processus long et fastidieux.",
@@ -273,7 +276,7 @@
         },
         "section7": {
           "header": "Remerciements",
-          "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la ColombieBritannique.",
+          "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
           "link1": "Centre for Operations Excellence",
           "url1": "https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
         }

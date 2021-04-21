@@ -106,7 +106,7 @@ const Project = () => {
             {intl.formatMessage({ id: 'pages.project.body.section2.bold1' })}
           </Typography>
 
-          <Typography style={{ paddingBottom: '0' }}>
+          <Typography style={{ display: 'inline' }}>
             {intl.formatMessage(
               { id: 'pages.project.body.section2.text2' },
               {
@@ -118,24 +118,21 @@ const Project = () => {
               },
             )}
 
-            {intl.formatMessage(
-              { id: 'pages.project.body.section2.text3' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage(
-                      { id: 'pages.project.body.section2.bold2' },
-                      {
-                        email: (
-                          <a href={`mailto:${intl.messages['pages.project.body.section2.email1']}`}>
-                            {intl.formatMessage({ id: 'pages.project.body.section2.email1' })}
-                          </a>
-                        ),
-                      },
-                    )}
-                  </strong>),
-              },
-            )}
+            {intl.formatMessage({ id: 'pages.project.body.section2.text3' })}
+          </Typography>
+          <Typography style={{ display: 'inline' }}>
+            <strong>
+              {intl.formatMessage(
+                { id: 'pages.project.body.section2.bold2' },
+                {
+                  email: (
+                    <a href={`mailto:${intl.messages['pages.project.body.section2.email1']}`}>
+                      {intl.formatMessage({ id: 'pages.project.body.section2.email1' })}
+                    </a>
+                  ),
+                },
+              )}
+            </strong>
           </Typography>
         </section>
 
