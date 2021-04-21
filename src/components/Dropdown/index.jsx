@@ -38,19 +38,6 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const handleChange = useCallback((event) => {
     const selected = event.target.value;
 
-    // 0 is used as the value to avoid collision with any strings in the data
-    if (selected[selected.length - 1] === 0) {
-      if (selected.length > options.length) {
-        reportFilter(type, 'ALL', false);
-        onChange([]);
-      } else {
-        reportFilter(type, 'ALL', true);
-        onChange(options);
-      }
-
-      return;
-    }
-
     const selectedItem = (
       value.filter((item) => !selected.includes(item))[0]
       || selected.filter((item) => !value.includes(item))[0]
@@ -58,7 +45,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     reportFilter(type, selectedItem, (selected.length > value.length));
     onChange(selected);
-  }, [type, options, value, onChange]);
+  }, [type, value, onChange]);
 
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
