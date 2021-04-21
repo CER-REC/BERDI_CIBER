@@ -36,7 +36,7 @@ export default (theme) => ({
   dialogContent: {
     marginBottom: '20px',
     padding: '0 20px',
-    '& p:first-child': { paddingTop: '1em' },
+    '& > p:first-child': { paddingTop: '1em' },
     '& h6': {
       textTransform: 'uppercase',
       fontWeight: 'normal',

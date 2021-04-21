@@ -10,8 +10,7 @@ const useStyles = makeStyles({
     marginTop: '1em',
     backgroundColor: '#F9F4D4',
     padding: '0.5em 1.5em',
-    '& p': {
-      paddingTop: '0 !important',
+    '& p, button': {
       fontStyle: 'italic',
     },
   },
@@ -30,15 +29,14 @@ const DataNotice = () => {
     <Grid className={`DataNotice ${classes.root}`} item>
       <Typography>
         {intl.formatMessage({ id: 'components.resultDialog.dataNotice' })}
-        &nbsp;
-        <Button
-          color="inherit"
-          onClick={handleClick}
-          disableRipple
-        >
-          {intl.formatMessage({ id: 'common.learnMethods' })}
-        </Button>
       </Typography>
+      <Button
+        color="inherit"
+        onClick={handleClick}
+        disableRipple
+      >
+        {intl.formatMessage({ id: 'common.learnMethods' })}
+      </Button>
     </Grid>
   );
 };
