@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import {
-  Checkbox,
   FormControl,
   MenuItem,
   Select,
@@ -61,13 +60,6 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     onChange(selected);
   }, [type, options, value, onChange]);
 
-  useEffect(() => {
-    if (((options.length > 0) && (value.length === 0))) {
-      reportFilter(type, 'ALL', true);
-      onChange(options);
-    }
-  }, [options, value, onChange, type]);
-
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
       case 'APPLICATION_NAMES':
@@ -87,16 +79,12 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     }
   }, [type, applicationIdLabels, intl]);
   const renderValue = useCallback((selected) => {
-    if (selected.length === options.length) {
-      return intl.formatMessage({ id: 'components.dropdown.all' });
-    }
-
     if (selected.length === 1) {
       return getDropdownItemName(selected[0]);
     }
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
-  }, [options, intl, getDropdownItemName]);
+  }, [intl, getDropdownItemName]);
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
@@ -121,13 +109,6 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         IconComponent={KeyboardArrowDown}
         renderValue={renderValue}
       >
-        <MenuItem classes={{ root: classes.item }} value={0}>
-          <Checkbox
-            checked={(options.length > 0) && (value.length === options.length)}
-            indeterminate={(value.length > 0) && (value.length < options.length)}
-          />
-          {intl.formatMessage({ id: 'components.dropdown.all' })}
-        </MenuItem>
         {
           options.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
