@@ -76,8 +76,7 @@ export default (theme) => ({
     },
   },
   pdfLink: {
-    color: theme.palette.blue.dark,
-    '&:hover, &:visited': { color: theme.palette.blue.dark },
+    '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
   },
   disclaimer: {
     fontStyle: 'italic',
