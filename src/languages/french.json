@@ -154,17 +154,19 @@
           "title": "Accréditations",
           "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"
         },
-        "wetlands": {
-          "title": "Milieux humides sans nom",
-          "body": "Des terres qui n’avaient peut-être jamais été documentées auparavant."
-        },
-        "nests": {
-          "title": "Nids de rapaces",
-          "body": "Nids d’oiseaux le long d’un couloir pipelinier."
-        },
-        "fish": {
-          "title": "Poissons de ruisseau",
-          "body": "Espèces de poissons répertoriées dans un affluent du fleuve Fraser."
+        "cards": {
+          "0": {
+            "title": "",
+            "body": ""
+          },
+          "1": {
+            "title": "Nids de rapaces",
+            "body": ""
+          },
+          "2": {
+            "title": "Poissons de ruisseau",
+            "body": ""
+          }
         }
       }
     },
