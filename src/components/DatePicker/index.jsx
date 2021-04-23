@@ -5,6 +5,7 @@ import { makeStyles, createStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import fr from 'date-fns/locale/fr-CA';
 import { lang } from '../../constants';
+import { MyPopover } from './slider';
 
 import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 
@@ -101,7 +102,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
   return (
     <div className={classes.root}>
       <Typography className={classes.label}>Date</Typography>
-      <DatePicker
+      {/* <DatePicker
         onChange={handleChange}
         selected={datePickerStartDate}
         startDate={datePickerStartDate}
@@ -113,7 +114,8 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         customInput={<CustomInput startDate={startDate} endDate={endDate} />}
         locale={lang}
         showMonthYearPicker
-      />
+      /> */}
+      <MyPopover />
     </div>
   );
 };
