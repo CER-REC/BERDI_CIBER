@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import { Popover, Icon } from '@material-ui/core';
-import semiCircle from './semiCircle.svg';
+import semiCircleLeft from './semiCircleLeft.svg';
 import semiCircleRight from './semiCircleRight.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,20 +26,9 @@ const useStyles = makeStyles((theme) => ({
     //   },
     },
   },
-  datePicker: {
-    width: '100%',
-    borderRadius: 5,
-    position: 'relative',
-    backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000000',
-    fontSize: 16,
-    padding: '0.5em',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    '&:focus': { borderRadius: 5 },
-  },
 }));
 
-export const RangeSlider = () => {
+export default () => {
   const classes = useStyles();
   const [value, setValue] = React.useState([20, 37]);
 
@@ -50,9 +39,8 @@ export const RangeSlider = () => {
 
   const thumb = (props) => (
     <span className={classes.thumb} {...props}>
-      {console.log(props)}
       <Icon>
-        <img src={props['data-index'] === 0 ? semiCircle : semiCircleRight} style={{ height: '80%', marginBottom: '35%' }} />
+        <img src={props['data-index'] === 0 ? semiCircleLeft : semiCircleRight} style={{ height: '80%', marginBottom: '35%' }} />
       </Icon>
     </span>
   );
@@ -62,54 +50,8 @@ export const RangeSlider = () => {
       <Slider
         value={value}
         onChange={handleChange}
-        // valueLabelDisplay="auto"
-        // aria-labelledby="range-slider"
         ThumbComponent={thumb}
       />
     </div>
   );
 };
-
-export const MyPopover = () => {
-  const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
-
-  return (
-    <div>
-      <div
-        className={classes.datePicker}
-        onClick={handleClick}
-      >
-        Open Popover
-      </div>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-      >
-        <RangeSlider />
-      </Popover>
-    </div>
-  );
-};
-

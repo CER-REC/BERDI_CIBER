@@ -1,18 +1,36 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/jsx-props-no-spreading */
 import 'react-datepicker/dist/react-datepicker.css';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import DatePicker, { registerLocale } from 'react-datepicker';
-import { makeStyles, createStyles, Typography } from '@material-ui/core';
+import { registerLocale } from 'react-datepicker';
+import { makeStyles, Typography, Popover } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import fr from 'date-fns/locale/fr-CA';
 import { lang } from '../../constants';
-import { MyPopover } from './slider';
+import RangeSlider from './slider';
 
 import { toDateOnly, toDateOnlyString } from '../../utilities/date';
 
 // This registers the locale for react-datepicker
 registerLocale('fr', fr);
 
-const inputStyles = makeStyles((theme) => createStyles({
+const useStyles = makeStyles((theme) => ({
+  /*
+  These are style rules to scale up the date picker pop up
+  */
+  root: {
+    width: '300px',
+    '& .MuiSlider-thumb': {
+      height: 27,
+      width: 27,
+      backgroundColor: 'transparent',
+      marginTop: -12,
+      marginLeft: -13,
+    },
+  },
+  label: { fontWeight: 600 },
   datePicker: {
     width: '100%',
     borderRadius: 5,
@@ -26,49 +44,9 @@ const inputStyles = makeStyles((theme) => createStyles({
   },
 }));
 
-const useStyles = makeStyles({
-  /*
-  These are style rules to scale up the date picker pop up
-  */
-  root: {
-    '& .react-datepicker, .react-datepicker__header': {
-      fontSize: '1.3rem',
-      lineHeight: '2.3rem',
-      marginTop: '-0.3rem',
-      paddingTop: '0.3rem',
-    },
-    '& .react-datepicker__current-month': {
-      fontSize: '1.3rem',
-    },
-    '& .react-datepicker__day-name, .react-datepicker__day': {
-      margin: '0.5rem',
-    },
-    '& .react-datepicker-wrapper': {
-      width: '100%',
-    },
-    '& .react-datepicker__input-container': {
-      lineHeight: '1.1876em',
-    },
-  },
-  label: { fontWeight: 600 },
-});
-
-// eslint-disable-next-line no-unused-vars
-const CustomInput = React.forwardRef(({ onClick, startDate, endDate }, ref) => {
-  const classes = inputStyles();
-  const shortenDate = (date) => new Date(date).toLocaleDateString(`${lang}-CA`, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-  return (
-    <input
-      className={classes.datePicker}
-      value={startDate && endDate ? `${shortenDate(startDate)} - ${shortenDate(endDate)}` : ''}
-      onClick={onClick}
-      readOnly
-    />
-  );
-});
-
 const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const [datePickerStartDate, setDatePickerStartDate] = useState(minDate);
   const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate);
   const minMonthDate = useMemo(
@@ -98,28 +76,54 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
     setDatePickerEndDate(endDate);
   }, [startDate, endDate]);
 
-  // DatePicker passes down the onClick event for customInput
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const shortenDate = (date) => new Date(date).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  const popover = (
+    <>
+      <div
+        className={classes.datePicker}
+        onClick={handleClick}
+      >
+        {startDate && endDate ? `${shortenDate(startDate)} - ${shortenDate(endDate)}` : ''}
+      </div>
+
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <RangeSlider />
+      </Popover>
+    </>
+  );
+
   return (
     <div className={classes.root}>
       <Typography className={classes.label}>Date</Typography>
-      {/* <DatePicker
-        onChange={handleChange}
-        selected={datePickerStartDate}
-        startDate={datePickerStartDate}
-        endDate={datePickerEndDate}
-        selectsRange
-        shouldCloseOnSelect={false}
-        minDate={minMonthDate}
-        maxDate={maxMonthDate}
-        customInput={<CustomInput startDate={startDate} endDate={endDate} />}
-        locale={lang}
-        showMonthYearPicker
-      /> */}
-      <MyPopover />
+      {popover}
     </div>
   );
 };
-
 export default CustomDatePicker;
 
 CustomDatePicker.propTypes = {
@@ -130,21 +134,9 @@ CustomDatePicker.propTypes = {
   onChange: PropTypes.func.isRequired,
 };
 
-CustomInput.propTypes = {
-  startDate: PropTypes.instanceOf(Date),
-  endDate: PropTypes.instanceOf(Date),
-  onClick: PropTypes.func,
-};
-
 CustomDatePicker.defaultProps = {
   maxDate: null,
   minDate: null,
   startDate: null,
   endDate: null,
-};
-
-CustomInput.defaultProps = {
-  startDate: null,
-  endDate: null,
-  onClick: null,
 };
