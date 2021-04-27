@@ -15,15 +15,17 @@ const hasVariables = (config) => (
   && config.projectTypes
   && config.statuses
   && config.contentTypes
+  && config.treemapApplicationIds
   && !Number.isNaN(config.searchIndex)
 );
 
 export default () => {
   const { config } = useConfig();
+  const { applicationIds, treemapApplicationIds } = config;
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
       searches: config.searches,
-      applicationIds: config.applicationIds,
+      applicationIds,
       regions: config.regions,
       startDate: toDateOnlyString(config.startDate),
       endDate: toDateOnlyString(config.endDate),
@@ -31,6 +33,7 @@ export default () => {
       projectTypes: config.projectTypes,
       statuses: config.statuses,
       contentTypes: config.contentTypes,
+      searchApplicationIds: treemapApplicationIds.length ? treemapApplicationIds : applicationIds,
       first: RESULT_COUNT,
       offset: config.searchIndex * RESULT_COUNT,
     },
