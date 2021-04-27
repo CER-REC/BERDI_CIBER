@@ -12,7 +12,7 @@ import useAPI from './useAPI';
 const parameters = ['page', 'searchIndex'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
-const encodedParameters = ['searches', 'applicationIds'];
+const encodedParameters = ['searches', 'applicationIds', 'treemapApplicationIds'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
 let updatingState = true;
@@ -104,6 +104,7 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
         projectTypes: query.projectTypes?.split(','),
         statuses: query.statuses?.split(','),
         contentTypes: query.contentTypes?.split(','),
+        treemapApplicationIds: decodeParameter(query.treemapApplicationIds),
         searchIndex,
         fragment,
       },

@@ -27,6 +27,8 @@ export const initialState = {
   statuses: [],
   // A list of the content types to include
   contentTypes: [],
+  // A list of the selected application IDs in the treemap
+  treemapApplicationIds: [],
   // The page of the search results (starting at 0)
   searchIndex: 0,
   // The URL fragment
@@ -57,24 +59,26 @@ export const getReducer = (
         projectTypes: getValidEnums(action.payload.projectTypes, projectTypes),
         statuses: getValidEnums(action.payload.statuses, statuses),
         contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
+        treemapApplicationIds: getValidEnums(action.payload.treemapApplicationIds, applicationIds),
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
-        fragment: action.payload.fragment || initialState.searchIndex,
+        fragment: action.payload.fragment || initialState.fragment,
       };
     case 'page/changed':
       return {
         ...state,
         page: action.payload || initialState.page,
         searches: state.searches || initialState.searches,
-        applicationIds: state.applicationIds || applicationIds,
-        regions: state.regions || regions,
+        applicationIds: state.applicationIds || initialState.applicationIds,
+        regions: state.regions || initialState.regions,
         startDate: state.startDate || minDate,
         endDate: state.endDate || maxDate,
-        commodities: state.commodities || commodities,
-        projectTypes: state.projectTypes || projectTypes,
-        statuses: state.statuses || statuses,
-        contentTypes: state.contentTypes || contentTypes,
+        commodities: state.commodities || initialState.commodities,
+        projectTypes: state.projectTypes || initialState.projectTypes,
+        statuses: state.statuses || initialState.statuses,
+        contentTypes: state.contentTypes || initialState.contentTypes,
+        treemapApplicationIds: state.treemapApplicationIds || initialState.treemapApplicationIds,
         searchIndex: state.searchIndex || initialState.searchIndex,
-        fragment: initialState.searchIndex,
+        fragment: initialState.fragment,
       };
     case 'searches/changed':
       return {
@@ -82,7 +86,7 @@ export const getReducer = (
         page: 'search',
         searches: action.payload || initialState.searches,
         searchIndex: 0,
-        fragment: initialState.searchIndex,
+        fragment: initialState.fragment,
       };
     case 'applicationIds/changed':
       return {
@@ -144,18 +148,29 @@ export const getReducer = (
         page: action.payload.page || state.page,
         fragment: action.payload.fragment || state.fragment,
       };
+    case 'treemapApplicationIds/added':
+      return {
+        ...state,
+        treemapApplicationIds: [...new Set(state.treemapApplicationIds.concat(action.payload))],
+      };
+    case 'treemapApplicationIds/removed':
+      return {
+        ...state,
+        treemapApplicationIds: state.treemapApplicationIds.filter((id) => id !== action.payload),
+      };
     case 'filters/removed':
       return {
         ...state,
-        applicationIds: [],
-        regions: [],
+        applicationIds: initialState.applicationIds,
+        regions: initialState.regions,
         startDate: minDate,
         endDate: maxDate,
-        commodities: [],
-        projectTypes: [],
-        statuses: [],
-        contentTypes: [],
-        searchIndex: 0,
+        commodities: initialState.commodities,
+        projectTypes: initialState.projectTypes,
+        statuses: initialState.statuses,
+        contentTypes: initialState.contentTypes,
+        treemapApplicationIds: initialState.treemapApplicationIds,
+        searchIndex: initialState.searchIndex,
       };
     default:
       return state;
