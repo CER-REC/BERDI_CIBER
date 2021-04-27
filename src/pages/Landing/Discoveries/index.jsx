@@ -12,10 +12,6 @@ const useStyles = makeStyles(() => ({
   root: {
     paddingTop: '1em',
   },
-  subtitle: {
-    fontSize: 12,
-    fontStyle: 'italic',
-  },
   buttons: {
     paddingBottom: '2em',
     paddingTop: '1em',
@@ -55,8 +51,6 @@ const Discoveries = () => {
           ))
         }
       </Grid>
-      <Typography classes={{ root: classes.subtitle }} variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.title' })}</Typography>
-      <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.accreditations.body' })}</Typography>
       <ResultDialog open={open} onClose={handleClose} data={content} />
     </div>
   );
