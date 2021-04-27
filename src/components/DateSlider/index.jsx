@@ -105,53 +105,51 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
   return (
     <div style={{ width: '300px' }}>
       <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
-      <>
-        <ButtonBase
-          disableRipple
-          className={classes.datePicker}
-          onClick={handlePopoverClick}
-        >
-          <Grid container alignItems="center" justify="space-between">
+      <ButtonBase
+        disableRipple
+        className={classes.datePicker}
+        onClick={handlePopoverClick}
+      >
+        <Grid container alignItems="center" justify="space-between">
 
-            {datePickerStartDate && datePickerEndDate
-              ? `${shortenDate(new Date(datePickerStartDate))} - ${shortenDate(new Date(datePickerEndDate))}`
-              : ''}
-            <Icon style={{ width: 'auto' }}>
-              <img src={sliderIcon} alt="a depiction of the date slider" />
-            </Icon>
-          </Grid>
+          {datePickerStartDate && datePickerEndDate
+            ? `${shortenDate(new Date(datePickerStartDate))} - ${shortenDate(new Date(datePickerEndDate))}`
+            : ''}
+          <Icon style={{ width: 'auto' }}>
+            <img src={sliderIcon} alt="a depiction of the date slider" />
+          </Icon>
+        </Grid>
 
-        </ButtonBase>
+      </ButtonBase>
 
-        <Popover
-          className={classes.popover}
-          open={open}
-          anchorEl={anchorEl}
-          onClose={handlePopoverClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-        >
-          <div className={classes.slider}>
-            <Slider
-              value={[
-                startDate.getTime() || minDate.getTime(),
-                endDate.getTime() || maxDate.getTime(),
-              ]}
-              onChange={handleChange}
-              ThumbComponent={thumb}
-              min={minDate.getTime()}
-              step={unixMonth}
-              max={maxDate.getTime()}
-            />
-          </div>
-        </Popover>
-      </>
+      <Popover
+        className={classes.popover}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handlePopoverClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+      >
+        <div className={classes.slider}>
+          <Slider
+            value={[
+              startDate.getTime() || minDate.getTime(),
+              endDate.getTime() || maxDate.getTime(),
+            ]}
+            onChange={handleChange}
+            ThumbComponent={thumb}
+            min={minDate.getTime()}
+            step={unixMonth}
+            max={maxDate.getTime()}
+          />
+        </div>
+      </Popover>
     </div>
   );
 };
