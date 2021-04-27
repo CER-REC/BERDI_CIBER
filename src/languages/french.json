@@ -114,7 +114,7 @@
       "seeMore": "Voir plus...",
       "seeLess":"Voir moin ...",
       "esaSectionTitle": "Section de l'EES",
-      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original. Renseignez-vous sur nos méthodes.",
+      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original.",
       "figureOccursOnPage": "La figure est à la page : ",
       "tableOccursOnPage": "Le tableau est à la page : ",
       "viewOriginalDocument": "Consulter le document original",
@@ -156,16 +156,16 @@
         },
         "cards": {
           "0": {
-            "title": "",
-            "body": ""
+            "title": "État du pergélisol",
+            "body": "Pergélisol de la toundra dans le Nord canadien."
           },
           "1": {
             "title": "Nids de rapaces",
-            "body": ""
+            "body": "Des oiseaux nichent dans un couloir pipelinier en Saskatchewan."
           },
           "2": {
             "title": "Poissons de ruisseau",
-            "body": ""
+            "body": "Espèce de poisson observée dans un ruisseau près de Camrose, en Alberta."
           }
         }
       }
