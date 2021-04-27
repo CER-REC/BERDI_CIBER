@@ -2,7 +2,6 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { toDateOnlyString } from '../utilities/date';
 import { RESULT_COUNT } from '../constants';
-import parseData from './parseData';
 import useConfig from './useConfig';
 import { SEARCH } from './queries';
 
@@ -41,7 +40,7 @@ export default () => {
   return {
     loading,
     error,
-    applications: parseData(data?.applications),
+    applications: data?.applications || [],
     contents: data?.contentSearch.contents || [],
     totalCount: data?.contentSearch.totalCount || 0,
   };

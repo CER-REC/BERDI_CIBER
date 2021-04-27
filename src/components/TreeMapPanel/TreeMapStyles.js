@@ -1,4 +1,4 @@
-export default (theme) => ({
+export default {
   downloadIcon: {
     overflow: 'visible',
     marginRight: '5px',
@@ -70,49 +70,4 @@ export default (theme) => ({
     paddingTop: '0.2em',
     fontWeight: '400',
   },
-  labelInner: {
-    padding: '14px 0 0 14px',
-    width: '100%',
-    overflow: 'hidden',
-    '&::before': {
-      content: '""',
-      height: '100%',
-      display: 'inline-block',
-    },
-    '& > span': {
-      display: 'inline-block',
-      float: 'left',
-    },
-  },
-  labelInnerTitle: {
-    fontSize: '130%',
-    marginTop: '4px',
-  },
-  labelInnerCounts: {
-    whiteSpace: 'nowrap',
-    textTransform: 'lowercase',
-  },
-  treeMap: {
-    // select all Nivo spans but not our custom spans
-    '& div:not([class]) > span': {
-      display: 'flex',
-      flexFlow: 'column wrap',
-      height: '100%',
-      width: '100%',
-    },
-    height: '35vh',
-  },
-  emptyPlaceholder: {
-    width: '100%',
-  },
-  folderLink: {
-    '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
-  },
-  tooltip: {
-    '& p': {
-      margin: '0px',
-      '&:first-child': { paddingBottom: '0.5em' },
-      '&:not(:first-child)': { textTransform: 'lowercase' },
-    },
-  },
-});
+};

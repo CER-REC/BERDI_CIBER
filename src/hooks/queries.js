@@ -75,6 +75,7 @@ export const SEARCH = gql`
       projectTypes: $projectTypes,
       statuses: $statuses
     ) {
+      id
       name
       shortName
       companyName
