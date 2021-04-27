@@ -43,9 +43,13 @@ const TreeMapPanel = () => {
       {!data
         ? (
           <Typography variant="h6" style={{ fontWeight: '200' }}>
-            {intl.formatMessage({ id: 'components.treeMap.noResultsText' }, {
-              searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
-            })}
+            {
+            config.searches[0]
+              ? intl.formatMessage({ id: 'components.treeMap.noResultsForText' }, {
+                searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
+              })
+              : intl.formatMessage({ id: 'components.treeMap.noResultsText' })
+          }
           </Typography>
         )
         : (
