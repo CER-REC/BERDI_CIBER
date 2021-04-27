@@ -1,6 +1,7 @@
-import { Icon, makeStyles, Popover, Slider, Typography, ButtonBase, Grid } from '@material-ui/core';
+import { ButtonBase, Grid, Icon, makeStyles, Popover, Slider, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
 import semiCircleLeft from '../../images/datePicker/semiCircleLeft.svg';
 import semiCircleRight from '../../images/datePicker/semiCircleRight.svg';
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   const classes = useStyles();
+  const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
   const [datePickerStartDate, setDatePickerStartDate] = useState(minDate.getTime());
   const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate.getTime());
@@ -102,7 +104,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
 
   return (
     <div style={{ width: '300px' }}>
-      <Typography className={classes.label}>Date</Typography>
+      <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
       <>
         <ButtonBase
           disableRipple

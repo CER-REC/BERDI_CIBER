@@ -41,9 +41,9 @@
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
-      "CONTENT_TYPES": "Afficher le type de résultats",
+      "CONTENT_TYPES": "Type de résultats",
       "PROJECT_TYPES": "Type de projet (Loi sur l’Office national de l’énergie)",
-      "DATE": "Date du dépôt du projet",
+      "dateLabel": "Date de dépôt",
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "tooltip": "Cet ensemble de données se limite aux projets visés par l’ancienne {nebAct}. La {cerAct} actuelle a modifié et ajouté des catégories de projets.",
@@ -155,17 +155,19 @@
           "title": "Accréditations",
           "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"
         },
-        "wetlands": {
-          "title": "Milieux humides sans nom",
-          "body": "Des terres qui n’avaient peut-être jamais été documentées auparavant."
-        },
-        "nests": {
-          "title": "Nids de rapaces",
-          "body": "Nids d’oiseaux le long d’un couloir pipelinier."
-        },
-        "fish": {
-          "title": "Poissons de ruisseau",
-          "body": "Espèces de poissons répertoriées dans un affluent du fleuve Fraser."
+        "cards": {
+          "0": {
+            "title": "",
+            "body": ""
+          },
+          "1": {
+            "title": "Nids de rapaces",
+            "body": ""
+          },
+          "2": {
+            "title": "Poissons de ruisseau",
+            "body": ""
+          }
         }
       }
     },

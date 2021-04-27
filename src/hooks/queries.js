@@ -21,6 +21,33 @@ export const CONFIGURATION = gql`
       id
       shortName
     }
+    discovery0:content(id: 13025) {
+      id
+      title
+      esaSections
+      pageNumber
+      pdfURL
+      type
+      url
+    }
+    discovery1:content(id: 16713) {
+      id
+      title
+      esaSections
+      pageNumber
+      pdfURL
+      type
+      url
+    }
+    discovery2:content(id: 1376) {
+      id
+      title
+      esaSections
+      pageNumber
+      pdfURL
+      type
+      url
+    }
   }
 `;
 

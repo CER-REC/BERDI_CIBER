@@ -106,8 +106,7 @@ export default (theme) => ({
     width: '100%',
   },
   folderLink: {
-    color: theme.palette.blue.dark,
-    '&:hover, &:visited': { color: theme.palette.blue.dark },
+    '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
   },
   tooltip: {
     '& p': {
