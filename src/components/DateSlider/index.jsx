@@ -10,7 +10,7 @@ import sliderIcon from '../../images/datePicker/sliderIcon.svg';
 const useStyles = makeStyles((theme) => ({
   popover: {
     '& .MuiPopover-paper': {
-      backgroundColor: '#f8f8f8',
+      backgroundColor: '#F8F8F8',
       border: '1px solid #9E9E9E',
       borderRadius: 'unset',
     },
@@ -59,7 +59,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
    * the unix epoch.
    */
   const unixMonth = 2678400000;
-  const open = Boolean(anchorEl);
+  const open = !!anchorEl;
 
   const handleChange = useCallback((_, dates) => {
     const [start, end] = dates;
@@ -119,7 +119,6 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
             <img src={sliderIcon} alt="a depiction of the date slider" />
           </Icon>
         </Grid>
-
       </ButtonBase>
 
       <Popover
