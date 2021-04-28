@@ -1,16 +1,13 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 import ContentButton from '../ContentButton';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     paddingBottom: '2.5em',
-    '& hr': {
-      borderColor: theme.palette.primary.main,
-    },
   },
   subtitle: { fontSize: 20 },
 }));
@@ -28,11 +25,6 @@ const FullButtons = () => {
 
   return (
     <div className={`TitleContent ${classes.root} `}>
-      <header>
-        <Typography variant="h4" gutterBottom>{intl.formatMessage({ id: 'common.toolName' })}</Typography>
-        <Typography classes={{ root: classes.subtitle }} variant="h5">{intl.formatMessage({ id: 'common.description' })}</Typography>
-      </header>
-      <hr />
       <section>
         <Grid container spacing={5}>
           <Grid item xs={4}>

@@ -1,6 +1,6 @@
 export const applicationPath = {
-  en: 'esa',
-  fr: 'ees',
+  en: 'berdi',
+  fr: 'ciber',
 };
 
 export const lang = (typeof document !== 'undefined'
