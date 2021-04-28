@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
   label: {
     paddingBottom: '1em',
     paddingTop: '2em',
+    color: 'white',
   },
   buttons: { textAlign: 'center' },
 }));

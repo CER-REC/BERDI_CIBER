@@ -9,10 +9,13 @@ const useStyles = makeStyles((theme) => ({
     padding: '0.5em',
     width: '7em',
     '&:hover': {
-      boxShadow: '4px 4px 6px 0px rgba(28, 82, 4, 0.3)',
-      borderColor: theme.palette.green.dark,
+      boxShadow: '4px 4px 6px 0px rgba(91, 59, 103, 0.3)',
+      borderColor: theme.palette.grey.light,
       borderStyle: 'solid',
       borderWidth: '1px',
+    },
+    '& h6': {
+      color: 'white',
     },
   },
   buttonLabel: {

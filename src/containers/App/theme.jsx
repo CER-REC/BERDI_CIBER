@@ -2,17 +2,21 @@ import { createMuiTheme } from '@material-ui/core';
 
 const black = '#000000';
 const white = '#FFFFFF';
-const green = '#63B440';
+const grey = '#AEAEAE';
 const darkBlue = '#284162';
 const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
 const darkGreen = '#1C5204';
 const lightGreen = '#DCF2D2';
+const lightPurple = '#4F5292';
+const darkPurple = '#593D6C';
+const lightTeal = '#D9F4F3';
+const darkTeal = '#66C8C3';
 
 const theme = createMuiTheme({
   palette: {
     primary: { main: black },
-    secondary: { main: green },
+    secondary: { main: lightPurple },
     button: {
       blue: buttonBlue,
     },
@@ -23,6 +27,17 @@ const theme = createMuiTheme({
     green: {
       dark: darkGreen,
       light: lightGreen,
+    },
+    purple: {
+      dark: darkPurple,
+      light: lightPurple,
+    },
+    teal: {
+      dark: darkTeal,
+      light: lightTeal,
+    },
+    grey: {
+      light: grey,
     },
   },
   typography: {
@@ -61,11 +76,11 @@ const theme = createMuiTheme({
     },
     MuiButton: {
       contained: {
-        backgroundColor: darkGreen,
-        color: white,
+        backgroundColor: darkTeal,
+        color: black,
         padding: '0.5em 2em',
         '&:hover': {
-          backgroundColor: '#4F8537',
+          backgroundColor: darkTeal,
         },
         '& > $label': {
           fontSize: 16,

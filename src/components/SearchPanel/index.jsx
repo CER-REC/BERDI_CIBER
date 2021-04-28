@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.secondary.main,
     padding: '1.5em',
+    color: 'white',
   },
   sideBlock: {
     margin: 'auto',

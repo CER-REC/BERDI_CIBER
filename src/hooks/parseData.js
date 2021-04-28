@@ -12,8 +12,8 @@ const getColor = (r, g, b, lightR, lightG, lightB, percent) => {
 };
 
 // rgb values
-const darkGreen = [99, 180, 64];
-const lightGreen = [194, 225, 181];
+const darkTeal = [102, 200, 195];
+const lightTeal = [210, 237, 235];
 
 export default (data) => {
   if (!data?.length) {
@@ -27,7 +27,7 @@ export default (data) => {
   const parsedData = sortedData.reduce((acc, val) => {
     const totalCount = val.tableCount + val.figureCount;
     const percentage = (totalCount / largestDataPoint);
-    const color = getColor(...darkGreen, ...lightGreen, percentage);
+    const color = getColor(...darkTeal, ...lightTeal, percentage);
 
     acc.tableCount += val.tableCount;
     acc.figureCount += val.figureCount;

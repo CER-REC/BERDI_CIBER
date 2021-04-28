@@ -20,6 +20,7 @@ const ExploreButton = () => {
       variant="contained"
       onClick={handleClick}
       disableElevation
+      style={{ fontWeight: 700 }}
     >
       {intl.formatMessage({ id: 'components.searchPanel.exploreButton' })}
     </Button>
