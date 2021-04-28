@@ -6,6 +6,6 @@ import { fetch } from 'whatwg-fetch';
 import { API_HOST } from '../src/constants';
 
 const cache = new InMemoryCache();
-const link = new HttpLink({ uri: `${API_HOST}/esa/graphql` });
+const link = new HttpLink({ uri: `${API_HOST}/berdi/graphql` });
 
 export default new ApolloClient({ cache, link, fetch });
