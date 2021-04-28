@@ -33,12 +33,12 @@ const useStyles = makeStyles({
   title: { fontSize: '130%' },
 });
 
-const Node = ({ title, checked, figureCount, tableCount }) => {
+const TreeNode = ({ title, checked, figureCount, tableCount }) => {
   const intl = useIntl();
   const classes = useStyles();
 
   return (
-    <div className={`Node ${classes.root} ${checked ? classes.checked : ''}`}>
+    <div className={`TreeNode ${classes.root} ${checked ? classes.checked : ''}`}>
       <div className={classes.emptyPlaceholder} />
       <div className={classes.block}>
         <span className={classes.title}>{title}</span>
@@ -57,11 +57,11 @@ const Node = ({ title, checked, figureCount, tableCount }) => {
   );
 };
 
-Node.propTypes = {
+TreeNode.propTypes = {
   title: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
   figureCount: PropTypes.number.isRequired,
   tableCount: PropTypes.number.isRequired,
 };
 
-export default Node;
+export default TreeNode;

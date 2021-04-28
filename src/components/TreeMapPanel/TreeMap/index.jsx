@@ -5,14 +5,14 @@ import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import { reportFilter } from '../../../utilities/analytics';
-import Node from '../Node';
+import TreeNode from '../TreeNode';
 import Tooltip from '../Tooltip';
 
 const lightenCoefficient = 0.613;
 
 const getColor = (application) => application.color;
 const getLabel = (application) => (
-  <Node
+  <TreeNode
     title={application.shortName}
     checked={application.selected}
     figureCount={application.figureCount}
