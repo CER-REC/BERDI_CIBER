@@ -143,6 +143,8 @@
   },
   "pages": {
     "landing": {
+      "taglineBold":"Learn from the past and prepare the future.",
+      "tagline":"Search biophysical, economic, and regional data and information from 38 pipeline projects, since 2003.",
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
         "button": "Read our disclaimer",
