@@ -1,3 +1,4 @@
+import { useEffect, useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 import { toDateOnlyString } from '../utilities/date';
@@ -20,7 +21,7 @@ const hasVariables = (config) => (
 );
 
 export default () => {
-  const { config } = useConfig();
+  const { config, configDispatch } = useConfig();
   const { applicationIds, treemapApplicationIds } = config;
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
@@ -39,11 +40,24 @@ export default () => {
     },
     skip: (config.page !== 'search') || !hasVariables(config),
   });
+  const applications = useMemo(() => data?.applications || [], [data]);
+  const excludedTreemapApplicationIds = useMemo(
+    () => treemapApplicationIds.filter(
+      (id) => !applications.find((application) => (application.id === id)),
+    ),
+    [treemapApplicationIds, applications],
+  );
+
+  useEffect(() => {
+    if (excludedTreemapApplicationIds.length) {
+      configDispatch({ type: 'treemapApplicationIds/removed', payload: excludedTreemapApplicationIds });
+    }
+  }, [configDispatch, excludedTreemapApplicationIds]);
 
   return {
     loading,
     error,
-    applications: data?.applications || [],
+    applications,
     contents: data?.contentSearch.contents || [],
     totalCount: data?.contentSearch.totalCount || 0,
   };

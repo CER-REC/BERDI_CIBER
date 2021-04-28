@@ -156,7 +156,9 @@ export const getReducer = (
     case 'treemapApplicationIds/removed':
       return {
         ...state,
-        treemapApplicationIds: state.treemapApplicationIds.filter((id) => id !== action.payload),
+        treemapApplicationIds: state.treemapApplicationIds.filter(
+          (id) => ![].concat(action.payload).includes(id),
+        ),
       };
     case 'filters/removed':
       return {
