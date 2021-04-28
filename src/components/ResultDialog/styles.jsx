@@ -16,7 +16,7 @@ export default (theme) => ({
   },
 
   dialogFooter: {
-    backgroundColor: '#eaf9ff',
+    backgroundColor: theme.palette.dialog.footer,
     padding: '10px 20px 10px 0',
     '& button': {
       borderRadius: '5px',

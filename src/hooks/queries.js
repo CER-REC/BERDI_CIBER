@@ -62,6 +62,7 @@ export const SEARCH = gql`
     $projectTypes: [ProjectType!]!,
     $statuses: [Status!]!,
     $contentTypes: [MediaType!]!,
+    $searchApplicationIds: [String!]!,
     $first: Int!,
     $offset: Int!
   ) {
@@ -75,6 +76,7 @@ export const SEARCH = gql`
       projectTypes: $projectTypes,
       statuses: $statuses
     ) {
+      id
       name
       shortName
       companyName
@@ -91,7 +93,7 @@ export const SEARCH = gql`
     }
     contentSearch(
       searches: $searches,
-      applicationIds: $applicationIds,
+      applicationIds: $searchApplicationIds,
       regions: $regions,
       startDate: $startDate,
       endDate: $endDate,

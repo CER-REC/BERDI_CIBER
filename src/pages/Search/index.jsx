@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 
 import AccuracyAlert from '../../components/AccuracyAlert';
+import Applications from '../../components/Applications';
 import SearchPanel from '../../components/SearchPanel';
 import FilterPanel from '../../components/FilterPanel';
 import ListSection from '../../components/ListPanel';
@@ -34,6 +35,8 @@ const Search = () => {
 
       {/* TreeMap Section */}
       <TreeMapPanel />
+
+      <Applications />
 
       {/* List section */}
       <ListSection />

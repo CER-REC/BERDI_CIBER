@@ -18,6 +18,8 @@
     "hearingOrder": "Ordonnance d’audience : ",
     "filingDate": "Date de dépôt : ",
     "learnMethods": "Renseignez-vous sur nos méthodes.",
+    "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
+    "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -30,6 +32,13 @@
     "accuracyAlert": {
       "title": "NOTE SUR L’EXACTITUDE",
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
+    },
+    "applicationDialog": {
+      "regdocs": "Consulter le dossier REGDOCS",
+      "tables": "Télécharger les tableaux de l'EES"
+    },
+    "applications": {
+      "title": "Cliquer pour voir les détails des projets sélectionnés."
     },
     "betaAlert": {
       "title": "BÊTA",
@@ -98,16 +107,12 @@
     "filterPanel": {
       "clearButton": "Effacer tous les filtres"
     },
-    "treeMap": {
+    "treeMapPanel": {
       "title": "Résultats de la recherche",
-      "countsText": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
-      "boxSelectText": "Sélectionnez une case pour afficher les détails du projet.",
-      "noResultsForText": "Désolé, il n’y a aucun résultat pour {searches}",
-      "noResultsText": "Désolé, il n’y a aucun résultat",
-      "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
-      "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton": "Consulter le dossier REGDOCS",
-      "tablesButton": "Télécharger les tableaux de l'EES"
+      "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
+      "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
+      "noResultsFor": "Désolé, il n’y a aucun résultat pour {searches}",
+      "noResults": "Désolé, il n’y a aucun résultat"
     },
     "resultDialog": {
       "downloadTable": "Télécharger le tableau",
