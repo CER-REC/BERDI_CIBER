@@ -4,7 +4,7 @@ import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
-import { reportProject } from '../../../utilities/analytics';
+import { reportFilter } from '../../../utilities/analytics';
 import Node from '../Node';
 import Tooltip from '../Tooltip';
 
@@ -76,8 +76,7 @@ const TreeMap = () => {
       configDispatch({ type: 'treemapApplicationIds/added', payload: node.id });
     }
 
-    // TODO: Update GTM event for TreeMap filter
-    reportProject(node.data.shortName);
+    reportFilter('treemap', node.data.shortName, !node.data.selected);
   };
 
   return (
