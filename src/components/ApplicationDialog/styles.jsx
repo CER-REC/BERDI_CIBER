@@ -11,7 +11,7 @@ export default (theme) => ({
     '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
   },
   footer: {
-    backgroundColor: '#EAF9FF',
+    backgroundColor: theme.palette.dialog.footer,
     padding: '10px 20px 10px 0',
     '& button': {
       borderRadius: '5px',

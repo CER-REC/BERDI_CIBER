@@ -8,6 +8,7 @@ const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
 const darkGreen = '#1C5204';
 const lightGreen = '#DCF2D2';
+const footerBlue = '#EAF9FF';
 
 const theme = createMuiTheme({
   palette: {
@@ -23,6 +24,9 @@ const theme = createMuiTheme({
     green: {
       dark: darkGreen,
       light: lightGreen,
+    },
+    dialog: {
+      footer: footerBlue,
     },
   },
   typography: {
