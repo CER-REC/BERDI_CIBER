@@ -49,10 +49,10 @@ export default () => {
   );
 
   useEffect(() => {
-    if (excludedTreemapApplicationIds.length) {
+    if (excludedTreemapApplicationIds.length && !loading) {
       configDispatch({ type: 'treemapApplicationIds/removed', payload: excludedTreemapApplicationIds });
     }
-  }, [configDispatch, excludedTreemapApplicationIds]);
+  }, [configDispatch, excludedTreemapApplicationIds, loading]);
 
   return {
     loading,
