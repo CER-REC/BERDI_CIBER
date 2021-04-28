@@ -22,11 +22,11 @@ const Tooltip = ({ title, figureCount, tableCount }) => {
       <p>{title}</p>
       <p>
         <strong>{intl.formatNumber(tableCount)}</strong>
-        {` ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: tableCount })}`}
+        {` ${intl.formatMessage({ id: 'common.tableCount' }, { tables: tableCount })}`}
       </p>
       <p>
         <strong>{intl.formatNumber(figureCount)}</strong>
-        {` ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: figureCount })}`}
+        {` ${intl.formatMessage({ id: 'common.figureCount' }, { figures: figureCount })}`}
       </p>
     </div>
   );

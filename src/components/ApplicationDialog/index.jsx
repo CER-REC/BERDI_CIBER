@@ -107,14 +107,14 @@ const ApplicationDialog = ({ data, onClose }) => {
           <Grid item>
             <Typography>
               <span>{`${intl.formatNumber(data.tableCount)} `}</span>
-              {intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: data.tableCount })}
+              {intl.formatMessage({ id: 'common.tableCount' }, { tables: data.tableCount })}
             </Typography>
           </Grid>
 
           <Grid item>
             <Typography className={classes.figures}>
               {`${intl.formatNumber(data.figureCount)} `}
-              {intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: data.figureCount })}
+              {intl.formatMessage({ id: 'common.figureCount' }, { figures: data.figureCount })}
             </Typography>
           </Grid>
         </Grid>
@@ -135,7 +135,7 @@ const ApplicationDialog = ({ data, onClose }) => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    {intl.formatMessage({ id: 'components.treeMap.REGDOCSButton' })}
+                    {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
                   </a>
                 </Typography>
               </Button>
@@ -162,7 +162,7 @@ const ApplicationDialog = ({ data, onClose }) => {
                     rel="noopener noreferrer"
                     style={{ color: 'white' }}
                   >
-                    {intl.formatMessage({ id: 'components.treeMap.tablesButton' })}
+                    {intl.formatMessage({ id: 'components.applicationDialog.tables' })}
                   </a>
                 </Typography>
               </Button>

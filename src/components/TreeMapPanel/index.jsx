@@ -41,13 +41,13 @@ const TreeMapPanel = () => {
   return (
     <>
       <Typography variant="h6" className={classes.title}>
-        {intl.formatMessage({ id: 'components.treeMap.title' })}
+        {intl.formatMessage({ id: 'components.treeMapPanel.title' })}
       </Typography>
 
       {!applications.length
         ? (
           <Typography variant="h6" style={{ fontWeight: '200' }}>
-            {intl.formatMessage({ id: 'components.treeMap.noResultsText' }, {
+            {intl.formatMessage({ id: 'components.treeMapPanel.noResults' }, {
               searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
             })}
           </Typography>
@@ -55,13 +55,13 @@ const TreeMapPanel = () => {
         : (
           <>
             <Typography variant="h6" className={classes.body}>
-              {intl.formatMessage({ id: 'components.treeMap.countsText' }, {
+              {intl.formatMessage({ id: 'components.treeMapPanel.counts' }, {
                 tables: tableCount,
                 figures: figureCount,
               })}
             </Typography>
             <Typography style={{ padding: '0.5em 0 0.2em 0' }}>
-              {intl.formatMessage({ id: 'components.treeMap.boxSelectText' })}
+              {intl.formatMessage({ id: 'components.treeMapPanel.boxSelect' })}
             </Typography>
             <TreeMap />
           </>

@@ -45,12 +45,12 @@ const Node = ({ title, checked, figureCount, tableCount }) => {
       </div>
       <div className={classes.block}>
         <span className={classes.counts}>
-          {`${intl.formatNumber(tableCount)} ${intl.formatMessage({ id: 'components.treeMap.tableCount' }, { tables: tableCount })}`}
+          {`${intl.formatNumber(tableCount)} ${intl.formatMessage({ id: 'common.tableCount' }, { tables: tableCount })}`}
         </span>
       </div>
       <div className={classes.block} style={{ paddingTop: '0' }}>
         <span className={classes.counts}>
-          {`${intl.formatNumber(figureCount)} ${intl.formatMessage({ id: 'components.treeMap.figureCount' }, { figures: figureCount })}`}
+          {`${intl.formatNumber(figureCount)} ${intl.formatMessage({ id: 'common.figureCount' }, { figures: figureCount })}`}
         </span>
       </div>
     </div>
