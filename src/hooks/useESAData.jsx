@@ -21,8 +21,7 @@ const hasVariables = (config) => (
 );
 
 export default () => {
-  const { config, configDispatch } = useConfig();
-  const { applicationIds, treemapApplicationIds } = config;
+  const { config, config: { applicationIds, treemapApplicationIds }, configDispatch } = useConfig();
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
       searches: config.searches,
