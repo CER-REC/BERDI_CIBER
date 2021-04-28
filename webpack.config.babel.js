@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: BUILD_DIR,
-    publicPath: '/esa/script/',
+    publicPath: '/berdi/script/',
     filename: '[name].js',
   },
   devtool: devMode ? 'cheap-module-eval-source-map' : 'none',

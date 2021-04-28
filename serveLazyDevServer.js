@@ -5,8 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import proxyMiddleware from './.storybook/middleware';
 import webpackConfig from './webpack.config.babel';
 
-const PATH = '/esa/';
-// const PATH = '/avenir-energetique/';
+const PATH = '/berdi/';
 
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
   template: '.serveLazyDevServerTemplate.html',
