@@ -5,9 +5,19 @@ import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import TreeMap from './TreeMap';
-import styles from './TreeMapStyles';
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles({
+  title: {
+    fontSize: '36px',
+    paddingTop: '0.5em',
+    fontWeight: '400',
+  },
+  body: {
+    fontSize: '24px',
+    paddingTop: '0.2em',
+    fontWeight: '400',
+  },
+});
 
 const TreeMapPanel = () => {
   const intl = useIntl();
@@ -30,7 +40,7 @@ const TreeMapPanel = () => {
 
   return (
     <>
-      <Typography variant="h6" className={classes.countsTitle}>
+      <Typography variant="h6" className={classes.title}>
         {intl.formatMessage({ id: 'components.treeMap.title' })}
       </Typography>
 
@@ -44,7 +54,7 @@ const TreeMapPanel = () => {
         )
         : (
           <>
-            <Typography variant="h6" className={classes.countsText}>
+            <Typography variant="h6" className={classes.body}>
               {intl.formatMessage({ id: 'components.treeMap.countsText' }, {
                 tables: tableCount,
                 figures: figureCount,
