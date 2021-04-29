@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   slider: {
-    height: '5em',
+    height: '5.5em',
     width: '300px',
-    padding: '1.5em',
+    padding: '0.5em 1.5em 1.5em 1.5em',
   },
   thumb: {
     background: theme.palette.button.blue,
@@ -127,6 +127,16 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         }}
       >
         <div className={classes.slider}>
+          <Grid container justify="space-between" style={{ paddingBottom: '0.5em' }}>
+            <Typography>
+              {shortenDate(new Date(datePickerStartDate))}
+            </Typography>
+
+            <Typography>
+              {shortenDate(new Date(datePickerEndDate))}
+            </Typography>
+          </Grid>
+
           <Slider
             classes={{
               rail: classes.line,
