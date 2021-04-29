@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       display: 'block',
       textTransform: 'uppercase',
       width: 'max-content',
-      backgroundColor: theme.palette.blue.light,
+      backgroundColor: theme.palette.teal.light,
       fontWeight: '900',
       fontSize: '10px',
       clear: 'right',
@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     borderBottom: '1px solid black',
     '& p': {
       marginTop: '5px',
+      borderRadius: '5px',
     },
     '& span': {
       fontWeight: '900',

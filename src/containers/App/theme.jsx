@@ -1,4 +1,4 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createMuiTheme, lighten } from '@material-ui/core';
 
 const black = '#000000';
 const white = '#FFFFFF';
@@ -16,7 +16,7 @@ const footerBlue = '#EAF9FF';
 const theme = createMuiTheme({
   palette: {
     primary: { main: black },
-    secondary: { main: lightPurple },
+    secondary: { main: darkTeal },
     button: {
       blue: buttonBlue,
     },
@@ -79,9 +79,7 @@ const theme = createMuiTheme({
         backgroundColor: darkTeal,
         color: black,
         padding: '0.5em 2em',
-        '&:hover': {
-          backgroundColor: darkTeal,
-        },
+        '&:hover': { backgroundColor: lighten(darkTeal, 0.2) },
         '& > $label': {
           fontSize: 16,
           textTransform: 'none',
