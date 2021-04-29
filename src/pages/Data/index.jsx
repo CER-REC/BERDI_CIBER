@@ -44,6 +44,7 @@ const Data = () => {
 
         <Grid item>
           <Typography>{intl.formatMessage({ id: 'pages.data.body.text1' })}</Typography>
+          <Typography>{intl.formatMessage({ id: 'pages.data.body.caption1' })}</Typography>
         </Grid>
 
         <Grid item className={classes.imageContainer} style={{ padding: '0', minHeight: '28em' }}>
