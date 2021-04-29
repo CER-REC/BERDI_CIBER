@@ -49,11 +49,11 @@
     "dropdown": {
       "APPLICATION_NAMES": "Project",
       "REGIONS": "Province",
-      "STATUSES": "Pipeline Status",
+      "STATUSES": "Pipeline status",
       "COMMODITIES": "Commodity",
-      "CONTENT_TYPES": "Results Type",
-      "PROJECT_TYPES": "Project Type (NEB Act)",
-      "dateLabel": "Filing Date",
+      "CONTENT_TYPES": "Results type",
+      "PROJECT_TYPES": "Project type (NEB Act)",
+      "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
@@ -97,7 +97,7 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explore catalogue",
+      "exploreButton": "Explore all",
       "exploreLabel": "Explore results from:",
       "filterLabel": "Show filters",
       "searchButton": "Search",
@@ -212,6 +212,7 @@
       "body": {
         "title": "The data - baseline and effects from ESAs",
         "text1": "Data in this tool comes from Environmental and Socio-Economic Assessments (ESAs), which are reports filed with every application for a new pipeline. ESAs have been described as a “snapshot in time” because of their evolution throughout a hearing, so it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies. More specifically from the Assessment and Abandonment stages, of both large and small projects, between the years 2003 and 2019.",
+        "caption1": "ESAs are part of the application a company submits when proposing a pipeline. Once submitted, other people and organizations can provide their feedback. This feedback is reflected in other documents, like Information Requests (IRs), and written and oral comments. These documents may include other data, which are not included in this dataset.",
         "text2": "Two key pieces of information in an ESA are the {bold1} of the area where a pipeline is proposed, and the {bold2} of the proposed pipeline to that baseline.",
         "bold1": "baseline",
         "bold2": "effects",
