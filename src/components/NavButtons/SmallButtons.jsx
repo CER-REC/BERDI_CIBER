@@ -45,6 +45,7 @@ export const BackButton = () => {
   const handleClick = useCallback(() => {
     reportSection('landing');
     configDispatch({ type: 'page/changed', payload: 'landing' });
+    window.scrollTo(0, 0);
   }, [configDispatch]);
   const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 
@@ -63,6 +64,7 @@ export default () => {
   const handleClick = useCallback((page) => {
     reportSection(page);
     configDispatch({ type: 'page/changed', payload: page });
+    window.scrollTo(0, 0);
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
