@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
-import DatePicker from '../DatePicker';
+import DateSlider from '../DateSlider';
 import Filter from './Filter';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +51,7 @@ const FilterPanel = () => {
           hasHelp={false}
         />
         <Grid item xs={4}>
-          <DatePicker
+          <DateSlider
             maxDate={maxDate}
             minDate={minDate}
             onChange={handleDatePickerChange}

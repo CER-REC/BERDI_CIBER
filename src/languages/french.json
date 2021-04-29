@@ -18,6 +18,8 @@
     "hearingOrder": "Ordonnance d’audience : ",
     "filingDate": "Date de dépôt : ",
     "learnMethods": "Renseignez-vous sur nos méthodes.",
+    "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
+    "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -30,6 +32,13 @@
     "accuracyAlert": {
       "title": "NOTE SUR L’EXACTITUDE",
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
+    },
+    "applicationDialog": {
+      "regdocs": "Consulter le dossier REGDOCS",
+      "tables": "Télécharger les tableaux de l'EES"
+    },
+    "applications": {
+      "title": "Cliquer pour voir les détails des projets sélectionnés."
     },
     "betaAlert": {
       "title": "BÊTA",
@@ -98,15 +107,12 @@
     "filterPanel": {
       "clearButton": "Effacer tous les filtres"
     },
-    "treeMap": {
+    "treeMapPanel": {
       "title": "Résultats de la recherche",
-      "countsText": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
-      "boxSelectText": "Sélectionnez une case pour afficher les détails du projet.",
-      "noResultsText": "Désolé, il n’y a aucun résultat pour {searches}",
-      "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
-      "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
-      "REGDOCSButton": "Consulter le dossier REGDOCS",
-      "tablesButton": "Télécharger les tableaux de l'EES"
+      "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
+      "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
+      "noResultsFor": "Désolé, il n’y a aucun résultat pour {searches}",
+      "noResults": "Désolé, il n’y a aucun résultat"
     },
     "resultDialog": {
       "downloadTable": "Télécharger le tableau",
@@ -114,7 +120,7 @@
       "seeMore": "Voir plus...",
       "seeLess":"Voir moin ...",
       "esaSectionTitle": "Section de l'EES",
-      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original. Renseignez-vous sur nos méthodes.",
+      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original.",
       "figureOccursOnPage": "La figure est à la page : ",
       "tableOccursOnPage": "Le tableau est à la page : ",
       "viewOriginalDocument": "Consulter le document original",
@@ -142,6 +148,8 @@
   },
   "pages": {
     "landing": {
+      "taglineBold":"Tirer des leçons du passé et préparer l’avenir.",
+      "tagline":"Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine.",
         "button": "Lisez notre avertissement",
@@ -156,16 +164,16 @@
         },
         "cards": {
           "0": {
-            "title": "",
-            "body": ""
+            "title": "État du pergélisol",
+            "body": "Pergélisol de la toundra dans le Nord canadien."
           },
           "1": {
             "title": "Nids de rapaces",
-            "body": ""
+            "body": "Des oiseaux nichent dans un couloir pipelinier en Saskatchewan."
           },
           "2": {
             "title": "Poissons de ruisseau",
-            "body": ""
+            "body": "Espèce de poisson observée dans un ruisseau près de Camrose, en Alberta."
           }
         }
       }

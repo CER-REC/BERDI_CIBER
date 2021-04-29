@@ -12,6 +12,7 @@ const lightPurple = '#4F5292';
 const darkPurple = '#593D6C';
 const lightTeal = '#D9F4F3';
 const darkTeal = '#66C8C3';
+const footerBlue = '#EAF9FF';
 
 const theme = createMuiTheme({
   palette: {
@@ -38,6 +39,9 @@ const theme = createMuiTheme({
     },
     grey: {
       light: grey,
+    },
+    dialog: {
+      footer: footerBlue,
     },
   },
   typography: {
