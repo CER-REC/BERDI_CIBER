@@ -8,7 +8,7 @@ import { reportDisclaimer, reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: theme.palette.green.light,
+    backgroundColor: theme.palette.teal.light,
     padding: '1.5em',
     margin: '1em 0',
     '& p': {
@@ -17,12 +17,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   button: {
-    backgroundColor: theme.palette.green.light,
-    borderColor: theme.palette.green.dark,
+    backgroundColor: theme.palette.teal.light,
+    borderColor: theme.palette.teal.dark,
     borderStyle: 'solid',
     borderWidth: '1px',
-    color: theme.palette.green.dark,
-    '&:hover': { color: theme.palette.green.light },
+    color: 'black',
   },
   link: {
     fontSize: 20,

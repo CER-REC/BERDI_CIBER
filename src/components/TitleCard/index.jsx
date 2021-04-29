@@ -1,8 +1,8 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { Typography, makeStyles } from '@material-ui/core';
-import BerdiLogo from '../../images/Landing/logo-berdi.svg';
-import CiberLogo from '../../images/Landing/logo-ciber.svg';
+import BerdiLogo from '../../images/landing/logo-berdi.svg';
+import CiberLogo from '../../images/landing/logo-ciber.svg';
 import { lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({

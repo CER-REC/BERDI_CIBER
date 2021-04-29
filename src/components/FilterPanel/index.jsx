@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '1.5em',
   },
   button: {
-    backgroundColor: theme.palette.primary.main,
     marginTop: '1.5em',
     width: '100%',
   },

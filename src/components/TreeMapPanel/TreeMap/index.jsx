@@ -8,7 +8,7 @@ import { reportFilter } from '../../../utilities/analytics';
 import TreeNode from '../TreeNode';
 import Tooltip from '../Tooltip';
 
-const lightenCoefficient = 0.613;
+const lightenCoefficient = 0.7;
 
 const getColor = (application) => application.color;
 const getLabel = (application) => (

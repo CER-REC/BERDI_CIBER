@@ -7,10 +7,11 @@ import ExploreButton from './ExploreButton';
 import Keywords from './Keywords';
 import SearchBar from './SearchBar';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
-    backgroundColor: theme.palette.secondary.main,
+    backgroundImage: 'linear-gradient(180deg, #4F5496 0%, #5B3B67 158.06%)',
     padding: '1.5em',
+    color: 'white',
   },
   sideBlock: {
     margin: 'auto',
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: '0.5em',
     verticalAlign: 'middle',
   },
-}));
+});
 
 const SearchPanel = ({ hasFilter, onChange }) => {
   const classes = useStyles();
