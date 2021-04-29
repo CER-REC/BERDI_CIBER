@@ -17,6 +17,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
+    // This level of specificity is needed to override the WET template styles
+    '& .pager > li.active > a, .pagination > li.active > a': {
+      backgroundColor: theme.palette.blue.navy,
+    },
+    '& .pager > li > a, .pagination > li:not(.active) > a': {
+      color: theme.palette.blue.navy,
+    },
   },
 }));
 

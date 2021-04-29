@@ -4,6 +4,7 @@ const black = '#000000';
 const white = '#FFFFFF';
 const grey = '#AEAEAE';
 const darkBlue = '#284162';
+const navyBlue = '#26374A';
 const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
 const darkGreen = '#1C5204';
@@ -22,6 +23,7 @@ const theme = createMuiTheme({
       blue: buttonBlue,
     },
     blue: {
+      navy: navyBlue,
       dark: darkBlue,
       light: lightBlue,
     },
@@ -92,7 +94,7 @@ const theme = createMuiTheme({
         },
       },
       containedPrimary: {
-        backgroundColor: darkBlue,
+        backgroundColor: navyBlue,
         '&:hover': {
           backgroundColor: '#5B7495',
         },
@@ -122,7 +124,7 @@ const theme = createMuiTheme({
         '&$checked': {
           transform: 'translateX(1em)',
           '& + $track': {
-            backgroundColor: darkGreen,
+            backgroundColor: '#222546',
             opacity: 1,
           },
         },
