@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
-import semiCircleLeft from '../../images/datePicker/semiCircleLeft.svg';
-import semiCircleRight from '../../images/datePicker/semiCircleRight.svg';
 import sliderIcon from '../../images/datePicker/sliderIcon.svg';
 
 const useStyles = makeStyles((theme) => ({
@@ -16,19 +14,28 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   slider: {
+    height: '5em',
     width: '300px',
-    padding: '0 8%',
-    '& .MuiSlider-thumb': {
-      height: 27,
-      width: 27,
-      backgroundColor: 'transparent',
-      marginTop: -12,
-      marginLeft: -13,
+    padding: '1.5em',
+  },
+  thumb: {
+    background: theme.palette.button.blue,
+    height: '2em',
+    marginTop: '-1em',
+    width: '1em',
+    '&:not(:last-child)': {
+      borderBottomLeftRadius: '5em',
+      borderTopLeftRadius: '5em',
+      transform: 'translateX(-0.5em)',
     },
-    '& img': {
-      height: '80%',
-      marginBottom: '35%',
+    '&:last-child': {
+      borderBottomRightRadius: '5em',
+      borderTopRightRadius: '5em',
+      transform: 'translateX(0.5em)',
     },
+  },
+  line: {
+    transform: 'translateX(2px)',
   },
   label: { fontWeight: 600 },
   datePicker: {
@@ -86,22 +93,6 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
 
   const shortenDate = (date) => new Date(date).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
-  const thumb = (options) => (
-    /*
-     * Prop spreading is needed here because in order to pass in a custom thumb,
-     * your thumb needs to have some inherited props.
-     */
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <span className={classes.thumb} {...options}>
-      <Icon>
-        <img
-          alt="Clickable slider thumb"
-          src={options['data-index'] === 0 ? semiCircleLeft : semiCircleRight}
-        />
-      </Icon>
-    </span>
-  );
-
   return (
     <div style={{ width: '300px' }}>
       <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
@@ -116,7 +107,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
             ? `${shortenDate(new Date(datePickerStartDate))} - ${shortenDate(new Date(datePickerEndDate))}`
             : ''}
           <Icon style={{ width: 'auto' }}>
-            <img src={sliderIcon} alt="a depiction of the date slider" />
+            <img style={{ verticalAlign: 'baseline' }} src={sliderIcon} alt="a depiction of the date slider" />
           </Icon>
         </Grid>
       </ButtonBase>
@@ -137,12 +128,16 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
       >
         <div className={classes.slider}>
           <Slider
+            classes={{
+              rail: classes.line,
+              thumb: classes.thumb,
+              track: classes.line,
+            }}
             value={[
               startDate.getTime() || minDate.getTime(),
               endDate.getTime() || maxDate.getTime(),
             ]}
             onChange={handleChange}
-            ThumbComponent={thumb}
             min={minDate.getTime()}
             step={unixMonth}
             max={maxDate.getTime()}
