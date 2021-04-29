@@ -4,12 +4,12 @@ import { useIntl } from 'react-intl';
 
 import useAPI from '../../../hooks/useAPI';
 import useConfig from '../../../hooks/useConfig';
-import building from '../../../images/building.svg';
-import fish from '../../../images/fish.svg';
-import health from '../../../images/health.svg';
-import plants from '../../../images/plants.svg';
-import warning from '../../../images/warning.svg';
-import water from '../../../images/water.svg';
+import building from '../../../images/keywords/building.svg';
+import fish from '../../../images/keywords/fish.svg';
+import health from '../../../images/keywords/health.svg';
+import plants from '../../../images/keywords/plants.svg';
+import warning from '../../../images/keywords/warning.svg';
+import water from '../../../images/keywords/water.svg';
 import SvgButton from '../../SvgButton';
 
 const useStyles = makeStyles(() => ({
