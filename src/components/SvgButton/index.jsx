@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
       borderColor: theme.palette.grey.light,
       borderStyle: 'solid',
       borderWidth: '1px',
+      backgroundColor: theme.palette.purple.dark,
     },
     '& h6': {
       color: 'white',
