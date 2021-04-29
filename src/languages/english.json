@@ -1,6 +1,6 @@
 {
   "common": {
-    "toolName": "Open Corridor",
+    "toolName": "berdi",
     "description": "Search over 15,000 tables extracted from 38 pipeline applications and their Environmental and Socio-Economic Assessments - the start of something new, at the Canada Energy Regulator.",
     "char": {
       "colon": ":",
