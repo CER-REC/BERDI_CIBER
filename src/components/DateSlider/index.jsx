@@ -14,9 +14,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   slider: {
-    height: '5.5em',
+    height: '5em',
     width: '300px',
-    padding: '0.5em 1.5em 1.5em 1.5em',
+    padding: '1.5em',
   },
   thumb: {
     background: theme.palette.button.blue,
@@ -56,32 +56,48 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
-  const [datePickerStartDate, setDatePickerStartDate] = useState(minDate.getTime());
-  const [datePickerEndDate, setDatePickerEndDate] = useState(maxDate.getTime());
 
-  /*
-   * For ease of adding and subtracting times from dates,
-   * the dates use the getTime() method to convert them to a
-   * number that is equal to the number of milliseconds past
-   * the unix epoch.
-   */
-  const unixMonth = 2678400000;
   const open = !!anchorEl;
+
+  // If the date is === minDate, set day to 1st
+  // If that date is === maxDate, set month to be month+1, and set day to be -1
+
+  const getMonthDifference = useCallback(
+    (date) => date.getMonth()
+    - minDate.getMonth()
+    + (12 * (date.getFullYear() - minDate.getFullYear())),
+    [minDate],
+  );
+
+  const totalDifference = getMonthDifference(maxDate);
+
+  const [datePickerStartDate, setDatePickerStartDate] = useState(0);
+  const [datePickerEndDate, setDatePickerEndDate] = useState(totalDifference);
+
+  // Take the min date and add the number of months different to get the slider date.
+  const convertToDate = useCallback((monthDiff) => {
+    const returnDate = new Date(minDate);
+
+    returnDate.setMonth(minDate.getMonth() + monthDiff);
+    return returnDate;
+  },
+  [minDate]);
 
   const handleChange = useCallback((_, dates) => {
     const [start, end] = dates;
+    console.log(convertToDate(start), convertToDate(end), minDate, maxDate);
     setDatePickerStartDate(start);
     setDatePickerEndDate(end);
 
     if (start && end) {
-      onChange(new Date(start), new Date(end));
+      onChange(convertToDate(start), convertToDate(end));
     }
-  }, [setDatePickerStartDate, setDatePickerEndDate, onChange]);
+  }, [convertToDate, minDate, maxDate, onChange]);
 
   useEffect(() => {
-    setDatePickerStartDate(startDate);
-    setDatePickerEndDate(endDate);
-  }, [startDate, endDate]);
+    setDatePickerStartDate(getMonthDifference(startDate));
+    setDatePickerEndDate(getMonthDifference(endDate));
+  }, [startDate, endDate, minDate, getMonthDifference]);
 
   const handlePopoverClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -102,9 +118,9 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         onClick={handlePopoverClick}
       >
         <Grid container alignItems="center" justify="space-between">
-
+          {console.log(datePickerStartDate, datePickerEndDate)}
           {datePickerStartDate && datePickerEndDate
-            ? `${shortenDate(new Date(datePickerStartDate))} - ${shortenDate(new Date(datePickerEndDate))}`
+            ? `${shortenDate(convertToDate(datePickerStartDate))} - ${shortenDate(convertToDate(datePickerEndDate))}`
             : ''}
           <Icon style={{ width: 'auto' }}>
             <img style={{ verticalAlign: 'baseline' }} src={sliderIcon} alt="a depiction of the date slider" />
@@ -127,16 +143,6 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         }}
       >
         <div className={classes.slider}>
-          <Grid container justify="space-between" style={{ paddingBottom: '0.5em' }}>
-            <Typography>
-              {shortenDate(new Date(datePickerStartDate))}
-            </Typography>
-
-            <Typography>
-              {shortenDate(new Date(datePickerEndDate))}
-            </Typography>
-          </Grid>
-
           <Slider
             classes={{
               rail: classes.line,
@@ -144,13 +150,13 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
               track: classes.line,
             }}
             value={[
-              startDate.getTime() || minDate.getTime(),
-              endDate.getTime() || maxDate.getTime(),
+              datePickerStartDate || 0,
+              datePickerEndDate || totalDifference,
             ]}
             onChange={handleChange}
-            min={minDate.getTime()}
-            step={unixMonth}
-            max={maxDate.getTime()}
+            min={0}
+            step={1}
+            max={totalDifference}
           />
         </div>
       </Popover>
