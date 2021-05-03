@@ -88,6 +88,14 @@ export const getReducer = (
         searchIndex: 0,
         fragment: initialState.fragment,
       };
+    case 'searches/cleared':
+      return {
+        ...state,
+        page: 'search',
+        searches: initialState.searches,
+        searchIndex: 0,
+        fragment: initialState.fragment,
+      };
     case 'applicationIds/changed':
       return {
         ...state,

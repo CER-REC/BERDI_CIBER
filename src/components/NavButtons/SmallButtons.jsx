@@ -44,6 +44,8 @@ export const BackButton = () => {
 
   const handleClick = useCallback(() => {
     reportSection('landing');
+    configDispatch({ type: 'filters/removed' });
+    configDispatch({ type: 'searches/cleared' });
     configDispatch({ type: 'page/changed', payload: 'landing' });
     window.scrollTo(0, 0);
   }, [configDispatch]);
