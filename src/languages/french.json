@@ -253,7 +253,7 @@
           "header": "Étape 3 – Extraire des tableaux et des figures",
           "paragraph1": "L’étape suivante a consisté à recenser les caractéristiques uniques sur chaque page du PDF et les coordonnées de leurs emplacements. Cette information permet aux utilisateurs de repérer les pages qui ont des caractéristiques d’image (p. ex., taille des blocs, présence de texte) et est utilisée lors de la modélisation pour répertorier les figures qui se trouvent dans les EES. La {link1} a été utilisée pour extraire les détails au niveau de la page.",
           "link1": "bibliothèque PyMuPDF de Python",
-          "url1": "https://pymupdf.readthedocs.io/en/latest/intro/",
+          "url1": "https://pymupdf.readthedocs.io/en/latest/",
           "paragraph2": "L’extraction des tableaux de chaque fichier PDF s’est faite au moyen d’un processus distinct. La {link2} a servi à convertir tous les tableaux des fichiers PDF en fichiers CSV (valeurs séparées par des virgules). La bibliothèque Camelot se sert des caractéristiques uniques (p. ex., lignes de délimitation ou espace blanc entre les cellules) pour repérer les tableaux dans un fichier PDF. Une fois que les tableaux et les figures ont été répertoriés, la tâche suivante a consisté à les étiqueter.",
           "link2": "bibliothèque Camelot de Python",
           "url2": "https://camelot-py.readthedocs.io/en/master/"
