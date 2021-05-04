@@ -176,6 +176,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         wrap="nowrap"
         className={classes.dialogFooter}
+        justify="space-between"
       >
         <Grid
           item
