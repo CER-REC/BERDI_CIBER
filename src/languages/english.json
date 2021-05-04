@@ -56,7 +56,7 @@
       "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
-      "none": "- Select -",
+      "select": "- Select -",
       "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
       "nebAct": "NEB Act",
       "cerAct": "CER Act",

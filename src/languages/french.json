@@ -55,7 +55,7 @@
       "dateLabel": "Date de dépôt",
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
-      "none": "- Sélectionner -",
+      "select": "- Sélectionner -",
       "tooltip": "Cet ensemble de données se limite aux projets visés par l’ancienne {nebAct}. La {cerAct} actuelle a modifié et ajouté des catégories de projets.",
       "nebAct": "Loi sur l’Office national de l’énergie",
       "cerAct": "Loi sur la Régie canadienne de l’énergie",
