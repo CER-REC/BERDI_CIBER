@@ -79,20 +79,32 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
     const returnDate = new Date(minDate);
 
     returnDate.setMonth(minDate.getMonth() + monthDiff);
+
+    // This if block handles setting the dates to be either
+    // on the first of the month, if the date is greater than to minDate
+    // or on the last of the month, if the date is equal to maxDate
+    if (returnDate.getTime() > minDate.getTime()) {
+      if (returnDate.setDate(1) === maxDate.setDate(1)) {
+        // set the date one month forward, then roll it back one day
+        returnDate.setMonth(returnDate.getMonth() + 1);
+        returnDate.setDate(0);
+      } else {
+        returnDate.setDate(1);
+      }
+    }
     return returnDate;
   },
-  [minDate]);
+  [maxDate, minDate]);
 
   const handleChange = useCallback((_, dates) => {
     const [start, end] = dates;
-    console.log(convertToDate(start), convertToDate(end), minDate, maxDate);
     setDatePickerStartDate(start);
     setDatePickerEndDate(end);
 
     if (start && end) {
       onChange(convertToDate(start), convertToDate(end));
     }
-  }, [convertToDate, minDate, maxDate, onChange]);
+  }, [convertToDate, onChange]);
 
   useEffect(() => {
     setDatePickerStartDate(getMonthDifference(startDate));
@@ -118,8 +130,8 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
         onClick={handlePopoverClick}
       >
         <Grid container alignItems="center" justify="space-between">
-          {console.log(datePickerStartDate, datePickerEndDate)}
-          {datePickerStartDate && datePickerEndDate
+
+          {datePickerStartDate >= 0 && datePickerEndDate >= 0
             ? `${shortenDate(convertToDate(datePickerStartDate))} - ${shortenDate(convertToDate(datePickerEndDate))}`
             : ''}
           <Icon style={{ width: 'auto' }}>
