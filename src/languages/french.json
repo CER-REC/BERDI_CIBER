@@ -111,8 +111,12 @@
       "title": "Résultats de la recherche",
       "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
-      "noResultsFor": "Désolé, il n’y a aucun résultat pour {searches}",
-      "noResults": "Désolé, il n’y a aucun résultat"
+      "noResults": "Désolé, il n’y a aucun résultat.",
+      "noResultsFor": "Désolé, il n’y a aucun résultat pour {searches}.",
+      "noResultsWithFilters": "",
+      "noResultsForWithFilters": "",
+      "noResultsForWithDateRange": "",
+      "noResultsWithDateRange": ""
     },
     "resultDialog": {
       "downloadTable": "Télécharger le tableau",
