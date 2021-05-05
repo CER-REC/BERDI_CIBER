@@ -113,8 +113,8 @@
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "noResults": "Désolé, il n’y a aucun résultat.",
       "noResultsFor": "Désolé, il n’y a aucun résultat pour {searches}.",
-      "noResultsWithFilters": "",
-      "noResultsForWithFilters": "",
+      "noResultsWithFilters": "Désolé, il n’y a aucun résultat avec ces filtres.",
+      "noResultsForWithFilters": "Désolé, il n’y a aucun résultat pour [keyword] avec ces filtres.",
       "noResultsForWithDateRange": "",
       "noResultsWithDateRange": ""
     },
