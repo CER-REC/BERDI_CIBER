@@ -59,9 +59,6 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
 
   const open = !!anchorEl;
 
-  // If the date is === minDate, set day to 1st
-  // If that date is === maxDate, set month to be month+1, and set day to be -1
-
   const getMonthDifference = useCallback(
     (date) => date.getMonth()
     - minDate.getMonth()
