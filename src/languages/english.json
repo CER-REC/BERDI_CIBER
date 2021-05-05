@@ -56,6 +56,7 @@
       "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
+      "select": "- Select -",
       "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
       "nebAct": "NEB Act",
       "cerAct": "CER Act",
@@ -112,8 +113,8 @@
       "title": "Search Results",
       "counts": "{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelect": "Select a box to filter by project and access project details.",
-      "noResultsFor": "Sorry there are no results for {searches}",
-      "noResults": "Sorry there are no results"
+      "noResultsFor": "Sorry, there are no results for {searches}",
+      "noResults": "Sorry, there are no results"
     },
     "resultDialog": {
       "disclaimer": "Disclaimer: Data is shown in the original language it was filed in. Table and figure titles have been translated.",
@@ -253,7 +254,7 @@
           "header": "Step 3: Extract tables and figures",
           "paragraph1": "The next step was to identify unique features of each PDF page and their location coordinates. This information allows users to identify pages that have image features (ex. size of blocks, presence of text, etc.) and is used in modeling to identify ESA Figures. The {link1} was used to extract these page-level PDF details.",
           "link1": "Python PyMuPDF library",
-          "url1": "https://pymupdf.readthedocs.io/en/latest/intro/",
+          "url1": "https://pymupdf.readthedocs.io/en/latest/",
           "paragraph2": "The extraction of tables from each PDF relied on a separate process. The {link2} was used to convert all tables from the PDFs into CSV (comma-separated value) files. Camelot relies on the presence of unique table features, (e.g. demarcated lines or presence of white space between cells) to identify tables in a PDF document. Once tables and figures were identified, the next task was to label them with their respective title.",
           "link2": "Python Camelot library",
           "url2": "https://camelot-py.readthedocs.io/en/master/"

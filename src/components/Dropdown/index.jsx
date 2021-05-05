@@ -66,6 +66,9 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     }
   }, [type, applicationIdLabels, intl]);
   const renderValue = useCallback((selected) => {
+    if (selected.length === 0) {
+      return intl.formatMessage({ id: 'components.dropdown.select' });
+    }
     if (selected.length === 1) {
       return getDropdownItemName(selected[0]);
     }
@@ -95,6 +98,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         }}
         IconComponent={KeyboardArrowDown}
         renderValue={renderValue}
+        displayEmpty
       >
         {
           options.map((entry) => (
