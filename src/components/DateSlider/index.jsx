@@ -98,7 +98,7 @@ const CustomDatePicker = ({ maxDate, minDate, startDate, endDate, onChange }) =>
     setDatePickerStartDate(start);
     setDatePickerEndDate(end);
 
-    if (start && end) {
+    if (start !== null && end !== null) {
       onChange(convertToDate(start), convertToDate(end));
     }
   }, [convertToDate, onChange]);
