@@ -45,8 +45,8 @@ const TreeMapPanel = () => {
   const hasSearches = config.searches.length > 0;
 
   const hasFilter = config.applicationIds.length > 0 || config.regions.length > 0
-  || config.commodities.length > 0 || config.projectTypes.length > 0
-  || config.statuses.length > 0 || config.contentTypes.length > 0;
+    || config.commodities.length > 0 || config.projectTypes.length > 0
+    || config.statuses.length > 0 || config.contentTypes.length > 0;
 
   const hasDateRange = config.startDate.getTime() !== minDate.getTime()
     || config.endDate.getTime() !== maxDate.getTime();
