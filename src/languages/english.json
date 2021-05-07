@@ -113,8 +113,12 @@
       "title": "Search Results",
       "counts": "{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelect": "Select a box to filter by project and access project details.",
-      "noResultsFor": "Sorry, there are no results for {searches}",
-      "noResults": "Sorry, there are no results"
+      "noResults": "Sorry, there are no results.",
+      "noResultsFor": "Sorry, there are no results for {searches}.",
+      "noResultsWithFilters": "Sorry, there are no results with these filters.",
+      "noResultsForWithFilters": "Sorry, there are no results for {searches} with these filters.",
+      "noResultsForWithDateRange": "Sorry, there are no results for {searches} within this date range.",
+      "noResultsWithDateRange": "Sorry, there are no results within this date range."
     },
     "resultDialog": {
       "disclaimer": "Disclaimer: Data is shown in the original language it was filed in. Table and figure titles have been translated.",
