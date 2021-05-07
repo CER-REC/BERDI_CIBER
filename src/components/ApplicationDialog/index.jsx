@@ -101,7 +101,7 @@ const ApplicationDialog = ({ data, onClose }) => {
       </Grid>
 
       {/* Footer */}
-      <Grid container wrap="nowrap" className={classes.footer}>
+      <Grid container wrap="nowrap" justify="space-around" className={classes.footer}>
         {/* Table / Figure Counts */}
         <Grid item container spacing={1} xs={4} alignItems="center" className={classes.counts}>
           <Grid item>
