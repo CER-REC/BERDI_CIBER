@@ -1,27 +1,15 @@
 # Components
 
-React components should be written as pure components, regardless of whether
-they are class or functional components.
+`Components` should be written functional React components.
 
-```js
-class PureClassComponent extends React.PureComponent {}
+`Components` should be stored in `./src/components/ComponentName/`.
 
-// If the props or state changing doesn't necessarily trigger a render, we can
-// further optimize the component by handling shouldComponentUpdate ourselves.
-class ManualPureClassComponent extends React.Component {
-  shouldComponentUpdate(nextProps, nextState) {
-    if (...) { return true; }
-    return false;
-  }
-}
-
-```
-
-Components should be stored in `app/components/ComponentName/`.
+`Components` must be reusable, if another render of the same React component will break functionality,
+then this React component should be a `Container`.
 
 ## Public vs Private components
 
-Any component that is used by a View, or by two or more other components should
+Any component that is used by a `Container`, or by two or more other components should
 have its own folder and be considered a `Public` component. Anything that is
 only used by a single component should be placed in a subfolder of that component, and
 is treated as an `Private` component.
@@ -35,19 +23,19 @@ that might affect other components.
 
 ## Folder Structure
 
-Each `Public` component should have a folder in `./app/components/`, matching the name
+Each `Public` component should have a folder in `./src/components/`, matching the name
 and capitalization of the component. Each component should have its own supporting
 documentation, examples, and tests.
 
 ```
-/* Inside ./app/components/MyPublicComponent/ */
+/* Inside ./src/components/MyPublicComponent/ */
 index.jsx // MyPublicComponent as the default export
-styles.scss // Styles for MyPublicComponent and children
+styles.js // Styles for MyPublicComponent and children
 spec.jsx // Test for MyPublicComponent
 stories.jsx // Examples
 README.md // Documentation
 PrivateComponent/index.jsx // Component used only within MyPublicComponent
-PrivateComponent/styles.scss // Styles for PrivateComponent and children
+PrivateComponent/styles.js // Styles for PrivateComponent and children
 PrivateComponent/spec.jsx // Test for PrivateComponent
 PrivateComponent/stories.jsx // Examples
 PrivateComponent/README.md // Documentation
@@ -57,7 +45,7 @@ The name used for imports and exports should always match the folder or filename
 
 * `./MyPublicComponent/index.jsx`
  * Default export is a component named `MyPublicComponent`
- * Imported as `import MyPublicComponent from './app/components/MyPublicComponent';`
+ * Imported as `import MyPublicComponent from './src/components/MyPublicComponent';`
 * `./MyPublicComponent/PrivateComponent/index.jsx`
  * Default export is a component named `PrivateComponent`
  * Imported as `import PrivateComponent from './PrivateComponent';`
@@ -66,42 +54,62 @@ The name used for imports and exports should always match the folder or filename
 
 There are three areas where we may track the current visualization settings:
 
-* Redux (Global application state)
+* `useConfig` hook (Global application state)
 * Component state
 * Component properties
 
 As a general rule of thumb, the following steps will define the best location:
 
-* If this data affects the screenshot or sharing: Redux
-* If this data is used by multiple components that aren't parents/children of each other: Redux
+* If this data affects sharing the application URL: `useConfig` hook
+* If this data is used by multiple components that aren't parents/children of each other: `useConfig` hook
 * If this component or its children should rerender when it changes
  * If this data changes multiple times per second: Potentially property that debounces to state
   * Caution should be used, as this may result in race conditions and render bugs. Always discuss this with the team first
  * If this data changes less than once a second: Component state
 
-When a component needs state that is stored within Redux, it will be passed in
-as props from the parent component (in most cases this will be a View).
+## CSS Classes
 
-## CSS
+- CSS classes should be implemented using the [Material-UI makeStyles API](https://material-ui.com/styles/advanced/#makestyles)
+- If the styles are extracted out of the component index file, the file name should be `styles.js`
+- Classes under a component should only be used by that component
+- 0 sizes should be referenced directly as `0` without units
+- Hex colors should be all caps
+- Commonly used style values should be kept as variables in `./src/containers/App/theme.js`
 
-Any styles that are required to display the component outside of the visualization
-should be added to a `styles.scss` file and imported into any files within the
-component folder that make use of it. All declarations within `styles.scss`
-should be grouped in a single class that is only used by this component.
+```js
+/* ./src/components/Component/styles.js */
+export default (theme) => ({
+  root: {
+    position: 'absolute',
+    right: 0,
+    top: 0,
+    '& h1': { fontWeight: 'bold' },
+  },
+  className: { backgroundColor: '#AA0011' },
+});
+```
 
-```css
-/* app/components/CompanyWheel/styles.scss */
-.company-wheel {
-  .company-name {
-    font-weight: bold;
-  }
+```js
+/* ./src/components/Component/index.jsx */
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
 
-  .pull-to-spin {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-}
+import styles from './styles';
+
+const useStyles = makeStyles(styles);
+
+const Component = () => {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.root}>
+      <h1>Component</h1>
+      <span className={classes.className}>1</span>
+      <span>2</span>
+      <span className={classes.className}>3</span>
+    </div>
+  );
+};
 ```
 
 ## PropTypes

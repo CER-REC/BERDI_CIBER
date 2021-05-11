@@ -3,20 +3,9 @@
 All of our components are documented with a readme and examples that are visible
 within this Storybook document.
 
-## Interactions and State
+## Reading the documentation
 
-The visualization has a requirement that the system can generate a screenshot or
-social media link that matches what is on the user's screen, with a few
-exceptions for irrelevant or interactive elements that don't make sense in a
-static image. In order to support this, components do not track their own state,
-but instead receive their current state from the views, and pass any
-interactions up to the view. We have implemented an addon for storybook to
-make it easier to understand what effect an interaction will have.
-
-### Reading the documentation
-
-Any components that are reusable or directly by a view will be listed at the top
-level of the `Components` section, and components that exist to organize or
+Components listed at the top level of the `Components` section, and components that exist to organize or
 simplify the logic of another component may be nested under its' heading. These
 are referred to as `Public` and `Private` components in other parts of the
 documentation.
@@ -35,7 +24,7 @@ that will contain important information for individual stories.
 * Accessibility - WCAG test results for the story.
 * Viewport - Used in the views to test the visualization in different resolutions.
 
-### Documentation Author Usage
+## Documentation Author Usage
 
 When implementing the interaction addon, all stories may use the action tracker,
 but please limit your usage of state to a main example story (often

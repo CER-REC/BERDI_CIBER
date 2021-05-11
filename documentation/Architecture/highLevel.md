@@ -1,65 +1,47 @@
 # High Level Architecture
 
-## Components and Views
+## Material-UI
 
-We use the terms `Components` and `Views`, despite both implementing the
+We are using the [React Material-UI](https://material-ui.com/) framework.
+Any elements or utility functions should be imported from `Material-UI` first,
+before adding other external packages.
+
+## Components and Containers
+
+We use the terms `Components` and `Containers`, despite both implementing the
 React component pattern, so that we can differentiate between reusable elements
-and visualization layout elements. Both of these implement a similar pattern,
+and non-reusable elements. Both of these implement a similar pattern,
 with the primary difference being reuse.
+
+Although we use the term `Containers`, we are **not** following the [Container Component Architecture](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.4rmjqneiw).
+Both `Components` and `Containers` can reference external state variables.
 
 ## Documentation
 
 High-level documentation (like this architecture documentation) belongs in
 `./documentation/`.
 
-## Redux
+## Hooks
 
-Implementing a global state store with Redux can be broken down into four segments:
+- Avoid using `useCallback` and `useMemo`, unless required to stop re-renders and improve performance
+- Custom hooks belong in `./hooks/` and should begin with `use`
+- Shared component state can be updated and retrieved from the `useConfig` hook
+  ```js
+  const { config, configDispatch } = useConfig();
 
-* Types: Identifier for what action is being done
-* Action Creators: Functions that generate an Action object with the Action Type and the data required to execute the change
-* Reducers: Functions that take a current state and an action, and return a new state
-* Middleware: Functions that can respond to and prevent actions based on other state
+  const state = config.state;
 
-Since Types, Actions, and Reducers are closely related, we group these together
-in a single file in the `app/actions/` folder. There should be one file for each
-set of related state.
-
-```js
-// app/actions/findWords.js
-export const Types = {
-  UPDATE_SEARCH: 'findWords.updateSearch',
-  UPDATE_RESULTS: 'findWords.updateResults',
-  RESET_SEARCH: 'findWords.resetSearch',
-};
-
-export const updateSearchQuery = (newSearch = {}) => ({
-  type: Types.UPDATE_SEARCH,
-  payload: { query: newSearch },
-});
-
-export const updateSearchResults = (searchResults = []) => ({
-  type: Types.UPDATE_RESULTS,
-  payload: { results: searchResults },
-});
-
-export const resetSearch = () => ({
-  type: Types.RESET_SEARCH,
-});
-
-export const reducer = (initialState = {}, action) => {
-  switch (action.type) {
-    case Types.UPDATE_SEARCH:
-      return { ...initialState, query: action.payload.query };
-
-    case Types.UPDATE_RESULTS:
-      return { ...initialState, results: action.payload.results };
-
-    case Types.RESET_SEARCH:
-      return { ...initialState, query: {}, results: [] };
-  }
-};
-```
+  configDispatch({ type: 'state/changed', payload: 'NEW_STATE' });
+  ```
+- Dispatched actions should only contain 2 properties
+  - **type**
+    - The ID of the action
+    - Comprised of the affected state areas and ending with the event operation
+    - Formatted as lower camel cased items and separated with forward slashes
+    - `examples/added`
+  - **payload**
+    - The values required for the state update
+    - Can be `undefined`
 
 ## Testing
 
