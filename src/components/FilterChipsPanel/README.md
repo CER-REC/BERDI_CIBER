@@ -8,5 +8,6 @@ Clicking the chip will delete it and unapply the filter it represented.
 
 ## Interaction Requirements
 
-* [X] Renders styled Chip UI components from array
-* [ ] Click on individual chips to remove them
+* [X] Renders array of styled chip UI components
+* [ ] Add chips by using filters on the Search page
+* [ ] Remove chips by clicking on them
