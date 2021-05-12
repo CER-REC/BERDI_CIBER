@@ -37,9 +37,9 @@ const Search = () => {
       {/* TreeMap Section */}
       <TreeMapPanel />
 
-      <FilterChipsPanel />
-
       <Applications />
+
+      <FilterChipsPanel />
 
       {/* List section */}
       <ListSection />
