@@ -22,8 +22,7 @@ const useStyles = makeStyles(() => ({
 const FilterChipsPanel = ({ initialState }) => {
   const classes = useStyles();
 
-  const handleClick = (clickedChip) => () => {
-    console.log("clicked");
+  const handleClick = () => () => {
     // TODO: do filter statement to remove given chip name
   };
 
