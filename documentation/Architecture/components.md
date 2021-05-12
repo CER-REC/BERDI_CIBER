@@ -65,7 +65,7 @@ As a general rule of thumb, the following steps will define the best location:
 * If this component or its children should rerender when it changes
  * If this data changes multiple times per second: Potentially property that debounces to state
   * Caution should be used, as this may result in race conditions and render bugs. Always discuss this with the team first
- * If this data changes less than once a second: Component state
+* Otherwise: Component state
 
 ## CSS Classes
 
@@ -75,6 +75,11 @@ As a general rule of thumb, the following steps will define the best location:
 - 0 sizes should be referenced directly as `0` without units
 - Hex colors should be all caps
 - Commonly used style values should be kept as variables in `./src/containers/App/theme.js`
+- Note that all 3 methods of overriding the Material-UI CSS classes are acceptable
+  - [Pseudo-classes](https://material-ui.com/customization/components/#pseudo-classes)
+  - [$ruleName](https://material-ui.com/customization/components/#use-rulename-to-reference-a-local-rule-within-the-same-style-sheet)
+  - Referencing the Material-UI CSS class directly (ex. `.Mui-disabled`)
+  - Refer to a Material-UI component APIs for a list of applicable rules (ex. [Button](https://material-ui.com/api/button/#css))
 
 ```js
 /* ./src/components/Component/styles.js */

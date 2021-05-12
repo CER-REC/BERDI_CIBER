@@ -36,40 +36,9 @@ The dot separated key name is the ID of the language translation message.
   - `common` for shared translations
   - `components.[lowerCamelCasedComponentName]` for component specific translations
   - `containers.[lowerCamelCasedContainerName]` for container specific translations
+- Use [React Intl](https://formatjs.io/docs/react-intl/api) to format dates, times, and numbers for different regions
 
-## Components
-
-### Web Component Method (no child)
-
-```js
-import { FormattedMessage } from 'react-intl';
-
-const Component = (props) => {
-  // By default `tagName` is span, and renders as <span>{translation}</span>
-  return <FormattedMessage id="component.translation" tagName="span" />;
-};
-
-export default Component;
-```
-
-### Web Component Method (function child)
-
-```js
-import { FormattedMessage } from 'react-intl';
-
-const Component = (props) => {
-  return (
-    // If more control is needed over the rendered translation
-    <FormattedMessage id="component.translation">
-      {text => <span className="component">{text}</span>}
-    </FormattedMessage>
-  );
-};
-
-export default Component;
-```
-
-### Hook Method
+## Usage with Hooks
 
 ```js
 import React from 'react';
