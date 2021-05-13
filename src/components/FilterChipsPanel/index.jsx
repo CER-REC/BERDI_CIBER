@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
     background: '#E1F1DA',
     border: '1px solid black',
     borderRadius: '30px',
-    margin: '1em 0.5em 0em 0.5em',
+    margin: '1em 0.5em 0 0.5em',
     paddingRight: '0.3em',
     fontSize: 16,
     color: 'black',
