@@ -5,21 +5,17 @@ library.
 
 ## Language JSON
 
-The JSON files are structured hierarchically and found in `app/languages/`.
+The JSON files are structured hierarchically and found in `./src/languages/`.
 
 ```json
 {
   "common": {
-    "features": {
-      "theme": "Theme",
-      "instrument": "Instrument",
-      "phase": "Phase",
-      "type": "Type",
-      "status": "Status",
-      "filing": "Filing"
+    "item1": {
+      "subItem1": "Item 1",
+      "subItem2": "Item 2",
     },
-    "trend": {
-      "title": "Trends & Definitions"
+    "item2": {
+      "subItem1": "Item - 1"
     }
   }
 }
@@ -30,70 +26,38 @@ The dot separated key name is the ID of the language translation message.
 
 ```json
 {
-  "common.features.theme": "Theme",
-  "common.features.instrument": "Instrument",
-  "common.features.phase": "Phase",
-  "common.features.type": "Type",
-  "common.features.status": "Status",
-  "common.features.filing": "Filing",
-  "common.trend.title": "Trends & Definitions"
+  "common.item1.subItem1": "Item 1",
+  "common.item1.subItem2": "Item 2",
+  "common.item2.subItem1": "Item - 1",
 }
 ```
 
-## Components
+- Translation items should be grouped under:
+  - `common` for shared translations
+  - `components.[lowerCamelCasedComponentName]` for component specific translations
+  - `containers.[lowerCamelCasedContainerName]` for container specific translations
+- Use [React Intl](https://formatjs.io/docs/react-intl/api) to format dates, times, and numbers for different regions
 
-### Web Component Method (no child)
-
-```js
-import { FormattedMessage } from 'react-intl';
-
-const Component = (props) => {
-  // By default `tagName` is span, and renders as <span>{translation}</span>
-  return <FormattedMessage id="component.translation" tagName="span" />;
-};
-
-export default Component;
-```
-
-### Web Component Method (function child)
+## Usage with Hooks
 
 ```js
-import { FormattedMessage } from 'react-intl';
+import React from 'react';
+import { useIntl } from 'react-intl';
 
-const Component = (props) => {
+const Component = () => {
+  const intl = useIntl();
+
   return (
-    // If more control is needed over the rendered translation
-    <FormattedMessage id="component.translation">
-      {text => <span className="component">{text}</span>}
-    </FormattedMessage>
+    <span>{intl.formatMessage({ id: 'components.Component.message' })}<span/>
   );
 };
 
 export default Component;
 ```
 
-### API Method
-
-```js
-import { injectIntl, intlShape } from 'react-intl';
-
-const Component = (props) => {
-  const { intl } = props;
-  // If translation is needed outside of JSX
-  const translation = intl.formatMessage({ id: 'component.translation' });
-  ...
-  return <span>{translation}</span>;
-};
-
-Component.propTypes = {
-  /** For translations */
-  intl: intlShape.isRequired,
-};
-
-export default injectIntl(Component);
-```
-
 ## Storybook
+
+**TODO: Update**
 
 If the component uses the API method (with injectIntl), then the Story Source in Storybook for the
 component will render `<InjectIntl(Component) />` instead of `<Component />`. Calling the `fixInfo`
@@ -110,6 +74,8 @@ storiesForComponent('Components|Component', module, ReadMe)
 ```
 
 ## Tests
+
+**TODO: Update**
 
 The `ShallowWrapper` object has been updated with a `shallowWithIntl` method, which is needed to
 render `FormattedMessage` components in testing. `shallowWithIntl` accepts a object with the

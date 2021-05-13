@@ -30,12 +30,12 @@ module.exports = {
   // override the messages, defaults are as follows
   messages: {
     type: 'Select the type of change that you\'re committing:\n',
-    scope: 'Denote the scope of this change (Eg. ProjectMenu/ProjectChart or List):\n',
-    customScope: 'Denote the scope of this change (Eg. ProjectMenu/ProjectChart or List):\n',
+    scope: 'Denote the scope of this change (Eg. ParentComponent/ChildComponent or Component):\n',
+    customScope: 'Denote the scope of this change (Eg. ParentComponent/ChildComponent or Component):\n',
     subject: 'Write a short, imperative tense description of the change (Eg. Adds/Fixes ...):\n',
     body: 'Provide a longer description of the change (optional). Use "|" to break new line:\n',
     breaking: 'List any breaking changes (optional):\n',
-    footer: 'List any issues affected by this change (optional). E.g. NEBV-1234, Closes NEBV-1337:\n',
+    footer: 'List any issues affected by this change (optional). E.g. 1234, Closes 1337:\n',
     confirmCommit: 'Are you sure you want to proceed with the commit above?',
   },
 
