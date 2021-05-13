@@ -58,7 +58,7 @@ There are three areas where we may track the current visualization settings:
 * Component state
 * Component properties
 
-As a general rule of thumb, the following steps will define the best location:
+As a general rule, the following steps will define the best location:
 
 * If this data affects sharing the application URL: `useConfig` hook
 * If this data is used by multiple components that aren't parents/children of each other: `useConfig` hook
