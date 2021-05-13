@@ -42,7 +42,7 @@ const FilterChipsPanel = ({ initialState }) => {
           className={classes.chip}
         />
       ))}
-    </div>
+    </>
   );
 };
 
