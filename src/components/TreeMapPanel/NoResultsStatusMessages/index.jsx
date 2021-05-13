@@ -8,12 +8,7 @@ import useAPI from '../../../hooks/useAPI';
 const NoResultsStatusMessages = () => {
   const intl = useIntl();
   const { config } = useConfig();
-  const {
-    minDate, maxDate, fileSize,
-    fileDownloadURL,
-    tableCount,
-    csvCount,
-  } = useAPI();
+  const { minDate, maxDate } = useAPI();
   const combinedSearches = config.searches.join(' ');
 
   // Assemble booleans to differentiate between states
@@ -37,10 +32,6 @@ const NoResultsStatusMessages = () => {
     // Show no results when using keyword search
     || (hasSearches && !hasFilter && !hasDateRange && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
-        {console.log(fileSize,
-          fileDownloadURL,
-          tableCount,
-          csvCount)}
         {
           intl.formatMessage({ id: 'components.treeMapPanel.noResultsFor' }, {
             searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
