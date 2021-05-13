@@ -7,6 +7,7 @@ import FilterPanel from '../../components/FilterPanel';
 import ListSection from '../../components/ListPanel';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import NavButtons from '../../components/NavButtons';
+import FilterChipsPanel from '../../components/FilterChipsPanel';
 import useAPI from '../../hooks/useAPI';
 import { reportShowFilter } from '../../utilities/analytics';
 
@@ -37,6 +38,8 @@ const Search = () => {
       <TreeMapPanel />
 
       <Applications />
+
+      <FilterChipsPanel />
 
       {/* List section */}
       <ListSection />
