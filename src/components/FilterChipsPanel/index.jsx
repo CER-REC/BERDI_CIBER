@@ -27,7 +27,7 @@ const FilterChipsPanel = ({ initialState }) => {
   };
 
   return (
-    <div>
+    <>
       {initialState.map((data) => (
         <Chip
           key={data}
