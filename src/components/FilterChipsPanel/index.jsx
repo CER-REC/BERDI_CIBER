@@ -5,6 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import useConfig from '../../hooks/useConfig';
 import useAPI from '../../hooks/useAPI';
 import { lang } from '../../constants';
+import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles(() => ({
   chip: {
@@ -25,17 +26,21 @@ const useStyles = makeStyles(() => ({
 const FilterChipsPanel = ({ initialData }) => {
   const classes = useStyles();
   const { config } = useConfig();
-  const { minDate, maxDate, applicationIdLabels, regions } = useAPI();
+  const { minDate, maxDate, applicationIdLabels } = useAPI();
+  const intl = useIntl();
 
   const handleChipClick = () => () => {
     // TODO: do filter statement to remove given chip name
   };
 
+  // Prepare keyword chip
+  const keywordChip = config.searches.join(' ');
+
   // Prepare application chips
   const applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
 
-  // TODO: prepare / format regions chips
-  const regionChips = config.regions.map((item) => regions[item]);
+  // Prepare region chips
+  const regionChips = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
 
   // Prepare and format date range chip
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
@@ -51,19 +56,23 @@ const FilterChipsPanel = ({ initialData }) => {
     dateRangeChip = formattedEnd;
   }
 
-  // TODO: prepare / format results chips
+  // Prepare content type (results) chips
+  const contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
 
-  // TOOD: prepare / format preojct type chips
+  // Prepare project type chips
+  const projectTypeChips = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
 
-  // TODO: prepare / format commodity chips
+  // Prepare commodity chips
+  const commodityChips = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
 
-  // TODO: prepprepare / formatare status chips
+  // Prepare status chips
+  const statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
   // Assemble all chips; filter out falsy values
-  const chips = initialData.concat(config.searches,
-    applicationChips, regionChips, dateRangeChip, config.contentTypes,
-    config.projectTypes, config.commodities, config.statuses)
-    .filter((x) => x);
+  const chips = initialData.concat(
+    keywordChip, applicationChips, regionChips, dateRangeChip,
+    contentTypeChips, projectTypeChips, commodityChips, statusChips,
+  ).filter((x) => x);
 
   return (
     <>
