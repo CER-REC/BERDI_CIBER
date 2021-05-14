@@ -4,6 +4,6 @@ import Process from './process.md';
 import Documentation from './documentation.md';
 
 const noop = () => <></>;
-storiesOf('Documentation|Testing', module)
+storiesOf('Documentation/Testing', module)
   .add('Process', noop, { readme: { content: Process } })
   .add('Documentation', noop, { readme: { content: Documentation } });

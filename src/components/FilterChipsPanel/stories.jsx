@@ -4,7 +4,7 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 import FilterChipsPanel from './index';
 
-storiesForComponent('Components|FilterChipsPanel', module, ReadMe)
+storiesForComponent('Components/FilterChipsPanel', module, ReadMe)
   .addDecorator(withKnobs)
   .add('default', () => (
     <FilterChipsPanel
