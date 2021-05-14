@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Chip, makeStyles } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useAPI from '../../hooks/useAPI';
 import { lang } from '../../constants';
-import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles(() => ({
   chip: {
