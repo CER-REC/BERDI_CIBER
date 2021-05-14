@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Chip, makeStyles } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import useConfig from '../../hooks/useConfig';
+import useAPI from '../../hooks/useAPI';
+import { lang } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   chip: {
@@ -19,21 +22,57 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FilterChipsPanel = ({ initialState }) => {
+const FilterChipsPanel = ({ initialData }) => {
   const classes = useStyles();
+  const { config } = useConfig();
+  const { minDate, maxDate, applicationIdLabels, regions } = useAPI();
 
-  const handleClick = () => () => {
+  const handleChipClick = () => () => {
     // TODO: do filter statement to remove given chip name
   };
 
+  // Prepare application chips
+  const applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
+
+  // TODO: prepare / format regions chips
+  const regionChips = config.regions.map((item) => regions[item]);
+
+  // Prepare and format date range chip
+  const hasStartDate = config.startDate.getTime() !== minDate.getTime();
+  const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
+  const formattedStart = config.startDate.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+  const formattedEnd = config.endDate.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+  let dateRangeChip;
+  if (hasStartDate && hasEndDate) {
+    dateRangeChip = `${formattedStart} - ${formattedEnd}`;
+  } else if (hasStartDate) {
+    dateRangeChip = formattedStart;
+  } else if (hasEndDate) {
+    dateRangeChip = formattedEnd;
+  }
+
+  // TODO: prepare / format results chips
+
+  // TOOD: prepare / format preojct type chips
+
+  // TODO: prepare / format commodity chips
+
+  // TODO: prepprepare / formatare status chips
+
+  // Assemble all chips; filter out falsy values
+  const chips = initialData.concat(config.searches,
+    applicationChips, regionChips, dateRangeChip, config.contentTypes,
+    config.projectTypes, config.commodities, config.statuses)
+    .filter((x) => x);
+
   return (
     <>
-      {initialState.map((data) => (
+      {chips.map((item) => (
         <Chip
-          key={data}
-          label={data}
-          onClick={handleClick(data)}
-          onDelete={handleClick(data)}
+          key={item}
+          label={item}
+          onClick={handleChipClick(item)}
+          onDelete={handleChipClick(item)}
           deleteIcon={(
             <CloseIcon
               className={classes.closeButton}
@@ -47,11 +86,11 @@ const FilterChipsPanel = ({ initialState }) => {
 };
 
 FilterChipsPanel.defaultProps = {
-  initialState: [],
+  initialData: [],
 };
 
 FilterChipsPanel.propTypes = {
-  initialState: PropTypes.arrayOf(PropTypes.string),
+  initialData: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default FilterChipsPanel;
