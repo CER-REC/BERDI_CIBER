@@ -93,8 +93,7 @@
         "countsText": "{csvCount} CSV files ({tableCount} tables) {part2}",
         "countsPart2": "packaged in their respective Project folders, and including an index of tables",
         "limitationsText": "By downloading these files, you understand the above limitations and agree to adhere to all requirements.",
-        "buttonLabel": "Download all tables ",
-        "url": "csv/en/en.zip"
+        "buttonLabel": "Download all tables "
       }
     },
     "searchPanel": {
