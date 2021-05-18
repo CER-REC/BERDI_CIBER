@@ -177,7 +177,9 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           disableElevation
         >
           <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
-          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>{`[${intl.formatNumber(fileSize)} MB]`}</span>
+          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+            {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
+          </span>
         </Button>
       </div>
       ) }
