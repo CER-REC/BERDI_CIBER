@@ -9,6 +9,7 @@ import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
 
 const discoveryImages = [discovery0, discovery1, discovery2];
+
 const getStatuses = (translations) => {
   const statuses = translations.filter(
     (translation) => translation.group === 'STATUS',
@@ -18,6 +19,7 @@ const getStatuses = (translations) => {
 
   return statuses;
 };
+
 const getProjectTypes = (translations) => {
   const projects = translations.filter(
     (translation) => translation.group === 'PROJECT_TYPE',
@@ -27,6 +29,7 @@ const getProjectTypes = (translations) => {
 
   return projects;
 };
+
 const getCommodities = (translations) => {
   const commodities = translations.filter(
     (translation) => translation.group === 'COMMODITY',
@@ -36,6 +39,7 @@ const getCommodities = (translations) => {
 
   return commodities;
 };
+
 const getContentTypes = (translations) => {
   const contentTypes = translations.filter(
     (translation) => translation.group === 'CONTENT_TYPE',
@@ -48,30 +52,37 @@ const getContentTypes = (translations) => {
 
 export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
+
   const regions = useMemo(
     () => (data ? data.configuration.regions : []),
     [data],
   );
+
   const statuses = useMemo(
     () => (data ? getStatuses(data.configuration.translations).sort() : []),
     [data],
   );
+
   const projectTypes = useMemo(
     () => (data ? getProjectTypes(data.configuration.translations) : []),
     [data],
   );
+
   const commodities = useMemo(
     () => (data ? getCommodities(data.configuration.translations) : []),
     [data],
   );
+
   const contentTypes = useMemo(
     () => (data ? getContentTypes(data.configuration.translations) : []),
     [data],
   );
+
   const translations = useMemo(
     () => (data ? getI18NMessages(data.configuration.translations) : {}),
     [data],
   );
+
   const applicationIdLabels = useMemo(() => {
     if (!data) {
       return {};
@@ -82,6 +93,7 @@ export default () => {
       [application.id]: application.shortName,
     }), {});
   }, [data]);
+
   const applicationIds = useMemo(
     () => Object.keys(applicationIdLabels).sort((idA, idB) => {
       const labelA = applicationIdLabels[idA];
@@ -98,14 +110,17 @@ export default () => {
     }),
     [applicationIdLabels],
   );
+
   const maxDate = useMemo(
     () => (data ? toDateOnly(data.configuration.maxFilingDate) : new Date()),
     [data],
   );
+
   const minDate = useMemo(
     () => (data ? toDateOnly(data.configuration.minFilingDate) : new Date()),
     [data],
   );
+
   const keywordCounts = useMemo(() => {
     if (!data) {
       return {};
@@ -116,6 +131,7 @@ export default () => {
       [keyword.key]: keyword.count,
     }), {});
   }, [data]);
+
   const discoveries = useMemo(() => {
     const contents = [];
 
@@ -133,6 +149,14 @@ export default () => {
     return contents;
   }, [data]);
 
+  const fileSize = data ? data.configuration.fileSize : null;
+
+  const fileDownloadURL = data ? data.configuration.fileDownloadURL : null;
+
+  const tableCount = data ? data.configuration.tableCount : 0;
+
+  const csvCount = data ? data.configuration.csvCount : 0;
+
   return {
     loading,
     error,
@@ -148,6 +172,10 @@ export default () => {
     minDate,
     keywordCounts,
     discoveries,
+    fileSize,
+    fileDownloadURL,
+    tableCount,
+    csvCount,
   };
 };
 
