@@ -4,22 +4,22 @@ export default (translations) => (
 
     switch (translation.group) {
       case 'REGION':
-        key = `common.regions.${translation.key}`;
+        key = `api.regions.${translation.key}`;
         break;
       case 'CONTENT_TYPE':
-        key = `common.content.${translation.key}`;
+        key = `api.content.${translation.key}`;
         break;
       case 'STATUS':
-        key = `common.statuses.${translation.key}`;
+        key = `api.statuses.${translation.key}`;
         break;
       case 'PROJECT_TYPE':
-        key = `common.projects.${translation.key}`;
+        key = `api.projects.${translation.key}`;
         break;
       case 'COMMODITY':
-        key = `common.commodities.${translation.key}`;
+        key = `api.commodities.${translation.key}`;
         break;
       case 'KEYWORD':
-        key = `components.searchPanel.keywords.${translation.key}`;
+        key = `api.searchPanel.keywords.${translation.key}`;
         break;
       default:
         return i18nMessages;

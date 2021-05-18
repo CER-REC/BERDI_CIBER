@@ -38,6 +38,16 @@ The dot separated key name is the ID of the language translation message.
   - `containers.[lowerCamelCasedContainerName]` for container specific translations
 - Use [React Intl](https://formatjs.io/docs/react-intl/api) to format dates, times, and numbers for different regions
 
+## API Translations
+
+Translations that come from the backend API can be pulled in with `useAPI` and are formatted with `getI18NMessages()`.
+
+Any translations that come from the backend will be prefaced with `api`.
+
+Example:
+
+`api.searchPanel.keywords.fish`
+
 ## Usage with Hooks
 
 ```js
