@@ -33,6 +33,10 @@ const FilterChipsPanel = ({ initialData }) => {
     // TODO: do filter statement to remove given chip name
   };
 
+  const getFormattedDate = (date) => {
+    return date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+  }
+
   // Prepare keyword chip
   const keywordChip = config.searches.join(' ');
 
@@ -45,15 +49,17 @@ const FilterChipsPanel = ({ initialData }) => {
   // Prepare and format date range chip
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
-  const formattedStart = config.startDate.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
-  const formattedEnd = config.endDate.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+  const formattedStart = getFormattedDate(config.startDate);
+  const formattedEnd = getFormattedDate(config.endDate);
+  const formattedMin = getFormattedDate(minDate);
+  const formattedMax = getFormattedDate(maxDate);
   let dateRangeChip;
   if (hasStartDate && hasEndDate) {
     dateRangeChip = `${formattedStart} - ${formattedEnd}`;
   } else if (hasStartDate) {
-    dateRangeChip = formattedStart;
+    dateRangeChip = `${formattedStart} - ${formattedMax}`;
   } else if (hasEndDate) {
-    dateRangeChip = formattedEnd;
+    dateRangeChip = `${formattedMin} - ${formattedEnd}`;
   }
 
   // Prepare content type (results) chips
