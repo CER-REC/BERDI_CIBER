@@ -32,9 +32,7 @@ const FilterChipsPanel = () => {
     // TODO: do filter statement to remove given chip name
   };
 
-  const getFormattedDate = (date) => {
-    return date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
-  };
+  const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
   // Prepare keyword chip; make empty array if nothing found
   const keywordChip = config.searches.join(' ') || [];
@@ -77,8 +75,8 @@ const FilterChipsPanel = () => {
 
   // Assemble all chips
   const chips = [].concat(
-    keywordChip, applicationChips, regionChips, dateRangeChip,
-    contentTypeChips, projectTypeChips, commodityChips, statusChips,
+    keywordChip, applicationChips, regionChips, contentTypeChips,
+    projectTypeChips, commodityChips, statusChips, dateRangeChip,
   );
 
   return (
