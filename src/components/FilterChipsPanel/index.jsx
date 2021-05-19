@@ -35,10 +35,10 @@ const FilterChipsPanel = ({ initialData }) => {
 
   const getFormattedDate = (date) => {
     return date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
-  }
+  };
 
-  // Prepare keyword chip
-  const keywordChip = config.searches.join(' ');
+  // Prepare keyword chip; make empty array if nothing found
+  const keywordChip = config.searches.join(' ') || [];
 
   // Prepare application chips
   const applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
@@ -54,7 +54,9 @@ const FilterChipsPanel = ({ initialData }) => {
   const formattedMin = getFormattedDate(minDate);
   const formattedMax = getFormattedDate(maxDate);
   let dateRangeChip;
-  if (hasStartDate && hasEndDate) {
+  if (!hasStartDate && !hasEndDate) {
+    dateRangeChip = [];
+  } else if (hasStartDate && hasEndDate) {
     dateRangeChip = `${formattedStart} - ${formattedEnd}`;
   } else if (hasStartDate) {
     dateRangeChip = `${formattedStart} - ${formattedMax}`;
@@ -74,11 +76,11 @@ const FilterChipsPanel = ({ initialData }) => {
   // Prepare status chips
   const statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
-  // Assemble all chips; filter out falsy values
+  // Assemble all chips
   const chips = initialData.concat(
     keywordChip, applicationChips, regionChips, dateRangeChip,
     contentTypeChips, projectTypeChips, commodityChips, statusChips,
-  ).filter((x) => x);
+  );
 
   return (
     <>
