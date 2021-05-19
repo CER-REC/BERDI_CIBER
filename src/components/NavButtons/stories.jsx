@@ -10,21 +10,21 @@ import BackButtonReadMe from './BackButtonREADME.md';
 
 storiesForComponent('Components/NavButtons/BackButton', module, BackButtonReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ mockConfigBasic: { page: 'search' } })
+  .addParameters({ config: { page: 'search' } })
   .add('default', () => (
     <NavButtons />
   ));
 
 storiesForComponent('Components/NavButtons/FullButtons', module, FullButtonsReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ mockConfigBasic: { page: 'landing' } })
+  .addParameters({ config: { page: 'landing' } })
   .add('default', () => (
     <NavButtons />
   ));
 
 storiesForComponent('Components/NavButtons/SmallButtons', module, SmallButtonsReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ mockConfigBasic: { page: 'methods' } })
+  .addParameters({ config: { page: 'methods' } })
   .add('default', () => (
     <NavButtons />
   ));
