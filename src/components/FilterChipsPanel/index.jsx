@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Chip, makeStyles } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
@@ -23,7 +22,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const FilterChipsPanel = ({ initialData }) => {
+const FilterChipsPanel = () => {
   const classes = useStyles();
   const { config } = useConfig();
   const { minDate, maxDate, applicationIdLabels } = useAPI();
@@ -77,7 +76,7 @@ const FilterChipsPanel = ({ initialData }) => {
   const statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
   // Assemble all chips
-  const chips = initialData.concat(
+  const chips = [].concat(
     keywordChip, applicationChips, regionChips, dateRangeChip,
     contentTypeChips, projectTypeChips, commodityChips, statusChips,
   );
@@ -100,14 +99,6 @@ const FilterChipsPanel = ({ initialData }) => {
       ))}
     </>
   );
-};
-
-FilterChipsPanel.defaultProps = {
-  initialData: [],
-};
-
-FilterChipsPanel.propTypes = {
-  initialData: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default FilterChipsPanel;
