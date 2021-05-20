@@ -22,6 +22,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+
 const FilterChipsPanel = () => {
   const classes = useStyles();
   const { config } = useConfig();
@@ -31,8 +33,6 @@ const FilterChipsPanel = () => {
   const handleChipClick = () => () => {
     // TODO: do filter statement to remove given chip name
   };
-
-  const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
   // Prepare keyword chip; make empty array if nothing found
   const keywordChip = config.searches.join(' ') || [];
