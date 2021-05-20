@@ -27,16 +27,16 @@ const FilterChipsPanel = () => {
   const { config, configDispatch } = useConfig();
   const { minDate, maxDate, applicationIdLabels } = useAPI();
   const intl = useIntl();
-  let chips = {};
+  const chipLabels = {};
 
   // Prepare keyword chip; make empty array if nothing found
-  chips.keywordChip = [config.searches.join(' ')] || [];
+  chipLabels.searches = [config.searches.join(' ')].filter(Boolean);
 
   // Prepare application chips
-  chips.applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
+  chipLabels.applicationIds = config.applicationIds.map((item) => applicationIdLabels[item]);
 
   // Prepare region chips
-  chips.regionChips = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
+  chipLabels.regions = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
 
   // Prepare and format date range chip
   const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
@@ -47,84 +47,52 @@ const FilterChipsPanel = () => {
   const formattedMin = getFormattedDate(minDate);
   const formattedMax = getFormattedDate(maxDate);
   if (!hasStartDate && !hasEndDate) {
-    chips.dateRangeChip = [];
+    chipLabels.dateRange = [];
   } else if (hasStartDate && hasEndDate) {
-    chips.dateRangeChip = [`${formattedStart} - ${formattedEnd}`];
+    chipLabels.dateRange = [`${formattedStart} - ${formattedEnd}`];
   } else if (hasStartDate) {
-    chips.dateRangeChip = [`${formattedStart} - ${formattedMax}`];
+    chipLabels.dateRange = [`${formattedStart} - ${formattedMax}`];
   } else if (hasEndDate) {
-    chips.dateRangeChip = [`${formattedMin} - ${formattedEnd}`];
+    chipLabels.dateRange = [`${formattedMin} - ${formattedEnd}`];
   }
 
   // Prepare content type (results) chips
-  chips.contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
+  chipLabels.contentTypes = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
 
   // Prepare project type chips
-  chips.projectTypeChips = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
+  chipLabels.projectTypes = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
 
   // Prepare commodity chips
-  chips.commodityChips = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
+  chipLabels.commodities = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
 
   // Prepare status chips
-  chips.statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
+  chipLabels.statuses = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
-  const handleChipClick = (chipType, chipToDelete) => () => {
-    console.log(`chipType: ${chipType}`);
-    console.log(`chipToDelete: ${chipToDelete}`);
+  const removeFilter = (chipType, index) => () => {
+    // Assemble new state without item with given index
+    const newState = config[chipType]?.filter((_, configIndex) => index !== configIndex);
 
-    // Remove specified chip from the given chip array type
-    chips[chipType] = chips[chipType].filter((chip) => chip !== chipToDelete);
-
-    // Find dispatch type
-    let dispatchType;
-    switch (chipType) {
-      case 'keywordChip':
-        dispatchType = 'searches/changed';
-        break;
-      case 'applicationChips':
-        dispatchType = 'applicationIds/changed';
-        break;
-      case 'regionChips':
-        dispatchType = 'regions/changed';
-        break;
-      case 'dateRangeChip':
-        dispatchType = 'startDate/changed';
-        break;
-      case 'contentTypeChips':
-        dispatchType = 'contentTypes/changed';
-        break;
-      case 'projectTypeChips':
-        dispatchType = 'projectTypes/changed';
-        break;
-      case 'commodityChips':
-        dispatchType = 'commodities/changed';
-        break;
-      case 'statusChips':
-        dispatchType = 'statuses/changed';
-        break;
-      default:
-        break;
+    // Assemble dispatch type
+    let dispatchType = `${chipType}/changed`;
+    if (chipType === 'dateRange') {
+      dispatchType = 'startDate/changed';
     }
 
-    // TODO: pass proper payload
-
-    // Update config
-    configDispatch({ type: dispatchType, payload: null });
-
-    // Also update end date for date filter
-    if (dispatchType === 'endDate/changed') {
-      configDispatch({ type: dispatchType, payload: null });
+    // Update config; also update end date if date filter
+    configDispatch({ type: dispatchType, payload: newState });
+    if (dispatchType === 'startDate/changed') {
+      configDispatch({ type: 'endDate/changed', payload: newState });
     }
   };
 
   return (
     <>
-      {Object.keys(chips).map((chipType) => chips[chipType].map((chip) => (
+      {Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
         <Chip
-          key={chip}
-          label={chip}
-          onClick={handleChipClick(chipType, chip)}
-          onDelete={handleChipClick(chipType, chip)}
+          key={chipLabel}
+          label={chipLabel}
+          onClick={removeFilter(chipType, index)}
+          onDelete={removeFilter(chipType, index)}
           deleteIcon={(
             <CloseIcon
               className={classes.closeButton}
