@@ -1,14 +1,13 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
-import '../wet-template/themes-dist-4.0.20-theme-gcwu-fegc/theme-gcwu-fegc/css/theme.css';
 
-const addWETTemplate = (storyFn, context) => (
-  <div>
-    {/* <link rel="stylesheet" href="../wet-template/themes-dist-4.0.20-theme-gcwu-fegc/theme-gcwu-fegc/css/theme.css" /> */}
-    <div>test</div>
+const addWETTemplate = (storyFn, context) => (context.parameters.fileName.includes('components/') ? (
+  <>
+    <link rel="stylesheet" href="./themes-dist-4.0.20-theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css" />
+    <link rel="stylesheet" href="./overrides.css" />
     {storyFn(context)}
-  </div>
-);
+  </>
+) : storyFn(context));
 
 export default makeDecorator({
   name: 'withWETTemplate',

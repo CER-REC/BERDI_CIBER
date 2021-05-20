@@ -18,6 +18,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/fr';
 import { lang } from '../src/constants';
 import i18nMessages from '../src/i18n';
 import theme from '../src/containers/App/theme';
+import withWETTemplate from './addon-WET-template/index';
 
 const locales = Object.keys(i18nMessages);
 const viewports = {
@@ -51,6 +52,7 @@ setIntlConfig({
 
 addDecorator(withIntl);
 addDecorator(addReadme);
+addDecorator(withWETTemplate);
 
 configureReadme({
   // eslint-disable-next-line react/prop-types

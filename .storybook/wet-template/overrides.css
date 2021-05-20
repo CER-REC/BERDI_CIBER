@@ -1,0 +1,10 @@
+/* 
+This stylesheet is used to override the background image that is 
+automatically applied when a component uses the WET template. 
+*/
+
+body {
+    background-image: unset !important;
+    background-position: unset !important;
+    background-repeat: unset !important; 
+}
