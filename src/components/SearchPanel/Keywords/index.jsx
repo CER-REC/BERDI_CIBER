@@ -25,12 +25,12 @@ const useStyles = makeStyles(() => ({
 const Keywords = () => {
   const classes = useStyles();
   const intl = useIntl();
-  const fishKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.fish' });
-  const plantsKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.plants' });
-  const emissionsKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.emissions' });
-  const healthKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.health' });
-  const communityKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.community' });
-  const riskKeyword = intl.formatMessage({ id: 'api.searchPanel.keywords.risk' });
+  const fishKeyword = intl.formatMessage({ id: 'api.keywords.fish' });
+  const plantsKeyword = intl.formatMessage({ id: 'api.keywords.plants' });
+  const emissionsKeyword = intl.formatMessage({ id: 'api.keywords.emissions' });
+  const healthKeyword = intl.formatMessage({ id: 'api.keywords.health' });
+  const communityKeyword = intl.formatMessage({ id: 'api.keywords.community' });
+  const riskKeyword = intl.formatMessage({ id: 'api.keywords.risk' });
   const { keywordCounts } = useAPI();
   const { configDispatch } = useConfig();
   const handleClick = useCallback((keyword) => {

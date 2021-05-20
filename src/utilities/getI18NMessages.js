@@ -19,7 +19,7 @@ export default (translations) => (
         key = `api.commodities.${translation.key}`;
         break;
       case 'KEYWORD':
-        key = `api.searchPanel.keywords.${translation.key}`;
+        key = `api.keywords.${translation.key}`;
         break;
       default:
         return i18nMessages;
