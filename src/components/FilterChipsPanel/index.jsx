@@ -24,69 +24,107 @@ const useStyles = makeStyles(() => ({
 
 const FilterChipsPanel = () => {
   const classes = useStyles();
-  const { config } = useConfig();
+  const { config, configDispatch } = useConfig();
   const { minDate, maxDate, applicationIdLabels } = useAPI();
   const intl = useIntl();
-
-  const handleChipClick = () => () => {
-    // TODO: do filter statement to remove given chip name
-  };
-
-  const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+  let chips = {};
 
   // Prepare keyword chip; make empty array if nothing found
-  const keywordChip = config.searches.join(' ') || [];
+  chips.keywordChip = [config.searches.join(' ')] || [];
 
   // Prepare application chips
-  const applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
+  chips.applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
 
   // Prepare region chips
-  const regionChips = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
+  chips.regionChips = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
 
   // Prepare and format date range chip
+  const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
   const formattedStart = getFormattedDate(config.startDate);
   const formattedEnd = getFormattedDate(config.endDate);
   const formattedMin = getFormattedDate(minDate);
   const formattedMax = getFormattedDate(maxDate);
-  let dateRangeChip;
   if (!hasStartDate && !hasEndDate) {
-    dateRangeChip = [];
+    chips.dateRangeChip = [];
   } else if (hasStartDate && hasEndDate) {
-    dateRangeChip = `${formattedStart} - ${formattedEnd}`;
+    chips.dateRangeChip = [`${formattedStart} - ${formattedEnd}`];
   } else if (hasStartDate) {
-    dateRangeChip = `${formattedStart} - ${formattedMax}`;
+    chips.dateRangeChip = [`${formattedStart} - ${formattedMax}`];
   } else if (hasEndDate) {
-    dateRangeChip = `${formattedMin} - ${formattedEnd}`;
+    chips.dateRangeChip = [`${formattedMin} - ${formattedEnd}`];
   }
 
   // Prepare content type (results) chips
-  const contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
+  chips.contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
 
   // Prepare project type chips
-  const projectTypeChips = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
+  chips.projectTypeChips = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
 
   // Prepare commodity chips
-  const commodityChips = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
+  chips.commodityChips = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
 
   // Prepare status chips
-  const statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
+  chips.statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
-  // Assemble all chips
-  const chips = [].concat(
-    keywordChip, applicationChips, regionChips, contentTypeChips,
-    projectTypeChips, commodityChips, statusChips, dateRangeChip,
-  );
+  const handleChipClick = (chipType, chipToDelete) => () => {
+    console.log(`chipType: ${chipType}`);
+    console.log(`chipToDelete: ${chipToDelete}`);
+
+    // Remove specified chip from the given chip array type
+    chips[chipType] = chips[chipType].filter((chip) => chip !== chipToDelete);
+
+    // Find dispatch type
+    let dispatchType;
+    switch (chipType) {
+      case 'keywordChip':
+        dispatchType = 'searches/changed';
+        break;
+      case 'applicationChips':
+        dispatchType = 'applicationIds/changed';
+        break;
+      case 'regionChips':
+        dispatchType = 'regions/changed';
+        break;
+      case 'dateRangeChip':
+        dispatchType = 'startDate/changed';
+        break;
+      case 'contentTypeChips':
+        dispatchType = 'contentTypes/changed';
+        break;
+      case 'projectTypeChips':
+        dispatchType = 'projectTypes/changed';
+        break;
+      case 'commodityChips':
+        dispatchType = 'commodities/changed';
+        break;
+      case 'statusChips':
+        dispatchType = 'statuses/changed';
+        break;
+      default:
+        break;
+    }
+
+    // TODO: pass proper payload
+
+    // Update config
+    configDispatch({ type: dispatchType, payload: null });
+
+    // Also update end date for date filter
+    if (dispatchType === 'endDate/changed') {
+      configDispatch({ type: dispatchType, payload: null });
+    }
+  };
 
   return (
     <>
-      {chips.map((item) => (
+      {Object.keys(chips).map((chipType) => chips[chipType].map((chip) => (
         <Chip
-          key={item}
-          label={item}
-          onClick={handleChipClick(item)}
-          onDelete={handleChipClick(item)}
+          key={chip}
+          label={chip}
+          onClick={handleChipClick(chipType, chip)}
+          onDelete={handleChipClick(chipType, chip)}
           deleteIcon={(
             <CloseIcon
               className={classes.closeButton}
@@ -94,7 +132,7 @@ const FilterChipsPanel = () => {
           )}
           className={classes.chip}
         />
-      ))}
+      )))}
     </>
   );
 };
