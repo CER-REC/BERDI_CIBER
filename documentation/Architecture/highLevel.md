@@ -33,6 +33,27 @@ High-level documentation (like this architecture documentation) belongs in
 
   configDispatch({ type: 'state/changed', payload: 'NEW_STATE' });
   ```
+- Stories of components referencing `useConfig` or GraphQL data hooks can use the `addon-config-and-gql` decorator
+  - Any required config state values can be set with `.addParameters` and specifying the state in a `config` property
+  - The initial config state values will always be set on load if not specified with `.addParameters`
+    ```js
+    import React from 'react';
+
+    import { storiesForComponent } from '../../../.storybook/utils';
+    import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
+    import Component from '.';
+    import ReadMe from './README.md';
+
+    storiesForComponent('Components/Component', module, ReadMe)
+      .addDecorator(withConfigAndGQL)
+      .addParameters({
+        config: {
+          value1: 1,
+          value2: 2,
+        }
+      })
+      .add('default', () => <Component />);
+    ```
 - Dispatched actions should only contain 2 properties
   - **type**
     - The ID of the action
