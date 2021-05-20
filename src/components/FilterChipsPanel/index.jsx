@@ -46,20 +46,8 @@ const FilterChipsPanel = () => {
   // Prepare and format date range chip
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
-  const formattedStart = getFormattedDate(config.startDate);
-  const formattedEnd = getFormattedDate(config.endDate);
-  const formattedMin = getFormattedDate(minDate);
-  const formattedMax = getFormattedDate(maxDate);
-  let dateRangeChip;
-  if (!hasStartDate && !hasEndDate) {
-    dateRangeChip = [];
-  } else if (hasStartDate && hasEndDate) {
-    dateRangeChip = `${formattedStart} - ${formattedEnd}`;
-  } else if (hasStartDate) {
-    dateRangeChip = `${formattedStart} - ${formattedMax}`;
-  } else if (hasEndDate) {
-    dateRangeChip = `${formattedMin} - ${formattedEnd}`;
-  }
+  const dateRangeChip = (hasStartDate || hasEndDate)
+    ? `${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}` : [];
 
   // Prepare content type (results) chips
   const contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
