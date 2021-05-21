@@ -22,6 +22,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
+
 const FilterChipsPanel = () => {
   const classes = useStyles();
   const { config, configDispatch } = useConfig();
@@ -39,22 +41,10 @@ const FilterChipsPanel = () => {
   chipLabels.regions = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
 
   // Prepare and format date range chip
-  const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
-  const formattedStart = getFormattedDate(config.startDate);
-  const formattedEnd = getFormattedDate(config.endDate);
-  const formattedMin = getFormattedDate(minDate);
-  const formattedMax = getFormattedDate(maxDate);
-  if (!hasStartDate && !hasEndDate) {
-    chipLabels.dateRange = [];
-  } else if (hasStartDate && hasEndDate) {
-    chipLabels.dateRange = [`${formattedStart} - ${formattedEnd}`];
-  } else if (hasStartDate) {
-    chipLabels.dateRange = [`${formattedStart} - ${formattedMax}`];
-  } else if (hasEndDate) {
-    chipLabels.dateRange = [`${formattedMin} - ${formattedEnd}`];
-  }
+  chipLabels.dateRange = (hasStartDate || hasEndDate)
+    ? `${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}` : [];
 
   // Prepare content type (results) chips
   chipLabels.contentTypes = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
