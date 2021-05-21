@@ -5,4 +5,4 @@ The FullButtons component will render 3 large navigation buttons with descriptio
 ## Requirements
 
 * [X] Renders the FullButtons component 
-* [X] Clicking will take the user to the corresponding info page.
+* [X] Clicking will take the user to the corresponding info page
