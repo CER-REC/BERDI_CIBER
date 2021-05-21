@@ -58,16 +58,10 @@ const FilterChipsPanel = () => {
   // Prepare status chips
   chipLabels.statuses = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
 
-  // Assemble new state without item with given index
+  // Assemble new state
   const removeFilter = (chipType, index) => () => {
     const newState = config[chipType]?.filter((_, configIndex) => index !== configIndex);
-
-    let action;
-    if (chipType === 'searches' || chipType === 'dateRange') {
-      action = 'removed';
-    } else {
-      action = 'changed';
-    }
+    const action = (chipType === 'searches' || chipType === 'dateRange') ? 'removed' : 'changed';
     configDispatch({ type: `${chipType}/${action}`, payload: newState });
   };
 
