@@ -24,47 +24,36 @@ const useStyles = makeStyles(() => ({
 
 const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
+const useAssembledChipLabels = () => {
+  const { config } = useConfig();
+  const { minDate, maxDate, applicationIdLabels } = useAPI();
+  const intl = useIntl();
+  const hasStartDate = config.startDate.getTime() !== minDate.getTime();
+  const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
+  return {
+    searches: [config.searches.join(' ')].filter(Boolean),
+    applicationIds: config.applicationIds.map((item) => applicationIdLabels[item]),
+    regions: config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` })),
+    contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` })),
+    projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` })),
+    commodities: config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` })),
+    statuses: config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` })),
+    dateRange: (hasStartDate || hasEndDate)
+      ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
+  };
+};
+
 const FilterChipsPanel = () => {
   const classes = useStyles();
   const { config, configDispatch } = useConfig();
-  const { minDate, maxDate, applicationIdLabels } = useAPI();
-  const intl = useIntl();
-  const chipLabels = {};
+  const chipLabels = useAssembledChipLabels();
 
-  // Prepare keyword chip; make empty array if nothing found
-  chipLabels.searches = [config.searches.join(' ')].filter(Boolean);
-
-  // Prepare application chips
-  chipLabels.applicationIds = config.applicationIds.map((item) => applicationIdLabels[item]);
-
-  // Prepare region chips
-  chipLabels.regions = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
-
-  // Prepare and format date range chip
-  const hasStartDate = config.startDate.getTime() !== minDate.getTime();
-  const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
-  chipLabels.dateRange = (hasStartDate || hasEndDate)
-    ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [];
-
-  // Prepare content type (results) chips
-  chipLabels.contentTypes = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
-
-  // Prepare project type chips
-  chipLabels.projectTypes = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
-
-  // Prepare commodity chips
-  chipLabels.commodities = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
-
-  // Prepare status chips
-  chipLabels.statuses = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
-
-  // Assemble new state
+  // Assemble new state on chip click
   const removeFilter = (chipType, index) => () => {
     const newState = config[chipType]?.filter((_, configIndex) => index !== configIndex);
     const action = (chipType === 'searches' || chipType === 'dateRange') ? 'removed' : 'changed';
     configDispatch({ type: `${chipType}/${action}`, payload: newState });
   };
-
   return (
     <>
       {Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
