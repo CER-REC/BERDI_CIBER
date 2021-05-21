@@ -44,7 +44,7 @@ const FilterChipsPanel = () => {
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
   chipLabels.dateRange = (hasStartDate || hasEndDate)
-    ? `${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}` : [];
+    ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [];
 
   // Prepare content type (results) chips
   chipLabels.contentTypes = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
