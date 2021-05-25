@@ -1,10 +1,9 @@
-import React, { useCallback } from 'react';
-import { Button, Dialog, Typography, makeStyles } from '@material-ui/core';
+import { Button, Dialog, makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-
+import useAPI from '../../hooks/useAPI';
 import { reportDownload } from '../../utilities/analytics';
-import { mockFileSize, mockCSVCount, mockPDFCount, API_HOST, applicationPath, lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -78,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
 const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { fileSize, csvCount, tableCount, fileDownloadURL } = useAPI();
   const handleClick = useCallback(() => {
     reportDownload(intl.messages['components.limitationsDialog.dataSection.buttonLabel']);
     onClose();
@@ -151,8 +151,8 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             {intl.formatMessage(
               { id: 'components.limitationsDialog.dataSection.countsText' },
               {
-                csvCount: intl.formatNumber(mockCSVCount),
-                tableCount: intl.formatNumber(mockPDFCount),
+                csvCount: intl.formatNumber(csvCount),
+                tableCount: intl.formatNumber(tableCount),
                 part2: (
                   <span style={{ fontWeight: 'normal' }}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
@@ -173,11 +173,13 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           color="primary"
           variant="contained"
           onClick={handleClick}
-          href={`${API_HOST}/${applicationPath[lang]}/${intl.formatMessage({ id: 'components.limitationsDialog.dataSection.url' })}`}
+          href={fileDownloadURL}
           disableElevation
         >
           <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
-          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>{`[${intl.formatNumber(mockFileSize)} MB]`}</span>
+          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+            {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
+          </span>
         </Button>
       </div>
       ) }

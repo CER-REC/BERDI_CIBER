@@ -6,6 +6,10 @@ export const CONFIGURATION = gql`
       maxFilingDate
       minFilingDate
       regions
+      fileSize
+      fileDownloadURL
+      tableCount
+      csvCount
       keywords {
         key
         count
