@@ -18,7 +18,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/fr';
 import { lang } from '../src/constants';
 import i18nMessages from '../src/i18n';
 import theme from '../src/containers/App/theme';
-import withWETTemplate from './addon-WET-template/index';
+import withWETTemplate from './addon-WET-template';
 
 const locales = Object.keys(i18nMessages);
 const viewports = {

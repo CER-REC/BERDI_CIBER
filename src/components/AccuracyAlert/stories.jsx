@@ -6,7 +6,6 @@ import ReadMe from './README.md';
 
 storiesForComponent('Components/AccuracyAlert', module, ReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ mockConfigBasic: { page: 'search' } })
   .add('default', () => (
     <AccuracyAlert />
   ));
