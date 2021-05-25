@@ -21,7 +21,7 @@ The JSON files are structured hierarchically and found in `./src/languages/`.
 }
 ```
 
-The JSON files are later flatten at runtime with dot separated key names.
+The JSON files are later flattened at runtime with dot separated key names.
 The dot separated key name is the ID of the language translation message.
 
 ```json
@@ -37,6 +37,79 @@ The dot separated key name is the ID of the language translation message.
   - `components.[lowerCamelCasedComponentName]` for component specific translations
   - `containers.[lowerCamelCasedContainerName]` for container specific translations
 - Use [React Intl](https://formatjs.io/docs/react-intl/api) to format dates, times, and numbers for different regions
+
+## API Translations
+
+Translations that come from the backend API can be pulled in with `useAPI` and are formatted with `getI18NMessages()`.
+
+API translations can be overridden by making an entry with the same identifier in the language JSON files.
+
+Any translations that come from the backend will be prefaced with `api`.
+
+Listed below is a list of the current translations coming from the API:
+
+```json
+​​{
+"api.commodities.GAS": "Gas",
+​​
+"api.commodities.OIL": "Oil",
+​​
+"api.content.FIGURE": "Figure",
+​​
+"api.content.TABLE": "Table",
+​​
+"api.projects.ABANDONMENT": "Pipeline Abandonment",
+​​
+"api.projects.LARGE": "Large Projects (over 40 km)",
+​​
+"api.projects.SMALL": "Small Projects (under 40 km)",
+​​
+"api.regions.AB": "Alberta",
+​​
+"api.regions.BC": "British Columbia",
+​​
+"api.regions.MB": "Manitoba",
+​​
+"api.regions.NB": "New Brunswick",
+​​
+"api.regions.NS": "Nova Scotia",
+​​
+"api.regions.NT": "Northwest Territories",
+​​
+"api.regions.ON": "Ontario",
+​​
+"api.regions.QC": "Quebec",
+​​
+"api.regions.SK": "Saskatchewan",
+​​
+"api.keywords.community": "community",
+​​
+"api.keywords.emissions": "emissions",
+​​
+"api.keywords.fish": "fish",
+​​
+"api.keywords.health": "health",
+​​
+"api.keywords.plants": "plants",
+​​
+"api.keywords.risk": "risk",
+​​
+"api.statuses.ABANDONMENT_PENDING": "Abandonment Pending",
+​​
+"api.statuses.APPLIED": "Applied",
+​​
+"api.statuses.APPROVED": "Approved",
+​​
+"api.statuses.OPERATING": "Operating",
+​​
+"api.statuses.RESCINDED": "Rescinded Certificates",
+​​
+"api.statuses.REVOKED": "Revoked Certificate",
+​​
+"api.statuses.WITHDRAWN": "Withdrawn"
+​}
+
+```
 
 ## Usage with Hooks
 

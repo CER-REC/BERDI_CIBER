@@ -178,7 +178,7 @@ const SearchList = () => {
                           alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
                         />
                         <Typography variant="caption" component="p">
-                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'common.content.FIGURE' }) : intl.formatMessage({ id: 'common.content.TABLE' })}
+                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'api.content.FIGURE' }) : intl.formatMessage({ id: 'api.content.TABLE' })}
                         </Typography>
                       </ButtonBase>
                     </Grid>
