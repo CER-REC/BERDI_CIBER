@@ -21,7 +21,7 @@ The JSON files are structured hierarchically and found in `./src/languages/`.
 }
 ```
 
-The JSON files are later flatten at runtime with dot separated key names.
+The JSON files are later flattened at runtime with dot separated key names.
 The dot separated key name is the ID of the language translation message.
 
 ```json
