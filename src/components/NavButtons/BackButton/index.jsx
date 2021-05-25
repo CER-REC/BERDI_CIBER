@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default () => {
+const BackButton = () => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
@@ -33,3 +33,5 @@ export default () => {
     </ButtonBase>
   );
 };
+
+export default BackButton;

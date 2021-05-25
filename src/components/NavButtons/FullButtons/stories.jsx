@@ -6,7 +6,6 @@ import ReadMe from './README.md';
 
 storiesForComponent('Components/NavButtons/FullButtons', module, ReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ config: { page: 'landing' } })
   .add('default', () => (
     <FullButtons />
   ));

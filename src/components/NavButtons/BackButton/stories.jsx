@@ -6,7 +6,6 @@ import ReadMe from './README.md';
 
 storiesForComponent('Components/NavButtons/BackButton', module, ReadMe)
   .addDecorator(withConfigAndGQL)
-  .addParameters({ config: { page: 'search' } })
   .add('default', () => (
     <BackButton />
   ));

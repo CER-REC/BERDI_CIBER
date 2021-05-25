@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default () => {
+const SmallButtons = () => {
   const classes = useStyles();
   const { config, configDispatch } = useConfig();
   const intl = useIntl();
@@ -72,3 +72,5 @@ export default () => {
     </Grid>
   );
 };
+
+export default SmallButtons;
