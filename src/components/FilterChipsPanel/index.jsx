@@ -55,22 +55,20 @@ const FilterChipsPanel = () => {
     configDispatch({ type: `${chipType}/${action}`, payload: newState });
   };
   return (
-    <>
-      {Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
-        <Chip
-          key={chipLabel}
-          label={chipLabel}
-          onClick={removeFilter(chipType, index)}
-          onDelete={removeFilter(chipType, index)}
-          deleteIcon={(
-            <CloseIcon
-              className={classes.closeButton}
-            />
-          )}
-          className={classes.chip}
-        />
-      )))}
-    </>
+    Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
+      <Chip
+        key={chipLabel}
+        label={chipLabel}
+        onClick={removeFilter(chipType, index)}
+        onDelete={removeFilter(chipType, index)}
+        deleteIcon={(
+          <CloseIcon
+            className={classes.closeButton}
+          />
+        )}
+        className={classes.chip}
+      />
+    )))
   );
 };
 
