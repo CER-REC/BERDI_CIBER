@@ -2,7 +2,7 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
-export default () => {
+const Accreditations = () => {
   const intl = useIntl();
 
   return (
@@ -19,3 +19,5 @@ export default () => {
     </>
   );
 };
+
+export default Accreditations;
