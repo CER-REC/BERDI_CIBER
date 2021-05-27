@@ -33,11 +33,11 @@ const useAssembledChipLabels = () => {
   return {
     searches: [config.searches.join(' ')].filter(Boolean),
     applicationIds: config.applicationIds.map((item) => applicationIdLabels[item]),
-    regions: config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` })),
-    contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` })),
-    projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` })),
-    commodities: config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` })),
-    statuses: config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` })),
+    regions: config.regions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })),
+    contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `api.content.${item}` })),
+    projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
+    commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
+    statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
     dateRange: (hasStartDate || hasEndDate)
       ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
   };
