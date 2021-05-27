@@ -12,7 +12,7 @@ const ProblemChild = () => {
   throw new Error('Error thrown from problem child');
 };
 
-storiesForComponent('Components|ErrorBoundary', module, ReadMe)
+storiesForComponent('Components/ErrorBoundary', module, ReadMe)
   .add('default', () => (
     <ErrorBoundary>
       <ProblemChild />

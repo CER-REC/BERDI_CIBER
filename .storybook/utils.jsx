@@ -14,19 +14,6 @@ const DocPreview = ({ children }) => (
 
 export const storiesForComponent = (name, m, readme) => {
   let stories = storiesOf(name, m)
-    // Wrap the story in css classes for each of the parent components in its path
-    .addDecorator((storyFn, context) => {
-      const { kind } = context;
-      if (kind.startsWith('Components|')) {
-        // Take everything after components and before the lowest component's folder
-        const componentTree = kind.split('|')[1].split('/').slice(0, -1);
-        // From the inside out, wrap it in the parent component's name as a classname
-        return componentTree.reverse().reduce((acc, next) => (
-          <div className={next}>{acc}</div>
-        ), storyFn());
-      }
-      return storyFn();
-    })
     .addDecorator(withInfo({ header: false, inline: true }));
 
   if (readme) {

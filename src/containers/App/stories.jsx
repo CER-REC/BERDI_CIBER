@@ -3,7 +3,7 @@ import { storiesForView } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 import App from '.';
 
-storiesForView('Containers|App', module, ReadMe)
+storiesForView('Containers/App', module, ReadMe)
   .add('default', () => <App />)
   .add('within WET', () => (
     /* eslint-disable react/no-unescaped-entities, react/self-closing-comp */
