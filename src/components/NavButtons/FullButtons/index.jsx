@@ -1,9 +1,9 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import useConfig from '../../hooks/useConfig';
-import { reportSection } from '../../utilities/analytics';
-import ContentButton from '../ContentButton';
+import useConfig from '../../../hooks/useConfig';
+import { reportSection } from '../../../utilities/analytics';
+import ContentButton from '../../ContentButton';
 
 const useStyles = makeStyles(() => ({
   root: {

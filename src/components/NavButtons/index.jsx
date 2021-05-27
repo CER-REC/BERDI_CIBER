@@ -1,10 +1,11 @@
 import React from 'react';
-import SmallButtons, { BackButton } from './SmallButtons';
+import SmallButtons from './SmallButtons';
+import BackButton from './BackButton';
 import FullButtons from './FullButtons';
 
 import useConfig from '../../hooks/useConfig';
 
-export default () => {
+const NavButtons = () => {
   const { config: { page } } = useConfig();
 
   if (page === 'landing') {
@@ -15,3 +16,5 @@ export default () => {
   }
   return (<SmallButtons />);
 };
+
+export default NavButtons;

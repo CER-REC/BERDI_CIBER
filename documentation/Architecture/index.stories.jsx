@@ -6,7 +6,7 @@ import Containers from './containers.md';
 import Translations from './translations.md';
 
 const noop = () => <></>;
-storiesOf('Documentation|Architecture', module)
+storiesOf('Documentation/Architecture', module)
   .add('High Level', noop, { readme: { content: HighLevel } })
   .add('Components', noop, { readme: { content: Components } })
   .add('Containers', noop, { readme: { content: Containers } })

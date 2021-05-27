@@ -4,7 +4,7 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import LoadingIndicator from './index';
 import ReadMe from './README.md';
 
-storiesForComponent('Components|LoadingIndicator', module, ReadMe)
+storiesForComponent('Components/LoadingIndicator', module, ReadMe)
   .addDecorator(withKnobs)
   .add('default', () => (
     <LoadingIndicator

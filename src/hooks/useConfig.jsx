@@ -5,7 +5,6 @@ import LZUTF8 from 'lzutf8';
 import queryString from 'query-string';
 
 import { toDateOnly, toDateOnlyString } from '../utilities/date';
-import { NOOP } from '../utilities/parseData';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
@@ -49,7 +48,7 @@ const encodeParameter = (parameter) => {
   return encodedParameter;
 };
 
-export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => {
+export const ConfigProvider = ({ children }) => {
   const {
     applicationIds,
     regions,
@@ -159,26 +158,14 @@ export const ConfigProvider = ({ children, mockConfig, mockConfigDispatch }) => 
   }, [updateStateFromURL]);
 
   return (
-    <ConfigContext.Provider
-      value={mockConfig
-        ? { config: mockConfig, configDispatch: mockConfigDispatch }
-        : { config, configDispatch }}
-    >
+    <ConfigContext.Provider value={{ config, configDispatch }}>
       {children}
     </ConfigContext.Provider>
   );
 };
 
-ConfigProvider.propTypes = {
-  children: PropTypes.node,
-  mockConfig: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  mockConfigDispatch: PropTypes.func,
-};
+ConfigProvider.propTypes = { children: PropTypes.node };
 
-ConfigProvider.defaultProps = {
-  children: null,
-  mockConfig: undefined,
-  mockConfigDispatch: NOOP,
-};
+ConfigProvider.defaultProps = { children: null };
 
 export default () => useContext(ConfigContext);

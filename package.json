@@ -121,7 +121,7 @@
     "require-context.macro": "1.2.2",
     "storybook-addon-interaction": "1.0.1",
     "storybook-addon-intl": "2.4.1",
-    "storybook-readme": "5.0.8",
+    "storybook-readme": "5.0.9",
     "style-loader": "1.0.1",
     "synchronous-promise": "^2.0.13",
     "url-loader": "3.0.0",
