@@ -1,39 +1,57 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+
+import { render, screen } from '../../tests/utilities';
 import ErrorBoundary from '.';
 
-describe('Components|ErrorBoundary', () => {
-  let wrapper;
-  let goodChildWrapper;
-  let ProblemChild;
-  let GoodChild;
+describe('Components/ErrorBoundary', () => {
+  describe('when there is an error', () => {
+    let container;
+    const problemChildErrorMessage = 'Error thrown from problem child';
+    const ProblemChild = () => {
+      throw new Error(problemChildErrorMessage);
+    };
+    const supressProblemChildError = (event) => {
+      if (event.message === problemChildErrorMessage) {
+        event.preventDefault();
+      }
+    };
 
-  describe('with default props', () => {
     beforeEach(() => {
-      ProblemChild = () => {
-        throw new Error('Error thrown from problem child');
-      };
-      GoodChild = () => <div>I am the good child</div>;
-      wrapper = shallow(
-        <ErrorBoundary>
-          <ProblemChild />
-        </ErrorBoundary>,
-      );
-      goodChildWrapper = shallow(
-        <ErrorBoundary>
-          <GoodChild />
-        </ErrorBoundary>,
-      );
+      // To keep the error from showing up in our test runner
+      window.addEventListener('error', supressProblemChildError);
+
+      container = render(<ErrorBoundary><ProblemChild /></ErrorBoundary>).container;
     });
-    describe('Should have render the ErrorBoundary', () => {
-      test('check state errorInfo is not null', () => {
-        expect(wrapper.prop('errorInfo')).not.toBeNull();
-      });
+
+    afterEach(() => window.removeEventListener('error', supressProblemChildError));
+
+    test('should render the ErrorBoundary', () => {
+      expect(container.firstChild).not.toBeEmpty();
     });
-    describe('Should not fail and render the childs', () => {
-      test('Good Child is there', () => {
-        expect(goodChildWrapper.childAt(0).type()).toEqual(GoodChild);
-      });
+
+    test('should render the error message', () => {
+      expect(screen.getByRole('heading')).toHaveTextContent('components.errorBoundary.errorMessage');
+    });
+
+    test('should render reload links', () => {
+      const reloadLinks = [
+        document.location.href,
+        document.location.href.replace(document.location.search, ''),
+      ];
+      const links = screen.getAllByRole('link').map((node) => node.href);
+
+      expect(links).toEqual(expect.arrayContaining(reloadLinks));
+    });
+  });
+
+  describe('when there are no errors', () => {
+    const GoodChild = () => <div>I am the good child</div>;
+
+    test('should render the children', () => {
+      const { container } = render(<ErrorBoundary><GoodChild /></ErrorBoundary>);
+      const { container: goodChildContainer } = render(<GoodChild />);
+
+      expect(container.firstChild).toContainHTML(goodChildContainer.firstChild.outerHTML);
     });
   });
 });
