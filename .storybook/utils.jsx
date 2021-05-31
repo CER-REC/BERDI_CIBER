@@ -15,13 +15,6 @@ const DocPreview = ({ children }) => (
 export const storiesForComponent = (name, m, readme) => {
   let stories = storiesOf(name, m);
   // .addDecorator(withInfo({ header: false, inline: true }));
-  addParameters({
-    docs: {
-      source: {
-        state: 'open',
-      },
-    },
-  });
 
   if (readme) {
     stories = stories.addParameters({
