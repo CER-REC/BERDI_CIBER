@@ -42,27 +42,11 @@ setIntlConfig({
   getMessages: (locale) => i18nMessages[locale],
 });
 
-addDecorator(withIntl);
-addDecorator(addReadme);
-
 configureReadme({
   // eslint-disable-next-line react/prop-types
   StoryPreview: ({ children }) => (
     <div style={{ padding: '32px 32px 0' }}>{children}</div>
   ),
-});
-
-addParameters({ viewport: { viewports, defaultViewport: 'fullscreen' } });
-addParameters({
-  options: {
-    brandTitle: 'ESA DevDoc',
-    panelPosition: 'bottom',
-  },
-});
-
-addDecorator((storyFn, context) => {
-  if (context.id === 'containers-app--within-wet') { return storyFn(); }
-  return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
 });
 
 export const parameters = {
@@ -71,4 +55,18 @@ export const parameters = {
       state: 'open',
     },
   },
+  options: {
+    brandTitle: 'ESA DevDoc',
+    panelPosition: 'bottom',
+  },
+  viewport: { viewports, defaultViewport: 'fullscreen' },
 };
+
+export const decorators = [
+  withIntl,
+  addReadme,
+  (storyFn, context) => {
+    if (context.id === 'containers-app--within-wet') { return storyFn(); }
+    return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
+  },
+];
