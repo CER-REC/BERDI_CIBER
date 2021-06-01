@@ -4,4 +4,5 @@ export default {
     '../documentation/**/*stories.jsx',
     '../src/**/*stories.jsx',
   ],
+  addons: ['@storybook/addon-docs'],
 };
