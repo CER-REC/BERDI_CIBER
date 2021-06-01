@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
 import { storiesOf } from '@storybook/react';
-import { withInfo } from '@storybook/addon-info';
-import { addParameters } from '@storybook/client-api';
 import withStatus from './addon-status';
 
 // eslint-disable-next-line react/prop-types
@@ -12,6 +10,29 @@ const DocPreview = ({ children }) => (
   </div>
 );
 
+export const newStoriesForComponent = (name, m, readme, options = {}) => {
+  const story = {
+    title: name,
+    component: m,
+    ...options,
+  };
+
+  if (readme) {
+    if (!story.parameters) {
+      story.parameters = {};
+    }
+    story.parameters.readme = { content: `<!-- STORY -->\n${readme}`, DocPreview };
+    story.parameters.docs = {
+      source: {
+        type: 'auto',
+      },
+    };
+  }
+
+  return story;
+};
+
+// TODO: Delete me
 export const storiesForComponent = (name, m, readme) => {
   let stories = storiesOf(name, m);
   // .addDecorator(withInfo({ header: false, inline: true }));

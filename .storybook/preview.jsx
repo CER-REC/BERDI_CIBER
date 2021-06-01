@@ -50,11 +50,12 @@ configureReadme({
 });
 
 export const parameters = {
-  docs: {
-    source: {
-      state: 'open',
-    },
-  },
+  // docs: {
+  //   inlineStories: false,
+  //   source: {
+  //     state: 'open',
+  //   },
+  // },
   options: {
     brandTitle: 'ESA DevDoc',
     panelPosition: 'bottom',
