@@ -1,0 +1,266 @@
+{
+  "data": {
+    "configuration": {
+      "maxFilingDate": "2020-12-31T00:00:00",
+      "minFilingDate": "2000-01-01T00:00:00",
+      "regions": [
+        "AB",
+        "BC",
+        "SK",
+        "MB",
+        "ON",
+        "QC",
+        "NB",
+        "NS",
+        "NT"
+      ],
+      "fileSize": 100.1,
+      "fileDownloadURL": "http://localhost/berdi/csv/en/en.zip",
+      "tableCount": 10,
+      "csvCount": 20,
+      "keywords": [
+        {
+          "key": "fish",
+          "count": 1
+        },
+        {
+          "key": "plants",
+          "count": 2
+        },
+        {
+          "key": "emissions",
+          "count": 5
+        },
+        {
+          "key": "health",
+          "count": 5
+        },
+        {
+          "key": "community",
+          "count": 15
+        },
+        {
+          "key": "risk",
+          "count": 8
+        }
+      ],
+      "translations": [
+        {
+          "group": "CONTENT_TYPE",
+          "key": "FIGURE",
+          "english": "Figure",
+          "french": "Figure"
+        },
+        {
+          "group": "STATUS",
+          "key": "OPERATING",
+          "english": "Operating",
+          "french": "En exploitation"
+        },
+        {
+          "group": "PROJECT_TYPE",
+          "key": "LARGE",
+          "english": "Large Projects (over 40 km)",
+          "french": "Projets de grande envergure (plus de 40 km)"
+        },
+        {
+          "group": "COMMODITY",
+          "key": "GAS",
+          "english": "Gas",
+          "french": "Gaz"
+        },
+        {
+          "group": "REGION",
+          "key": "AB",
+          "english": "Alberta",
+          "french": "Alberta"
+        },
+        {
+          "group": "REGION",
+          "key": "BC",
+          "english": "British Columbia",
+          "french": "Colombie-Britannique"
+        },
+        {
+          "group": "COMMODITY",
+          "key": "OIL",
+          "english": "Oil",
+          "french": "Pétrole"
+        },
+        {
+          "group": "REGION",
+          "key": "SK",
+          "english": "Saskatchewan",
+          "french": "Saskatchewan"
+        },
+        {
+          "group": "REGION",
+          "key": "MB",
+          "english": "Manitoba",
+          "french": "Manitoba"
+        },
+        {
+          "group": "PROJECT_TYPE",
+          "key": "SMALL",
+          "english": "Small Projects (under 40 km)",
+          "french": "Petits projets pipeliniers (moins de 40 km)"
+        },
+        {
+          "group": "STATUS",
+          "key": "REVOKED",
+          "english": "Revoked Certificate",
+          "french": "Certificats révoqués"
+        },
+        {
+          "group": "STATUS",
+          "key": "APPROVED",
+          "english": "Approved",
+          "french": "Demande approuvée"
+        },
+        {
+          "group": "STATUS",
+          "key": "RESCINDED",
+          "english": "Rescinded Certificates",
+          "french": "Certificat annulé"
+        },
+        {
+          "group": "REGION",
+          "key": "ON",
+          "english": "Ontario",
+          "french": "Ontario"
+        },
+        {
+          "group": "REGION",
+          "key": "QC",
+          "english": "Quebec",
+          "french": "Québec"
+        },
+        {
+          "group": "STATUS",
+          "key": "WITHDRAWN",
+          "english": "Withdrawn",
+          "french": "Demande retirée"
+        },
+        {
+          "group": "REGION",
+          "key": "NB",
+          "english": "New Brunswick",
+          "french": "Nouveau-Brunswick"
+        },
+        {
+          "group": "STATUS",
+          "key": "APPLIED",
+          "english": "Applied",
+          "french": "Demande présentée"
+        },
+        {
+          "group": "STATUS",
+          "key": "ABANDONMENT_PENDING",
+          "english": "Abandonment Pending",
+          "french": "Cessation d'exploitation en instance"
+        },
+        {
+          "group": "PROJECT_TYPE",
+          "key": "ABANDONMENT",
+          "english": "Pipeline Abandonment",
+          "french": "Projets de cessation d'exploitation de pipeline"
+        },
+        {
+          "group": "REGION",
+          "key": "NS",
+          "english": "Nova Scotia",
+          "french": "Nouvelle-Écosse"
+        },
+        {
+          "group": "REGION",
+          "key": "NT",
+          "english": "Northwest Territories",
+          "french": "Territoires du Nord-Ouest"
+        },
+        {
+          "group": "CONTENT_TYPE",
+          "key": "TABLE",
+          "english": "Table",
+          "french": "Tableau"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "fish",
+          "english": "fish",
+          "french": "poissons"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "plants",
+          "english": "plants",
+          "french": "plantes"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "emissions",
+          "english": "emissions",
+          "french": "émissions"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "health",
+          "english": "health",
+          "french": "santé"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "community",
+          "english": "community",
+          "french": "communauté"
+        },
+        {
+          "group": "KEYWORD",
+          "key": "risk",
+          "english": "risk",
+          "french": "risque"
+        }
+      ]
+    },
+    "applications": [
+      {
+        "id": "Application Test 1",
+        "shortName": "Test1"
+      },
+      {
+        "id": "Application Test 2",
+        "shortName": "Test2"
+      },
+      {
+        "id": "Application Test A",
+        "shortName": "Test A"
+      }
+    ],
+    "discovery0": {
+      "id": "1",
+      "title": "Table Test 1",
+      "esaSections": "Test 1 ESA Sections",
+      "pageNumber": 111,
+      "pdfURL": "https://apps.cer-rec.gc.ca/",
+      "type": "TABLE",
+      "url": "http://localhost/berdi/csv/en/tables/test1.zip"
+    },
+    "discovery1": {
+      "id": "2",
+      "title": "Figure Test 1",
+      "esaSections": "Test 1 ESA Sections",
+      "pageNumber": 9,
+      "pdfURL": "https://apps.cer-rec.gc.ca/",
+      "type": "FIGURE",
+      "url": null
+    },
+    "discovery2": {
+      "id": "13",
+      "title": "Table Test 10",
+      "esaSections": "Appendix 6: Aquatic Assessment",
+      "pageNumber": 1,
+      "pdfURL": "https://apps.cer-rec.gc.ca/",
+      "type": "TABLE",
+      "url": "http://localhost/berdi/csv/en/tables/test10.zip"
+    }
+  }
+}

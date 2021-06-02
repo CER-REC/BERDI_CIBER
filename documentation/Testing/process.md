@@ -37,6 +37,8 @@ and in-depth tests. We use it in combination with Enzyme and Storybook to ensure
 that our components are behaving as expected, and that we aren't introducing
 unexpected changes to the design.
 
+- `Jest-DOM` is also imported to extend testing functions
+
 ##### Unit Tests
 
 We use unit tests to ensure that our logic is behaving as expected. These are
@@ -70,24 +72,13 @@ that may require additional testing. By running individual tests and comparing
 the resulting coverage reports, we may also find areas that can benefit from
 further optimization and testing.
 
-#### [Enzyme](https://airbnb.io/enzyme/)
-In normal object-oriented testing, we are
-able to compare expected inputs and outputs of our logic, since it can be broken
-down into standalone functions. Because React connects our logic with the DOM,
-it requires a slightly different approach, and we (partially) render our components
-and test their output.
+#### [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
-We are using enzyme to help with then render portion of the unit under test.
-Part of the problem is that we want to test an isolated component that is not
-linked to other dependencies. Therefore Enzyme allows us to use 'shallow' to
-render a single component without the children it needs to support (a lot of
-this has to with how the react life cycle methods work in the initialization
-stage and that children are needed to initialize before render and other
-life-cycle methods can be run by default). There are other methods that we can
-use to render components with their children when we want to start doing integration
-tests. Enzymes Mount and Render function allow us to do that.
+- Renders React components into DOM elements
+- Triggers DOM events to simulate user interaction
 
 #### [Storybook](https://storybook.js.org/)
+
 If all the unit, integration and
 snapshot tests pass we still aren't viewing the actual rendered output. The last
 two types of tests complete the cycle. First is storybook which is a way for
@@ -103,7 +94,43 @@ checking that we are following those requirements, we can now ensure that the
 money spent on design was implemented across multiple view-ports.
 
 ### End to End Testing
+
 We have chosen not to implement End to End tests at this point, since it provides
 significantly less value for visualizations that do not rely heavily on other
 services.  Google's Testing Blog explains
 [why E2E testing shouldn't necessarily be trusted](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html).
+
+### APIs
+
+- [Jest](https://jestjs.io/docs/api)
+- [Jest-DOM](https://github.com/testing-library/jest-dom#custom-matchers)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/api)
+
+## ./src/test/utilities.jsx
+
+- Re-exports the `@testing-library/react` module
+- Overrides the `render` function to wrap components in the all the required application providers
+- Mocks the config state if the state is set, otherwise uses the default config state
+- Translations are set to render the message IDs
+- GraphQL API results are mocked in `./src/tests/mocks`
+- If the component test requires API, translation, theme, or config functionality use `./src/test/utilities.jsx` in place of `@testing-library/react`
+- If a config state needs to be mocked, provide the state under the `config` property in the `render` options object
+  ```js
+  import React from 'react';
+
+  import { render, screen } from '../../tests/utilities';
+  import Component from '.';
+
+  describe('Components/Component', () => {
+    it('should render the message', () => {
+      render(<Component />, {
+        config: {
+          value1: 1,
+          value2: 2,
+        },
+      });
+
+      expect(screen.getByRole('heading')).toHaveTextContent('components.component.message');
+    });
+  });
+  ```
