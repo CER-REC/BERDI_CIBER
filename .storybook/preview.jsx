@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core';
-import { addDecorator, addParameters } from '@storybook/react';
 import { setIntlConfig, withIntl } from 'storybook-addon-intl';
 import { addReadme, configureReadme } from 'storybook-readme';
 
@@ -50,12 +49,6 @@ configureReadme({
 });
 
 export const parameters = {
-  // docs: {
-  //   inlineStories: false,
-  //   source: {
-  //     state: 'open',
-  //   },
-  // },
   options: {
     brandTitle: 'ESA DevDoc',
     panelPosition: 'bottom',

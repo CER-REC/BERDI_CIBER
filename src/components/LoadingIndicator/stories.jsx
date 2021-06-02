@@ -1,14 +1,15 @@
 import React from 'react';
-import { withKnobs, boolean, radios } from '@storybook/addon-knobs';
-import { storiesForComponent } from '../../../.storybook/utils';
 import LoadingIndicator from './index';
+import { newStoriesForComponent } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 
-storiesForComponent('Components/LoadingIndicator', module, ReadMe)
-  .addDecorator(withKnobs)
-  .add('default', () => (
-    <LoadingIndicator
-      type={radios('Type', ['api', 'app'], 'api')}
-      fullHeight={boolean('Full Height', true)}
-    />
-  ));
+export default newStoriesForComponent('Components/LoadingIndicator', LoadingIndicator, ReadMe);
+
+// eslint-disable-next-line react/prop-types
+const Template = ({ type, fullHeight }) => <LoadingIndicator type={type} fullHeight={fullHeight} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  type: 'app',
+  fullHeight: false,
+};

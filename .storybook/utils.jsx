@@ -25,6 +25,7 @@ export const newStoriesForComponent = (name, m, readme, options = {}) => {
     story.parameters.docs = {
       source: {
         type: 'auto',
+        state: 'open',
       },
     };
   }
