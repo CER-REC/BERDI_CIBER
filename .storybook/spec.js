@@ -16,6 +16,8 @@ jest.doMock('./addon-status', () => jest.fn((storyFnOuter, contextOuter) => {
 // doesn't directly define a test.
 beforeAll(() => {});
 
+// Note that a deprecation warning is shown, this is an issue in @storybook/addon-storyshots
+// (https://github.com/storybookjs/storybook/issues/13815)
 initStoryshots({
   test: snapshotWithOptions({
     createNodeMock: (element) => {
