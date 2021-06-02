@@ -25,15 +25,15 @@ describe('Components/ErrorBoundary', () => {
 
     afterEach(() => window.removeEventListener('error', supressProblemChildError));
 
-    test('should render the ErrorBoundary', () => {
+    it('should render the ErrorBoundary', () => {
       expect(container.firstChild).not.toBeEmpty();
     });
 
-    test('should render the error message', () => {
+    it('should render the error message', () => {
       expect(screen.getByRole('heading')).toHaveTextContent('components.errorBoundary.errorMessage');
     });
 
-    test('should render reload links', () => {
+    it('should render reload links', () => {
       const reloadLinks = [
         document.location.href,
         document.location.href.replace(document.location.search, ''),
@@ -47,7 +47,7 @@ describe('Components/ErrorBoundary', () => {
   describe('when there are no errors', () => {
     const GoodChild = () => <div>I am the good child</div>;
 
-    test('should render the children', () => {
+    it('should render the children', () => {
       const { container } = render(<ErrorBoundary><GoodChild /></ErrorBoundary>);
       const { container: goodChildContainer } = render(<GoodChild />);
 
