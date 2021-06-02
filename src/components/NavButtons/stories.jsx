@@ -1,11 +1,11 @@
 import React from 'react';
-import { newStoriesForComponent } from '../../../.storybook/utils';
+import { storiesForComponent } from '../../../.storybook/utils';
 import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
 
 import NavButtons from '.';
 import ReadMe from './README.md';
 
-export default newStoriesForComponent(
+export default storiesForComponent(
   'Components/NavButtons',
   NavButtons,
   ReadMe,

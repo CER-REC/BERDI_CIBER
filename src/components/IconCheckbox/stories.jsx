@@ -1,11 +1,11 @@
 import React from 'react';
 import IconCheckbox from '.';
-import { newStoriesForComponent } from '../../../.storybook/utils';
+import { storiesForComponent } from '../../../.storybook/utils';
+import ReadMe from './README.md';
 
-export default newStoriesForComponent('Components/IconCheckbox', IconCheckbox, '');
+export default storiesForComponent('Components/IconCheckbox', IconCheckbox, ReadMe);
 
-// eslint-disable-next-line react/prop-types
-const Template = ({ checked }) => <IconCheckbox checked={checked} />;
+const Template = (args) => <IconCheckbox {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

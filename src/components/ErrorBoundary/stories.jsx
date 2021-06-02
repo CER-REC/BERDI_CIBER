@@ -1,5 +1,5 @@
 import React from 'react';
-import { newStoriesForComponent } from '../../../.storybook/utils';
+import { storiesForComponent } from '../../../.storybook/utils';
 import ErrorBoundary from '.';
 import ReadMe from './README.md';
 
@@ -11,7 +11,7 @@ const ProblemChild = () => {
   throw new Error('Error thrown from problem child');
 };
 
-export default newStoriesForComponent('Components/ErrorBoundary', module, ReadMe);
+export default storiesForComponent('Components/ErrorBoundary', module, ReadMe);
 
 export const Primary = () => (
   <ErrorBoundary>
