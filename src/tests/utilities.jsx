@@ -10,7 +10,7 @@ import { ConfigProvider } from '../hooks/useConfig';
 import client from './mocks/apolloClient';
 import MockConfig from './MockConfig';
 
-const suppressMissingTranlslationError = (error) => {
+const suppressMissingTranslationError = (error) => {
   if (error.code === 'MISSING_TRANSLATION') {
     // eslint-disable-next-line no-console
     console.warn(error.message);
@@ -23,7 +23,7 @@ const suppressMissingTranlslationError = (error) => {
 
 const AppProviders = ({ config, children }) => (
   <ApolloProvider client={client}>
-    <IntlProvider locale="en" onError={suppressMissingTranlslationError}>
+    <IntlProvider locale="en" onError={suppressMissingTranslationError}>
       <ThemeProvider theme={theme}>
         <ConfigProvider>
           <MockConfig state={config}>
