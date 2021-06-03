@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
-import { storiesOf } from '@storybook/react';
 
 // eslint-disable-next-line react/prop-types
 const DocPreview = ({ children }) => (
@@ -16,31 +15,28 @@ export const storiesForComponent = (name, m, readme, options = {}) => {
     ...options,
   };
 
-  if (readme) {
-    if (!story.parameters) {
-      story.parameters = {};
-    }
-    story.parameters.readme = { content: `<!-- STORY -->\n${readme}`, DocPreview };
-    story.parameters.docs = {
-      source: {
-        type: 'auto',
-        state: 'open',
-      },
-    };
+  if (!story.parameters) {
+    story.parameters = {};
   }
+
+  if (readme) {
+    story.parameters.readme = { content: `<!-- STORY -->\n${readme}`, DocPreview };
+  }
+  story.parameters.docs = {
+    source: {
+      type: 'auto',
+      state: 'open',
+    },
+  };
 
   return story;
 };
 
-export const storiesForView = (name, m, readme) => {
-  let stories = storiesOf(name, m)
-    .addParameters({ viewport: { defaultViewport: 'desktop' } });
-  if (readme) {
-    stories = stories.addParameters({
-      readme: { content: `<!-- STORY -->\n${readme}`, DocPreview },
-    });
-  }
-  return stories;
+export const storiesForView = (name, m, readme, options = {}) => {
+  const story = storiesForComponent(name, m, readme, options);
+  story.parameters.viewport = { defaultViewport: 'desktop' };
+
+  return story;
 };
 
 export const withStyles = makeDecorator({

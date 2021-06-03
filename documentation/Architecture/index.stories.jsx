@@ -1,13 +1,24 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import HighLevel from './highLevel.md';
-import Components from './components.md';
-import Containers from './containers.md';
-import Translations from './translations.md';
+import HighLevelReadMe from './highLevel.md';
+import ComponentsReadMe from './components.md';
+import ContainersReadMe from './containers.md';
+import TranslationsReadMe from './translations.md';
 
-const noop = () => <></>;
-storiesOf('Documentation/Architecture', module)
-  .add('High Level', noop, { readme: { content: HighLevel } })
-  .add('Components', noop, { readme: { content: Components } })
-  .add('Containers', noop, { readme: { content: Containers } })
-  .add('Translations', noop, { readme: { content: Translations } });
+export default {
+  title: 'Documentation/Architecture',
+  component: module,
+};
+
+const Template = () => <></>;
+
+export const HighLevel = Template.bind({});
+HighLevel.parameters = { readme: { content: HighLevelReadMe } };
+
+export const Components = Template.bind({});
+Components.parameters = { readme: { content: ComponentsReadMe } };
+
+export const Containers = Template.bind({});
+Containers.parameters = { readme: { content: ContainersReadMe } };
+
+export const Translations = Template.bind({});
+Translations.parameters = { readme: { content: TranslationsReadMe } };
