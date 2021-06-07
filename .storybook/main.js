@@ -1,8 +1,11 @@
-export default {
+// Export default does not work with @storybook/addon-storyshots
+// https://github.com/storybookjs/storybook/issues/9576
+module.exports = {
   stories: [
     '../documentation/Introduction/*stories.jsx',
     '../documentation/**/*stories.jsx',
     '../src/**/*stories.jsx',
+    '../src/components/LoadingIndicator/stories.jsx',
   ],
   addons: [
     '@storybook/addon-docs',
