@@ -121,6 +121,13 @@ export const getReducer = (
         endDate: action.payload || maxDate,
         searchIndex: 0,
       };
+    case 'dateRange/removed':
+      return {
+        ...state,
+        startDate: minDate,
+        endDate: maxDate,
+        searchIndex: 0,
+      };
     case 'commodities/changed':
       return {
         ...state,

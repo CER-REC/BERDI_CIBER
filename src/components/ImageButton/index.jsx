@@ -62,10 +62,10 @@ const ImageButton = ({ isTable, src, caption, label, onClick }) => {
   const intl = useIntl();
   const typeLabel = useMemo(() => {
     if (isTable) {
-      return intl.formatMessage({ id: 'common.content.TABLE' });
+      return intl.formatMessage({ id: 'api.content.TABLE' });
     }
 
-    return intl.formatMessage({ id: 'common.content.FIGURE' });
+    return intl.formatMessage({ id: 'api.content.FIGURE' });
   }, [isTable, intl]);
 
   return (

@@ -14,6 +14,7 @@ import '@formatjs/intl-relativetimeformat/locale-data/fr';
 import { lang } from '../src/constants';
 import i18nMessages from '../src/i18n';
 import theme from '../src/containers/App/theme';
+import withWETTemplate from './addon-WET-template';
 
 const locales = Object.keys(i18nMessages);
 const viewports = {
@@ -59,6 +60,7 @@ export const parameters = {
 export const decorators = [
   withIntl,
   addReadme,
+  withWETTemplate,
   (storyFn, context) => {
     if (context.id === 'containers-app--within-wet') { return storyFn(); }
     return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;

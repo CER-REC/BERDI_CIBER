@@ -52,15 +52,15 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
       case 'APPLICATION_NAMES':
         return applicationIdLabels[name];
       case 'REGIONS':
-        return intl.formatMessage({ id: `common.regions.${name}` });
+        return intl.formatMessage({ id: `api.regions.${name}` });
       case 'COMMODITIES':
-        return intl.formatMessage({ id: `common.commodities.${name}` });
+        return intl.formatMessage({ id: `api.commodities.${name}` });
       case 'STATUSES':
-        return intl.formatMessage({ id: `common.statuses.${name}` });
+        return intl.formatMessage({ id: `api.statuses.${name}` });
       case 'PROJECT_TYPES':
-        return intl.formatMessage({ id: `common.projects.${name}` });
+        return intl.formatMessage({ id: `api.projects.${name}` });
       case 'CONTENT_TYPES':
-        return intl.formatMessage({ id: `common.content.${name}` });
+        return intl.formatMessage({ id: `api.content.${name}` });
       default:
         return name;
     }
