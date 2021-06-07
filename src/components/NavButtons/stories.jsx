@@ -7,7 +7,7 @@ import ReadMe from './README.md';
 
 export default storiesForComponent(
   'Components/NavButtons',
-  NavButtons,
+  module,
   ReadMe,
   {
     decorators: [withConfigAndGQL],

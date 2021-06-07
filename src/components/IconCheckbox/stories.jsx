@@ -3,7 +3,7 @@ import IconCheckbox from '.';
 import { storiesForComponent } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 
-export default storiesForComponent('Components/IconCheckbox', IconCheckbox, ReadMe);
+export default storiesForComponent('Components/IconCheckbox', module, ReadMe);
 
 const Template = (args) => <IconCheckbox {...args} />;
 

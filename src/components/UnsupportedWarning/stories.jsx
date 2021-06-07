@@ -3,7 +3,7 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import UnsupportedWarning from '.';
 import ReadMe from './README.md';
 
-export default storiesForComponent('Components/UnsupportedWarning', UnsupportedWarning, ReadMe);
+export default storiesForComponent('Components/UnsupportedWarning', module, ReadMe);
 
 const Template = (args) => <UnsupportedWarning {...args} />;
 
