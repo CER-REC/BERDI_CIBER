@@ -4,6 +4,7 @@ import { makeDecorator } from '@storybook/addons';
 // eslint-disable-next-line react/prop-types
 const DocPreview = ({ children }) => (
   <div style={{ padding: '0 40px 40px' }}>
+    <br />
     {children}
   </div>
 );
@@ -12,12 +13,9 @@ export const storiesForComponent = (name, m, readme, options = {}) => {
   const story = {
     title: name,
     component: m,
+    parameters: {},
     ...options,
   };
-
-  if (!story.parameters) {
-    story.parameters = {};
-  }
 
   if (readme) {
     story.parameters.readme = { content: `<!-- STORY -->\n${readme}`, DocPreview };
@@ -32,7 +30,7 @@ export const storiesForComponent = (name, m, readme, options = {}) => {
   return story;
 };
 
-export const storiesForView = (name, m, readme, options = {}) => {
+export const storiesForContainer = (name, m, readme, options = {}) => {
   const story = storiesForComponent(name, m, readme, options);
   story.parameters.viewport = { defaultViewport: 'desktop' };
 

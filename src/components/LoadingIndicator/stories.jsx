@@ -5,8 +5,7 @@ import ReadMe from './README.md';
 
 export default storiesForComponent('Components/LoadingIndicator', module, ReadMe);
 
-// eslint-disable-next-line react/prop-types
-const Template = ({ type, fullHeight }) => <LoadingIndicator type={type} fullHeight={fullHeight} />;
+const Template = (args) => <LoadingIndicator {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

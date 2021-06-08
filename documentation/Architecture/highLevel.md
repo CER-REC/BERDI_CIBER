@@ -48,14 +48,15 @@ High-level documentation (like this architecture documentation) belongs in
       'Components/Component', 
       module, 
       ReadMe, 
-      { decorators: [withConfigAndGQL],
+      {
+        decorators: [withConfigAndGQL],
         parameters: {
-          config: { value1: 1, value2: 2 }
+          config: { value1: 1, value2: 2 },
         }
-      }
-      );
+      },
+    );
 
-      export const Primary = () => <Component />
+    export const Primary = () => <Component />;
 
     ```
 - Dispatched actions should only contain 2 properties

@@ -1,9 +1,9 @@
 import React from 'react';
-import { storiesForView } from '../../../.storybook/utils';
+import { storiesForContainer } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 import App from '.';
 
-export default storiesForView('Containers/App', module, ReadMe);
+export default storiesForContainer('Containers/App', module, ReadMe);
 
 export const Primary = () => <App />;
 

@@ -1,5 +1,3 @@
-// Export default does not work with @storybook/addon-storyshots
-// https://github.com/storybookjs/storybook/issues/9576
 module.exports = {
   stories: [
     '../documentation/Introduction/*stories.jsx',
