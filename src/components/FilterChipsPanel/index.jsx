@@ -24,66 +24,51 @@ const useStyles = makeStyles(() => ({
 
 const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
-const FilterChipsPanel = () => {
-  const classes = useStyles();
+const useAssembledChipLabels = () => {
   const { config } = useConfig();
   const { minDate, maxDate, applicationIdLabels } = useAPI();
   const intl = useIntl();
-
-  const handleChipClick = () => () => {
-    // TODO: do filter statement to remove given chip name
-  };
-
-  // Prepare keyword chip; make empty array if nothing found
-  const keywordChip = config.searches.join(' ') || [];
-
-  // Prepare application chips
-  const applicationChips = config.applicationIds.map((item) => applicationIdLabels[item]);
-
-  // Prepare region chips
-  const regionChips = config.regions.map((item) => intl.formatMessage({ id: `common.regions.${item}` }));
-
-  // Prepare and format date range chip
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
-  const dateRangeChip = (hasStartDate || hasEndDate)
-    ? `${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}` : [];
+  return {
+    searches: [config.searches.join(' ')].filter(Boolean),
+    applicationIds: config.applicationIds.map((item) => applicationIdLabels[item]),
+    regions: config.regions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })),
+    contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `api.content.${item}` })),
+    projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
+    commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
+    statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
+    dateRange: (hasStartDate || hasEndDate)
+      ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
+  };
+};
 
-  // Prepare content type (results) chips
-  const contentTypeChips = config.contentTypes.map((item) => intl.formatMessage({ id: `common.content.${item}` }));
+const FilterChipsPanel = () => {
+  const classes = useStyles();
+  const { config, configDispatch } = useConfig();
+  const chipLabels = useAssembledChipLabels();
 
-  // Prepare project type chips
-  const projectTypeChips = config.projectTypes.map((item) => intl.formatMessage({ id: `common.projects.${item}` }));
-
-  // Prepare commodity chips
-  const commodityChips = config.commodities.map((item) => intl.formatMessage({ id: `common.commodities.${item}` }));
-
-  // Prepare status chips
-  const statusChips = config.statuses.map((item) => intl.formatMessage({ id: `common.statuses.${item}` }));
-
-  // Assemble all chips
-  const chips = [].concat(
-    keywordChip, applicationChips, regionChips, contentTypeChips,
-    projectTypeChips, commodityChips, statusChips, dateRangeChip,
-  );
-
+  // Assemble new state on chip click
+  const removeFilter = (chipType, index) => () => {
+    const newState = config[chipType]?.filter((_, configIndex) => index !== configIndex);
+    const action = (chipType === 'searches' || chipType === 'dateRange') ? 'removed' : 'changed';
+    configDispatch({ type: `${chipType}/${action}`, payload: newState });
+  };
   return (
-    <>
-      {chips.map((item) => (
-        <Chip
-          key={item}
-          label={item}
-          onClick={handleChipClick(item)}
-          onDelete={handleChipClick(item)}
-          deleteIcon={(
-            <CloseIcon
-              className={classes.closeButton}
-            />
-          )}
-          className={classes.chip}
-        />
-      ))}
-    </>
+    Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
+      <Chip
+        key={chipLabel}
+        label={chipLabel}
+        onClick={removeFilter(chipType, index)}
+        onDelete={removeFilter(chipType, index)}
+        deleteIcon={(
+          <CloseIcon
+            className={classes.closeButton}
+          />
+        )}
+        className={classes.chip}
+      />
+    )))
   );
 };
 

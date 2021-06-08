@@ -54,21 +54,3 @@ const Component = () => {
 
 export default Component;
 ```
-
-## Storybook
-
-**TODO: Update**
-
-If the component uses the API method (with injectIntl), then the Story Source in Storybook for the
-component will render `<InjectIntl(Component) />` instead of `<Component />`. Calling the `fixInfo`
-function in `stories.jsx` will fix this issue.
-
-```js
-...
-import { storiesForComponent, fixInfo } from '../../../.storybook/utils';
-...
-fixInfo(Component);
-...
-storiesForComponent('Components|Component', module, ReadMe)
-...
-```

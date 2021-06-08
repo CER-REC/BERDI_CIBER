@@ -37,10 +37,10 @@ const ApplicationDialog = ({ data, onClose }) => {
     content: data.name,
   }, {
     label: 'common.applicationType',
-    content: intl.formatMessage({ id: `common.projects.${data.type}` }),
+    content: intl.formatMessage({ id: `api.projects.${data.type}` }),
   }, {
     label: 'common.commodity',
-    content: intl.formatMessage({ id: `common.commodities.${data.commodity}` }),
+    content: intl.formatMessage({ id: `api.commodities.${data.commodity}` }),
   }, {
     label: 'common.consultants',
     content: data.consultants,
@@ -93,7 +93,7 @@ const ApplicationDialog = ({ data, onClose }) => {
               component="span"
               className={classes.statusIndicator}
             >
-              {intl.formatMessage({ id: `common.statuses.${data.status}` }) }
+              {intl.formatMessage({ id: `api.statuses.${data.status}` }) }
             </Typography>
           </Grid>
         </Grid>

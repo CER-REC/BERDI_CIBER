@@ -11,14 +11,20 @@ are referred to as `Public` and `Private` components in other parts of the
 documentation.
 
 Each component will have a set of stories, which explain the various ways that
-it can be used, as well as a readme that explains the purpose of the component
-and the design and accessibility requirements. The right sidebar contains panels
+it can be used. Each component will have a Docs tab at the top that when clicked will show a readme that explains the purpose of the component and the design and accessibility requirements. 
+
+The docs page will contain a few useful items. 
+
+* Code snippet - To show the correct way to use the component.
+* Args(Replaces knobs) - A way to change the props of the component to see how the component will change.
+
+The bottom bar contains panels
 that will contain important information for individual stories.
 
 * Interactions - Used on a component's primary story to provide a more
   interactive version of the component, and on other stories as a log of
   interactions that would be handled by the view.
-* Knobs - Controls that may be used to modify what properties are passed to a
+* Knobs(Legacy) - Controls that may be used to modify what properties are passed to a
   story. These are often used in place of full interactions in order to focus on
   an individual property.
 * Accessibility - WCAG test results for the story.
@@ -33,6 +39,8 @@ better understanding of how the component will work, without investing time in
 state tracking that will be replaced by Redux in the visualization.
 
 For the main story decorator, the typical usage will be:
+
+TODO: Update code example to new storybook syntax
 
 ```jsx
 import React from 'react';

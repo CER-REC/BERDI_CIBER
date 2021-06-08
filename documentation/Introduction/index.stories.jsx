@@ -1,9 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
 import README from './README.md';
 import CHANGELOG from '../../CHANGELOG.md';
 
-const noop = () => <></>;
-storiesOf('Documentation/Introduction', module)
-  .add('to the document', noop, { readme: { content: README } })
-  .add('changelog', noop, { readme: { content: CHANGELOG } });
+export default {
+  title: 'Documentation/Introduction',
+  component: module,
+};
+
+const Template = () => <></>;
+
+export const ToTheDocument = Template.bind({});
+ToTheDocument.parameters = { readme: { content: README } };
+
+export const ChangeLog = Template.bind({});
+ChangeLog.parameters = { readme: { content: CHANGELOG } };

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesForComponent } from '../../../.storybook/utils';
-
 import ErrorBoundary from '.';
 import ReadMe from './README.md';
 
@@ -19,9 +18,10 @@ console.error = (...args) => {
   consoleError(...args);
 };
 
-storiesForComponent('Components/ErrorBoundary', module, ReadMe)
-  .add('default', () => (
-    <ErrorBoundary>
-      <ProblemChild />
-    </ErrorBoundary>
-  ));
+export default storiesForComponent('Components/ErrorBoundary', module, ReadMe);
+
+export const Primary = () => (
+  <ErrorBoundary>
+    <ProblemChild />
+  </ErrorBoundary>
+);
