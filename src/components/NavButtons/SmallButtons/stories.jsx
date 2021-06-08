@@ -4,8 +4,11 @@ import withConfigAndGQL from '../../../../.storybook/addon-config-and-gql';
 import { storiesForComponent } from '../../../../.storybook/utils';
 import ReadMe from './README.md';
 
-storiesForComponent('Components/NavButtons/SmallButtons', module, ReadMe)
-  .addDecorator(withConfigAndGQL)
-  .add('default', () => (
-    <SmallButtons />
-  ));
+export default storiesForComponent(
+  'Components/NavButtons/SmallButtons',
+  module,
+  ReadMe,
+  { decorators: [withConfigAndGQL] },
+);
+
+export const Primary = () => <SmallButtons />;

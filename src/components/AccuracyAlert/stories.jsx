@@ -4,8 +4,5 @@ import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
 import { storiesForComponent } from '../../../.storybook/utils';
 import ReadMe from './README.md';
 
-storiesForComponent('Components/AccuracyAlert', module, ReadMe)
-  .addDecorator(withConfigAndGQL)
-  .add('default', () => (
-    <AccuracyAlert />
-  ));
+export default storiesForComponent('Components/AccuracyAlert', module, ReadMe, { decorators: [withConfigAndGQL] });
+export const Primary = () => <AccuracyAlert />;

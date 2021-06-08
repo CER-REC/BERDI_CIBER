@@ -32,6 +32,7 @@ module.exports = {
       files: ['**/stories.jsx'],
       rules: {
         'no-alert': 0,
+        'react/jsx-props-no-spreading': 0,
       },
     },
   ],

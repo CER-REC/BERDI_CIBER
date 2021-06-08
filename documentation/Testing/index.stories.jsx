@@ -1,9 +1,16 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import Process from './process.md';
-import Documentation from './documentation.md';
+import ProcessReadme from './process.md';
+import DocumentationReadme from './documentation.md';
 
-const noop = () => <></>;
-storiesOf('Documentation/Testing', module)
-  .add('Process', noop, { readme: { content: Process } })
-  .add('Documentation', noop, { readme: { content: Documentation } });
+export default {
+  title: 'Documentation/Testing',
+  component: module,
+};
+
+const Template = () => <></>;
+
+export const Process = Template.bind({});
+Process.parameters = { readme: { content: ProcessReadme } };
+
+export const Documentation = Template.bind({});
+Documentation.parameters = { readme: { content: DocumentationReadme } };

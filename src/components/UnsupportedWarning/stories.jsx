@@ -3,10 +3,11 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import UnsupportedWarning from '.';
 import ReadMe from './README.md';
 
-storiesForComponent('Components/UnsupportedWarning', module, ReadMe)
-  .add('resolution', () => (
-    <UnsupportedWarning type="resolution" />
-  ))
-  .add('browser', () => (
-    <UnsupportedWarning type="browser" />
-  ));
+export default storiesForComponent('Components/UnsupportedWarning', module, ReadMe);
+
+const Template = (args) => <UnsupportedWarning {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  type: 'resolution',
+};
