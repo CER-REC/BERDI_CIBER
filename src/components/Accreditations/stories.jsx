@@ -3,7 +3,5 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import Accreditations from '.';
 import ReadMe from './README.md';
 
-storiesForComponent('Components/Accreditations', module, ReadMe)
-  .add('default', () => (
-    <Accreditations />
-  ));
+export default storiesForComponent('Components/Accreditations', module, ReadMe);
+export const Primary = () => <Accreditations />;

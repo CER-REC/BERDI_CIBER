@@ -1,6 +1,10 @@
-import { storiesOf } from '@storybook/react';
-import { doc } from 'storybook-readme';
-import GraphQL from './GraphQL.md';
+import React from 'react';
+import GraphQLReadme from './GraphQL.md';
 
-storiesOf('Documentation/Data', module)
-  .add('GraphQL', doc(GraphQL));
+export default {
+  title: 'Documentation/Data',
+  component: module,
+  parameters: { readme: { content: GraphQLReadme } },
+};
+
+export const GraphQL = () => <></>;

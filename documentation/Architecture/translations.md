@@ -128,20 +128,39 @@ const Component = () => {
 export default Component;
 ```
 
-## Storybook
+## Tests
 
 **TODO: Update**
 
-If the component uses the API method (with injectIntl), then the Story Source in Storybook for the
-component will render `<InjectIntl(Component) />` instead of `<Component />`. Calling the `fixInfo`
-function in `stories.jsx` will fix this issue.
+The `ShallowWrapper` object has been updated with a `shallowWithIntl` method, which is needed to
+render `FormattedMessage` components in testing. `shallowWithIntl` accepts a object with the
+translation IDs as the keys and the translation text as the values. If no object is provided, the
+rendered translation cannot be guaranteed.
 
 ```js
 ...
-import { storiesForComponent, fixInfo } from '../../../.storybook/utils';
+const translationWrapper = wrapper.find('FormattedMessage').shallowWithIntl();
+// translationWrapper.html() = '<span class="component">any translation</span>'
+expect(translationWrapper.hasClass('component')).toBe(true);
 ...
-fixInfo(Component);
+```
+
+```js
 ...
-storiesForComponent('Components|Component', module, ReadMe)
+const messages = { 'component.translation': 'specific translation' };
+const translationWrapper = wrapper.find('FormattedMessage').shallowWithIntl(messages);
+// translationWrapper.html() = '<span class="component">specific translation</span>'
+expect(translationWrapper.hasClass('component')).toBe(true);
+expect(translationWrapper.text()).toContain('specific translation');
+...
+```
+
+If the component uses the API method (with injectIntl), then it will need to be rendered with the
+`shallowWithIntl` function from test utilities.
+
+```js
+import { shallowWithIntl } from '../../tests/utilities';
+...
+wrapper = shallowWithIntl(<Component />);
 ...
 ```

@@ -1,9 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core';
-import { addDecorator, configure, addParameters } from '@storybook/react';
-import Adapter from 'enzyme-adapter-react-16';
-import { configure as enzyme } from 'enzyme';
-import requireContext from 'require-context.macro';
 import { setIntlConfig, withIntl } from 'storybook-addon-intl';
 import { addReadme, configureReadme } from 'storybook-readme';
 
@@ -40,19 +36,11 @@ const viewports = {
   },
 };
 
-// Automatically import all files named stories.jsx
-const documentationStories = requireContext('../documentation/', true, /stories.jsx$/);
-const componentStories = requireContext('../src/', true, /stories.jsx$/);
-
 setIntlConfig({
   locales,
   defaultLocale: lang,
   getMessages: (locale) => i18nMessages[locale],
 });
-
-addDecorator(withIntl);
-addDecorator(addReadme);
-addDecorator(withWETTemplate);
 
 configureReadme({
   // eslint-disable-next-line react/prop-types
@@ -61,25 +49,20 @@ configureReadme({
   ),
 });
 
-addParameters({ viewport: { viewports, defaultViewport: 'fullscreen' } });
-addParameters({
+export const parameters = {
   options: {
     brandTitle: 'ESA DevDoc',
     panelPosition: 'bottom',
   },
-});
+  viewport: { viewports, defaultViewport: 'fullscreen' },
+};
 
-addDecorator((storyFn, context) => {
-  if (context.id === 'containers-app--within-wet') { return storyFn(); }
-  return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
-});
-
-enzyme({ adapter: new Adapter() });
-
-configure(() => {
-  documentationStories.keys()
-    // Sorting Documentation|Introduction to the top
-    .sort((a, b) => (a.startsWith('./Introduction/') ? -1 : a.localeCompare(b)))
-    .forEach((filename) => documentationStories(filename));
-  componentStories.keys().forEach((filename) => componentStories(filename));
-}, module);
+export const decorators = [
+  withIntl,
+  addReadme,
+  withWETTemplate,
+  (storyFn, context) => {
+    if (context.id === 'containers-app--within-wet') { return storyFn(); }
+    return <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>;
+  },
+];

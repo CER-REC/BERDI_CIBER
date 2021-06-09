@@ -1,5 +1,5 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpackConfig = require('../webpack.config.babel.js');
+const webpackConfig = require('../webpack.config.babel');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
