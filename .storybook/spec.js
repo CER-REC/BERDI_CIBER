@@ -12,30 +12,12 @@ jest.doMock('./addon-status', () => jest.fn((storyFnOuter, contextOuter) => {
   return (storyFn, context) => storyFn(context);
 }));
 
-/**
- * To get rid of the 'unable to find drag handle' error.
- * https://github.com/atlassian/react-beautiful-dnd/issues/1593
- */
-jest.doMock('react-beautiful-dnd', () => ({
-  Droppable: ({ children }) => children({
-    draggableProps: {
-      style: {},
-    },
-    innerRef: jest.fn(),
-  }, {}),
-  Draggable: ({ children }) => children({
-    draggableProps: {
-      style: {},
-    },
-    innerRef: jest.fn(),
-  }, {}),
-  DragDropContext: ({ children }) => children,
-}));
-
 // This fixes an issue with Jest sometimes ignoring the storybook spec, since it
 // doesn't directly define a test.
 beforeAll(() => {});
 
+// Note that a deprecation warning is shown, this is an issue in @storybook/addon-storyshots
+// (https://github.com/storybookjs/storybook/issues/13815)
 initStoryshots({
   test: snapshotWithOptions({
     createNodeMock: (element) => {

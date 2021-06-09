@@ -59,7 +59,7 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/src/tests/transform/babel.js',
+    '^.+\\.jsx?$': 'babel-jest',
     '^.+\\.md$': '<rootDir>/src/tests/transform/md.js',
   },
 
@@ -68,4 +68,6 @@ module.exports = {
   transformIgnorePatterns: [
     '/node_modules/',
   ],
+
+  testEnvironment: 'jsdom',
 };
