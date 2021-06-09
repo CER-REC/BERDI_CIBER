@@ -45,8 +45,7 @@ describe('Components/FilterChipsPanel', () => {
         regions: ['AB'],
       },
     });
-    const chip = screen.getByText('api.regions.AB').parentNode;
-    fireEvent.click(chip);
-    expect(chip.toBeEmpty);
+    fireEvent.click(screen.getByText('api.regions.AB'));
+    expect(screen.queryByText('api.regions.AB')).toBeNull();
   });
 });
