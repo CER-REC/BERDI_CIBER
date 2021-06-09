@@ -109,7 +109,7 @@ services.  Google's Testing Blog explains
 ## ./src/test/utilities.jsx
 
 - Re-exports the `@testing-library/react` module
-- Overrides the `render` function to wrap components in the all the required application providers
+- Overrides the `render` function to wrap components in all the required application providers
 - Mocks the config state if the state is set, otherwise uses the default config state
 - Translations are set to render the message IDs
 - GraphQL API results are mocked in `./src/tests/mocks`

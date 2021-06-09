@@ -3,12 +3,19 @@ import { storiesForComponent } from '../../../.storybook/utils';
 import ErrorBoundary from '.';
 import ReadMe from './README.md';
 
-// To keep the error from showing up in our test runner
-const consoleError = console.error;
-console.error = () => {};
-
 const ProblemChild = () => {
   throw new Error('Error thrown from problem child');
+};
+
+const consoleError = console.error;
+
+// To keep the error from showing up in our test runner
+console.error = (...args) => {
+  if (args[0].includes('The above error occurred in the <ProblemChild> component:')) {
+    return;
+  }
+
+  consoleError(...args);
 };
 
 export default storiesForComponent('Components/ErrorBoundary', module, ReadMe);
@@ -18,5 +25,3 @@ export const Primary = () => (
     <ProblemChild />
   </ErrorBoundary>
 );
-
-console.error = consoleError;
