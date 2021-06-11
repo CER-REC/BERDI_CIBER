@@ -10,4 +10,4 @@ Clicking the chip will delete it and unapply the filter it represented.
 
 * [X] Renders array of styled chip UI components
 * [X] Add chips by using filters on the Search page
-* [ ] Remove chips by clicking on them
+* [X] Remove chips by clicking on them

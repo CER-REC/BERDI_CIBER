@@ -1,13 +1,22 @@
-// import React from 'react';
-// import { withKnobs, array } from '@storybook/addon-knobs';
-// import { storiesForComponent } from '../../../.storybook/utils';
-// import ReadMe from './README.md';
-// import FilterChipsPanel from './index';
+import React from 'react';
+import { storiesForComponent } from '../../../.storybook/utils';
+import ReadMe from './README.md';
+import FilterChipsPanel from '.';
+import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
 
-// storiesForComponent('Components|FilterChipsPanel', module, ReadMe)
-//   .addDecorator(withKnobs)
-//   .add('default', () => (
-//     <FilterChipsPanel
-//       initialState={array('Chips', ['filter1', 'filter2', 'filter3'])}
-//     />
-//   ));
+export default storiesForComponent(
+  'Components/FilterChipsPanel',
+  module,
+  ReadMe,
+  {
+    decorators: [withConfigAndGQL],
+    parameters: {
+      applicationIdLabels: { first: 'firstLabel' },
+      config: {
+        searches: ['test search'],
+      },
+    },
+  },
+);
+
+export const Primary = () => <FilterChipsPanel />;
