@@ -11,7 +11,6 @@ export default storiesForComponent(
   {
     decorators: [withConfigAndGQL],
     parameters: {
-      applicationIdLabels: { first: 'firstLabel' },
       config: {
         searches: ['test search'],
       },
