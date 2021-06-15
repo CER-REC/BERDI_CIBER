@@ -1,11 +1,17 @@
 import React from 'react';
-import { getRendered, mountWithIntl } from '../../tests/utilities';
+import { render, screen } from '../../tests/utilities';
 import Accreditations from '.';
 
 describe('Components/Accreditations', () => {
   test('should render component', async () => {
-    const wrapper = mountWithIntl(<Accreditations />);
+    const { container } = render(<Accreditations />);
 
-    expect(getRendered(Accreditations, wrapper).exists()).toBeTruthy();
+    expect(container).not.toBeEmpty();
+  });
+
+  test('should have a title and body', () => {
+    render(<Accreditations />);
+    expect(screen.getByText('pages.landing.discoveries.accreditations.title')).toBeInTheDocument();
+    expect(screen.getByText('pages.landing.discoveries.accreditations.body')).toBeInTheDocument();
   });
 });

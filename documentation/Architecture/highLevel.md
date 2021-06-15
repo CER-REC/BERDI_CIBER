@@ -35,6 +35,7 @@ High-level documentation (like this architecture documentation) belongs in
   ```
 - Stories of components referencing `useConfig` or GraphQL data hooks can use the `addon-config-and-gql` decorator
   - Any required config state values can be set in the parameters property of the options object and specifying the state in a `config` object
+  - GraphQL API results are mocked in `./src/tests/mocks` (same as the tests)
   - The initial config state values will always be set on load if not specified within the parameters object
     ```js
     import React from 'react';
@@ -57,8 +58,8 @@ High-level documentation (like this architecture documentation) belongs in
     );
 
     export const Primary = () => <Component />;
-
     ```
+  - The **App** story does not use the `addon-config-and-gql` decorator as it will connect to the API specified in `.env`
 - Dispatched actions should only contain 2 properties
   - **type**
     - The ID of the action
