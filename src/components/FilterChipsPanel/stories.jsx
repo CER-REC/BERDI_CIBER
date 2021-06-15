@@ -13,6 +13,9 @@ export default storiesForComponent(
     parameters: {
       config: {
         searches: ['test search'],
+        applicationIds: ['Application Test 1'],
+        startDate: new Date(),
+        endDate: new Date(),
       },
     },
   },
