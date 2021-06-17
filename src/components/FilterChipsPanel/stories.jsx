@@ -14,8 +14,13 @@ export default storiesForComponent(
       config: {
         searches: ['test search'],
         applicationIds: ['Application Test 1'],
+        regions: ['AB', 'BC'],
         startDate: new Date(),
         endDate: new Date(),
+        commodities: ['GAS', 'OIL'],
+        projectTypes: ['LARGE'],
+        statuses: ['ABANDONMENT_PENDING', 'RESCINDED'],
+        contentTypes: ['TABLE'],
       },
     },
   },
