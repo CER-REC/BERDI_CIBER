@@ -113,9 +113,9 @@
       "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "noResults": "Désolé, il n’y a aucun résultat.",
-      "noResultsFor": "Désolé, aucun résultat à partir de ces filtres pour {searches}.",
+      "noResultsFor": "Désolé, aucun résultat pour {searches}.",
       "noResultsWithFilters": "Désolé, il n’y a aucun résultat avec ces filtres.",
-      "noResultsForWithFilters": "Désolé, il n’y a aucun résultat pour {searches} avec ces filtres.",
+      "noResultsForWithFilters": "Désolé, aucun résultat à partir de ces filtres pour {searches}.",
       "noResultsForWithDateRange": "Désolé, aucun résultat pour {searches} dans cette plage de dates.",
       "noResultsWithDateRange": "Désolé, aucun résultat dans cette plage de dates."
     },

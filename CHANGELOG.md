@@ -1,3 +1,156 @@
+## [1.0.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v1.0.1) (2021-06-18)
+
+
+### date slider
+
+* **Features:** adds in dates above slider (0fb0b28)
+
+
+### datepicker
+
+* **Features:** changes the logic of the date slider to calculate difference in months (d46bcff)
+
+
+### Dropdown/index
+
+* **Features:** updated Dropdown logic to display text on no selection (3ab52b1)
+
+
+### english
+
+* **Code Formatting:** removes unused translation (d8f1214)
+
+
+### FilterChipsPanel
+
+* **Features:** completed styling of chips; further fleshed out component (6d94549)
+* **Features:** added FilterChipsPanel stories.jsx and readme file for storybook (3b5d2bd)
+
+
+### FilterChipsPanel/index
+
+* **Features:** removed unused variable and console log in onClick stub (4d08dad)
+* **Code Formatting:** changed 0em -> 0 in FilterChipsPanel style as per style guide (bac40ca)
+
+
+### FilterChipsPanel/README
+
+* **Features:** updated interaction requirements in storybook readme (167f64d)
+
+
+### french.json
+
+* **Features:** updated french translations for no search results statements (25f1867)
+* **Features:** added new no search results messages for date filters and fixed typo (6525d1c)
+* **Features:** added 2/4 of the new search statements (54f6227)
+* **Features:** adds new search result feedback entries to french.json, some of which have placeh (3bc3428)
+* **Bug Fixes:** fixed french translation for no results for keyword message (404a050)
+* **Bug Fixes:** updated hyperlink (f956270)
+* **Bug Fixes:** updated hyperlink (32d2d0e)
+
+
+### LimitationDialog
+
+* **Features:** replaces hard coded values with values from backend (76acdf5)
+
+
+### limitationsDialog
+
+* **Features:** changes units from KB to MB depending on file size (f4c65dd)
+
+
+* **Documentation:** Updated architecture and GraphQL docs (4fb6822)
+* **Documentation:** Updated language used to remove redundancy (59707c5)
+* **Project Maintenance:** Added application URL to preview load messages (168fded)
+* **Project Maintenance:** Made examples in Commitizen generic (c43e2e6)
+* **Project Maintenance:** Updated project documentation to account for React hook usage and removed Conditions project references (3edb55a)
+
+
+### applicationDialog
+
+* **Features:** applies consistant style to buttons on the dialogs (b4e98fd)
+
+
+### datePicker
+
+* **Code Formatting:** removes commeny (911a089)
+
+
+### dateSlider
+
+* **Features:** applies improvement suggestions (d801e46)
+* **Features:** sets dates to be on the first of the month (76add27)
+* **Bug Fixes:** checks for null instead of falsey when sending the date to the reducer (1565415)
+
+
+### english.json
+
+* **Features:** adds new search result feedback entries to english.json (1122319)
+* **Bug Fixes:** added commas to english no search results messages (fe7b492)
+* **Bug Fixes:** updated hyperlink (118a853)
+
+
+### english.json, frech.json, Dropdown/index
+
+* **Bug Fixes:** updated language key: none -> select; updated code (d16d9c9)
+
+
+### english.json, french.json
+
+* **Features:** added new "none" entry to dropdown language object (7c1a3fa)
+
+
+### ImageButton/index
+
+* **Bug Fixes:** changed blur value on boxShadow back, so shadow is soft again (143b26e)
+
+
+### NoResultsStatusMessages/index
+
+* **Features:** added new component to handle displaying no-results status mess (4c45b7d)
+
+
+### pages/Search
+
+* **Features:** moved FilterChipsPanel down below the Applications component (e787a3b)
+
+
+### pages/Search; components/FilterChipsPanel
+
+* **Features:** added rudimentary FilterChipsPanel component and up (70777c1)
+
+
+### readme
+
+* **Documentation:** Added a .env example and note (a32addf)
+
+
+### reducer
+
+* **Features:** renames searched cleared to removed (53c5571)
+
+
+### resultDialog
+
+* **Bug Fixes:** fixes alignment of button section (75a69a0)
+
+
+### smallButtons
+
+* **Features:** adds code to clear filters when back button is clicked (3959bb2)
+* **Bug Fixes:** fixes an issue where the button was calling the wrong reducer fn (5366da6)
+
+
+### TreeMapPanel
+
+* **Features:** fixed indentation (bf5ad0e)
+
+
+### TreeMapPanel/index
+
+* **Features:** slimmed down TreeMapPanel component code now that it is using NoResultsSta (88c4e8b)
+* **Features:** refactored rendering logic to show different search messages (440c2bb)
+
 # [1.0.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v1.0.0) (2021-04-30)
 
 
