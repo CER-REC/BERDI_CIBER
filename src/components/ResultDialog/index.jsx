@@ -17,6 +17,7 @@ import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
 import DataNotice from './DataNotice';
 import styles from './styles';
+import PDFPreviewer from './PDFPreviewer';
 
 const useStyles = makeStyles(styles);
 
@@ -146,10 +147,10 @@ const ResultDialog = ({ open, onClose, data }) => {
       </Grid>
 
       {/* Preview */}
-      <Grid className={classes.previewData}>
-        <Typography component="strong">{intl.formatMessage({ id: 'components.resultDialog.previewTitle' })}</Typography>
-        <Typography>{intl.formatMessage({ id: 'components.resultDialog.previewText' })}</Typography>
-      </Grid>
+      <PDFPreviewer
+        pdfURL={data.pdfURL}
+        pageNumber={data.pageNumber}
+      />
 
       {/* Content */}
       <Grid
