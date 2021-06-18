@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: '100%',
+    width: '90%',
     height: '100%',
+    alignSelf: 'center',
   },
 }));
 
@@ -13,16 +14,12 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const classes = useStyles();
   const fullURL = `${pdfURL}#page=${pageNumber}`;
   return (
-    // TODO: <object><embed>, or just <embed>? Or just <object>?
     <object
       className={classes.root}
       data={fullURL}
       type="application/pdf"
     >
-      <embed
-        src={fullURL}
-        type="application/pdf"
-      />
+      pdf-content
     </object>
   );
 };

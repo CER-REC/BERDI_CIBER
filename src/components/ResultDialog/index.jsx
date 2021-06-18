@@ -121,9 +121,10 @@ const ResultDialog = ({ open, onClose, data }) => {
   return (
     <Dialog
       className="ResultDialog"
+      classes={{ paper: classes.dialog }}
       open={open}
       onClose={onClose}
-      maxWidth="md"
+      maxWidth="lg"
       fullWidth
     >
       {/* Header */}

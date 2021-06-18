@@ -83,4 +83,7 @@ export default (theme) => ({
     fontWeight: '600',
     padding: '0 20px 20px 20px',
   },
+  dialog: {
+    height: '90%',
+  },
 });
