@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: '90%',
+    width: '93%',
     height: '100%',
     alignSelf: 'center',
   },

@@ -141,12 +141,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         </Grid>
       </Grid>
 
-      <Grid>
-        <Typography className={classes.disclaimer}>
-          {intl.formatMessage({ id: 'components.resultDialog.disclaimer' })}
-        </Typography>
-      </Grid>
-
       {/* Preview */}
       <PDFPreviewer
         pdfURL={data.pdfURL}
