@@ -78,11 +78,6 @@ export default (theme) => ({
   pdfLink: {
     '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
   },
-  disclaimer: {
-    fontStyle: 'italic',
-    fontWeight: '600',
-    padding: '0 20px 20px 20px',
-  },
   dialog: {
     height: '90%',
   },
