@@ -3,7 +3,6 @@ module.exports = {
     '../documentation/Introduction/*stories.jsx',
     '../documentation/**/*stories.jsx',
     '../src/**/*stories.jsx',
-    '../src/components/LoadingIndicator/stories.jsx',
   ],
   addons: [
     '@storybook/addon-docs',

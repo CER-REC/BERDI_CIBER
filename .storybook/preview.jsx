@@ -14,6 +14,9 @@ import '@formatjs/intl-relativetimeformat/locale-data/fr';
 import { lang } from '../src/constants';
 import i18nMessages from '../src/i18n';
 import theme from '../src/containers/App/theme';
+import { CONFIGURATION } from '../src/hooks/queries';
+import client from '../src/tests/mocks/apolloClient';
+import getI18NMessages from '../src/utilities/getI18NMessages';
 import withWETTemplate from './addon-WET-template';
 
 const locales = Object.keys(i18nMessages);
@@ -35,11 +38,21 @@ const viewports = {
     styles: { width: '768px', height: '100%' },
   },
 };
+const { configuration: { translations } } = client.readQuery({ query: CONFIGURATION });
+const apiI18NMessages = getI18NMessages(translations);
+const messages = {};
+
+locales.forEach((locale) => {
+  messages[locale] = {
+    ...apiI18NMessages[locale],
+    ...i18nMessages[locale],
+  };
+});
 
 setIntlConfig({
   locales,
   defaultLocale: lang,
-  getMessages: (locale) => i18nMessages[locale],
+  getMessages: (locale) => messages[locale],
 });
 
 configureReadme({
