@@ -128,10 +128,7 @@
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original.",
       "figureOccursOnPage": "La figure est à la page : ",
       "tableOccursOnPage": "Le tableau est à la page : ",
-      "viewOriginalDocument": "Consulter le document original",
-      "previewTitle": "Aperçu des données",
-      "previewText": "Fonction en cours d’élaboration",
-      "disclaimer":"Avertissement : Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres des tableaux et des figures ont été traduits."
+      "viewOriginalDocument": "Consulter le document original"
     },
     "resultsList": {
       "dataButton": {

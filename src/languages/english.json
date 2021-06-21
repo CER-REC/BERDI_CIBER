@@ -120,7 +120,6 @@
       "noResultsWithDateRange": "Sorry, there are no results within this date range."
     },
     "resultDialog": {
-      "disclaimer": "Disclaimer: Data is shown in the original language it was filed in. Table and figure titles have been translated.",
       "downloadTable": "Download table",
       "downloadFigure": "Download figure",
       "seeMore": "See more...",
@@ -129,9 +128,7 @@
       "dataNotice": "We were unable to extract the table for download. Please view the original document.",
       "figureOccursOnPage": "Figure occurs on page: ",
       "tableOccursOnPage": "Table occurs on page: ",
-      "viewOriginalDocument": "View original document",
-      "previewTitle": "Preview data.",
-      "previewText": "Feature in development"
+      "viewOriginalDocument": "View original document"
     },
     "resultsList": {
       "dataButton": {
