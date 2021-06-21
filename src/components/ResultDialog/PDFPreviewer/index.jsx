@@ -7,6 +7,7 @@ const useStyles = makeStyles(() => ({
     width: '93%',
     height: '100%',
     alignSelf: 'center',
+    backgroundColor: '#525659',
   },
 }));
 
