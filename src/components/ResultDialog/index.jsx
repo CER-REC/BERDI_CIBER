@@ -25,50 +25,12 @@ const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [canSeeMoreTitles, setCanSeeMoreTitles] = useState(false);
-  const [canSeeMoreSections, setCanSeeMoreSections] = useState(false);
 
   useEffect(() => {
     if (open) {
       setCanSeeMoreTitles(false);
-      setCanSeeMoreSections(false);
     }
-  }, [open, setCanSeeMoreTitles, setCanSeeMoreSections]);
-
-  // TODO: make this a more generic function to be used whenever a see more button is needed.
-  const createEsaSection = (sections) => {
-    if (sections.length < 260) {
-      return (<Typography className={classes.esaSections}>{sections}</Typography>);
-    }
-    if (sections.length >= 260 && canSeeMoreSections) {
-      return (
-        <>
-          <Typography className={classes.esaSections}>
-            {sections}
-          </Typography>
-          <ButtonBase
-            className={classes.seeMoreButton}
-            onClick={() => setCanSeeMoreSections(false)}
-          >
-            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
-          </ButtonBase>
-        </>
-      );
-    }
-
-    return (
-      <>
-        <Typography className={classes.esaSections}>
-          {sections.substring(0, 260).concat('...')}
-        </Typography>
-        <ButtonBase
-          className={classes.seeMoreButton}
-          onClick={() => setCanSeeMoreSections(true)}
-        >
-          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
-        </ButtonBase>
-      </>
-    );
-  };
+  }, [open, setCanSeeMoreTitles]);
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title) => {
@@ -109,6 +71,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     reportView(data.type, data.title);
     onClose();
   }, [data, onClose]);
+
   const handleDownloadClick = useCallback(() => {
     reportDownload(data.title);
     onClose();
@@ -153,20 +116,33 @@ const ResultDialog = ({ open, onClose, data }) => {
         direction="column"
         className={classes.dialogContent}
       >
-        <Grid item>
-          {createTitleSection(data.title)}
-        </Grid>
 
         <Grid item>
-          <Typography className={classes.esaSectionTitle}>
-            {intl.formatMessage({ id: 'components.resultDialog.esaSectionTitle' })}
-          </Typography>
-          {createEsaSection(data.esaSections)}
+          <b>project</b>
+        </Grid>
+        <Grid item>
+          {createTitleSection(data.title)}
         </Grid>
 
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
       </Grid>
 
+      <Grid item>
+        {`${<b>Found on page:</b>} ${data.pageNumber} of 999`}
+      </Grid>
+      <Grid item>
+        <b>Original PDF:</b>
+        <a href={data.pdfURL} alt="pdfLink">{data.pdfURL}</a>
+      </Grid>
+      <Grid item>
+        <b>ESA folder:</b>
+      </Grid>
+      <Grid item>
+        <b>Project folder:</b>
+      </Grid>
+      <Grid item>
+        <b>Final decision:</b>
+      </Grid>
       {/* Footer */}
       <Grid
         container
