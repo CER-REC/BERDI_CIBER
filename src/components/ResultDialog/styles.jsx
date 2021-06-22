@@ -14,10 +14,9 @@ export default (theme) => ({
       fill: 'black',
     },
   },
-
   dialogFooter: {
-    backgroundColor: theme.palette.dialog.footer,
     padding: '10px 20px 10px 0',
+    justifyContent: 'flex-end',
     '& button': {
       borderRadius: '5px',
       textTransform: 'none',
@@ -25,12 +24,6 @@ export default (theme) => ({
     '& a': {
       whiteSpace: 'nowrap',
       textDecoration: 'none',
-    },
-  },
-  footerCounts: {
-    padding: '0 20px',
-    '& span': {
-      fontWeight: '900',
     },
   },
   dialogContent: {
@@ -54,10 +47,6 @@ export default (theme) => ({
     '& p': {
       fontStyle: 'italic',
     },
-  },
-  esaSectionTitle: {
-    padding: '1em 0 0 0',
-    fontWeight: '900',
   },
   seeMoreButton: {
     color: theme.palette.blue.dark,

@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
-import { reportDownload, reportView } from '../../utilities/analytics';
+import { reportDownload } from '../../utilities/analytics';
 import DataNotice from './DataNotice';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
@@ -67,11 +67,6 @@ const ResultDialog = ({ open, onClose, data }) => {
     );
   };
 
-  const handleViewClick = useCallback(() => {
-    reportView(data.type, data.title);
-    onClose();
-  }, [data, onClose]);
-
   const handleDownloadClick = useCallback(() => {
     reportDownload(data.title);
     onClose();
@@ -116,7 +111,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         direction="column"
         className={classes.dialogContent}
       >
-
         <Grid item>
           <b>project</b>
         </Grid>
@@ -128,7 +122,8 @@ const ResultDialog = ({ open, onClose, data }) => {
       </Grid>
 
       <Grid item>
-        {`${<b>Found on page:</b>} ${data.pageNumber} of 999`}
+        <b>Found on page:</b>
+        {`${data.pageNumber} of 999`}
       </Grid>
       <Grid item>
         <b>Original PDF:</b>
@@ -143,6 +138,7 @@ const ResultDialog = ({ open, onClose, data }) => {
       <Grid item>
         <b>Final decision:</b>
       </Grid>
+
       {/* Footer */}
       <Grid
         container
@@ -150,22 +146,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         className={classes.dialogFooter}
         justify="space-between"
       >
-        <Grid
-          item
-          spacing={1}
-          container
-          xs={4}
-          className={classes.footerCounts}
-        >
-          <Grid item>
-            <Typography>
-              {data.type === 'FIGURE'
-                ? intl.formatMessage({ id: 'components.resultDialog.figureOccursOnPage' })
-                : intl.formatMessage({ id: 'components.resultDialog.tableOccursOnPage' })}
-              <span>{data.pageNumber}</span>
-            </Typography>
-          </Grid>
-        </Grid>
 
         {/* Buttons */}
         <Grid
@@ -177,28 +157,6 @@ const ResultDialog = ({ open, onClose, data }) => {
           justify="flex-end"
           className={classes.buttons}
         >
-
-          {data.pdfURL && (
-            <Grid item>
-              <Button
-                onClick={handleViewClick}
-                color="primary"
-                variant="outlined"
-              >
-                <Typography>
-                  <a
-                    className={classes.pdfLink}
-                    href={data.pdfURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.resultDialog.viewOriginalDocument' })}
-                  </a>
-                </Typography>
-              </Button>
-            </Grid>
-          )}
-
           {data.url && (
             <Grid item>
               <Button

@@ -126,9 +126,7 @@
       "seeLess": "See less...",
       "esaSectionTitle": "ESA Section",
       "dataNotice": "We were unable to extract the table for download. Please view the original document.",
-      "figureOccursOnPage": "Figure occurs on page: ",
-      "tableOccursOnPage": "Table occurs on page: ",
-      "viewOriginalDocument": "View original document"
+      "foundOnPage": "Found on page:"
     },
     "resultsList": {
       "dataButton": {
