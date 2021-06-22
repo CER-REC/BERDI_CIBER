@@ -36,13 +36,13 @@ const ResultDialog = ({ open, onClose, data }) => {
   const createTitleSection = (title) => {
     if (title.length < 150) {
       return (
-        <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+        <Typography className={classes.itemTitle}>{title}</Typography>
       );
     }
     if (title.length >= 150 && canSeeMoreTitles) {
       return (
         <>
-          <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+          <Typography className={classes.itemTitle}>{title}</Typography>
           <ButtonBase
             className={classes.seeMoreButton}
             onClick={() => setCanSeeMoreTitles(false)}
@@ -54,7 +54,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     }
     return (
       <>
-        <Typography variant="h6" style={{ display: 'inline' }}>
+        <Typography className={classes.itemTitle}>
           {title.substring(0, 150).concat('...')}
         </Typography>
         <ButtonBase
@@ -112,31 +112,49 @@ const ResultDialog = ({ open, onClose, data }) => {
         className={classes.dialogContent}
       >
         <Grid item>
-          <b>project</b>
+          <Typography className={classes.dialogLabel} style={{ paddingTop: '10px' }}>
+            {data.project || 'project placeholder'}
+          </Typography>
         </Grid>
-        <Grid item>
+
+        <Grid item style={{ paddingBottom: '20px' }}>
           {createTitleSection(data.title)}
         </Grid>
 
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
-      </Grid>
 
-      <Grid item>
-        <b>Found on page:</b>
-        {`${data.pageNumber} of 999`}
-      </Grid>
-      <Grid item>
-        <b>Original PDF:</b>
-        <a href={data.pdfURL} alt="pdfLink">{data.pdfURL}</a>
-      </Grid>
-      <Grid item>
-        <b>ESA folder:</b>
-      </Grid>
-      <Grid item>
-        <b>Project folder:</b>
-      </Grid>
-      <Grid item>
-        <b>Final decision:</b>
+        <Grid item container>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
+          </Typography>
+          <Typography style={{ fontSize: 16 }}>
+            {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
+          </Typography>
+        </Grid>
+        <Grid item container>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
+          </Typography>
+          <a href={data.pdfURL} alt="pdfLink">{data.pdfURL}</a>
+        </Grid>
+        <Grid item container>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
+          </Typography>
+          <a href={data.pdfURL} alt="esaFolderLink">{data.pdfURL}</a>
+        </Grid>
+        <Grid item container>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
+          </Typography>
+          <a href={data.pdfURL} alt="projectFolderLink">{data.pdfURL}</a>
+        </Grid>
+        <Grid item container>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
+          </Typography>
+          <a href={data.pdfURL} alt="finalDecisionLink">{data.pdfURL}</a>
+        </Grid>
       </Grid>
 
       {/* Footer */}
@@ -201,6 +219,8 @@ ResultDialog.propTypes = {
     pdfURL: PropTypes.string,
     type: PropTypes.string,
     pageNumber: PropTypes.number,
+    pageCount: PropTypes.number,
+    project: PropTypes.string,
   }),
 };
 

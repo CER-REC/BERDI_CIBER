@@ -15,7 +15,7 @@ export default (theme) => ({
     },
   },
   dialogFooter: {
-    padding: '10px 20px 10px 0',
+    padding: '0 40px 10px 0',
     justifyContent: 'flex-end',
     '& button': {
       borderRadius: '5px',
@@ -27,12 +27,12 @@ export default (theme) => ({
     },
   },
   dialogContent: {
-    marginBottom: '20px',
     padding: '0 20px',
     '& h6': {
       textTransform: 'uppercase',
       fontWeight: 'normal',
       color: '#434343',
+      paddingRight: '40px',
     },
   },
   previewData: {
@@ -55,10 +55,6 @@ export default (theme) => ({
     verticalAlign: 'unset',
     paddingLeft: '1em',
   },
-  esaSections: {
-    paddingTop: '0',
-    display: 'inline',
-  },
   buttons: {
     '& a': {
       textTransform: 'none',
@@ -69,5 +65,15 @@ export default (theme) => ({
   },
   dialog: {
     height: '90%',
+  },
+  itemTitle: {
+    fontSize: 24,
+    paddingRight: '250px',
+    fontWeight: '200',
+  },
+  dialogLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingRight: '30px',
   },
 });
