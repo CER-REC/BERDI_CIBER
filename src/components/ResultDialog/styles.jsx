@@ -62,6 +62,9 @@ export default (theme) => ({
   dialogContent: {
     padding: '0 38px',
     marginBottom: '-10px',
+    '& a, a:hover, a:visited, a:active': {
+      color: 'inherit',
+    },
   },
   dialogProject: {
     fontSize: 16,
@@ -72,7 +75,7 @@ export default (theme) => ({
   },
   dialogTitle: {
     fontSize: 24,
-    paddingRight: '400px',
+    paddingRight: '350px',
     fontWeight: '200',
   },
   dialogLabel: {
