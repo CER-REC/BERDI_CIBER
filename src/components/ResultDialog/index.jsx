@@ -36,13 +36,13 @@ const ResultDialog = ({ open, onClose, data }) => {
   const createTitleSection = (title) => {
     if (title.length < 150) {
       return (
-        <Typography className={classes.itemTitle}>{title}</Typography>
+        <Typography className={classes.dialogTitle}>{title}</Typography>
       );
     }
     if (title.length >= 150 && canSeeMoreTitles) {
       return (
         <>
-          <Typography className={classes.itemTitle}>{title}</Typography>
+          <Typography className={classes.dialogTitle}>{title}</Typography>
           <ButtonBase
             className={classes.seeMoreButton}
             onClick={() => setCanSeeMoreTitles(false)}
@@ -54,7 +54,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     }
     return (
       <>
-        <Typography className={classes.itemTitle}>
+        <Typography className={classes.dialogTitle}>
           {title.substring(0, 150).concat('...')}
         </Typography>
         <ButtonBase
@@ -90,7 +90,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         item
         direction="column"
-        className={classes.topRight}
+        className={classes.dialogHeader}
       >
         <Grid item>
           <IconButton aria-label="close" onClick={onClose}>
@@ -110,9 +110,10 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         direction="column"
         className={classes.dialogContent}
+        sm
       >
-        <Grid item>
-          <Typography className={classes.dialogLabel} style={{ paddingTop: '10px' }}>
+        <Grid item container>
+          <Typography className={classes.dialogProject}>
             {data.project || 'project placeholder'}
           </Typography>
         </Grid>
@@ -164,7 +165,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         className={classes.dialogFooter}
         justify="space-between"
       >
-
         {/* Buttons */}
         <Grid
           item

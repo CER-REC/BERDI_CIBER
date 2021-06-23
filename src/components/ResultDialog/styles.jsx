@@ -6,12 +6,14 @@ export default (theme) => ({
       verticalAlign: 'text-top',
     },
   },
-  topRight: {
+  dialogHeader: {
     '& div': {
       textAlign: 'right',
+      marginBottom: '-5px',
     },
     '& button': {
       fill: 'black',
+      padding: '10px',
     },
   },
   dialogFooter: {
@@ -24,15 +26,6 @@ export default (theme) => ({
     '& a': {
       whiteSpace: 'nowrap',
       textDecoration: 'none',
-    },
-  },
-  dialogContent: {
-    padding: '0 20px',
-    '& h6': {
-      textTransform: 'uppercase',
-      fontWeight: 'normal',
-      color: '#434343',
-      paddingRight: '40px',
     },
   },
   previewData: {
@@ -66,14 +59,27 @@ export default (theme) => ({
   dialog: {
     height: '90%',
   },
-  itemTitle: {
+  dialogContent: {
+    padding: '0 38px',
+    marginBottom: '-10px',
+  },
+  dialogProject: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingTop: '10px',
+    width: '100%',
+    textAlign: 'left',
+  },
+  dialogTitle: {
     fontSize: 24,
-    paddingRight: '250px',
+    paddingRight: '400px',
     fontWeight: '200',
   },
   dialogLabel: {
     fontSize: 16,
     fontWeight: 'bold',
-    paddingRight: '30px',
+    marginRight: '15px',
+    width: '10%',
+    textAlign: 'right',
   },
 });
