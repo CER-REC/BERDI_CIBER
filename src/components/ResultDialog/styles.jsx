@@ -1,10 +1,10 @@
 export default (theme) => ({
   downloadIcon: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+    justifyContent: 'center',
     overflow: 'visible',
-    marginRight: '5px',
-    '& img': {
-      verticalAlign: 'text-top',
-    },
   },
   dialogHeader: {
     '& div': {
@@ -17,7 +17,7 @@ export default (theme) => ({
     },
   },
   dialogFooter: {
-    padding: '0 40px 10px 0',
+    padding: '0 40px 18px 0',
     justifyContent: 'flex-end',
     width: '100%',
   },
@@ -40,7 +40,7 @@ export default (theme) => ({
     paddingLeft: '1em',
   },
   dialog: {
-    height: '90%',
+    height: '95%',
   },
   dialogContent: {
     padding: '0 38px',
