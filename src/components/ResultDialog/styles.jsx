@@ -19,26 +19,17 @@ export default (theme) => ({
   dialogFooter: {
     padding: '0 40px 10px 0',
     justifyContent: 'flex-end',
+    width: '100%',
+  },
+  dialogFooterButtons: {
+    width: '20%',
     '& button': {
       borderRadius: '5px',
-      textTransform: 'none',
+      width: '100%',
     },
-    '& a': {
-      whiteSpace: 'nowrap',
+    '& a, a:hover, a:visited, a:active': {
       textDecoration: 'none',
-    },
-  },
-  previewData: {
-    backgroundColor: '#EDEDED',
-    margin: '0 20px 20px 20px',
-    border: '2px dashed black',
-    textAlign: 'center',
-    padding: '5% 0',
-    '& strong': {
-      fontWeight: '700',
-    },
-    '& p': {
-      fontStyle: 'italic',
+      fontSize: 15,
     },
   },
   seeMoreButton: {
@@ -47,14 +38,6 @@ export default (theme) => ({
     fontFamily: theme.typography.fontFamily,
     verticalAlign: 'unset',
     paddingLeft: '1em',
-  },
-  buttons: {
-    '& a': {
-      textTransform: 'none',
-    },
-  },
-  pdfLink: {
-    '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
   },
   dialog: {
     height: '90%',

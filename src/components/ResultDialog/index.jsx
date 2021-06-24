@@ -163,47 +163,39 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         wrap="nowrap"
         className={classes.dialogFooter}
-        justify="space-between"
       >
-        {/* Buttons */}
-        <Grid
-          item
-          spacing={1}
-          container
-          wrap="nowrap"
-          xs={8}
-          justify="flex-end"
-          className={classes.buttons}
-        >
-          {data.url && (
-            <Grid item>
-              <Button
-                onClick={handleDownloadClick}
-                color="primary"
-                variant="contained"
-              >
-                <Icon className={classes.downloadIcon}>
-                  <img
-                    src={downloadIcon}
-                    alt="download button"
-                  />
-                </Icon>
-                <Typography>
-                  <a
-                    href={data.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: 'white' }}
-                  >
-                    {data.type === 'FIGURE'
-                      ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
-                      : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
-                  </a>
-                </Typography>
-              </Button>
-            </Grid>
-          )}
-        </Grid>
+        {data.url && (
+          <Grid
+            item
+            className={classes.dialogFooterButtons}
+          >
+            <Button
+              onClick={handleDownloadClick}
+              color="primary"
+              variant="contained"
+              disableElevation
+            >
+              <Icon className={classes.downloadIcon}>
+                <img
+                  src={downloadIcon}
+                  alt="download button"
+                />
+              </Icon>
+              <Typography>
+                <a
+                  href={data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'white' }}
+                >
+                  {data.type === 'FIGURE'
+                    ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
+                    : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
+                </a>
+              </Typography>
+            </Button>
+          </Grid>
+        )}
       </Grid>
     </Dialog>
   );
