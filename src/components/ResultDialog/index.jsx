@@ -136,7 +136,7 @@ const ResultDialog = ({ open, onClose, data }) => {
           <Typography className={classes.dialogLabel}>
             {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
           </Typography>
-          <a href={data.pdfURL} alt="pdfLink">{data.pdfURL}</a>
+          <a href={data.pdfURL} alt="pdfLink">{data.pdfName}</a>
         </Grid>
         <Grid item container>
           <Typography className={classes.dialogLabel}>
@@ -206,13 +206,16 @@ ResultDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   data: PropTypes.shape({
     title: PropTypes.string,
-    esaSections: PropTypes.string,
     url: PropTypes.string,
+    pdfName: PropTypes.string,
     pdfURL: PropTypes.string,
     type: PropTypes.string,
     pageNumber: PropTypes.number,
     pageCount: PropTypes.number,
     project: PropTypes.string,
+    esaFolderURL: PropTypes.string,
+    projectFolderURL: PropTypes.string,
+    finalDecisionURL: PropTypes.string,
   }),
 };
 
