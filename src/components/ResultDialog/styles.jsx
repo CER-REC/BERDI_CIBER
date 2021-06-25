@@ -17,9 +17,10 @@ export default (theme) => ({
     },
   },
   dialogFooter: {
-    padding: '0 40px 18px 0',
+    padding: '0 40px 15px 0',
     justifyContent: 'flex-end',
     width: '100%',
+    height: '8%',
   },
   dialogFooterButtons: {
     width: '20%',

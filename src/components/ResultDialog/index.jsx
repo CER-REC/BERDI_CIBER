@@ -142,19 +142,19 @@ const ResultDialog = ({ open, onClose, data }) => {
           <Typography className={classes.dialogLabel}>
             {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
           </Typography>
-          <a href={data.pdfURL} alt="esaFolderLink">{data.pdfURL}</a>
+          <a href={data.pdfURL} alt="esaFolderLink">placeholder url</a>
         </Grid>
         <Grid item container>
           <Typography className={classes.dialogLabel}>
             {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
           </Typography>
-          <a href={data.pdfURL} alt="projectFolderLink">{data.pdfURL}</a>
+          <a href={data.pdfURL} alt="projectFolderLink">placeholder url</a>
         </Grid>
         <Grid item container>
           <Typography className={classes.dialogLabel}>
             {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
           </Typography>
-          <a href={data.pdfURL} alt="finalDecisionLink">{data.pdfURL}</a>
+          <a href={data.pdfURL} alt="finalDecisionLink">placeholder url</a>
         </Grid>
       </Grid>
 
