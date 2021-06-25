@@ -85,7 +85,7 @@ export const SEARCH = gql`
       shortName
       companyName
       commodity
-      regdocsURL
+      applicationURL
       consultants
       status
       type
@@ -113,10 +113,13 @@ export const SEARCH = gql`
         title
         esaSections
         pageNumber
+        totalPageCount
         pdfURL
         pdfName
         type
         url
+        esaFolderUrl
+        finalDecisionUrl
         application {
           name
           consultants
