@@ -124,37 +124,36 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
 
-        <Grid item container>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
-          </Typography>
-          <Typography style={{ fontSize: 16 }}>
-            {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
-          </Typography>
-        </Grid>
-        <Grid item container>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
-          </Typography>
-          <a href={data.pdfURL} alt="pdfLink">{data.pdfName}</a>
-        </Grid>
-        <Grid item container>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
-          </Typography>
-          <a href={data.pdfURL} alt="esaFolderLink">placeholder url</a>
-        </Grid>
-        <Grid item container>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
-          </Typography>
-          <a href={data.pdfURL} alt="projectFolderLink">placeholder url</a>
-        </Grid>
-        <Grid item container>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
-          </Typography>
-          <a href={data.pdfURL} alt="finalDecisionLink">placeholder url</a>
+        <Grid item container direction="row">
+          {/* Data labels */}
+          <Grid item container direction="column" wrap className={classes.dialogDataContainer}>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
+            </Typography>
+          </Grid>
+
+          {/* Data items */}
+          <Grid item container direction="column" wrap className={classes.dialogDataContainer}>
+            <Typography style={{ fontSize: 16 }}>
+              {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
+            </Typography>
+            <a href={data.pdfURL} alt="pdfLink">{data.pdfName}</a>
+            <a href={data.pdfURL} alt="esaFolderLink">placeholder url</a>
+            <a href={data.pdfURL} alt="projectFolderLink">placeholder url</a>
+            <a href={data.pdfURL} alt="finalDecisionLink">placeholder url</a>
+          </Grid>
         </Grid>
       </Grid>
 

@@ -66,7 +66,9 @@ export default (theme) => ({
     fontSize: 16,
     fontWeight: 'bold',
     marginRight: '15px',
-    width: '10%',
     textAlign: 'right',
+  },
+  dialogDataContainer: {
+    width: 'unset',
   },
 });

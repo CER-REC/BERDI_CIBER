@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const classes = useStyles();
-  const fullURL = `${pdfURL}#page=${pageNumber}#view=FitV`;
+  const fullURL = `${pdfURL}#page=${pageNumber}&view=Fit`;
   return (
     <object
       className={classes.root}
