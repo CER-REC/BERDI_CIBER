@@ -128,7 +128,8 @@
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original.",
       "figureOccursOnPage": "La figure est à la page : ",
       "tableOccursOnPage": "Le tableau est à la page : ",
-      "viewOriginalDocument": "Consulter le document original"
+      "viewOriginalDocument": "Consulter le document original",
+      "failedToLoad": "placeholder"
     },
     "resultsList": {
       "dataButton": {
