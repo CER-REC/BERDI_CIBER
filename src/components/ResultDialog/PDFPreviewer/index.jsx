@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const classes = useStyles();
-  const fullURL = `${pdfURL}#page=${pageNumber}`;
+  const fullURL = `${pdfURL}#page=${pageNumber}&pageMode=thumbs`;
   return (
     <object
       className={classes.root}
