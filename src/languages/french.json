@@ -130,7 +130,8 @@
       "originalPDF": "placeholder",
       "esaFolder": "placeholder",
       "projectFolder": "placeholder",
-      "finalDecision": "placeholder"
+      "finalDecision": "placeholder",
+      "failedToLoad": "placeholder"
     },
     "resultsList": {
       "dataButton": {

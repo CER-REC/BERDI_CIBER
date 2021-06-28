@@ -1,27 +1,51 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
+import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
+import LoadingIndicator from '../../LoadingIndicator';
 
 const useStyles = makeStyles(() => ({
   root: {
     width: '94%',
     height: '100%',
     alignSelf: 'center',
-    backgroundColor: '#525659',
+  },
+  loading: {
+    height: 0,
+  },
+  loaded: {
+    height: '100%',
   },
 }));
 
 const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const classes = useStyles();
-  const fullURL = `${pdfURL}#page=${pageNumber}&view=Fit`;
+  const intl = useIntl();
+  const [isLoading, setLoading] = useState(true);
+  const handleLoad = () => setLoading(false);
+  const fullURL = `${pdfURL}#page=${pageNumber}&pageMode=thumbs&view=fit&zoom=page-fit`;
+  const className = isLoading ? classes.loading : classes.loaded;
+
   return (
-    <object
-      className={classes.root}
-      data={fullURL}
-      type="application/pdf"
-    >
-      pdf-content
-    </object>
+    <div className={classes.root}>
+      {isLoading && (
+        <div style={{ height: '100%', display: 'flex' }}>
+          <LoadingIndicator type="app" />
+        </div>
+      )}
+      <object
+        className={className}
+        data={fullURL}
+        width="100%"
+        height="100%"
+        type="application/pdf"
+        onLoad={handleLoad}
+      >
+        <Typography>
+          {intl.formatMessage({ id: 'components.resultDialog.failedToLoad' })}
+        </Typography>
+      </object>
+    </div>
   );
 };
 
