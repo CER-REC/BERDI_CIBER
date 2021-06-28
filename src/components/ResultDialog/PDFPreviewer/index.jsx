@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import { Typography } from '@material-ui/core';
 import LoadingIndicator from '../../LoadingIndicator';
 
 const useStyles = makeStyles(() => ({
