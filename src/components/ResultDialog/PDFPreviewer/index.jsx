@@ -9,12 +9,7 @@ const useStyles = makeStyles(() => ({
     width: '94%',
     height: '100%',
     alignSelf: 'center',
-  },
-  loading: {
-    height: 0,
-  },
-  loaded: {
-    height: '100%',
+    overflow: 'hidden',
   },
 }));
 
@@ -23,8 +18,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const intl = useIntl();
   const [isLoading, setLoading] = useState(true);
   const handleLoad = () => setLoading(false);
-  const fullURL = `${pdfURL}#page=${pageNumber}&pageMode=thumbs&view=fit&zoom=page-fit`;
-  const className = isLoading ? classes.loading : classes.loaded;
+  const fullURL = `${pdfURL}#page=${pageNumber}&pagemode=thumbs&view=fitV&zoom=page-fit`;
 
   return (
     <div className={classes.root}>
@@ -34,7 +28,6 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         </div>
       )}
       <object
-        className={className}
         data={fullURL}
         width="100%"
         height="100%"
