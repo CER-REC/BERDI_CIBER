@@ -11,11 +11,14 @@ import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
-import figureIcon from '../../images/figure.svg';
-import tableIcon from '../../images/table.svg';
 import { reportContent } from '../../utilities/analytics';
 import ResultDialog from '../ResultDialog';
 import PaginationBar from './PaginationBar';
+import PlaceHolderImage from './PlaceHolder.svg';
+import PlusIcon from './PlusIcon.svg';
+import EllipseIcon from './Ellipse.svg';
+import DownCaret from './DownCaret.svg';
+import MagnifyingGlass from './MagnifyingGlass.svg';
 
 const useStyles = makeStyles((theme) => ({
   imgSection: {
@@ -42,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tableHeader: {
     borderBottom: '1px solid black',
+    padding: '4px',
     '& p': {
       marginTop: '5px',
       borderRadius: '5px',
@@ -148,39 +152,52 @@ const SearchList = () => {
           <TableBody>
             {contents.map((content) => (
               <TableRow key={content.id}>
-                <TableCell component="th" scope="row" className={classes.tableHeader}>
-                  <Grid container>
 
-                    <Grid item xs={11}>
+                <TableCell component="th" scope="row" style={{ border: 'none' }} className={classes.tableHeader}>
+
+                  <Grid container direction="row" style={{ padding: '1em', boxShadow: '2px 2px 4px rgba(131,131,131,0.25)' }}>
+                    <Grid item xs={2}>
+                      <img alt="A generic table" src={PlaceHolderImage} style={{ width: '14em' }} />
+                      <img alt="A magnifying glass" src={MagnifyingGlass} style={{ transform: 'translate(110px, -50px)' }} />
+                    </Grid>
+                    <Grid item xs={8}>
                       {createTitleSection(content.title, content)}
                       <Typography variant="body2">
                         <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
                         {content.application.name}
                       </Typography>
                       <Typography variant="body2">
-                        <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
-                        {content.application.filingDate.substring(0, 10)}
+                        <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
+                        Placeholder
                       </Typography>
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.consultants' })}</span>
-                        {content.application.consultants}
-                      </Typography>
-                    </Grid>
 
-                    <Grid
-                      item
-                      xs={1}
-                      className={classes.imgSection}
-                    >
-                      <ButtonBase onClick={() => handleClickOpen(content)}>
-                        <img
-                          src={content.type === 'FIGURE' ? figureIcon : tableIcon}
-                          alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
-                        />
-                        <Typography variant="caption" component="p">
-                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'api.content.FIGURE' }) : intl.formatMessage({ id: 'api.content.TABLE' })}
-                        </Typography>
+                      <ButtonBase
+                        className={classes.seeMoreButton}
+                        style={{ paddingLeft: 0, marginTop: '1em' }}
+                        onClick={() => {}}
+                      >
+                        View more details...
+                        <img alt="Down caret" src={DownCaret} />
+
                       </ButtonBase>
+                    </Grid>
+                    <Grid container item direction="column" alignItems="flex-end" justify="space-around" xs={2}>
+                      <Grid container item direction="row" justify="space-between" alignItems="center" style={{ backgroundColor: '#D2EDEB', borderRadius: '5px', width: '100%', padding: '0 1em ' }}>
+
+                        <Grid item>
+                          <img alt="A plus icon" src={PlusIcon} style={{}} />
+                        </Grid>
+                        <Grid item>
+                          <p>
+                            Add to shelf
+                          </p>
+                        </Grid>
+
+                      </Grid>
+
+                      <Grid item>
+                        <img alt="Ellipse" src={EllipseIcon} />
+                      </Grid>
                     </Grid>
                   </Grid>
                 </TableCell>
