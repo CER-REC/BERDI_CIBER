@@ -7,8 +7,7 @@ import useConfig from './useConfig';
 import { SEARCH } from './queries';
 
 const hasVariables = (config) => (
-  config.searches
-  && config.applicationIds
+  config.applicationIds
   && config.regions
   && config.startDate
   && config.endDate
@@ -24,7 +23,7 @@ export default () => {
   const { config, config: { applicationIds, treemapApplicationIds }, configDispatch } = useConfig();
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
-      searches: config.searches,
+      search: config.search,
       applicationIds,
       regions: config.regions,
       startDate: toDateOnlyString(config.startDate),

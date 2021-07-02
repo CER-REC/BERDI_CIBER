@@ -9,8 +9,7 @@ const getValidEnums = (enums, validEnums) => {
 export const initialState = {
   // Page Name
   page: 'landing',
-  // A list of the terms to find in the application name, ESA section, or extracted tables
-  searches: [],
+  search: '',
   // A list of the application IDs to include
   applicationIds: [],
   // A list of the provinces to include
@@ -50,7 +49,7 @@ export const getReducer = (
       return {
         ...state,
         page: action.payload.page || initialState.page,
-        searches: action.payload.searches || initialState.searches,
+        search: action.payload.search || initialState.search,
         applicationIds: getValidEnums(action.payload.applicationIds, applicationIds),
         regions: getValidEnums(action.payload.regions, regions),
         startDate: action.payload.startDate || minDate,
@@ -67,7 +66,7 @@ export const getReducer = (
       return {
         ...state,
         page: action.payload || initialState.page,
-        searches: state.searches || initialState.searches,
+        search: state.search || initialState.search,
         applicationIds: state.applicationIds || initialState.applicationIds,
         regions: state.regions || initialState.regions,
         startDate: state.startDate || minDate,
@@ -80,19 +79,19 @@ export const getReducer = (
         searchIndex: state.searchIndex || initialState.searchIndex,
         fragment: initialState.fragment,
       };
-    case 'searches/changed':
+    case 'search/changed':
       return {
         ...state,
         page: 'search',
-        searches: action.payload || initialState.searches,
+        search: action.payload || initialState.search,
         searchIndex: 0,
         fragment: initialState.fragment,
       };
-    case 'searches/removed':
+    case 'search/removed':
       return {
         ...state,
         page: 'search',
-        searches: initialState.searches,
+        search: initialState.search,
         searchIndex: 0,
         fragment: initialState.fragment,
       };
