@@ -9,10 +9,9 @@ const NoResultsStatusMessages = () => {
   const intl = useIntl();
   const { config } = useConfig();
   const { minDate, maxDate } = useAPI();
-  const combinedSearches = config.searches.join(' ');
 
   // Assemble booleans to differentiate between states
-  const hasSearches = config.searches.length > 0;
+  const hasSearch = !!config.search;
 
   const hasFilter = config.applicationIds.length > 0 || config.regions.length > 0
     || config.commodities.length > 0 || config.projectTypes.length > 0
@@ -23,18 +22,18 @@ const NoResultsStatusMessages = () => {
 
   return (
     // Show no results
-    (!hasSearches && !hasFilter && !hasDateRange && (
+    (!hasSearch && !hasFilter && !hasDateRange && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {intl.formatMessage({ id: 'components.treeMapPanel.noResults' })}
       </Typography>
     ))
 
     // Show no results when using keyword search
-    || (hasSearches && !hasFilter && !hasDateRange && (
+    || (hasSearch && !hasFilter && !hasDateRange && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {
           intl.formatMessage({ id: 'components.treeMapPanel.noResultsFor' }, {
-            searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
+            search: (<strong style={{ fontWeight: '700' }}>{config.search}</strong>),
           })
         }
       </Typography>
@@ -42,7 +41,7 @@ const NoResultsStatusMessages = () => {
 
     // Show no results when using filters only
     // (Show this message regardless of date range)
-    || (!hasSearches && hasFilter && (
+    || (!hasSearch && hasFilter && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {intl.formatMessage({ id: 'components.treeMapPanel.noResultsWithFilters' })}
       </Typography>
@@ -50,29 +49,29 @@ const NoResultsStatusMessages = () => {
 
     // Show no results when using keyword search and filters
     // (Show this message regardless of date range)
-    || (hasSearches && hasFilter && (
+    || (hasSearch && hasFilter && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {
           intl.formatMessage({ id: 'components.treeMapPanel.noResultsForWithFilters' }, {
-            searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
+            search: (<strong style={{ fontWeight: '700' }}>{config.search}</strong>),
           })
         }
       </Typography>
     ))
 
     // Show no results when using keyword search and date range
-    || (hasSearches && !hasFilter && hasDateRange && (
+    || (hasSearch && !hasFilter && hasDateRange && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {
           intl.formatMessage({ id: 'components.treeMapPanel.noResultsForWithDateRange' }, {
-            searches: (<strong style={{ fontWeight: '700' }}>{combinedSearches}</strong>),
+            search: (<strong style={{ fontWeight: '700' }}>{config.search}</strong>),
           })
         }
       </Typography>
     ))
 
     // Show no results when using date range only
-    || (!hasSearches && !hasFilter && hasDateRange && (
+    || (!hasSearch && !hasFilter && hasDateRange && (
       <Typography variant="h6" style={{ fontWeight: '200' }}>
         {intl.formatMessage({ id: 'components.treeMapPanel.noResultsWithDateRange' })}
       </Typography>

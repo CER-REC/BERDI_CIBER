@@ -113,10 +113,10 @@
       "counts": "{tables, plural, =1 {1 table} other {# tables}} and {figures, plural, =1 {1 figure} other {# figures}} found",
       "boxSelect": "Select a box to filter by project and access project details.",
       "noResults": "Sorry, there are no results.",
-      "noResultsFor": "Sorry, there are no results for {searches}.",
+      "noResultsFor": "Sorry, there are no results for {search}.",
       "noResultsWithFilters": "Sorry, there are no results with these filters.",
-      "noResultsForWithFilters": "Sorry, there are no results for {searches} with these filters.",
-      "noResultsForWithDateRange": "Sorry, there are no results for {searches} within this date range.",
+      "noResultsForWithFilters": "Sorry, there are no results for {search} with these filters.",
+      "noResultsForWithDateRange": "Sorry, there are no results for {search} within this date range.",
       "noResultsWithDateRange": "Sorry, there are no results within this date range."
     },
     "resultDialog": {

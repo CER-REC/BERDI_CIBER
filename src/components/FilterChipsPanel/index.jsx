@@ -31,7 +31,7 @@ const useAssembledChipLabels = () => {
   const hasStartDate = config.startDate.getTime() !== minDate.getTime();
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
   return {
-    searches: [config.searches.join(' ')].filter(Boolean),
+    search: [config.search].filter(Boolean),
     applicationIds: config.applicationIds.map((item) => applicationIdLabels[item]),
     regions: config.regions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })),
     contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `api.content.${item}` })),
@@ -50,9 +50,15 @@ const FilterChipsPanel = () => {
 
   // Assemble new state on chip click
   const removeFilter = (chipType, index) => () => {
-    const newState = config[chipType]?.filter((_, configIndex) => index !== configIndex);
-    const action = (chipType === 'searches' || chipType === 'dateRange') ? 'removed' : 'changed';
-    configDispatch({ type: `${chipType}/${action}`, payload: newState });
+    if ((chipType === 'search') || (chipType === 'dateRange')) {
+      configDispatch({ type: `${chipType}/removed` });
+
+      return;
+    }
+
+    const newState = config[chipType].filter((_, configIndex) => index !== configIndex);
+
+    configDispatch({ type: `${chipType}/changed`, payload: newState });
   };
   return (
     Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (

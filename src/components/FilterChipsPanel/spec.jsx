@@ -7,7 +7,7 @@ describe('Components/FilterChipsPanel', () => {
   test('should render component', () => {
     const { container } = render(<FilterChipsPanel />, {
       config: {
-        searches: ['testSearch'],
+        search: 'testSearch',
       },
     });
     expect(container).not.toBeEmpty();
@@ -17,7 +17,7 @@ describe('Components/FilterChipsPanel', () => {
     const date = new Date();
     render(<FilterChipsPanel />, {
       config: {
-        searches: ['testSearch'],
+        search: 'testSearch',
         applicationIds: ['Application Test 1'],
         regions: ['AB'],
         contentTypes: ['TABLE'],
