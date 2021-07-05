@@ -14,7 +14,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
-import { reportDownload } from '../../utilities/analytics';
+import { reportDownload, reportView } from '../../utilities/analytics';
 import DataNotice from './DataNotice';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
@@ -67,6 +67,11 @@ const ResultDialog = ({ open, onClose, data }) => {
     );
   };
 
+  const handleViewClick = useCallback(() => {
+    reportView(data.type, data.title);
+    onClose();
+  }, [data, onClose]);
+
   const handleDownloadClick = useCallback(() => {
     reportDownload(data.title);
     onClose();
@@ -110,7 +115,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         direction="column"
         className={classes.dialogContent}
-        sm
       >
         <Grid item container>
           <Typography className={classes.dialogProject}>
@@ -145,14 +149,14 @@ const ResultDialog = ({ open, onClose, data }) => {
           </Grid>
 
           {/* Data items */}
-          <Grid item container direction="column" wrap className={classes.dialogDataContainer}>
+          <Grid item container direction="column" className={classes.dialogDataContainer}>
             <Typography style={{ fontSize: 16 }}>
               {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
             </Typography>
-            <a href={data.pdfURL} alt="pdfLink">{data.pdfName}</a>
-            <a href={data.pdfURL} alt="esaFolderLink">placeholder url</a>
-            <a href={data.pdfURL} alt="projectFolderLink">placeholder url</a>
-            <a href={data.pdfURL} alt="finalDecisionLink">placeholder url</a>
+            <a href={data.pdfURL} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.pdfName}</a>
+            <a href={data.pdfURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            <a href={data.pdfURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            <a href={data.pdfURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
           </Grid>
         </Grid>
       </Grid>

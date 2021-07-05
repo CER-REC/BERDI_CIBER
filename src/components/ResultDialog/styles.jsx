@@ -46,7 +46,7 @@ export default (theme) => ({
   dialogContent: {
     padding: '0 38px',
     marginBottom: '-10px',
-    '& a, a:hover, a:visited, a:active': {
+    '& a, a:hover, a:active': {
       color: 'inherit',
     },
   },
