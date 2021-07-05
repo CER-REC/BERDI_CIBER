@@ -29,7 +29,7 @@ export const CONFIGURATION = gql`
       id
       title
       esaSections
-      pageNumber
+      pdfPageNumber
       pdfURL
       type
       url
@@ -38,7 +38,7 @@ export const CONFIGURATION = gql`
       id
       title
       esaSections
-      pageNumber
+      pdfPageNumber
       pdfURL
       type
       url
@@ -47,7 +47,7 @@ export const CONFIGURATION = gql`
       id
       title
       esaSections
-      pageNumber
+      pdfPageNumber
       pdfURL
       type
       url
@@ -94,6 +94,7 @@ export const SEARCH = gql`
       tableCount(searches: $searches)
       figureCount(searches: $searches)
       url
+      finalDecisionURL
     }
     contentSearch(
       searches: $searches,
@@ -112,14 +113,13 @@ export const SEARCH = gql`
         id
         title
         esaSections
-        pageNumber
-        totalPageCount
+        pdfPageNumber
+        pdfPageCount
         pdfURL
         pdfName
         type
         url
-        esaFolderUrl
-        finalDecisionUrl
+        esaFolderURL
         application {
           name
           consultants
