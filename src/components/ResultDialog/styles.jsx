@@ -71,4 +71,7 @@ export default (theme) => ({
   dialogDataContainer: {
     width: 'unset',
   },
+  finalDecision: {
+    lineHeight: 1.8,
+  },
 });

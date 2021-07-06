@@ -129,7 +129,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         <Grid item container>
           {/* Data labels */}
-          <Grid item container direction="column" wrap className={classes.dialogDataContainer}>
+          <Grid item container direction="column" className={classes.dialogDataContainer}>
             <Typography className={classes.dialogLabel}>
               {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
             </Typography>
@@ -155,7 +155,13 @@ const ResultDialog = ({ open, onClose, data }) => {
             <a href={data.pdfURL} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.pdfName}</a>
             <a href={data.pdfURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
             <a href={data.pdfURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
-            <a href={data.pdfURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            {(data.finalDecisionURL
+              && <a href={data.pdfURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick} className={classes.finalDecision}>{data.finalDecisionURL}</a>)
+              || (
+                <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
+                  {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                </Typography>
+              )}
           </Grid>
         </Grid>
       </Grid>

@@ -130,6 +130,7 @@
       "esaFolder": "ESA folder:",
       "projectFolder": "Project folder:",
       "finalDecision": "Final decision:",
+      "pending": "Pending",
       "failedToLoad": "Failed to load"
     },
     "resultsList": {
