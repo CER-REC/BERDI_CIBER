@@ -127,7 +127,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
 
-        <Grid item container direction="row">
+        <Grid item container>
           {/* Data labels */}
           <Grid item container direction="column" wrap className={classes.dialogDataContainer}>
             <Typography className={classes.dialogLabel}>
