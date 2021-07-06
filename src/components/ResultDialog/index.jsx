@@ -69,8 +69,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   const handleViewClick = useCallback(() => {
     reportView(data.type, data.title);
-    onClose();
-  }, [data, onClose]);
+  }, [data]);
 
   const handleDownloadClick = useCallback(() => {
     reportDownload(data.title);
