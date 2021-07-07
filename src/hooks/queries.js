@@ -28,7 +28,6 @@ export const CONFIGURATION = gql`
     discovery0:content(id: 13025) {
       id
       title
-      esaSections
       pageNumber
       pdfURL
       type
@@ -37,7 +36,6 @@ export const CONFIGURATION = gql`
     discovery1:content(id: 16713) {
       id
       title
-      esaSections
       pageNumber
       pdfURL
       type
@@ -46,7 +44,6 @@ export const CONFIGURATION = gql`
     discovery2:content(id: 1376) {
       id
       title
-      esaSections
       pageNumber
       pdfURL
       type
@@ -111,7 +108,6 @@ export const SEARCH = gql`
       contents {
         id
         title
-        esaSections
         pageNumber
         pdfURL
         pdfName
