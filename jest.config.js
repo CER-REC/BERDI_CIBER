@@ -37,7 +37,8 @@ module.exports = {
   // A map from regular expressions to module names that allow to stub out
   // resources with a single module
   moduleNameMapper: {
-    '\\.(s?css|jpg|png)$': '<rootDir>/src/tests/emptyModule.js',
+    '\\.(s?css)$': '<rootDir>/src/tests/emptyModule.js',
+    '\\.(png|jp(e*)g|svg)$': '<rootDir>/src/tests/dataImage.js',
     '^react-spring/renderprops$': 'react-spring/renderprops.cjs',
   },
 
