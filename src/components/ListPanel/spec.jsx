@@ -13,39 +13,32 @@ describe('Components/ListPanel', () => {
     expect(container).not.toBeEmptyDOMElement();
   });
 
-  test('should show a chip for each filter applied', () => {
-    const date = new Date();
+  test('should show list of cards', () => {
     render(<ListPanel />, {
       config: {
-        searches: ['testSearch'],
-        applicationIds: ['Application Test 1'],
-        regions: ['AB'],
-        contentTypes: ['TABLE'],
-        projectTypes: ['LARGE'],
-        commodities: ['OIL'],
-        statuses: ['REVOKED'],
-        startDate: date,
-        endDate: date,
+        page: 'search',
+        searches: ['test search'],
       },
     });
-    const formattedDate = date.toLocaleDateString('en-CA', { year: 'numeric', month: 'short' });
-    expect(screen.getByText(/testSearch/)).toBeInTheDocument();
-    expect(screen.getByText(/Test1/)).toBeInTheDocument();
-    expect(screen.getByText('api.regions.AB')).toBeInTheDocument();
-    expect(screen.getByText('api.content.TABLE')).toBeInTheDocument();
-    expect(screen.getByText('api.projects.LARGE')).toBeInTheDocument();
-    expect(screen.getByText('api.commodities.OIL')).toBeInTheDocument();
-    expect(screen.getByText('api.statuses.REVOKED')).toBeInTheDocument();
-    expect(screen.getByText(`${formattedDate} - ${formattedDate}`)).toBeInTheDocument();
+    // expect(screen.getAllByRole('button').length).toBe(2);
+    expect(screen.getByText(/Figure 100/)).toBeInTheDocument();
+    // expect(screen.getByText(/testSearch/)).toBeInTheDocument();
+    // expect(screen.getByText(/Test1/)).toBeInTheDocument();
+    // expect(screen.getByText('api.regions.AB')).toBeInTheDocument();
+    // expect(screen.getByText('api.content.TABLE')).toBeInTheDocument();
+    // expect(screen.getByText('api.projects.LARGE')).toBeInTheDocument();
+    // expect(screen.getByText('api.commodities.OIL')).toBeInTheDocument();
+    // expect(screen.getByText('api.statuses.REVOKED')).toBeInTheDocument();
+    // expect(screen.getByText(`${formattedDate} - ${formattedDate}`)).toBeInTheDocument();
   });
 
-  test('chip should be deleted when clicked', () => {
-    render(<ListPanel />, {
-      config: {
-        regions: ['AB'],
-      },
-    });
-    fireEvent.click(screen.getByText('api.regions.AB'));
-    expect(screen.queryByText('api.regions.AB')).toBeNull();
-  });
+//   test('chip should be deleted when clicked', () => {
+//     render(<ListPanel />, {
+//       config: {
+//         regions: ['AB'],
+//       },
+//     });
+//     fireEvent.click(screen.getByText('api.regions.AB'));
+//     expect(screen.queryByText('api.regions.AB')).toBeNull();
+//   });
 });
