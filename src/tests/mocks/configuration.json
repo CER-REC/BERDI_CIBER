@@ -239,7 +239,7 @@
       "id": "1",
       "title": "Table Test 1",
       "esaSections": "Test 1 ESA Sections",
-      "pageNumber": 111,
+      "pdfPageNumber": 111,
       "pdfURL": "https://apps.cer-rec.gc.ca/",
       "type": "TABLE",
       "url": "http://localhost/berdi/csv/en/tables/test1.zip"
@@ -248,7 +248,7 @@
       "id": "2",
       "title": "Figure Test 1",
       "esaSections": "Test 1 ESA Sections",
-      "pageNumber": 9,
+      "pdfPageNumber": 9,
       "pdfURL": "https://apps.cer-rec.gc.ca/",
       "type": "FIGURE",
       "url": null
@@ -257,7 +257,7 @@
       "id": "13",
       "title": "Table Test 10",
       "esaSections": "Appendix 6: Aquatic Assessment",
-      "pageNumber": 1,
+      "pdfPageNumber": 1,
       "pdfURL": "https://apps.cer-rec.gc.ca/",
       "type": "TABLE",
       "url": "http://localhost/berdi/csv/en/tables/test10.zip"

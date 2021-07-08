@@ -1,63 +1,37 @@
 export default (theme) => ({
   downloadIcon: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    alignContent: 'center',
+    justifyContent: 'center',
     overflow: 'visible',
-    marginRight: '5px',
-    '& img': {
-      verticalAlign: 'text-top',
-    },
   },
-  topRight: {
+  dialogHeader: {
     '& div': {
       textAlign: 'right',
+      marginBottom: '-5px',
     },
     '& button': {
       fill: 'black',
+      padding: '10px',
     },
   },
-
   dialogFooter: {
-    backgroundColor: theme.palette.dialog.footer,
-    padding: '10px 20px 10px 0',
+    padding: '0 40px 15px 0',
+    justifyContent: 'flex-end',
+    width: '100%',
+    height: '8%',
+  },
+  dialogFooterButtons: {
+    width: '20%',
     '& button': {
       borderRadius: '5px',
-      textTransform: 'none',
+      width: '100%',
     },
-    '& a': {
-      whiteSpace: 'nowrap',
+    '& a, a:hover, a:visited, a:active': {
       textDecoration: 'none',
+      fontSize: 15,
     },
-  },
-  footerCounts: {
-    padding: '0 20px',
-    '& span': {
-      fontWeight: '900',
-    },
-  },
-  dialogContent: {
-    marginBottom: '20px',
-    padding: '0 20px',
-    '& h6': {
-      textTransform: 'uppercase',
-      fontWeight: 'normal',
-      color: '#434343',
-    },
-  },
-  previewData: {
-    backgroundColor: '#EDEDED',
-    margin: '0 20px 20px 20px',
-    border: '2px dashed black',
-    textAlign: 'center',
-    padding: '5% 0',
-    '& strong': {
-      fontWeight: '700',
-    },
-    '& p': {
-      fontStyle: 'italic',
-    },
-  },
-  esaSectionTitle: {
-    padding: '1em 0 0 0',
-    fontWeight: '900',
   },
   seeMoreButton: {
     color: theme.palette.blue.dark,
@@ -66,19 +40,38 @@ export default (theme) => ({
     verticalAlign: 'unset',
     paddingLeft: '1em',
   },
-  esaSections: {
-    paddingTop: '0',
-    display: 'inline',
+  dialog: {
+    height: '95%',
   },
-  buttons: {
-    '& a': {
-      textTransform: 'none',
+  dialogContent: {
+    padding: '0 38px',
+    marginBottom: '-10px',
+    '& a, a:hover, a:active': {
+      color: 'inherit',
     },
   },
-  pdfLink: {
-    '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
+  dialogProject: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingTop: '10px',
+    width: '100%',
+    textAlign: 'left',
   },
-  dialog: {
-    height: '90%',
+  dialogTitle: {
+    fontSize: 24,
+    paddingRight: '350px',
+    fontWeight: '200',
+  },
+  dialogLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginRight: '15px',
+    textAlign: 'right',
+  },
+  dialogDataContainer: {
+    width: 'unset',
+  },
+  finalDecision: {
+    lineHeight: 1.8,
   },
 });
