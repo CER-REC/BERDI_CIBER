@@ -68,6 +68,15 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 'bold',
     marginTop: '1em',
   },
+  imageSection: {
+    backgroundImage: `url(${PlaceHolderImage})`,
+    backgroundSize: 'cover',
+    maxHeight: '7em',
+    width: '95%',
+    '& div': {
+      marginRight: '1em',
+    },
+  },
 }));
 
 const SearchList = () => {
@@ -144,12 +153,23 @@ const SearchList = () => {
               <TableRow key={content.id}>
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
                   <Grid className="tableCellInner" container>
-                    <Grid item xs={2} onClick={() => handleClickOpen(content)}>
-                      <img alt="A generic table" src={PlaceHolderImage} style={{ width: '14em' }} />
-                      <img alt="A magnifying glass" src={MagnifyingGlass} style={{ transform: 'translate(110px, -50px)' }} />
+                    <Grid
+                      item
+                      container
+                      alignItems="flex-end"
+                      justify="flex-end"
+                      xs={3}
+                      md={2}
+                      xl={1}
+                      onClick={() => handleClickOpen(content)}
+                      className={classes.imageSection}
+                    >
+                      <Grid item>
+                        <img alt="A magnifying glass" src={MagnifyingGlass} />
+                      </Grid>
                     </Grid>
 
-                    <Grid item xs={8}>
+                    <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
                       {createTitleSection(content.title, content)}
                       <Typography variant="body2">
                         <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
