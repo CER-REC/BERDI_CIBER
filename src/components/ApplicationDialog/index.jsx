@@ -121,7 +121,7 @@ const ApplicationDialog = ({ data, onClose }) => {
 
         {/* Buttons */}
         <Grid item spacing={1} container wrap="nowrap" xs={8} justify="flex-end">
-          {data.regdocsURL && (
+          {data.applicationURL && (
             <Grid item>
               <Button
                 onClick={handleViewClick}
@@ -131,7 +131,7 @@ const ApplicationDialog = ({ data, onClose }) => {
                 <Typography>
                   <a
                     className={classes.folderLink}
-                    href={data.regdocsURL}
+                    href={data.applicationURL}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -179,7 +179,7 @@ ApplicationDialog.propTypes = {
     filingDate: PropTypes.string,
     shortName: PropTypes.string,
     url: PropTypes.string,
-    regdocsURL: PropTypes.string,
+    applicationURL: PropTypes.string,
     figureCount: PropTypes.number,
     tableCount: PropTypes.number,
     hearingOrder: PropTypes.string,

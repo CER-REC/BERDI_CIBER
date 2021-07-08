@@ -28,7 +28,8 @@ export const CONFIGURATION = gql`
     discovery0:content(id: 13025) {
       id
       title
-      pageNumber
+      esaSections
+      pdfPageNumber
       pdfURL
       type
       url
@@ -36,7 +37,8 @@ export const CONFIGURATION = gql`
     discovery1:content(id: 16713) {
       id
       title
-      pageNumber
+      esaSections
+      pdfPageNumber
       pdfURL
       type
       url
@@ -44,7 +46,8 @@ export const CONFIGURATION = gql`
     discovery2:content(id: 1376) {
       id
       title
-      pageNumber
+      esaSections
+      pdfPageNumber
       pdfURL
       type
       url
@@ -82,7 +85,7 @@ export const SEARCH = gql`
       shortName
       companyName
       commodity
-      regdocsURL
+      applicationURL
       consultants
       status
       type
@@ -91,6 +94,7 @@ export const SEARCH = gql`
       tableCount(searches: $searches)
       figureCount(searches: $searches)
       url
+      finalDecisionURL
     }
     contentSearch(
       searches: $searches,
@@ -108,11 +112,14 @@ export const SEARCH = gql`
       contents {
         id
         title
-        pageNumber
+        esaSections
+        pdfPageNumber
+        pdfPageCount
         pdfURL
         pdfName
         type
         url
+        esaFolderURL
         application {
           name
           consultants
