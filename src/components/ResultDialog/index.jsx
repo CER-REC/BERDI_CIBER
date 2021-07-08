@@ -25,62 +25,24 @@ const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [canSeeMoreTitles, setCanSeeMoreTitles] = useState(false);
-  const [canSeeMoreSections, setCanSeeMoreSections] = useState(false);
 
   useEffect(() => {
     if (open) {
       setCanSeeMoreTitles(false);
-      setCanSeeMoreSections(false);
     }
-  }, [open, setCanSeeMoreTitles, setCanSeeMoreSections]);
-
-  // TODO: make this a more generic function to be used whenever a see more button is needed.
-  const createEsaSection = (sections) => {
-    if (sections.length < 260) {
-      return (<Typography className={classes.esaSections}>{sections}</Typography>);
-    }
-    if (sections.length >= 260 && canSeeMoreSections) {
-      return (
-        <>
-          <Typography className={classes.esaSections}>
-            {sections}
-          </Typography>
-          <ButtonBase
-            className={classes.seeMoreButton}
-            onClick={() => setCanSeeMoreSections(false)}
-          >
-            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
-          </ButtonBase>
-        </>
-      );
-    }
-
-    return (
-      <>
-        <Typography className={classes.esaSections}>
-          {sections.substring(0, 260).concat('...')}
-        </Typography>
-        <ButtonBase
-          className={classes.seeMoreButton}
-          onClick={() => setCanSeeMoreSections(true)}
-        >
-          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
-        </ButtonBase>
-      </>
-    );
-  };
+  }, [open, setCanSeeMoreTitles]);
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title) => {
     if (title.length < 150) {
       return (
-        <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+        <Typography className={classes.dialogTitle}>{title}</Typography>
       );
     }
     if (title.length >= 150 && canSeeMoreTitles) {
       return (
         <>
-          <Typography variant="h6" style={{ display: 'inline' }}>{title}</Typography>
+          <Typography className={classes.dialogTitle}>{title}</Typography>
           <ButtonBase
             className={classes.seeMoreButton}
             onClick={() => setCanSeeMoreTitles(false)}
@@ -92,7 +54,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     }
     return (
       <>
-        <Typography variant="h6" style={{ display: 'inline' }}>
+        <Typography className={classes.dialogTitle}>
           {title.substring(0, 150).concat('...')}
         </Typography>
         <ButtonBase
@@ -107,8 +69,8 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   const handleViewClick = useCallback(() => {
     reportView(data.type, data.title);
-    onClose();
-  }, [data, onClose]);
+  }, [data]);
+
   const handleDownloadClick = useCallback(() => {
     reportDownload(data.title);
     onClose();
@@ -132,7 +94,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         item
         direction="column"
-        className={classes.topRight}
+        className={classes.dialogHeader}
       >
         <Grid item>
           <IconButton aria-label="close" onClick={onClose}>
@@ -153,18 +115,55 @@ const ResultDialog = ({ open, onClose, data }) => {
         direction="column"
         className={classes.dialogContent}
       >
-        <Grid item>
+        <Grid item container>
+          <Typography className={classes.dialogProject}>
+            {data.project || 'project placeholder'}
+          </Typography>
+        </Grid>
+
+        <Grid item style={{ paddingBottom: '20px' }}>
           {createTitleSection(data.title)}
         </Grid>
 
-        <Grid item>
-          <Typography className={classes.esaSectionTitle}>
-            {intl.formatMessage({ id: 'components.resultDialog.esaSectionTitle' })}
-          </Typography>
-          {createEsaSection(data.esaSections)}
-        </Grid>
-
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
+
+        <Grid item container>
+          {/* Data labels */}
+          <Grid item container direction="column" className={classes.dialogDataContainer}>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
+            </Typography>
+            <Typography className={classes.dialogLabel}>
+              {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
+            </Typography>
+          </Grid>
+
+          {/* Data items */}
+          <Grid item container direction="column" className={classes.dialogDataContainer}>
+            <Typography style={{ fontSize: 16 }}>
+              {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
+            </Typography>
+            <a href={data.pdfURL} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.pdfName}</a>
+            <a href={data.pdfURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            <a href={data.pdfURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            {(data.finalDecisionURL
+              && <a href={data.pdfURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick} className={classes.finalDecision}>{data.finalDecisionURL}</a>)
+              || (
+                <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
+                  {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                </Typography>
+              )}
+          </Grid>
+        </Grid>
       </Grid>
 
       {/* Footer */}
@@ -172,86 +171,39 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         wrap="nowrap"
         className={classes.dialogFooter}
-        justify="space-between"
       >
-        <Grid
-          item
-          spacing={1}
-          container
-          xs={4}
-          className={classes.footerCounts}
-        >
-          <Grid item>
-            <Typography>
-              {data.type === 'FIGURE'
-                ? intl.formatMessage({ id: 'components.resultDialog.figureOccursOnPage' })
-                : intl.formatMessage({ id: 'components.resultDialog.tableOccursOnPage' })}
-              <span>{data.pageNumber}</span>
-            </Typography>
+        {data.url && (
+          <Grid
+            item
+            className={classes.dialogFooterButtons}
+          >
+            <Button
+              onClick={handleDownloadClick}
+              color="primary"
+              variant="contained"
+              disableElevation
+            >
+              <Icon className={classes.downloadIcon}>
+                <img
+                  src={downloadIcon}
+                  alt="download button"
+                />
+              </Icon>
+              <Typography>
+                <a
+                  href={data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: 'white' }}
+                >
+                  {data.type === 'FIGURE'
+                    ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
+                    : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
+                </a>
+              </Typography>
+            </Button>
           </Grid>
-        </Grid>
-
-        {/* Buttons */}
-        <Grid
-          item
-          spacing={1}
-          container
-          wrap="nowrap"
-          xs={8}
-          justify="flex-end"
-          className={classes.buttons}
-        >
-
-          {data.pdfURL && (
-            <Grid item>
-              <Button
-                onClick={handleViewClick}
-                color="primary"
-                variant="outlined"
-              >
-                <Typography>
-                  <a
-                    className={classes.pdfLink}
-                    href={data.pdfURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.resultDialog.viewOriginalDocument' })}
-                  </a>
-                </Typography>
-              </Button>
-            </Grid>
-          )}
-
-          {data.url && (
-            <Grid item>
-              <Button
-                onClick={handleDownloadClick}
-                color="primary"
-                variant="contained"
-              >
-                <Icon className={classes.downloadIcon}>
-                  <img
-                    src={downloadIcon}
-                    alt="download button"
-                  />
-                </Icon>
-                <Typography>
-                  <a
-                    href={data.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: 'white' }}
-                  >
-                    {data.type === 'FIGURE'
-                      ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
-                      : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
-                  </a>
-                </Typography>
-              </Button>
-            </Grid>
-          )}
-        </Grid>
+        )}
       </Grid>
     </Dialog>
   );
@@ -262,11 +214,16 @@ ResultDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   data: PropTypes.shape({
     title: PropTypes.string,
-    esaSections: PropTypes.string,
     url: PropTypes.string,
+    pdfName: PropTypes.string,
     pdfURL: PropTypes.string,
     type: PropTypes.string,
     pageNumber: PropTypes.number,
+    pageCount: PropTypes.number,
+    project: PropTypes.string,
+    esaFolderURL: PropTypes.string,
+    projectFolderURL: PropTypes.string,
+    finalDecisionURL: PropTypes.string,
   }),
 };
 
