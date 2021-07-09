@@ -57,7 +57,7 @@ export const CONFIGURATION = gql`
 
 export const SEARCH = gql`
   query(
-    $searches: [String!]!,
+    $search: String,
     $applicationIds: [String!]!,
     $regions: [Region!]!,
     $startDate: DateTime!,
@@ -71,7 +71,7 @@ export const SEARCH = gql`
     $offset: Int!
   ) {
     applications(
-      searches: $searches,
+      search: $search,
       applicationIds: $applicationIds,
       regions: $regions,
       startDate: $startDate,
@@ -91,13 +91,13 @@ export const SEARCH = gql`
       type
       filingDate
       hearingOrder
-      tableCount(searches: $searches)
-      figureCount(searches: $searches)
+      tableCount(search: $search)
+      figureCount(search: $search)
       url
       finalDecisionURL
     }
     contentSearch(
-      searches: $searches,
+      search: $search,
       applicationIds: $searchApplicationIds,
       regions: $regions,
       startDate: $startDate,

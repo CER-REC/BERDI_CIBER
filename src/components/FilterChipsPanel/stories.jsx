@@ -12,7 +12,7 @@ export default storiesForComponent(
     decorators: [withConfigAndGQL],
     parameters: {
       config: {
-        searches: ['test search'],
+        search: 'test search',
         applicationIds: ['Application Test 1'],
         regions: ['AB', 'BC'],
         startDate: new Date(),
