@@ -88,6 +88,7 @@ const ResultDialog = ({ open, onClose, data }) => {
       onClose={onClose}
       maxWidth="lg"
       fullWidth
+      data-testid="resultDialog"
     >
       {/* Header */}
       <Grid
@@ -117,7 +118,7 @@ const ResultDialog = ({ open, onClose, data }) => {
       >
         <Grid item container>
           <Typography className={classes.dialogProject}>
-            {data.project || 'project placeholder'}
+            {data.project}
           </Typography>
         </Grid>
 
@@ -150,13 +151,13 @@ const ResultDialog = ({ open, onClose, data }) => {
           {/* Data items */}
           <Grid item container direction="column" className={classes.dialogDataContainer}>
             <Typography style={{ fontSize: 16 }}>
-              {`${data.pageNumber} of ${data.pageCount || 'pageCount placeholder'}`}
+              {`${data.pageNumber} of ${data.pageCount}`}
             </Typography>
             <a href={data.pdfURL} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.pdfName}</a>
-            <a href={data.pdfURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
-            <a href={data.pdfURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>placeholder url</a>
+            <a href={data.esaFolderURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.esaFolderURL}</a>
+            <a href={data.projectFolderURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.projectFolderURL}</a>
             {(data.finalDecisionURL
-              && <a href={data.pdfURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick} className={classes.finalDecision}>{data.finalDecisionURL}</a>)
+              && <a href={data.finalDecisionURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick} className={classes.finalDecision}>{data.finalDecisionURL}</a>)
               || (
                 <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
                   {intl.formatMessage({ id: 'components.resultDialog.pending' })}
@@ -182,6 +183,7 @@ const ResultDialog = ({ open, onClose, data }) => {
               color="primary"
               variant="contained"
               disableElevation
+              data-testid="downloadButton"
             >
               <Icon className={classes.downloadIcon}>
                 <img

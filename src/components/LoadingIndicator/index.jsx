@@ -24,7 +24,7 @@ const LoadingIndicator = ({ type, fullHeight }) => {
   );
 
   return (
-    <Grid container className={`${classes.container} LoadingIndicator`}>
+    <Grid container className={`${classes.container} LoadingIndicator`} data-testid="loadingIndicator">
       <Grid container direction="column" justify="space-around" alignItems="center">
         <CircularProgress color="primary" size={66} />
         <Typography variant="h6" color="primary">{message}</Typography>
