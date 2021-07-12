@@ -124,6 +124,7 @@ export const SEARCH = gql`
           name
           consultants
           filingDate
+          companyName
         }
       }
       totalCount

@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
   },
   imageSection: {
+    cursor: 'pointer',
     backgroundImage: `url(${PlaceHolderImage})`,
     backgroundSize: 'cover',
     maxHeight: '7em',
@@ -178,8 +179,7 @@ const SearchList = () => {
 
                       <Typography variant="body2">
                         <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
-                        {/* TODO: this data needs to come in from the application query */}
-                        Placeholder Lorem ipsum dolor sit.
+                        {content.application.companyName}
                       </Typography>
 
                       <ButtonBase className={classes.viewMoreDetails}>

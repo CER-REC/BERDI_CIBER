@@ -161,7 +161,7 @@ const theme = createMuiTheme({
       sm: 600,
       md: 960,
       lg: 1280,
-      xl: 2160,
+      xl: 2600,
     },
   },
 });
