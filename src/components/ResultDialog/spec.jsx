@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, screen, waitFor } from '../../tests/utilities';
+import { render, screen } from '../../tests/utilities';
 import ResultDialog from '.';
 
 const data = {
   title: 'Table 1234 and Related Tables',
   url: 'https://url.ca',
   pdfName: 'Table 1234',
-  pdfURL: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+  pdfURL: 'https://pdfURL.ca',
   pageNumber: 111,
   pageCount: 999,
   project: 'projectName',
