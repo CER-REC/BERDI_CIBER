@@ -11,7 +11,7 @@ const ExploreButton = () => {
   const handleClick = useCallback(() => {
     reportSection('search');
     configDispatch({ type: 'filters/removed' });
-    configDispatch({ type: 'searches/changed', payload: null });
+    configDispatch({ type: 'search/changed', payload: null });
   }, [configDispatch]);
 
   return (

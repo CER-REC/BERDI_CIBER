@@ -35,7 +35,7 @@ const Keywords = () => {
   const { configDispatch } = useConfig();
   const handleClick = useCallback((keyword) => {
     configDispatch({ type: 'filters/removed' });
-    configDispatch({ type: 'searches/changed', payload: [keyword] });
+    configDispatch({ type: 'search/changed', payload: keyword });
   }, [configDispatch]);
   const createHandleClick = useCallback((keyword) => (() => handleClick(keyword)), [handleClick]);
 

@@ -48,10 +48,8 @@ const SearchBar = ({ hasShrink }) => {
   const { config, configDispatch } = useConfig();
   const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
   const handleClick = useCallback(() => {
-    const searches = search.split(' ').filter((term) => term);
-
     reportSearch(search);
-    configDispatch({ type: 'searches/changed', payload: searches });
+    configDispatch({ type: 'search/changed', payload: search.trim() });
   }, [search, configDispatch]);
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'Enter') {
@@ -68,7 +66,7 @@ const SearchBar = ({ hasShrink }) => {
     }
   }, [inputRef, buttonRef]);
 
-  useEffect(() => setSearch(config.searches.join(' ')), [config.searches]);
+  useEffect(() => setSearch(config.search), [config.search]);
 
   return (
     <div className={`Keywords ${classes.root}`}>
