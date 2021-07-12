@@ -67,7 +67,8 @@
             "id": "Application for Trans Mountain Expansion Project",
             "name": "Application for Trans Mountain Expansion Project",
             "consultants": "BGC Engineering Inc., Waterline Resources Inc., TERA Environmental Consultants, Mentiga Pedology Consultants Ltd., RWDI Consulting Engineers & Scientists",
-            "filingDate": "2013-12-16T00:00:00"
+            "filingDate": "2013-12-16T00:00:00",
+            "companyName": "Test Company 1"
           },
           "type": "FIGURE",
           "url": null,
@@ -85,7 +86,8 @@
             "id": "Application for the 2017 NGTL System Expansion",
             "name": "Application for the 2017 NGTL System Expansion",
             "consultants": "TERA a CHTM HILL Company",
-            "filingDate": "2015-03-31T00:00:00"
+            "filingDate": "2015-03-31T00:00:00",
+            "companyName":"Test Company 2"
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-19_doc-num-A4K2S6.zip",
@@ -103,7 +105,8 @@
             "id": "Application for the 2017 NGTL System Expansion",
             "name": "Application for the 2017 NGTL System Expansion",
             "consultants": "TERA a CHTM HILL Company",
-            "filingDate": "2015-03-31T00:00:00"
+            "filingDate": "2015-03-31T00:00:00",
+            "companyName": "Test Company 3"
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-20_doc-num-A4K2S3.zip",
