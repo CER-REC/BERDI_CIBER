@@ -1,5 +1,6 @@
 /* Overwriting styles from theme */
 #reactRoot {
+  font-size: 16px;
   line-height: normal;
 }
 
