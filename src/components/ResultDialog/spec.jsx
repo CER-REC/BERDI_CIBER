@@ -46,7 +46,11 @@ describe('Components/ResultDialog', () => {
     expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
 
-  // TODO: test component doesn't show when open=false
+  test('component should not be present when open is false', () => {
+    render(<ResultDialog open={false} onClose={noop} data={data} />);
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+    screen.debug();
+  });
 
   // TODO: test finalDecisionURL render states
 
