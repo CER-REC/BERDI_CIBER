@@ -60,5 +60,10 @@ describe('Components/ResultDialog', () => {
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
   });
 
-  // TODO: test which page the pdf loads in at (should be target page)
+  test('should render the PDF on the provided page', () => {
+    render(<ResultDialog open onClose={noop} data={data} />);
+    const pdfObject = screen.getByText('components.resultDialog.failedToLoad').closest('object');
+    expect(pdfObject.getAttribute('data')).toContain(data.pdfURL);
+    expect(pdfObject.getAttribute('data')).toContain(`page=${data.pageNumber}`);
+  });
 });
