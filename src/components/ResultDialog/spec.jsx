@@ -49,10 +49,18 @@ describe('Components/ResultDialog', () => {
   test('component should not be present when open is false', () => {
     render(<ResultDialog open={false} onClose={noop} data={data} />);
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
-    screen.debug();
   });
 
-  // TODO: test finalDecisionURL render states
+  // TODO: revise if granularity around final decision url states is decided upon
+  test('should show pending when finalDecisionURL is blank', () => {
+    // const dataNoFinalDecisionURL = {
+    //   title: 'noFinalDecisionURL',
+    //   finalDecisionURL: '',
+    // };
+    // render(<ResultDialog open onClose={noop} data={dataNoFinalDecisionURL} />);
+    // expect(screen.queryByText(data.finalDecisionURL)).not.toHaveAttribute('href', data.finalDecisionURL);
+    // expect(screen.getByText('pending')).toBeInTheDocument();
+  });
 
   // TODO: test hiding the loading indicator when pdf is loaded
 
