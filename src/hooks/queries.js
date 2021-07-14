@@ -125,6 +125,10 @@ export const SEARCH = gql`
           consultants
           filingDate
           companyName
+          status
+          type
+          commodity
+          hearingOrder
         }
       }
       totalCount

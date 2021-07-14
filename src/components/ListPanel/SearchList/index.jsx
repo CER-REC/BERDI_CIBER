@@ -17,6 +17,7 @@ import PaginationBar from '../PaginationBar';
 import PlaceHolderImage from '../../../images/ListPanel/PlaceHolder.svg';
 import EllipseIcon from '../../../images/ListPanel/Ellipse.svg';
 import DownCaret from '../../../images/ListPanel/DownCaret.svg';
+import UpCaret from '../../../images/ListPanel/UpCaret.svg';
 import MagnifyingGlass from '../../../images/ListPanel/MagnifyingGlass.svg';
 import ShelfButton from '../ShelfButton';
 
@@ -91,8 +92,10 @@ const SearchList = () => {
   );
 
   const [open, setOpen] = useState(false);
+  const [cardOpen, setCardOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
   const [expandedTitles, setExpandedTitles] = useState([]);
+  const [expandedCards, setExpandedCards] = useState([]);
 
   const handleClickOpen = (content) => {
     reportContent(content.title);
@@ -103,6 +106,19 @@ const SearchList = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const mockTopics = [
+    'Physical and meteorological environment',
+    'Lorem ipsum dolor sit amet.',
+    'Lorem ipsum dolor sit amet.1',
+    'Lorem ipsum dolor sit amet.2',
+    'Lorem ipsum dolor sit amet.3',
+    'Lorem ipsum dolor sit amet.4',
+    'Lorem ipsum dolor sit amet.5',
+    'Lorem ipsum dolor sit amet.6',
+    'Lorem ipsum dolor sit amet.7',
+    'Lorem ipsum dolor sit amet.8',
+  ];
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title, content) => {
@@ -144,6 +160,24 @@ const SearchList = () => {
     );
   };
 
+  const createSeeMoreSection = (content) => {
+    if (expandedCards.find((entry) => entry === content.id)) {
+      // expanded already
+      return (
+        <ButtonBase className={classes.viewMoreDetails} onClick={() => setExpandedCards((list) => [...list.filter((item) => item !== content.id)])}>
+          <span>{intl.formatMessage({ id: 'components.listPanel.seeFewer' })}</span>
+          <img alt="Up caret" src={UpCaret} />
+        </ButtonBase>
+      );
+    }
+    return (
+      <ButtonBase className={classes.viewMoreDetails} onClick={() => setExpandedCards((list) => [...list, content.id])}>
+        <span>{intl.formatMessage({ id: 'components.listPanel.seeMore' })}</span>
+        <img alt="Down caret" src={DownCaret} />
+      </ButtonBase>
+    );
+  };
+
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
@@ -181,11 +215,38 @@ const SearchList = () => {
                         <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
                         {content.application.companyName}
                       </Typography>
+                      {/* {console.log(expandedCards.find((entry) => entry = 1))} */}
+                      {expandedCards.find((entry) => entry === content.id) && (
+                      <>
+                        <br />
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'components.listPanel.projectFiled' })}</span>
+                          {content.application.filingDate}
+                        </Typography>
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'components.listPanel.projectStatus' })}</span>
+                          {content.application.status}
+                        </Typography>
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'components.listPanel.projectType' })}</span>
+                          {content.application.type}
+                        </Typography>
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'common.commodity' })}</span>
+                          {content.application.commodity}
+                        </Typography>
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'common.hearingOrder' })}</span>
+                          {content.application.hearingOrder}
+                        </Typography>
+                        <Typography variant="body2">
+                          <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, doloremque
+                        </Typography>
+                      </>
+                      )}
 
-                      <ButtonBase className={classes.viewMoreDetails}>
-                        View more details...
-                        <img alt="Down caret" src={DownCaret} />
-                      </ButtonBase>
+                      {createSeeMoreSection(content)}
                     </Grid>
 
                     <Grid container item direction="column" alignItems="flex-end" justify="space-around" xs={2}>
@@ -196,8 +257,20 @@ const SearchList = () => {
                         </ButtonBase>
                       </Grid>
                     </Grid>
+                    {expandedCards.find((entry) => entry === content.id) && (
+                    <div style={{ backgroundColor: 'lightgray', width: '100%', paddingLeft: '1em' }}>
+                      <Typography>
+                        Related Topics
+                      </Typography>
+                      <Grid container justify="space-around">
+                        {mockTopics.map((topic) => <Grid item key={topic}><Typography>{topic}</Typography></Grid>)}
+                      </Grid>
+
+                    </div>
+                    )}
                   </Grid>
                 </TableCell>
+
               </TableRow>
             ))}
           </TableBody>

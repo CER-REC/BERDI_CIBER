@@ -96,6 +96,16 @@
         "buttonLabel": "Download all tables "
       }
     },
+    "listPanel":{
+      "projectType":"Project type: ",
+      "projectFiled":"Project filed: ",
+      "projectStatus":"Project status: ",
+      "projectLinks":"Project links: ",
+      "relatedTopics":"Related topics",
+      "addToShelf":"Add to shelf",
+      "seeMore":"See more details",
+      "seeFewer":"See fewer details"
+    },
     "searchPanel": {
       "exploreButton": "Explore all",
       "exploreLabel": "Explore results from:",
