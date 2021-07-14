@@ -88,7 +88,6 @@ const ResultDialog = ({ open, onClose, data }) => {
       onClose={onClose}
       maxWidth="lg"
       fullWidth
-      data-testid="resultDialog"
     >
       {/* Header */}
       <Grid

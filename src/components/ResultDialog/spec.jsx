@@ -19,8 +19,8 @@ const onClose = () => { };
 
 describe('Components/ResultDialog', () => {
   test('should render component', () => {
-    const { queryByTestId } = render(<ResultDialog open onClose={onClose} data={data} />);
-    expect(queryByTestId('resultDialog')).toBeInTheDocument();
+    render(<ResultDialog open onClose={onClose} data={data} />);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   test('loading spinner should be present', () => {
