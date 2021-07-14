@@ -30,12 +30,12 @@ describe('Components/ResultDialog', () => {
 
   test('data fields should be present', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    expect(screen.getByText(`${data.project}`)).toBeInTheDocument();
-    expect(screen.getByText(`${data.title}`)).toBeInTheDocument();
+    expect(screen.getByText(data.project)).toBeInTheDocument();
+    expect(screen.getByText(data.title)).toBeInTheDocument();
     expect(screen.getByText(`${data.pageNumber} of ${data.pageCount}`)).toBeInTheDocument();
-    expect(screen.getByText(`${data.esaFolderURL}`)).toBeInTheDocument();
-    expect(screen.getByText(`${data.projectFolderURL}`)).toBeInTheDocument();
-    expect(screen.getByText(`${data.finalDecisionURL}`)).toBeInTheDocument();
+    expect(screen.getByText(data.esaFolderURL)).toHaveAttribute('href', data.esaFolderURL);
+    expect(screen.getByText(data.projectFolderURL)).toHaveAttribute('href', data.projectFolderURL);
+    expect(screen.getByText(data.finalDecisionURL)).toHaveAttribute('href', data.finalDecisionURL);
   });
 
   test('download button should not be present if there is no url', () => {
