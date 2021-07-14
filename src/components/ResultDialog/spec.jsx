@@ -15,21 +15,21 @@ const data = {
   finalDecisionURL: 'https://finalDecisionURL.ca',
 };
 
-const onClose = () => { };
+const noop = () => { };
 
 describe('Components/ResultDialog', () => {
   test('should render component', () => {
-    render(<ResultDialog open onClose={onClose} data={data} />);
+    render(<ResultDialog open onClose={noop} data={data} />);
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   test('loading spinner should be present', () => {
-    const { queryByTestId } = render(<ResultDialog open onClose={onClose} data={data} />);
-    expect(queryByTestId('loadingIndicator')).toBeInTheDocument();
+    render(<ResultDialog open onClose={noop} data={data} />);
+    expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
   test('data fields should be present', () => {
-    render(<ResultDialog open onClose={onClose} data={data} />);
+    render(<ResultDialog open onClose={noop} data={data} />);
     expect(screen.getByText(`${data.project}`)).toBeInTheDocument();
     expect(screen.getByText(`${data.title}`)).toBeInTheDocument();
     expect(screen.getByText(`${data.pageNumber} of ${data.pageCount}`)).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('Components/ResultDialog', () => {
   });
 
   test('download button should not be present if there is no url', () => {
-    const { queryByTestId } = render(<ResultDialog open onClose={onClose} />);
+    const { queryByTestId } = render(<ResultDialog open onClose={noop} />);
     expect(queryByTestId('downloadButton')).not.toBeInTheDocument();
   });
 });
