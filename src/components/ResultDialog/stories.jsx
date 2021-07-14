@@ -1,6 +1,6 @@
 import React from 'react';
+import { useArgs } from '@storybook/client-api';
 import { storiesForComponent } from '../../../.storybook/utils';
-
 import ResultDialog from '.';
 import ReadMe from './README.md';
 
@@ -21,38 +21,19 @@ export default storiesForComponent(
   'Components/ResultDialog',
   module,
   ReadMe,
-  {
-    parameters: { options: { showPanel: false } },
-  },
 );
 
-const onClose = () => { };
-
-const Template = (args) => <ResultDialog {...args} />;
+const Template = (args) => {
+  // eslint-disable-next-line no-unused-vars
+  const [_, updateArgs] = useArgs();
+  const onClose = () => {
+    updateArgs({ open: false });
+  };
+  return <ResultDialog {...args} onClose={onClose} />;
+};
 
 export const Primary = Template.bind({});
 Primary.args = {
-  open: true,
-  onClose,
+  open: false,
   data,
-};
-
-export const Loading = Template.bind();
-Loading.args = {
-  open: true,
-  onClose,
-  data: {
-    ...data,
-    pdfURL: 'https://fakeURL',
-  },
-};
-
-export const FailedToLoad = Template.bind();
-FailedToLoad.args = {
-  open: true,
-  onClose,
-  data: {
-    ...data,
-    pdfURL: 'fakeURL',
-  },
 };
