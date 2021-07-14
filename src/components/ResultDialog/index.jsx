@@ -182,7 +182,6 @@ const ResultDialog = ({ open, onClose, data }) => {
               color="primary"
               variant="contained"
               disableElevation
-              data-testid="downloadButton"
             >
               <Icon className={classes.downloadIcon}>
                 <img

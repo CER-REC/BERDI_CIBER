@@ -39,7 +39,18 @@ describe('Components/ResultDialog', () => {
   });
 
   test('download button should not be present if there is no url', () => {
-    const { queryByTestId } = render(<ResultDialog open onClose={noop} />);
-    expect(queryByTestId('downloadButton')).not.toBeInTheDocument();
+    const dataNoURL = {
+      title: 'noURLTitle',
+    };
+    render(<ResultDialog open onClose={noop} data={dataNoURL} />);
+    expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
+
+  // TODO: test component doesn't show when open=false
+
+  // TODO: test finalDecisionURL render states
+
+  // TODO: test hiding the loading indicator when pdf is loaded
+
+  // TODO: test which page the pdf loads in at (should be target page)
 });
