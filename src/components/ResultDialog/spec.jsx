@@ -39,10 +39,7 @@ describe('Components/ResultDialog', () => {
   });
 
   test('download button should not be present if there is no url', () => {
-    const dataNoURL = {
-      title: 'noURLTitle',
-    };
-    render(<ResultDialog open onClose={noop} data={dataNoURL} />);
+    render(<ResultDialog open onClose={noop} data={{ title: 'noURLTitle' }} />);
     expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
 
@@ -53,13 +50,8 @@ describe('Components/ResultDialog', () => {
 
   // TODO: revise if granularity around final decision url states is decided upon
   test('should show pending when finalDecisionURL is blank', () => {
-    // const dataNoFinalDecisionURL = {
-    //   title: 'noFinalDecisionURL',
-    //   finalDecisionURL: '',
-    // };
-    // render(<ResultDialog open onClose={noop} data={dataNoFinalDecisionURL} />);
-    // expect(screen.queryByText(data.finalDecisionURL)).not.toHaveAttribute('href', data.finalDecisionURL);
-    // expect(screen.getByText('pending')).toBeInTheDocument();
+    render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL' }} />);
+    expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 
   // TODO: test hiding the loading indicator when pdf is loaded
