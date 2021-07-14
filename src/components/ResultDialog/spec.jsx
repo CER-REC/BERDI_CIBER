@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '../../tests/utilities';
+import { render, screen, fireEvent } from '../../tests/utilities';
 import ResultDialog from '.';
 
 const data = {
@@ -54,7 +54,11 @@ describe('Components/ResultDialog', () => {
     expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 
-  // TODO: test hiding the loading indicator when pdf is loaded
+  test('should stop rendering the loading spinner when the PDF is loaded', () => {
+    render(<ResultDialog open onClose={noop} data={data} />);
+    fireEvent.load(screen.getByText('components.resultDialog.failedToLoad').closest('object'));
+    expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
+  });
 
   // TODO: test which page the pdf loads in at (should be target page)
 });
