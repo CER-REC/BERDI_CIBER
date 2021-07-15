@@ -114,7 +114,6 @@ export const SEARCH = gql`
         title
         esaSections
         pdfPageNumber
-        pdfPageCount
         pdfURL
         pdfName
         type
