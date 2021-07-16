@@ -24,8 +24,7 @@ export default storiesForComponent(
 );
 
 const Template = (args) => {
-  // eslint-disable-next-line no-unused-vars
-  const [_, updateArgs] = useArgs();
+  const updateArgs = useArgs()[1];
   const onClose = () => updateArgs({ open: false });
   return <ResultDialog {...args} onClose={onClose} />;
 };
