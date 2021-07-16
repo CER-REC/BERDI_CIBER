@@ -3,16 +3,17 @@ import { render, screen, fireEvent } from '../../tests/utilities';
 import ResultDialog from '.';
 
 const data = {
-  title: 'Table 1234 and Related Tables',
+  application: {
+    name: 'applicationName',
+    applicationURL: 'https://applicationURL.ca',
+    finalDecisionURL: 'https://finalDecisionURL.ca',
+  },
+  title: 'Title',
   url: 'https://url.ca',
-  pdfName: 'Table 1234',
+  pdfName: 'pdfName',
   pdfURL: 'https://pdfURL.ca',
-  pageNumber: 111,
-  pageCount: 999,
-  project: 'projectName',
+  pdfPageNumber: 111,
   esaFolderURL: 'https://esaFolderURL.ca',
-  projectFolderURL: 'https://projectFolderURL.ca',
-  finalDecisionURL: 'https://finalDecisionURL.ca',
 };
 
 const noop = () => { };
@@ -30,16 +31,17 @@ describe('Components/ResultDialog', () => {
 
   test('data fields should be present', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    expect(screen.getByText(data.project)).toBeInTheDocument();
+    expect(screen.getByText(data.application.name)).toBeInTheDocument();
     expect(screen.getByText(data.title)).toBeInTheDocument();
-    expect(screen.getByText(`${data.pageNumber} of ${data.pageCount}`)).toBeInTheDocument();
+    expect(screen.getByText(data.pdfPageNumber)).toBeInTheDocument();
+    expect(screen.getByText(data.pdfURL)).toHaveAttribute('href', data.pdfURL);
     expect(screen.getByText(data.esaFolderURL)).toHaveAttribute('href', data.esaFolderURL);
-    expect(screen.getByText(data.projectFolderURL)).toHaveAttribute('href', data.projectFolderURL);
-    expect(screen.getByText(data.finalDecisionURL)).toHaveAttribute('href', data.finalDecisionURL);
+    expect(screen.getByText(data.application.applicationURL)).toHaveAttribute('href', data.application.applicationURL);
+    expect(screen.getByText(data.application.finalDecisionURL)).toHaveAttribute('href', data.application.finalDecisionURL);
   });
 
   test('download button should not be present if there is no url', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'noURLTitle' }} />);
+    render(<ResultDialog open onClose={noop} data={{ title: 'noURL', application: { name: 'name' } }} />);
     expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
 
@@ -50,7 +52,7 @@ describe('Components/ResultDialog', () => {
 
   // TODO: revise if granularity around final decision url states is decided upon
   test('should show pending when finalDecisionURL is blank', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL' }} />);
+    render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
     expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 
@@ -64,6 +66,6 @@ describe('Components/ResultDialog', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
     const pdfObject = screen.getByText('components.resultDialog.failedToLoad').closest('object');
     expect(pdfObject.getAttribute('data')).toContain(data.pdfURL);
-    expect(pdfObject.getAttribute('data')).toContain(`page=${data.pageNumber}`);
+    expect(pdfObject.getAttribute('data')).toContain(`page=${data.pdfPageNumber}`);
   });
 });
