@@ -84,7 +84,9 @@
         "relatedTopics":"",
         "addToShelf":"",
         "seeMore":"",
-        "seeFewer":""
+        "seeFewer":"",
+        "expandAll":"",
+        "collapseAll":""
       },
       "termsTitle": {
         "title": "Avis",

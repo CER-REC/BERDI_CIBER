@@ -1,4 +1,5 @@
 import { Grid, Typography, ButtonBase } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -24,12 +25,8 @@ import ShelfButton from '../ShelfButton';
 const useStyles = makeStyles((theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
-    '& p:first-of-type': {
-      marginTop: '1em',
-    },
     '& p': {
       marginTop: '5px',
-      borderRadius: '5px',
     },
     '& span': {
       fontWeight: '900',
@@ -40,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
       color: '#434343',
       display: 'inline',
       cursor: 'pointer',
+      marginBottom: '1em',
     },
     '& .tableCellInner': {
       padding: '1em 1em 1em 0',
@@ -81,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchList = () => {
+const SearchList = ({ toggleExpand, expandList }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { config } = useConfig();
@@ -92,10 +90,8 @@ const SearchList = () => {
   );
 
   const [open, setOpen] = useState(false);
-  const [cardOpen, setCardOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
   const [expandedTitles, setExpandedTitles] = useState([]);
-  const [expandedCards, setExpandedCards] = useState([]);
 
   const handleClickOpen = (content) => {
     reportContent(content.title);
@@ -111,7 +107,7 @@ const SearchList = () => {
     'Physical and meteorological environment',
     'Lorem ipsum dolor sit amet.',
     'Lorem ipsum dolor sit amet.1',
-    'Lorem ipsum dolor sit amet.2',
+    'Lorem ipsum dolor sit amet.2 longer version of a link lorem ipsum dolor sit amet',
     'Lorem ipsum dolor sit amet.3',
     'Lorem ipsum dolor sit amet.4',
     'Lorem ipsum dolor sit amet.5',
@@ -161,17 +157,17 @@ const SearchList = () => {
   };
 
   const createSeeMoreSection = (content) => {
-    if (expandedCards.find((entry) => entry === content.id)) {
+    if (expandList.find((entry) => entry === content.id)) {
       // expanded already
       return (
-        <ButtonBase className={classes.viewMoreDetails} onClick={() => setExpandedCards((list) => [...list.filter((item) => item !== content.id)])}>
+        <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
           <span>{intl.formatMessage({ id: 'components.listPanel.seeFewer' })}</span>
           <img alt="Up caret" src={UpCaret} />
         </ButtonBase>
       );
     }
     return (
-      <ButtonBase className={classes.viewMoreDetails} onClick={() => setExpandedCards((list) => [...list, content.id])}>
+      <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
         <span>{intl.formatMessage({ id: 'components.listPanel.seeMore' })}</span>
         <img alt="Down caret" src={DownCaret} />
       </ButtonBase>
@@ -215,8 +211,7 @@ const SearchList = () => {
                         <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
                         {content.application.companyName}
                       </Typography>
-                      {/* {console.log(expandedCards.find((entry) => entry = 1))} */}
-                      {expandedCards.find((entry) => entry === content.id) && (
+                      {(expandList.find((entry) => entry === content.id)) && (
                       <>
                         <br />
                         <Typography variant="body2">
@@ -241,7 +236,11 @@ const SearchList = () => {
                         </Typography>
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
-                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, doloremque
+                          <a href="google.com">Link 1</a>
+                          {' '}
+                          <a href="google.com">Link 2</a>
+                          {' '}
+                          <a href="google.com">Link 3</a>
                         </Typography>
                       </>
                       )}
@@ -249,21 +248,29 @@ const SearchList = () => {
                       {createSeeMoreSection(content)}
                     </Grid>
 
-                    <Grid container item direction="column" alignItems="flex-end" justify="space-around" xs={2}>
+                    <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
                       <ShelfButton />
-                      <Grid item style={{ paddingRight: '1em' }}>
+                      <Grid item style={{ paddingRight: '1em', marginBottom: '1em' }}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />
                         </ButtonBase>
                       </Grid>
                     </Grid>
-                    {expandedCards.find((entry) => entry === content.id) && (
-                    <div style={{ backgroundColor: 'lightgray', width: '100%', paddingLeft: '1em' }}>
+
+                    {(expandList.find((entry) => entry === content.id)) && (
+                    <div style={{ backgroundColor: '#F4F4F4', width: '100%', padding: '1em 3em' }}>
+
                       <Typography>
                         Related Topics
                       </Typography>
-                      <Grid container justify="space-around">
-                        {mockTopics.map((topic) => <Grid item key={topic}><Typography>{topic}</Typography></Grid>)}
+
+                      <Grid container justify="flex-start" alignItems="center">
+                        {mockTopics.map((topic) => (
+                          <Grid item key={topic} style={{ padding: '0 3em 1em 0', overflowWrap: 'break-word', maxWidth: '30em' }}>
+                            <a href="google.com"><Typography>{topic}</Typography></a>
+                          </Grid>
+                        ))}
+
                       </Grid>
 
                     </div>
@@ -282,5 +289,10 @@ const SearchList = () => {
       />
     </>
   );
+};
+
+SearchList.propTypes = {
+  expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toggleExpand: PropTypes.func.isRequired,
 };
 export default SearchList;

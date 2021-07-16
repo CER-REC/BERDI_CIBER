@@ -104,7 +104,9 @@
       "relatedTopics":"Related topics",
       "addToShelf":"Add to shelf",
       "seeMore":"See more details",
-      "seeFewer":"See fewer details"
+      "seeFewer":"See fewer details",
+      "expandAll":"Expand all",
+      "collapseAll":"Collapse all"
     },
     "searchPanel": {
       "exploreButton": "Explore all",
