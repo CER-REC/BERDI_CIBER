@@ -173,7 +173,7 @@ const ResultDialog = ({ open, onClose, data }) => {
                   </Typography>
                 </td>
                 <td>
-                  {getDataAnchorElement(data.projectFolderURL)}
+                  {getDataAnchorElement(data.application.applicationURL)}
                 </td>
               </tr>
             </tbody>
@@ -185,7 +185,8 @@ const ResultDialog = ({ open, onClose, data }) => {
                   </Typography>
                 </td>
                 <td>
-                  {(data.finalDecisionURL && getDataAnchorElement(data.finalDecisionURL))
+                  {(data.application.finalDecisionURL
+                    && getDataAnchorElement(data.application.finalDecisionURL))
                     || (
                       <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
                         {intl.formatMessage({ id: 'components.resultDialog.pending' })}
@@ -255,10 +256,10 @@ ResultDialog.propTypes = {
       consultants: PropTypes.string,
       filingDate: PropTypes.string,
       name: PropTypes.string,
+      applicationURL: PropTypes.string,
+      finalDecisionURL: PropTypes.string,
     }),
     esaFolderURL: PropTypes.string,
-    projectFolderURL: PropTypes.string,
-    finalDecisionURL: PropTypes.string,
   }),
 };
 

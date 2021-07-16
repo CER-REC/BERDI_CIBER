@@ -123,6 +123,8 @@ export const SEARCH = gql`
           name
           consultants
           filingDate
+          applicationURL
+          finalDecisionURL
         }
       }
       totalCount
