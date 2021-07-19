@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from 'react';
 import { Button, Grid, makeStyles } from '@material-ui/core';
+import React, { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
-
 import LimitationsDialog from '../LimitationsDialog';
 import SearchList from './SearchList';
 
@@ -22,9 +21,9 @@ const ListSection = () => {
 
   const { contents } = useESAData();
   const [open, setOpen] = useState(false);
+  const [expandList, setExpandList] = useState([]);
   const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
   const handleClose = useCallback(() => setOpen(false), [setOpen]);
-  const [expandList, setExpandList] = useState([]);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -52,7 +51,6 @@ const ListSection = () => {
         </Grid>
 
         <Grid item className={classes.innerGrid}>
-
           <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
             {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
           </Button>
@@ -61,7 +59,6 @@ const ListSection = () => {
             hasDownload
             onClose={handleClose}
           />
-
         </Grid>
       </Grid>
 

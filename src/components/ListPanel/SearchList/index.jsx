@@ -1,5 +1,4 @@
-import { Grid, Typography, ButtonBase } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import { ButtonBase, Grid, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -7,77 +6,23 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
+import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
+import DownCaret from '../../../images/ListPanel/DownCaret.svg';
+import EllipseIcon from '../../../images/ListPanel/Ellipse.svg';
+import MagnifyingGlass from '../../../images/ListPanel/MagnifyingGlass.svg';
+import UpCaret from '../../../images/ListPanel/UpCaret.svg';
 import { reportContent } from '../../../utilities/analytics';
+import { toDateOnlyString } from '../../../utilities/date';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
-import PlaceHolderImage from '../../../images/ListPanel/PlaceHolder.svg';
-import EllipseIcon from '../../../images/ListPanel/Ellipse.svg';
-import DownCaret from '../../../images/ListPanel/DownCaret.svg';
-import UpCaret from '../../../images/ListPanel/UpCaret.svg';
-import MagnifyingGlass from '../../../images/ListPanel/MagnifyingGlass.svg';
 import ShelfButton from '../ShelfButton';
+import styles from './styles';
 
-const useStyles = makeStyles((theme) => ({
-  tableHeader: {
-    padding: '0.4em 0.4em 0.4em 0',
-    '& p': {
-      marginTop: '5px',
-    },
-    '& span': {
-      fontWeight: '900',
-    },
-    '& h6': {
-      textTransform: 'uppercase',
-      fontWeight: 'normal',
-      color: '#434343',
-      display: 'inline',
-      cursor: 'pointer',
-      marginBottom: '1em',
-    },
-    '& .tableCellInner': {
-      padding: '1em 1em 1em 0',
-      boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
-      '& img': {
-        cursor: 'pointer',
-      },
-    },
-  },
-  tableParent: {
-    boxShadow: 'none',
-  },
-  pagination: {
-    '& .MuiTablePagination-caption': {
-      display: 'none',
-    },
-  },
-  seeMoreButton: {
-    color: theme.palette.blue.dark,
-    fontWeight: '900',
-    fontFamily: theme.typography.fontFamily,
-    verticalAlign: 'unset',
-    paddingLeft: '1em',
-  },
-  viewMoreDetails: {
-    color: theme.palette.blue.dark,
-    fontWeight: 'bold',
-    marginTop: '1em',
-  },
-  imageSection: {
-    cursor: 'pointer',
-    backgroundImage: `url(${PlaceHolderImage})`,
-    backgroundSize: 'cover',
-    maxHeight: '7em',
-    width: '95%',
-    '& div': {
-      marginRight: '1em',
-    },
-  },
-}));
+const useStyles = makeStyles(styles);
 
 const SearchList = ({ toggleExpand, expandList }) => {
   const classes = useStyles();
@@ -103,6 +48,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
     setOpen(false);
   };
 
+  // TODO: replace with api generated topics
   const mockTopics = [
     'Physical and meteorological environment',
     'Lorem ipsum dolor sit amet.',
@@ -114,6 +60,12 @@ const SearchList = ({ toggleExpand, expandList }) => {
     'Lorem ipsum dolor sit amet.6',
     'Lorem ipsum dolor sit amet.7',
     'Lorem ipsum dolor sit amet.8',
+  ];
+
+  const projectLinks = [
+    { title: 'Link 1', link: 'google.com' },
+    { title: 'Link 2', link: 'google.com' },
+    { title: 'Link 3', link: 'google.com' },
   ];
 
   // TODO: make this a more generic function to be used whenever a see more button is needed.
@@ -156,7 +108,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
     );
   };
 
-  const createSeeMoreSection = (content) => {
+  const createSeeMoreDetailsSection = (content) => {
     if (expandList.find((entry) => entry === content.id)) {
       // expanded already
       return (
@@ -166,6 +118,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
         </ButtonBase>
       );
     }
+    // not expanded
     return (
       <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
         <span>{intl.formatMessage({ id: 'components.listPanel.seeMore' })}</span>
@@ -211,73 +164,72 @@ const SearchList = ({ toggleExpand, expandList }) => {
                         <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
                         {content.application.companyName}
                       </Typography>
+
+                      {/* This section only renders if the content id is in the expanded list */}
                       {(expandList.find((entry) => entry === content.id)) && (
                       <>
                         <br />
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'components.listPanel.projectFiled' })}</span>
-                          {content.application.filingDate}
+                          {toDateOnlyString(new Date(content.application.filingDate))}
                         </Typography>
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'components.listPanel.projectStatus' })}</span>
-                          {content.application.status}
+                          {intl.formatMessage({ id: `api.statuses.${content.application.status}` })}
                         </Typography>
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'components.listPanel.projectType' })}</span>
-                          {content.application.type}
+                          {intl.formatMessage({ id: `api.projects.${content.application.type}` })}
                         </Typography>
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'common.commodity' })}</span>
-                          {content.application.commodity}
+                          {intl.formatMessage({ id: `api.commodities.${content.application.commodity}` })}
                         </Typography>
                         <Typography variant="body2">
                           <span>{intl.formatMessage({ id: 'common.hearingOrder' })}</span>
                           {content.application.hearingOrder}
                         </Typography>
-                        <Typography variant="body2">
+                        <Typography variant="body2" className={classes.projectLinks}>
                           <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
-                          <a href="google.com">Link 1</a>
-                          {' '}
-                          <a href="google.com">Link 2</a>
-                          {' '}
-                          <a href="google.com">Link 3</a>
+                          {projectLinks.map((item) => (
+                            <a key={item.title} href={item.link}>
+                              {item.title}
+                            </a>
+                          ))}
                         </Typography>
                       </>
                       )}
 
-                      {createSeeMoreSection(content)}
+                      {createSeeMoreDetailsSection(content)}
                     </Grid>
 
                     <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
                       <ShelfButton />
-                      <Grid item style={{ paddingRight: '1em', marginBottom: '1em' }}>
+                      <Grid item className={classes.ellipseButton}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />
                         </ButtonBase>
                       </Grid>
                     </Grid>
 
+                    {/* This section only renders if the content id is in the expanded list */}
                     {(expandList.find((entry) => entry === content.id)) && (
-                    <div style={{ backgroundColor: '#F4F4F4', width: '100%', padding: '1em 3em' }}>
-
+                    <div className={classes.relatedTopicsContainer}>
                       <Typography>
-                        Related Topics
+                        {intl.formatMessage({ id: 'components.listPanel.relatedTopics' })}
                       </Typography>
 
                       <Grid container justify="flex-start" alignItems="center">
                         {mockTopics.map((topic) => (
-                          <Grid item key={topic} style={{ padding: '0 3em 1em 0', overflowWrap: 'break-word', maxWidth: '30em' }}>
+                          <Grid item key={topic} className={classes.relatedTopics}>
                             <a href="google.com"><Typography>{topic}</Typography></a>
                           </Grid>
                         ))}
-
                       </Grid>
-
                     </div>
                     )}
                   </Grid>
                 </TableCell>
-
               </TableRow>
             ))}
           </TableBody>
