@@ -14,10 +14,10 @@ import useESAData from '../../../hooks/useESAData';
 import { reportContent } from '../../../utilities/analytics';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
-import PlaceHolderImage from '../../../images/ListPanel/PlaceHolder.svg';
-import EllipseIcon from '../../../images/ListPanel/Ellipse.svg';
-import DownCaret from '../../../images/ListPanel/DownCaret.svg';
-import MagnifyingGlass from '../../../images/ListPanel/MagnifyingGlass.svg';
+import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
+import EllipseIcon from '../../../images/listPanel/ellipse.svg';
+import DownCaret from '../../../images/listPanel/downCaret.svg';
+import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ShelfButton from '../ShelfButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: '900',
     },
     '& h6': {
-      textTransform: 'uppercase',
       fontWeight: 'normal',
       color: '#434343',
       display: 'inline',
@@ -43,9 +42,6 @@ const useStyles = makeStyles((theme) => ({
     '& .tableCellInner': {
       padding: '1em 1em 1em 0',
       boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
-      '& img': {
-        cursor: 'pointer',
-      },
     },
   },
   tableParent: {
@@ -72,8 +68,8 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     backgroundImage: `url(${PlaceHolderImage})`,
     backgroundSize: 'cover',
+    backgroundPosition: 'center',
     maxHeight: '7em',
-    width: '95%',
     '& div': {
       marginRight: '1em',
     },
@@ -188,7 +184,7 @@ const SearchList = () => {
                       </ButtonBase>
                     </Grid>
 
-                    <Grid container item direction="column" alignItems="flex-end" justify="space-around" xs={2}>
+                    <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
                       <ShelfButton />
                       <Grid item style={{ paddingRight: '1em' }}>
                         <ButtonBase>
