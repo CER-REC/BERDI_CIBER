@@ -8,6 +8,7 @@ import {
   IconButton,
   Typography,
   makeStyles,
+  Slide,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
@@ -20,6 +21,9 @@ import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
 
 const useStyles = makeStyles(styles);
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const transition = React.forwardRef((props, ref) => <Slide direction="right" ref={ref} {...props} />);
 
 const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
@@ -88,6 +92,7 @@ const ResultDialog = ({ open, onClose, data }) => {
       onClose={onClose}
       maxWidth="lg"
       fullWidth
+      TransitionComponent={transition}
     >
       {/* Header */}
       <Grid
