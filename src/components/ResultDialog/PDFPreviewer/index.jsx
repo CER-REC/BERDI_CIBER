@@ -54,6 +54,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         typemustmatch="true"
         className={classes.object}
         onLoad={handleLoad}
+        role="document"
       >
         {!isLoading && (
           <div className={classes.failureContainer}>
