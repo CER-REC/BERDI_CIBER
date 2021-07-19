@@ -13,16 +13,26 @@ const useStyles = makeStyles(() => ({
     overflow: 'hidden',
     padding: '0 2.25em 0 2.25em',
   },
-  object: {
+  failureContainer: {
+    width: '100%',
+    height: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    borderColor: '#CCCCCC',
+    borderStyle: 'solid',
+    borderWidth: '2px',
+    backgroundColor: '#FCFCFC',
+  },
+  failureMessage: {
+    fontSize: '22px',
+    color: '#054169',
+    marginTop: '1em',
   },
 }));
 
 const PDFPreviewer = ({ pdfURL, pageNumber }) => {
-  pdfURL = 'force failure';
   const classes = useStyles();
   const intl = useIntl();
   const [isLoading, setLoading] = useState(true);
@@ -46,12 +56,12 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         onLoad={handleLoad}
       >
         {!isLoading && (
-          <>
+          <div className={classes.failureContainer}>
             <img alt="Icon depicting pdf load failure." src={pdfFailLoadIcon} />
-            <Typography>
+            <Typography className={classes.failureMessage}>
               {intl.formatMessage({ id: 'components.resultDialog.failedToLoad' })}
             </Typography>
-          </>
+          </div>
         )}
       </object>
     </div>
