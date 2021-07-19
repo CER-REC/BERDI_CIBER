@@ -51,7 +51,6 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         width="100%"
         height="100%"
         type="application/pdf"
-        typemustmatch="true"
         className={classes.object}
         onLoad={handleLoad}
         role="document"
