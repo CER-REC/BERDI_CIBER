@@ -50,9 +50,13 @@ describe('Components/ResultDialog', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  // TODO: revise if granularity around final decision url states is decided upon
-  test('should show pending when finalDecisionURL is blank', () => {
+  test('should show not applicable when finalDecisionURL is blank', () => {
     render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
+    expect(screen.queryByText('components.resultDialog.notApplicable')).toBeInTheDocument();
+  });
+
+  test('should show pending when finalDecisionURL is pending', () => {
+    render(<ResultDialog open onClose={noop} data={{ title: 'pendingFinalDecisionURL', application: { name: 'name', finalDecisionURL: 'pending' } }} />);
     expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 

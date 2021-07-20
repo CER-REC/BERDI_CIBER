@@ -5,16 +5,17 @@ import ResultDialog from '.';
 import ReadMe from './README.md';
 
 const data = {
-  title: 'title',
+  application: {
+    name: 'applicationName',
+    applicationURL: 'https://applicationURL.ca',
+    finalDecisionURL: 'https://finalDecisionURL.ca',
+  },
+  title: 'Title',
   url: 'https://url.ca',
   pdfName: 'pdfName',
-  pdfURL: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-  pageNumber: 111,
-  pageCount: 999,
-  project: 'projectName',
+  pdfURL: 'https://pdfURL.ca',
+  pdfPageNumber: 111,
   esaFolderURL: 'https://esaFolderURL.ca',
-  projectFolderURL: 'https://projectFolderURL.ca',
-  finalDecisionURL: 'https://finalDecisionURL.ca',
 };
 
 export default storiesForComponent(
