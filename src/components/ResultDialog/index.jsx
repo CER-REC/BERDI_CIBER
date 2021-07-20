@@ -82,6 +82,23 @@ const ResultDialog = ({ open, onClose, data }) => {
     return null;
   }
 
+  const createTableRow = (label, dataItem) => (
+    <tbody>
+      <tr>
+        <td>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: `components.resultDialog.${label}` })}
+          </Typography>
+        </td>
+        <td>
+          <Typography>
+            {dataItem}
+          </Typography>
+        </td>
+      </tr>
+    </tbody>
+  );
+
   return (
     <Dialog
       className="ResultDialog"
@@ -127,56 +144,10 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         <Grid item container>
           <table className={classes.dialogDataContainer}>
-            <tbody>
-              <tr>
-                <td>
-                  <Typography className={classes.dialogLabel}>
-                    {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
-                  </Typography>
-                </td>
-                <td>
-                  <Typography>
-                    {data.pdfPageNumber}
-                  </Typography>
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>
-                  <Typography className={classes.dialogLabel}>
-                    {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
-                  </Typography>
-                </td>
-                <td>
-                  {getDataAnchorElement(data.pdfURL)}
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>
-                  <Typography className={classes.dialogLabel}>
-                    {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
-                  </Typography>
-                </td>
-                <td>
-                  {getDataAnchorElement(data.esaFolderURL)}
-                </td>
-              </tr>
-            </tbody>
-            <tbody>
-              <tr>
-                <td>
-                  <Typography className={classes.dialogLabel}>
-                    {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
-                  </Typography>
-                </td>
-                <td>
-                  {getDataAnchorElement(data.application.applicationURL)}
-                </td>
-              </tr>
-            </tbody>
+            {createTableRow('foundOnPage', data.pdfPageNumber)}
+            {createTableRow('originalPDF', getDataAnchorElement(data.pdfURL))}
+            {createTableRow('esaFolder', getDataAnchorElement(data.esaFolderURL))}
+            {createTableRow('projectFolder', getDataAnchorElement(data.application.applicationURL))}
             <tbody>
               <tr>
                 <td>
