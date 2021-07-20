@@ -78,19 +78,6 @@ const ResultDialog = ({ open, onClose, data }) => {
 
   const getDataAnchorElement = (href) => <a href={href} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
 
-  const getfinalDecisionURLText = () => (
-    (!data.application.finalDecisionURL && (
-      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
-        {intl.formatMessage({ id: 'components.resultDialog.notApplicable' })}
-      </Typography>
-    ))
-    || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
-      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
-        {intl.formatMessage({ id: 'components.resultDialog.pending' })}
-      </Typography>
-    ))
-    || (getDataAnchorElement(data.application.finalDecisionURL)));
-
   if (!data) {
     return null;
   }
@@ -169,7 +156,18 @@ const ResultDialog = ({ open, onClose, data }) => {
                   </Typography>
                 </td>
                 <td>
-                  {getfinalDecisionURLText()}
+                  {(
+                    (!data.application.finalDecisionURL && (
+                      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
+                        {intl.formatMessage({ id: 'components.resultDialog.notApplicable' })}
+                      </Typography>
+                    ))
+                    || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
+                      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
+                        {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                      </Typography>
+                    ))
+                    || (getDataAnchorElement(data.application.finalDecisionURL)))}
                 </td>
               </tr>
             </tbody>
