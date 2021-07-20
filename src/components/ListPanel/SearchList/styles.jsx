@@ -1,4 +1,4 @@
-import PlaceHolderImage from '../../../images/ListPanel/PlaceHolder.svg';
+import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 
 export default (theme) => ({
   tableHeader: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, makeStyles, ButtonBase } from '@material-ui/core';
-import PlusIcon from '../../../images/ListPanel/ShelfButton/PlusIcon.svg';
+import PlusIcon from '../../../images/listPanel/shelfButton/plusIcon.svg';
 
 const useStyles = makeStyles(() => (
   {
@@ -18,7 +18,6 @@ const ShelfButton = () => {
   return (
     <ButtonBase className={classes.root}>
       <Grid container item direction="row" justify="space-between" alignItems="center">
-
         <Grid item>
           <img alt="A plus icon" src={PlusIcon} />
         </Grid>
