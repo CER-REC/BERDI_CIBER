@@ -23,7 +23,7 @@ import PDFPreviewer from './PDFPreviewer';
 const useStyles = makeStyles(styles);
 
 // eslint-disable-next-line react/jsx-props-no-spreading
-const transition = React.forwardRef((props, ref) => <Slide direction="right" ref={ref} {...props} />);
+const transition = React.forwardRef((props, ref) => <Slide direction="right" ref={ref} {...props} timeout={300} />);
 
 const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
