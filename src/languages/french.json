@@ -86,7 +86,10 @@
         "seeMore":"",
         "seeFewer":"",
         "expandAll":"",
-        "collapseAll":""
+        "collapseAll":"",
+        "company": "",
+        "projectName": "Nom du projet : ",
+        "esaConsultant": "Nom du consultant de l'EES : "
       },
       "termsTitle": {
         "title": "Avis",

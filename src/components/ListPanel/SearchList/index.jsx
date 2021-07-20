@@ -113,7 +113,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
       // expanded already
       return (
         <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
-          <span>{intl.formatMessage({ id: 'components.listPanel.seeFewer' })}</span>
+          <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
           <img alt="Up caret" src={UpCaret} />
         </ButtonBase>
       );
@@ -121,7 +121,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
     // not expanded
     return (
       <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
-        <span>{intl.formatMessage({ id: 'components.listPanel.seeMore' })}</span>
+        <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
         <img alt="Down caret" src={DownCaret} />
       </ButtonBase>
     );
@@ -155,50 +155,84 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
                       {createTitleSection(content.title, content)}
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
-                        {content.application.name}
-                      </Typography>
 
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
-                        {content.application.companyName}
-                      </Typography>
+                      <Grid container>
+                        <Grid item style={{ paddingRight: '1em', color: '#616060' }}>
+                          <Typography variant="body2">
+                            <span>{intl.formatMessage({ id: 'components.listPanel.projectName' })}</span>
+                          </Typography>
+                          <Typography variant="body2">
+                            <span>{intl.formatMessage({ id: 'components.listPanel.company' })}</span>
+                          </Typography>
 
-                      {/* This section only renders if the content id is in the expanded list */}
-                      {(expandList.find((entry) => entry === content.id)) && (
-                      <>
-                        <br />
-                        <Typography variant="body2">
-                          <span>{intl.formatMessage({ id: 'components.listPanel.projectFiled' })}</span>
-                          {toDateOnlyString(new Date(content.application.filingDate))}
-                        </Typography>
-                        <Typography variant="body2">
-                          <span>{intl.formatMessage({ id: 'components.listPanel.projectStatus' })}</span>
-                          {intl.formatMessage({ id: `api.statuses.${content.application.status}` })}
-                        </Typography>
-                        <Typography variant="body2">
-                          <span>{intl.formatMessage({ id: 'components.listPanel.projectType' })}</span>
-                          {intl.formatMessage({ id: `api.projects.${content.application.type}` })}
-                        </Typography>
-                        <Typography variant="body2">
-                          <span>{intl.formatMessage({ id: 'common.commodity' })}</span>
-                          {intl.formatMessage({ id: `api.commodities.${content.application.commodity}` })}
-                        </Typography>
-                        <Typography variant="body2">
-                          <span>{intl.formatMessage({ id: 'common.hearingOrder' })}</span>
-                          {content.application.hearingOrder}
-                        </Typography>
-                        <Typography variant="body2" className={classes.projectLinks}>
-                          <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
-                          {projectLinks.map((item) => (
-                            <a key={item.title} href={item.link}>
-                              {item.title}
-                            </a>
-                          ))}
-                        </Typography>
-                      </>
-                      )}
+                          {(expandList.find((entry) => entry === content.id)) && (
+                          <>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'components.listPanel.esaConsultant' })}</span>
+                            </Typography>
+                            <br />
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'components.listPanel.projectFiled' })}</span>
+                            </Typography>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'components.listPanel.projectStatus' })}</span>
+                            </Typography>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'components.listPanel.projectType' })}</span>
+                            </Typography>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'common.commodity' })}</span>
+                            </Typography>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'common.hearingOrder' })}</span>
+                            </Typography>
+                            <Typography variant="body2">
+                              <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
+                            </Typography>
+                          </>
+                          )}
+
+                        </Grid>
+                        <Grid item style={{ color: '#616060' }}>
+                          <Typography variant="body2">
+                            {content.application.name}
+                          </Typography>
+                          <Typography variant="body2">
+                            {content.application.companyName}
+                          </Typography>
+
+                          {(expandList.find((entry) => entry === content.id)) && (
+                            <>
+                              <Typography variant="body2">
+                                {content.application.consultants}
+                              </Typography>
+                              <br />
+                              <Typography variant="body2">
+                                {toDateOnlyString(new Date(content.application.filingDate))}
+                              </Typography>
+                              <Typography variant="body2">
+                                {intl.formatMessage({ id: `api.statuses.${content.application.status}` })}
+                              </Typography>
+                              <Typography variant="body2">
+                                {intl.formatMessage({ id: `api.projects.${content.application.type}` })}
+                              </Typography>
+                              <Typography variant="body2">
+                                {intl.formatMessage({ id: `api.commodities.${content.application.commodity}` })}
+                              </Typography>
+                              <Typography variant="body2">
+                                {content.application.hearingOrder}
+                              </Typography>
+                              <Typography variant="body2" className={classes.projectLinks}>
+                                {projectLinks.map((item) => (
+                                  <a key={item.title} href={item.link}>
+                                    {item.title}
+                                  </a>
+                                ))}
+                              </Typography>
+                            </>
+                          )}
+                        </Grid>
+                      </Grid>
 
                       {createSeeMoreDetailsSection(content)}
                     </Grid>

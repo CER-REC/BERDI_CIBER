@@ -103,10 +103,14 @@
       "projectLinks":"Project links: ",
       "relatedTopics":"Related topics",
       "addToShelf":"Add to shelf",
-      "seeMore":"See more details",
-      "seeFewer":"See fewer details",
+      "viewMore":"View more details",
+      "viewFewer":"View fewer details",
       "expandAll":"Expand all",
-      "collapseAll":"Collapse all"
+      "collapseAll":"Collapse all",
+      "company": "Company: ",
+      "projectName": "Project name: ",
+      "esaConsultant": "ESA consultant: "
+
     },
     "searchPanel": {
       "exploreButton": "Explore all",
