@@ -76,7 +76,7 @@ const ResultDialog = ({ open, onClose, data }) => {
     onClose();
   }, [data, onClose]);
 
-  const getDataAnchorElement = (href) => <a href={href} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
+  const getDataAnchorElement = (href) => <a href={href} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
 
   if (!data) {
     return null;
