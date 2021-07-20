@@ -54,8 +54,6 @@ const SearchBar = ({ hasShrink }) => {
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'Enter') {
       handleClick();
-      // The ASP.NET template wraps the application in a form element that triggers on the enter key
-      event.preventDefault();
     }
   }, [handleClick]);
 

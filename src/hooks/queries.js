@@ -114,7 +114,6 @@ export const SEARCH = gql`
         title
         esaSections
         pdfPageNumber
-        pdfPageCount
         pdfURL
         pdfName
         type
@@ -129,6 +128,8 @@ export const SEARCH = gql`
           type
           commodity
           hearingOrder
+          applicationURL
+          finalDecisionURL
         }
       }
       totalCount
