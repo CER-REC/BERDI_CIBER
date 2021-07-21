@@ -114,7 +114,6 @@ export const SEARCH = gql`
         title
         esaSections
         pdfPageNumber
-        pdfPageCount
         pdfURL
         pdfName
         type
@@ -125,6 +124,8 @@ export const SEARCH = gql`
           consultants
           filingDate
           companyName
+          applicationURL
+          finalDecisionURL
         }
       }
       totalCount
