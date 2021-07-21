@@ -30,8 +30,11 @@ export const initialState = {
   treemapApplicationIds: [],
   // The page of the search results (starting at 0)
   searchIndex: 0,
+  cartIndex: 0,
   // The URL fragment
   fragment: '',
+  cartIds: [],
+  unreadCartIds: [],
 };
 
 export const getReducer = (
@@ -44,6 +47,8 @@ export const getReducer = (
   statuses,
   contentTypes,
 ) => (state, action) => {
+  let ids;
+
   switch (action.type) {
     case 'changed':
       return {
@@ -60,7 +65,10 @@ export const getReducer = (
         contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
         treemapApplicationIds: getValidEnums(action.payload.treemapApplicationIds, applicationIds),
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
+        cartIndex: action.payload.cartIndex || initialState.cartIndex,
         fragment: action.payload.fragment || initialState.fragment,
+        cartIds: action.payload.cartIds || initialState.cartIds,
+        unreadCartIds: action.payload.unreadCartIds || initialState.unreadCartIds,
       };
     case 'page/changed':
       return {
@@ -77,7 +85,10 @@ export const getReducer = (
         contentTypes: state.contentTypes || initialState.contentTypes,
         treemapApplicationIds: state.treemapApplicationIds || initialState.treemapApplicationIds,
         searchIndex: state.searchIndex || initialState.searchIndex,
+        cartIndex: state.cartIndex || initialState.cartIndex,
         fragment: initialState.fragment,
+        cartIds: state.cartIds || initialState.cartIds,
+        unreadCartIds: state.unreadCartIds || initialState.unreadCartIds,
       };
     case 'search/changed':
       return {
@@ -169,11 +180,11 @@ export const getReducer = (
         searchIndex: 0,
       };
     case 'treemapApplicationIds/removed':
+      ids = [].concat(action.payload);
+
       return {
         ...state,
-        treemapApplicationIds: state.treemapApplicationIds.filter(
-          (id) => ![].concat(action.payload).includes(id),
-        ),
+        treemapApplicationIds: state.treemapApplicationIds.filter((id) => !ids.includes(id)),
         searchIndex: 0,
       };
     case 'filters/removed':
@@ -189,6 +200,34 @@ export const getReducer = (
         contentTypes: initialState.contentTypes,
         treemapApplicationIds: initialState.treemapApplicationIds,
         searchIndex: initialState.searchIndex,
+      };
+    case 'cartIds/added':
+      return {
+        ...state,
+        cartIndex: 0,
+        cartIds: [...new Set(state.cartIds.concat(action.payload))],
+        unreadCartIds: [...new Set(state.unreadCartIds.concat(action.payload))],
+      };
+    case 'cartIds/changed':
+      return {
+        ...state,
+        cartIndex: 0,
+        cartIds: action.payload || initialState.cartIds,
+        unreadCartIds: action.payload || initialState.unreadCartIds,
+      };
+    case 'cartIds/removed':
+      ids = [].concat(action.payload);
+
+      return {
+        ...state,
+        cartIndex: 0,
+        cartIds: state.cartIds.filter((id) => !ids.includes(id)),
+        unreadCartIds: state.unreadCartIds.filter((id) => !ids.includes(id)),
+      };
+    case 'unreadCartIds/removed':
+      return {
+        ...state,
+        unreadCartIds: initialState.unreadCartIds,
       };
     default:
       return state;
