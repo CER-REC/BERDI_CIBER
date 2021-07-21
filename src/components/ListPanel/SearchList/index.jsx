@@ -16,7 +16,6 @@ import EllipseIcon from '../../../images/listPanel/ellipse.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import UpCaret from '../../../images/listPanel/upCaret.svg';
 import { reportContent } from '../../../utilities/analytics';
-import { toDateOnlyString } from '../../../utilities/date';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
 import ShelfButton from '../ShelfButton';
@@ -208,7 +207,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                               </Typography>
                               <br />
                               <Typography variant="body2">
-                                {toDateOnlyString(new Date(content.application.filingDate))}
+                                {new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
                               </Typography>
                               <Typography variant="body2">
                                 {intl.formatMessage({ id: `api.statuses.${content.application.status}` })}
