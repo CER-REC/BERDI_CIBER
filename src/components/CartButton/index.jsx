@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, makeStyles, ButtonBase } from '@material-ui/core';
-import PlusIcon from '../../../images/listPanel/shelfButton/plusIcon.svg';
+
+import PlusIcon from '../../images/cartButton/plusIcon.svg';
 
 const useStyles = makeStyles(() => (
   {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(() => (
   }
 ));
 
-const ShelfButton = () => {
+const CartButton = () => {
   const classes = useStyles();
   return (
     <ButtonBase className={classes.root}>
@@ -30,4 +31,4 @@ const ShelfButton = () => {
   );
 };
 
-export default ShelfButton;
+export default CartButton;

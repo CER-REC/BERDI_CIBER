@@ -18,7 +18,7 @@ import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 import EllipseIcon from '../../../images/listPanel/ellipse.svg';
 import DownCaret from '../../../images/listPanel/downCaret.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
-import ShelfButton from '../ShelfButton';
+import CartButton from '../../CartButton';
 
 const useStyles = makeStyles((theme) => ({
   tableHeader: {
@@ -185,7 +185,7 @@ const SearchList = () => {
                     </Grid>
 
                     <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
-                      <ShelfButton />
+                      <CartButton />
                       <Grid item style={{ paddingRight: '1em' }}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />
