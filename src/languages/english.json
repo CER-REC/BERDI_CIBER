@@ -109,8 +109,10 @@
       "collapseAll":"Collapse all",
       "company": "Company: ",
       "projectName": "Project name: ",
-      "esaConsultant": "ESA consultant: "
-
+      "esaConsultant": "ESA consultant: ",
+      "projectFolder": "Project folder",
+      "finalDecision": "Final decision",
+      "esaFolder": "ESA folder"
     },
     "searchPanel": {
       "exploreButton": "Explore all",

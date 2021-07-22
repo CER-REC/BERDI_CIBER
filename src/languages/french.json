@@ -89,7 +89,10 @@
         "collapseAll":"",
         "company": "",
         "projectName": "Nom du projet : ",
-        "esaConsultant": "Nom du consultant de l'EES : "
+        "esaConsultant": "Nom du consultant de l'EES : ",
+        "projectFolder": "Dossier de projet",
+        "finalDecision": "Décision finale",
+        "esaFolder": "Dossier de l’EES"
       },
       "termsTitle": {
         "title": "Avis",

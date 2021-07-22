@@ -222,11 +222,10 @@ const SearchList = ({ toggleExpand, expandList }) => {
                                 {content.application.hearingOrder}
                               </Typography>
                               <Typography variant="body2" className={classes.projectLinks}>
-                                {projectLinks.map((item) => (
-                                  <a key={item.title} href={item.link}>
-                                    {item.title}
-                                  </a>
-                                ))}
+                                <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                {content.application.finalDecisionURL
+                                && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
                               </Typography>
                             </>
                           )}
@@ -255,7 +254,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       <Grid container justify="flex-start" alignItems="center">
                         {mockTopics.map((topic) => (
                           <Grid item key={topic} className={classes.relatedTopics}>
-                            <a href="google.com"><Typography>{topic}</Typography></a>
+                            <a href="https://wikipedia.org"><Typography>{topic}</Typography></a>
                           </Grid>
                         ))}
                       </Grid>
