@@ -82,7 +82,6 @@ const theme = createMuiTheme({
       contained: {
         backgroundColor: darkTeal,
         color: black,
-        padding: '0.5em 2em',
         '&:hover': { backgroundColor: lighten(darkTeal, 0.2) },
         '& > $label': {
           fontSize: 16,

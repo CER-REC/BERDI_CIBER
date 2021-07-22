@@ -29,9 +29,9 @@ const useStyles = makeStyles((theme) => ({
     '& p': {
       marginTop: '5px',
       borderRadius: '5px',
-    },
-    '& span': {
-      fontWeight: '900',
+      '& > span': {
+        fontWeight: '900',
+      },
     },
     '& h6': {
       fontWeight: 'normal',

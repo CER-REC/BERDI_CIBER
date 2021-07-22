@@ -28,7 +28,7 @@ const DataNotice = () => {
   return (
     <Grid className={`DataNotice ${classes.root}`} item>
       <Typography>
-        {intl.formatMessage({ id: 'components.resultDialog.dataNotice' })}
+        {intl.formatMessage({ id: 'components.cartButton.dataNotice' })}
       </Typography>
       <Button
         color="inherit"
