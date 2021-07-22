@@ -8,9 +8,13 @@ import SearchList from './SearchList';
 const useStyles = makeStyles({
   expandButtons: {
     '& button': {
-      border: '1px solid #CFCFCF',
+      color: '#222',
+      textShadow: '0 1px 1px white',
+      borderColor: '#C8C8C8 #C8C8C8 #BBB',
+      borderWidth: '1px',
+      borderStyle: 'solid',
       padding: '0.2em 0.5em',
-      backgroundImage: 'linear-gradient(#E8E8E8, #DEDEE1)',
+      backgroundImage: 'linear-gradient(#EEE,#D4D4D4)',
     },
   },
 });

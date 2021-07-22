@@ -50,15 +50,15 @@ const SearchList = ({ toggleExpand, expandList }) => {
   // TODO: replace with api generated topics
   const mockTopics = [
     'Physical and meteorological environment',
-    'Lorem ipsum dolor sit amet.',
-    'Lorem ipsum dolor sit amet.1',
-    'Lorem ipsum dolor sit amet.2 longer version of a link lorem ipsum dolor sit amet',
-    'Lorem ipsum dolor sit amet.3',
-    'Lorem ipsum dolor sit amet.4',
-    'Lorem ipsum dolor sit amet.5',
-    'Lorem ipsum dolor sit amet.6',
-    'Lorem ipsum dolor sit amet.7',
-    'Lorem ipsum dolor sit amet.8',
+    'Navigation and navigation safety',
+    'Human health and aesthetics',
+    'Species at Risk or Species of Special Status and related habitat',
+    'Acoustic environment',
+    'Rights of Indigenous Peoples',
+    'Soil and soil productivity',
+    'Wildlife and wildlife habitat',
+    'Air emissions',
+    'Traditional land and resource use',
   ];
 
   const projectLinks = [
