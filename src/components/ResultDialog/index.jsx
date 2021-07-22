@@ -15,7 +15,6 @@ import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
-import DataNotice from './DataNotice';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
 
@@ -139,8 +138,6 @@ const ResultDialog = ({ open, onClose, data }) => {
         <Grid item style={{ paddingBottom: '20px' }}>
           {createTitleSection(data.title)}
         </Grid>
-
-        {(data.type === 'TABLE') && !data.url && <DataNotice />}
 
         <Grid item container>
           <table className={classes.dialogDataContainer}>

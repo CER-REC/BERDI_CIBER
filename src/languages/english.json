@@ -46,6 +46,9 @@
       "body": "This site will change as we test ideas.",
       "link": "Learn how you can help."
     },
+    "cartButton": {
+      "dataNotice": "We were unable to extract the table for download. Please view the original document."
+    },
     "dropdown": {
       "APPLICATION_NAMES": "Project",
       "REGIONS": "Province",
@@ -124,7 +127,6 @@
       "downloadFigure": "Download figure",
       "seeMore": "See more...",
       "seeLess": "See less...",
-      "dataNotice": "We were unable to extract the table for download. Please view the original document.",
       "foundOnPage": "Found on page:",
       "originalPDF": "Original PDF:",
       "esaFolder": "ESA folder:",
