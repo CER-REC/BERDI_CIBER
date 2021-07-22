@@ -55,11 +55,6 @@ export default (theme) => ({
       marginRight: '1em',
     },
   },
-  projectLinks: {
-    '& a': {
-      paddingRight: '0.5em',
-    },
-  },
   ellipseButton: {
     paddingRight: '1em',
     marginBottom: '1em',
@@ -73,5 +68,16 @@ export default (theme) => ({
     padding: '0 3em 1em 0',
     overflowWrap: 'break-word',
     maxWidth: '30em',
+  },
+  details: {
+    '& tr': {
+      color: '#616060',
+    },
+    '& td': {
+      paddingRight: '1em',
+    },
+    '& a': {
+      paddingRight: '0.5em',
+    },
   },
 });

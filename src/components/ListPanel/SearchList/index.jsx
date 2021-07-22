@@ -120,6 +120,21 @@ const SearchList = ({ toggleExpand, expandList }) => {
     );
   };
 
+  const createTableRow = (data, title) => (
+    <tr>
+      <td style={{ whiteSpace: 'nowrap' }}>
+        <Typography>
+          {title}
+        </Typography>
+      </td>
+      <td>
+        <Typography>
+          {data}
+        </Typography>
+      </td>
+    </tr>
+  );
+
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
@@ -149,82 +164,41 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
                       {createTitleSection(content.title, content)}
 
-                      <Grid container>
-                        <Grid item style={{ paddingRight: '1em', color: '#616060' }}>
-                          <Typography variant="body2">
-                            <span>{intl.formatMessage({ id: 'components.listPanel.projectName' })}</span>
-                          </Typography>
-                          <Typography variant="body2">
-                            <span>{intl.formatMessage({ id: 'components.listPanel.company' })}</span>
-                          </Typography>
-
-                          {(expandList.find((entry) => entry === content.id)) && (
-                          <>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'components.listPanel.esaConsultant' })}</span>
-                            </Typography>
-                            <br />
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'components.listPanel.projectFiled' })}</span>
-                            </Typography>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'components.listPanel.projectStatus' })}</span>
-                            </Typography>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'components.listPanel.projectType' })}</span>
-                            </Typography>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'common.commodity' })}</span>
-                            </Typography>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'common.hearingOrder' })}</span>
-                            </Typography>
-                            <Typography variant="body2">
-                              <span>{intl.formatMessage({ id: 'components.listPanel.projectLinks' })}</span>
-                            </Typography>
-                          </>
-                          )}
-
-                        </Grid>
-                        <Grid item style={{ color: '#616060' }}>
-                          <Typography variant="body2">
-                            {content.application.name}
-                          </Typography>
-                          <Typography variant="body2">
-                            {content.application.companyName}
-                          </Typography>
-
-                          {(expandList.find((entry) => entry === content.id)) && (
+                      <table className={classes.details}>
+                        <tbody>
+                          {createTableRow(content.application.name, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
+                          {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
+                          {
+                            (expandList.find((entry) => entry === content.id)) && (
                             <>
-                              <Typography variant="body2">
-                                {content.application.consultants}
-                              </Typography>
+                              {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
                               <br />
-                              <Typography variant="body2">
-                                {new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}
-                              </Typography>
-                              <Typography variant="body2">
-                                {intl.formatMessage({ id: `api.statuses.${content.application.status}` })}
-                              </Typography>
-                              <Typography variant="body2">
-                                {intl.formatMessage({ id: `api.projects.${content.application.type}` })}
-                              </Typography>
-                              <Typography variant="body2">
-                                {intl.formatMessage({ id: `api.commodities.${content.application.commodity}` })}
-                              </Typography>
-                              <Typography variant="body2">
-                                {content.application.hearingOrder}
-                              </Typography>
-                              <Typography variant="body2" className={classes.projectLinks}>
-                                <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
-                                <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
-                                {content.application.finalDecisionURL
-                                && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
-                              </Typography>
+                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
+                              {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
+                              <tr>
+                                <td>
+                                  <Typography>
+                                    {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
+                                  </Typography>
+                                </td>
+                                <td>
+                                  <Typography>
+                                    <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                    <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                    {(content.application.finalDecisionURL
+                                    && content.application.finalDecisionURL.toLowerCase() !== 'pending')
+                                    && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                  </Typography>
+                                </td>
+                              </tr>
                             </>
-                          )}
-                        </Grid>
-                      </Grid>
+                            )
+                          }
+                        </tbody>
+                      </table>
 
                       {createSeeMoreDetailsSection(content)}
                     </Grid>
