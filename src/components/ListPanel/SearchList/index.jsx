@@ -61,12 +61,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
     'Traditional land and resource use',
   ];
 
-  const projectLinks = [
-    { title: 'Link 1', link: 'google.com' },
-    { title: 'Link 2', link: 'google.com' },
-    { title: 'Link 3', link: 'google.com' },
-  ];
-
   // TODO: make this a more generic function to be used whenever a see more button is needed.
   const createTitleSection = (title, content) => {
     if (title.length < 150) {
