@@ -13,9 +13,9 @@ const RemoveButton = () => {
   const intl = useIntl();
 
   return (
+    // Need to wrap the button in another element
+    // because a disabled button doesn't fire the events to trigger the tooltip
     <Tooltip title={<DataNotice />} interactive>
-      // Need to wrap the button in another element
-      // because a disabled button doesn't fire the events to trigger the tooltip
       <div style={{ width: '100%' }}>
         <Button className={`CartButton ${classes.root} ${classes.unavailable}`} disabled>
           <img alt="Alert" src={Alert} />

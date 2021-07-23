@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, makeStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
@@ -20,6 +21,10 @@ const RemoveButton = ({ cartId }) => {
       {intl.formatMessage({ id: 'components.cartButton.remove' })}
     </Button>
   );
+};
+
+RemoveButton.propTypes = {
+  cartId: PropTypes.string.isRequired,
 };
 
 export default RemoveButton;

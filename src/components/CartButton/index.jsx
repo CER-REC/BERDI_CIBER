@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import useConfig from '../../hooks/useConfig';
 import AddButton from './AddButton';
@@ -21,6 +22,14 @@ const CartButton = ({ data }) => {
   }
 
   return <AddButton cartId={data.id} />;
+};
+
+CartButton.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    url: PropTypes.string,
+  }).isRequired,
 };
 
 export default CartButton;
