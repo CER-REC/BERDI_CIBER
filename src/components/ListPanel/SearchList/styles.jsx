@@ -73,6 +73,9 @@ export default (theme) => ({
     '& tr': {
       color: '#616060',
     },
+    '& tr:nth-of-type(3)': {
+      '& td': { paddingBottom: '1em' },
+    },
     '& td': {
       paddingRight: '1em',
     },

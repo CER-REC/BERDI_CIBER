@@ -142,7 +142,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
             {contents.map((content) => (
-              <TableRow key={content.id}>
+              <TableRow key={content.id} aria-label="content card">
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
                   <Grid className="tableCellInner" container>
                     <Grid
@@ -172,7 +172,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
                             (expandList.find((entry) => entry === content.id)) && (
                             <>
                               {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
-                              <br />
                               {createTableRow(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
                               {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
                               {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}

@@ -24,12 +24,12 @@ describe('Components/ListPanel', () => {
     await waitFor(() => {
       const { contents } = mockData.data.contentSearch;
 
-      expect(screen.getAllByRole('row').length).toBe(contents.length);
+      expect(screen.getAllByLabelText('content card').length).toBe(contents.length); // There are two sub rows in each parent row
       expect(screen.getAllByRole('button', { name: /a plus icon add to shelf/i }).length).toBe(contents.length);
       expect(screen.getAllByRole('button', { name: /ellipse/i }).length).toBe(contents.length);
 
       contents.forEach((content, index) => {
-        const result = screen.getAllByRole('row')[index].textContent;
+        const result = screen.getAllByLabelText('content card')[index].textContent;
         expect(result).toContain(content.title.substring(0, 150));
         expect(result).toContain(content.application.name);
         expect(result).toContain(content.application.companyName);
@@ -98,7 +98,7 @@ describe('Components/ListPanel', () => {
     await waitFor(() => {
       const { contents } = mockData.data.contentSearch;
       contents.forEach((content, index) => {
-        const result = screen.getAllByRole('row')[index].textContent;
+        const result = screen.getAllByLabelText('content card')[index].textContent;
 
         expect(result).toContain(content.title.substring(0, 150));
         expect(result).toContain(content.application.name);
