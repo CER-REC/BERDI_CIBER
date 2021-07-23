@@ -47,6 +47,9 @@
       "link": "Learn how you can help."
     },
     "cartButton": {
+      "add": "Add to shelf",
+      "remove": "Remove from shelf",
+      "unavailable": "Data not available",
       "dataNotice": "We were unable to extract the table for download. Please view the original document."
     },
     "dropdown": {

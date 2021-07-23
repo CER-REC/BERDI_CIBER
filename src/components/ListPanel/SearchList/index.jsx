@@ -20,6 +20,8 @@ import DownCaret from '../../../images/listPanel/downCaret.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import CartButton from '../../CartButton';
 
+const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
+
 const useStyles = makeStyles((theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
@@ -184,8 +186,8 @@ const SearchList = () => {
                       </ButtonBase>
                     </Grid>
 
-                    <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
-                      <CartButton />
+                    <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
+                      <CartButton data={content} />
                       <Grid item style={{ paddingRight: '1em' }}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />
