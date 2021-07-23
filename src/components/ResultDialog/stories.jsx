@@ -5,7 +5,9 @@ import ResultDialog from '.';
 import ReadMe from './README.md';
 
 const data = {
+  id: '0',
   title: 'title',
+  type: 'TABLE',
   url: 'https://url.ca',
   pdfName: 'pdfName',
   pdfURL: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
