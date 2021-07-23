@@ -15,6 +15,7 @@ import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
+import CartButton from '../CartButton';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
 
@@ -135,8 +136,9 @@ const ResultDialog = ({ open, onClose, data }) => {
           </Typography>
         </Grid>
 
-        <Grid item style={{ paddingBottom: '20px' }}>
-          {createTitleSection(data.title)}
+        <Grid container justify="space-between" style={{ paddingBottom: '20px' }}>
+          <Grid item xs={8}>{createTitleSection(data.title)}</Grid>
+          <Grid item xs={2}><CartButton data={data} /></Grid>
         </Grid>
 
         <Grid item container>
