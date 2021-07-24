@@ -146,6 +146,29 @@
           "type": "TABLE",
           "url": null,
           "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2748481"
+        },
+        {
+          "id": "3473",
+          "title": "Available Download Data Test",
+          "esaSections": "Test",
+          "pdfPageNumber": 1,
+          "pdfURL": "https://test",
+          "pdfName": "Test",
+          "application": {
+            "name": "Application Test 2 Long Name",
+            "companyName": "Enbridge Pipelines Inc.",
+            "commodity": "OIL",
+            "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
+            "consultants": "TERA Environmental Consultants",
+            "status": "OPERATING",
+            "type": "LARGE",
+            "filingDate": "2007-05-30T00:00:00",
+            "hearingOrder": "OH-4-2007",
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+          },
+          "type": "TABLE",
+          "url": "https://test",
+          "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2748481"
         }
       ],
       "totalCount": 267

@@ -2,6 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import {
+  cleanup,
   getAllByRole,
   getByRole,
   getByText,
@@ -51,6 +52,10 @@ const simulateFilter = () => {
 };
 
 describe('Containers/App', () => {
+  // Work around to mock localStorage's getItem (https://github.com/facebook/jest/issues/6798)
+  // eslint-disable-next-line no-proto
+  const getItemSpy = jest.spyOn(window.localStorage.__proto__, 'getItem');
+
   afterEach(() => {
     window.location.search = '';
   });
@@ -156,6 +161,57 @@ describe('Containers/App', () => {
         expect(screen.getByText('components.searchPanel.exploreLabel')).toBeInTheDocument();
       });
     });
+  });
+
+  it('should save the cart IDs to local storage', async () => {
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["3473"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["3473"]');
+    });
+
+    cleanup();
+
+    getItemSpy.mockReturnValueOnce('["1","8454","77"]').mockReturnValueOnce('["1"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["1","8454","77","3473"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["1","3473"]');
+    });
+  });
+
+  it('should remove the cart IDs from local storage', async () => {
+    getItemSpy.mockReturnValueOnce('["3473"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('[]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('[]');
+    });
+
+    cleanup();
+
+    getItemSpy.mockReturnValueOnce('["3473","1","77"]').mockReturnValueOnce('["3473","77"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["1","77"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["77"]');
+    });
+  });
+
+  it('should read the cart IDs from local storage', async () => {
+    getItemSpy.mockReturnValueOnce('["3473"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+
+    await waitFor(() => expect(screen.getAllByText('components.cartButton.remove')).not.toHaveLength(0));
   });
 
   it('should render the methods page when the data unavailable link is clicked', async () => {
