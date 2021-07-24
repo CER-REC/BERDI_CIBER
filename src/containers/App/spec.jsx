@@ -66,19 +66,19 @@ describe('Containers/App', () => {
 
     render(<LazyApp />, { configMocked: false });
 
-    expect(screen.getByText('pages.back', { exact: false })).not.toBeEmpty();
-    expect(screen.getByText('fish')).not.toBeEmpty();
-    expect(screen.getByText('Test1')).not.toBeEmpty();
-    expect(screen.getByText('api.regions.MB')).not.toBeEmpty();
-    expect(screen.getByText('api.content.FIGURE')).not.toBeEmpty();
-    expect(screen.getByText('api.content.TABLE')).not.toBeEmpty();
-    expect(screen.getByText('api.projects.ABANDONMENT')).not.toBeEmpty();
-    expect(screen.getByText('api.commodities.GAS')).not.toBeEmpty();
-    expect(screen.getByText('api.statuses.WITHDRAWN')).not.toBeEmpty();
-    expect(screen.getByText('Dec 2000 - Dec 2000')).not.toBeEmpty();
+    expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('fish')).toBeInTheDocument();
+    expect(screen.getByText('Test1')).toBeInTheDocument();
+    expect(screen.getByText('api.regions.MB')).toBeInTheDocument();
+    expect(screen.getByText('api.content.FIGURE')).toBeInTheDocument();
+    expect(screen.getByText('api.content.TABLE')).toBeInTheDocument();
+    expect(screen.getByText('api.projects.ABANDONMENT')).toBeInTheDocument();
+    expect(screen.getByText('api.commodities.GAS')).toBeInTheDocument();
+    expect(screen.getByText('api.statuses.WITHDRAWN')).toBeInTheDocument();
+    expect(screen.getByText('Dec 2000 - Dec 2000')).toBeInTheDocument();
 
     await waitFor(() => {
-      expect(getByText(screen.getByText('components.applications.title').parentNode, 'Test2')).not.toBeEmpty();
+      expect(getByText(screen.getByText('components.applications.title').parentNode, 'Test2')).toBeInTheDocument();
       expect(screen.getByText('3').closest('li')).toHaveClass('active');
     });
   });
@@ -126,7 +126,7 @@ describe('Containers/App', () => {
 
     render(<LazyApp />, { configMocked: false });
 
-    expect(screen.getByText('pages.back', { exact: false })).not.toBeEmpty();
+    expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
 
     await waitFor(() => {
       expect(screen.getAllByRole('cell')).not.toHaveLength(0);
@@ -152,11 +152,21 @@ describe('Containers/App', () => {
       window.dispatchEvent(new PopStateEvent('popstate'));
 
       await waitFor(() => {
-        expect(screen.getByText('pages.landing.tagline')).not.toBeEmpty();
-        expect(screen.getByText('components.searchPanel.exploreLabel')).not.toBeEmpty();
+        expect(screen.getByText('pages.landing.tagline')).toBeInTheDocument();
+        expect(screen.getByText('components.searchPanel.exploreLabel')).toBeInTheDocument();
       });
     });
   });
 
-  it.todo('should save the content IDs to local storage');
+  it('should render the methods page when the data unavailable link is clicked', async () => {
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+
+    await waitFor(() => fireEvent.mouseOver(screen.getAllByText('components.cartButton.unavailable')[0]));
+    await waitFor(() => {
+      fireEvent.click(getByText(screen.getByRole('tooltip'), 'common.learnMethods'));
+
+      expect(screen.getByText('pages.methods.body.title')).toBeInTheDocument();
+    });
+  });
 });
