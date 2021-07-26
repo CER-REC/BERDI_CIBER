@@ -23,7 +23,7 @@ export default (theme) => ({
     height: '8%',
   },
   dialogFooterButtons: {
-    width: '20%',
+    width: '16em',
     '& button': {
       borderRadius: '5px',
       width: '100%',
