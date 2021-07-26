@@ -22,9 +22,6 @@ import PDFPreviewer from './PDFPreviewer';
 
 const useStyles = makeStyles(styles);
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const transition = React.forwardRef((props, ref) => <Slide direction="right" ref={ref} {...props} timeout={300} />);
-
 const ResultDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
@@ -111,7 +108,8 @@ const ResultDialog = ({ open, onClose, data }) => {
       onClose={onClose}
       maxWidth="lg"
       fullWidth
-      TransitionComponent={transition}
+      TransitionComponent={Slide}
+      TransitionProps={{ direction: 'right', timeout: 300 }}
     >
       {/* Header */}
       <Grid
