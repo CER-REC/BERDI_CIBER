@@ -8,6 +8,7 @@ import {
   IconButton,
   Typography,
   makeStyles,
+  Slide,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
@@ -107,6 +108,8 @@ const ResultDialog = ({ open, onClose, data }) => {
       onClose={onClose}
       maxWidth="lg"
       fullWidth
+      TransitionComponent={Slide}
+      TransitionProps={{ direction: 'right', timeout: 300 }}
     >
       {/* Header */}
       <Grid
