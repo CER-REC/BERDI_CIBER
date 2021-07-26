@@ -15,6 +15,9 @@ const data = {
   esaFolderURL: 'https://esaFolderURL.ca',
   projectFolderURL: 'https://projectFolderURL.ca',
   finalDecisionURL: 'https://finalDecisionURL.ca',
+  application: {
+    name: 'test name',
+  },
 };
 
 export default storiesForComponent(

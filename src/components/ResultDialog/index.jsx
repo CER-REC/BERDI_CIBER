@@ -80,9 +80,28 @@ const ResultDialog = ({ open, onClose, data }) => {
     onClose();
   }, [data, onClose]);
 
+  const getDataAnchorElement = (href) => <a href={href} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
+
   if (!data) {
     return null;
   }
+
+  const createTableRow = (label, dataItem) => (
+    <tbody>
+      <tr>
+        <td>
+          <Typography className={classes.dialogLabel}>
+            {intl.formatMessage({ id: `components.resultDialog.${label}` })}
+          </Typography>
+        </td>
+        <td>
+          <Typography>
+            {dataItem}
+          </Typography>
+        </td>
+      </tr>
+    </tbody>
+  );
 
   return (
     <Dialog
@@ -111,18 +130,14 @@ const ResultDialog = ({ open, onClose, data }) => {
       {/* Preview */}
       <PDFPreviewer
         pdfURL={data.pdfURL}
-        pageNumber={data.pageNumber}
+        pageNumber={data.pdfPageNumber}
       />
 
       {/* Content */}
-      <Grid
-        container
-        direction="column"
-        className={classes.dialogContent}
-      >
+      <Grid container direction="column" className={classes.dialogContent}>
         <Grid item container>
           <Typography className={classes.dialogProject}>
-            {data.project}
+            {data.application.name}
           </Typography>
         </Grid>
 
@@ -133,41 +148,30 @@ const ResultDialog = ({ open, onClose, data }) => {
         {(data.type === 'TABLE') && !data.url && <DataNotice />}
 
         <Grid item container>
-          {/* Data labels */}
-          <Grid item container direction="column" className={classes.dialogDataContainer}>
-            <Typography className={classes.dialogLabel}>
-              {intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}
-            </Typography>
-            <Typography className={classes.dialogLabel}>
-              {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
-            </Typography>
-            <Typography className={classes.dialogLabel}>
-              {intl.formatMessage({ id: 'components.resultDialog.esaFolder' })}
-            </Typography>
-            <Typography className={classes.dialogLabel}>
-              {intl.formatMessage({ id: 'components.resultDialog.projectFolder' })}
-            </Typography>
-            <Typography className={classes.dialogLabel}>
-              {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
-            </Typography>
-          </Grid>
-
-          {/* Data items */}
-          <Grid item container direction="column" className={classes.dialogDataContainer}>
-            <Typography style={{ fontSize: 16 }}>
-              {`${data.pageNumber} of ${data.pageCount}`}
-            </Typography>
-            <a href={data.pdfURL} alt="pdfLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.pdfName}</a>
-            <a href={data.esaFolderURL} alt="esaFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.esaFolderURL}</a>
-            <a href={data.projectFolderURL} alt="projectFolderLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{data.projectFolderURL}</a>
-            {(data.finalDecisionURL
-              && <a href={data.finalDecisionURL} alt="finalDecisionLink" target="_blank" rel="noopener noreferrer" onClick={handleViewClick} className={classes.finalDecision}>{data.finalDecisionURL}</a>)
-              || (
-                <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
-                  {intl.formatMessage({ id: 'components.resultDialog.pending' })}
-                </Typography>
-              )}
-          </Grid>
+          <table className={classes.dialogDataContainer}>
+            {createTableRow('foundOnPage', data.pdfPageNumber)}
+            {createTableRow('originalPDF', getDataAnchorElement(data.pdfURL))}
+            {createTableRow('esaFolder', getDataAnchorElement(data.esaFolderURL))}
+            {createTableRow('projectFolder', getDataAnchorElement(data.application.applicationURL))}
+            <tbody>
+              <tr>
+                <td>
+                  <Typography className={classes.dialogLabel}>
+                    {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
+                  </Typography>
+                </td>
+                <td>
+                  {(data.application.finalDecisionURL
+                    && getDataAnchorElement(data.application.finalDecisionURL))
+                    || (
+                      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
+                        {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                      </Typography>
+                    )}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </Grid>
       </Grid>
 
@@ -223,12 +227,15 @@ ResultDialog.propTypes = {
     pdfName: PropTypes.string,
     pdfURL: PropTypes.string,
     type: PropTypes.string,
-    pageNumber: PropTypes.number,
-    pageCount: PropTypes.number,
-    project: PropTypes.string,
+    pdfPageNumber: PropTypes.number,
+    application: PropTypes.shape({
+      consultants: PropTypes.string,
+      filingDate: PropTypes.string,
+      name: PropTypes.string,
+      applicationURL: PropTypes.string,
+      finalDecisionURL: PropTypes.string,
+    }),
     esaFolderURL: PropTypes.string,
-    projectFolderURL: PropTypes.string,
-    finalDecisionURL: PropTypes.string,
   }),
 };
 

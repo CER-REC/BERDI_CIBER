@@ -1,3 +1,134 @@
 {
-  "data": {}
+  "data": {
+    "applications": [
+      {
+        "id": "Application Test 1",
+        "name": "Application Test 3 Long Name",
+        "shortName": "Test1",
+        "companyName": "Enbridge Southern Lights GP Inc.",
+        "commodity": "OIL",
+        "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/456607",
+        "consultants": "TERA Environmental Consultants",
+        "status": "OPERATING",
+        "type": "LARGE",
+        "filingDate": "2007-03-09T00:00:00",
+        "hearingOrder": "OH-3-2007",
+        "url": "http://localhost/berdi/csv/en/projects/sthrnlghts.zip",
+        "tableCount":3,
+        "figureCount":10,
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885"
+      },
+      {
+        "id": "Application Test 2",
+        "name": "Application Test 2 Long Name",
+        "shortName": "Test2",
+        "companyName": "Enbridge Pipelines Inc.",
+        "commodity": "OIL",
+        "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
+        "consultants": "TERA Environmental Consultants",
+        "status": "OPERATING",
+        "type": "LARGE",
+        "filingDate": "2007-05-30T00:00:00",
+        "hearingOrder": "OH-4-2007",
+        "url": "http://localhost/berdi/csv/en/projects/lbrtclppr.zip",
+        "tableCount":3,
+        "figureCount":10,
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+      },
+      {
+        "id": "Application Test 3",
+        "name": "Application Test 3 Long Name",
+        "shortName": "Test3",
+        "companyName": "Enbridge Pipelines Inc.",
+        "commodity": "OIL",
+        "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/469094",
+        "consultants": "TERA Environmental Consultants",
+        "status": "OPERATING",
+        "type": "LARGE",
+        "filingDate": "2007-06-28T00:00:00",
+        "hearingOrder": "OH-5-2007",
+        "url": "http://localhost/berdi/csv/en/projects/ln4.zip",
+        "tableCount":3,
+        "figureCount":10,
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549"
+      }
+    ],
+    "contentSearch": {
+      "contents": [
+        {
+          "id": "18170",
+          "title": "Example figure 1 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt, adipisci architecto, quisquam nulla aperiam nostrum in, fugit ea animi laudantium natus sit odio facilis. Iure fugiat, aliquid reiciendis dolore consectetur maiores quos accusamus soluta sint illum itaque officiis, fuga ducimus sed nesciunt eum eveniet distinctio ab debitis provident deserunt? Quasi, vitae ad, optio nulla nam ut tempora temporibus voluptatem dolorem dolor quas. Repudiandae consequatur odit nam! Adipisci, esse dolorum? Assumenda totam numquam laborum omnis laudantium magni eius deleniti facere asperiores repellendus officiis debitis, doloribus consequuntur temporibus error perferendis. Eum praesentium quos mollitia id magnam commodi possimus exercitationem! Dolore fugit itaque necessitatibus accusamus sint tenetur unde, deleniti repellendus veniam natus libero accusantium totam velit, eum, facere dolores quod eaque cumque explicabo. Optio distinctio qui obcaecati iste culpa ullam numquam nam quaerat dolorum blanditiis velit eos officiis non nostrum quidem molestiae voluptatem quod deserunt voluptate ut esse, est excepturi perspiciatis! Saepe, nulla.",
+          "esaSections": "Traditional Land and Resource Use Technical Report",
+          "pdfPageNumber": 33,
+          "pdfPageCount": "48.0",
+          "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2393484",
+          "pdfName": "B10-4 - V5D_TR_5D1_3of4_TRAD_LAND_RESOURCE - A3S2H0",
+          "application": {
+            "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "consultants": "Imperial Oil",
+            "filingDate": "2004-10-07T00:00:00",
+            "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
+            "status": "APPROVED",
+            "type": "LARGE",
+            "commodity": "GAS",
+            "hearingOrder": "GH-1-2004",
+            "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+          },
+          "type": "FIGURE",
+          "url": null,
+          "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2393483"
+        },
+        {
+          "id": "51",
+          "title": "Example figure 2",
+          "esaSections": "Appendix 1D: Environmental Protection Plan for the Proposed NOVA Gas Transmission Ltd. 2017 NGTL System Expansion Liege Lateral Loop No. 2 Pelican Lake Section",
+          "pdfPageNumber": 19,
+          "pdfPageCount": "130.0",
+          "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758520",
+          "pdfName": "B2-21_ESA_Appendix_1D_LiegeLateral_EPP_Part1of1 - A4K2S6",
+          "application": {
+            "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "consultants": "Imperial Oil",
+            "filingDate": "2004-10-07T00:00:00",
+            "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
+            "status": "APPROVED",
+            "type": "LARGE",
+            "commodity": "GAS",
+            "hearingOrder": "GH-1-2004",
+            "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+          },
+          "type": "TABLE",
+          "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-19_doc-num-A4K2S6.zip",
+          "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2748481"
+        },
+        {
+          "id": "52",
+          "title": "Example figure 3",
+          "esaSections": "Appendix 1A: Environmental Protection Plan for the Proposed NOVA Gas Transmission Ltd. 2017 NGTL System Expansion Northwest Mainline Loop Boundary Lake Section",
+          "pdfPageNumber": 20,
+          "pdfPageCount": "139.0",
+          "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758826",
+          "pdfName": "B2-18_ESA_Appendix_1A_Boundary_EPP_Part1of1 - A4K2S3",
+          "application": {
+            "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "consultants": "Imperial Oil",
+            "filingDate": "2004-10-07T00:00:00",
+            "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
+            "status": "APPROVED",
+            "type": "LARGE",
+            "commodity": "GAS",
+            "hearingOrder": "GH-1-2004",
+            "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+          },
+          "type": "TABLE",
+          "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-20_doc-num-A4K2S3.zip",
+          "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2748481"
+        }
+      ],
+      "totalCount": 267
+    }
+  }
 }
