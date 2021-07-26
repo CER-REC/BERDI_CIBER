@@ -57,7 +57,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
       >
         {!isLoading && (
           <div className={classes.failureContainer}>
-            <img alt="Icon depicting pdf load failure." src={pdfFailLoadIcon} />
+            <img alt="Pdf failed to load" src={pdfFailLoadIcon} />
             <Typography className={classes.failureMessage}>
               {intl.formatMessage({ id: 'components.resultDialog.failedToLoad' })}
             </Typography>
