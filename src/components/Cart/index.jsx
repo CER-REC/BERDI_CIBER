@@ -9,8 +9,6 @@ const useStyles = makeStyles(() => ({
     width: '30em',
     height: '90%',
   },
-  header: {
-  },
 }));
 
 const Cart = ({ open, onClose }) => {
@@ -24,13 +22,28 @@ const Cart = ({ open, onClose }) => {
         onClose={onClose}
         classes={{ paper: classes.root }}
       >
-        <Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           header
         </Grid>
-        <Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           body
         </Grid>
-        <Grid>
+        <Grid
+          container
+          direction="column"
+          justifyContent="space-between"
+          alignItems="center"
+        >
           footer
         </Grid>
       </Drawer>
