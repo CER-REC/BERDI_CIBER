@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -38,6 +38,14 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const [isLoading, setLoading] = useState(true);
   const handleLoad = () => setLoading(false);
   const fullURL = `${pdfURL}#page=${pageNumber}&pagemode=thumbs&view=fitV&zoom=page-fit`;
+  const ref = useRef();
+
+  useEffect(() => {
+    // Note that onError for the object tag doesn't attach
+    if (ref.current) {
+      ref.current.onerror = handleLoad;
+    }
+  });
 
   return (
     <div className={classes.root}>
@@ -47,6 +55,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         </div>
       )}
       <object
+        ref={ref}
         data={fullURL}
         width="100%"
         height="100%"
