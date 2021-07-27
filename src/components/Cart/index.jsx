@@ -1,5 +1,5 @@
 import React from 'react';
-import { Drawer, makeStyles } from '@material-ui/core';
+import { Drawer, Grid, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 // TODO: will we need utilities/analytics here?
@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles(() => ({
   root: {
     width: '30em',
-    height: '60%',
+    height: '90%',
+  },
+  header: {
   },
 }));
 
@@ -15,14 +17,24 @@ const Cart = ({ open, onClose }) => {
   const classes = useStyles();
 
   return (
-    <Drawer
-      anchor="right"
-      open={open}
-      onClose={onClose}
-      className={classes.root}
-    >
-      drawer
-    </Drawer>
+    <div>
+      <Drawer
+        anchor="right"
+        open={open}
+        onClose={onClose}
+        classes={{ paper: classes.root }}
+      >
+        <Grid>
+          header
+        </Grid>
+        <Grid>
+          body
+        </Grid>
+        <Grid>
+          footer
+        </Grid>
+      </Drawer>
+    </div>
   );
 };
 
