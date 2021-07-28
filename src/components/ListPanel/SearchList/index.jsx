@@ -21,6 +21,7 @@ import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
 import ShelfButton from '../ShelfButton';
 import styles from './styles';
+import TitleSection from './TitleSection';
 
 const useStyles = makeStyles(styles);
 
@@ -61,46 +62,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
     'Air emissions',
     'Traditional land and resource use',
   ];
-
-  // TODO: make this a more generic function to be used whenever a see more button is needed.
-  const createTitleSection = (title, content) => {
-    if (title.length < 150) {
-      return (
-        <Typography variant="h6" onClick={() => handleClickOpen(content)}>
-          {title}
-        </Typography>
-      );
-    }
-
-    if (title.length >= 150 && expandedTitles.includes(title)) {
-      return (
-        <>
-          <Typography variant="h6" onClick={() => handleClickOpen(content)}>
-            {title}
-          </Typography>
-          <ButtonBase
-            className={classes.seeMoreButton}
-            onClick={() => setExpandedTitles((list) => [...list.filter((item) => item !== title)])}
-          >
-            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
-          </ButtonBase>
-        </>
-      );
-    }
-    return (
-      <>
-        <Typography variant="h6" onClick={() => handleClickOpen(content)}>
-          {title.substring(0, 150).concat('...')}
-        </Typography>
-        <ButtonBase
-          className={classes.seeMoreButton}
-          onClick={() => setExpandedTitles((list) => [...list, title])}
-        >
-          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
-        </ButtonBase>
-      </>
-    );
-  };
 
   const createSeeMoreDetailsSection = (content) => {
     if (expandList.includes(content.id)) {
@@ -163,7 +124,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     </Grid>
 
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
-                      {createTitleSection(content.title, content)}
+                      <TitleSection title={content.title} content={content} handleClickOpen={handleClickOpen} setExpandedTitles={setExpandedTitles} expandedTitles={expandedTitles} />
 
                       <table className={classes.details}>
                         <tbody>

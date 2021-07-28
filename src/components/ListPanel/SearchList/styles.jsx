@@ -7,7 +7,6 @@ export default (theme) => ({
       fontWeight: 'normal',
       color: '#434343',
       cursor: 'pointer',
-      marginBottom: '1em',
     },
     '& .tableCellInner': {
       padding: '1em 1em 1em 0',
@@ -19,13 +18,6 @@ export default (theme) => ({
   },
   tableParent: {
     boxShadow: 'none',
-  },
-  seeMoreButton: {
-    color: theme.palette.blue.dark,
-    fontWeight: '900',
-    fontFamily: theme.typography.fontFamily,
-    verticalAlign: 'unset',
-    paddingLeft: '1em',
   },
   viewMoreDetails: {
     color: theme.palette.blue.dark,
