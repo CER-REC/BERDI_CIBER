@@ -7,47 +7,44 @@ import PropTypes from 'prop-types';
 const useStyles = makeStyles(() => ({
   root: {
     width: '30em',
-    height: '90%',
+    height: '92%',
+    flexGrow: 1,
   },
+  header: {
+    minHeight: '10%',
+    backgroundColor: '#D2EDEB',
+    borderBottom: '8px solid #66C8C3'
+  },
+  body: {
+    minHeight: '65%',
+    borderBottom: '8px solid #66C8C3',
+    overflowY: 'scroll',
+  },
+  footer: {
+    minHeight: '25%',
+  }
 }));
 
 const Cart = ({ open, onClose }) => {
   const classes = useStyles();
 
   return (
-    <div>
-      <Drawer
-        anchor="right"
-        open={open}
-        onClose={onClose}
-        classes={{ paper: classes.root }}
-      >
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          header
-        </Grid>
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          body
-        </Grid>
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          footer
-        </Grid>
-      </Drawer>
-    </div>
+    <Drawer
+      anchor="right"
+      open={open}
+      onClose={onClose}
+      classes={{ paper: classes.root }}
+    >
+      <Grid container className={classes.header}>
+        header
+      </Grid>
+      <Grid container className={classes.body}>
+        body
+      </Grid>
+      <Grid container className={classes.footer}>
+        footer
+      </Grid>
+    </Drawer>
   );
 };
 
