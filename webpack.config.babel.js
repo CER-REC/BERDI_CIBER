@@ -55,18 +55,15 @@ module.exports = {
         test: /\.md$/,
         use: 'raw-loader',
       },
-
-      {
-        test: /\.modernizrrc.js$/,
-        use: ['modernizr-loader'],
-      },
     ],
   },
   resolve: {
     extensions: ['.mjs', '.js', '.jsx', '.json'],
     alias: {
-      modernizr$: Path.resolve(__dirname, '.modernizrrc.js'),
-      'react-spring/renderprops': Path.resolve(__dirname, 'node_modules/react-spring/renderprops.cjs'),
+      // TODO: Remove alias when int-compress-string is updated
+      // Built package distribution causes a critical dependency warning
+      // Might be from Parcel version 1 (https://github.com/parcel-bundler/parcel/issues/2883)
+      'int-compress-string': Path.resolve(__dirname, 'node_modules/int-compress-string/src'),
     },
   },
 

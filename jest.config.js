@@ -39,7 +39,6 @@ module.exports = {
   moduleNameMapper: {
     '\\.(s?css)$': '<rootDir>/src/tests/emptyModule.js',
     '\\.(png|jp(e*)g|svg)$': '<rootDir>/src/tests/dataImage.js',
-    '^react-spring/renderprops$': 'react-spring/renderprops.cjs',
   },
 
   // The path to a module that runs some code to configure or set up the testing
