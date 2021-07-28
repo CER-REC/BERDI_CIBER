@@ -3,17 +3,9 @@ import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 export default (theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
-    '& p': {
-      marginTop: '5px',
-    },
-    '& span': {
-      fontWeight: '900',
-    },
     '& h6': {
-      textTransform: 'uppercase',
       fontWeight: 'normal',
       color: '#434343',
-      display: 'inline',
       cursor: 'pointer',
       marginBottom: '1em',
     },
@@ -27,11 +19,6 @@ export default (theme) => ({
   },
   tableParent: {
     boxShadow: 'none',
-  },
-  pagination: {
-    '& .MuiTablePagination-caption': {
-      display: 'none',
-    },
   },
   seeMoreButton: {
     color: theme.palette.blue.dark,

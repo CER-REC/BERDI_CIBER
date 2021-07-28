@@ -79,7 +79,7 @@ describe('Components/ListPanel', () => {
     });
   });
 
-  it('should display more information when seeMore button is clicked', async () => {
+  it('should display more information when viewMore button is clicked', async () => {
     render(<ListPanel />, {
       config: {
         page: 'search',

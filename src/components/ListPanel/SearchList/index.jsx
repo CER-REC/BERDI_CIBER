@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import DownCaret from '../../../images/listPanel/downCaret.svg';
@@ -65,16 +66,16 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const createTitleSection = (title, content) => {
     if (title.length < 150) {
       return (
-        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+        <Typography variant="h6" onClick={() => handleClickOpen(content)}>
           {title}
         </Typography>
       );
     }
 
-    if (title.length >= 150 && expandedTitles.find((entry) => entry === title)) {
+    if (title.length >= 150 && expandedTitles.includes(title)) {
       return (
         <>
-          <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+          <Typography variant="h6" onClick={() => handleClickOpen(content)}>
             {title}
           </Typography>
           <ButtonBase
@@ -88,7 +89,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
     }
     return (
       <>
-        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+        <Typography variant="h6" onClick={() => handleClickOpen(content)}>
           {title.substring(0, 150).concat('...')}
         </Typography>
         <ButtonBase
@@ -102,7 +103,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   };
 
   const createSeeMoreDetailsSection = (content) => {
-    if (expandList.find((entry) => entry === content.id)) {
+    if (expandList.includes(content.id)) {
       // expanded already
       return (
         <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
@@ -123,7 +124,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const createTableRow = (data, title) => (
     <tr>
       <td style={{ whiteSpace: 'nowrap' }}>
-        <Typography>
+        <Typography style={{ fontWeight: 'bold' }}>
           {title}
         </Typography>
       </td>
@@ -169,17 +170,17 @@ const SearchList = ({ toggleExpand, expandList }) => {
                           {createTableRow(content.application.name, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
                           {
-                            (expandList.find((entry) => entry === content.id)) && (
+                            (expandList.includes(content.id)) && (
                             <>
                               {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
-                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
+                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
                               {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
                               {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
                               {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
                               {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
                               <tr>
                                 <td>
-                                  <Typography>
+                                  <Typography style={{ fontWeight: 'bold' }}>
                                     {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
                                   </Typography>
                                 </td>
@@ -212,9 +213,9 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     </Grid>
 
                     {/* This section only renders if the content id is in the expanded list */}
-                    {(expandList.find((entry) => entry === content.id)) && (
+                    {(expandList.includes(content.id)) && (
                     <div className={classes.relatedTopicsContainer}>
-                      <Typography>
+                      <Typography variant="h6">
                         {intl.formatMessage({ id: 'components.listPanel.relatedTopics' })}
                       </Typography>
 

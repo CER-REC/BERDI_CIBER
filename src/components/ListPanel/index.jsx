@@ -47,8 +47,7 @@ const ListSection = () => {
 
   return (
     <>
-      <Grid container justify="space-between" alignItems="flex-end" className={classes.root}>
-
+      <Grid container justify="space-between" alignItems="flex-end">
         <Grid item className={classes.expandButtons}>
           <Button onClick={expandAll} variant="contained" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
           <Button onClick={collapseAll} variant="contained">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
