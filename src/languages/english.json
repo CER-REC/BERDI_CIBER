@@ -10,6 +10,7 @@
     "figures": "Figures",
     "previous": "Previous",
     "download": "Download",
+    "downloadAllTables": "Download all tables",
     "next": "Next",
     "fullProjectName": "Full Project Name: ",
     "applicationType": "Application Type: ",
@@ -45,6 +46,10 @@
       "title": "BETA",
       "body": "This site will change as we test ideas.",
       "link": "Learn how you can help."
+    },
+    "cart": {
+      "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
+      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download."
     },
     "dropdown": {
       "APPLICATION_NAMES": "Project",
@@ -92,8 +97,7 @@
         "zipText": "You are about to download a ZIP package including the below:",
         "countsText": "{csvCount} CSV files ({tableCount} tables) {part2}",
         "countsPart2": "packaged in their respective Project folders, and including an index of tables",
-        "limitationsText": "By downloading these files, you understand the above limitations and agree to adhere to all requirements.",
-        "buttonLabel": "Download all tables "
+        "limitationsText": "By downloading these files, you understand the above limitations and agree to adhere to all requirements."
       }
     },
     "searchPanel": {

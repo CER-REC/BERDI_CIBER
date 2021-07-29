@@ -9,6 +9,7 @@
     "tables": "Tableaux",
     "figures": "Figures",
     "previous": "Précédente",
+    "downloadAllTables": "Télécharger tous les tableaux",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
     "applicationType": "Type de demande : ",
@@ -92,7 +93,6 @@
         "countsText": "{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
         "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
         "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
-        "buttonLabel": "Télécharger tous les tableaux",
         "url": "csv/fr/fr.zip"
       }
     },
