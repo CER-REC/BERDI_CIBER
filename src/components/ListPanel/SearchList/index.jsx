@@ -1,4 +1,4 @@
-import { Grid, Typography, ButtonBase } from '@material-ui/core';
+import { ButtonBase, Grid, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -6,77 +6,26 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableRow from '@material-ui/core/TableRow';
+import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
-
+import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
+import EllipseIcon from '../../../images/listPanel/ellipse.svg';
+import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent } from '../../../utilities/analytics';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
-import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
-import EllipseIcon from '../../../images/listPanel/ellipse.svg';
-import DownCaret from '../../../images/listPanel/downCaret.svg';
-import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ShelfButton from '../ShelfButton';
+import styles from './styles';
+import TitleSection from './TitleSection';
+import ViewMoreDetailsButton from './ViewMoreDetailsButton';
+import RelatedTopics from './RelatedTopics';
 
-const useStyles = makeStyles((theme) => ({
-  tableHeader: {
-    padding: '0.4em 0.4em 0.4em 0',
-    '& p:first-of-type': {
-      marginTop: '1em',
-    },
-    '& p': {
-      marginTop: '5px',
-      borderRadius: '5px',
-    },
-    '& span': {
-      fontWeight: '900',
-    },
-    '& h6': {
-      fontWeight: 'normal',
-      color: '#434343',
-      display: 'inline',
-      cursor: 'pointer',
-    },
-    '& .tableCellInner': {
-      padding: '1em 1em 1em 0',
-      boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
-    },
-  },
-  tableParent: {
-    boxShadow: 'none',
-  },
-  pagination: {
-    '& .MuiTablePagination-caption': {
-      display: 'none',
-    },
-  },
-  seeMoreButton: {
-    color: theme.palette.blue.dark,
-    fontWeight: '900',
-    fontFamily: theme.typography.fontFamily,
-    verticalAlign: 'unset',
-    paddingLeft: '1em',
-  },
-  viewMoreDetails: {
-    color: theme.palette.blue.dark,
-    fontWeight: 'bold',
-    marginTop: '1em',
-  },
-  imageSection: {
-    cursor: 'pointer',
-    backgroundImage: `url(${PlaceHolderImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    maxHeight: '7em',
-    '& div': {
-      marginRight: '1em',
-    },
-  },
-}));
+const useStyles = makeStyles(styles);
 
-const SearchList = () => {
+const SearchList = ({ toggleExpand, expandList }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { config } = useConfig();
@@ -100,45 +49,20 @@ const SearchList = () => {
     setOpen(false);
   };
 
-  // TODO: make this a more generic function to be used whenever a see more button is needed.
-  const createTitleSection = (title, content) => {
-    if (title.length < 150) {
-      return (
-        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
+  const createTableRow = (data, title) => (
+    <tr>
+      <td style={{ whiteSpace: 'nowrap' }}>
+        <Typography style={{ fontWeight: 'bold' }}>
           {title}
         </Typography>
-      );
-    }
-
-    if (title.length >= 150 && expandedTitles.find((entry) => entry === title)) {
-      return (
-        <>
-          <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
-            {title}
-          </Typography>
-          <ButtonBase
-            className={classes.seeMoreButton}
-            onClick={() => setExpandedTitles((list) => [...list.filter((item) => item !== title)])}
-          >
-            {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
-          </ButtonBase>
-        </>
-      );
-    }
-    return (
-      <>
-        <Typography variant="h6" style={{ display: 'inline' }} onClick={() => handleClickOpen(content)}>
-          {title.substring(0, 150).concat('...')}
+      </td>
+      <td>
+        <Typography>
+          {data}
         </Typography>
-        <ButtonBase
-          className={classes.seeMoreButton}
-          onClick={() => setExpandedTitles((list) => [...list, title])}
-        >
-          {intl.formatMessage({ id: 'components.resultDialog.seeMore' })}
-        </ButtonBase>
-      </>
-    );
-  };
+      </td>
+    </tr>
+  );
 
   return (
     <>
@@ -147,7 +71,7 @@ const SearchList = () => {
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
             {contents.map((content) => (
-              <TableRow key={content.id}>
+              <TableRow key={content.id} aria-label="content card">
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
                   <Grid className="tableCellInner" container>
                     <Grid
@@ -167,31 +91,69 @@ const SearchList = () => {
                     </Grid>
 
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
-                      {createTitleSection(content.title, content)}
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
-                        {content.application.name}
-                      </Typography>
+                      <TitleSection
+                        title={content.title}
+                        content={content}
+                        handleClickOpen={handleClickOpen}
+                        setExpandedTitles={setExpandedTitles}
+                        expandedTitles={expandedTitles}
+                      />
 
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
-                        {content.application.companyName}
-                      </Typography>
+                      <table className={classes.details}>
+                        <tbody>
+                          {createTableRow(content.application.name, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
+                          {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
+                          {
+                            (expandList.includes(content.id)) && (
+                            <>
+                              {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
+                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
+                              {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
+                              {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
+                              <tr>
+                                <td>
+                                  <Typography style={{ fontWeight: 'bold' }}>
+                                    {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
+                                  </Typography>
+                                </td>
+                                <td>
+                                  <Typography>
+                                    <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                    <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                    {(content.application.finalDecisionURL
+                                    && content.application.finalDecisionURL.toLowerCase() !== 'pending')
+                                    && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                  </Typography>
+                                </td>
+                              </tr>
+                            </>
+                            )
+                          }
+                        </tbody>
+                      </table>
 
-                      <ButtonBase className={classes.viewMoreDetails}>
-                        View more details...
-                        <img alt="Down caret" src={DownCaret} />
-                      </ButtonBase>
+                      <ViewMoreDetailsButton
+                        expandList={expandList}
+                        content={content}
+                        toggleExpand={toggleExpand}
+                      />
                     </Grid>
 
                     <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
                       <ShelfButton />
-                      <Grid item style={{ paddingRight: '1em' }}>
+                      <Grid item className={classes.ellipseButton}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />
                         </ButtonBase>
                       </Grid>
                     </Grid>
+
+                    {/* This section only renders if the content id is in the expanded list */}
+                    {(expandList.includes(content.id)) && (
+                    <RelatedTopics />
+                    )}
                   </Grid>
                 </TableCell>
               </TableRow>
@@ -205,5 +167,10 @@ const SearchList = () => {
       />
     </>
   );
+};
+
+SearchList.propTypes = {
+  expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  toggleExpand: PropTypes.func.isRequired,
 };
 export default SearchList;

@@ -96,6 +96,24 @@
         "buttonLabel": "Download all tables "
       }
     },
+    "listPanel":{
+      "projectType":"Project type: ",
+      "projectFiled":"Project filed: ",
+      "projectStatus":"Project status: ",
+      "projectLinks":"Project links: ",
+      "relatedTopics":"Related topics:",
+      "addToShelf":"Add to shelf",
+      "viewMore":"View more details",
+      "viewFewer":"View fewer details",
+      "expandAll":"Expand all",
+      "collapseAll":"Collapse all",
+      "company": "Company: ",
+      "projectName": "Project name: ",
+      "esaConsultant": "ESA consultant: ",
+      "projectFolder": "Project folder",
+      "finalDecision": "Final decision",
+      "esaFolder": "ESA folder"
+    },
     "searchPanel": {
       "exploreButton": "Explore all",
       "exploreLabel": "Explore results from:",
