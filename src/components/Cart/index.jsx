@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Drawer, Grid, IconButton, makeStyles } from '@material-ui/core';
+import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import { useIntl } from 'react-intl';
+import downloadIcon from '../../images/Download.svg';
 
 // TODO: will we need utilities/analytics here?
 
 const useStyles = makeStyles(() => ({
-  button: {
+  cartButton: {
     backgroundColor: '#D2EDEB',
     position: 'fixed',
     right: 0,
@@ -32,17 +34,37 @@ const useStyles = makeStyles(() => ({
   footer: {
     minHeight: '25%',
   },
+  footerDisclaimer: {
+    backgroundColor: '#F7F7FB',
+    margin: '1em',
+    padding: '1em',
+    textAlign: 'center',
+    '& .MuiTypography-root': {
+      fontSize: '10pt',
+    },
+    downloadButton: {
+      backgroundColor: '#07456b',
+    },
+    downloadIcon: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignContent: 'center',
+      justifyContent: 'center',
+      overflow: 'visible',
+    },
+  },
 }));
 
 const Cart = () => {
   const classes = useStyles();
+  const intl = useIntl();
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     (!open && (
-      <Button className={classes.button} onClick={handleOpen} variant="contained">
+      <Button className={classes.cartButton} onClick={handleOpen} variant="contained">
         <Grid container justifyContent="space-between" alignItems="center">
           {/* TODO: show shelf icon */}
           <Grid item xs={6}>
@@ -71,12 +93,47 @@ const Cart = () => {
             </IconButton>
           </Grid>
         </Grid>
+
         <Grid container className={classes.body}>
           body
         </Grid>
-        <Grid container className={classes.footer}>
-          footer
-          {/* TODO: show disclaimer and download button */}
+
+        <Grid
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          className={classes.footer}
+        >
+          <div className={classes.footerDisclaimer}>
+            <Typography>
+              {intl.formatMessage(
+                { id: 'components.cart.downloadDisclaimer' },
+                {
+                  limitationsURL: (
+                    <a href={intl.formatMessage({ id: 'common.limitationsURL' })} target="_blank" rel="noopener noreferrer">
+                      {intl.formatMessage({ id: 'common.limitations' })}
+                    </a>
+                  ),
+                },
+              )}
+            </Typography>
+            <Typography>
+              {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
+            </Typography>
+          </div>
+          <Button disableElevation variant="contained">
+            <Icon className={classes.downloadIcon}>
+              <img
+                src={downloadIcon}
+                alt="download button"
+              />
+            </Icon>
+            <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
+            <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+              filesize
+            </span>
+          </Button>
         </Grid>
       </Drawer>
     )
