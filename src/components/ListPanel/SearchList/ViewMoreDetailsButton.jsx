@@ -37,7 +37,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
 export default ViewMoreDetailsButton;
 
 ViewMoreDetailsButton.propTypes = {
-  expandList: PropTypes.shape([PropTypes.string]).isRequired,
-  content: PropTypes.shape({ id: PropTypes.number }).isRequired,
+  expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  content: PropTypes.shape({ id: PropTypes.string }).isRequired,
   toggleExpand: PropTypes.func.isRequired,
 };

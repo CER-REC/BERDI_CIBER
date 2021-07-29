@@ -41,7 +41,7 @@ const RelatedTopics = () => {
 
       <Grid container justify="flex-start" alignItems="center">
         {mockTopics.map((topic) => (
-          <Grid item key={topic} className={classes.relatedTopics}>
+          <Grid item key={topic} className={classes.relatedTopics} xs={4}>
             <a href="https://wikipedia.org"><Typography>{topic}</Typography></a>
           </Grid>
         ))}
