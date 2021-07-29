@@ -17,12 +17,13 @@ import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent } from '../../../utilities/analytics';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
-import ShelfButton from '../ShelfButton';
+import CartButton from '../../CartButton';
 import styles from './styles';
 import TitleSection from './TitleSection';
 import ViewMoreDetailsButton from './ViewMoreDetailsButton';
 import RelatedTopics from './RelatedTopics';
 
+const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
 
 const SearchList = ({ toggleExpand, expandList }) => {
@@ -141,8 +142,8 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       />
                     </Grid>
 
-                    <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
-                      <ShelfButton />
+                    <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
+                      <CartButton data={content} />
                       <Grid item className={classes.ellipseButton}>
                         <ButtonBase>
                           <img alt="Ellipse" src={EllipseIcon} />

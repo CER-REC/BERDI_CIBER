@@ -45,6 +45,12 @@
       "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
       "link": "Voyez comment vous pouvez aider."
     },
+    "cartButton": {
+      "add": "",
+      "remove": "",
+      "unavailable": "",
+      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
+    },
     "dropdown": {
       "APPLICATION_NAMES": "Projet",
       "REGIONS": "Province",
@@ -142,7 +148,6 @@
       "downloadFigure": "Télécharger la figure",
       "seeMore": "Voir plus...",
       "seeLess":"Voir moin ...",
-      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original.",
       "foundOnPage": "Page : ",
       "originalPDF": "PDF original : ",
       "esaFolder": "Dossier de l’EES : ",

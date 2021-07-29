@@ -75,6 +75,10 @@ const theme = createMuiTheme({
       overline: { fontSize: 12 },
     },
     MuiButton: {
+      root: {
+        borderRadius: '5px',
+        textTransform: 'none',
+      },
       contained: {
         backgroundColor: darkTeal,
         color: black,
@@ -82,7 +86,6 @@ const theme = createMuiTheme({
         '&:hover': { backgroundColor: lighten(darkTeal, 0.2) },
         '& > $label': {
           fontSize: 16,
-          textTransform: 'none',
         },
       },
       containedPrimary: {
@@ -97,7 +100,6 @@ const theme = createMuiTheme({
         padding: 0,
         lineHeight: 'normal',
         textDecoration: 'underline',
-        textTransform: 'none',
         verticalAlign: 'text-bottom',
         '&:hover': {
           backgroundColor: 'inherit',

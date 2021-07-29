@@ -2,6 +2,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import {
+  cleanup,
   getAllByRole,
   getByRole,
   getByText,
@@ -51,6 +52,10 @@ const simulateFilter = () => {
 };
 
 describe('Containers/App', () => {
+  // Work around to mock localStorage's getItem (https://github.com/facebook/jest/issues/6798)
+  // eslint-disable-next-line no-proto
+  const getItemSpy = jest.spyOn(window.localStorage.__proto__, 'getItem');
+
   afterEach(() => {
     window.location.search = '';
   });
@@ -66,19 +71,19 @@ describe('Containers/App', () => {
 
     render(<LazyApp />, { configMocked: false });
 
-    expect(screen.getByText('pages.back', { exact: false })).not.toBeEmpty();
-    expect(screen.getByText('fish')).not.toBeEmpty();
-    expect(screen.getByText('Test1')).not.toBeEmpty();
-    expect(screen.getByText('api.regions.MB')).not.toBeEmpty();
-    expect(screen.getByText('api.content.FIGURE')).not.toBeEmpty();
-    expect(screen.getByText('api.content.TABLE')).not.toBeEmpty();
-    expect(screen.getByText('api.projects.ABANDONMENT')).not.toBeEmpty();
-    expect(screen.getByText('api.commodities.GAS')).not.toBeEmpty();
-    expect(screen.getByText('api.statuses.WITHDRAWN')).not.toBeEmpty();
-    expect(screen.getByText('Dec 2000 - Dec 2000')).not.toBeEmpty();
+    expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
+    expect(screen.getByText('fish')).toBeInTheDocument();
+    expect(screen.getByText('Test1')).toBeInTheDocument();
+    expect(screen.getByText('api.regions.MB')).toBeInTheDocument();
+    expect(screen.getByText('api.content.FIGURE')).toBeInTheDocument();
+    expect(screen.getByText('api.content.TABLE')).toBeInTheDocument();
+    expect(screen.getByText('api.projects.ABANDONMENT')).toBeInTheDocument();
+    expect(screen.getByText('api.commodities.GAS')).toBeInTheDocument();
+    expect(screen.getByText('api.statuses.WITHDRAWN')).toBeInTheDocument();
+    expect(screen.getByText('Dec 2000 - Dec 2000')).toBeInTheDocument();
 
     await waitFor(() => {
-      expect(getByText(screen.getByText('components.applications.title').parentNode, 'Test2')).not.toBeEmpty();
+      expect(getByText(screen.getByText('components.applications.title').parentNode, 'Test2')).toBeInTheDocument();
       expect(screen.getByText('3').closest('li')).toHaveClass('active');
     });
   });
@@ -126,7 +131,7 @@ describe('Containers/App', () => {
 
     render(<LazyApp />, { configMocked: false });
 
-    expect(screen.getByText('pages.back', { exact: false })).not.toBeEmpty();
+    expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
 
     await waitFor(() => {
       expect(screen.getAllByRole('cell')).not.toHaveLength(0);
@@ -152,11 +157,72 @@ describe('Containers/App', () => {
       window.dispatchEvent(new PopStateEvent('popstate'));
 
       await waitFor(() => {
-        expect(screen.getByText('pages.landing.tagline')).not.toBeEmpty();
-        expect(screen.getByText('components.searchPanel.exploreLabel')).not.toBeEmpty();
+        expect(screen.getByText('pages.landing.tagline')).toBeInTheDocument();
+        expect(screen.getByText('components.searchPanel.exploreLabel')).toBeInTheDocument();
       });
     });
   });
 
-  it.todo('should save the content IDs to local storage');
+  it('should save the cart IDs to local storage', async () => {
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["3473"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["3473"]');
+    });
+
+    cleanup();
+
+    getItemSpy.mockReturnValueOnce('["1","8454","77"]').mockReturnValueOnce('["1"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["1","8454","77","3473"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["1","3473"]');
+    });
+  });
+
+  it('should remove the cart IDs from local storage', async () => {
+    getItemSpy.mockReturnValueOnce('["3473"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('[]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('[]');
+    });
+
+    cleanup();
+
+    getItemSpy.mockReturnValueOnce('["3473","1","77"]').mockReturnValueOnce('["3473","77"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => {
+      expect(window.localStorage.getItem('cartIds')).toEqual('["1","77"]');
+      expect(window.localStorage.getItem('unreadCartIds')).toEqual('["77"]');
+    });
+  });
+
+  it('should read the cart IDs from local storage', async () => {
+    getItemSpy.mockReturnValueOnce('["3473"]');
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+
+    await waitFor(() => expect(screen.getAllByText('components.cartButton.remove')).not.toHaveLength(0));
+  });
+
+  it('should render the methods page when the data unavailable link is clicked', async () => {
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+
+    await waitFor(() => fireEvent.mouseOver(screen.getAllByText('components.cartButton.unavailable')[0]));
+    await waitFor(() => {
+      fireEvent.click(getByText(screen.getByRole('tooltip'), 'common.learnMethods'));
+
+      expect(screen.getByText('pages.methods.body.title')).toBeInTheDocument();
+    });
+  });
 });
