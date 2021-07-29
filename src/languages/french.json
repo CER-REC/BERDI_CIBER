@@ -82,6 +82,24 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
+      "listPanel":{
+        "projectType":"Type de projet : ",
+        "projectFiled":"Projet déposé le : ",
+        "projectStatus":"Étape du projet : ",
+        "projectLinks":"Liens relatifs au projet : ",
+        "relatedTopics":"Sujets connexes :",
+        "addToShelf":"Ajouter à l’étagère",
+        "seeMore":"Plus de détails",
+        "seeFewer":"Moins de détails",
+        "expandAll":"Développer",
+        "collapseAll":"Réduire",
+        "company": "Société",
+        "projectName": "Nom du projet : ",
+        "esaConsultant": "Nom du consultant de l'EES : ",
+        "projectFolder": "Dossier de projet",
+        "finalDecision": "Décision finale",
+        "esaFolder": "Dossier de l’EES"
+      },
       "termsTitle": {
         "title": "Avis",
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
