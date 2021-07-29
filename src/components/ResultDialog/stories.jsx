@@ -1,6 +1,7 @@
 import React from 'react';
 import { useArgs } from '@storybook/client-api';
 import { storiesForComponent } from '../../../.storybook/utils';
+import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
 import ResultDialog from '.';
 import ReadMe from './README.md';
 
@@ -10,6 +11,8 @@ const data = {
     applicationURL: 'https://applicationURL.ca',
     finalDecisionURL: 'https://finalDecisionURL.ca',
   },
+  id: '0',
+  type: 'TABLE',
   title: 'Title',
   url: 'https://url.ca',
   pdfName: 'pdfName',
@@ -22,6 +25,7 @@ export default storiesForComponent(
   'Components/ResultDialog',
   module,
   ReadMe,
+  { decorators: [withConfigAndGQL] },
 );
 
 const Template = (args) => {

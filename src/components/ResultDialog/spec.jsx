@@ -8,6 +8,8 @@ const data = {
     applicationURL: 'https://applicationURL.ca',
     finalDecisionURL: 'https://finalDecisionURL.ca',
   },
+  id: '0',
+  type: 'TABLE',
   title: 'Title',
   url: 'https://url.ca',
   pdfName: 'pdfName',
@@ -29,6 +31,11 @@ describe('Components/ResultDialog', () => {
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
+  test('cart button should be present', () => {
+    render(<ResultDialog open onClose={noop} data={data} />);
+    expect(screen.getByText('components.cartButton.add')).toBeInTheDocument();
+  });
+
   test('data fields should be present', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
     expect(screen.getByText(data.application.name)).toBeInTheDocument();
@@ -41,7 +48,7 @@ describe('Components/ResultDialog', () => {
   });
 
   test('download button should not be present if there is no url', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'noURL', application: { name: 'name' } }} />);
+    render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'noURL', application: { name: 'name' } }} />);
     expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
 
