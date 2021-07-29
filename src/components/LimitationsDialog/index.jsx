@@ -111,7 +111,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               { id: 'components.limitationsDialog.termsTitle.body' },
               {
                 link: (
-                  <a href={intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.url' })}>
+                  <a href={intl.formatMessage({ id: 'common.limitationsURL' })}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.link' })}
                   </a>
                 ),

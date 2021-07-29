@@ -11,6 +11,8 @@
     "previous": "Previous",
     "download": "Download",
     "downloadAllTables": "Download all tables",
+    "limitations": "limitations",
+    "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
     "fullProjectName": "Full Project Name: ",
     "applicationType": "Application Type: ",
@@ -85,8 +87,7 @@
       "termsTitle": {
         "title": "Terms and Conditions",
         "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
-        "link": "\"Terms and Conditions\"",
-        "url": "https://www.cer-rec.gc.ca/en/terms-conditions.html"
+        "link": "\"Terms and Conditions\""
       },
       "citation": {
         "title": "Citation",
