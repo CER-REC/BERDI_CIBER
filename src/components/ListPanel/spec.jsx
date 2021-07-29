@@ -25,7 +25,7 @@ describe('Components/ListPanel', () => {
       const { contents } = mockData.data.contentSearch;
 
       expect(screen.getAllByLabelText('content card').length).toBe(contents.length); // There are two sub rows in each parent row
-      expect(screen.getAllByRole('button', { name: /a plus icon add to shelf/i }).length).toBe(contents.length);
+      expect(screen.getAllByText('components.cartButton.add')).not.toHaveLength(0);
       expect(screen.getAllByRole('button', { name: /ellipse/i }).length).toBe(contents.length);
 
       contents.forEach((content, index) => {
