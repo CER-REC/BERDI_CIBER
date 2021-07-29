@@ -153,6 +153,7 @@
       "esaFolder": "ESA folder:",
       "projectFolder": "Project folder:",
       "finalDecision": "Final decision:",
+      "notApplicable": "Not applicable",
       "pending": "Pending",
       "failedToLoad": "PDF viewer has failed to load."
     },

@@ -158,13 +158,15 @@ const ResultDialog = ({ open, onClose, data }) => {
                   </Typography>
                 </td>
                 <td>
-                  {(data.application.finalDecisionURL
-                    && getDataAnchorElement(data.application.finalDecisionURL))
-                    || (
-                      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
-                        {intl.formatMessage({ id: 'components.resultDialog.pending' })}
-                      </Typography>
-                    )}
+                  {(!data.application.finalDecisionURL && (
+                    <Typography className={classes.finalDecision}>
+                      {intl.formatMessage({ id: 'components.resultDialog.notApplicable' })}
+                    </Typography>
+                  )) || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
+                    <Typography className={classes.finalDecision}>
+                      {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                    </Typography>
+                  )) || (getDataAnchorElement(data.application.finalDecisionURL))}
                 </td>
               </tr>
             </tbody>
