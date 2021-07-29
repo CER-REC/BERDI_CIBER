@@ -21,34 +21,61 @@ const suppressMissingTranslationError = (error) => {
   throw error;
 };
 
-const AppProviders = ({ config, children }) => (
+const AppProviders = ({ children }) => (
   <ApolloProvider client={client}>
     <IntlProvider locale="en" onError={suppressMissingTranslationError}>
       <ThemeProvider theme={theme}>
-        <ConfigProvider>
-          <MockConfig state={config}>
-            {children}
-          </MockConfig>
-        </ConfigProvider>
+        {children}
       </ThemeProvider>
     </IntlProvider>
   </ApolloProvider>
 );
 
-AppProviders.propTypes = {
+AppProviders.propTypes = { children: PropTypes.node };
+AppProviders.defaultProps = { children: null };
+
+const App = ({ configMocked, config, children }) => {
+  if (!configMocked) {
+    return (
+      <AppProviders>
+        {children}
+      </AppProviders>
+    );
+  }
+
+  return (
+    <AppProviders>
+      <ConfigProvider>
+        <MockConfig state={config}>
+          {children}
+        </MockConfig>
+      </ConfigProvider>
+    </AppProviders>
+  );
+};
+
+App.propTypes = {
   children: PropTypes.node,
   // eslint-disable-next-line react/forbid-prop-types
   config: PropTypes.object,
+  configMocked: PropTypes.bool,
 };
 
-AppProviders.defaultProps = {
+App.defaultProps = {
   children: null,
   config: undefined,
+  configMocked: true,
 };
 
 const appRender = (component, options) => render(component, {
-  // eslint-disable-next-line react/jsx-props-no-spreading
-  wrapper: (props) => <AppProviders {...props} config={options?.config} />,
+  wrapper: (props) => (
+    <App
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      {...props}
+      configMocked={options?.configMocked}
+      config={options?.config}
+    />
+  ),
   ...options,
 });
 

@@ -114,6 +114,11 @@ services.  Google's Testing Blog explains
 - Translations are set to render the message IDs
 - GraphQL API results are mocked in `./src/tests/mocks`
 - If the component test requires API, translation, theme, or config functionality use `./src/test/utilities.jsx` in place of `@testing-library/react`
+  - By default the component is wrapped in a ConfigProvider to enable mocking of the config state
+  - The config mock can be removed by providing the `configMocked` flag in the `render` options object *(typically only for rendering the entire application)*
+    ```js
+    render(<Component />, { configMocked: false });
+    ```
 - If a config state needs to be mocked, provide the state under the `config` property in the `render` options object
   ```js
   import React from 'react';
