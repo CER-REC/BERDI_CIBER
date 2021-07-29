@@ -62,13 +62,13 @@ describe('Components/ResultDialog', () => {
 
   test('should stop rendering the loading spinner when the PDF is loaded', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    fireEvent.load(screen.getByText('components.resultDialog.failedToLoad').closest('object'));
+    fireEvent.load(screen.getByRole('document'));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
   });
 
   test('should render the PDF on the provided page', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    const pdfObject = screen.getByText('components.resultDialog.failedToLoad').closest('object');
+    const pdfObject = screen.getByRole('document');
     expect(pdfObject.getAttribute('data')).toContain(data.pdfURL);
     expect(pdfObject.getAttribute('data')).toContain(`page=${data.pdfPageNumber}`);
   });

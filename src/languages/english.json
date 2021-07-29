@@ -132,7 +132,7 @@
       "finalDecision": "Final decision:",
       "notApplicable": "Not applicable",
       "pending": "Pending",
-      "failedToLoad": "Failed to load"
+      "failedToLoad": "PDF viewer has failed to load."
     },
     "resultsList": {
       "dataButton": {

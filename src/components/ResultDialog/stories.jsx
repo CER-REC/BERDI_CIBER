@@ -13,7 +13,7 @@ const data = {
   title: 'Title',
   url: 'https://url.ca',
   pdfName: 'pdfName',
-  pdfURL: 'https://pdfURL.ca',
+  pdfURL: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
   pdfPageNumber: 111,
   esaFolderURL: 'https://esaFolderURL.ca',
 };

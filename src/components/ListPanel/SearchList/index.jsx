@@ -9,39 +9,23 @@ import TableRow from '@material-ui/core/TableRow';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
 
-import useConfig from '../../hooks/useConfig';
-import useESAData from '../../hooks/useESAData';
-import figureIcon from '../../images/figure.svg';
-import tableIcon from '../../images/table.svg';
-import { reportContent } from '../../utilities/analytics';
-import ResultDialog from '../ResultDialog';
-import PaginationBar from './PaginationBar';
+import useConfig from '../../../hooks/useConfig';
+import useESAData from '../../../hooks/useESAData';
+import { reportContent } from '../../../utilities/analytics';
+import ResultDialog from '../../ResultDialog';
+import PaginationBar from '../PaginationBar';
+import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
+import EllipseIcon from '../../../images/listPanel/ellipse.svg';
+import DownCaret from '../../../images/listPanel/downCaret.svg';
+import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
+import ShelfButton from '../ShelfButton';
 
 const useStyles = makeStyles((theme) => ({
-  imgSection: {
-    textAlign: 'right',
-    '& p': {
-      margin: 'auto',
-      padding: '2px 6px',
-      display: 'block',
-      textTransform: 'uppercase',
-      width: 'max-content',
-      backgroundColor: theme.palette.teal.light,
-      fontWeight: '900',
-      fontSize: '10px',
-      clear: 'right',
-    },
-    '& img': {
-      display: 'block',
-      margin: 'auto',
-      height: '2.5em',
-    },
-    '& button': {
-      display: 'block',
-    },
-  },
   tableHeader: {
-    borderBottom: '1px solid black',
+    padding: '0.4em 0.4em 0.4em 0',
+    '& p:first-of-type': {
+      marginTop: '1em',
+    },
     '& p': {
       marginTop: '5px',
       borderRadius: '5px',
@@ -50,12 +34,14 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: '900',
     },
     '& h6': {
-      textTransform: 'uppercase',
-      textDecoration: 'underline',
       fontWeight: 'normal',
       color: '#434343',
       display: 'inline',
       cursor: 'pointer',
+    },
+    '& .tableCellInner': {
+      padding: '1em 1em 1em 0',
+      boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
     },
   },
   tableParent: {
@@ -72,6 +58,21 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: theme.typography.fontFamily,
     verticalAlign: 'unset',
     paddingLeft: '1em',
+  },
+  viewMoreDetails: {
+    color: theme.palette.blue.dark,
+    fontWeight: 'bold',
+    marginTop: '1em',
+  },
+  imageSection: {
+    cursor: 'pointer',
+    backgroundImage: `url(${PlaceHolderImage})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    maxHeight: '7em',
+    '& div': {
+      marginRight: '1em',
+    },
   },
 }));
 
@@ -142,45 +143,54 @@ const SearchList = () => {
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
-
       <TableContainer component={Paper} className={classes.tableParent}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
             {contents.map((content) => (
               <TableRow key={content.id}>
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
-                  <Grid container>
+                  <Grid className="tableCellInner" container>
+                    <Grid
+                      item
+                      container
+                      alignItems="flex-end"
+                      justify="flex-end"
+                      xs={3}
+                      md={2}
+                      xl={1}
+                      onClick={() => handleClickOpen(content)}
+                      className={classes.imageSection}
+                    >
+                      <Grid item>
+                        <img alt="A magnifying glass" src={MagnifyingGlass} />
+                      </Grid>
+                    </Grid>
 
-                    <Grid item xs={11}>
+                    <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
                       {createTitleSection(content.title, content)}
                       <Typography variant="body2">
                         <span>{intl.formatMessage({ id: 'common.fullProjectName' })}</span>
                         {content.application.name}
                       </Typography>
+
                       <Typography variant="body2">
-                        <span>{`${intl.formatMessage({ id: 'components.resultsList.titles.filedDate' })}: `}</span>
-                        {content.application.filingDate.substring(0, 10)}
+                        <span>{intl.formatMessage({ id: 'common.companyName' })}</span>
+                        {content.application.companyName}
                       </Typography>
-                      <Typography variant="body2">
-                        <span>{intl.formatMessage({ id: 'common.consultants' })}</span>
-                        {content.application.consultants}
-                      </Typography>
+
+                      <ButtonBase className={classes.viewMoreDetails}>
+                        View more details...
+                        <img alt="Down caret" src={DownCaret} />
+                      </ButtonBase>
                     </Grid>
 
-                    <Grid
-                      item
-                      xs={1}
-                      className={classes.imgSection}
-                    >
-                      <ButtonBase onClick={() => handleClickOpen(content)}>
-                        <img
-                          src={content.type === 'FIGURE' ? figureIcon : tableIcon}
-                          alt={content.type === 'FIGURE' ? 'figure icon' : 'table icon'}
-                        />
-                        <Typography variant="caption" component="p">
-                          {content.type === 'FIGURE' ? intl.formatMessage({ id: 'api.content.FIGURE' }) : intl.formatMessage({ id: 'api.content.TABLE' })}
-                        </Typography>
-                      </ButtonBase>
+                    <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
+                      <ShelfButton />
+                      <Grid item style={{ paddingRight: '1em' }}>
+                        <ButtonBase>
+                          <img alt="Ellipse" src={EllipseIcon} />
+                        </ButtonBase>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </TableCell>
