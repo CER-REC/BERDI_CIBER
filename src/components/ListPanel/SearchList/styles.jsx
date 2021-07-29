@@ -1,6 +1,6 @@
 import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 
-export default (theme) => ({
+export default {
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
     '& h6': {
@@ -19,11 +19,6 @@ export default (theme) => ({
   tableParent: {
     boxShadow: 'none',
   },
-  viewMoreDetails: {
-    color: theme.palette.blue.dark,
-    fontWeight: 'bold',
-    marginTop: '1em',
-  },
   imageSection: {
     cursor: 'pointer',
     backgroundImage: `url(${PlaceHolderImage})`,
@@ -37,16 +32,6 @@ export default (theme) => ({
   ellipseButton: {
     paddingRight: '1em',
     marginBottom: '1em',
-  },
-  relatedTopicsContainer: {
-    backgroundColor: '#F4F4F4',
-    width: '100%',
-    padding: '1em 3em',
-  },
-  relatedTopics: {
-    padding: '0 3em 1em 0',
-    overflowWrap: 'break-word',
-    maxWidth: '30em',
   },
   details: {
     '& tr': {
@@ -62,4 +47,4 @@ export default (theme) => ({
       paddingRight: '0.5em',
     },
   },
-});
+};

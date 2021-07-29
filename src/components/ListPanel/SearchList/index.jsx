@@ -12,16 +12,16 @@ import { useIntl } from 'react-intl';
 import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
-import DownCaret from '../../../images/listPanel/downCaret.svg';
 import EllipseIcon from '../../../images/listPanel/ellipse.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
-import UpCaret from '../../../images/listPanel/upCaret.svg';
 import { reportContent } from '../../../utilities/analytics';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
 import ShelfButton from '../ShelfButton';
 import styles from './styles';
 import TitleSection from './TitleSection';
+import ViewMoreDetailsButton from './ViewMoreDetailsButton';
+import RelatedTopics from './RelatedTopics';
 
 const useStyles = makeStyles(styles);
 
@@ -47,39 +47,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  // TODO: replace with api generated topics
-  const mockTopics = [
-    'Physical and meteorological environment',
-    'Navigation and navigation safety',
-    'Human health and aesthetics',
-    'Species at Risk or Species of Special Status and related habitat',
-    'Acoustic environment',
-    'Rights of Indigenous Peoples',
-    'Soil and soil productivity',
-    'Wildlife and wildlife habitat',
-    'Air emissions',
-    'Traditional land and resource use',
-  ];
-
-  const createSeeMoreDetailsSection = (content) => {
-    if (expandList.includes(content.id)) {
-      // expanded already
-      return (
-        <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
-          <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
-          <img alt="Up caret" src={UpCaret} />
-        </ButtonBase>
-      );
-    }
-    // not expanded
-    return (
-      <ButtonBase className={classes.viewMoreDetails} onClick={() => toggleExpand(content.id)}>
-        <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
-        <img alt="Down caret" src={DownCaret} />
-      </ButtonBase>
-    );
   };
 
   const createTableRow = (data, title) => (
@@ -124,7 +91,13 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     </Grid>
 
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
-                      <TitleSection title={content.title} content={content} handleClickOpen={handleClickOpen} setExpandedTitles={setExpandedTitles} expandedTitles={expandedTitles} />
+                      <TitleSection
+                        title={content.title}
+                        content={content}
+                        handleClickOpen={handleClickOpen}
+                        setExpandedTitles={setExpandedTitles}
+                        expandedTitles={expandedTitles}
+                      />
 
                       <table className={classes.details}>
                         <tbody>
@@ -161,7 +134,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
                         </tbody>
                       </table>
 
-                      {createSeeMoreDetailsSection(content)}
+                      <ViewMoreDetailsButton
+                        expandList={expandList}
+                        content={content}
+                        toggleExpand={toggleExpand}
+                      />
                     </Grid>
 
                     <Grid container item direction="column" alignItems="flex-end" justify="space-between" xs={2}>
@@ -175,19 +152,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                     {/* This section only renders if the content id is in the expanded list */}
                     {(expandList.includes(content.id)) && (
-                    <div className={classes.relatedTopicsContainer}>
-                      <Typography variant="h6">
-                        {intl.formatMessage({ id: 'components.listPanel.relatedTopics' })}
-                      </Typography>
-
-                      <Grid container justify="flex-start" alignItems="center">
-                        {mockTopics.map((topic) => (
-                          <Grid item key={topic} className={classes.relatedTopics}>
-                            <a href="https://wikipedia.org"><Typography>{topic}</Typography></a>
-                          </Grid>
-                        ))}
-                      </Grid>
-                    </div>
+                    <RelatedTopics />
                     )}
                   </Grid>
                 </TableCell>
