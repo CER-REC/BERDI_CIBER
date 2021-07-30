@@ -1,7 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { createBrowserHistory } from 'history';
+
 import LZUTF8 from 'lzutf8';
+import { decompress } from 'int-compress-string';
 import queryString from 'query-string';
 
 import { toDateOnly, toDateOnlyString } from '../utilities/date';
@@ -88,6 +90,14 @@ export const ConfigProvider = ({ children }) => {
     const searchIndex = parseInt(query.searchIndex, 10);
     const cartIndex = parseInt(query.cartIndex, 10);
     const fragment = location.hash ? location.hash.substring(1) : '';
+
+    if (query.cartIds) {
+      // Due to IIS URL length limits cart IDs require a integer specific compression
+      const ids = JSON.stringify(decompress(query.cartIds).map((id) => id.toString()));
+
+      localStorage.setItem('cartIds', ids);
+      localStorage.setItem('unreadCartIds', ids);
+    }
 
     updatingState = true;
 

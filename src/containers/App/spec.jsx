@@ -88,6 +88,8 @@ describe('Containers/App', () => {
     });
   });
 
+  it.todo('should set the cart state from the URL parameter');
+
   it('should push the state to the history', async () => {
     const expected = 'page=search&searchIndex=1&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=LARGE,SMALL&statuses=APPROVED,REVOKED&contentTypes=TABLE&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
 
