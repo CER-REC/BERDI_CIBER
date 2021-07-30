@@ -3,6 +3,7 @@ import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
+import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
 
 // TODO: will we need utilities/analytics here?
 
@@ -12,6 +13,12 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     right: 0,
     top: '50%',
+    width: '5%',
+    '& .MuiTypography-root': {
+      color: '#07456B',
+      fontSize: '10pt',
+      fontWeight: '900',
+    },
   },
   drawer: {
     width: '30em',
@@ -64,15 +71,17 @@ const Cart = () => {
 
   return (
     (!open && (
-      <Button className={classes.cartButton} onClick={handleOpen} variant="contained">
-        <Grid container justifyContent="space-between" alignItems="center">
-          {/* TODO: show shelf icon */}
-          <Grid item xs={6}>
-            icon
+      <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
+        <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
+          <Grid item justifyContent="flex-start" xs={6}>
+            <Icon style={{ overflow: 'visible' }}>
+              <img src={shelfIcon} alt="a shelf holding books" style={{ transform: 'scale(0.8)' }} />
+            </Icon>
           </Grid>
-          {/* TODO: show cart item count label */}
-          <Grid item xs={6}>
-            label
+          <Grid item justifyContent="flex-end" xs={6}>
+            <Typography>
+              456
+            </Typography>
           </Grid>
         </Grid>
       </Button>
@@ -124,10 +133,7 @@ const Cart = () => {
           </div>
           <Button disableElevation variant="contained">
             <Icon className={classes.downloadIcon}>
-              <img
-                src={downloadIcon}
-                alt="download button"
-              />
+              <img src={downloadIcon} alt="download button" />
             </Icon>
             <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
             <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
