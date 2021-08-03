@@ -55,16 +55,18 @@ const Cart = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const handleDownloadClick = () => console.log("download button click");
+
   return (
     (!open && (
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
-        <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
-          <Grid item justifyContent="flex-start" xs={6}>
+        <Grid container alignItems="center" spacing={2}>
+          <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
               <img src={shelfIcon} alt="a shelf holding books" style={{ transform: 'scale(0.8)' }} />
             </Icon>
           </Grid>
-          <Grid item justifyContent="flex-end" xs={6}>
+          <Grid item xs={6}>
             <Typography>
               456
             </Typography>
@@ -79,7 +81,7 @@ const Cart = () => {
         classes={{ paper: classes.drawer }}
         BackdropProps={{ invisible: true }}
       >
-        <Grid container alignItems="center" justifyContent="space-between" className={classes.header}>
+        <Grid container alignItems="center" className={classes.header}>
           <Grid item xs={6} />
           <Grid item xs={3} />
           <Grid item xs={3} className={classes.closeButton}>
@@ -96,7 +98,6 @@ const Cart = () => {
         <Grid
           container
           direction="column"
-          justifyContent="center"
           alignItems="center"
         >
           <Grid item className={classes.footerDisclaimer}>
@@ -117,7 +118,13 @@ const Cart = () => {
             </Typography>
           </Grid>
           <Grid item>
-            <Button disableElevation variant="contained" color="primary" style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}>
+            <Button
+              disableElevation
+              variant="contained"
+              color="primary"
+              style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}
+              onClick={handleDownloadClick}
+            >
               <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
               <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
