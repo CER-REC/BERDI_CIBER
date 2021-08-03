@@ -20,8 +20,7 @@ const useStyles = makeStyles(() => ({
     },
   },
   drawer: {
-    width: '30em',
-    flexGrow: 1,
+    width: '28em',
   },
   closeButton: {
     textAlign: 'right',
@@ -80,6 +79,7 @@ const Cart = () => {
         open={open}
         classes={{ paper: classes.drawer }}
         BackdropProps={{ invisible: true }}
+        disableScrollLock
       >
         <Grid container alignItems="center" className={classes.header}>
           <Grid item xs={6} />
