@@ -13,7 +13,6 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     right: 0,
     top: '50%',
-    width: '5%',
     '& .MuiTypography-root': {
       color: '#07456B',
       fontSize: '10pt',
@@ -22,24 +21,21 @@ const useStyles = makeStyles(() => ({
   },
   drawer: {
     width: '30em',
-    height: '92%',
     flexGrow: 1,
-  },
-  header: {
-    minHeight: '10%',
-    backgroundColor: '#D2EDEB',
-    borderBottom: '8px solid #66C8C3',
   },
   closeButton: {
     textAlign: 'right',
   },
+  header: {
+    backgroundColor: '#D2EDEB',
+    borderBottom: '8px solid #66C8C3',
+  },
   body: {
-    minHeight: '65%',
     borderBottom: '8px solid #66C8C3',
     overflowY: 'auto',
+    height: '100%',
   },
   footer: {
-    minHeight: '25%',
   },
   footerDisclaimer: {
     backgroundColor: '#F7F7FB',
@@ -48,16 +44,6 @@ const useStyles = makeStyles(() => ({
     textAlign: 'center',
     '& .MuiTypography-root': {
       fontSize: '10pt',
-    },
-    downloadButton: {
-      backgroundColor: '#07456b',
-    },
-    downloadIcon: {
-      display: 'flex',
-      flexWrap: 'wrap',
-      alignContent: 'center',
-      justifyContent: 'center',
-      overflow: 'visible',
     },
   },
 }));
@@ -112,9 +98,8 @@ const Cart = () => {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={classes.footer}
         >
-          <div className={classes.footerDisclaimer}>
+          <Grid item className={classes.footerDisclaimer}>
             <Typography>
               {intl.formatMessage(
                 { id: 'components.cart.downloadDisclaimer' },
@@ -130,16 +115,16 @@ const Cart = () => {
             <Typography>
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
-          </div>
-          <Button disableElevation variant="contained">
-            <Icon className={classes.downloadIcon}>
-              <img src={downloadIcon} alt="download button" />
-            </Icon>
-            <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-            <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-              filesize
-            </span>
-          </Button>
+          </Grid>
+          <Grid item>
+            <Button disableElevation variant="contained" color="primary" style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}>
+              <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
+              <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
+              <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+                filesize
+              </span>
+            </Button>
+          </Grid>
         </Grid>
       </Drawer>
     )
