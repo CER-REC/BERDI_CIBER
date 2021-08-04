@@ -5,8 +5,6 @@ import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
 
-// TODO: will we need utilities/analytics here?
-
 const useStyles = makeStyles(() => ({
   cartButton: {
     backgroundColor: '#D2EDEB',
@@ -54,10 +52,11 @@ const Cart = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleDownloadClick = () => console.log("download button click");
+  const handleDownloadClick = () => {
+  };
 
   return (
-    (!open && (
+    <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={6}>
@@ -72,8 +71,6 @@ const Cart = () => {
           </Grid>
         </Grid>
       </Button>
-    ))
-    || (
       <Drawer
         anchor="right"
         open={open}
@@ -134,7 +131,7 @@ const Cart = () => {
           </Grid>
         </Grid>
       </Drawer>
-    )
+    </>
   );
 };
 
