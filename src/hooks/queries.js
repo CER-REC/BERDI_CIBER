@@ -132,3 +132,11 @@ export const SEARCH = gql`
     }
 }
 `;
+
+export const DOWNLOADSIZE = gql`
+  query($ids: [ID!]!) {
+    download(ids: $ids) {
+      fileSize
+    }
+}
+`;

@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
+import useDownloadSize from '../../hooks/useDownloadSize';
 
 const useStyles = makeStyles(() => ({
   cartButton: {
@@ -51,9 +52,14 @@ const Cart = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const formRef = useRef(null);
 
   const handleDownloadClick = () => {
+    formRef.current.submit();
   };
+
+  const ids = [1, 2, 3];
+  const { fileSize } = useDownloadSize({ ids });
 
   return (
     <>
@@ -122,10 +128,14 @@ const Cart = () => {
               style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}
               onClick={handleDownloadClick}
             >
+              <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
+                <input type="hidden" name="ids" value={ids} />
+                <input type="submit" value="Download" />
+              </form>
               <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
               <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-                filesize
+                {fileSize}
               </span>
             </Button>
           </Grid>
