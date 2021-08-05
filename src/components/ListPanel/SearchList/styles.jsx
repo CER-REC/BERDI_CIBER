@@ -1,6 +1,6 @@
 import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 
-export default {
+export default (theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
     '& h6': {
@@ -35,7 +35,7 @@ export default {
   },
   details: {
     '& tr': {
-      color: '#616060',
+      color: theme.palette.grey.dark,
     },
     '& tr:nth-of-type(3)': {
       '& td': { paddingBottom: '1em' },
@@ -47,4 +47,4 @@ export default {
       paddingRight: '0.5em',
     },
   },
-};
+});

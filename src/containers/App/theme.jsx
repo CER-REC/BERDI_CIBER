@@ -2,7 +2,8 @@ import { createMuiTheme, lighten } from '@material-ui/core';
 
 const black = '#000000';
 const white = '#FFFFFF';
-const grey = '#AEAEAE';
+const lightGrey = '#AEAEAE';
+const darkGrey = '#616060';
 const darkBlue = '#284162';
 const navyBlue = '#26374A';
 const buttonBlue = '#054169';
@@ -12,6 +13,8 @@ const darkPurple = '#593D6C';
 const lightTeal = '#D9F4F3';
 const darkTeal = '#66C8C3';
 const footerBlue = '#EAF9FF';
+const environmental = '#744A95';
+const socioEconomic = '#E14977';
 
 const theme = createMuiTheme({
   palette: {
@@ -34,11 +37,14 @@ const theme = createMuiTheme({
       light: lightTeal,
     },
     grey: {
-      light: grey,
+      light: lightGrey,
+      dark: darkGrey,
     },
     dialog: {
       footer: footerBlue,
     },
+    environmental,
+    socioEconomic,
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',
@@ -55,18 +61,6 @@ const theme = createMuiTheme({
       },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
-      subtitle1: {
-        color: black,
-        fontSize: 29,
-        lineHeight: '1em',
-      },
-      subtitle2: {
-        color: black,
-        fontSize: 20,
-        lineHeight: '1em',
-        paddingBottom: '0.5em',
-        paddingTop: '0.5em',
-      },
       caption: {
         fontSize: 12,
         lineHeight: 1.3,
