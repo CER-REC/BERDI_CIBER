@@ -4,17 +4,9 @@ import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
 import { reportSection } from '../../../utilities/analytics';
+import styles from '../styles';
 
-const useStyles = makeStyles({
-  root: {
-    marginTop: '1em',
-    backgroundColor: '#F9F4D4',
-    padding: '0.5em 1.5em',
-    '& p, button': {
-      fontStyle: 'italic',
-    },
-  },
-});
+const useStyles = makeStyles(styles);
 
 const DataNotice = () => {
   const classes = useStyles();
@@ -23,12 +15,13 @@ const DataNotice = () => {
   const handleClick = () => {
     reportSection('methods');
     configDispatch({ type: 'page/changed', payload: 'methods' });
+    window.scrollTo(0, 0);
   };
 
   return (
-    <Grid className={`DataNotice ${classes.root}`} item>
+    <Grid className={`DataNotice ${classes.tooltip}`} item>
       <Typography>
-        {intl.formatMessage({ id: 'components.resultDialog.dataNotice' })}
+        {intl.formatMessage({ id: 'components.cartButton.dataNotice' })}
       </Typography>
       <Button
         color="inherit"

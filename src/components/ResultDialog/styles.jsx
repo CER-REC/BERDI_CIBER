@@ -59,7 +59,6 @@ export default (theme) => ({
   },
   dialogTitle: {
     fontSize: 24,
-    paddingRight: '350px',
     fontWeight: '200',
   },
   dialogLabel: {

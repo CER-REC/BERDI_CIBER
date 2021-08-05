@@ -53,6 +53,12 @@
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
       "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download."
     },
+    "cartButton": {
+      "add": "Add to shelf",
+      "remove": "Remove from shelf",
+      "unavailable": "Data not available",
+      "dataNotice": "We were unable to extract the table for download. Please view the original document."
+    },
     "dropdown": {
       "APPLICATION_NAMES": "Project",
       "REGIONS": "Province",
@@ -101,6 +107,24 @@
         "limitationsText": "By downloading these files, you understand the above limitations and agree to adhere to all requirements."
       }
     },
+    "listPanel": {
+      "projectType": "Project type: ",
+      "projectFiled": "Project filed: ",
+      "projectStatus": "Project status: ",
+      "projectLinks": "Project links: ",
+      "relatedTopics": "Related topics:",
+      "addToShelf": "Add to shelf",
+      "viewMore": "View more details",
+      "viewFewer": "View fewer details",
+      "expandAll": "Expand all",
+      "collapseAll": "Collapse all",
+      "company": "Company: ",
+      "projectName": "Project name: ",
+      "esaConsultant": "ESA consultant: ",
+      "projectFolder": "Project folder",
+      "finalDecision": "Final decision",
+      "esaFolder": "ESA folder"
+    },
     "searchPanel": {
       "exploreButton": "Explore all",
       "exploreLabel": "Explore results from:",
@@ -129,14 +153,14 @@
       "downloadFigure": "Download figure",
       "seeMore": "See more...",
       "seeLess": "See less...",
-      "dataNotice": "We were unable to extract the table for download. Please view the original document.",
       "foundOnPage": "Found on page:",
       "originalPDF": "Original PDF:",
       "esaFolder": "ESA folder:",
       "projectFolder": "Project folder:",
       "finalDecision": "Final decision:",
+      "notApplicable": "Not applicable",
       "pending": "Pending",
-      "failedToLoad": "Failed to load"
+      "failedToLoad": "PDF viewer has failed to load."
     },
     "resultsList": {
       "dataButton": {
@@ -158,8 +182,8 @@
   },
   "pages": {
     "landing": {
-      "taglineBold":"Learn from the past and prepare the future.",
-      "tagline":"Search biophysical, economic, and regional data and information from 38 pipeline projects, since 2003.",
+      "taglineBold": "Learn from the past and prepare the future.",
+      "tagline": "Search biophysical, economic, and regional data and information from 38 pipeline projects, since 2003.",
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
         "button": "Read our disclaimer",

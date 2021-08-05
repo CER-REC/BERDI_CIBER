@@ -8,6 +8,8 @@ const data = {
     applicationURL: 'https://applicationURL.ca',
     finalDecisionURL: 'https://finalDecisionURL.ca',
   },
+  id: '0',
+  type: 'TABLE',
   title: 'Title',
   url: 'https://url.ca',
   pdfName: 'pdfName',
@@ -29,6 +31,11 @@ describe('Components/ResultDialog', () => {
     expect(screen.getByRole('progressbar')).toBeInTheDocument();
   });
 
+  test('cart button should be present', () => {
+    render(<ResultDialog open onClose={noop} data={data} />);
+    expect(screen.getByText('components.cartButton.add')).toBeInTheDocument();
+  });
+
   test('data fields should be present', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
     expect(screen.getByText(data.application.name)).toBeInTheDocument();
@@ -41,7 +48,7 @@ describe('Components/ResultDialog', () => {
   });
 
   test('download button should not be present if there is no url', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'noURL', application: { name: 'name' } }} />);
+    render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'noURL', application: { name: 'name' } }} />);
     expect(screen.queryByText('components.resultDialog.downloadTable')).not.toBeInTheDocument();
   });
 
@@ -50,21 +57,25 @@ describe('Components/ResultDialog', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
-  // TODO: revise if granularity around final decision url states is decided upon
-  test('should show pending when finalDecisionURL is blank', () => {
+  test('should show not applicable when finalDecisionURL is blank', () => {
     render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
+    expect(screen.queryByText('components.resultDialog.notApplicable')).toBeInTheDocument();
+  });
+
+  test('should show pending when finalDecisionURL is pending', () => {
+    render(<ResultDialog open onClose={noop} data={{ title: 'pendingFinalDecisionURL', application: { name: 'name', finalDecisionURL: 'pending' } }} />);
     expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 
   test('should stop rendering the loading spinner when the PDF is loaded', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    fireEvent.load(screen.getByText('components.resultDialog.failedToLoad').closest('object'));
+    fireEvent.load(screen.getByRole('document'));
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument();
   });
 
   test('should render the PDF on the provided page', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    const pdfObject = screen.getByText('components.resultDialog.failedToLoad').closest('object');
+    const pdfObject = screen.getByRole('document');
     expect(pdfObject.getAttribute('data')).toContain(data.pdfURL);
     expect(pdfObject.getAttribute('data')).toContain(`page=${data.pdfPageNumber}`);
   });

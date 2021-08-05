@@ -16,7 +16,7 @@ import { useIntl } from 'react-intl';
 
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
-import DataNotice from './DataNotice';
+import CartButton from '../CartButton';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
 
@@ -139,11 +139,10 @@ const ResultDialog = ({ open, onClose, data }) => {
           </Typography>
         </Grid>
 
-        <Grid item style={{ paddingBottom: '20px' }}>
-          {createTitleSection(data.title)}
+        <Grid container justify="space-between" style={{ paddingBottom: '20px' }}>
+          <Grid item xs={8}>{createTitleSection(data.title)}</Grid>
+          <Grid item xs={2}><CartButton data={data} /></Grid>
         </Grid>
-
-        {(data.type === 'TABLE') && !data.url && <DataNotice />}
 
         <Grid item container>
           <table className={classes.dialogDataContainer}>
@@ -159,13 +158,15 @@ const ResultDialog = ({ open, onClose, data }) => {
                   </Typography>
                 </td>
                 <td>
-                  {(data.application.finalDecisionURL
-                    && getDataAnchorElement(data.application.finalDecisionURL))
-                    || (
-                      <Typography className={classes.finalDecision} style={{ fontSize: 16 }}>
-                        {intl.formatMessage({ id: 'components.resultDialog.pending' })}
-                      </Typography>
-                    )}
+                  {(!data.application.finalDecisionURL && (
+                    <Typography className={classes.finalDecision}>
+                      {intl.formatMessage({ id: 'components.resultDialog.notApplicable' })}
+                    </Typography>
+                  )) || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
+                    <Typography className={classes.finalDecision}>
+                      {intl.formatMessage({ id: 'components.resultDialog.pending' })}
+                    </Typography>
+                  )) || (getDataAnchorElement(data.application.finalDecisionURL))}
                 </td>
               </tr>
             </tbody>

@@ -1,14 +1,16 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import { createBrowserHistory } from 'history';
+
 import LZUTF8 from 'lzutf8';
+import { decompress } from 'int-compress-string';
 import queryString from 'query-string';
 
 import { toDateOnly, toDateOnlyString } from '../utilities/date';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
-const parameters = ['page', 'searchIndex'];
+const parameters = ['page', 'searchIndex', 'cartIndex'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
 const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
@@ -86,7 +88,16 @@ export const ConfigProvider = ({ children }) => {
     const startDate = query.startDate ? toDateOnly(query.startDate) : null;
     const endDate = query.endDate ? toDateOnly(query.endDate) : null;
     const searchIndex = parseInt(query.searchIndex, 10);
+    const cartIndex = parseInt(query.cartIndex, 10);
     const fragment = location.hash ? location.hash.substring(1) : '';
+
+    if (query.cartIds) {
+      // Due to IIS URL length limits cart IDs require a integer specific compression
+      const ids = JSON.stringify(decompress(query.cartIds).map((id) => id.toString()));
+
+      localStorage.setItem('cartIds', ids);
+      localStorage.setItem('unreadCartIds', ids);
+    }
 
     updatingState = true;
 
@@ -105,7 +116,10 @@ export const ConfigProvider = ({ children }) => {
         contentTypes: query.contentTypes?.split(','),
         treemapApplicationIds: decodeParameter(query.treemapApplicationIds),
         searchIndex,
+        cartIndex,
         fragment,
+        cartIds: JSON.parse(localStorage.getItem('cartIds')),
+        unreadCartIds: JSON.parse(localStorage.getItem('unreadCartIds')),
       },
     });
   }, [configDispatch]);
@@ -132,7 +146,16 @@ export const ConfigProvider = ({ children }) => {
   }, [config]);
 
   useEffect(() => {
-    // Don't update the URL if we're currently updating the state
+    if (updatingState) {
+      return;
+    }
+
+    localStorage.setItem('cartIds', JSON.stringify(config.cartIds));
+    localStorage.setItem('unreadCartIds', JSON.stringify(config.unreadCartIds));
+  }, [config.cartIds, config.unreadCartIds]);
+
+  useEffect(() => {
+    // Allow local storage and URL update hooks to be ran before resetting the flag
     if (updatingState) {
       updatingState = false;
 
