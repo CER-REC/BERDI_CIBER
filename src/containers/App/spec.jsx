@@ -160,7 +160,6 @@ describe('Containers/App', () => {
 
       await waitFor(() => {
         expect(screen.getByText('pages.landing.tagline')).toBeInTheDocument();
-        expect(screen.getByText('components.searchPanel.exploreLabel')).toBeInTheDocument();
       });
     });
   });

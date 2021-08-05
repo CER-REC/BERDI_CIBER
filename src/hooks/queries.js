@@ -10,10 +10,6 @@ export const CONFIGURATION = gql`
       fileDownloadURL
       tableCount
       csvCount
-      keywords {
-        key
-        count
-      }
       translations {
         group
         key
