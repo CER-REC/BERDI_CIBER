@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles(() => ({
   cartButton: {
@@ -53,14 +54,13 @@ const Cart = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const formRef = useRef(null);
+  const { config } = useConfig();
 
   const handleDownloadClick = () => {
     formRef.current.submit();
   };
 
-  // TODO: replace with actual ids
-  const ids = [1, 2, 3, 4, 5, 6];
-  const { fileSize } = useDownloadSize(ids);
+  const { fileSize } = useDownloadSize(config.cartIds);
 
   return (
     <>
@@ -130,7 +130,7 @@ const Cart = () => {
               onClick={handleDownloadClick}
             >
               <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
-                <input type="hidden" name="ids" value={ids} />
+                <input type="hidden" name="ids" value={config.cartIds} />
                 <input type="submit" value="Download" />
               </form>
               <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
