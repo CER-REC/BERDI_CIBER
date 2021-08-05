@@ -58,8 +58,9 @@ const Cart = () => {
     formRef.current.submit();
   };
 
-  const ids = [1, 2, 3];
-  const { fileSize } = useDownloadSize({ ids });
+  // TODO: replace with actual ids
+  const ids = [1, 2, 3, 4, 5, 6];
+  const { fileSize } = useDownloadSize(ids);
 
   return (
     <>
