@@ -3,11 +3,15 @@ import { useArgs } from '@storybook/client-api';
 import { storiesForComponent } from '../../../.storybook/utils';
 import Cart from '.';
 import ReadMe from './README.md';
+import withConfigAndGQL from '../../../.storybook/addon-config-and-gql';
 
 export default storiesForComponent(
   'Components/Cart',
   module,
   ReadMe,
+  {
+    decorators: [withConfigAndGQL],
+  },
 );
 
 const Template = (args) => {
