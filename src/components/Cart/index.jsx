@@ -62,8 +62,9 @@ const Cart = () => {
     formRef.current.submit();
   };
 
-  // TODO: set fileSize to 0 if empty cart, so metadata does not make the file size show as > 0
-  const { fileSize } = useDownloadSize(config.cartIds);
+  let { fileSize } = useDownloadSize(config.cartIds);
+  // Set fileSize to 0 if cart is empty, so metadata does not make the file size show as > 0
+  if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize);
 
   return (
@@ -77,7 +78,7 @@ const Cart = () => {
           </Grid>
           <Grid item xs={6}>
             <Typography>
-              456
+              {config.cartIds.length}
             </Typography>
           </Grid>
         </Grid>
@@ -134,6 +135,7 @@ const Cart = () => {
               color="primary"
               style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}
               onClick={handleDownloadClick}
+              disabled={config.cartIds.length === 0}
             >
               <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
