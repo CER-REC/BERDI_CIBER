@@ -61,6 +61,7 @@ const Cart = () => {
     formRef.current.submit();
   };
 
+  // TODO: if there are 0 items in the cart, override the fileSize to be 0 so that metadata does not make the file size show as > 0
   const { fileSize } = useDownloadSize(config.cartIds);
   const formattedFileSize = fileSizeFormatter(fileSize);
 
@@ -84,8 +85,10 @@ const Cart = () => {
         anchor="right"
         open={open}
         classes={{ paper: classes.drawer }}
-        BackdropProps={{ invisible: true }}
+        style={{ position: 'initial' }}
         disableScrollLock
+        hideBackdrop
+        disableEnforceFocus
       >
         <Grid container alignItems="center" className={classes.header}>
           <Grid item xs={6} />
