@@ -6,6 +6,7 @@ import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
+import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 
 const useStyles = makeStyles(() => ({
   cartButton: {
@@ -61,6 +62,7 @@ const Cart = () => {
   };
 
   const { fileSize } = useDownloadSize(config.cartIds);
+  const formattedFileSize = fileSizeFormatter(fileSize);
 
   return (
     <>
@@ -136,7 +138,7 @@ const Cart = () => {
               <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
               <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-                {fileSize}
+                {formattedFileSize}
               </span>
             </Button>
           </Grid>
