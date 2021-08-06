@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
     position: 'fixed',
     right: 0,
     top: '50%',
+    zIndex: '1',
     '& .MuiTypography-root': {
       color: '#07456B',
       fontSize: '10pt',
@@ -61,7 +62,7 @@ const Cart = () => {
     formRef.current.submit();
   };
 
-  // TODO: if there are 0 items in the cart, override the fileSize to be 0 so that metadata does not make the file size show as > 0
+  // TODO: set fileSize to 0 if empty cart, so metadata does not make the file size show as > 0
   const { fileSize } = useDownloadSize(config.cartIds);
   const formattedFileSize = fileSizeFormatter(fileSize);
 
