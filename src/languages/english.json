@@ -69,6 +69,11 @@
       "nebLink": "https://lois-laws.justice.gc.ca/eng/acts/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/"
     },
+    "ellipseButton":{
+      "rate":"Rate this data",
+      "report":"Report this data",
+      "download":"Download table"
+    },
     "errorBoundary": {
       "errorMessage": "Something went wrong.",
       "restoreLinkText": "Restore Session",

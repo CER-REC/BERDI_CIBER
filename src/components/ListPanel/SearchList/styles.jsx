@@ -29,10 +29,6 @@ export default {
       marginRight: '1em',
     },
   },
-  ellipseButton: {
-    paddingRight: '1em',
-    marginBottom: '1em',
-  },
   details: {
     '& tr': {
       color: '#616060',
