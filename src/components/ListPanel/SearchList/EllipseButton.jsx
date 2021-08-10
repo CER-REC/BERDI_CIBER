@@ -20,6 +20,9 @@ const useStyles = makeStyles({
       paddingTop: 0,
       paddingBottom: 0,
     },
+    '& li': {
+      paddingRight: '2em',
+    },
     '& .MuiPaper-rounded': {
       borderRadius: 0,
       // When the padding is modified, a small bit of the underlying button is visible.
