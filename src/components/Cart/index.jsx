@@ -8,18 +8,18 @@ import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   cartButton: {
     backgroundColor: '#D2EDEB',
     position: 'fixed',
     right: 0,
     top: '50%',
     zIndex: '1',
-    '& .MuiTypography-root': {
-      color: '#07456B',
-      fontSize: '10pt',
-      fontWeight: '900',
-    },
+  },
+  cartButtonLabel: {
+    color: '#07456B',
+    fontSize: '13px',
+    fontWeight: '900',
   },
   drawer: {
     width: '28em',
@@ -29,10 +29,12 @@ const useStyles = makeStyles(() => ({
   },
   header: {
     backgroundColor: '#D2EDEB',
-    borderBottom: '8px solid #66C8C3',
+    borderBottom: '8px solid',
+    borderBottomColor: theme.palette.secondary.main,
   },
   body: {
-    borderBottom: '8px solid #66C8C3',
+    borderBottom: '8px solid',
+    borderBottomColor: theme.palette.secondary.main,
     overflowY: 'auto',
     height: '100%',
   },
@@ -41,9 +43,9 @@ const useStyles = makeStyles(() => ({
     margin: '1em',
     padding: '1em',
     textAlign: 'center',
-    '& .MuiTypography-root': {
-      fontSize: '10pt',
-    },
+  },
+  footerDisclaimerText: {
+    fontSize: '13px',
   },
   footerDownloadButton: {
     marginBottom: '2em',
@@ -85,7 +87,7 @@ const Cart = () => {
             </Icon>
           </Grid>
           <Grid item xs={6}>
-            <Typography>
+            <Typography className={classes.cartButtonLabel}>
               {config.cartIds.length}
             </Typography>
           </Grid>
@@ -123,7 +125,7 @@ const Cart = () => {
           alignItems="center"
         >
           <Grid item className={classes.footerDisclaimer}>
-            <Typography>
+            <Typography className={classes.footerDisclaimerText}>
               {intl.formatMessage(
                 { id: 'components.cart.downloadDisclaimer' },
                 {
@@ -135,7 +137,7 @@ const Cart = () => {
                 },
               )}
             </Typography>
-            <Typography>
+            <Typography className={classes.footerDisclaimerText}>
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
           </Grid>
