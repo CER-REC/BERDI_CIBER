@@ -137,7 +137,7 @@ export const SEARCH = gql`
 }
 `;
 
-export const DOWNLOADSIZE = gql`
+export const DOWNLOAD_SIZE = gql`
   query($ids: [ID!]!) {
     download(ids: $ids) {
       fileSize
