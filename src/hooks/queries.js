@@ -134,7 +134,7 @@ export const SEARCH = gql`
       }
       totalCount
     }
-}
+  }
 `;
 
 export const DOWNLOAD_SIZE = gql`
@@ -142,5 +142,5 @@ export const DOWNLOAD_SIZE = gql`
     download(ids: $ids) {
       fileSize
     }
-}
+  }
 `;
