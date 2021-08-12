@@ -3,7 +3,7 @@ import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
-import shelfIcon from '../../images/listPanel/shelf/shelf.svg';
+import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
