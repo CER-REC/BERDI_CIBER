@@ -36,8 +36,6 @@ const useStyles = makeStyles(() => ({
     overflowY: 'auto',
     height: '100%',
   },
-  footer: {
-  },
   footerDisclaimer: {
     backgroundColor: '#F7F7FB',
     margin: '1em',
@@ -46,6 +44,16 @@ const useStyles = makeStyles(() => ({
     '& .MuiTypography-root': {
       fontSize: '10pt',
     },
+  },
+  footerDownloadButton: {
+    marginBottom: '2em',
+    backgroundColor: '#07456B',
+    padding: '0.3em 3em',
+  },
+  footerDownloadButtonIcon: {
+    overflow: 'visible',
+    paddingRight: '0.5em',
+    maxWidth: '1.2em',
   },
 }));
 
@@ -63,7 +71,7 @@ const Cart = () => {
   };
 
   let { fileSize } = useDownloadSize(config.cartIds);
-  // Set fileSize to 0 if cart is empty, so metadata does not make the file size show as > 0
+  // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize);
 
@@ -73,7 +81,7 @@ const Cart = () => {
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <img src={shelfIcon} alt="a shelf holding books" style={{ transform: 'scale(0.8)' }} />
+              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
             </Icon>
           </Grid>
           <Grid item xs={6}>
@@ -92,6 +100,7 @@ const Cart = () => {
         hideBackdrop
         disableEnforceFocus
       >
+        {/* Header */}
         <Grid container alignItems="center" className={classes.header}>
           <Grid item xs={6} />
           <Grid item xs={3} />
@@ -102,10 +111,12 @@ const Cart = () => {
           </Grid>
         </Grid>
 
+        {/* Body */}
         <Grid container className={classes.body}>
           body
         </Grid>
 
+        {/* Footer */}
         <Grid
           container
           direction="column"
@@ -133,15 +144,14 @@ const Cart = () => {
               disableElevation
               variant="contained"
               color="primary"
-              style={{ marginBottom: '2em', backgroundColor: '#07456B', padding: '0.3em 3em' }}
+              className={classes.footerDownloadButton}
               onClick={handleDownloadClick}
               disabled={config.cartIds.length === 0}
             >
               <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
-                <input type="submit" value="Download" />
               </form>
-              <img src={downloadIcon} alt="download button" style={{ overflow: 'visible', paddingRight: '0.5em', transform: 'scale(0.85)' }} />
+              <img src={downloadIcon} alt="download button" className={classes.footerDownloadButtonIcon} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
               <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
                 {formattedFileSize}
