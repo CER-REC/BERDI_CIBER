@@ -10,14 +10,14 @@ import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 
 const useStyles = makeStyles((theme) => ({
   cartButton: {
-    backgroundColor: '#D2EDEB',
+    backgroundColor: theme.palette.cart.light,
     position: 'fixed',
     right: 0,
     top: '50%',
     zIndex: '1',
   },
   cartButtonLabel: {
-    color: '#07456B',
+    color: theme.palette.cart.dark,
     fontSize: '13px',
     fontWeight: '900',
   },
@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'right',
   },
   header: {
-    backgroundColor: '#D2EDEB',
+    backgroundColor: theme.palette.cart.light,
     borderBottom: '8px solid',
     borderBottomColor: theme.palette.secondary.main,
   },
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footerDownloadButton: {
     marginBottom: '2em',
-    backgroundColor: '#07456B',
+    backgroundColor: theme.palette.cart.dark,
     padding: '0.3em 3em',
   },
   footerDownloadButtonIcon: {
