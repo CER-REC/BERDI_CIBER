@@ -16,9 +16,15 @@ const useStyles = makeStyles((theme) => ({
     top: '50%',
     zIndex: '1',
   },
-  buttonNewDot: {
+  newDot: {
     fill: '#D32645',
     strokeWidth: 0,
+    position: 'relative',
+    left: '40px',
+    bottom: '4px',
+  },
+  newDotHidden: {
+    visibility: 'hidden',
   },
   cartButtonLabel: {
     color: theme.palette.cart.dark,
@@ -89,27 +95,23 @@ const Cart = () => {
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize);
 
-  const footerClass = (config.cartIds.length === 0) ? classes.footerDisabled : classes.footer;
-
-  const newDotSize = 12;
+  const newDotSize = 14;
   const newDotR = newDotSize / 2;
 
   return (
     <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
+        <svg
+          height={newDotSize}
+          width={newDotSize}
+          viewBox={`0 0 ${newDotSize} ${newDotSize}`}
+          className={(config.unreadCartIds.length === 0) ? classes.newDotHidden : classes.newDot}
+        >
+          <circle cx={newDotR} cy={newDotR} r={newDotR} />
+        </svg>
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <svg height={newDotSize} width={newDotSize}>
-                <ellipse
-                  className={classes.buttonNewDot}
-                  cx={newDotR}
-                  cy={newDotR}
-                  rx={newDotR}
-                  ry={newDotR}
-                />
-                Sorry, your browser does not support inline SVG.
-              </svg>
               <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
             </Icon>
           </Grid>
@@ -150,7 +152,7 @@ const Cart = () => {
           container
           direction="column"
           alignItems="center"
-          className={footerClass}
+          className={(config.cartIds.length === 0) ? classes.footerDisabled : classes.footer}
         >
           <Grid item className={classes.footerDisclaimer}>
             <Typography className={classes.footerDisclaimerText}>
