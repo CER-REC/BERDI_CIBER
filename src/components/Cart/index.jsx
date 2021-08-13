@@ -38,6 +38,14 @@ const useStyles = makeStyles((theme) => ({
     overflowY: 'auto',
     height: '100%',
   },
+  footerDisabled: {
+    opacity: 0.25,
+    pointerEvents: 'none',
+  },
+  footer: {
+    opacity: 1,
+    pointerEvents: 'auto',
+  },
   footerDisclaimer: {
     backgroundColor: '#F7F7FB',
     margin: '1em',
@@ -76,6 +84,8 @@ const Cart = () => {
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize);
+
+  const footerClass = (config.cartIds.length === 0) ? classes.footerDisabled : classes.footer;
 
   return (
     <>
@@ -123,6 +133,7 @@ const Cart = () => {
           container
           direction="column"
           alignItems="center"
+          className={footerClass}
         >
           <Grid item className={classes.footerDisclaimer}>
             <Typography className={classes.footerDisclaimerText}>
@@ -148,7 +159,6 @@ const Cart = () => {
               color="primary"
               className={classes.footerDownloadButton}
               onClick={handleDownloadClick}
-              disabled={config.cartIds.length === 0}
             >
               <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
