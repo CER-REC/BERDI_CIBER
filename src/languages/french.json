@@ -9,6 +9,8 @@
     "tables": "Tableaux",
     "figures": "Figures",
     "previous": "Précédente",
+    "downloadAllTables": "Télécharger tous les tableaux",
+    "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
     "applicationType": "Type de demande : ",
@@ -103,8 +105,7 @@
       "termsTitle": {
         "title": "Avis",
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
-        "link": "\"l’Avis\"",
-        "url": "https://www.cer-rec.gc.ca/fr/avis.html"
+        "link": "\"l’Avis\""
       },
       "citation": {
         "title": "Référence des citations ",
@@ -116,7 +117,6 @@
         "countsText": "{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
         "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
         "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
-        "buttonLabel": "Télécharger tous les tableaux",
         "url": "csv/fr/fr.zip"
       }
     },
