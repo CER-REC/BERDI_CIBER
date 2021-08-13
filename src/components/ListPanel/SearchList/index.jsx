@@ -145,7 +145,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
                       <CartButton data={content} />
                       <Grid item>
-                        <EllipseButton downloadURL={content.url} />
+                        <EllipseButton downloadURL={content.url} title={content.title} />
                       </Grid>
                     </Grid>
 

@@ -6,6 +6,7 @@ import download from '../../../images/ellipseMenu/download.svg';
 import flag from '../../../images/ellipseMenu/flag.svg';
 import leaf from '../../../images/ellipseMenu/leaf.svg';
 import EllipseIcon from '../../../images/listPanel/ellipse.svg';
+import ReportDataDialog from './ReportDataDialog';
 
 const useStyles = makeStyles({
   button: {
@@ -45,21 +46,21 @@ const useStyles = makeStyles({
   },
 });
 
-const EllipseButton = ({ downloadURL }) => {
+const EllipseButton = ({ downloadURL, title }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [reportOpen, setReportOpen] = useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleReportClose = () => setReportOpen(false);
+  const handleReportClick = () => { handleClose(); setReportOpen(true); };
 
   return (
     <>
+      <ReportDataDialog open={reportOpen} onClose={handleReportClose} title={title} />
       <Menu
         id="ellipse-menu"
         anchorEl={anchorEl}
@@ -73,7 +74,7 @@ const EllipseButton = ({ downloadURL }) => {
           <img alt="a maple leaf" src={leaf} />
           {intl.formatMessage({ id: 'components.ellipseButton.rate' })}
         </MenuItem>
-        <MenuItem onClick={handleClose} className={classes.border}>
+        <MenuItem onClick={handleReportClick} className={classes.border}>
           <img alt="a generic flag" src={flag} />
           {intl.formatMessage({ id: 'components.ellipseButton.report' })}
         </MenuItem>
@@ -100,6 +101,7 @@ export default EllipseButton;
 
 EllipseButton.propTypes = {
   downloadURL: PropTypes.string,
+  title: PropTypes.string.isRequired,
 };
 
 EllipseButton.defaultProps = {
