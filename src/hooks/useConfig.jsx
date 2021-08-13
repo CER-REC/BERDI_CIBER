@@ -12,7 +12,7 @@ import useAPI from './useAPI';
 
 const parameters = ['page', 'searchIndex', 'cartIndex'];
 const dateParameters = ['startDate', 'endDate'];
-const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes'];
+const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
 const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
@@ -115,6 +115,7 @@ export const ConfigProvider = ({ children }) => {
         statuses: query.statuses?.split(','),
         contentTypes: query.contentTypes?.split(','),
         treemapApplicationIds: decodeParameter(query.treemapApplicationIds),
+        topics: query.topics?.split(','),
         searchIndex,
         cartIndex,
         fragment,

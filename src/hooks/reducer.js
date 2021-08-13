@@ -1,3 +1,28 @@
+const validTopics = [
+  'landscape',
+  'soil',
+  'wetland',
+  'water',
+  'fish',
+  'plant',
+  'wildlife',
+  'species',
+  'noise',
+  'gas',
+  'air',
+  'electricity',
+  'infrastructure',
+  'job',
+  'environmental',
+  'heritage',
+  'proximity',
+  'human',
+  'social',
+  'boat',
+  'indigenous',
+  'treaty',
+];
+
 const getValidEnums = (enums, validEnums) => {
   if (!enums) {
     return [];
@@ -28,6 +53,7 @@ export const initialState = {
   contentTypes: [],
   // A list of the selected application IDs in the treemap
   treemapApplicationIds: [],
+  topics: [],
   // The page of the search results (starting at 0)
   searchIndex: 0,
   cartIndex: 0,
@@ -64,6 +90,7 @@ export const getReducer = (
         statuses: getValidEnums(action.payload.statuses, statuses),
         contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
         treemapApplicationIds: getValidEnums(action.payload.treemapApplicationIds, applicationIds),
+        topics: getValidEnums(action.payload.topics, validTopics) || initialState.topics,
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
         cartIndex: action.payload.cartIndex || initialState.cartIndex,
         fragment: action.payload.fragment || initialState.fragment,
@@ -84,6 +111,7 @@ export const getReducer = (
         statuses: state.statuses || initialState.statuses,
         contentTypes: state.contentTypes || initialState.contentTypes,
         treemapApplicationIds: state.treemapApplicationIds || initialState.treemapApplicationIds,
+        topics: state.topics || initialState.topics,
         searchIndex: state.searchIndex || initialState.searchIndex,
         cartIndex: state.cartIndex || initialState.cartIndex,
         fragment: initialState.fragment,
@@ -112,7 +140,6 @@ export const getReducer = (
         applicationIds: getValidEnums(action.payload, applicationIds),
         searchIndex: 0,
       };
-
     case 'regions/changed':
       return {
         ...state,
@@ -187,6 +214,21 @@ export const getReducer = (
         treemapApplicationIds: state.treemapApplicationIds.filter((id) => !ids.includes(id)),
         searchIndex: 0,
       };
+    case 'topics/added':
+      return {
+        ...state,
+        page: 'search',
+        topics: [...new Set(state.topics.concat(action.payload))],
+        searchIndex: 0,
+      };
+    case 'topics/removed':
+      ids = [].concat(action.payload);
+
+      return {
+        ...state,
+        topics: state.topics.filter((id) => !ids.includes(id)),
+        searchIndex: 0,
+      };
     case 'filters/removed':
       return {
         ...state,
@@ -199,6 +241,7 @@ export const getReducer = (
         statuses: initialState.statuses,
         contentTypes: initialState.contentTypes,
         treemapApplicationIds: initialState.treemapApplicationIds,
+        topics: initialState.topics,
         searchIndex: initialState.searchIndex,
       };
     case 'cartIds/added':
