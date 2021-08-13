@@ -21,7 +21,7 @@ import styles from './styles';
 import TitleSection from './TitleSection';
 import ViewMoreDetailsButton from './ViewMoreDetailsButton';
 import RelatedTopics from './RelatedTopics';
-import EllipseButton from './EllipseButton';
+import EllipsisButton from '../EllipsisButton/index.jsx';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -145,7 +145,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
                       <CartButton data={content} />
                       <Grid item>
-                        <EllipseButton downloadURL={content.url} />
+                        <EllipsisButton downloadURL={content.url} title={content.title} />
                       </Grid>
                     </Grid>
 

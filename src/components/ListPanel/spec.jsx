@@ -26,7 +26,7 @@ describe('Components/ListPanel', () => {
 
       expect(screen.getAllByLabelText('content card').length).toBe(contents.length); // There are two sub rows in each parent row
       expect(screen.getAllByText('components.cartButton.add')).not.toHaveLength(0);
-      expect(screen.getAllByRole('button', { name: /ellipse/i }).length).toBe(contents.length);
+      expect(screen.getAllByRole('button', { name: /ellipsis/i }).length).toBe(contents.length);
 
       contents.forEach((content, index) => {
         const result = screen.getAllByLabelText('content card')[index].textContent;
