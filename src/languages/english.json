@@ -284,6 +284,7 @@
     "svgButton": {
       "strongRelation": "Strong relation to search terms",
       "someRelation": "Some relation to search terms",
+      "littleRelation": "Little relation to search terms",
       "noRelation": "No relation to search terms"
     },
     "loadingIndicator": {

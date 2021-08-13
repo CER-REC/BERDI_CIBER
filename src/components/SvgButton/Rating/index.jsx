@@ -35,17 +35,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Rating = ({ score, type }) => {
   const classes = useStyles();
+  const keys = score ? [...Array(score).keys()] : [];
 
   return (
     <div className={classes.root}>
-      { [...Array(score).keys()].map((key) => <div key={key} className={`${classes.circle} ${type}`} />) }
+      { keys.map((key) => <div key={key} className={`${classes.circle} ${type}`} />) }
     </div>
   );
 };
 
 Rating.propTypes = {
-  score: PropTypes.number.isRequired,
+  score: PropTypes.number,
   type: PropTypes.string.isRequired,
+};
+
+Rating.defaultProps = {
+  score: null,
 };
 
 export default Rating;

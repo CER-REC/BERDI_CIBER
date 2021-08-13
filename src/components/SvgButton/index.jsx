@@ -134,7 +134,7 @@ SvgButton.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  score: PropTypes.number,
   type: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   isPulsing: PropTypes.bool,
@@ -144,6 +144,7 @@ SvgButton.propTypes = {
 };
 
 SvgButton.defaultProps = {
+  score: null,
   disabled: false,
   isPulsing: false,
 };

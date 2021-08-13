@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     '&> div': {
       display: 'inline-block',
       fontSize: '2em',
-      paddingRight: '0.5em',
+      '&> div:last-child': { marginRight: '0.5em' },
     },
   },
   title: {
@@ -33,7 +33,8 @@ const Topic = ({ title, description, score, type }) => {
   const classes = useStyles();
   const intl = useIntl();
   const relationMessages = {
-    1: intl.formatMessage({ id: 'components.svgButton.noRelation' }),
+    0: intl.formatMessage({ id: 'components.svgButton.noRelation' }),
+    1: intl.formatMessage({ id: 'components.svgButton.littleRelation' }),
     2: intl.formatMessage({ id: 'components.svgButton.someRelation' }),
     3: intl.formatMessage({ id: 'components.svgButton.strongRelation' }),
   };
@@ -42,7 +43,7 @@ const Topic = ({ title, description, score, type }) => {
     <div className={classes.root}>
       <Typography classes={{ root: classes.title }}>{title}</Typography>
       {
-        (score > 0) && (
+        (typeof score === 'number') && (
           <>
             <Rating score={score} type={type} />
             <Typography classes={{ root: classes.body }} variant="body1" display="inline">{relationMessages[score]}</Typography>
@@ -57,8 +58,12 @@ const Topic = ({ title, description, score, type }) => {
 Topic.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  score: PropTypes.number.isRequired,
+  score: PropTypes.number,
   type: PropTypes.string.isRequired,
+};
+
+Topic.defaultProps = {
+  score: null,
 };
 
 export default Topic;

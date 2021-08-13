@@ -113,9 +113,9 @@ const TopicsFilter = () => {
     title: intl.formatMessage({ id: `common.${type}.${topic}.title` }),
     description: intl.formatMessage({ id: `common.${type}.${topic}.description` }),
     // TODO: Hook up score to the search results
-    score: isLanding ? 0 : Math.round(Math.random() * 3),
+    score: isLanding ? null : (topic.length % 4),
     // TODO: Hook up disabled to the search results
-    disabled: false,
+    disabled: isLanding ? false : (topic.length % 4) === 0,
     onClick: () => {
       const action = config.topics.includes(topic) ? 'topics/removed' : 'topics/added';
 
