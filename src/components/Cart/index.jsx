@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
     top: '50%',
     zIndex: '1',
   },
+  buttonNewDot: {
+    fill: '#D32645',
+    strokeWidth: 0,
+  },
   cartButtonLabel: {
     color: theme.palette.cart.dark,
     fontSize: '13px',
@@ -87,12 +91,25 @@ const Cart = () => {
 
   const footerClass = (config.cartIds.length === 0) ? classes.footerDisabled : classes.footer;
 
+  const newDotSize = 12;
+  const newDotR = newDotSize / 2;
+
   return (
     <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
         <Grid container alignItems="center" spacing={2}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
+              <svg height={newDotSize} width={newDotSize}>
+                <ellipse
+                  className={classes.buttonNewDot}
+                  cx={newDotR}
+                  cy={newDotR}
+                  rx={newDotR}
+                  ry={newDotR}
+                />
+                Sorry, your browser does not support inline SVG.
+              </svg>
               <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
             </Icon>
           </Grid>
