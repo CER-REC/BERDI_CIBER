@@ -33,62 +33,62 @@
       "landscape": {
         "title": "Landscape, terrain, and weather",
         "label": "Landscape and weather",
-        "description": "Data that provides information on land features and terrain, like permafrost or bedrock. It may also include weather conditions or hazards."
+        "description": "Data that has information on land features and terrain, like permafrost or bedrock. It may also include weather conditions or hazards."
       },
       "soil": {
         "title": "Soil",
         "label": "Soil",
-        "description": "Data that looks at sediment or soil. This may include contamination."
+        "description": "Data that has information on sediment or soil. This may include contamination."
       },
       "wetland": {
         "title": "Wetlands",
         "label": "Wetlands",
-        "description": "Data that has information on wetlands. For example, bogs, sloughs, and swamp lands. This may include wetlands of concern to Indigenous people. Wetlands has some overlap with the topic Environmental Obligations. "
+        "description": "Data that has information on wetlands. For example, bogs, sloughs, and swamps. This may include wetlands of concern to Indigenous people. Wetlands has some overlap with the topic Environmental Obligations."
       },
       "water": {
         "title": "Water",
         "label": "Water",
-        "description": "Data that looks at water bodies, ground water, and water flow. This may include pollution, and water bodies important to Indigenous people."
+        "description": "Data that has information on water bodies, ground water, and water flow. This may include pollution, and water bodies important to Indigenous people."
       },
       "fish": {
         "title": "Fish",
         "label": "Fish",
-        "description": "Data that looks at fish and fish habitat. This may include pollution, SPECIES AT RISK, and species and habitats important to Indigenous people."
+        "description": "Data that has information on fish and fish habitat. This may include pollution, species at risk, and species and habitats important to Indigenous people."
       },
       "plant": {
         "title": "Plants",
         "label": "Plants",
-        "description": "Data that looks at plants and vegetation. This may include RARE PLANTS COMMUNITIES, SPECIES OR ECOLOGICAL COMMUNITIES AT RISK, invasive species, or plants that are important to Indigenous people."
+        "description": "Data that has information of plants and vegetation. This may include rare plants, communities, species or ecological communities at risk, invasive species, or plants that are important to Indigenous people."
       },
       "wildlife": {
         "title": "Wildlife",
         "label": "Wildlife",
-        "description": "Data that looks at all effects on wildlife, including sensitive habitats for wildlife like nests, dens, and mineral licks, and key areas like National Parks or sanctuaries. It may also look at migrations and disturbances."
+        "description": "Data that has information on wildlife and habitats, including marine wildlife. Data has potential impacts to wildlife movement and mortality. Also included are the effects on sensitive habitats like nests and dens, and key areas such as National Parks or sanctuaries."
       },
       "species": {
         "title": "Species at Risk",
         "label": "Species at Risk",
-        "description": "Data that looks at species at risk or of special status, and their habitats. This includes plants, wildlife, fish and marine species. Species at risk has some overlap with the topic Environmental Obligations."
+        "description": "Data that has information on species at risk or of special status, and their habitats. This includes plants, wildlife, fish and marine species. Species at risk has some overlap with the topic Environmental Obligations."
       },
       "noise": {
         "title": "Noise",
         "label": "Noise",
-        "description": "Data that looks at possible noise if a pipeline facility was active. This may include noise from blasting or machinery."
+        "description": "Data that has information on possible noise from a pipeline facility. For example, a gas plant or compressor station. This also includes noise from construction, blasting or machinery."
       },
       "gas": {
-        "title": "Gas emissions",
-        "label": "Gas emissions",
-        "description": "Data that looks at possible greenhouse gas emissions. This is a new data type. It helps Canada understand how we are meeting our climate change commitments."
+        "title": "Greenhouse gas emissions",
+        "label": "GHG emissions",
+        "description": "Data that has information on possible greenhouse gas emissions. This is a new data type. It helps Canada understand how we are meeting our climate change commitments."
       },
       "air": {
         "title": "Air emissions",
         "label": "Air emissions",
-        "description": "Data that looks at air emissions. For example, air contaminants, fugitive emissions. As well as emissions from flaring, venting and incinerating."
+        "description": "Data that looks at air emissions. Some examples of air emissions are air contaminants, fugitive emissions, emissions from flaring, venting and incinerating. "
       },
       "electricity": {
         "title": "Electricity and electromagnetism",
         "label": "Electricity",
-        "description": ""
+        "description": "Data that has information related to electromagnetic fields and corona discharge. This applies most often to electricity transmission projects."
       }
     },
     "socioEconomic": {
@@ -96,52 +96,52 @@
       "infrastructure": {
         "title": "Social, cultural, economic infrastructure and services",
         "label": "Infrastructure and services",
-        "description": "Data that looks at infrastructure like housing and roads. This may include possible impacts like increased demands on local services, or damages and repairs."
+        "description": "Data that has information on infrastructure like housing and roads. This may include possible impacts like increased demands on local services, or damages and repairs."
       },
       "job": {
         "title": "Economic Offsets and Impact",
         "label": "Jobs and finances",
-        "description": "Data that looks at possibilities for making profits and contributing to the economy. This may include conditions for employment or POSSIBILITIES FOR EDUCATION. It may also include proceeds taken by governments."
+        "description": "Data that has information on the potential for making profits and contributing to the local economy. This may include conditions for employment or possibilities for education. It may also include proceeds taken by governments."
       },
       "environmental": {
         "title": "Environmental Obligations",
         "label": "Environmental Obligations",
-        "description": "Data that looks at legal requirements, policy frameworks, or other targets, like the Federal Wetland Policy. This is a new data type. It helps Canada understand how we are meeting our environmental commitments (apart from climate change)."
+        "description": "Data that has information on legal requirements, policies, or other targets, like the Federal Wetland Policy. This is a new data type. It helps Canada understand how we are meeting our environmental commitments for things like species at risk and wetlands."
       },
       "heritage": {
         "title": "Archaeological, paleontological, historical, and culturally significant sites and resources",
         "label": "Heritage resources",
-        "description": "Data that looks at areas with historical, INCLUDING PRE-HISTORY, and cultural importance."
+        "description": "Data that has information on areas with historical importance such as pre-history, and cultural history."
       },
       "proximity": {
         "title": "Proximity to people",
         "label": "Proximity to people",
-        "description": "Data that looks at the impact to human ACTIVITY ON OR NEAR occupied areas and resources if a pipeline were to be active. Some examples of human occupied areas are farms, parks, forests, and water BODIES, reserves."
+        "description": "Data that has information on the impact of human activity on or near occupied areas and resources, if a pipeline was active. Some examples of human occupied areas are farms, parks, forests, bodies of water and water reserves."
       },
       "human": {
         "title": "Impact to human health and viewscapes",
         "label": "Human health",
-        "description": "Data that looks at parts of the environment that impact human health. This may include water and air quality, vistas, and other impacts to the senses."
+        "description": "Data that has information on parts of the environment that impact human health. This may include water and air quality, vistas, and other impacts to the senses."
       },
       "social": {
         "title": "Impact to social and cultural well-being",
         "label": "Social and cultural",
-        "description": "Data that looks at the social and cultural well-being of Indigenous peoples, local residents, or communities."
+        "description": "Data that has information on the social and cultural well-being of Indigenous peoples, local residents, or communities."
       },
       "boat": {
         "title": "Human access to boats and waterways",
         "label": "Boats and waterways",
-        "description": "Data that looks at human access to boats and waterways. This may include activities or objects located within a navigable waterway. This waterway must be flowing, and not seasonally dry or frozen."
+        "description": "Data that has information on human access to activities in, on, and around waterways. This may include activities or objects located within a navigable waterway. This waterway must be flowing, and not seasonally dry or frozen."
       },
       "indigenous": {
         "title": "Indigenous land, water, and air use",
         "label": "Indigenous land use",
-        "description": "Data that looks at land, water, and air, AND THE RESOURCES ON OR IN THEM, used by Indigenous people. This may include seasonal activities like hunting, trapping, and berry picking. It may also include reserves, settlement areas, and traditional territories. Before using this data, please confirm with those affected."
+        "description": "Data that has information on the relationship that Indigenous people have with the land, water, and air, as well as the resources on or in them. This may include seasonal activities like hunting, trapping, and berry picking. It may also include reserves, settlement areas, and traditional territories. Before using this data, please confirm with those affected."
       },
       "treaty": {
         "title": "Treaty and Indigenous Rights",
         "label": "Treaty and Indigenous Rights",
-        "description": "Data that looks at practices, customs, traditions and WAYS OF KNOWING that belong to Indigenous people. These rights are recognized and affirmed by section 35 of the Constitution Act, 1982. THESE RIGHTS MAY COME FROM TREATIES OR OTHER AGREEMENTS AND GOVERNMENT PROMISES"
+        "description": "Data that has information on practices, customs, traditions and ways of knowing that belong to Indigenous people. These rights are recognized and affirmed by section 35 of the Constitution Act, 1982. These rights may come from treaties or other agreements and government promises."
       }
     }
   },
