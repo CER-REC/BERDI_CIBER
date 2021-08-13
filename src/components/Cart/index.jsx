@@ -15,6 +15,8 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: '50%',
     zIndex: '1',
+    padding: '10px 10px 5px 0',
+    borderRadius: 0,
   },
   newDot: {
     fill: '#D32645',
@@ -30,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.cart.dark,
     fontSize: '13px',
     fontWeight: '900',
+    margin: '0 5px 0 5px',
+    paddingLeft: '5px',
   },
   drawer: {
     width: '28em',
@@ -90,6 +94,11 @@ const Cart = () => {
     formRef.current.submit();
   };
 
+  const getCartQuantity = () => {
+    const quantity = config.cartIds.length;
+    return (quantity >= 1000) ? `${(quantity / 1000).toFixed(1).replace(/\.0$/, '')}k` : quantity;
+  };
+
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
@@ -109,15 +118,15 @@ const Cart = () => {
         >
           <circle cx={newDotR} cy={newDotR} r={newDotR} />
         </svg>
-        <Grid container alignItems="center" spacing={2}>
+        <Grid container alignItems="center" spacing={1} justifyContent="flex-start">
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
+              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.6em' }} />
             </Icon>
           </Grid>
           <Grid item xs={6}>
             <Typography className={classes.cartButtonLabel}>
-              {config.cartIds.length}
+              {getCartQuantity()}
             </Typography>
           </Grid>
         </Grid>
