@@ -58,12 +58,12 @@ describe('Components/ResultDialog', () => {
   });
 
   test('should show not applicable when finalDecisionURL is blank', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
+    render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
     expect(screen.queryByText('components.resultDialog.notApplicable')).toBeInTheDocument();
   });
 
   test('should show pending when finalDecisionURL is pending', () => {
-    render(<ResultDialog open onClose={noop} data={{ title: 'pendingFinalDecisionURL', application: { name: 'name', finalDecisionURL: 'pending' } }} />);
+    render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'pendingFinalDecisionURL', application: { name: 'name', finalDecisionURL: 'pending' } }} />);
     expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
   });
 
