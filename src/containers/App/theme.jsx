@@ -100,6 +100,20 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiToggleButton: {
+      root: {
+        borderRadius: '0.5em',
+        color: '#333333',
+        fontSize: 18,
+        padding: '0.2em 2.5em',
+        textTransform: 'none',
+        '&$selected': {
+          backgroundColor: '#4F5395',
+          color: white,
+          '&:hover': { backgroundColor: lighten(lightPurple, 0.2) },
+        },
+      },
+    },
     MuiSwitch: {
       root: {
         width: 'calc(3em + 6px)',
