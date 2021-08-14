@@ -30,3 +30,4 @@ Object.defineProperty(global, 'location', {
 });
 
 jest.spyOn(global.history, 'pushState');
+jest.setTimeout(10000);
