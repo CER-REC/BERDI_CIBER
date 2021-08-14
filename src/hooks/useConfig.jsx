@@ -10,7 +10,7 @@ import { toDateOnly, toDateOnlyString } from '../utilities/date';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
-const parameters = ['page', 'searchIndex', 'cartIndex'];
+const parameters = ['page', 'filter', 'searchIndex', 'cartIndex'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
 const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
@@ -116,6 +116,7 @@ export const ConfigProvider = ({ children }) => {
         contentTypes: query.contentTypes?.split(','),
         treemapApplicationIds: decodeParameter(query.treemapApplicationIds),
         topics: query.topics?.split(','),
+        filter: query.filter,
         searchIndex,
         cartIndex,
         fragment,

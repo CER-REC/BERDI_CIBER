@@ -54,6 +54,7 @@ export const initialState = {
   // A list of the selected application IDs in the treemap
   treemapApplicationIds: [],
   topics: [],
+  filter: 'topic',
   // The page of the search results (starting at 0)
   searchIndex: 0,
   cartIndex: 0,
@@ -91,6 +92,7 @@ export const getReducer = (
         contentTypes: getValidEnums(action.payload.contentTypes, contentTypes),
         treemapApplicationIds: getValidEnums(action.payload.treemapApplicationIds, applicationIds),
         topics: getValidEnums(action.payload.topics, validTopics) || initialState.topics,
+        filter: action.payload.filter || initialState.filter,
         searchIndex: action.payload.searchIndex || initialState.searchIndex,
         cartIndex: action.payload.cartIndex || initialState.cartIndex,
         fragment: action.payload.fragment || initialState.fragment,
@@ -112,6 +114,7 @@ export const getReducer = (
         contentTypes: state.contentTypes || initialState.contentTypes,
         treemapApplicationIds: state.treemapApplicationIds || initialState.treemapApplicationIds,
         topics: state.topics || initialState.topics,
+        filter: state.filter || initialState.filter,
         searchIndex: state.searchIndex || initialState.searchIndex,
         cartIndex: state.cartIndex || initialState.cartIndex,
         fragment: initialState.fragment,
@@ -219,6 +222,7 @@ export const getReducer = (
         ...state,
         page: 'search',
         topics: [...new Set(state.topics.concat(action.payload))],
+        filter: 'topic',
         searchIndex: 0,
       };
     case 'topics/removed':
@@ -228,6 +232,13 @@ export const getReducer = (
         ...state,
         topics: state.topics.filter((id) => !ids.includes(id)),
         searchIndex: 0,
+      };
+    case 'filter/changed':
+      return {
+        ...state,
+        treemapApplicationIds: initialState.treemapApplicationIds,
+        topics: initialState.topics,
+        filter: action.payload,
       };
     case 'filters/removed':
       return {
