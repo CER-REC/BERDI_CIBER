@@ -6,6 +6,8 @@
       "colon": ":",
       "percent": "%"
     },
+    "project": "Project",
+    "topic": "Topic",
     "tables": "Tables",
     "figures": "Figures",
     "previous": "Previous",
@@ -169,7 +171,6 @@
       "dataNotice": "We were unable to extract the table for download. Please view the original document."
     },
     "dropdown": {
-      "APPLICATION_NAMES": "Project",
       "REGIONS": "Province",
       "STATUSES": "Pipeline status",
       "COMMODITIES": "Commodity",

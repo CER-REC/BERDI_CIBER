@@ -24,7 +24,7 @@ const simulateSearch = () => {
 const simulateFilter = () => {
   fireEvent.click(getByRole(screen.getByText('components.searchPanel.filterLabel').parentNode, 'checkbox'));
   // Material UI select component uses the mouse down event
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.APPLICATION_NAMES').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(screen.getByText('common.project').parentNode, 'button'));
   fireEvent.click(screen.getByText('Test1'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
   fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.REGIONS').parentNode, 'button'));

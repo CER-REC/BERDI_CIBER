@@ -8,6 +8,8 @@
     },
     "tables": "Tableaux",
     "figures": "Figures",
+    "project": "Projet",
+    "topic": "",
     "previous": "Précédente",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
@@ -168,7 +170,6 @@
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
-      "APPLICATION_NAMES": "Projet",
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
