@@ -220,7 +220,6 @@ export const getReducer = (
     case 'topics/added':
       return {
         ...state,
-        page: 'search',
         topics: [...new Set(state.topics.concat(action.payload))],
         filter: 'topic',
         searchIndex: 0,
@@ -239,6 +238,7 @@ export const getReducer = (
         treemapApplicationIds: initialState.treemapApplicationIds,
         topics: initialState.topics,
         filter: action.payload,
+        fragment: initialState.fragment,
       };
     case 'filters/removed':
       return {

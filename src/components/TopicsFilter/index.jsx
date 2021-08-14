@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
@@ -56,9 +56,14 @@ const socioEconomicSrcs = {
 };
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginBottom: 0,
+    marginTop: 0,
     position: 'relative',
-    zIndex: 1,
-    '& > div': { zIndex: 1 },
+    '& > div.MuiGrid-item': {
+      paddingBottom: 0,
+      paddingTop: 0,
+      zIndex: 1,
+    },
   },
   header: {
     alignItems: 'center',
@@ -120,8 +125,21 @@ const TopicsFilter = () => {
       const action = config.topics.includes(topic) ? 'topics/removed' : 'topics/added';
 
       configDispatch({ type: action, payload: topic });
+
+      if (isLanding) {
+        configDispatch({
+          type: 'page/fragment/changed',
+          payload: { page: 'search', fragment: 'topic' },
+        });
+      }
     },
   });
+
+  useEffect(() => {
+    if ((config.fragment === 'topic') && layerNode) {
+      layerNode.scrollIntoView(true);
+    }
+  }, [layerNode]);
 
   environmentalTopics.forEach((topic) => {
     topicProps[topic] = getProps(topic, environmentalSrcs[topic], 'environmental');
