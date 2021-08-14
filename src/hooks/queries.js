@@ -130,5 +130,13 @@ export const SEARCH = gql`
       }
       totalCount
     }
-}
+  }
+`;
+
+export const DOWNLOAD_SIZE = gql`
+  query($ids: [ID!]!) {
+    download(ids: $ids) {
+      fileSize
+    }
+  }
 `;

@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 
 import AccuracyAlert from '../../components/AccuracyAlert';
 import Applications from '../../components/Applications';
+import Cart from '../../components/Cart';
 import SearchPanel from '../../components/SearchPanel';
 import FilterPanel from '../../components/FilterPanel';
 import ListSection from '../../components/ListPanel';
@@ -47,6 +48,7 @@ const Search = () => {
         )
       }
       <FilterChipsPanel />
+      <Cart />
       <ListSection />
     </>
   );

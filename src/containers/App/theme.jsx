@@ -13,6 +13,8 @@ const darkPurple = '#593D6C';
 const lightTeal = '#D9F4F3';
 const darkTeal = '#66C8C3';
 const footerBlue = '#EAF9FF';
+const swansDown = '#D2EDEB';
+const tealBlue = '#07456B';
 const environmental = '#744A95';
 const socioEconomic = '#E14977';
 
@@ -42,6 +44,10 @@ const theme = createMuiTheme({
     },
     dialog: {
       footer: footerBlue,
+    },
+    cart: {
+      light: swansDown,
+      dark: tealBlue,
     },
     environmental,
     socioEconomic,
