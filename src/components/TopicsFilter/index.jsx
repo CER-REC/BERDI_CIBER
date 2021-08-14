@@ -139,7 +139,7 @@ const TopicsFilter = () => {
     if ((config.fragment === 'topic') && layerNode) {
       layerNode.scrollIntoView(true);
     }
-  }, [layerNode]);
+  }, [config.fragment, layerNode]);
 
   environmentalTopics.forEach((topic) => {
     topicProps[topic] = getProps(topic, environmentalSrcs[topic], 'environmental');

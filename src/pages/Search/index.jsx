@@ -17,7 +17,7 @@ import { reportShowFilter } from '../../utilities/analytics';
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
-  const { config, configDispatch } = useConfig();
+  const { config } = useConfig();
   const handleFilterChange = useCallback((event) => {
     if (event.target.checked) {
       reportShowFilter();
