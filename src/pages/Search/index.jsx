@@ -8,12 +8,16 @@ import ListSection from '../../components/ListPanel';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import NavButtons from '../../components/NavButtons';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
+import SearchDetails from '../../components/SearchDetails';
+import TopicsFilter from '../../components/TopicsFilter';
 import useAPI from '../../hooks/useAPI';
+import useConfig from '../../hooks/useConfig';
 import { reportShowFilter } from '../../utilities/analytics';
 
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
+  const { config, configDispatch } = useConfig();
   const handleFilterChange = useCallback((event) => {
     if (event.target.checked) {
       reportShowFilter();
@@ -31,17 +35,18 @@ const Search = () => {
       <AccuracyAlert />
       <NavButtons />
       <SearchPanel hasFilter onChange={handleFilterChange} />
-
       { open && <FilterPanel /> }
-
-      {/* TreeMap Section */}
-      <TreeMapPanel />
-
-      <Applications />
-
+      <SearchDetails />
+      { (config.filter === 'topic') && <TopicsFilter /> }
+      {
+        (config.filter === 'project') && (
+          <>
+            <TreeMapPanel />
+            <Applications />
+          </>
+        )
+      }
       <FilterChipsPanel />
-
-      {/* List section */}
       <ListSection />
     </>
   );
