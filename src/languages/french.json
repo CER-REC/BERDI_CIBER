@@ -68,11 +68,6 @@
       "nebLink": "https://lois-laws.justice.gc.ca/fra/lois/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/"
     },
-    "ellipseButton":{
-      "rate":"",
-      "report":"",
-      "download":"Télécharger le tableau"
-    },
     "errorBoundary": {
       "errorMessage": "Une erreur s’est produite.",
       "restoreLinkText": "Rétablir la session.",
@@ -103,7 +98,12 @@
         "esaConsultant": "Nom du consultant de l'EES : ",
         "projectFolder": "Dossier de projet",
         "finalDecision": "Décision finale",
-        "esaFolder": "Dossier de l’EES"
+        "esaFolder": "Dossier de l’EES",
+        "ellipsisButton":{
+          "rate":"",
+          "report":"",
+          "download":"Télécharger le tableau"
+        }
       },
       "termsTitle": {
         "title": "Avis",

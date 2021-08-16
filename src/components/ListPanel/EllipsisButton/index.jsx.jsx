@@ -2,11 +2,12 @@ import { ButtonBase, makeStyles, Menu, MenuItem } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import download from '../../../images/ellipseMenu/download.svg';
-import flag from '../../../images/ellipseMenu/flag.svg';
-import leaf from '../../../images/ellipseMenu/leaf.svg';
-import EllipseIcon from '../../../images/listPanel/ellipse.svg';
-import ReportDataDialog from './ReportDataDialog';
+import download from '../../../images/listPanel/download.svg';
+import flag from '../../../images/listPanel/flag.svg';
+import leaf from '../../../images/listPanel/leaf.svg';
+import EllipsisIcon from '../../../images/listPanel/ellipsis.svg';
+import { reportDownload } from '../../../utilities/analytics';
+import ReportDataDialog from '../SearchList/ReportDataDialog';
 
 const useStyles = makeStyles({
   button: {
@@ -26,13 +27,10 @@ const useStyles = makeStyles({
     },
     '& .MuiPaper-rounded': {
       borderRadius: 0,
-      // When the padding is modified, a small bit of the underlying button is visible.
-      // This covers it
-      transform: 'translate(-1px) !important',
       boxShadow: 'none',
       filter: 'drop-shadow(2px 4px 4px rgba(0,0,0,0.25))',
+      border: '1px solid #D0CDCD',
     },
-    border: '1px solid #D0CDCD',
     paddingTop: 0,
     paddingBottom: 0,
   },
@@ -41,18 +39,17 @@ const useStyles = makeStyles({
     borderColor: '#7B7E81',
     borderWidth: '1px',
   },
-  downloadLink: {
-    textDecoration: 'none',
-  },
 });
 
-const EllipseButton = ({ downloadURL, title }) => {
+const EllipsisButton = ({ downloadURL, title }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
   const [reportOpen, setReportOpen] = useState(false);
 
-  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleMouseEnter = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
   const handleClose = () => setAnchorEl(null);
 
   const handleReportClose = () => setReportOpen(false);
@@ -62,48 +59,47 @@ const EllipseButton = ({ downloadURL, title }) => {
     <>
       <ReportDataDialog open={reportOpen} onClose={handleReportClose} title={title} />
       <Menu
-        id="ellipse-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
         MenuListProps={{ onMouseLeave: handleClose }}
         className={classes.menu}
         disableRestoreFocus
+        disableAutoFocusItem
       >
         <MenuItem onClick={handleClose} style={{ paddingLeft: '10px' }}>
           <img alt="a maple leaf" src={leaf} />
-          {intl.formatMessage({ id: 'components.ellipseButton.rate' })}
+          {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rate' })}
         </MenuItem>
         <MenuItem onClick={handleReportClick} className={classes.border}>
           <img alt="a generic flag" src={flag} />
-          {intl.formatMessage({ id: 'components.ellipseButton.report' })}
+          {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.report' })}
         </MenuItem>
 
         {downloadURL && (
-          <a href={downloadURL} style={{ color: 'unset', textDecoration: 'none' }}>
+          <a href={downloadURL} style={{ color: 'unset', textDecoration: 'none' }} onClick={() => reportDownload(title)}>
             <MenuItem onClick={handleClose} className={classes.border}>
               <img alt="a down arrow" src={download} />
-              {intl.formatMessage({ id: 'components.ellipseButton.download' })}
+              {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.download' })}
             </MenuItem>
           </a>
         )}
-
       </Menu>
 
-      <ButtonBase className={classes.button} onMouseEnter={handleClick}>
-        <img alt="Ellipse" src={EllipseIcon} />
+      <ButtonBase className={classes.button} onMouseEnter={handleMouseEnter}>
+        <img alt="Ellipsis" src={EllipsisIcon} />
       </ButtonBase>
     </>
   );
 };
 
-export default EllipseButton;
+export default EllipsisButton;
 
-EllipseButton.propTypes = {
+EllipsisButton.propTypes = {
   downloadURL: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
-EllipseButton.defaultProps = {
+EllipsisButton.defaultProps = {
   downloadURL: null,
 };
