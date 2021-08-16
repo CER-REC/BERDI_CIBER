@@ -20,6 +20,8 @@
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
+    "termsAndConditions": "Avis",
+    "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -102,14 +104,25 @@
         "ellipsisButton":{
           "rate":"",
           "report":"",
-          "download":"Télécharger le tableau"
+          "download":"Télécharger le tableau",
+          "reportDataDialog":{
+            "report":"",
+            "required":"",
+            "whatConcern":"",
+            "strangeChars":"",
+            "noData":"",
+            "other":"",
+            "explainMore":"",
+            "optional":"",
+            "disclaimer":"",
+            "terms":"",
+            "submit":""
+          }
         }
       },
       "termsTitle": {
-        "title": "Avis",
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
-        "link": "\"l’Avis\"",
-        "url": "https://www.cer-rec.gc.ca/fr/avis.html"
+        "link": "\"l’Avis\""
       },
       "citation": {
         "title": "Référence des citations ",
@@ -149,8 +162,6 @@
       "noResultsWithDateRange": "Désolé, aucun résultat dans cette plage de dates."
     },
     "resultDialog": {
-      "downloadTable": "Télécharger le tableau",
-      "downloadFigure": "Télécharger la figure",
       "seeMore": "Voir plus...",
       "seeLess":"Voir moin ...",
       "foundOnPage": "Page : ",

@@ -103,7 +103,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' })}
         </Typography>
         <Typography component="h6">
-          {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.title' })}
+          {intl.formatMessage({ id: 'common.termsAndConditions' })}
         </Typography>
         <Typography>
           {
@@ -111,7 +111,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               { id: 'components.limitationsDialog.termsTitle.body' },
               {
                 link: (
-                  <a href={intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.url' })}>
+                  <a href={intl.formatMessage({ id: 'common.termsLink' })}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.link' })}
                   </a>
                 ),
