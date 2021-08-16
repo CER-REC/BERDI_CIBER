@@ -51,7 +51,9 @@
     },
     "cart": {
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
-      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download."
+      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",
+      "headerQuantity": "Items in the Shelf",
+      "viewFullList": "View full list on page"
     },
     "cartButton": {
       "add": "Add to shelf",

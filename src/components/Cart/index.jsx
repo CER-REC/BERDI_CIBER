@@ -24,12 +24,12 @@ const Cart = () => {
     formRef.current.submit();
   };
 
-  const getCartQuantity = () => {
+  const cartQuantity = (() => {
     const quantity = config.cartIds.length;
     return (quantity >= 1000)
       ? `${Number((quantity / 1000).toFixed(1)).toLocaleString(intl.locale)}k`
       : quantity;
-  };
+  })();
 
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
@@ -58,7 +58,7 @@ const Cart = () => {
           </Grid>
           <Grid item xs={6}>
             <Typography className={classes.cartButtonLabel}>
-              {getCartQuantity()}
+              {cartQuantity}
             </Typography>
           </Grid>
         </Grid>
@@ -74,8 +74,14 @@ const Cart = () => {
       >
         {/* Header */}
         <Grid container alignItems="center" className={classes.header}>
-          <Grid item xs={6} />
-          <Grid item xs={3} />
+          <Grid container direction="column" item xs={9}>
+            <Typography className={classes.headerQuantity}>
+              {`(${cartQuantity}) ${intl.formatMessage({ id: 'components.cart.headerQuantity' })}`}
+            </Typography>
+            <a href="stub" style={{ fontSize: 14, fontWeight: 'bold' }}>
+              {intl.formatMessage({ id: 'components.cart.viewFullList' })}
+            </a>
+          </Grid>
           <Grid item xs={3} className={classes.closeButton}>
             <IconButton aria-label="close" onClick={handleClose}>
               <CloseIcon />
