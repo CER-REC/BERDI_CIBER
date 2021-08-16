@@ -62,6 +62,7 @@ const EllipsisButton = ({ downloadURL, title }) => {
         MenuListProps={{ onMouseLeave: handleClose }}
         className={classes.menu}
         disableRestoreFocus
+        disableAutoFocusItem
       >
         <MenuItem onClick={handleClose} style={{ paddingLeft: '10px' }}>
           <img alt="a maple leaf" src={leaf} />
