@@ -106,7 +106,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                 </FormControl>
                 <br />
                 <FormControl>
-                  <p style={{ paddingTop: '1em', paddingLeft: 0 }}>
+                  <p style={{ paddingTop: '2em', paddingLeft: 0 }}>
                     Please explain in more detail
                     <sup style={{ top: 0 }}> (optional)</sup>
                   </p>
