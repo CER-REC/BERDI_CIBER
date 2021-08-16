@@ -28,9 +28,6 @@ export default (theme) => ({
   drawer: {
     width: '28em',
   },
-  closeButton: {
-    textAlign: 'right',
-  },
   header: {
     backgroundColor: theme.palette.cart.light,
     borderBottom: '8px solid',
@@ -41,6 +38,10 @@ export default (theme) => ({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#42464B',
+  },
+  headerButtons: {
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   body: {
     borderBottom: '8px solid',

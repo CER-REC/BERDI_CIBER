@@ -86,7 +86,7 @@ const Cart = () => {
               {intl.formatMessage({ id: 'components.cart.viewFullList' })}
             </a>
           </Grid>
-          <Grid item container xs={3} className={classes.closeButton}>
+          <Grid item container xs={3} className={classes.headerButtons}>
             <IconButton aria-label="share" onClick={getCartURL}>
               <ShareIcon />
             </IconButton>
