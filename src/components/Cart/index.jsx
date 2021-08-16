@@ -120,7 +120,7 @@ const Cart = () => {
         >
           <circle cx={newDotR} cy={newDotR} r={newDotR} />
         </svg>
-        <Grid container alignItems="center" spacing={1} justifyContent="flex-start">
+        <Grid container alignItems="center" spacing={1}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
               <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.6em' }} />
