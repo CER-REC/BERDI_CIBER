@@ -35,7 +35,7 @@ export default (theme) => ({
     backgroundColor: theme.palette.cart.light,
     borderBottom: '8px solid',
     borderBottomColor: theme.palette.secondary.main,
-    padding: '1em 1em 0.5em 1em',
+    padding: '1em 0.5em 0.5em 1.5em',
   },
   headerQuantity: {
     fontSize: 18,

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
@@ -22,6 +23,9 @@ const Cart = () => {
 
   const handleDownloadClick = () => {
     formRef.current.submit();
+  };
+
+  const getCartURL = () => {
   };
 
   const cartQuantity = (() => {
@@ -82,9 +86,12 @@ const Cart = () => {
               {intl.formatMessage({ id: 'components.cart.viewFullList' })}
             </a>
           </Grid>
-          <Grid item xs={3} className={classes.closeButton}>
+          <Grid item container xs={3} className={classes.closeButton}>
+            <IconButton aria-label="share" onClick={getCartURL}>
+              <ShareIcon />
+            </IconButton>
             <IconButton aria-label="close" onClick={handleClose}>
-              <CloseIcon />
+              <CloseIcon style={{ transform: 'scale(1.25)' }} />
             </IconButton>
           </Grid>
         </Grid>
