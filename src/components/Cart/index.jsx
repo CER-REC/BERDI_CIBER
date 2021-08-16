@@ -96,7 +96,9 @@ const Cart = () => {
 
   const getCartQuantity = () => {
     const quantity = config.cartIds.length;
-    return (quantity >= 1000) ? `${(quantity / 1000).toFixed(1).replace(/\.0$/, '')}k` : quantity;
+    return (quantity >= 1000)
+      ? `${Number((quantity / 1000).toFixed(1)).toLocaleString(intl.locale)}k`
+      : quantity;
   };
 
   let { fileSize } = useDownloadSize(config.cartIds);
