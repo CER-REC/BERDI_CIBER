@@ -120,7 +120,9 @@ const Cart = () => {
               <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
                 <Grid item xs={8}>
                   <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
-                    {cartURL}
+                    <Typography noWrap>
+                      {cartURL}
+                    </Typography>
                   </Button>
                 </Grid>
                 <Grid container alignItems="center" item xs={4}>
