@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
-import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, Divider } from '@material-ui/core';
+import {
+  Button, ButtonBase, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, Divider,
+} from '@material-ui/core';
+import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
@@ -16,25 +19,28 @@ const useStyles = makeStyles(styles);
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const { config } = useConfig();
+  const formRef = useRef(null);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [cartURL, setCartURL] = useState('');
   const [shareOpen, setShareOpen] = useState(false);
-  const handleShareOpen = () => setShareOpen(true);
+  const handleShareOpen = () => {
+    const url = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`;
+    if (url) setCartURL(url);
+    setShareOpen(true);
+  };
   const handleShareClose = () => setShareOpen(false);
-
-  const formRef = useRef(null);
-  const { config } = useConfig();
-
-  const handleDownloadClick = () => {
-    formRef.current.submit();
-  };
-
   const handleCopyCartURL = () => {
-    navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
+    navigator.clipboard.writeText(cartURL);
+    // TODO: show toast
+    // TODO: show checkmark
   };
+
+  const handleDownloadClick = () => formRef.current.submit();
 
   const cartQuantity = (() => {
     const quantity = config.cartIds.length;
@@ -114,15 +120,19 @@ const Cart = () => {
               <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
                 <Grid item xs={8}>
                   <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
-                    the link here
+                    {cartURL}
                   </Button>
                 </Grid>
-                <Grid item xs={4} style={{ alignSelf: 'center' }}>
-                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                    {intl.formatMessage({ id: 'components.cart.copyLink' })}
-                  </Typography>
+                <Grid container alignItems="center" item xs={4}>
+                  <ButtonBase disableRipple disableTouchRipple onClick={handleCopyCartURL}>
+                    <Typography variant="body2" style={{ fontWeight: 'bold' }}>
+                      {intl.formatMessage({ id: 'components.cart.copyLink' })}
+                    </Typography>
+                  </ButtonBase>
+                  <DoneIcon style={{ color: '#669B37' }} />
                 </Grid>
               </Grid>
+
               <Divider style={{ margin: '0 1em' }} />
               <Grid item style={{ padding: '1.5em 1em 0.5em' }}>
                 <Typography style={{ fontSize: '12px', fontStyle: 'italic' }}>
