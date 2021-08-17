@@ -100,7 +100,12 @@
         "esaConsultant": "Nom du consultant de l'EES : ",
         "projectFolder": "Dossier de projet",
         "finalDecision": "Décision finale",
-        "esaFolder": "Dossier de l’EES"
+        "esaFolder": "Dossier de l’EES",
+        "ellipsisButton":{
+          "rate":"Signaler ces données",
+          "report":"Évaluer ces données",
+          "download":"Télécharger le tableau"
+        }
       },
       "termsTitle": {
         "title": "Avis",
@@ -144,8 +149,6 @@
       "noResultsWithDateRange": "Désolé, aucun résultat dans cette plage de dates."
     },
     "resultDialog": {
-      "downloadTable": "Télécharger le tableau",
-      "downloadFigure": "Télécharger la figure",
       "seeMore": "Voir plus...",
       "seeLess":"Voir moin ...",
       "foundOnPage": "Page : ",

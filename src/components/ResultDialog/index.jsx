@@ -1,10 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
-  Button,
   ButtonBase,
   Dialog,
   Grid,
-  Icon,
   IconButton,
   Typography,
   makeStyles,
@@ -14,8 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-import downloadIcon from '../../images/Download.svg';
-import { reportDownload, reportView } from '../../utilities/analytics';
+import { reportView } from '../../utilities/analytics';
 import CartButton from '../CartButton';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
@@ -71,11 +68,6 @@ const ResultDialog = ({ open, onClose, data }) => {
   const handleViewClick = useCallback(() => {
     reportView(data.type, data.title);
   }, [data]);
-
-  const handleDownloadClick = useCallback(() => {
-    reportDownload(data.title);
-    onClose();
-  }, [data, onClose]);
 
   const getDataAnchorElement = (href) => <a href={href} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
 
@@ -179,40 +171,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         container
         wrap="nowrap"
         className={classes.dialogFooter}
-      >
-        {data.url && (
-          <Grid
-            item
-            className={classes.dialogFooterButtons}
-          >
-            <Button
-              onClick={handleDownloadClick}
-              color="primary"
-              variant="contained"
-              disableElevation
-            >
-              <Icon className={classes.downloadIcon}>
-                <img
-                  src={downloadIcon}
-                  alt="download button"
-                />
-              </Icon>
-              <Typography>
-                <a
-                  href={data.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: 'white' }}
-                >
-                  {data.type === 'FIGURE'
-                    ? intl.formatMessage({ id: 'components.resultDialog.downloadFigure' })
-                    : intl.formatMessage({ id: 'components.resultDialog.downloadTable' })}
-                </a>
-              </Typography>
-            </Button>
-          </Grid>
-        )}
-      </Grid>
+      />
     </Dialog>
   );
 };
