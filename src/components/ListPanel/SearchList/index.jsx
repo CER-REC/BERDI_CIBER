@@ -21,7 +21,7 @@ import styles from './styles';
 import TitleSection from './TitleSection';
 import ViewMoreDetailsButton from './ViewMoreDetailsButton';
 import RelatedTopics from './RelatedTopics';
-import EllipsisButton from '../EllipsisButton/index.jsx';
+import EllipsisButton from '../EllipsisButton';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);

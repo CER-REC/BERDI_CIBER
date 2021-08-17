@@ -133,7 +133,9 @@
           "explainMore":"Please explain in more detail",
           "optional":"optional",
           "disclaimer":"Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
-          "submit":"Submit"
+          "submit":"Submit",
+          "thankYou":"Thank you for your report",
+          "flagged":"This data has been flagged for review"
         }
       }
     },
