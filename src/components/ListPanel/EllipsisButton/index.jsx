@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import download from '../../../images/listPanel/download.svg';
 import flag from '../../../images/listPanel/flag.svg';
 import leaf from '../../../images/listPanel/leaf.svg';
-import EllipsisIcon from '../../../images/listPanel/ellipsis.svg';
+import ellipsisIcon from '../../../images/listPanel/ellipsis.svg';
 import { reportDownload } from '../../../utilities/analytics';
 import ReportDataDialog from '../SearchList/ReportDataDialog';
 
@@ -87,7 +87,7 @@ const EllipsisButton = ({ downloadURL, title }) => {
       </Menu>
 
       <ButtonBase className={classes.button} onMouseEnter={handleMouseEnter}>
-        <img alt="Ellipsis" src={EllipsisIcon} />
+        <img alt="Ellipsis" src={ellipsisIcon} />
       </ButtonBase>
     </>
   );

@@ -79,7 +79,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const intl = useIntl();
   const { fileSize, csvCount, tableCount, fileDownloadURL } = useAPI();
   const handleClick = useCallback(() => {
-    reportDownload(intl.messages['components.limitationsDialog.dataSection.buttonLabel']);
+    reportDownload(intl.messages['common.downloadAllTables']);
     onClose();
   }, [intl, onClose]);
 
@@ -111,7 +111,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               { id: 'components.limitationsDialog.termsTitle.body' },
               {
                 link: (
-                  <a href={intl.formatMessage({ id: 'common.termsLink' })}>
+                  <a href={intl.formatMessage({ id: 'common.limitationsURL' })}>
                     {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.link' })}
                   </a>
                 ),
@@ -176,7 +176,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           href={fileDownloadURL}
           disableElevation
         >
-          <span>{intl.formatMessage({ id: 'components.limitationsDialog.dataSection.buttonLabel' })}</span>
+          <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
           <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
             {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
           </span>

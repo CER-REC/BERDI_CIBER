@@ -10,6 +10,7 @@ import NavButtons from '../../components/NavButtons';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import useAPI from '../../hooks/useAPI';
 import { reportShowFilter } from '../../utilities/analytics';
+import Cart from '../../components/Cart';
 
 const Search = () => {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ const Search = () => {
       <NavButtons />
       <SearchPanel hasFilter onChange={handleFilterChange} />
 
-      { open && <FilterPanel /> }
+      {open && <FilterPanel />}
 
       {/* TreeMap Section */}
       <TreeMapPanel />
@@ -40,6 +41,8 @@ const Search = () => {
       <Applications />
 
       <FilterChipsPanel />
+
+      <Cart />
 
       {/* List section */}
       <ListSection />
