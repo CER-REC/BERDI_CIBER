@@ -3,6 +3,7 @@ import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, D
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
+import { compress } from 'int-compress-string';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
@@ -29,6 +30,10 @@ const Cart = () => {
 
   const handleDownloadClick = () => {
     formRef.current.submit();
+  };
+
+  const handleCopyCartURL = () => {
+    navigator.clipboard.writeText(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
   };
 
   const cartQuantity = (() => {
@@ -108,7 +113,7 @@ const Cart = () => {
               </Grid>
               <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
                 <Grid item xs={8}>
-                  <Button className={classes.shareCardCopyButton}>
+                  <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
                     the link here
                   </Button>
                 </Grid>
