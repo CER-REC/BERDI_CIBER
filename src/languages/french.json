@@ -100,8 +100,8 @@
         "finalDecision": "Décision finale",
         "esaFolder": "Dossier de l’EES",
         "ellipsisButton":{
-          "rate":"",
-          "report":"",
+          "rate":"Signaler ces données",
+          "report":"Évaluer ces données",
           "download":"Télécharger le tableau"
         }
       },
