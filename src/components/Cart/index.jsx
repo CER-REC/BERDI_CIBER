@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
+import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, Divider } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
@@ -15,17 +15,20 @@ const useStyles = makeStyles(styles);
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const [shareOpen, setShareOpen] = useState(false);
+  const handleShareOpen = () => setShareOpen(true);
+  const handleShareClose = () => setShareOpen(false);
+
   const formRef = useRef(null);
   const { config } = useConfig();
 
   const handleDownloadClick = () => {
     formRef.current.submit();
-  };
-
-  const getCartURL = () => {
   };
 
   const cartQuantity = (() => {
@@ -82,18 +85,47 @@ const Cart = () => {
             <Typography className={classes.headerQuantity}>
               {`(${cartQuantity}) ${intl.formatMessage({ id: 'components.cart.headerQuantity' })}`}
             </Typography>
-            <a href="stub" style={{ fontSize: 14, fontWeight: 'bold' }}>
+            <a href="stub" className={classes.headerLink}>
               {intl.formatMessage({ id: 'components.cart.viewFullList' })}
             </a>
           </Grid>
           <Grid item container xs={3} className={classes.headerButtons}>
-            <IconButton aria-label="share" onClick={getCartURL}>
+            <IconButton aria-label="share" onClick={handleShareOpen}>
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose}>
               <CloseIcon style={{ transform: 'scale(1.25)' }} />
             </IconButton>
           </Grid>
+
+          {/* Share Card */}
+          <Card className={(shareOpen) ? classes.shareCard : classes.shareCardClosed} elevation={2}>
+            <Grid container direction="column">
+              <Grid item style={{ textAlign: 'right', height: '3vh' }}>
+                <IconButton aria-label="close share window" onClick={handleShareClose} style={{ transform: 'scale(0.7)' }}>
+                  <CloseIcon />
+                </IconButton>
+              </Grid>
+              <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
+                <Grid item xs={8}>
+                  <Button className={classes.shareCardCopyButton}>
+                    the link here
+                  </Button>
+                </Grid>
+                <Grid item xs={4} style={{ alignSelf: 'center' }}>
+                  <Typography variant="body2" style={{ fontWeight: 'bold' }}>
+                    {intl.formatMessage({ id: 'components.cart.copyLink' })}
+                  </Typography>
+                </Grid>
+              </Grid>
+              <Divider style={{ margin: '0 1em' }} />
+              <Grid item style={{ padding: '1.5em 1em 0.5em' }}>
+                <Typography style={{ fontSize: '12px', fontStyle: 'italic' }}>
+                  {intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Card>
         </Grid>
 
         {/* Body */}
@@ -109,7 +141,7 @@ const Cart = () => {
           className={(config.cartIds.length === 0) ? classes.footerDisabled : classes.footer}
         >
           <Grid item className={classes.footerDisclaimer}>
-            <Typography className={classes.footerDisclaimerText}>
+            <Typography className={classes.disclaimerText}>
               {intl.formatMessage(
                 { id: 'components.cart.downloadDisclaimer' },
                 {
@@ -121,7 +153,7 @@ const Cart = () => {
                 },
               )}
             </Typography>
-            <Typography className={classes.footerDisclaimerText}>
+            <Typography className={classes.disclaimerText}>
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
           </Grid>

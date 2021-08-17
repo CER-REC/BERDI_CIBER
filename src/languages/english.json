@@ -53,7 +53,9 @@
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
       "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",
       "headerQuantity": "Items in the Shelf",
-      "viewFullList": "View full list on page"
+      "viewFullList": "View full list on page",
+      "copyLink": "Copy link",
+      "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link."
     },
     "cartButton": {
       "add": "Add to shelf",

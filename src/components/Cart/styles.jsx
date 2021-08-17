@@ -26,7 +26,7 @@ export default (theme) => ({
     paddingLeft: '5px',
   },
   drawer: {
-    width: '28em',
+    width: '30em',
   },
   header: {
     backgroundColor: theme.palette.cart.light,
@@ -39,9 +39,28 @@ export default (theme) => ({
     fontWeight: 'bold',
     color: '#42464B',
   },
+  headerLink: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
   headerButtons: {
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  shareCard: {
+    width: '30em',
+    position: 'fixed',
+    top: '80px',
+    right: '0',
+    border: '1px solid #C7C7CD',
+  },
+  shareCardClosed: {
+    display: 'none',
+  },
+  shareCardCopyButton: {
+    backgroundColor: theme.palette.cart.light,
+    width: '100%',
+    justifyContent: 'flex-start'
   },
   body: {
     borderBottom: '8px solid',
@@ -63,8 +82,8 @@ export default (theme) => ({
     padding: '1em',
     textAlign: 'center',
   },
-  footerDisclaimerText: {
-    fontSize: '13px',
+  disclaimerText: {
+    fontSize: '14px',
   },
   footerDownloadButton: {
     marginBottom: '2em',
