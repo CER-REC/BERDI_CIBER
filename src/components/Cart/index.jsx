@@ -147,14 +147,14 @@ const Cart = () => {
               </Grid>
 
               <Divider style={{ margin: '0 1em' }} />
-              <Grid item style={{ padding: '1.5em 1em 0.5em' }}>
-                <Typography style={{ fontSize: '12px', fontStyle: 'italic' }}>
+              <Grid item style={{ padding: '1em 1em 0.5em' }}>
+                <Typography className={classes.shareDisclaimer}>
                   {intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
                 </Typography>
               </Grid>
               <Snackbar
                 open={snackbarOpen}
-                autoHideDuration={2000}
+                autoHideDuration={1500}
                 message={intl.formatMessage({ id: 'components.cart.copyConfirmation' })}
                 onClose={handleSnackbarClose}
                 ContentProps={{ classes: { root: classes.shareSnackbar } }}

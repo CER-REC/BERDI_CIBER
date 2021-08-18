@@ -42,6 +42,7 @@ export default (theme) => ({
   headerLink: {
     fontSize: 14,
     fontWeight: 'bold',
+    display: 'none', // TODO: remove this when link is implemented
   },
   headerButtons: {
     display: 'flex',
@@ -72,12 +73,17 @@ export default (theme) => ({
   doneIconHidden: {
     display: 'none',
   },
+  shareDisclaimer: {
+    fontSize: '11px',
+    fontStyle: 'italic'
+  },
   shareSnackbar: {
     position: 'absolute',
     bottom: '1em',
     color: theme.palette.cart.dark,
     backgroundColor: '#B5C8D3',
     justifyContent: 'center',
+    padding: 'unset',
   },
   body: {
     borderBottom: '8px solid',
