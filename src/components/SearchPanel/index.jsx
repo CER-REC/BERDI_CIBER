@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import ExploreButton from './ExploreButton';
-import Keywords from './Keywords';
 import SearchBar from './SearchBar';
 
 const useStyles = makeStyles({
@@ -55,7 +54,6 @@ const SearchPanel = ({ hasFilter, onChange }) => {
         }
         { !hasFilter && <ExploreButton /> }
       </Grid>
-      { !hasFilter && <Keywords /> }
     </Grid>
   );
 };

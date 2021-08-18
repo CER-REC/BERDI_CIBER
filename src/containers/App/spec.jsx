@@ -22,9 +22,16 @@ const simulateSearch = () => {
 };
 
 const simulateFilter = () => {
-  fireEvent.click(getByRole(screen.getByText('components.searchPanel.filterLabel').parentNode, 'checkbox'));
+  const showFilters = screen.getByText('components.searchPanel.filterLabel').parentNode;
+  const showFiltersSwitch = getByRole(showFilters, 'checkbox');
+
+  fireEvent.click(showFiltersSwitch);
+
+  // Wait until the filters are expanded to show the filters block for selection
+  const filters = showFilters.parentNode.nextSibling;
+
   // Material UI select component uses the mouse down event
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.APPLICATION_NAMES').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(getByText(filters, 'common.project').parentNode, 'button'));
   fireEvent.click(screen.getByText('Test1'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
   fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.REGIONS').parentNode, 'button'));
@@ -49,6 +56,8 @@ const simulateFilter = () => {
   fireEvent.click(getByRole(screen.getByText('components.dropdown.dateLabel').parentNode, 'button'));
   fireEvent.keyDown(getAllByRole(screen.getByRole('presentation'), 'slider')[1], { key: 'Home' });
   fireEvent.click(screen.getByRole('presentation').firstChild);
+  fireEvent.click(showFiltersSwitch);
+  fireEvent.click(screen.getByText('common.project'));
 };
 
 describe('Containers/App', () => {
@@ -67,7 +76,7 @@ describe('Containers/App', () => {
   });
 
   it('should set the state from the URL parameters', async () => {
-    window.location.search = '?page=search&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDIiXQ%3D%3D';
+    window.location.search = '?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDIiXQ%3D%3D';
 
     render(<LazyApp />, { configMocked: false });
 
@@ -91,7 +100,7 @@ describe('Containers/App', () => {
   it.todo('should set the cart state from the URL parameter');
 
   it('should push the state to the history', async () => {
-    const expected = 'page=search&searchIndex=1&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=LARGE,SMALL&statuses=APPROVED,REVOKED&contentTypes=TABLE&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
+    const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=LARGE,SMALL&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
 
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
@@ -160,7 +169,6 @@ describe('Containers/App', () => {
 
       await waitFor(() => {
         expect(screen.getByText('pages.landing.tagline')).toBeInTheDocument();
-        expect(screen.getByText('components.searchPanel.exploreLabel')).toBeInTheDocument();
       });
     });
   });

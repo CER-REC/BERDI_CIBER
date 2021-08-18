@@ -75,11 +75,12 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
   }, [intl, getDropdownItemName]);
+  const labelId = type === 'APPLICATION_NAMES' ? 'common.project' : `components.dropdown.${type}`;
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
       <Typography classes={{ root: classes.label }}>
-        {intl.formatMessage({ id: `components.dropdown.${type}` })}
+        {intl.formatMessage({ id: labelId })}
         {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select
