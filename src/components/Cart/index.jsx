@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.cart.dark,
     fontSize: '13px',
     fontWeight: '900',
-    margin: '0 5px 0 5px',
+    margin: '0 5px',
     paddingLeft: '5px',
   },
   drawer: {
