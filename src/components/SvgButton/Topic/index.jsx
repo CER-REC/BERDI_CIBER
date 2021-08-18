@@ -32,12 +32,12 @@ const useStyles = makeStyles((theme) => ({
 const Topic = ({ title, description, score, type }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const relationMessages = {
-    0: intl.formatMessage({ id: 'components.svgButton.noRelation' }),
-    1: intl.formatMessage({ id: 'components.svgButton.littleRelation' }),
-    2: intl.formatMessage({ id: 'components.svgButton.someRelation' }),
-    3: intl.formatMessage({ id: 'components.svgButton.strongRelation' }),
-  };
+  const relationMessages = [
+    intl.formatMessage({ id: 'components.svgButton.noRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.littleRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.someRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.strongRelation' }),
+  ];
 
   return (
     <div className={classes.root}>

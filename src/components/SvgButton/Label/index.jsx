@@ -29,7 +29,7 @@ const Label = ({ label }) => {
   }, [ref, clip]);
 
   return (
-    <Typography ref={ref} classes={{ root: classes.root }} variant="body1">{clippedLabel}</Typography>
+    <Typography ref={ref} className={classes.root} variant="body1">{clippedLabel}</Typography>
   );
 };
 
