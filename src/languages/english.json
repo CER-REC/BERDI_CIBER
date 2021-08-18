@@ -240,7 +240,12 @@
       "esaConsultant": "ESA consultant: ",
       "projectFolder": "Project folder",
       "finalDecision": "Final decision",
-      "esaFolder": "ESA folder"
+      "esaFolder": "ESA folder",
+      "ellipsisButton":{
+        "rate":"Rate this data",
+        "report":"Report this data",
+        "download":"Download table"
+      }
     },
     "searchPanel": {
       "exploreButton": "Explore all",
@@ -265,8 +270,6 @@
       "noResultsWithDateRange": "Sorry, there are no results within this date range."
     },
     "resultDialog": {
-      "downloadTable": "Download table",
-      "downloadFigure": "Download figure",
       "seeMore": "See more...",
       "seeLess": "See less...",
       "foundOnPage": "Found on page:",

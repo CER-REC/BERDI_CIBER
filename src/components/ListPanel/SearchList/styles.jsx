@@ -29,10 +29,6 @@ export default (theme) => ({
       marginRight: '1em',
     },
   },
-  ellipseButton: {
-    paddingRight: '1em',
-    marginBottom: '1em',
-  },
   details: {
     '& tr': {
       color: theme.palette.grey.dark,
