@@ -59,8 +59,25 @@ export default (theme) => ({
   },
   shareCardCopyButton: {
     backgroundColor: theme.palette.cart.light,
+    color: theme.palette.cart.dark,
     width: '100%',
     justifyContent: 'flex-start'
+  },
+  doneIcon: {
+    color: '#669B37',
+    fontSize: '30px',
+    position: 'relative',
+    bottom: '3px',
+  },
+  doneIconHidden: {
+    display: 'none',
+  },
+  shareSnackbar: {
+    position: 'absolute',
+    bottom: '1em',
+    color: theme.palette.cart.dark,
+    backgroundColor: '#B5C8D3',
+    justifyContent: 'center',
   },
   body: {
     borderBottom: '8px solid',

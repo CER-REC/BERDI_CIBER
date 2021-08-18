@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   Button, ButtonBase, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, Divider,
+  Snackbar,
 } from '@material-ui/core';
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
@@ -23,23 +24,33 @@ const Cart = () => {
   const formRef = useRef(null);
 
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  const [cartURL, setCartURL] = useState('');
   const [shareOpen, setShareOpen] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [cartURL, setCartURL] = useState('');
+  const [copySuccess, setCopySuccess] = useState(false);
+
   const handleShareOpen = () => {
-    const url = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`;
-    if (url) setCartURL(url);
+    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
     setShareOpen(true);
   };
-  const handleShareClose = () => setShareOpen(false);
+  const handleShareClose = () => {
+    setShareOpen(false);
+    setCopySuccess(false);
+  };
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+    setCopySuccess(true && shareOpen);
+  };
   const handleCopyCartURL = () => {
     navigator.clipboard.writeText(cartURL);
-    // TODO: show toast
-    // TODO: show checkmark
+    setSnackbarOpen(true);
   };
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    handleShareClose();
+    setOpen(false);
+  };
   const handleDownloadClick = () => formRef.current.submit();
 
   const cartQuantity = (() => {
@@ -120,7 +131,7 @@ const Cart = () => {
               <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
                 <Grid item xs={8}>
                   <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
-                    <Typography noWrap>
+                    <Typography variant="body2" noWrap>
                       {cartURL}
                     </Typography>
                   </Button>
@@ -131,7 +142,7 @@ const Cart = () => {
                       {intl.formatMessage({ id: 'components.cart.copyLink' })}
                     </Typography>
                   </ButtonBase>
-                  <DoneIcon style={{ color: '#669B37' }} />
+                  <DoneIcon className={(copySuccess) ? classes.doneIcon : classes.doneIconHidden} />
                 </Grid>
               </Grid>
 
@@ -141,6 +152,14 @@ const Cart = () => {
                   {intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
                 </Typography>
               </Grid>
+              <Snackbar
+                open={snackbarOpen}
+                autoHideDuration={2000}
+                message={intl.formatMessage({ id: 'components.cart.copyConfirmation' })}
+                onClose={handleSnackbarClose}
+                ContentProps={{ classes: { root: classes.shareSnackbar } }}
+                className={classes.shareSnackbar}
+              />
             </Grid>
           </Card>
         </Grid>

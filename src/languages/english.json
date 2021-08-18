@@ -55,7 +55,8 @@
       "headerQuantity": "Items in the Shelf",
       "viewFullList": "View full list on page",
       "copyLink": "Copy link",
-      "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link."
+      "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
+      "copyConfirmation": "Link copied!"
     },
     "cartButton": {
       "add": "Add to shelf",
