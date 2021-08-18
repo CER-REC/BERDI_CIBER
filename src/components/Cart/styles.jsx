@@ -79,7 +79,7 @@ export default (theme) => ({
   },
   shareSnackbar: {
     position: 'absolute',
-    bottom: '1em',
+    bottom: '0.5em',
     color: theme.palette.cart.dark,
     backgroundColor: '#B5C8D3',
     justifyContent: 'center',
