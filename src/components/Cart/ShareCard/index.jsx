@@ -29,6 +29,8 @@ const ShareCard = ({ open, cartURL, onClose }) => {
   return (
     <Card className={(open) ? classes.shareCard : classes.shareCardClosed} elevation={2}>
       <Grid container direction="column">
+
+        {/* Close button header */}
         <Grid item style={{ textAlign: 'right', height: '3vh' }}>
           <IconButton
             onClick={() => { onClose(); setCopySuccess(false); }}
@@ -37,6 +39,8 @@ const ShareCard = ({ open, cartURL, onClose }) => {
             <CloseIcon />
           </IconButton>
         </Grid>
+
+        {/* Card body */}
         <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
           <Grid item xs={8}>
             <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
@@ -54,7 +58,6 @@ const ShareCard = ({ open, cartURL, onClose }) => {
             <DoneIcon className={(copySuccess) ? classes.doneIcon : classes.doneIconHidden} />
           </Grid>
         </Grid>
-
         <Divider style={{ margin: '0 1em' }} />
         <Grid item style={{ padding: '1em 1em 0.5em' }}>
           <Typography className={classes.shareDisclaimer}>
