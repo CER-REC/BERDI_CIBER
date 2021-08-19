@@ -29,8 +29,6 @@ const ReportDataDialog = ({ title, open, onClose }) => {
   };
   const handleClose = () => {
     onClose();
-    setSelection(null);
-    setSubmitted(false);
   };
 
   return (
