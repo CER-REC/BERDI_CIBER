@@ -5,6 +5,7 @@ export default (theme) => ({
     top: '80px',
     right: '0',
     border: '1px solid #C7C7CD',
+    zIndex: 1,
   },
   shareCardClosed: {
     display: 'none',
