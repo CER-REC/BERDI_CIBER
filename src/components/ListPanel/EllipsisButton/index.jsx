@@ -7,6 +7,7 @@ import flag from '../../../images/listPanel/flag.svg';
 import leaf from '../../../images/listPanel/leaf.svg';
 import ellipsisIcon from '../../../images/listPanel/ellipsis.svg';
 import { reportDownload } from '../../../utilities/analytics';
+import RateDataDialog from './RateDataDialog';
 
 const useStyles = makeStyles({
   button: {
@@ -44,17 +45,20 @@ const EllipsisButton = ({ downloadURL, title }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [rateOpen, setRateOpen] = useState(false);
 
   const handleMouseEnter = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const handleRateClose = () => setRateOpen(false);
+  const handleRateClick = () => { handleClose(); setRateOpen(true); };
 
   return (
     <>
+      <RateDataDialog open={rateOpen} onClose={handleRateClose} title={title} />
       <Menu
         anchorEl={anchorEl}
         keepMounted
@@ -64,7 +68,7 @@ const EllipsisButton = ({ downloadURL, title }) => {
         disableRestoreFocus
         disableAutoFocusItem
       >
-        <MenuItem onClick={handleClose} style={{ paddingLeft: '10px' }}>
+        <MenuItem onClick={handleRateClick} style={{ paddingLeft: '10px' }}>
           <img alt="a maple leaf" src={leaf} />
           {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rate' })}
         </MenuItem>
