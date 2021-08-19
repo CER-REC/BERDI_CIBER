@@ -1,13 +1,10 @@
 import React, { useState, useRef } from 'react';
-import {
-  Button, ButtonBase, Drawer, Grid, IconButton, Icon, makeStyles, Typography, Card, Divider,
-  Snackbar,
-} from '@material-ui/core';
-import DoneIcon from '@material-ui/icons/Done';
+import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
 import { compress } from 'int-compress-string';
+import ShareCard from './ShareCard';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
@@ -25,33 +22,19 @@ const Cart = () => {
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [cartURL, setCartURL] = useState('');
-  const [copySuccess, setCopySuccess] = useState(false);
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setShareOpen(false);
+  };
+  const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => {
     setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
     setShareOpen(true);
   };
-  const handleShareClose = () => {
-    setShareOpen(false);
-    setCopySuccess(false);
-  };
-  const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-    setCopySuccess(true && shareOpen);
-  };
-  const handleCopyCartURL = () => {
-    navigator.clipboard.writeText(cartURL);
-    setSnackbarOpen(true);
-  };
-
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    handleShareClose();
-    setOpen(false);
-  };
-  const handleDownloadClick = () => formRef.current.submit();
+  const handleShareClose = () => setShareOpen(false);
 
   const cartQuantity = (() => {
     const quantity = config.cartIds.length;
@@ -119,49 +102,11 @@ const Cart = () => {
               <CloseIcon style={{ transform: 'scale(1.25)' }} />
             </IconButton>
           </Grid>
-
-          {/* Share Card */}
-          <Card className={(shareOpen) ? classes.shareCard : classes.shareCardClosed} elevation={2}>
-            <Grid container direction="column">
-              <Grid item style={{ textAlign: 'right', height: '3vh' }}>
-                <IconButton aria-label="close share window" onClick={handleShareClose} style={{ transform: 'scale(0.7)' }}>
-                  <CloseIcon />
-                </IconButton>
-              </Grid>
-              <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
-                <Grid item xs={8}>
-                  <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
-                    <Typography variant="body2" noWrap>
-                      {cartURL}
-                    </Typography>
-                  </Button>
-                </Grid>
-                <Grid container alignItems="center" item xs={4}>
-                  <ButtonBase disableRipple disableTouchRipple onClick={handleCopyCartURL}>
-                    <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                      {intl.formatMessage({ id: 'components.cart.copyLink' })}
-                    </Typography>
-                  </ButtonBase>
-                  <DoneIcon className={(copySuccess) ? classes.doneIcon : classes.doneIconHidden} />
-                </Grid>
-              </Grid>
-
-              <Divider style={{ margin: '0 1em' }} />
-              <Grid item style={{ padding: '1em 1em 0.5em' }}>
-                <Typography className={classes.shareDisclaimer}>
-                  {intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
-                </Typography>
-              </Grid>
-              <Snackbar
-                open={snackbarOpen}
-                autoHideDuration={1500}
-                message={intl.formatMessage({ id: 'components.cart.copyConfirmation' })}
-                onClose={handleSnackbarClose}
-                ContentProps={{ classes: { root: classes.shareSnackbar } }}
-                className={classes.shareSnackbar}
-              />
-            </Grid>
-          </Card>
+          <ShareCard
+            open={shareOpen}
+            cartURL={cartURL}
+            onClose={handleShareClose}
+          />
         </Grid>
 
         {/* Body */}
