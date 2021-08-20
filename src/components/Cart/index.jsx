@@ -82,7 +82,7 @@ const Cart = () => {
       >
         {/* Header */}
         <Grid container alignItems="center" className={classes.header}>
-          <Grid container direction="column" item xs={9}>
+          <Grid item xs={9}>
             <Typography className={classes.headerQuantity}>
               {`(${cartQuantity}) ${intl.formatMessage({ id: 'components.cart.headerQuantity' })}`}
             </Typography>
