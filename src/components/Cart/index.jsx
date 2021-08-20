@@ -50,7 +50,8 @@ const Cart = () => {
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
   useEffect(() => () => {
-    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
+    // Slicing cardIds since compress modifies the provided array
+    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}`);
   }, [open, config.cartIds]);
 
   return (
