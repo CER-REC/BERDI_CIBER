@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   Button, ButtonBase, Grid, IconButton, makeStyles, Typography, Card, Divider, Snackbar,
@@ -25,6 +25,10 @@ const ShareCard = ({ open, cartURL, onClose }) => {
     navigator.clipboard.writeText(cartURL);
     setSnackbarOpen(true);
   };
+
+  useEffect(() => {
+    setCopySuccess(false);
+  }, [cartURL]);
 
   return (
     <Card className={(open) ? classes.shareCard : classes.shareCardClosed} elevation={2}>

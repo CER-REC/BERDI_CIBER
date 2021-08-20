@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
@@ -34,10 +34,7 @@ const Cart = () => {
     configDispatch({ type: 'unreadCartIds/removed' });
   };
   const handleDownloadClick = () => formRef.current.submit();
-  const handleShareOpen = () => {
-    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
-    setShareOpen(true);
-  };
+  const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
 
   const cartQuantity = (() => {
@@ -51,6 +48,10 @@ const Cart = () => {
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
+
+  useEffect(() => {
+    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
+  }, [config.cartIds]);
 
   return (
     <>
