@@ -37,12 +37,7 @@ export default {
   imageSection: {
     textAlign: 'center',
     paddingTop: '3em',
-    paddingBottom: '2.5em',
-    '& :not(img:first-of-type)': {
-      top: '20em',
-      position: 'absolute',
-      left: '11em',
-    },
+    paddingBottom: '2em',
   },
   bottomText: {
     paddingBottom: '2em',

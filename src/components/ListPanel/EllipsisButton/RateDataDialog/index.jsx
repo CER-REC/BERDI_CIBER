@@ -9,8 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import Hands from '../../../../images/listPanel/hands.svg';
-import Blob from '../../../../images/listPanel/blob.svg';
+import hands from '../../../../images/listPanel/hands.svg';
 import styles from './styles';
 import LeafRating from './LeafRating';
 
@@ -103,8 +102,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
 
                 <br />
                 <Grid item className={classes.imageSection}>
-                  <img alt="a blob" src={Blob} />
-                  <img alt="two hands holding a plant" src={Hands} />
+                  <img alt="two hands holding a plant" src={hands} />
                 </Grid>
 
                 <Typography className={classes.bottomText}>
