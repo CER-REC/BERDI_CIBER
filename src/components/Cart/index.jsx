@@ -87,11 +87,15 @@ const newDotR = newDotSize / 2;
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const formRef = useRef(null);
+  const { config, configDispatch } = useConfig();
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const formRef = useRef(null);
-  const { config } = useConfig();
+  const handleClose = () => {
+    setOpen(false);
+    configDispatch({ type: 'unreadCartIds/removed' });
+  };
 
   const handleDownloadClick = () => {
     formRef.current.submit();
