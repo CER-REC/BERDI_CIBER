@@ -49,9 +49,9 @@ const Cart = () => {
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
-  useEffect(() => {
+  useEffect(() => () => {
     setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds)}`);
-  }, [config.cartIds]);
+  }, [open, config.cartIds]);
 
   return (
     <>
