@@ -8,6 +8,8 @@
     },
     "tables": "Tableaux",
     "figures": "Figures",
+    "project": "Projet",
+    "topic": "",
     "previous": "Précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
@@ -28,6 +30,122 @@
       "open": "open description dialog",
       "close": "close",
       "downloadReport": "download report"
+    },
+    "environmental": {
+      "title": "",
+      "landscape": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "soil": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "wetland": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "water": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "fish": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "plant": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "wildlife": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "species": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "noise": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "gas": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "air": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "electricity": {
+        "title": "",
+        "label": "",
+        "description": ""
+      }
+    },
+    "socioEconomic": {
+      "title": "",
+      "infrastructure": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "job": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "environmental": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "heritage": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "proximity": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "human": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "social": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "boat": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "indigenous": {
+        "title": "",
+        "label": "",
+        "description": ""
+      },
+      "treaty": {
+        "title": "",
+        "label": "",
+        "description": ""
+      }
     }
   },
   "components": {
@@ -54,7 +172,6 @@
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
-      "APPLICATION_NAMES": "Projet",
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
@@ -142,7 +259,6 @@
     },
     "searchPanel": {
       "exploreButton": "Explorer tout",
-      "exploreLabel": "Explorer les résultats liés à ce qui suit : ",
       "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
       "searchLabel": "Trouver des données : ",
@@ -180,6 +296,11 @@
       "titles": {
         "filedDate": "Date du dépôt du projet "
       }
+    },
+    "svgButton": {
+      "strongRelation": "",
+      "someRelation": "",
+      "noRelation": ""
     },
     "loadingIndicator": {
       "api": "veuillez patienter",

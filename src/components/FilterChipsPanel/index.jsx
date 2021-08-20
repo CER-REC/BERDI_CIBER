@@ -38,6 +38,14 @@ const useAssembledChipLabels = () => {
     projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
     commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
     statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
+    topics: config.topics.map((item) => intl.formatMessage({
+      id: `common.environmental.${item}.label`,
+      defaultMessage: intl.formatMessage({
+        id: `common.socioEconomic.${item}.label`,
+        // A non-empty string must be defined to avoid missing translation errors
+        defaultMessage: ' ',
+      }),
+    })),
     dateRange: (hasStartDate || hasEndDate)
       ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
   };
@@ -50,8 +58,8 @@ const FilterChipsPanel = () => {
 
   // Assemble new state on chip click
   const removeFilter = (chipType, index) => () => {
-    if ((chipType === 'search') || (chipType === 'dateRange')) {
-      configDispatch({ type: `${chipType}/removed` });
+    if ((chipType === 'search') || (chipType === 'topics') || (chipType === 'dateRange')) {
+      configDispatch({ type: `${chipType}/removed`, payload: config[chipType]?.[index] });
 
       return;
     }

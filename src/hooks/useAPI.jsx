@@ -121,17 +121,6 @@ export default () => {
     [data],
   );
 
-  const keywordCounts = useMemo(() => {
-    if (!data) {
-      return {};
-    }
-
-    return data.configuration.keywords.reduce((counts, keyword) => ({
-      ...counts,
-      [keyword.key]: keyword.count,
-    }), {});
-  }, [data]);
-
   const discoveries = useMemo(() => {
     const contents = [];
 
@@ -170,7 +159,6 @@ export default () => {
     translations,
     maxDate,
     minDate,
-    keywordCounts,
     discoveries,
     fileSize,
     fileDownloadURL,

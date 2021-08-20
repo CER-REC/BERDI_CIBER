@@ -12,7 +12,7 @@ import React, { Suspense, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
 import { fetch } from 'whatwg-fetch';
 
-import { API_HOST, applicationPath, lang } from '../../constants';
+import { API_HOST, ENV_SOCIO_GRADIENT_ID, applicationPath, lang } from '../../constants';
 import useAPI from '../../hooks/useAPI';
 import i18nMessages from '../../i18n';
 import ErrorBoundary from '../../components/ErrorBoundary';
@@ -64,7 +64,18 @@ const Loader = () => {
 };
 
 export default () => (
-  <ApolloProvider client={client}>
-    <Loader />
-  </ApolloProvider>
+  <>
+    <ApolloProvider client={client}>
+      <Loader />
+    </ApolloProvider>
+    { /* Define global SVG gradient as they need to be referenced with IDs */ }
+    <svg height="0" width="100%" style={{ display: 'block' }}>
+      <defs>
+        <linearGradient id={ENV_SOCIO_GRADIENT_ID} gradientUnits="userSpaceOnUse">
+          <stop offset="0.0604917" stopColor="#B6A1C8" />
+          <stop offset="0.893865" stopColor="#F1CDD7" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </>
 );
