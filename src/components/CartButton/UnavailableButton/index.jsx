@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Tooltip, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
-import Alert from '../../../images/cartButton/alert.svg';
+import alert from '../../../images/cartButton/alert.svg';
 import DataNotice from '../DataNotice';
 import styles from '../styles';
 
@@ -18,7 +18,7 @@ const RemoveButton = () => {
     <Tooltip title={<DataNotice />} interactive>
       <div style={{ width: '100%' }}>
         <Button className={`CartButton ${classes.root} ${classes.unavailable}`} disabled>
-          <img alt="Alert" src={Alert} />
+          <img alt="Alert" src={alert} />
           {intl.formatMessage({ id: 'components.cartButton.unavailable' })}
         </Button>
       </div>

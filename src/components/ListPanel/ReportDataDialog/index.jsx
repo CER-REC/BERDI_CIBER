@@ -9,8 +9,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import Blob from '../../../../images/listPanel/blob.svg';
-import Hands from '../../../../images/listPanel/hands.svg';
+import hands from '../../../images/listPanel/hands.svg';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -35,11 +34,9 @@ const ReportDataDialog = ({ title, open, onClose }) => {
     <Dialog
       open={open}
       onClose={handleClose}
-      maxWidth="xs"
-      fullWidth
       PaperProps={{ style: { maxWidth: '480px' } }}
     >
-      <Grid container style={{ color: '#434343' }}>
+      <Grid container className={classes.root}>
         <Grid item container className={classes.titleSection}>
 
           <Grid container direction="row">
@@ -62,7 +59,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
         </Grid>
 
         {!submitted ? (
-          <Grid item container className={classes.body}>
+          <Grid item className={classes.body}>
             <Grid container item justify="flex-end">
               <Grid item className={classes.requiredText}>
                 <span>* </span>
@@ -70,8 +67,8 @@ const ReportDataDialog = ({ title, open, onClose }) => {
               </Grid>
             </Grid>
 
-            <Grid item container direction="column" justify="center" alignItems="center">
-              <Grid item style={{ padding: '0 2em 1em 2em' }}>
+            <Grid item>
+              <Grid item style={{ padding: '0 2em 1em' }}>
                 <form>
                   <FormControl component="fieldset">
                     <FormLabel component="legend" className={classes.formLabel}>
@@ -82,11 +79,10 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                       <FormControlLabel value="strange characters" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
                       <FormControlLabel value="data not in document" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
                       <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.other' })} />
-                      <InputBase className={classes.otherText} disabled={selection !== 'other'} name="otherText" id="otherText" />
+                      <InputBase className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
                     </RadioGroup>
                   </FormControl>
 
-                  <br />
                   <FormControl className={classes.moreDetail}>
                     <p>
                       {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.explainMore' })}
@@ -94,8 +90,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                         {` (${intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.optional' })})`}
                       </sup>
                     </p>
-                    <br />
-                    <InputBase multiline rowsMin={4} type="text" name="explanation" id="explanation" rows="3" cols="20" />
+                    <InputBase style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
                     <Typography variant="body2">
                       {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
                         terms: (
@@ -121,14 +116,11 @@ const ReportDataDialog = ({ title, open, onClose }) => {
           </Grid>
         ) : (
           <>
-            <Grid container alignItems="center" justify="center" direction="column" className={classes.submitted}>
+            <Grid container justify="center" className={classes.submitted}>
               <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
-              <br />
               <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
-              <br />
               <Grid item className={classes.imageSection}>
-                <img alt="a blob" src={Blob} />
-                <img alt="two hands holding a plant" src={Hands} />
+                <img alt="two hands holding a plant" src={hands} />
               </Grid>
             </Grid>
           </>

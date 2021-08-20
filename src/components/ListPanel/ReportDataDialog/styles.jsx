@@ -1,6 +1,11 @@
-export default {
+const blue = '#07456B';
+
+export default (theme) => ({
+  root: {
+    color: theme.palette.grey.dark,
+  },
   titleSection: {
-    backgroundColor: '#07456B',
+    backgroundColor: blue,
     color: 'white',
     padding: '0 1em 0 2em',
     '& h6': {
@@ -27,15 +32,16 @@ export default {
     },
   },
   formLabel: {
-    color: '#434343',
+    color: theme.palette.grey.dark,
     marginLeft: '-0.5em',
   },
   otherText: {
     width: '90%',
     marginLeft: '1.2em',
-    border: '1px solid #CCCCCC',
+    border: `1px solid ${theme.palette.grey.charcoal}`,
     boxShadow: 'inset 2px 2px 4px rgba(0,0,0,0.08)',
     borderRadius: '2px',
+    paddingLeft: '0.4em',
   },
   radioGroup: {
     '& .MuiRadio-root': {
@@ -55,7 +61,7 @@ export default {
     },
     '& .MuiInputBase-root': {
       width: '100%',
-      border: '1px solid #CCCCCC',
+      border: `1px solid ${theme.palette.grey.charcoal}`,
       boxShadow: 'inset 2px 2px 4px rgba(0,0,0,0.08)',
       borderRadius: '2px',
     },
@@ -69,15 +75,17 @@ export default {
   disabledButton: {
     backgroundColor: '#A1A3A5',
     // The material ui disabled styles want to ignore this
-    color: 'white !important',
+    '&.Mui-disabled': {
+      color: 'white',
+    },
     padding: '0.4em 5em',
   },
   button: {
-    backgroundColor: '#07456B',
+    backgroundColor: blue,
     color: 'white',
     padding: '0.4em 5em',
     '&:hover': {
-      backgroundColor: '#07456B',
+      backgroundColor: blue,
     },
   },
   submitted: {
@@ -90,11 +98,6 @@ export default {
   imageSection: {
     textAlign: 'center',
     paddingTop: '3em',
-    paddingBottom: '4em',
-    '& :not(img:first-of-type)': {
-      top: '19em',
-      position: 'absolute',
-      left: '11em',
-    },
+    paddingBottom: '2em',
   },
-};
+});

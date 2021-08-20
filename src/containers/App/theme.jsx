@@ -3,7 +3,9 @@ import { createMuiTheme, lighten } from '@material-ui/core';
 const black = '#000000';
 const white = '#FFFFFF';
 const grey = '#AEAEAE';
+const darkGrey = '#434343';
 const darkBlue = '#284162';
+const charcoal = '#CCCCCC';
 const navyBlue = '#26374A';
 const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
@@ -37,6 +39,8 @@ const theme = createMuiTheme({
     },
     grey: {
       light: grey,
+      dark: darkGrey,
+      charcoal,
     },
     dialog: {
       footer: footerBlue,
