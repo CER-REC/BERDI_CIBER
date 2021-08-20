@@ -29,6 +29,11 @@ const ShareCard = ({ open, onClose }) => {
     setSnackbarOpen(true);
     setCopySuccess(true);
   };
+  const handleClose = () => {
+    onClose();
+    setCopySuccess(false);
+    setSnackbarOpen(false);
+  };
 
   useEffect(() => {
     setCopySuccess(false);
@@ -41,7 +46,7 @@ const ShareCard = ({ open, onClose }) => {
         {/* Close button header */}
         <Grid item style={{ textAlign: 'right', height: '1.5em' }}>
           <IconButton
-            onClick={() => { onClose(); setCopySuccess(false); }}
+            onClick={handleClose}
             style={{ width: '30px', height: '30px' }}
           >
             <CloseIcon style={{ fontSize: '16px' }} />
