@@ -104,7 +104,22 @@
         "ellipsisButton":{
           "rate":"Signaler ces données",
           "report":"Évaluer ces données",
-          "download":"Télécharger le tableau"
+          "download":"Télécharger le tableau",
+          "rateDataDialog":{
+            "rateData":"",
+            "useful":"",
+            "rate":"",
+            "thankYou":"",
+            "timesRated":"",
+            "improve":"",
+            "ratingLabels":{
+              "1":"",
+              "2":"",
+              "3":"",
+              "4":"",
+              "5":""
+            }
+          }
         }
       },
       "termsTitle": {

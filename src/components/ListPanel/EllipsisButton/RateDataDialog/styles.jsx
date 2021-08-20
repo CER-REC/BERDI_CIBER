@@ -44,5 +44,4 @@ export default {
       left: '11em',
     },
   },
-
 };

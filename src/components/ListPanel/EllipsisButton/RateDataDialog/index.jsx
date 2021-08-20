@@ -24,9 +24,6 @@ const ReportDataDialog = ({ title, open, onClose }) => {
   const [rating, setRating] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
 
-  // const handleChange = (event) => {
-  //   setSelection(event.target.value);
-  // };
   const handleSubmit = () => {
     setSubmitted(true);
   };
@@ -61,18 +58,19 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                 <CloseIcon />
               </IconButton>
             </Grid>
+
           </Grid>
         </Grid>
         {!submitted
           ? (
             <Grid item container className={classes.body}>
               <Grid container item justify="flex-start" style={{ paddingLeft: '2em' }}>
-
                 <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
                 <br />
                 <LeafRating rating={rating} setHover={setHover} setRating={setRating} />
                 <br />
               </Grid>
+
               <Grid item container justify="flex-start" style={{ fontWeight: 700, paddingLeft: '2em' }}>
                 {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
               </Grid>
@@ -96,17 +94,19 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                   <br />
                   <Typography variant="h6" style={{ fontWeight: 'normal', textAlign: 'center' }}>
                     {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.timesRated' }, {
-                      // TODO: these numbers can be swapped for whatever the average rating is
+                      // TODO: these numbers can be swapped for whatever comes back from the API
                       num: '3',
-                      ratingText: intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.2' }),
+                      ratingText: intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${2}` }),
                     })}
                   </Typography>
                 </Grid>
+
                 <br />
                 <Grid item className={classes.imageSection}>
                   <img alt="a blob" src={Blob} />
                   <img alt="two hands holding a plant" src={Hands} />
                 </Grid>
+
                 <Typography style={{ paddingBottom: '1em', fontSize: '14px', fontStyle: 'italic' }}>
                   {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
                 </Typography>

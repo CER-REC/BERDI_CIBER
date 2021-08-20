@@ -34,7 +34,6 @@ const useStyles = makeStyles({
   iconActive: {
     transform: 'none',
   },
-
 });
 
 const LeafRating = ({ rating, setHover, setRating }) => {
@@ -53,10 +52,10 @@ const LeafRating = ({ rating, setHover, setRating }) => {
           value={rating}
           precision={1}
           icon={<Leaf />}
-          onChange={(event, newValue) => {
+          onChange={(_, newValue) => {
             setRating(newValue);
           }}
-          onChangeActive={(event, newHover) => {
+          onChangeActive={(_, newHover) => {
             setHover(newHover);
           }}
         />
