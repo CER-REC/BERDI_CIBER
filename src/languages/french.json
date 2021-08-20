@@ -271,7 +271,10 @@
       "originalPDF": "PDF original : ",
       "esaFolder": "Dossier de l’EES : ",
       "projectFolder": "Dossier de projet : ",
-      "finalDecision": "Décision finale : "
+      "finalDecision": "Décision finale : ",
+      "notApplicable": "Sans objet",
+      "pending": "En attente",
+      "failedToLoad": "L’ouverture du visualiseur de PDF a échoué."
     },
     "resultsList": {
       "dataButton": {
