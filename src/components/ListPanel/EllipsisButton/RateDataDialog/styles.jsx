@@ -31,17 +31,22 @@ export default {
     '& h6:first-of-type': {
       fontWeight: '700',
       paddingTop: '2em',
-      paddingBottom: '1em',
+      paddingBottom: '0.5em',
     },
   },
   imageSection: {
     textAlign: 'center',
     paddingTop: '3em',
-    paddingBottom: '4em',
+    paddingBottom: '2.5em',
     '& :not(img:first-of-type)': {
       top: '20em',
       position: 'absolute',
       left: '11em',
     },
+  },
+  bottomText: {
+    paddingBottom: '2em',
+    fontSize: '14px',
+    fontStyle: 'italic',
   },
 };

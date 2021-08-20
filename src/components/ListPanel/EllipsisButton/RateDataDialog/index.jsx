@@ -107,7 +107,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                   <img alt="two hands holding a plant" src={Hands} />
                 </Grid>
 
-                <Typography style={{ paddingBottom: '1em', fontSize: '14px', fontStyle: 'italic' }}>
+                <Typography className={classes.bottomText}>
                   {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
                 </Typography>
               </Grid>
