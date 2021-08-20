@@ -15,4 +15,6 @@ export const lang = (typeof document !== 'undefined'
 
 export const API_HOST = process.env.API_HOST || '';
 
+export const ENV_SOCIO_GRADIENT_ID = 'environmentalSocioEconomicGradient';
+
 export const RESULT_COUNT = 10;

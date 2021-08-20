@@ -14,10 +14,13 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
+const newDotSize = 14;
+const newDotR = newDotSize / 2;
+
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
-  const { config } = useConfig();
+  const { config, configDispatch } = useConfig();
   const formRef = useRef(null);
 
   const [open, setOpen] = useState(false);
@@ -28,6 +31,7 @@ const Cart = () => {
   const handleClose = () => {
     setOpen(false);
     setShareOpen(false);
+    configDispatch({ type: 'unreadCartIds/removed' });
   };
   const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => {
@@ -46,10 +50,7 @@ const Cart = () => {
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize);
-
-  const newDotSize = 14;
-  const newDotR = newDotSize / 2;
+  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
   return (
     <>
