@@ -29,7 +29,7 @@ const ShareCard = ({ open, cartURL, onClose }) => {
   }, [cartURL]);
 
   return (
-    <Card className={(open) ? classes.shareCard : classes.shareCardClosed} elevation={2}>
+    <Card className={open ? classes.shareCard : classes.shareCardClosed} elevation={2}>
       <Grid container direction="column">
 
         {/* Close button header */}
@@ -57,7 +57,7 @@ const ShareCard = ({ open, cartURL, onClose }) => {
                 {intl.formatMessage({ id: 'components.cart.copyLink' })}
               </Typography>
             </ButtonBase>
-            <DoneIcon className={(copySuccess) ? classes.doneIcon : classes.doneIconHidden} />
+            <DoneIcon className={copySuccess ? classes.doneIcon : classes.doneIconHidden} />
           </Grid>
         </Grid>
         <Divider style={{ margin: '0 1em' }} />
