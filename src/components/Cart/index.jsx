@@ -81,6 +81,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const newDotSize = 14;
+const newDotR = newDotSize / 2;
+
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
@@ -104,10 +107,7 @@ const Cart = () => {
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize);
-
-  const newDotSize = 14;
-  const newDotR = newDotSize / 2;
+  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
   return (
     <>
