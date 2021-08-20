@@ -6,13 +6,19 @@ import {
 import { useIntl } from 'react-intl';
 import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
+import { compress } from 'int-compress-string';
+import useConfig from '../../../hooks/useConfig';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-const ShareCard = ({ open, cartURL, onClose }) => {
+const ShareCard = ({ open, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { config } = useConfig();
+
+  // Slicing cardIds since compress modifies the provided array
+  const cartURL = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}`;
 
   const [copySuccess, setCopySuccess] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -33,7 +39,7 @@ const ShareCard = ({ open, cartURL, onClose }) => {
       <Grid container direction="column">
 
         {/* Close button header */}
-        <Grid item style={{ textAlign: 'right', height: '2em' }}>
+        <Grid item style={{ textAlign: 'right', height: '1.5em' }}>
           <IconButton
             onClick={() => { onClose(); setCopySuccess(false); }}
             style={{ width: '30px', height: '30px' }}
@@ -81,7 +87,6 @@ const ShareCard = ({ open, cartURL, onClose }) => {
 
 ShareCard.propTypes = {
   open: PropTypes.bool.isRequired,
-  cartURL: PropTypes.string.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 

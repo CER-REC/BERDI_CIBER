@@ -1,9 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
-import { compress } from 'int-compress-string';
 import ShareCard from './ShareCard';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
@@ -25,7 +24,6 @@ const Cart = () => {
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
-  const [cartURL, setCartURL] = useState('');
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -48,11 +46,6 @@ const Cart = () => {
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
-
-  useEffect(() => () => {
-    // Slicing cardIds since compress modifies the provided array
-    setCartURL(`${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}`);
-  }, [open, config.cartIds]);
 
   return (
     <>
@@ -107,7 +100,6 @@ const Cart = () => {
           </Grid>
           <ShareCard
             open={shareOpen}
-            cartURL={cartURL}
             onClose={handleShareClose}
           />
         </Grid>
