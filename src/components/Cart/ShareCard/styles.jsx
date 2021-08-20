@@ -7,6 +7,11 @@ export default (theme) => ({
     border: '1px solid #C7C7CD',
     zIndex: 1,
   },
+  closeButton: {
+    width: '1em',
+    height: '1em',
+    fontSize: '10px',
+  },
   shareCardCopyButton: {
     backgroundColor: theme.palette.cart.light,
     color: theme.palette.cart.dark,
@@ -18,9 +23,6 @@ export default (theme) => ({
     fontSize: '30px',
     position: 'relative',
     bottom: '3px',
-  },
-  doneIconHidden: {
-    display: 'none',
   },
   shareDisclaimer: {
     fontSize: '11px',

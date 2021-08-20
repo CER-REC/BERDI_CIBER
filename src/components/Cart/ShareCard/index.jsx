@@ -33,12 +33,12 @@ const ShareCard = ({ open, cartURL, onClose }) => {
       <Grid container direction="column">
 
         {/* Close button header */}
-        <Grid item style={{ textAlign: 'right', height: '3vh' }}>
+        <Grid item style={{ textAlign: 'right', height: '2em' }}>
           <IconButton
             onClick={() => { onClose(); setCopySuccess(false); }}
-            style={{ transform: 'scale(0.7)' }}
+            style={{ width: '30px', height: '30px' }}
           >
-            <CloseIcon />
+            <CloseIcon style={{ fontSize: '16px' }} />
           </IconButton>
         </Grid>
 
@@ -57,7 +57,7 @@ const ShareCard = ({ open, cartURL, onClose }) => {
                 {intl.formatMessage({ id: 'components.cart.copyLink' })}
               </Typography>
             </ButtonBase>
-            <DoneIcon className={copySuccess ? classes.doneIcon : classes.doneIconHidden} />
+            {copySuccess && (<DoneIcon className={classes.doneIcon} />)}
           </Grid>
         </Grid>
         <Divider style={{ margin: '0 1em' }} />
