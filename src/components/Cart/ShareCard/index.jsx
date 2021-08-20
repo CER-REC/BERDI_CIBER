@@ -17,13 +17,11 @@ const ShareCard = ({ open, cartURL, onClose }) => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
-  const handleSnackbarClose = () => {
-    setSnackbarOpen(false);
-    setCopySuccess(true && open);
-  };
+  const handleSnackbarClose = () => setSnackbarOpen(false);
   const handleCopyCartURL = () => {
     navigator.clipboard.writeText(cartURL);
     setSnackbarOpen(true);
+    setCopySuccess(true);
   };
 
   useEffect(() => {
