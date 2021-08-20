@@ -7,9 +7,6 @@ export default (theme) => ({
     border: '1px solid #C7C7CD',
     zIndex: 1,
   },
-  shareCardClosed: {
-    display: 'none',
-  },
   shareCardCopyButton: {
     backgroundColor: theme.palette.cart.light,
     color: theme.palette.cart.dark,

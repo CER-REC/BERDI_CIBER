@@ -28,8 +28,8 @@ const ShareCard = ({ open, cartURL, onClose }) => {
     setCopySuccess(false);
   }, [cartURL]);
 
-  return (
-    <Card className={open ? classes.shareCard : classes.shareCardClosed} elevation={2}>
+  return (open && (
+    <Card className={classes.shareCard} elevation={2}>
       <Grid container direction="column">
 
         {/* Close button header */}
@@ -76,7 +76,7 @@ const ShareCard = ({ open, cartURL, onClose }) => {
         />
       </Grid>
     </Card>
-  );
+  ));
 };
 
 ShareCard.propTypes = {
