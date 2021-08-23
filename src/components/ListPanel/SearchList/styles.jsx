@@ -31,7 +31,7 @@ export default (theme) => ({
   },
   details: {
     '& tr': {
-      color: '#616060',
+      color: theme.palette.grey.dark,
     },
     '& tr:nth-of-type(3)': {
       '& td': { paddingBottom: '1em' },

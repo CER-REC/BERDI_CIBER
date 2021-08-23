@@ -15,11 +15,25 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     top: '50%',
     zIndex: '1',
+    padding: '10px 10px 5px 0',
+    borderRadius: 0,
+  },
+  newDot: {
+    fill: '#D32645',
+    strokeWidth: 0,
+    position: 'relative',
+    left: '40px',
+    bottom: '4px',
+  },
+  newDotHidden: {
+    visibility: 'hidden',
   },
   cartButtonLabel: {
     color: theme.palette.cart.dark,
     fontSize: '13px',
     fontWeight: '900',
+    margin: '0 5px',
+    paddingLeft: '5px',
   },
   drawer: {
     width: '28em',
@@ -67,38 +81,58 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const newDotSize = 14;
+const newDotR = newDotSize / 2;
+
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
+  const formRef = useRef(null);
+  const { config, configDispatch } = useConfig();
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const formRef = useRef(null);
-  const { config } = useConfig();
+  const handleClose = () => {
+    setOpen(false);
+    configDispatch({ type: 'unreadCartIds/removed' });
+  };
 
   const handleDownloadClick = () => {
     formRef.current.submit();
   };
 
+  const getCartQuantity = () => {
+    const quantity = config.cartIds.length;
+    return (quantity >= 1000)
+      ? `${Number((quantity / 1000).toFixed(1)).toLocaleString(intl.locale)}k`
+      : quantity;
+  };
+
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize);
-
-  const footerClass = (config.cartIds.length === 0) ? classes.footerDisabled : classes.footer;
+  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
   return (
     <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
-        <Grid container alignItems="center" spacing={2}>
+        <svg
+          height={newDotSize}
+          width={newDotSize}
+          viewBox={`0 0 ${newDotSize} ${newDotSize}`}
+          className={(config.unreadCartIds.length === 0) ? classes.newDotHidden : classes.newDot}
+        >
+          <circle cx={newDotR} cy={newDotR} r={newDotR} />
+        </svg>
+        <Grid container alignItems="center" spacing={1}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
+              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.6em' }} />
             </Icon>
           </Grid>
           <Grid item xs={6}>
             <Typography className={classes.cartButtonLabel}>
-              {config.cartIds.length}
+              {getCartQuantity()}
             </Typography>
           </Grid>
         </Grid>
@@ -133,7 +167,7 @@ const Cart = () => {
           container
           direction="column"
           alignItems="center"
-          className={footerClass}
+          className={(config.cartIds.length === 0) ? classes.footerDisabled : classes.footer}
         >
           <Grid item className={classes.footerDisclaimer}>
             <Typography className={classes.footerDisclaimerText}>

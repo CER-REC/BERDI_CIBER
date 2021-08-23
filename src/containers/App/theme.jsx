@@ -2,8 +2,9 @@ import { createMuiTheme, lighten } from '@material-ui/core';
 
 const black = '#000000';
 const white = '#FFFFFF';
-const grey = '#AEAEAE';
-const darkGrey = '#434343';
+const altGrey = '#434343';
+const lightGrey = '#AEAEAE';
+const darkGrey = '#616060';
 const darkBlue = '#284162';
 const charcoal = '#CCCCCC';
 const navyBlue = '#26374A';
@@ -16,6 +17,8 @@ const darkTeal = '#66C8C3';
 const footerBlue = '#EAF9FF';
 const swansDown = '#D2EDEB';
 const tealBlue = '#07456B';
+const environmental = '#744A95';
+const socioEconomic = '#E14977';
 
 const theme = createMuiTheme({
   palette: {
@@ -38,8 +41,9 @@ const theme = createMuiTheme({
       light: lightTeal,
     },
     grey: {
-      light: grey,
+      light: lightGrey,
       dark: darkGrey,
+      alt: altGrey,
       charcoal,
     },
     dialog: {
@@ -49,6 +53,8 @@ const theme = createMuiTheme({
       light: swansDown,
       dark: tealBlue,
     },
+    environmental,
+    socioEconomic,
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',
@@ -65,18 +71,6 @@ const theme = createMuiTheme({
       },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
-      subtitle1: {
-        color: black,
-        fontSize: 29,
-        lineHeight: '1em',
-      },
-      subtitle2: {
-        color: black,
-        fontSize: 20,
-        lineHeight: '1em',
-        paddingBottom: '0.5em',
-        paddingTop: '0.5em',
-      },
       caption: {
         fontSize: 12,
         lineHeight: 1.3,
@@ -113,6 +107,20 @@ const theme = createMuiTheme({
         verticalAlign: 'text-bottom',
         '&:hover': {
           backgroundColor: 'inherit',
+        },
+      },
+    },
+    MuiToggleButton: {
+      root: {
+        borderRadius: '0.5em',
+        color: '#333333',
+        fontSize: 18,
+        padding: '0.2em 2.5em',
+        textTransform: 'none',
+        '&$selected': {
+          backgroundColor: '#4F5395',
+          color: white,
+          '&:hover': { backgroundColor: lighten(lightPurple, 0.2) },
         },
       },
     },
