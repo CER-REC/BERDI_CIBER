@@ -2,7 +2,7 @@ const blue = '#07456B';
 
 export default (theme) => ({
   root: {
-    color: theme.palette.grey.dark,
+    color: theme.palette.grey.alt,
   },
   titleSection: {
     backgroundColor: blue,
@@ -32,7 +32,7 @@ export default (theme) => ({
     },
   },
   formLabel: {
-    color: theme.palette.grey.dark,
+    color: theme.palette.grey.alt,
     marginLeft: '-0.5em',
   },
   otherText: {
