@@ -94,12 +94,12 @@ const Cart = () => {
               {intl.formatMessage({ id: 'components.cart.viewFullList' })}
             </a>
           </Grid>
-          <Grid item container xs={3} className={classes.headerButtons}>
-            <IconButton disabled={config.cartIds.length === 0} aria-label="share" onClick={handleShareOpen}>
+          <Grid item container xs={3} className={classes.headerButtonContainer}>
+            <IconButton disabled={config.cartIds.length === 0} aria-label="share" onClick={handleShareOpen} className={classes.headerButton}>
               <ShareIcon />
             </IconButton>
-            <IconButton aria-label="close" onClick={handleClose}>
-              <CloseIcon style={{ transform: 'scale(1.25)' }} />
+            <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
+              <CloseIcon style={{ fontSize: '30px' }} />
             </IconButton>
           </Grid>
           <ShareCard

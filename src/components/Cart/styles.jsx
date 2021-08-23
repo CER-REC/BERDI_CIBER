@@ -44,9 +44,13 @@ export default (theme) => ({
     fontWeight: 'bold',
     display: 'none', // TODO: remove this when link is implemented
   },
-  headerButtons: {
+  headerButtonContainer: {
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  headerButton: {
+    width: '50px',
+    height: '50px',
   },
   body: {
     borderBottom: '8px solid',
