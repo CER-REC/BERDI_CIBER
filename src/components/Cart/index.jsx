@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
@@ -47,6 +47,10 @@ const Cart = () => {
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
+  useEffect(() => {
+    if (config.cartIds.length === 0) handleShareClose();
+  }, [config.cartIds.length]);
+
   return (
     <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
@@ -91,7 +95,7 @@ const Cart = () => {
             </a>
           </Grid>
           <Grid item container xs={3} className={classes.headerButtons}>
-            <IconButton aria-label="share" onClick={handleShareOpen}>
+            <IconButton disabled={config.cartIds.length === 0} aria-label="share" onClick={handleShareOpen}>
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose}>
