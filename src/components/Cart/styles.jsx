@@ -53,16 +53,21 @@ export default (theme) => ({
     height: '50px',
   },
   body: {
-    borderBottom: '8px solid',
-    borderBottomColor: theme.palette.secondary.main,
-    overflowY: 'auto',
     height: '100%',
+    width: '100%',
+  },
+  bodyList: {
+    height: '100%',
+    width: '100%',
+    margin: '0 1em',
   },
   footerDisabled: {
     opacity: 0.25,
     pointerEvents: 'none',
   },
   footer: {
+    borderTop: '8px solid',
+    borderTopColor: theme.palette.secondary.main,
     opacity: 1,
     pointerEvents: 'auto',
   },

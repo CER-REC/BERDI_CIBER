@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
+import {
+  Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, ButtonBase,
+} from '@material-ui/core';
+import { FixedSizeList } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
@@ -10,6 +16,7 @@ import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import styles from './styles';
+import CartItem from './CartItem';
 
 const useStyles = makeStyles(styles);
 
@@ -24,6 +31,9 @@ const Cart = () => {
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+  const [removeButtonHover, setRemoveButtonHover] = useState(false);
+  const handleRemoveButtonHover = () => setRemoveButtonHover(true);
+  const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -34,6 +44,10 @@ const Cart = () => {
   const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
+
+  const handleRemoveAll = () => {
+    configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  };
 
   const cartQuantity = (() => {
     const quantity = config.cartIds.length;
@@ -50,6 +64,13 @@ const Cart = () => {
   useEffect(() => {
     if (config.cartIds.length === 0) handleShareClose();
   }, [config.cartIds.length]);
+
+  const renderItem = (props) => {
+    const { index } = props;
+    return (
+      <CartItem id={config.cartIds[index]} />
+    );
+  };
 
   return (
     <>
@@ -110,7 +131,44 @@ const Cart = () => {
 
         {/* Body */}
         <Grid container className={classes.body}>
-          body
+          <Grid container item style={{ margin: '1em' }}>
+            <IconButton
+              aria-label="Remove all"
+              onClick={handleRemoveAll}
+              onMouseEnter={handleRemoveButtonHover}
+              onMouseLeave={handleRemoveButtonHoverEnd}
+            >
+              {
+                (removeButtonHover && <RemoveCircleIcon />) || (<RemoveCircleOutlineIcon />)
+              }
+            </IconButton>
+            <ButtonBase
+              disableRipple
+              disableTouchRipple
+              onClick={handleRemoveAll}
+              onMouseEnter={handleRemoveButtonHover}
+              onMouseLeave={handleRemoveButtonHoverEnd}
+            >
+              <Typography variant="body2" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+                {intl.formatMessage({ id: 'components.cart.removeAll' })}
+              </Typography>
+            </ButtonBase>
+          </Grid>
+          <Grid container item className={classes.bodyList}>
+            <AutoSizer>
+              {({ height, width }) => (
+                <FixedSizeList
+                  height={height}
+                  itemSize={50}
+                  itemCount={config.cartIds.length}
+                  overscanCount={4}
+                  width={width}
+                >
+                  {renderItem}
+                </FixedSizeList>
+              )}
+            </AutoSizer>
+          </Grid>
         </Grid>
 
         {/* Footer */}
