@@ -225,17 +225,18 @@
           "report":"Évaluer ces données",
           "download":"Télécharger le tableau",
           "reportDataDialog":{
-            "report":"",
-            "required":"",
-            "whatConcern":"",
-            "strangeChars":"",
-            "noData":"",
-            "other":"",
-            "explainMore":"",
-            "optional":"",
-            "disclaimer":"",
-            "terms":"",
-            "submit":""
+            "report":"Évaluer ces données :",
+            "required":"Requis",
+            "whatConcern":"Quel souci souhaitez-vous signaler?",
+            "strangeChars":"Les données comportaient des caractères insolites.",
+            "noData":"Je n’ai pas retrouvé les données dans le document.",
+            "other":"Autre",
+            "explainMore":"Veuillez expliquer plus en détail.",
+            "optional":"Facultatif",
+            "disclaimer":"Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+            "submit":"Envoyer",
+            "thankYou":"Nous avons bien reçu votre signalement.",
+            "flagged":"Ces données seront examinées."
           }
         }
       },
