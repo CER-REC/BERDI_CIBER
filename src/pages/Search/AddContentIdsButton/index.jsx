@@ -17,10 +17,10 @@ const useStyles = makeStyles({
 const AddContentIdsButton = () => {
   const intl = useIntl();
   const classes = useStyles();
-  const { contentIds, totalCount } = useESAData();
+  const { downloadTableIds, totalCount } = useESAData();
   const { configDispatch } = useConfig();
   const handleAddAllClick = () => {
-    configDispatch({ type: 'cartIds/added', payload: contentIds });
+    configDispatch({ type: 'cartIds/added', payload: downloadTableIds });
   };
 
   return (

@@ -129,7 +129,7 @@ export const SEARCH = gql`
         }
       }
       totalCount
-      contentIds
+      downloadTableIds
     }
   }
 `;
