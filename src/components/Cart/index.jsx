@@ -14,6 +14,7 @@ import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
+import useCartData from '../../hooks/useCartData';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import styles from './styles';
 import CartItem from './CartItem';
@@ -27,6 +28,7 @@ const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
+  const { cartItems } = useCartData();
   const formRef = useRef(null);
 
   const [open, setOpen] = useState(false);
@@ -65,12 +67,7 @@ const Cart = () => {
     if (config.cartIds.length === 0) handleShareClose();
   }, [config.cartIds.length]);
 
-  const renderItem = (props) => {
-    const { index } = props;
-    return (
-      <CartItem id={config.cartIds[index]} />
-    );
-  };
+  const renderCartItem = ({ index }) => <CartItem data={cartItems[index]} />;
 
   return (
     <>
@@ -160,11 +157,11 @@ const Cart = () => {
                 <FixedSizeList
                   height={height}
                   itemSize={50}
-                  itemCount={config.cartIds.length}
-                  overscanCount={4}
+                  itemCount={cartItems.length}
                   width={width}
+                  overscanCount={5}
                 >
-                  {renderItem}
+                  {renderCartItem}
                 </FixedSizeList>
               )}
             </AutoSizer>

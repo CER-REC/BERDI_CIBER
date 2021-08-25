@@ -59,7 +59,6 @@ export default (theme) => ({
   bodyList: {
     height: '100%',
     width: '100%',
-    margin: '0 1em',
   },
   footerDisabled: {
     opacity: 0.25,
