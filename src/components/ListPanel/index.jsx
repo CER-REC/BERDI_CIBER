@@ -1,9 +1,7 @@
-import { Button, Grid, ButtonBase, makeStyles } from '@material-ui/core';
-import React, { useCallback, useState } from 'react';
+import { Button, makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
-import LimitationsDialog from '../LimitationsDialog';
 import SearchList from './SearchList';
 
 const useStyles = makeStyles({
@@ -24,17 +22,8 @@ const ListSection = () => {
   const classes = useStyles();
   const intl = useIntl();
 
-  const { contents, contentIds, totalCount } = useESAData();
-  const { configDispatch } = useConfig();
-
-  const handleAddAllClick = () => {
-    configDispatch({ type: 'cartIds/added', payload: contentIds });
-  };
-
-  const [open, setOpen] = useState(false);
+  const { contents } = useESAData();
   const [expandList, setExpandList] = useState([]);
-  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
-  const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -54,23 +43,10 @@ const ListSection = () => {
 
   return (
     <>
-      <Grid container justify="space-between" alignItems="flex-end" style={{}}>
-        <Grid item className={classes.expandButtons}>
-          <Button onClick={expandAll} variant="contained" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
-          <Button onClick={collapseAll} variant="contained">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
-        </Grid>
-
-        <Grid item className={classes.innerGrid}>
-          {/* <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
-            {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
-          </Button>
-          <LimitationsDialog
-            open={open}
-            hasDownload
-            onClose={handleClose}
-          /> */}
-        </Grid>
-      </Grid>
+      <div className={classes.expandButtons}>
+        <Button onClick={expandAll} variant="contained" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
+        <Button onClick={collapseAll} variant="contained">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
+      </div>
 
       <SearchList expandList={expandList} toggleExpand={toggleExpand} />
     </>

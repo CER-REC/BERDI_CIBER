@@ -51,6 +51,7 @@ export default () => {
       configDispatch({ type: 'treemapApplicationIds/removed', payload: excludedTreemapApplicationIds });
     }
   }, [configDispatch, excludedTreemapApplicationIds, loading]);
+
   return {
     loading,
     error,

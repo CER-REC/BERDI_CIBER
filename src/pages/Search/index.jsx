@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
-import { Grid } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import Applications from '../../components/Applications';
 import Cart from '../../components/Cart';
@@ -17,10 +17,20 @@ import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import { reportShowFilter } from '../../utilities/analytics';
 
+const useStyles = makeStyles({
+  hr: {
+    border: 'none',
+    color: 'black',
+    backgroundColor: 'black',
+    height: '1px',
+  },
+});
+
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
   const { config } = useConfig();
+  const classes = useStyles();
   const handleFilterChange = useCallback((event) => {
     if (event.target.checked) {
       reportShowFilter();
@@ -49,15 +59,15 @@ const Search = () => {
           </>
         )
       }
-      <Grid container>
-        <Grid item xs={10}>
+      <Grid container justify="space-between" alignItems="center">
+        <Grid item xs={9}>
           <FilterChipsPanel />
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <AddContentIdsButton />
         </Grid>
       </Grid>
-      <hr style={{ border: 'none', color: 'black', backgroundColor: 'black', height: '1px' }} />
+      <hr className={classes.hr} />
       <Cart />
       <ListSection />
     </>
