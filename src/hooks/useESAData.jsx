@@ -51,12 +51,12 @@ export default () => {
       configDispatch({ type: 'treemapApplicationIds/removed', payload: excludedTreemapApplicationIds });
     }
   }, [configDispatch, excludedTreemapApplicationIds, loading]);
-
   return {
     loading,
     error,
     applications,
     contents: data?.contentSearch.contents || [],
     totalCount: data?.contentSearch.totalCount || 0,
+    contentIds: data?.contentSearch.contentIds || [],
   };
 };

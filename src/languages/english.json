@@ -155,6 +155,10 @@
       "title": "A NOTE ON ACCURACY",
       "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded."
     },
+    "addContentIdsButton":{
+      "addTablesSingle": "Add {num} table to your shelf",
+      "addTablesPlural":"Add all {num} tables to your shelf"
+    },
     "applicationDialog": {
       "regdocs": "View REGDOCS Folder",
       "tables": "Download ESA Tables"

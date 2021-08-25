@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
+import { Grid } from '@material-ui/core';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import Applications from '../../components/Applications';
 import Cart from '../../components/Cart';
@@ -11,6 +12,7 @@ import NavButtons from '../../components/NavButtons';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import SearchDetails from '../../components/SearchDetails';
 import TopicsFilter from '../../components/TopicsFilter';
+import AddContentIdsButton from './AddContentIdsButton';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import { reportShowFilter } from '../../utilities/analytics';
@@ -47,7 +49,15 @@ const Search = () => {
           </>
         )
       }
-      <FilterChipsPanel />
+      <Grid container>
+        <Grid item xs={10}>
+          <FilterChipsPanel />
+        </Grid>
+        <Grid item xs={2}>
+          <AddContentIdsButton />
+        </Grid>
+      </Grid>
+      <hr style={{ border: 'none', color: 'black', backgroundColor: 'black', height: '1px' }} />
       <Cart />
       <ListSection />
     </>
