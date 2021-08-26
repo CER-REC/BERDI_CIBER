@@ -171,7 +171,8 @@
           "esaFolderURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/2748481"
         }
       ],
-      "totalCount": 267
+      "totalCount": 267,
+      "downloadTableIds":14000
     }
   }
 }
