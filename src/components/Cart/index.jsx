@@ -67,7 +67,7 @@ const Cart = () => {
     if (config.cartIds.length === 0) handleShareClose();
   }, [config.cartIds.length]);
 
-  const renderCartItem = ({ index }) => <CartItem data={cartItems[index]} />;
+  const renderCartItem = ({ index, style }) => <CartItem data={cartItems[index]} style={style} />;
 
   return (
     <>
@@ -127,7 +127,7 @@ const Cart = () => {
         </Grid>
 
         {/* Body */}
-        <Grid container className={classes.body}>
+        <Grid container direction="column" wrap="nowrap" alignContent="flex-end" className={classes.body}>
           <Grid container item style={{ margin: '1em' }}>
             <IconButton
               aria-label="Remove all"
@@ -156,7 +156,7 @@ const Cart = () => {
               {({ height, width }) => (
                 <FixedSizeList
                   height={height}
-                  itemSize={50}
+                  itemSize={150}
                   itemCount={cartItems.length}
                   width={width}
                   overscanCount={5}

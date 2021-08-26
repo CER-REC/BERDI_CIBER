@@ -5,7 +5,6 @@ import {
 } from '@material-ui/core';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
 
 const useStyles = makeStyles(() => ({
@@ -19,9 +18,8 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const CartItem = ({ data }) => {
+const CartItem = ({ data, style }) => {
   const classes = useStyles();
-  const intl = useIntl();
   const { configDispatch } = useConfig();
 
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
@@ -33,7 +31,7 @@ const CartItem = ({ data }) => {
   };
 
   return (
-    <ListItem>
+    <ListItem style={style}>
       <Grid className={classes.root}>
         <Grid container wrap="nowrap" className={classes.header}>
           <Grid item>
@@ -72,6 +70,7 @@ CartItem.propTypes = {
       companyName: PropTypes.string,
     }),
   }).isRequired,
+  style: PropTypes.shape({}).isRequired,
 };
 
 export default CartItem;
