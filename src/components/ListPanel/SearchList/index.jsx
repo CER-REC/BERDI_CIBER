@@ -12,7 +12,7 @@ import { useIntl } from 'react-intl';
 import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
-import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
+import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent } from '../../../utilities/analytics';
 import ResultDialog from '../../ResultDialog';
 import PaginationBar from '../PaginationBar';
@@ -87,7 +87,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       className={classes.imageSection}
                     >
                       <Grid item>
-                        <img alt="A magnifying glass" src={MagnifyingGlass} />
+                        <img alt="A magnifying glass" src={magnifyingGlass} />
                       </Grid>
                     </Grid>
 

@@ -7,6 +7,7 @@ import flag from '../../../images/listPanel/flag.svg';
 import leaf from '../../../images/listPanel/leaf.svg';
 import ellipsisIcon from '../../../images/listPanel/ellipsis.svg';
 import { reportDownload } from '../../../utilities/analytics';
+import ReportDataDialog from '../ReportDataDialog';
 
 const useStyles = makeStyles({
   button: {
@@ -44,17 +45,19 @@ const EllipsisButton = ({ downloadURL, title }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [reportOpen, setReportOpen] = useState(false);
 
   const handleMouseEnter = (event) => {
     setAnchorEl(event.currentTarget);
   };
+  const handleClose = () => setAnchorEl(null);
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const handleReportClose = () => setReportOpen(false);
+  const handleReportClick = () => { handleClose(); setReportOpen(true); };
 
   return (
     <>
+      <ReportDataDialog open={reportOpen} onClose={handleReportClose} title={title} />
       <Menu
         anchorEl={anchorEl}
         keepMounted
@@ -68,7 +71,7 @@ const EllipsisButton = ({ downloadURL, title }) => {
           <img alt="a maple leaf" src={leaf} />
           {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rate' })}
         </MenuItem>
-        <MenuItem onClick={handleClose} className={classes.border}>
+        <MenuItem onClick={handleReportClick} className={classes.border}>
           <img alt="a generic flag" src={flag} />
           {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.report' })}
         </MenuItem>

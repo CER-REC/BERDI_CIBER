@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
-import Plus from '../../../images/cartButton/plus.svg';
+import plus from '../../../images/cartButton/plus.svg';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);
@@ -17,7 +17,7 @@ const AddButton = ({ cartId }) => {
 
   return (
     <Button className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
-      <img alt="Plus" src={Plus} />
+      <img alt="Plus" src={plus} />
       {intl.formatMessage({ id: 'components.cartButton.add' })}
     </Button>
   );
