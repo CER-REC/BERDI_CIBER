@@ -26,6 +26,8 @@
     "learnMethods": "Learn more about our methods.",
     "figureCount": "{figures, plural, =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =1 {table} other {tables}}",
+    "termsAndConditions": "Terms and Conditions",
+    "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -169,7 +171,12 @@
     },
     "cart": {
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
-      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download."
+      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",
+      "headerQuantity": "Items in the Shelf",
+      "viewFullList": "View full list on page",
+      "copyLink": "Copy link",
+      "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
+      "copyConfirmation": "Link copied!"
     },
     "cartButton": {
       "add": "Add to shelf",
@@ -208,7 +215,6 @@
         "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
       },
       "termsTitle": {
-        "title": "Terms and Conditions",
         "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
         "link": "\"Terms and Conditions\""
       },
@@ -259,6 +265,20 @@
             "4":"Good enough",
             "5":"Very useful!"
           }
+        },
+        "reportDataDialog":{
+          "report":"Report this data:",
+          "required":"required",
+          "whatConcern":"What concern would you like to report?",
+          "strangeChars":"The data had strange characters.",
+          "noData":"I couldn't find the data in the original document.",
+          "other":"Other",
+          "explainMore":"Please explain in more detail",
+          "optional":"optional",
+          "disclaimer":"Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
+          "submit":"Submit",
+          "thankYou":"Thank you for your report.",
+          "flagged":"This data has been flagged for review."
         }
       }
     },

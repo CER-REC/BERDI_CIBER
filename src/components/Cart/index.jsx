@@ -1,104 +1,76 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
+import ShareCard from './ShareCard';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
+import styles from './styles';
 
-const useStyles = makeStyles((theme) => ({
-  cartButton: {
-    backgroundColor: theme.palette.cart.light,
-    position: 'fixed',
-    right: 0,
-    top: '50%',
-    zIndex: '1',
-  },
-  cartButtonLabel: {
-    color: theme.palette.cart.dark,
-    fontSize: '13px',
-    fontWeight: '900',
-  },
-  drawer: {
-    width: '28em',
-  },
-  closeButton: {
-    textAlign: 'right',
-  },
-  header: {
-    backgroundColor: theme.palette.cart.light,
-    borderBottom: '8px solid',
-    borderBottomColor: theme.palette.secondary.main,
-  },
-  body: {
-    borderBottom: '8px solid',
-    borderBottomColor: theme.palette.secondary.main,
-    overflowY: 'auto',
-    height: '100%',
-  },
-  footerDisabled: {
-    opacity: 0.25,
-    pointerEvents: 'none',
-  },
-  footer: {
-    opacity: 1,
-    pointerEvents: 'auto',
-  },
-  footerDisclaimer: {
-    backgroundColor: '#F7F7FB',
-    margin: '1em',
-    padding: '1em',
-    textAlign: 'center',
-  },
-  footerDisclaimerText: {
-    fontSize: '13px',
-  },
-  footerDownloadButton: {
-    marginBottom: '2em',
-    backgroundColor: theme.palette.cart.dark,
-    padding: '0.3em 3em',
-  },
-  footerDownloadButtonIcon: {
-    overflow: 'visible',
-    paddingRight: '0.5em',
-    maxWidth: '1.2em',
-  },
-}));
+const useStyles = makeStyles(styles);
+
+const newDotSize = 14;
+const newDotR = newDotSize / 2;
 
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { config, configDispatch } = useConfig();
   const formRef = useRef(null);
-  const { config } = useConfig();
 
-  const handleDownloadClick = () => {
-    formRef.current.submit();
+  const [open, setOpen] = useState(false);
+  const [shareOpen, setShareOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+    setShareOpen(false);
+    configDispatch({ type: 'unreadCartIds/removed' });
   };
+  const handleDownloadClick = () => formRef.current.submit();
+  const handleShareOpen = () => setShareOpen(true);
+  const handleShareClose = () => setShareOpen(false);
+
+  const cartQuantity = (() => {
+    const quantity = config.cartIds.length;
+    return (quantity >= 1000)
+      ? `${Number((quantity / 1000).toFixed(1)).toLocaleString(intl.locale)}k`
+      : quantity;
+  })();
 
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize);
+  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
-  const footerClass = (config.cartIds.length === 0) ? classes.footerDisabled : classes.footer;
+  useEffect(() => {
+    if (config.cartIds.length === 0) handleShareClose();
+  }, [config.cartIds.length]);
 
   return (
     <>
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
-        <Grid container alignItems="center" spacing={2}>
+        <svg
+          height={newDotSize}
+          width={newDotSize}
+          viewBox={`0 0 ${newDotSize} ${newDotSize}`}
+          className={(config.unreadCartIds.length === 0) ? classes.newDotHidden : classes.newDot}
+        >
+          <circle cx={newDotR} cy={newDotR} r={newDotR} />
+        </svg>
+        <Grid container alignItems="center" spacing={1}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.5em' }} />
+              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.6em' }} />
             </Icon>
           </Grid>
           <Grid item xs={6}>
             <Typography className={classes.cartButtonLabel}>
-              {config.cartIds.length}
+              {cartQuantity}
             </Typography>
           </Grid>
         </Grid>
@@ -114,13 +86,26 @@ const Cart = () => {
       >
         {/* Header */}
         <Grid container alignItems="center" className={classes.header}>
-          <Grid item xs={6} />
-          <Grid item xs={3} />
-          <Grid item xs={3} className={classes.closeButton}>
-            <IconButton aria-label="close" onClick={handleClose}>
-              <CloseIcon />
+          <Grid item xs={9}>
+            <Typography className={classes.headerQuantity}>
+              {`(${cartQuantity}) ${intl.formatMessage({ id: 'components.cart.headerQuantity' })}`}
+            </Typography>
+            <a href="stub" className={classes.headerLink}>
+              {intl.formatMessage({ id: 'components.cart.viewFullList' })}
+            </a>
+          </Grid>
+          <Grid item container xs={3} className={classes.headerButtonContainer}>
+            <IconButton disabled={config.cartIds.length === 0} aria-label="share" onClick={handleShareOpen} className={classes.headerButton}>
+              <ShareIcon />
+            </IconButton>
+            <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
+              <CloseIcon style={{ fontSize: '30px' }} />
             </IconButton>
           </Grid>
+          <ShareCard
+            open={shareOpen}
+            onClose={handleShareClose}
+          />
         </Grid>
 
         {/* Body */}
@@ -133,10 +118,10 @@ const Cart = () => {
           container
           direction="column"
           alignItems="center"
-          className={footerClass}
+          className={(config.cartIds.length === 0) ? classes.footerDisabled : classes.footer}
         >
           <Grid item className={classes.footerDisclaimer}>
-            <Typography className={classes.footerDisclaimerText}>
+            <Typography className={classes.disclaimerText}>
               {intl.formatMessage(
                 { id: 'components.cart.downloadDisclaimer' },
                 {
@@ -148,7 +133,7 @@ const Cart = () => {
                 },
               )}
             </Typography>
-            <Typography className={classes.footerDisclaimerText}>
+            <Typography className={classes.disclaimerText}>
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
           </Grid>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { Typography, makeStyles } from '@material-ui/core';
-import BerdiLogo from '../../images/landing/logo-berdi.svg';
-import CiberLogo from '../../images/landing/logo-ciber.svg';
+import berdiLogo from '../../images/landing/logo-berdi.svg';
+import ciberLogo from '../../images/landing/logo-ciber.svg';
 import { lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +26,7 @@ export default () => {
   return (
     <div className={classes.root}>
       <header>
-        <img src={lang === 'fr' ? CiberLogo : BerdiLogo} alt="Tool Logo" />
+        <img src={lang === 'fr' ? ciberLogo : berdiLogo} alt="Tool Logo" />
         <Typography>{intl.formatMessage({ id: 'pages.landing.taglineBold' })}</Typography>
         <Typography>{intl.formatMessage({ id: 'pages.landing.tagline' })}</Typography>
       </header>
