@@ -7,7 +7,7 @@ import flag from '../../../images/listPanel/flag.svg';
 import leaf from '../../../images/listPanel/leaf.svg';
 import ellipsisIcon from '../../../images/listPanel/ellipsis.svg';
 import { reportDownload } from '../../../utilities/analytics';
-import RateDataDialog from './RateDataDialog';
+import RateDataDialog from '../RateDataDialog';
 
 const useStyles = makeStyles({
   button: {

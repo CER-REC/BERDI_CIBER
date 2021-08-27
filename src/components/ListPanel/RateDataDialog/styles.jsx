@@ -1,6 +1,6 @@
-export default {
+export default (theme) => ({
   titleSection: {
-    backgroundColor: '#07456B',
+    backgroundColor: theme.palette.teal.blue,
     color: 'white',
     padding: '0 1em 0 2em',
     '& h6': {
@@ -20,12 +20,19 @@ export default {
     },
   },
   button: {
-    backgroundColor: '#07456B',
+    backgroundColor: theme.palette.teal.blue,
     color: 'white',
     padding: '0.4em 2em',
     '&:hover': {
-      backgroundColor: '#07456B',
+      backgroundColor: theme.palette.teal.blue,
     },
+  },
+  disabledButton: {
+    backgroundColor: '#A1A3A5',
+    '&.Mui-disabled': {
+      color: 'white',
+    },
+    padding: '0.4em 2em',
   },
   submitted: {
     '& h6:first-of-type': {
@@ -44,4 +51,4 @@ export default {
     fontSize: '14px',
     fontStyle: 'italic',
   },
-};
+});

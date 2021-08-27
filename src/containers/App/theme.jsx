@@ -37,6 +37,7 @@ const theme = createMuiTheme({
     teal: {
       dark: darkTeal,
       light: lightTeal,
+      blue: tealBlue,
     },
     grey: {
       light: lightGrey,
