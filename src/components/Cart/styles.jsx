@@ -27,6 +27,7 @@ export default (theme) => ({
   },
   drawer: {
     width: '30em',
+    overflowY: 'unset',
   },
   header: {
     backgroundColor: theme.palette.cart.light,
