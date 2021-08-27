@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, ButtonBase,
 } from '@material-ui/core';
-import { FixedSizeList } from 'react-window';
+import { VariableSizeList } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
@@ -30,12 +30,12 @@ const Cart = () => {
   const { config, configDispatch } = useConfig();
   const { cartItems } = useCartData();
   const formRef = useRef(null);
+  const listRef = useRef(null);
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
-  const handleRemoveButtonHover = () => setRemoveButtonHover(true);
-  const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
+  const [expandList, setExpandList] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -46,9 +46,17 @@ const Cart = () => {
   const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
+  const handleRemoveAll = () => configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  const handleRemoveButtonHover = () => setRemoveButtonHover(true);
+  const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
 
-  const handleRemoveAll = () => {
-    configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  const toggleExpand = (id) => {
+    if (expandList.find((entry) => entry === id)) {
+      setExpandList((list) => [...list.filter((item) => item !== id)]);
+    } else {
+      setExpandList((list) => [...list, id]);
+    }
+    listRef.current.resetAfterIndex(cartItems.findIndex((item) => item.id === id), true);
   };
 
   const cartQuantity = (() => {
@@ -63,11 +71,19 @@ const Cart = () => {
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
+  const getCartItemSize = (index) => ((expandList.includes(cartItems[index].id)) ? 350 : 150);
+  const renderCartItem = ({ index, style }) => (
+    <CartItem
+      data={cartItems[index]}
+      style={style}
+      expandList={expandList}
+      toggleExpand={toggleExpand}
+    />
+  );
+
   useEffect(() => {
     if (config.cartIds.length === 0) handleShareClose();
   }, [config.cartIds.length]);
-
-  const renderCartItem = ({ index, style }) => <CartItem data={cartItems[index]} style={style} />;
 
   return (
     <>
@@ -154,15 +170,16 @@ const Cart = () => {
           <Grid container item className={classes.bodyList}>
             <AutoSizer>
               {({ height, width }) => (
-                <FixedSizeList
+                <VariableSizeList
+                  ref={listRef}
                   height={height}
-                  itemSize={150}
+                  itemSize={getCartItemSize}
                   itemCount={cartItems.length}
                   width={width}
                   overscanCount={5}
                 >
                   {renderCartItem}
-                </FixedSizeList>
+                </VariableSizeList>
               )}
             </AutoSizer>
           </Grid>
