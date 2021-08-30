@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   rootNew: {
-    animation: 'fade 0.25s ease-out 3s forwards',
+    animation: 'fade 0.3s ease-out 3s forwards',
     boxShadow: '0 0 0 3px #FF9900',
     borderRadius: '5px',
     padding: '1em',
@@ -74,7 +74,10 @@ const CartItem = ({ data, style, isUnread, expandList, toggleExpand }) => {
 
   return (
     <ListItem style={style}>
-      <Grid className={(isUnread) ? classes.rootNew : classes.root}>
+      <Grid
+        className={(isUnread) ? classes.rootNew : classes.root}
+        onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
+      >
         <Grid container wrap="nowrap" className={classes.header}>
           <Grid item>
             <Typography>
