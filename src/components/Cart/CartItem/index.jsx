@@ -8,7 +8,7 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import useConfig from '../../../hooks/useConfig';
 import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
-import ViewMoreDetailsButton from '../../ListPanel/SearchList/ViewMoreDetailsButton'; // TODO: move this out of ListPanel into its own component
+import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {

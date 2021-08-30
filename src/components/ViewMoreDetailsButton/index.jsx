@@ -2,8 +2,8 @@ import React from 'react';
 import { ButtonBase, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import UpCaret from '../../../images/listPanel/upCaret.svg';
-import DownCaret from '../../../images/listPanel/downCaret.svg';
+import UpCaret from '../../images/listPanel/upCaret.svg';
+import DownCaret from '../../images/listPanel/downCaret.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
