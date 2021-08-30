@@ -11,8 +11,20 @@ import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ListPanel/SearchList/ViewMoreDetailsButton'; // TODO: move this out of ListPanel into its own component
 
 const useStyles = makeStyles((theme) => ({
+  '@global': {
+    '@keyframes fade': {
+      to: { boxShadow: '0 0 0 1px #C4C4C4' },
+    },
+  },
   root: {
-    border: '1px solid gray',
+    boxShadow: '0 0 0 1px #C4C4C4',
+    borderRadius: '5px',
+    padding: '1em',
+    width: '100%',
+  },
+  rootNew: {
+    animation: 'fade 0.25s ease-out 3s forwards',
+    boxShadow: '0 0 0 3px #FF9900',
     borderRadius: '5px',
     padding: '1em',
     width: '100%',
@@ -33,12 +45,23 @@ const useStyles = makeStyles((theme) => ({
     width: '50%',
     margin: '1em 0',
   },
+  infoTable: {
+    color: theme.palette.grey.dark,
+  },
+  infoLabel: {
+    whiteSpace: 'nowrap',
+    verticalAlign: 'baseline',
+    paddingRight: '1em',
+    '& p': {
+      fontWeight: 'bold',
+    },
+  },
   footer: {
     alignContent: 'flex-start',
   },
 }));
 
-const CartItem = ({ data, style, expandList, toggleExpand }) => {
+const CartItem = ({ data, style, isUnread, expandList, toggleExpand }) => {
   const classes = useStyles();
   const { configDispatch } = useConfig();
 
@@ -51,7 +74,7 @@ const CartItem = ({ data, style, expandList, toggleExpand }) => {
 
   return (
     <ListItem style={style}>
-      <Grid className={classes.root}>
+      <Grid className={(isUnread) ? classes.rootNew : classes.root}>
         <Grid container wrap="nowrap" className={classes.header}>
           <Grid item>
             <Typography>
@@ -84,11 +107,11 @@ const CartItem = ({ data, style, expandList, toggleExpand }) => {
                   <img alt="A magnifying glass" src={MagnifyingGlass} />
                 </Grid>
               </Grid>
-              <table>
+              <table className={classes.infoTable}>
                 <tbody>
                   <tr>
-                    <td style={{ whiteSpace: 'nowrap' }}>
-                      <Typography style={{ fontWeight: 'bold' }}>
+                    <td className={classes.infoLabel}>
+                      <Typography>
                         Project name:
                       </Typography>
                     </td>
@@ -99,8 +122,8 @@ const CartItem = ({ data, style, expandList, toggleExpand }) => {
                     </td>
                   </tr>
                   <tr>
-                    <td style={{ whiteSpace: 'nowrap' }}>
-                      <Typography style={{ fontWeight: 'bold' }}>
+                    <td className={classes.infoLabel}>
+                      <Typography>
                         Company:
                       </Typography>
                     </td>
@@ -114,11 +137,13 @@ const CartItem = ({ data, style, expandList, toggleExpand }) => {
               </table>
             </Grid>
           )}
-          <ViewMoreDetailsButton
-            expandList={expandList}
-            content={data}
-            toggleExpand={toggleExpand}
-          />
+          <Grid item style={{ justifyContent: 'flex-start', fontSize: '13px' }}>
+            <ViewMoreDetailsButton
+              expandList={expandList}
+              content={data}
+              toggleExpand={toggleExpand}
+            />
+          </Grid>
         </Grid>
       </Grid>
     </ListItem>
@@ -135,6 +160,7 @@ CartItem.propTypes = {
     }),
   }).isRequired,
   style: PropTypes.shape({}).isRequired,
+  isUnread: PropTypes.bool.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
 };

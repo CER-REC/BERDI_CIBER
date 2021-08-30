@@ -76,6 +76,7 @@ const Cart = () => {
     <CartItem
       data={cartItems[index]}
       style={style}
+      isUnread={config.unreadCartIds.includes(cartItems[index].id)}
       expandList={expandList}
       toggleExpand={toggleExpand}
     />
