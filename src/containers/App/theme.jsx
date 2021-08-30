@@ -17,6 +17,7 @@ const swansDown = '#D2EDEB';
 const tealBlue = '#07456B';
 const environmental = '#744A95';
 const socioEconomic = '#E14977';
+const darkerGrey = '#434343';
 
 const theme = createMuiTheme({
   palette: {
@@ -41,6 +42,7 @@ const theme = createMuiTheme({
     grey: {
       light: lightGrey,
       dark: darkGrey,
+      darker: darkerGrey,
     },
     dialog: {
       footer: footerBlue,

@@ -10,7 +10,7 @@ import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
 import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ListPanel/SearchList/ViewMoreDetailsButton'; // TODO: move this out of ListPanel into its own component
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     border: '1px solid gray',
     borderRadius: '5px',
@@ -20,6 +20,10 @@ const useStyles = makeStyles(() => ({
   header: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
+    color: theme.palette.grey.darker,
+    '& p': {
+      fontSize: '18px',
+    },
   },
   imageSection: {
     cursor: 'pointer',
