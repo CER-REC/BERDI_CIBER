@@ -207,6 +207,13 @@
       "resetLinkText": "Reset Session",
       "resetMessage": "Please click on the link to reset the session:"
     },
+    "legalDisclaimer":{
+      "attention":"Attention",
+      "disclaimer1":"The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
+      "disclaimer2":"By clicking “I agree” and accessing this database, you agree to only use the database for research, private study and/or education. The database may not be used for commercial or competitive purposes. You agree to make only a single copy of any documents.  You also agree that you will not distribute, publish or copy any document and you agree to destroy any copy after use.",
+      "agree":"I agree",
+      "enter":"Enter {tool}"
+    },
     "limitationsDialog": {
       "title": "General Limitations",
       "close": "Close",
