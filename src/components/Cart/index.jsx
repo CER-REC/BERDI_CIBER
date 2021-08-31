@@ -23,6 +23,7 @@ const useStyles = makeStyles(styles);
 
 const newDotSize = 14;
 const newDotR = newDotSize / 2;
+const rowSpacing = 20;
 
 const Cart = () => {
   const classes = useStyles();
@@ -31,6 +32,7 @@ const Cart = () => {
   const { cartItems } = useCartData();
   const formRef = useRef(null);
   const listRef = useRef(null);
+  const rowHeights = useRef({});
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
@@ -56,7 +58,6 @@ const Cart = () => {
     } else {
       setExpandList((list) => [...list, id]);
     }
-    listRef.current.resetAfterIndex(cartItems.findIndex((item) => item.id === id), true);
   };
 
   const cartQuantity = (() => {
@@ -71,11 +72,19 @@ const Cart = () => {
   if (config.cartIds.length === 0) fileSize = 0;
   const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
 
-  const getCartItemSize = (index) => ((expandList.includes(cartItems[index].id)) ? 350 : 150);
-  const renderCartItem = ({ index, style }) => (
+  const getRowHeight = (index) => rowHeights.current[index] + rowSpacing || 150;
+
+  const setRowHeight = (index, size) => {
+    rowHeights.current = { ...rowHeights.current, [index]: size };
+    listRef.current.resetAfterIndex(index, true);
+  };
+
+  const renderRow = ({ index, style }) => (
     <CartItem
       data={cartItems[index]}
       style={style}
+      index={index}
+      setRowHeight={setRowHeight}
       isUnread={config.unreadCartIds.includes(cartItems[index].id)}
       expandList={expandList}
       toggleExpand={toggleExpand}
@@ -174,12 +183,12 @@ const Cart = () => {
                 <VariableSizeList
                   ref={listRef}
                   height={height}
-                  itemSize={getCartItemSize}
+                  itemSize={getRowHeight}
                   itemCount={cartItems.length}
                   width={width}
                   overscanCount={5}
                 >
-                  {renderCartItem}
+                  {renderRow}
                 </VariableSizeList>
               )}
             </AutoSizer>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
   makeStyles, Grid, IconButton, Typography, ListItem,
@@ -61,8 +61,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartItem = ({ data, style, isUnread, expandList, toggleExpand }) => {
+const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, toggleExpand }) => {
   const classes = useStyles();
+  const rowRef = useRef({});
   const { configDispatch } = useConfig();
 
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
@@ -72,9 +73,16 @@ const CartItem = ({ data, style, isUnread, expandList, toggleExpand }) => {
     configDispatch({ type: 'cartIds/removed', payload: data.id });
   };
 
+  useEffect(() => {
+    if (rowRef.current) {
+      setRowHeight(index, rowRef.current.clientHeight);
+    }
+  }, [rowRef, index, setRowHeight]);
+
   return (
-    <ListItem style={style}>
+    <ListItem style={{ ...style, alignItems: 'baseline' }}>
       <Grid
+        ref={rowRef}
         className={(isUnread) ? classes.rootNew : classes.root}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
@@ -163,6 +171,8 @@ CartItem.propTypes = {
     }),
   }).isRequired,
   style: PropTypes.shape({}).isRequired,
+  index: PropTypes.number.isRequired,
+  setRowHeight: PropTypes.func.isRequired,
   isUnread: PropTypes.bool.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
