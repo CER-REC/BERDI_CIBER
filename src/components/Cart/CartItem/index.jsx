@@ -41,9 +41,12 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     backgroundImage: `url(${PlaceHolderImage})`,
     backgroundSize: 'cover',
-    height: '100%',
+    height: '6em',
     width: '50%',
-    margin: '1em 0',
+    margin: '1.5em 0',
+    '& img': {
+      margin: '0.5em 1em',
+    },
   },
   infoTable: {
     color: theme.palette.grey.dark,
