@@ -72,15 +72,11 @@ const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, togg
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
-  const handleRemoveItem = () => {
-    configDispatch({ type: 'cartIds/removed', payload: data.id });
-  };
+  const handleRemoveItem = () => configDispatch({ type: 'cartIds/removed', payload: data.id });
 
   useEffect(() => {
-    if (rowRef.current) {
-      setRowHeight(index, rowRef.current.clientHeight);
-    }
-  }, [rowRef, index, setRowHeight]);
+    if (rowRef.current) setRowHeight(index, rowRef.current.clientHeight);
+  }, [rowRef.current.clientHeight, index, setRowHeight]);
 
   return (
     <ListItem style={{ ...style, alignItems: 'baseline' }}>
