@@ -33,9 +33,16 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     color: theme.palette.grey.darker,
-    '& p': {
-      fontSize: '18px',
-    },
+  },
+  titleTruncated: {
+    fontSize: '18px',
+    overflow: 'hidden',
+    display: '-webkit-box',
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
+  },
+  title: {
+    fontSize: '18px',
   },
   removeButtonIcon: {
     fontSize: '45px',
@@ -91,7 +98,9 @@ const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, togg
       >
         <Grid container wrap="nowrap" className={classes.header}>
           <Grid item xs={10}>
-            <Typography>
+            <Typography
+              className={(expandList.includes(data.id) ? classes.title : classes.titleTruncated)}
+            >
               {data.title}
             </Typography>
           </Grid>
