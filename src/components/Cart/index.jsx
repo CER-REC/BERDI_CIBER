@@ -92,8 +92,9 @@ const Cart = () => {
   );
 
   useEffect(() => {
+    setExpandList((list) => [...list.filter((item) => config.cartIds.includes(item))]);
     if (config.cartIds.length === 0) handleShareClose();
-  }, [config.cartIds.length]);
+  }, [config.cartIds]);
 
   return (
     <>
