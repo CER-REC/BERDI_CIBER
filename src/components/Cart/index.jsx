@@ -154,15 +154,18 @@ const Cart = () => {
 
         {/* Body */}
         <Grid container direction="column" wrap="nowrap" alignContent="flex-end" className={classes.body}>
-          <Grid container item style={{ margin: '1em' }}>
+          <Grid container item style={{ margin: '1em 0 0.5em 0.5em' }}>
             <IconButton
               aria-label="Remove all"
               onClick={handleRemoveAll}
               onMouseEnter={handleRemoveButtonHover}
               onMouseLeave={handleRemoveButtonHoverEnd}
+              disableRipple
+              disableFocusRipple
             >
               {
-                (removeButtonHover && <RemoveCircleIcon />) || (<RemoveCircleOutlineIcon />)
+                (removeButtonHover && <RemoveCircleIcon className={classes.removeButtonIcon} />)
+                || (<RemoveCircleOutlineIcon className={classes.removeButtonIcon} />)
               }
             </IconButton>
             <ButtonBase
@@ -172,7 +175,7 @@ const Cart = () => {
               onMouseEnter={handleRemoveButtonHover}
               onMouseLeave={handleRemoveButtonHoverEnd}
             >
-              <Typography variant="body2" style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+              <Typography className={classes.removeButtonText}>
                 {intl.formatMessage({ id: 'components.cart.removeAll' })}
               </Typography>
             </ButtonBase>

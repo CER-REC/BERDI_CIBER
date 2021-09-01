@@ -57,6 +57,16 @@ export default (theme) => ({
     height: '100%',
     width: '100%',
   },
+  removeButtonText: {
+    fontWeight: 'bold',
+    textDecoration: 'underline',
+    fontSize: '18px',
+    color: theme.palette.cart.dark,
+  },
+  removeButtonIcon: {
+    fontSize: '45px',
+    color: theme.palette.cart.dark,
+  },
   bodyList: {
     height: '100%',
     width: '100%',

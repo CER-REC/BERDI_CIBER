@@ -37,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '18px',
     },
   },
+  removeButtonIcon: {
+    fontSize: '45px',
+    color: theme.palette.cart.dark,
+  },
   imageSection: {
     cursor: 'pointer',
     backgroundImage: `url(${PlaceHolderImage})`,
@@ -86,19 +90,22 @@ const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, togg
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
         <Grid container wrap="nowrap" className={classes.header}>
-          <Grid item>
+          <Grid item xs={10}>
             <Typography>
               {data.title}
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={2} style={{ margin: '-0.5em' }}>
             <IconButton
               onClick={handleRemoveItem}
               onMouseEnter={handleRemoveButtonHover}
               onMouseLeave={handleRemoveButtonHoverEnd}
+              disableRipple
+              disableFocusRipple
             >
               {
-                (removeButtonHover && <RemoveCircleIcon />) || (<RemoveCircleOutlineIcon />)
+                (removeButtonHover && <RemoveCircleIcon className={classes.removeButtonIcon} />)
+                || (<RemoveCircleOutlineIcon className={classes.removeButtonIcon} />)
               }
             </IconButton>
           </Grid>
