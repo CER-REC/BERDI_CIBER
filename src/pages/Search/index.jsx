@@ -12,15 +12,13 @@ import NavButtons from '../../components/NavButtons';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import SearchDetails from '../../components/SearchDetails';
 import TopicsFilter from '../../components/TopicsFilter';
-import AddContentIdsButton from './AddContentIdsButton';
+import AddContentIdsButton from '../../components/AddContentIdsButton';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import { reportShowFilter } from '../../utilities/analytics';
 
 const useStyles = makeStyles({
   hr: {
-    border: 'none',
-    color: 'black',
     backgroundColor: 'black',
     height: '1px',
   },
@@ -59,7 +57,7 @@ const Search = () => {
           </>
         )
       }
-      <Grid container justify="space-between" alignItems="center">
+      <Grid container alignItems="center">
         <Grid item xs={9}>
           <FilterChipsPanel />
         </Grid>

@@ -7,6 +7,7 @@ const lightGrey = '#AEAEAE';
 const darkGrey = '#616060';
 const darkBlue = '#284162';
 const charcoal = '#CCCCCC';
+const darkImperialBlue = '#07456B';
 const navyBlue = '#26374A';
 const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
@@ -31,6 +32,7 @@ const theme = createMuiTheme({
       navy: navyBlue,
       dark: darkBlue,
       light: lightBlue,
+      darkImperial: darkImperialBlue,
     },
     purple: {
       dark: darkPurple,
