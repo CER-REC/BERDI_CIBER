@@ -23,11 +23,19 @@ const AddContentIdsButton = () => {
     configDispatch({ type: 'cartIds/added', payload: downloadTableIds });
   };
 
+  if (!downloadTableIds.length) {
+    return null;
+  }
+
   return (
     <ButtonBase className={classes.root} onClick={handleAddAllClick}>
       {intl.formatMessage({ id: 'components.addContentIdsButton.add' }, {
         num: downloadTableIds.length,
-        formattedNum: (<span style={{ fontWeight: 700 }}>{intl.formatNumber(downloadTableIds.length)}</span>),
+        formattedNum: (
+          <span style={{ fontWeight: 700 }}>
+            {intl.formatNumber(downloadTableIds.length)}
+          </span>
+        ),
       })}
     </ButtonBase>
   );
