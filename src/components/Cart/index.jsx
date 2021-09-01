@@ -85,7 +85,6 @@ const Cart = () => {
       style={style}
       index={index}
       setRowHeight={setRowHeight}
-      isUnread={config.unreadCartIds.includes(cartItems[index].id)}
       expandList={expandList}
       toggleExpand={toggleExpand}
     />

@@ -75,10 +75,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, toggleExpand }) => {
+const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }) => {
   const classes = useStyles();
   const rowRef = useRef({});
-  const { configDispatch } = useConfig();
+  const { config: { unreadCartIds }, configDispatch } = useConfig();
 
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
@@ -93,7 +93,7 @@ const CartItem = ({ data, style, index, setRowHeight, isUnread, expandList, togg
     <ListItem style={{ ...style, alignItems: 'baseline' }}>
       <Grid
         ref={rowRef}
-        className={(isUnread) ? classes.rootNew : classes.root}
+        className={(unreadCartIds.includes(data.id)) ? classes.rootNew : classes.root}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
         <Grid container wrap="nowrap" className={classes.header}>
@@ -188,7 +188,6 @@ CartItem.propTypes = {
   style: PropTypes.shape({}).isRequired,
   index: PropTypes.number.isRequired,
   setRowHeight: PropTypes.func.isRequired,
-  isUnread: PropTypes.bool.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
 };
