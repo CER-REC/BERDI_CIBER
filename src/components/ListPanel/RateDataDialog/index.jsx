@@ -20,8 +20,8 @@ const ReportDataDialog = ({ title, open, onClose }) => {
   const classes = useStyles();
 
   const [submitted, setSubmitted] = useState(false);
-  const [rating, setRating] = React.useState(null);
-  const [hover, setHover] = React.useState(-1);
+  const [rating, setRating] = useState(null);
+  const [hover, setHover] = useState(-1);
 
   const handleSubmit = () => {
     setSubmitted(true);
@@ -61,9 +61,9 @@ const ReportDataDialog = ({ title, open, onClose }) => {
         {!submitted
           ? (
             <Grid className={classes.body}>
-              <Grid container justify="flex-start" style={{ paddingLeft: '2em' }}>
+              <Grid container style={{ paddingLeft: '2em' }}>
                 <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
-                <LeafRating rating={rating} setHover={setHover} setRating={setRating} />
+                <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
               </Grid>
 
               <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>

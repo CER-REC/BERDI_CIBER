@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   },
 });
 
-const LeafRating = ({ rating, setHover, setRating }) => {
+const LeafRating = ({ rating, onChangeActive, onChange }) => {
   const classes = useStyles();
   return (
     <Box component="fieldset" mb={3} borderColor="transparent" className={classes.root}>
@@ -44,10 +44,10 @@ const LeafRating = ({ rating, setHover, setRating }) => {
         precision={1}
         icon={<Leaf />}
         onChange={(_, newValue) => {
-          setRating(newValue);
+          onChange(newValue);
         }}
         onChangeActive={(_, newHover) => {
-          setHover(newHover);
+          onChangeActive(newHover);
         }}
       />
     </Box>
@@ -58,8 +58,8 @@ export default LeafRating;
 
 LeafRating.propTypes = {
   rating: PropTypes.number,
-  setRating: PropTypes.func.isRequired,
-  setHover: PropTypes.func.isRequired,
+  onChangeActive: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 LeafRating.defaultProps = {
