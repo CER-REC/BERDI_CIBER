@@ -2,6 +2,7 @@ import { Button, Dialog, FormControl, FormControlLabel, Grid, makeStyles, Typogr
 import Checkbox from '@material-ui/core/Checkbox';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import cerLogo from '../../images/cerLogo.svg';
 
 const useStyles = makeStyles({
@@ -20,13 +21,12 @@ const useStyles = makeStyles({
   },
 });
 
-const LegalDisclaimer = () => {
+const LegalDisclaimer = ({ setTimestamp, open, setOpen }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const [open, setOpen] = useState(true);
   const [checked, setChecked] = useState(false);
 
-  const handleClose = (event, reason) => { if (reason !== 'backdropClick') { setOpen(false); } };
+  const handleClose = (_event, reason) => { if (reason !== 'backdropClick') { setTimestamp(); setOpen(false); } };
   const toggleChecked = () => setChecked(!checked);
 
   return (
@@ -79,3 +79,9 @@ const LegalDisclaimer = () => {
 };
 
 export default LegalDisclaimer;
+
+LegalDisclaimer.propTypes = {
+  setTimestamp: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};

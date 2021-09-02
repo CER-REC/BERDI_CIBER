@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 
 import useConfig, { ConfigProvider } from '../../hooks/useConfig';
@@ -12,10 +12,34 @@ import LegalDisclaimer from '../../components/LegalDisclaimer';
 
 const Content = () => {
   const { config } = useConfig();
+  const [disclaimerOpen, setDisclaimerOpen] = useState(false);
+  const threeDaysInMS = 259200000;
+
+  const updateTimestamp = () => {
+    sessionStorage.setItem('expiryDate', new Date().getTime() + threeDaysInMS);
+  };
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('expiryDate')) {
+      setDisclaimerOpen(true);
+    }
+    const timeout = setTimeout(() => {
+      setDisclaimerOpen(true);
+    }, sessionStorage.getItem('expiryDate') - new Date().getTime());
+
+    return () => clearTimeout(timeout);
+  }, [disclaimerOpen]);
 
   return (
     <>
-      <LegalDisclaimer />
+      {disclaimerOpen
+      && (
+      <LegalDisclaimer
+        setTimestamp={updateTimestamp}
+        open={disclaimerOpen}
+        setOpen={setDisclaimerOpen}
+      />
+      )}
       {config.page === 'landing' && <Landing />}
       {config.page === 'project' && <Project />}
       {config.page === 'data' && <Data />}
