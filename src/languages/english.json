@@ -254,6 +254,21 @@
         "rate":"Rate this data",
         "report":"Report this data",
         "download":"Download table",
+        "rateDataDialog":{
+          "rateData":"Rate this data",
+          "useful":"How useful do you think this data will be?",
+          "rate":"Rate",
+          "thankYou":"Thank you for your feedback",
+          "timesRated":"This data is rated {num} time(s) with an average rating of {ratingText}.",
+          "improve":"Your rating will help us improve BERDI.",
+          "ratingLabels":{
+            "1":"Not at all",
+            "2":"Needs improvement",
+            "3":"Somewhat",
+            "4":"Good enough",
+            "5":"Very useful!"
+          }
+        },
         "reportDataDialog":{
           "report":"Report this data:",
           "required":"required",
