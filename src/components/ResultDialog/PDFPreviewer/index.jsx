@@ -5,7 +5,7 @@ import { useIntl } from 'react-intl';
 import LoadingIndicator from '../../LoadingIndicator';
 import pdfFailLoadIcon from '../../../images/pdfFailLoad.svg';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    borderColor: '#CCCCCC',
+    borderColor: theme.palette.grey.charcoal,
     borderStyle: 'solid',
     borderWidth: '2px',
     backgroundColor: '#FCFCFC',

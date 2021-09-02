@@ -2,9 +2,11 @@ import { createMuiTheme, lighten } from '@material-ui/core';
 
 const black = '#000000';
 const white = '#FFFFFF';
+const altGrey = '#434343';
 const lightGrey = '#AEAEAE';
 const darkGrey = '#616060';
 const darkBlue = '#284162';
+const charcoal = '#CCCCCC';
 const navyBlue = '#26374A';
 const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
@@ -17,7 +19,6 @@ const swansDown = '#D2EDEB';
 const tealBlue = '#07456B';
 const environmental = '#744A95';
 const socioEconomic = '#E14977';
-const darkerGrey = '#434343';
 
 const theme = createMuiTheme({
   palette: {
@@ -42,7 +43,8 @@ const theme = createMuiTheme({
     grey: {
       light: lightGrey,
       dark: darkGrey,
-      darker: darkerGrey,
+      alt: altGrey,
+      charcoal,
     },
     dialog: {
       footer: footerBlue,

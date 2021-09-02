@@ -2,8 +2,8 @@ import React from 'react';
 import { ButtonBase, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
-import UpCaret from '../../images/listPanel/upCaret.svg';
-import DownCaret from '../../images/listPanel/downCaret.svg';
+import upCaret from '../../images/listPanel/upCaret.svg';
+import downCaret from '../../images/listPanel/downCaret.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,7 +21,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
     return (
       <ButtonBase className={classes.root} onClick={() => toggleExpand(content.id)}>
         <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
-        <img alt="Up caret" src={UpCaret} />
+        <img alt="Up caret" src={upCaret} />
       </ButtonBase>
     );
   }
@@ -29,7 +29,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
   return (
     <ButtonBase className={classes.root} onClick={() => toggleExpand(content.id)}>
       <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
-      <img alt="Down caret" src={DownCaret} />
+      <img alt="Down caret" src={downCaret} />
     </ButtonBase>
   );
 };

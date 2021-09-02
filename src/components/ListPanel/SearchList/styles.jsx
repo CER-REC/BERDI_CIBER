@@ -1,11 +1,11 @@
-import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
+import placeHolderImage from '../../../images/listPanel/placeHolder.svg';
 
 export default (theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
     '& h6': {
       fontWeight: 'normal',
-      color: theme.palette.grey.darker,
+      color: theme.palette.grey.alt,
       cursor: 'pointer',
     },
     '& .tableCellInner': {
@@ -21,7 +21,7 @@ export default (theme) => ({
   },
   imageSection: {
     cursor: 'pointer',
-    backgroundImage: `url(${PlaceHolderImage})`,
+    backgroundImage: `url(${placeHolderImage})`,
     backgroundSize: 'cover',
     maxHeight: '7em',
     width: '95%',

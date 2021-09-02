@@ -24,6 +24,8 @@
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
+    "termsAndConditions": "Avis",
+    "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -221,11 +223,24 @@
         "ellipsisButton":{
           "rate":"Signaler ces données",
           "report":"Évaluer ces données",
-          "download":"Télécharger le tableau"
+          "download":"Télécharger le tableau",
+          "reportDataDialog":{
+            "report":"Évaluer ces données :",
+            "required":"Requis",
+            "whatConcern":"Quel souci souhaitez-vous signaler?",
+            "strangeChars":"Les données comportaient des caractères insolites.",
+            "noData":"Je n’ai pas retrouvé les données dans le document.",
+            "other":"Autre",
+            "explainMore":"Veuillez expliquer plus en détail.",
+            "optional":"Facultatif",
+            "disclaimer":"Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+            "submit":"Envoyer",
+            "thankYou":"Nous avons bien reçu votre signalement.",
+            "flagged":"Ces données seront examinées."
+          }
         }
       },
       "termsTitle": {
-        "title": "Avis",
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
         "link": "\"l’Avis\""
       },

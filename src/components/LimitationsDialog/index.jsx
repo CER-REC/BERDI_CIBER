@@ -103,7 +103,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' })}
         </Typography>
         <Typography component="h6">
-          {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.title' })}
+          {intl.formatMessage({ id: 'common.termsAndConditions' })}
         </Typography>
         <Typography>
           {

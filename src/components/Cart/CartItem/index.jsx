@@ -6,8 +6,8 @@ import {
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import useConfig from '../../../hooks/useConfig';
-import PlaceHolderImage from '../../../images/listPanel/placeHolder.svg';
-import MagnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
+import placeHolderImage from '../../../images/listPanel/placeHolder.svg';
+import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   header: {
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    color: theme.palette.grey.darker,
+    color: theme.palette.grey.alt,
   },
   titleTruncated: {
     fontSize: '18px',
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
   imageSection: {
     cursor: 'pointer',
-    backgroundImage: `url(${PlaceHolderImage})`,
+    backgroundImage: `url(${placeHolderImage})`,
     backgroundSize: 'cover',
     height: '6em',
     width: '50%',
@@ -130,7 +130,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
                 className={classes.imageSection}
               >
                 <Grid item>
-                  <img alt="A magnifying glass" src={MagnifyingGlass} />
+                  <img alt="A magnifying glass" src={magnifyingGlass} />
                 </Grid>
               </Grid>
               <table className={classes.infoTable}>
