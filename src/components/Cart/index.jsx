@@ -230,7 +230,7 @@ const Cart = () => {
               className={classes.footerDownloadButton}
               onClick={handleDownloadClick}
             >
-              <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
+              <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
               </form>
               <img src={downloadIcon} alt="download button" className={classes.footerDownloadButtonIcon} />
