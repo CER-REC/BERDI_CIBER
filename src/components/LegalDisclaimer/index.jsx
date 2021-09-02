@@ -4,21 +4,29 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import cerLogo from '../../images/cerLogo.svg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     '& .MuiButton-contained.Mui-disabled': {
       color: 'white',
       backgroundColor: '#D4D9E0',
     },
     '& .MuiButton-containedPrimary:hover': {
-      backgroundColor: '#26374A',
+      backgroundColor: theme.palette.blue.dark,
     },
   },
   paper: {
     maxWidth: '610px',
     padding: '2em',
   },
-});
+  checked: {
+    '&$checked': {
+      color: theme.palette.blue.dark,
+    },
+  },
+  unChecked: {
+    color: 'grey',
+  },
+}));
 
 const LegalDisclaimer = () => {
   const classes = useStyles();
@@ -49,11 +57,11 @@ const LegalDisclaimer = () => {
           {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2' })}
         </Typography>
 
-        <Grid container justify="flex-end" alignItems="center">
+        <Grid container justify="flex-end" alignItems="center" style={{ paddingTop: '1em' }}>
           <FormControl>
             <FormControlLabel
               value="agreed"
-              control={<Checkbox />}
+              control={<Checkbox className={checked ? classes.checked : classes.unChecked} />}
               label={intl.formatMessage({ id: 'components.legalDisclaimer.agree' })}
               labelPlacement="end"
               onChange={toggleChecked}
