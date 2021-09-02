@@ -7,7 +7,7 @@ import useESAData from '../../hooks/useESAData';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'block',
-    color: theme.palette.blue.darkImperial,
+    color: theme.palette.teal.tealBlue,
     textDecoration: 'underline',
     paddingTop: '1em',
     float: 'right',

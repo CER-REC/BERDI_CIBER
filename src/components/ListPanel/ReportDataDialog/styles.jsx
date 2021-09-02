@@ -3,7 +3,7 @@ export default (theme) => ({
     color: theme.palette.grey.alt,
   },
   titleSection: {
-    backgroundColor: theme.palette.blue.darkImperial,
+    backgroundColor: theme.palette.teal.tealBlue,
     color: 'white',
     padding: '0 1em 0 2em',
     '& h6': {
@@ -79,11 +79,11 @@ export default (theme) => ({
     padding: '0.4em 5em',
   },
   button: {
-    backgroundColor: theme.palette.blue.darkImperial,
+    backgroundColor: theme.palette.teal.tealBlue,
     color: 'white',
     padding: '0.4em 5em',
     '&:hover': {
-      backgroundColor: theme.palette.blue.darkImperial,
+      backgroundColor: theme.palette.teal.tealBlue,
     },
   },
   submitted: {
