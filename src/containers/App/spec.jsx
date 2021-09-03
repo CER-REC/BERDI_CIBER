@@ -15,14 +15,16 @@ import {
 import LazyApp from './lazy';
 
 // Clicks through the legal disclaimer popup
-const bypassLegal = () => {
-  const checkbox = screen.getByRole('checkbox');
-  const enterButton = screen.getByRole('button');
+// const bypassLegal = () => {
+//   const checkbox = screen.getByRole('checkbox');
+//   const enterButton = screen.getByRole('button');
 
-  fireEvent.click(checkbox);
-  fireEvent.click(enterButton);
-  return waitFor(() => expect(screen.queryByText('components.legalDisclaimer.agree')).toBeNull());
-};
+//   fireEvent.click(checkbox);
+//   fireEvent.click(enterButton);
+//   // localStorage.setItem('devBypassLegal', 'true');
+
+//   return waitFor(() => expect(screen.queryByText('components.legalDisclaimer.agree')).toBeNull());
+// };
 
 const simulateSearch = () => {
   const search = screen.getByText('components.searchPanel.searchButton');
@@ -74,6 +76,12 @@ describe('Containers/App', () => {
   // Work around to mock localStorage's getItem (https://github.com/facebook/jest/issues/6798)
   // eslint-disable-next-line no-proto
   const getItemSpy = jest.spyOn(window.localStorage.__proto__, 'getItem');
+  // eslint-disable-next-line no-proto
+  const getItemSessionSpy = jest.spyOn(window.sessionStorage.__proto__, 'getItem');
+
+  beforeEach(() => {
+    getItemSessionSpy.mockReturnValueOnce('99999999999999');
+  });
 
   afterEach(() => {
     window.location.search = '';
@@ -111,9 +119,9 @@ describe('Containers/App', () => {
 
   it('should push the state to the history', async () => {
     const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=LARGE,SMALL&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
+    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
 
     simulateSearch();
     simulateFilter();
@@ -140,7 +148,6 @@ describe('Containers/App', () => {
     // Using BigInt to mock a bad config state for throwing a error when setting data in URL
     // eslint-disable-next-line no-undef
     render(<LazyApp />, { config: { search: BigInt('1') } });
-    await bypassLegal();
 
     fireEvent.click(screen.getByText('pages.project.title'));
 
@@ -155,7 +162,6 @@ describe('Containers/App', () => {
     window.location.search = '?page=search&searchIndex=&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=&commodities=&projectTypes=&statuses=&contentTypes=&search=IiI%3D&applicationIds=BAD_DATA&treemapApplicationIds=BAD_DATA';
 
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
 
@@ -166,7 +172,6 @@ describe('Containers/App', () => {
 
   it('should set the hash from the state fragment', async () => {
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     fireEvent.click(screen.getByText('components.betaAlert.link'));
 
     expect(window.history.pushState).toHaveBeenLastCalledWith(
@@ -178,7 +183,7 @@ describe('Containers/App', () => {
 
   it('should set the state from the history on back events', async () => {
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
+
     simulateSearch();
 
     await act(async () => {
@@ -192,7 +197,6 @@ describe('Containers/App', () => {
 
   it('should save the cart IDs to local storage', async () => {
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
     await waitFor(() => {
@@ -201,10 +205,10 @@ describe('Containers/App', () => {
     });
 
     cleanup();
+    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
     getItemSpy.mockReturnValueOnce('["1","8454","77"]').mockReturnValueOnce('["1"]');
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
     await waitFor(() => {
@@ -216,7 +220,6 @@ describe('Containers/App', () => {
   it('should remove the cart IDs from local storage', async () => {
     getItemSpy.mockReturnValueOnce('["3473"]');
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
     await waitFor(() => {
@@ -225,10 +228,11 @@ describe('Containers/App', () => {
     });
 
     cleanup();
+    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
     getItemSpy.mockReturnValueOnce('["3473","1","77"]').mockReturnValueOnce('["3473","77"]');
+
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
     await waitFor(() => {
@@ -240,7 +244,6 @@ describe('Containers/App', () => {
   it('should read the cart IDs from local storage', async () => {
     getItemSpy.mockReturnValueOnce('["3473"]');
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
     simulateSearch();
 
     await waitFor(() => expect(screen.getAllByText('components.cartButton.remove')).not.toHaveLength(0));
@@ -248,7 +251,6 @@ describe('Containers/App', () => {
 
   it('should render the methods page when the data unavailable link is clicked', async () => {
     render(<LazyApp />, { configMocked: false });
-    await bypassLegal();
 
     await waitFor(() => simulateSearch());
 
