@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
 import placeHolderImage from '../../../images/listPanel/placeHolder.svg';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
@@ -77,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }) => {
   const classes = useStyles();
+  const intl = useIntl();
   const rowRef = useRef({});
   const { config: { unreadCartIds }, configDispatch } = useConfig();
 
@@ -138,7 +140,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        Project name:
+                        {intl.formatMessage({ id: 'components.cart.projectName' })}
                       </Typography>
                     </td>
                     <td>
@@ -150,7 +152,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        Company:
+                        {intl.formatMessage({ id: 'components.cart.company' })}
                       </Typography>
                     </td>
                     <td>
@@ -163,7 +165,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
               </table>
             </Grid>
           )}
-          <Grid item style={{ justifyContent: 'flex-start', fontSize: '13px' }}>
+          <Grid item style={{ fontSize: '13px' }}>
             <ViewMoreDetailsButton
               expandList={expandList}
               content={data}

@@ -167,6 +167,18 @@
       "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
       "link": "Voyez comment vous pouvez aider."
     },
+    "cart": {
+      "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les restrictions et acceptez de respecter toutes les exigences qui s’y rattachent.",
+      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
+      "headerQuantity": "Éléments sur la tablette",
+      "viewFullList": "Voir la liste complète sur la page",
+      "copyLink": "",
+      "shareDisclaimer": "",
+      "copyConfirmation": "",
+      "removeAll": "",
+      "projectName": "Nom du projet :",
+      "company": "Société :"
+    },
     "cartButton": {
       "add": "",
       "remove": "",
@@ -203,40 +215,40 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
-      "listPanel":{
-        "projectType":"Type de projet : ",
-        "projectFiled":"Projet déposé le : ",
-        "projectStatus":"Étape du projet : ",
-        "projectLinks":"Liens relatifs au projet : ",
-        "relatedTopics":"Sujets connexes :",
-        "addToShelf":"Ajouter à l’étagère",
-        "seeMore":"Plus de détails",
-        "seeFewer":"Moins de détails",
-        "expandAll":"Développer",
-        "collapseAll":"Réduire",
+      "listPanel": {
+        "projectType": "Type de projet : ",
+        "projectFiled": "Projet déposé le : ",
+        "projectStatus": "Étape du projet : ",
+        "projectLinks": "Liens relatifs au projet : ",
+        "relatedTopics": "Sujets connexes :",
+        "addToShelf": "Ajouter à l’étagère",
+        "seeMore": "Plus de détails",
+        "seeFewer": "Moins de détails",
+        "expandAll": "Développer",
+        "collapseAll": "Réduire",
         "company": "Société",
         "projectName": "Nom du projet : ",
         "esaConsultant": "Nom du consultant de l'EES : ",
         "projectFolder": "Dossier de projet",
         "finalDecision": "Décision finale",
         "esaFolder": "Dossier de l’EES",
-        "ellipsisButton":{
-          "rate":"Signaler ces données",
-          "report":"Évaluer ces données",
-          "download":"Télécharger le tableau",
-          "reportDataDialog":{
-            "report":"Évaluer ces données :",
-            "required":"Requis",
-            "whatConcern":"Quel souci souhaitez-vous signaler?",
-            "strangeChars":"Les données comportaient des caractères insolites.",
-            "noData":"Je n’ai pas retrouvé les données dans le document.",
-            "other":"Autre",
-            "explainMore":"Veuillez expliquer plus en détail.",
-            "optional":"Facultatif",
-            "disclaimer":"Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-            "submit":"Envoyer",
-            "thankYou":"Nous avons bien reçu votre signalement.",
-            "flagged":"Ces données seront examinées."
+        "ellipsisButton": {
+          "rate": "Signaler ces données",
+          "report": "Évaluer ces données",
+          "download": "Télécharger le tableau",
+          "reportDataDialog": {
+            "report": "Évaluer ces données :",
+            "required": "Requis",
+            "whatConcern": "Quel souci souhaitez-vous signaler?",
+            "strangeChars": "Les données comportaient des caractères insolites.",
+            "noData": "Je n’ai pas retrouvé les données dans le document.",
+            "other": "Autre",
+            "explainMore": "Veuillez expliquer plus en détail.",
+            "optional": "Facultatif",
+            "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+            "submit": "Envoyer",
+            "thankYou": "Nous avons bien reçu votre signalement.",
+            "flagged": "Ces données seront examinées."
           }
         }
       },
@@ -281,7 +293,7 @@
     },
     "resultDialog": {
       "seeMore": "Voir plus...",
-      "seeLess":"Voir moin ...",
+      "seeLess": "Voir moin ...",
       "foundOnPage": "Page : ",
       "originalPDF": "PDF original : ",
       "esaFolder": "Dossier de l’EES : ",
@@ -316,8 +328,8 @@
   },
   "pages": {
     "landing": {
-      "taglineBold":"Tirer des leçons du passé et préparer l’avenir.",
-      "tagline":"Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
+      "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
+      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine.",
         "button": "Lisez notre avertissement",
