@@ -13,6 +13,8 @@
     "previous": "Previous",
     "download": "Download",
     "downloadAllTables": "Download all tables",
+    "megabytes": "MB",
+    "kilobytes": "KB",
     "limitations": "limitations",
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",

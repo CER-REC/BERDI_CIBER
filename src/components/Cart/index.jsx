@@ -45,7 +45,7 @@ const Cart = () => {
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
+  const formattedFileSize = fileSizeFormatter(fileSize, intl);
 
   useEffect(() => {
     if (config.cartIds.length === 0) handleShareClose();

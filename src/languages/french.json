@@ -12,6 +12,8 @@
     "topic": "",
     "previous": "Précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
+    "megabytes": "Mo",
+    "kilobytes": "Ko",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
