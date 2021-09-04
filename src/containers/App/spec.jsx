@@ -14,17 +14,14 @@ import {
 // Index renders the app in the Apollo and Intl providers which are mocked for tests
 import LazyApp from './lazy';
 
-// Clicks through the legal disclaimer popup
-// const bypassLegal = () => {
-//   const checkbox = screen.getByRole('checkbox');
-//   const enterButton = screen.getByRole('button');
+const setURLSearchParams = (search) => {
+  window.location.search = search;
 
-//   fireEvent.click(checkbox);
-//   fireEvent.click(enterButton);
-//   // localStorage.setItem('devBypassLegal', 'true');
-
-//   return waitFor(() => expect(screen.queryByText('components.legalDisclaimer.agree')).toBeNull());
-// };
+  global.app.history.push({
+    pathname: global.app.history.location.pathname,
+    search,
+  });
+};
 
 const simulateSearch = () => {
   const search = screen.getByText('components.searchPanel.searchButton');
@@ -73,29 +70,40 @@ const simulateFilter = () => {
 };
 
 describe('Containers/App', () => {
-  // Work around to mock localStorage's getItem (https://github.com/facebook/jest/issues/6798)
-  // eslint-disable-next-line no-proto
-  const getItemSpy = jest.spyOn(window.localStorage.__proto__, 'getItem');
-  // eslint-disable-next-line no-proto
-  const getItemSessionSpy = jest.spyOn(window.sessionStorage.__proto__, 'getItem');
-
   beforeEach(() => {
-    getItemSessionSpy.mockReturnValueOnce('99999999999999');
+    // Set to max date to stop the legal disclaimer popup
+    sessionStorage.setItem('expiryDate', '8640000000000000');
   });
 
-  afterEach(() => {
-    window.location.search = '';
-  });
-
-  it('should render component', async () => {
+  it('should render component', () => {
     const { container } = render(<LazyApp />, { configMocked: false });
 
     expect(container).not.toBeEmpty();
   });
 
-  it('should set the state from the URL parameters', async () => {
-    window.location.search = '?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDIiXQ%3D%3D';
+  it('should render the legal disclaimer', async () => {
+    sessionStorage.setItem('expiryDate', new Date().getTime());
+    render(<LazyApp />, { configMocked: false });
 
+    await waitFor(() => expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument());
+
+    cleanup();
+
+    sessionStorage.setItem('expiryDate', new Date().getTime() + 1000);
+    render(<LazyApp />, { configMocked: false });
+
+    await waitFor(() => expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument());
+
+    cleanup();
+
+    sessionStorage.removeItem('expiryDate');
+    render(<LazyApp />, { configMocked: false });
+
+    expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument();
+  });
+
+  it('should set the state from the URL parameters', async () => {
+    setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDIiXQ%3D%3D');
     render(<LazyApp />, { configMocked: false });
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
@@ -119,10 +127,8 @@ describe('Containers/App', () => {
 
   it('should push the state to the history', async () => {
     const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=LARGE,SMALL&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
-    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
     render(<LazyApp />, { configMocked: false });
-
     simulateSearch();
     simulateFilter();
 
@@ -148,7 +154,6 @@ describe('Containers/App', () => {
     // Using BigInt to mock a bad config state for throwing a error when setting data in URL
     // eslint-disable-next-line no-undef
     render(<LazyApp />, { config: { search: BigInt('1') } });
-
     fireEvent.click(screen.getByText('pages.project.title'));
 
     expect(window.history.pushState).toHaveBeenLastCalledWith(
@@ -159,8 +164,7 @@ describe('Containers/App', () => {
   });
 
   it('should set the state ignoring bad URL parameters', async () => {
-    window.location.search = '?page=search&searchIndex=&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=&commodities=&projectTypes=&statuses=&contentTypes=&search=IiI%3D&applicationIds=BAD_DATA&treemapApplicationIds=BAD_DATA';
-
+    setURLSearchParams('?page=search&searchIndex=&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=&commodities=&projectTypes=&statuses=&contentTypes=&search=IiI%3D&applicationIds=BAD_DATA&treemapApplicationIds=BAD_DATA');
     render(<LazyApp />, { configMocked: false });
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
@@ -170,7 +174,7 @@ describe('Containers/App', () => {
     });
   });
 
-  it('should set the hash from the state fragment', async () => {
+  it('should set the hash from the state fragment', () => {
     render(<LazyApp />, { configMocked: false });
     fireEvent.click(screen.getByText('components.betaAlert.link'));
 
@@ -183,7 +187,6 @@ describe('Containers/App', () => {
 
   it('should set the state from the history on back events', async () => {
     render(<LazyApp />, { configMocked: false });
-
     simulateSearch();
 
     await act(async () => {
@@ -205,9 +208,9 @@ describe('Containers/App', () => {
     });
 
     cleanup();
-    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
-    getItemSpy.mockReturnValueOnce('["1","8454","77"]').mockReturnValueOnce('["1"]');
+    window.localStorage.setItem('cartIds', '["1","8454","77"]');
+    window.localStorage.setItem('unreadCartIds', '["1"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
@@ -218,7 +221,7 @@ describe('Containers/App', () => {
   });
 
   it('should remove the cart IDs from local storage', async () => {
-    getItemSpy.mockReturnValueOnce('["3473"]');
+    window.localStorage.setItem('cartIds', '["3473"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
@@ -228,10 +231,9 @@ describe('Containers/App', () => {
     });
 
     cleanup();
-    getItemSessionSpy.mockReturnValueOnce('99999999999999');
 
-    getItemSpy.mockReturnValueOnce('["3473","1","77"]').mockReturnValueOnce('["3473","77"]');
-
+    window.localStorage.setItem('cartIds', '["3473","1","77"]');
+    window.localStorage.setItem('unreadCartIds', '["3473","77"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
     await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
@@ -242,7 +244,7 @@ describe('Containers/App', () => {
   });
 
   it('should read the cart IDs from local storage', async () => {
-    getItemSpy.mockReturnValueOnce('["3473"]');
+    window.localStorage.setItem('cartIds', '["3473"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
 
@@ -251,8 +253,7 @@ describe('Containers/App', () => {
 
   it('should render the methods page when the data unavailable link is clicked', async () => {
     render(<LazyApp />, { configMocked: false });
-
-    await waitFor(() => simulateSearch());
+    simulateSearch();
 
     await waitFor(() => fireEvent.mouseOver(screen.getAllByText('components.cartButton.unavailable')[0]));
     await waitFor(() => {

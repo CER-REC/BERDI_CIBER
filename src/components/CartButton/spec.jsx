@@ -34,7 +34,7 @@ describe('Containers/App', () => {
 
       cleanup();
 
-      render(<CartButton data={data} />);
+      render(<CartButton data={data} />, { config: { cartIds: [] } });
       fireEvent.click(screen.getByText('components.cartButton.add'));
       expect(screen.getByText('components.cartButton.remove')).toBeInTheDocument();
     });
