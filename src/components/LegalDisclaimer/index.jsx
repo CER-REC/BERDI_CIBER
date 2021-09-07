@@ -35,13 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LegalDisclaimer = ({ setTimestamp, open, setOpen }) => {
+const LegalDisclaimer = ({ onClose, open, setOpen }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [checked, setChecked] = useState(false);
   const logo = lang === 'fr' ? cerLogoFr : cerLogoEn;
 
-  const handleClose = (_event, reason) => { if (reason !== 'backdropClick') { setTimestamp(); setOpen(false); } };
+  const handleClose = (_, reason) => { if (reason !== 'backdropClick') { onClose(); setOpen(false); } };
   const toggleChecked = () => setChecked(!checked);
 
   return (
@@ -110,7 +110,7 @@ const LegalDisclaimer = ({ setTimestamp, open, setOpen }) => {
 export default LegalDisclaimer;
 
 LegalDisclaimer.propTypes = {
-  setTimestamp: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
 };

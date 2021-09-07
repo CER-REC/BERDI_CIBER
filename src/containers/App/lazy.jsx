@@ -20,26 +20,26 @@ const Content = () => {
   };
 
   useEffect(() => {
-    if (!sessionStorage.getItem('expiryDate')) {
-      setDisclaimerOpen(true);
-    }
-    const timeout = setTimeout(() => {
-      setDisclaimerOpen(true);
-    }, sessionStorage.getItem('expiryDate') - new Date().getTime());
+    const timeout = sessionStorage.getItem('expiryDate') - new Date().getTime();
 
-    return () => clearTimeout(timeout);
+    if (timeout <= 0) {
+      setDisclaimerOpen(true);
+      return;
+    }
+
+    const timeoutId = setTimeout(() => setDisclaimerOpen(true), timeout);
+
+    // eslint-disable-next-line consistent-return
+    return () => clearTimeout(timeoutId);
   }, [disclaimerOpen]);
 
   return (
     <>
-      {disclaimerOpen
-      && (
       <LegalDisclaimer
-        setTimestamp={updateTimestamp}
+        onClose={updateTimestamp}
         open={disclaimerOpen}
         setOpen={setDisclaimerOpen}
       />
-      )}
       {config.page === 'landing' && <Landing />}
       {config.page === 'project' && <Project />}
       {config.page === 'data' && <Data />}
