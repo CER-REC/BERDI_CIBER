@@ -1,5 +1,5 @@
 import {
-  Button, Dialog, FormControl, FormControlLabel, Grid, makeStyles, Typography, Checkbox,
+  Button, Checkbox, Dialog, FormControl, FormControlLabel, Grid, makeStyles, Typography,
 } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -54,27 +54,31 @@ const LegalDisclaimer = () => {
     >
       <img alt="Canadian flag and text reading Canadas energy regulator" src={logo} style={{ maxWidth: '23em' }} />
       <Grid container justify="center">
-        <Typography variant="h6" style={{ padding: '1.5em 0', color: 'black' }}>
-          {intl.formatMessage({ id: 'components.legalDisclaimer.attention' })}
-        </Typography>
-        <Typography style={{ paddingBottom: '1em' }}>
-          {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer1' })}
-        </Typography>
-        <Typography style={{ paddingBottom: '1em' }}>
-          {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2' })}
-        </Typography>
-        <ul>
-          <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet1' })}</li>
-          <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet2' })}</li>
-          <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet3' })}</li>
-          <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet4' })}</li>
-          <li>
-            {intl.formatMessage({ id: 'components.legalDisclaimer.bullet5' }, {
-              not: (<span style={{ fontWeight: '900' }}>{intl.formatMessage({ id: 'components.legalDisclaimer.not' })}</span>),
-            })}
-          </li>
-        </ul>
+        <div>
+          <Typography variant="h6" style={{ padding: '1.5em 0', color: 'black' }}>
+            {intl.formatMessage({ id: 'components.legalDisclaimer.attention' })}
+          </Typography>
+          <Typography style={{ paddingBottom: '1em' }}>
+            {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer1' })}
+          </Typography>
+          <Typography style={{ paddingBottom: '1em' }}>
+            {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2' })}
+          </Typography>
+        </div>
 
+        <div>
+          <ul>
+            <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet1' })}</li>
+            <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet2' })}</li>
+            <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet3' })}</li>
+            <li>{intl.formatMessage({ id: 'components.legalDisclaimer.bullet4' })}</li>
+            <li>
+              {intl.formatMessage({ id: 'components.legalDisclaimer.bullet5' }, {
+                not: (<span style={{ fontWeight: '900' }}>{intl.formatMessage({ id: 'components.legalDisclaimer.not' })}</span>),
+              })}
+            </li>
+          </ul>
+        </div>
         <Grid container justify="flex-end" alignItems="center" style={{ paddingTop: '1em' }}>
           <FormControl>
             <FormControlLabel
