@@ -235,7 +235,7 @@ const Cart = () => {
               </form>
               <img src={downloadIcon} alt="download button" className={classes.footerDownloadButtonIcon} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-              <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+              <span style={{ fontWeight: 'bold', marginLeft: '5px' }}>
                 {formattedFileSize}
               </span>
             </Button>
