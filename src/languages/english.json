@@ -210,7 +210,13 @@
     "legalDisclaimer":{
       "attention":"Attention",
       "disclaimer1":"The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
-      "disclaimer2":"By clicking “I agree” and accessing this database, you agree to only use the database for research, private study and/or education. The database may not be used for commercial or competitive purposes. You agree to make only a single copy of any documents.  You also agree that you will not distribute, publish or copy any document and you agree to destroy any copy after use.",
+      "disclaimer2":"By clicking “I agree” and accessing this database, you agree to:",
+      "bullet1":"use the database for research, private study and/or education only;",
+      "bullet2":"not distribute or publish any document;",
+      "bullet3":"make only a single copy of any document;",
+      "bullet4":"destroy any copy after use; and",
+      "bullet5":"{not} use the database for any commercial or competitive purposes.",
+      "not":"NOT",
       "agree":"I agree",
       "enter":"Enter {tool}"
     },
