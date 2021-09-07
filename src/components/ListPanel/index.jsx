@@ -1,9 +1,9 @@
-import { Button, Grid, makeStyles } from '@material-ui/core';
-import React, { useCallback, useState } from 'react';
+import { Button, makeStyles, Grid } from '@material-ui/core';
+import React, { useState, useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
-import LimitationsDialog from '../LimitationsDialog';
 import SearchList from './SearchList';
+import LimitationsDialog from '../LimitationsDialog';
 
 const useStyles = makeStyles({
   expandButtons: {
@@ -24,10 +24,7 @@ const ListSection = () => {
   const intl = useIntl();
 
   const { contents } = useESAData();
-  const [open, setOpen] = useState(false);
   const [expandList, setExpandList] = useState([]);
-  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
-  const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -45,15 +42,19 @@ const ListSection = () => {
     setExpandList([]);
   };
 
+  const [open, setOpen] = useState(false);
+  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
+  const handleClose = useCallback(() => setOpen(false), [setOpen]);
+
   return (
     <>
-      <Grid container justify="space-between" alignItems="flex-end">
+      <Grid container justify="space-between" style={{ paddingBottom: '0.5em' }}>
         <Grid item className={classes.expandButtons}>
           <Button onClick={expandAll} variant="contained" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
           <Button onClick={collapseAll} variant="contained">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
         </Grid>
 
-        <Grid item className={classes.innerGrid}>
+        <Grid item style={{ paddingRight: '0.5em' }}>
           <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
             {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
           </Button>

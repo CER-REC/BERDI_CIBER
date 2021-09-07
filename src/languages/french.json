@@ -155,6 +155,9 @@
       "title": "NOTE SUR L’EXACTITUDE",
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
+    "addContentIdsButton":{
+      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux} à l’étagère}"
+    },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
       "tables": "Télécharger les tableaux de l'EES"

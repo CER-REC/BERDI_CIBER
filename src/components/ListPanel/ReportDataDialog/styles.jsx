@@ -1,11 +1,9 @@
-const blue = '#07456B';
-
 export default (theme) => ({
   root: {
     color: theme.palette.grey.alt,
   },
   titleSection: {
-    backgroundColor: blue,
+    backgroundColor: theme.palette.teal.blue,
     color: 'white',
     padding: '0 1em 0 2em',
     '& h6': {
@@ -81,11 +79,11 @@ export default (theme) => ({
     padding: '0.4em 5em',
   },
   button: {
-    backgroundColor: blue,
+    backgroundColor: theme.palette.teal.blue,
     color: 'white',
     padding: '0.4em 5em',
     '&:hover': {
-      backgroundColor: blue,
+      backgroundColor: theme.palette.teal.blue,
     },
   },
   submitted: {
