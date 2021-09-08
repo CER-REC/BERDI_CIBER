@@ -74,7 +74,7 @@ const Cart = () => {
 
   const getRowHeight = (index) => rowHeights.current[index] + rowSpacing || 150;
 
-  const setRowHeight = (index, size) => {
+  const onHeightChange = (index, size) => {
     rowHeights.current = { ...rowHeights.current, [index]: size };
     listRef.current.resetAfterIndex(index, true);
   };
@@ -84,7 +84,7 @@ const Cart = () => {
       data={cartItems[index]}
       style={style}
       index={index}
-      setRowHeight={setRowHeight}
+      onHeightChange={onHeightChange}
       expandList={expandList}
       toggleExpand={toggleExpand}
     />

@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }) => {
+const CartItem = ({ data, style, index, onHeightChange, expandList, toggleExpand }) => {
   const classes = useStyles();
   const intl = useIntl();
   const rowRef = useRef({});
@@ -83,8 +83,8 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
   const handleRemoveItem = () => configDispatch({ type: 'cartIds/removed', payload: data.id });
 
   useEffect(() => {
-    if (rowRef.current) setRowHeight(index, rowRef.current.clientHeight);
-  }, [rowRef.current.clientHeight, index, setRowHeight]);
+    onHeightChange(index, rowRef.current.clientHeight);
+  }, [rowRef.current.clientHeight, index, onHeightChange]);
 
   return (
     <ListItem style={{ ...style, alignItems: 'baseline' }}>
@@ -119,13 +119,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
         <Grid container item direction="column" className={classes.footer}>
           {expandList.includes(data.id) && (
             <Grid container direction="column">
-              <Grid
-                item
-                container
-                alignItems="flex-end"
-                justify="flex-end"
-                className={classes.imageSection}
-              >
+              <Grid container alignItems="flex-end" justify="flex-end" className={classes.imageSection}>
                 <Grid item>
                   <img alt="A magnifying glass" src={magnifyingGlass} />
                 </Grid>
@@ -184,7 +178,7 @@ CartItem.propTypes = {
   }).isRequired,
   style: PropTypes.shape({}).isRequired,
   index: PropTypes.number.isRequired,
-  setRowHeight: PropTypes.func.isRequired,
+  onHeightChange: PropTypes.func.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
 };
