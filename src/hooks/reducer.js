@@ -28,7 +28,7 @@ const getValidEnums = (enums, validEnums) => {
     return [];
   }
 
-  return validEnums.filter((validEnum) => enums?.includes(validEnum));
+  return enums.filter((type) => validEnums.includes(type));
 };
 
 export const initialState = {
