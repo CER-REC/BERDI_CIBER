@@ -54,7 +54,7 @@ const Cart = () => {
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
-      setExpandList((list) => [...list.filter((item) => item !== id)]);
+      setExpandList((list) => list.filter((item) => item !== id));
     } else {
       setExpandList((list) => [...list, id]);
     }
@@ -153,8 +153,8 @@ const Cart = () => {
         </Grid>
 
         {/* Body */}
-        <Grid container direction="column" wrap="nowrap" alignContent="flex-end" className={classes.body}>
-          <Grid container item style={{ margin: '1em 0 0.5em 0.5em' }}>
+        <Grid container direction="column" wrap="nowrap" className={classes.body}>
+          <Grid item style={{ margin: '1em 0 0.5em 0.5em' }}>
             <IconButton
               aria-label="Remove all"
               onClick={handleRemoveAll}
@@ -180,7 +180,7 @@ const Cart = () => {
               </Typography>
             </ButtonBase>
           </Grid>
-          <Grid container item className={classes.bodyList}>
+          <Grid item className={classes.bodyList}>
             <AutoSizer>
               {({ height, width }) => (
                 <VariableSizeList
