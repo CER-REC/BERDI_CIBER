@@ -236,7 +236,6 @@ export const getReducer = (
       return {
         ...state,
         treemapApplicationIds: initialState.treemapApplicationIds,
-        topics: initialState.topics,
         filter: action.payload,
         fragment: initialState.fragment,
       };
