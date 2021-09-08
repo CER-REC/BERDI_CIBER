@@ -20,7 +20,21 @@ const hasVariables = (config) => (
 );
 
 export default () => {
-  const { config, config: { applicationIds, treemapApplicationIds }, configDispatch } = useConfig();
+  const {
+    config: { applicationIds, topics, treemapApplicationIds },
+    config,
+    configDispatch,
+  } = useConfig();
+  const valueComponentFilter = useMemo(
+    () => {
+      const filter = {};
+
+      topics.forEach((topic) => { filter[topic] = 1; });
+
+      return filter;
+    },
+    [topics],
+  );
   const { loading, error, data } = useQuery(SEARCH, {
     variables: {
       search: config.search,
@@ -33,17 +47,27 @@ export default () => {
       statuses: config.statuses,
       contentTypes: config.contentTypes,
       searchApplicationIds: treemapApplicationIds.length ? treemapApplicationIds : applicationIds,
+      valueComponent: valueComponentFilter,
       first: RESULT_COUNT,
       offset: config.searchIndex * RESULT_COUNT,
     },
     skip: (config.page !== 'search') || !hasVariables(config),
   });
   const applications = useMemo(() => data?.applications || [], [data]);
+  const valueComponent = useMemo(() => data?.contentSearch.valueComponent || {}, [data]);
   const excludedTreemapApplicationIds = useMemo(
     () => treemapApplicationIds.filter(
       (id) => !applications.find((application) => (application.id === id)),
     ),
     [treemapApplicationIds, applications],
+  );
+  const excludedTopics = useMemo(
+    () => {
+      const zeroes = Object.keys(valueComponent).filter((topic) => !valueComponent[topic]);
+
+      return topics.filter((topic) => zeroes.includes(topic));
+    },
+    [topics, valueComponent],
   );
 
   useEffect(() => {
@@ -52,11 +76,18 @@ export default () => {
     }
   }, [configDispatch, excludedTreemapApplicationIds, loading]);
 
+  useEffect(() => {
+    if (excludedTopics.length && !loading) {
+      configDispatch({ type: 'topics/removed', payload: excludedTopics });
+    }
+  }, [configDispatch, excludedTopics, loading]);
+
   return {
     loading,
     error,
     applications,
     contents: data?.contentSearch.contents || [],
     totalCount: data?.contentSearch.totalCount || 0,
+    valueComponent,
   };
 };
