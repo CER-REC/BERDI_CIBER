@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartItem = ({ data, style, index, onHeightChange, expandList, toggleExpand }) => {
+const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => {
   const classes = useStyles();
   const intl = useIntl();
   const rowRef = useRef({});
@@ -87,9 +87,8 @@ const CartItem = ({ data, style, index, onHeightChange, expandList, toggleExpand
   }, [rowRef.current.clientHeight, index, onHeightChange]);
 
   return (
-    <ListItem style={{ ...style, alignItems: 'baseline' }}>
+    <ListItem ref={rowRef} style={{ alignItems: 'baseline' }}>
       <Grid
-        ref={rowRef}
         className={`${classes.root} ${(unreadCartIds.includes(data.id)) ? classes.rootNew : ''}`}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
@@ -176,7 +175,6 @@ CartItem.propTypes = {
       companyName: PropTypes.string,
     }),
   }).isRequired,
-  style: PropTypes.shape({}).isRequired,
   index: PropTypes.number.isRequired,
   onHeightChange: PropTypes.func.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
