@@ -8,12 +8,14 @@ import Data from '../../pages/Data';
 import Methods from '../../pages/Methods';
 import Search from '../../pages/Search';
 import theme from './theme';
+import LegalDisclaimer from '../../components/LegalDisclaimer';
 
 const Content = () => {
   const { config } = useConfig();
 
   return (
     <>
+      <LegalDisclaimer />
       {config.page === 'landing' && <Landing />}
       {config.page === 'project' && <Project />}
       {config.page === 'data' && <Data />}
