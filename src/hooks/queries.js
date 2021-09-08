@@ -132,6 +132,7 @@ export const SEARCH = gql`
         }
       }
       totalCount
+      downloadTableIds
       valueComponent {
         landscape
         soil
