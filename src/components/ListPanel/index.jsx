@@ -28,7 +28,7 @@ const ListSection = () => {
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
-      setExpandList((list) => [...list.filter((item) => item !== id)]);
+      setExpandList((list) => list.filter((item) => item !== id));
     } else {
       setExpandList((list) => [...list, id]);
     }
