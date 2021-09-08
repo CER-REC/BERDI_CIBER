@@ -87,7 +87,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
   }, [rowRef.current.clientHeight, index, onHeightChange]);
 
   return (
-    <ListItem ref={rowRef} style={{ alignItems: 'baseline' }}>
+    <ListItem ref={rowRef}>
       <Grid
         className={`${classes.root} ${(unreadCartIds.includes(data.id)) ? classes.rootNew : ''}`}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}

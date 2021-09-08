@@ -74,8 +74,11 @@ const Cart = () => {
   const getRowHeight = (index) => rowHeights.current[index] || 150;
 
   const onHeightChange = (index, size) => {
-    rowHeights.current = { ...rowHeights.current, [index]: size };
-    listRef.current.resetAfterIndex(index, true);
+    const hasChanged = rowHeights.current[index] !== size;
+    if (hasChanged) {
+      rowHeights.current[index] = size;
+      listRef.current.resetAfterIndex(index, true);
+    }
   };
 
   const renderRow = ({ index, style }) => (
