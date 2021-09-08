@@ -21,6 +21,12 @@ Both `Components` and `Containers` can reference external state variables.
 High-level documentation (like this architecture documentation) belongs in
 `./documentation/`.
 
+## General
+
+- Imported image sources should start with a lowercase
+- Prioritize using conditional rendering when applicable
+- React component callback functions should start with `on` (`onClick`, `onChange`, `onCustom`)
+
 ## Hooks
 
 - Avoid using `useCallback` and `useMemo`, unless required to stop re-renders and improve performance
