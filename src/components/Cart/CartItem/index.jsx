@@ -12,10 +12,8 @@ import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
 const useStyles = makeStyles((theme) => ({
-  '@global': {
-    '@keyframes fade': {
-      to: { boxShadow: '0 0 0 1px #C4C4C4' },
-    },
+  '@keyframes fade': {
+    to: { boxShadow: '0 0 0 1px #C4C4C4' },
   },
   root: {
     boxShadow: '0 0 0 1px #C4C4C4',
@@ -24,11 +22,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   rootNew: {
-    animation: 'fade 0.3s ease-out 3s forwards',
+    animation: '$fade 0.3s ease-out 3s forwards',
     boxShadow: '0 0 0 3px #FF9900',
-    borderRadius: '5px',
-    padding: '1em',
-    width: '100%',
   },
   header: {
     alignItems: 'flex-start',
@@ -95,7 +90,7 @@ const CartItem = ({ data, style, index, setRowHeight, expandList, toggleExpand }
     <ListItem style={{ ...style, alignItems: 'baseline' }}>
       <Grid
         ref={rowRef}
-        className={(unreadCartIds.includes(data.id)) ? classes.rootNew : classes.root}
+        className={`${classes.root} ${(unreadCartIds.includes(data.id)) ? classes.rootNew : ''}`}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
         <Grid container wrap="nowrap" className={classes.header}>
