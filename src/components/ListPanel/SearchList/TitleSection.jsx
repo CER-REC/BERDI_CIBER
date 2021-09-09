@@ -34,7 +34,7 @@ const TitleSection = ({ title, content, handleClickOpen, setExpandedTitles, expa
         </Typography>
         <ButtonBase
           className={classes.seeMoreButton}
-          onClick={() => setExpandedTitles((list) => [...list.filter((item) => item !== title)])}
+          onClick={() => setExpandedTitles((list) => list.filter((item) => item !== title))}
         >
           {intl.formatMessage({ id: 'components.resultDialog.seeLess' })}
         </ButtonBase>

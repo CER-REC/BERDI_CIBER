@@ -168,3 +168,16 @@ export const DOWNLOAD_SIZE = gql`
     }
   }
 `;
+
+export const CART_ITEMS = gql`
+  query($cartIds: [ID!]!) {
+    contents(ids: $cartIds) {
+      id
+      title
+      application {
+        name
+        companyName
+      }
+    }
+  }
+`;
