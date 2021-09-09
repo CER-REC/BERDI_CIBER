@@ -157,7 +157,7 @@
       "title": "A NOTE ON ACCURACY",
       "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded."
     },
-    "addContentIdsButton":{
+    "addContentIdsButton": {
       "add": "Add {num, plural, =1 {{formattedNum} table} other {all {formattedNum} tables}} to your shelf"
     },
     "applicationDialog": {
@@ -179,7 +179,10 @@
       "viewFullList": "View full list on page",
       "copyLink": "Copy link",
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
-      "copyConfirmation": "Link copied!"
+      "copyConfirmation": "Link copied!",
+      "removeAll": "Remove all",
+      "projectName": "Project name:",
+      "company": "Company:"
     },
     "cartButton": {
       "add": "Add to shelf",
@@ -263,38 +266,38 @@
       "projectFolder": "Project folder",
       "finalDecision": "Final decision",
       "esaFolder": "ESA folder",
-      "ellipsisButton":{
-        "rate":"Rate this data",
-        "report":"Report this data",
-        "download":"Download table",
-        "rateDataDialog":{
-          "rateData":"Rate this data",
-          "useful":"How useful do you think this data will be?",
-          "rate":"Rate",
-          "thankYou":"Thank you for your feedback",
-          "timesRated":"This data is rated {num} time(s) with an average rating of {ratingText}.",
-          "improve":"Your rating will help us improve BERDI.",
-          "ratingLabels":{
-            "1":"Not at all",
-            "2":"Needs improvement",
-            "3":"Somewhat",
-            "4":"Good enough",
-            "5":"Very useful!"
+      "ellipsisButton": {
+        "rate": "Rate this data",
+        "report": "Report this data",
+        "download": "Download table",
+        "rateDataDialog": {
+          "rateData": "Rate this data",
+          "useful": "How useful do you think this data will be?",
+          "rate": "Rate",
+          "thankYou": "Thank you for your feedback",
+          "timesRated": "This data is rated {num} time(s) with an average rating of {ratingText}.",
+          "improve": "Your rating will help us improve BERDI.",
+          "ratingLabels": {
+            "1": "Not at all",
+            "2": "Needs improvement",
+            "3": "Somewhat",
+            "4": "Good enough",
+            "5": "Very useful!"
           }
         },
-        "reportDataDialog":{
-          "report":"Report this data:",
-          "required":"required",
-          "whatConcern":"What concern would you like to report?",
-          "strangeChars":"The data had strange characters.",
-          "noData":"I couldn't find the data in the original document.",
-          "other":"Other",
-          "explainMore":"Please explain in more detail",
-          "optional":"optional",
-          "disclaimer":"Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
-          "submit":"Submit",
-          "thankYou":"Thank you for your report.",
-          "flagged":"This data has been flagged for review."
+        "reportDataDialog": {
+          "report": "Report this data:",
+          "required": "required",
+          "whatConcern": "What concern would you like to report?",
+          "strangeChars": "The data had strange characters.",
+          "noData": "I couldn't find the data in the original document.",
+          "other": "Other",
+          "explainMore": "Please explain in more detail",
+          "optional": "optional",
+          "disclaimer": "Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
+          "submit": "Submit",
+          "thankYou": "Thank you for your report.",
+          "flagged": "This data has been flagged for review."
         }
       }
     },

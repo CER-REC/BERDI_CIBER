@@ -5,7 +5,7 @@ export default (theme) => ({
     padding: '0.4em 0.4em 0.4em 0',
     '& h6': {
       fontWeight: 'normal',
-      color: theme.palette.grey.dark,
+      color: theme.palette.grey.alt,
       cursor: 'pointer',
     },
     '& .tableCellInner': {
