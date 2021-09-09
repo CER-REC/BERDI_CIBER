@@ -24,12 +24,11 @@ const Content = () => {
 
     if (timeout <= 0) {
       setDisclaimerOpen(true);
-      return;
+      return undefined;
     }
 
     const timeoutId = setTimeout(() => setDisclaimerOpen(true), timeout);
 
-    // eslint-disable-next-line consistent-return
     return () => clearTimeout(timeoutId);
   }, [disclaimerOpen]);
 
