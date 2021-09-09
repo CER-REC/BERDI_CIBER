@@ -94,6 +94,11 @@
         "title": "",
         "label": "",
         "description": ""
+      },
+      "environmental": {
+        "title": "",
+        "label": "",
+        "description": ""
       }
     },
     "socioEconomic": {
@@ -104,11 +109,6 @@
         "description": ""
       },
       "job": {
-        "title": "",
-        "label": "",
-        "description": ""
-      },
-      "environmental": {
         "title": "",
         "label": "",
         "description": ""
