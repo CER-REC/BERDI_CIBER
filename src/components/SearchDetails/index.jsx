@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const SearchDetails = () => {
   const classes = useStyles();
   const intl = useIntl();
-  const { applications, loading } = useESAData();
+  const { applications } = useESAData();
   const { config: { filter } } = useConfig();
 
   const figureCount = applications.reduce(
@@ -34,10 +34,6 @@ const SearchDetails = () => {
     (count, application) => (application.tableCount + count),
     0,
   );
-
-  if (!applications.length && loading) {
-    return null;
-  }
 
   return (
     <div style={{ paddingLeft: '0.3em' }}>
