@@ -42,16 +42,16 @@ const environmentalSrcs = {
   gas,
   air,
   electricity,
+  environmental,
 };
 const socioEconomicSrcs = {
   infrastructure,
   job,
-  environmental,
-  heritage,
   proximity,
   human,
-  social,
   boat,
+  heritage,
+  social,
   indigenous,
   treaty,
 };
@@ -171,7 +171,7 @@ const TopicsFilter = () => {
 
   return (
     <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
-      <Grid item xs={6}>
+      <Grid item xs={7}>
         <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
           <span>{ intl.formatMessage({ id: 'common.environmental.title' }) }</span>
         </Typography>
@@ -197,7 +197,7 @@ const TopicsFilter = () => {
           }
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={5}>
         <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
           <span>{ intl.formatMessage({ id: 'common.socioEconomic.title' }) }</span>
         </Typography>
