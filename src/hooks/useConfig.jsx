@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { createBrowserHistory } from 'history';
 
@@ -81,7 +81,7 @@ export const ConfigProvider = ({ children }) => {
       contentTypes,
     ],
   );
-  const [isUpdating, setIsUpdating] = useState(true);
+  const isUpdatingRef = useRef(true);
   const [config, configDispatch] = useReducer(reducer, initialState);
   const updateStateFromURL = useCallback((location) => {
     const query = queryString.parse(location.search);
@@ -99,7 +99,8 @@ export const ConfigProvider = ({ children }) => {
       localStorage.setItem('unreadCartIds', ids);
     }
 
-    setIsUpdating(true);
+    isUpdatingRef.current = true;
+
     configDispatch({
       type: 'changed',
       payload: {
@@ -147,19 +148,18 @@ export const ConfigProvider = ({ children }) => {
   }, [config]);
 
   useEffect(() => {
-    if (isUpdating) {
+    if (isUpdatingRef.current) {
       return;
     }
 
     localStorage.setItem('cartIds', JSON.stringify(config.cartIds));
     localStorage.setItem('unreadCartIds', JSON.stringify(config.unreadCartIds));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [config.cartIds, config.unreadCartIds]);
 
   useEffect(() => {
     // Allow local storage and URL update hooks to be ran before resetting the flag
-    if (isUpdating) {
-      setIsUpdating(false);
+    if (isUpdatingRef.current) {
+      isUpdatingRef.current = false;
 
       return;
     }
@@ -169,7 +169,6 @@ export const ConfigProvider = ({ children }) => {
       search,
       hash: config.fragment ? `#${config.fragment}` : '',
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search, config.fragment]);
 
   useEffect(() => {
