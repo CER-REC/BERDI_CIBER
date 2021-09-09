@@ -71,8 +71,11 @@ const simulateFilter = () => {
 
 describe('Containers/App', () => {
   beforeEach(() => {
-    // Set to max date to stop the legal disclaimer popup
-    sessionStorage.setItem('expiryDate', '8640000000000000');
+    const dayMS = 172800000;
+    // Certain large numbers will cause the setTimeout in Jest tests to trigger immediately
+    const expiry = new Date().getTime() + dayMS;
+
+    sessionStorage.setItem('expiryDate', expiry);
   });
 
   it('should render component', () => {
