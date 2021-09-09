@@ -1,6 +1,20 @@
 import fetch from 'node-fetch';
+import { createBrowserHistory } from 'history';
 import '@testing-library/jest-dom';
 
+jest.mock('history', () => {
+  const actual = jest.requireActual('history');
+  // Use a single history object so the tests can mock the URL
+  const appHistory = actual.createBrowserHistory();
+
+  return {
+    ...actual,
+    // Override createBrowserHistory to always return the same history object
+    createBrowserHistory: () => appHistory,
+  };
+});
+
+global.app = { history: createBrowserHistory() };
 // silent warning messages
 global.console = { ...global.console, warn: jest.fn() };
 
@@ -31,3 +45,15 @@ Object.defineProperty(global, 'location', {
 
 jest.spyOn(global.history, 'pushState');
 jest.setTimeout(10000);
+
+afterEach(() => {
+  window.location.search = '';
+
+  window.localStorage.clear();
+  window.sessionStorage.clear();
+  global.app.history.push({
+    pathname: global.app.history.location.pathname,
+    search: window.location.search,
+    hash: '',
+  });
+});
