@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 const SearchDetails = () => {
   const classes = useStyles();
   const intl = useIntl();
-  const { applications } = useESAData();
+  const { applications, loading } = useESAData();
   const { config: { filter } } = useConfig();
 
   const figureCount = applications.reduce(
@@ -46,6 +46,7 @@ const SearchDetails = () => {
         </Typography>
       </Grid>
       <Grid container justify="space-between">
+        { !loading && (
         <Typography variant="h6" className={classes.counts}>
           {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
             tables: tableCount,
@@ -54,6 +55,7 @@ const SearchDetails = () => {
             boldFigures: (<span className={classes.bold}>{figureCount}</span>),
           })}
         </Typography>
+        )}
         <FilterToggle />
       </Grid>
       {filter === 'topic' && (
