@@ -4,6 +4,7 @@ import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import FilterToggle from './FilterToggle';
+import NoResultsStatusMessages from './NoResultsStatusMessages';
 
 const useStyles = makeStyles({
   counts: {
@@ -45,19 +46,22 @@ const SearchDetails = () => {
           {intl.formatMessage({ id: 'components.searchDetails.explore' }).toUpperCase()}
         </Typography>
       </Grid>
-      <Grid container justify="space-between">
-        { !loading && (
-        <Typography variant="h6" className={classes.counts}>
-          {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
-            tables: tableCount,
-            figures: figureCount,
-            boldTables: (<span className={classes.bold}>{tableCount}</span>),
-            boldFigures: (<span className={classes.bold}>{figureCount}</span>),
-          })}
-        </Typography>
-        )}
+
+      <Grid container justify={loading ? 'flex-end' : 'space-between'}>
+        { (!loading && (
+          <Typography variant="h6" className={classes.counts}>
+            {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
+              tables: tableCount,
+              figures: figureCount,
+              boldTables: (<span className={classes.bold}>{tableCount}</span>),
+              boldFigures: (<span className={classes.bold}>{figureCount}</span>),
+            })}
+          </Typography>
+        ))
+        || <NoResultsStatusMessages />}
         <FilterToggle />
       </Grid>
+
       {filter === 'topic' && (
       <Typography variant="h6" className={classes.filterText}>
           {intl.formatMessage({ id: 'components.searchDetails.select' })}

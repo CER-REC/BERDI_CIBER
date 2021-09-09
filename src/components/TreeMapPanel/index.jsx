@@ -4,7 +4,6 @@ import { useIntl } from 'react-intl';
 
 import useESAData from '../../hooks/useESAData';
 import TreeMap from './TreeMap';
-import NoResultsStatusMessages from './NoResultsStatusMessages';
 
 const TreeMapPanel = () => {
   const intl = useIntl();
@@ -15,7 +14,7 @@ const TreeMapPanel = () => {
   }
 
   return (
-  // Show actual results
+    // Show actual results
     (applications.length && (
     <>
       <Typography style={{ padding: '0.5em 0 0.2em 0' }}>
@@ -24,8 +23,6 @@ const TreeMapPanel = () => {
       <TreeMap />
     </>
     ))
-    // Or show no results messages
-    || <NoResultsStatusMessages />
   );
 };
 
