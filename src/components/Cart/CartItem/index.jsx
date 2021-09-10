@@ -7,7 +7,6 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
-import placeHolderImage from '../../../images/listPanel/placeHolder.svg';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
@@ -46,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
   },
   imageSection: {
     cursor: 'pointer',
-    backgroundImage: `url(${placeHolderImage})`,
     backgroundSize: 'cover',
     height: '6em',
     width: '50%',
@@ -118,7 +116,13 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
         <Grid container item direction="column" className={classes.footer}>
           {expandList.includes(data.id) && (
             <Grid container direction="column">
-              <Grid container alignItems="flex-end" justify="flex-end" className={classes.imageSection}>
+              <Grid
+                container
+                alignItems="flex-end"
+                justify="flex-end"
+                style={{ backgroundImage: `url(${data.thumbnailURL})` }}
+                className={classes.imageSection}
+              >
                 <Grid item>
                   <img alt="A magnifying glass" src={magnifyingGlass} />
                 </Grid>
@@ -170,6 +174,7 @@ CartItem.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string,
     title: PropTypes.string,
+    thumbnailURL: PropTypes.string,
     application: PropTypes.shape({
       name: PropTypes.string,
       companyName: PropTypes.string,

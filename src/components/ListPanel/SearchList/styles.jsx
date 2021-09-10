@@ -21,7 +21,6 @@ export default (theme) => ({
   },
   imageSection: {
     cursor: 'pointer',
-    backgroundImage: `url(${placeHolderImage})`,
     backgroundSize: 'cover',
     maxHeight: '7em',
     width: '95%',
