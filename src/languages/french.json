@@ -148,7 +148,7 @@
       "treaty": {
         "title": "Droits ancestraux et issus de traités",
         "label": "Droits ancestraux et issus de traités",
-        "description": "Données renfermant des renseignements sur les pratiques, coutumes, traditions et modes d’apprentissage des peuples autochtones. Ces droits sont reconnus et confirmés par l’article 35 de la Loi constitutionnelle de 1982. Ils peuvent découler de traités ou d’autres ententes et promesses gouvernementales. "
+        "description": "Données renfermant des renseignements sur les pratiques, coutumes, traditions et modes d’apprentissage des peuples autochtones. Ces droits sont reconnus et confirmés par l’article 35 de la Loi constitutionnelle de 1982. Ils peuvent découler de traités ou d’autres ententes et promesses gouvernementales."
       }
     }
   },
@@ -187,7 +187,7 @@
     "cartButton": {
       "add": "Ajouter à l’étagère",
       "remove": "Retirer de l’étagère",
-      "unavailable": "Données non disponibles ",
+      "unavailable": "Données non disponibles",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
