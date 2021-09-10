@@ -48,17 +48,20 @@ const SearchDetails = () => {
       </Grid>
 
       <Grid container justify={loading ? 'flex-end' : 'space-between'}>
-        { (!loading && (
-          <Typography variant="h6" className={classes.counts}>
-            {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
-              tables: tableCount,
-              figures: figureCount,
-              boldTables: (<span className={classes.bold}>{tableCount}</span>),
-              boldFigures: (<span className={classes.bold}>{figureCount}</span>),
-            })}
-          </Typography>
-        ))
-        || <NoResultsStatusMessages />}
+        {(
+          !loading && (
+            (applications.length && (
+              <Typography variant="h6" className={classes.counts}>
+                {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
+                  tables: tableCount,
+                  figures: figureCount,
+                  boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
+                  boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
+                })}
+              </Typography>
+            )) || <NoResultsStatusMessages />
+          )
+        )}
         <FilterToggle />
       </Grid>
 

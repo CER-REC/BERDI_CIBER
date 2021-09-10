@@ -7,22 +7,19 @@ import TreeMap from './TreeMap';
 
 const TreeMapPanel = () => {
   const intl = useIntl();
-  const { applications, loading } = useESAData();
+  const { applications } = useESAData();
 
-  if (!applications.length && loading) {
+  if (!applications.length) {
     return null;
   }
 
   return (
-    // Show actual results
-    (applications.length && (
     <>
       <Typography style={{ padding: '0.5em 0 0.2em 0' }}>
         {intl.formatMessage({ id: 'components.treeMapPanel.boxSelect' })}
       </Typography>
       <TreeMap />
     </>
-    ))
   );
 };
 
