@@ -9,7 +9,7 @@
     "tables": "Tableaux",
     "figures": "Figures",
     "project": "Projet",
-    "topic": "",
+    "topic": "Sujet",
     "previous": "Précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
     "megabytes": "Mo",
@@ -38,117 +38,117 @@
     "environmental": {
       "title": "",
       "landscape": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Paysage, terrain et conditions météorologiques",
+        "label": "Paysage et conditions météorologiques",
+        "description": "Données renfermant des renseignements sur les caractéristiques des terres et sur le terrain, comme le pergélisol ou le substratum rocheux. Il peut aussi y avoir de l’information sur les conditions météorologiques ou les dangers de cet ordre."
       },
       "soil": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Sol",
+        "label": "Sol",
+        "description": "Données renfermant des renseignements sur les sédiments ou le sol. Il peut aussi y avoir de l’information sur la contamination des lieux le cas échéant."
       },
       "wetland": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Milieux humides",
+        "label": "Milieux humides",
+        "description": "Données renfermant des renseignements sur les milieux humides, par exemple, les tourbières, les fondrières ou les marécages. Il peut aussi y avoir de l’information sur les milieux humides préoccupants aux yeux des peuples autochtones. Ces données chevauchent un peu celles sur les obligations en matière environnementale."
       },
       "water": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Eau",
+        "label": "Eau",
+        "description": "Données renfermant des renseignements sur les plans d’eau, les eaux souterraines et les débits. Il peut aussi y avoir de l’information sur la pollution et les plans d’eau importants pour les peuples autochtones."
       },
       "fish": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Poissons",
+        "label": "Poissons",
+        "description": "Données renfermant des renseignements sur les poissons et leur habitat. Il peut aussi y avoir de l’information sur la pollution, les espèces en péril et celles qui sont importantes pour les peuples autochtones, sans oublier leur habitat."
       },
       "plant": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Plantes",
+        "label": "Plantes",
+        "description": "Données renfermant des renseignements sur les plantes et la végétation. Il peut s’agir de plantes rares, de communautés et d’espèces végétales ou de communautés écologiques en péril, d’espèces envahissantes ou de plantes importantes pour les peuples autochtones."
       },
       "wildlife": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Faune",
+        "label": "Faune",
+        "description": "Données renfermant des renseignements sur la faune et son habitat, y compris la faune marine. Elles peuvent être utilisées dans le contexte des déplacements et de la mortalité de la faune. Les effets sur les habitats vulnérables comme les nids et les tanières, ainsi que sur les zones clés comme les parcs nationaux ou les sanctuaires, sont également inclus."
       },
       "species": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Espèces en péril",
+        "label": "Espèces en péril",
+        "description": "Données renfermant des renseignements sur les espèces en péril ou à statut particulier et leur habitat. Cela comprend les plantes, la faune, les poissons et les espèces marines. Ces données chevauchent un peu celles sur les obligations en matière environnementale."
       },
       "noise": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Bruit",
+        "label": "Bruit",
+        "description": "Données renfermant des renseignements sur le bruit pouvant provenir d’une installation pipelinière, comme par exemple une usine à gaz ou une station de compression. Cela comprend aussi le bruit causé par les travaux de construction, le dynamitage ou la machinerie."
       },
       "gas": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Émissions de gaz à effet de serre",
+        "label": "Émissions de GES",
+        "description": "Données renfermant des renseignements sur les émissions possibles de gaz à effet de serre. Elles ont été récemment incluses pour aider le Canada à mieux comprendre dans quelle mesure il respecte ses engagements en matière de changements climatiques."
       },
       "air": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Émissions atmosphériques",
+        "label": "Émissions atmosphériques",
+        "description": "Données qui se rapportent aux émissions atmosphériques pouvant par exemple prendre la forme de contaminants ou d’émissions fugitives et pouvant aussi provenir du brûlage à la torche, de l’évacuation ou de l’incinération."
       },
       "electricity": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Électricité et électromagnétisme",
+        "label": "Électricité",
+        "description": "Données renfermant des renseignements sur les champs électromagnétiques et les décharges coronaires. Elles s’appliquent le plus souvent à des projets de transport d’électricité."
       },
       "environmental": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Obligations en matière d’environnement",
+        "label": "Obligations en matière d’environnement",
+        "description": "Données renfermant de l’information sur les exigences légales, les politiques ou d’autres cibles, comme la Politique fédérale de la conservation des terres humides. Elles ont été récemment incluses pour aider le Canada à mieux comprendre dans quelle mesure il respecte ses engagements en matière d’environnement pour des aspects comme les espèces en péril et les milieux humides."
       }
     },
     "socioEconomic": {
       "title": "",
       "infrastructure": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Infrastructure et services sociaux, culturels et économiques",
+        "label": "Infrastructure et services",
+        "description": "Données renfermant des renseignements sur l’infrastructure, comme le logement et les routes. Il peut par exemple s’agir d’effets éventuels comme une demande accrue sur les services à l’échelle locale ou des dommages et des réparations."
       },
       "job": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Compensations et répercussions économiques",
+        "label": "Emplois et ressources financières",
+        "description": "Données renfermant des renseignements sur la possibilité de réaliser des bénéfices et de contribuer à l’économie locale. Cela peut comprendre des conditions d’emploi ou des possibilités d’études. Il peut aussi s’agir des avantages fiscaux pour les gouvernements."
       },
       "heritage": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Sites et ressources archéologiques, paléontologiques, historiques ou importants sur le plan culturel",
+        "label": "Ressources patrimoniales",
+        "description": "Données renfermant de l’information sur des secteurs ayant une importance historique, même préhistorique ou culturelle."
       },
       "proximity": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Lieux habités à proximité",
+        "label": "Lieux habités à proximité",
+        "description": "Données renfermant des renseignements sur l’incidence de l’activité humaine quant aux lieux habités et à proximité de ceux-ci ou aux ressources si un pipeline était actif. Les terres agricoles, les parcs, les forêts, les plans d’eau et les réserves d’eau potable sont des exemples de tels lieux habités ou ressources."
       },
       "human": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Incidence sur la santé humaine et le panorama",
+        "label": "Santé humaine",
+        "description": "Données renfermant des renseignements sur des parties de l’environnement qui ont une incidence sur la santé humaine, comme par exemple la qualité de l’eau et de l’air, ainsi que sur les panoramas ou qui ont d’autres effets sur les sens."
       },
       "social": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Incidences sur le bien-être social et culturel",
+        "label": "Questions socioculturelles",
+        "description": "Données renfermant des renseignements sur le bien-être social et culturel des peuples autochtones, des résidents ou des collectivités."
       },
       "boat": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Activités à bord d’embarcation ou sur des voies navigables",
+        "label": "Embarcations et voies navigables",
+        "description": "Données renfermant de l’information sur la possibilité d’activité humaine sur des voies navigables, dans des cours d’eau ou autour de ceux-ci. Cela peut comprendre des activités ou des objets situés à l’intérieur des limites d’une voie navigable en présence d’eau en mouvement, mais non si cette voie se retrouve parfois asséchée ou gelée."
       },
       "indigenous": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Utilisation des terres, de l’eau et du plein air par les Autochtones",
+        "label": "Utilisation des terres par les Autochtones",
+        "description": "Données renfermant des renseignements sur la relation entre les peuples autochtones et la terre,  les ressources qui s’y trouvent, l’eau et l’air. Cela peut comprendre des activités saisonnières comme la chasse, le piégeage et la cueillette de baies, mais aussi les réserves, les régions désignées et les territoires traditionnels. Les personnes visées doivent donner leur assentiment avant de pouvoir utiliser ces données."
       },
       "treaty": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Droits ancestraux et issus de traités",
+        "label": "Droits ancestraux et issus de traités",
+        "description": "Données renfermant des renseignements sur les pratiques, coutumes, traditions et modes d’apprentissage des peuples autochtones. Ces droits sont reconnus et confirmés par l’article 35 de la Loi constitutionnelle de 1982. Ils peuvent découler de traités ou d’autres ententes et promesses gouvernementales. "
       }
     }
   },
@@ -158,7 +158,7 @@
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "addContentIdsButton": {
-      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux} à l’étagère}"
+      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
@@ -185,9 +185,9 @@
       "company": "Société :"
     },
     "cartButton": {
-      "add": "",
-      "remove": "",
-      "unavailable": "",
+      "add": "Ajouter à l’étagère",
+      "remove": "Retirer de l’étagère",
+      "unavailable": "Données non disponibles ",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
@@ -239,7 +239,6 @@
         "projectStatus": "Étape du projet : ",
         "projectLinks": "Liens relatifs au projet : ",
         "relatedTopics": "Sujets connexes :",
-        "addToShelf": "Ajouter à l’étagère",
         "seeMore": "Plus de détails",
         "seeFewer": "Moins de détails",
         "expandAll": "Développer",
@@ -346,9 +345,10 @@
       }
     },
     "svgButton": {
-      "strongRelation": "",
-      "someRelation": "",
-      "noRelation": ""
+      "strongRelation": "Lien étroit avec les termes recherchés",
+      "someRelation": "En partie lié aux termes recherchés",
+      "littleRelation": "Lien ténu avec les termes recherchés",
+      "noRelation": "Absence de lien avec les termes recherchés"
     },
     "loadingIndicator": {
       "api": "veuillez patienter",
