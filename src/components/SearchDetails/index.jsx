@@ -36,6 +36,11 @@ const SearchDetails = () => {
     0,
   );
 
+  const alignmentSheetCount = applications.reduce(
+    (count, application) => (application.alignmentSheetCount + count),
+    0,
+  );
+
   return (
     <div style={{ paddingLeft: '0.3em' }}>
       <Grid container justify="space-between" style={{ padding: '1em 0 0.5em' }}>
@@ -55,6 +60,7 @@ const SearchDetails = () => {
                 {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
                   tables: tableCount,
                   figures: figureCount,
+                  alignmentSheets: alignmentSheetCount,
                   boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
                   boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
                 })}
@@ -66,9 +72,9 @@ const SearchDetails = () => {
       </Grid>
 
       {filter === 'topic' && (
-      <Typography variant="h6" className={classes.filterText}>
+        <Typography variant="h6" className={classes.filterText}>
           {intl.formatMessage({ id: 'components.searchDetails.select' })}
-      </Typography>
+        </Typography>
       )}
     </div>
   );

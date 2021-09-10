@@ -341,7 +341,7 @@
     },
     "searchDetails":{
       "title": "Search Results",
-      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}} and {figures, plural, =1 {{boldTables} figure} other {{boldFigures} figures}} found",
+      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}}, {figures, plural, =1 {{boldTables} figure} other {{boldFigures} figures}}, and {alignmentSheets, plural, =1 {{boldTables} alignmentSheet} other {{boldTables} alignment sheets}} found",
       "explore":"Explore results by",
       "select":"Select one or more circles to filter the results by topic."
     },
