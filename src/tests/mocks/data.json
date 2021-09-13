@@ -16,6 +16,7 @@
         "url": "http://localhost/berdi/csv/en/projects/sthrnlghts.zip",
         "tableCount":3,
         "figureCount":10,
+        "alignmentSheetCount": 1,
         "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885"
       },
       {
@@ -33,6 +34,7 @@
         "url": "http://localhost/berdi/csv/en/projects/lbrtclppr.zip",
         "tableCount":3,
         "figureCount":10,
+        "alignmentSheetCount": 12,
         "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
       },
       {
@@ -50,6 +52,7 @@
         "url": "http://localhost/berdi/csv/en/projects/ln4.zip",
         "tableCount":3,
         "figureCount":10,
+        "alignmentSheetCount": 22,
         "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549"
       }
     ],
