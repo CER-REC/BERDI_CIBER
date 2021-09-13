@@ -29,6 +29,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
     discovery1:content(id: 16713) {
       id
@@ -38,6 +44,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
     discovery2:content(id: 1376) {
       id
@@ -47,6 +59,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
   }
 `;
