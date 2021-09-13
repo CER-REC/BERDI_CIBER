@@ -82,13 +82,6 @@ export default () => {
     }
   }, [configDispatch, excludedTopics, loading]);
 
-  useEffect(() => {
-    if (data) {
-      // eslint-disable-next-line no-param-reassign
-      data.contentSearch.contents.forEach((contentItem) => { contentItem.thumbnailURL = `https://picsum.photos/id/${Math.round(Math.random() * 100)}/200/100`; });
-    }
-  }, [data]);
-
   return {
     loading,
     error,
