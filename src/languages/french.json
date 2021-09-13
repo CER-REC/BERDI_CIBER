@@ -26,6 +26,7 @@
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
+    "alignmentSheetCount": "{alignmentSheets, plural, =0 {carte-tracé} =1 {carte-tracé} other {carte(s)-tracé(s)}}",
     "termsAndConditions": "Avis",
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "a11y": {
@@ -213,18 +214,18 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
-    "legalDisclaimer":{
-      "attention":"Attention",
-      "disclaimer1":"La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
-      "disclaimer2":"En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
-      "bullet1":"d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
-      "bullet2":"de ne pas distribuer ni diffuser les documents;",
-      "bullet3":"de ne faire qu’une seule copie de tout document;",
-      "bullet4":"de détruire toute copie après utilisation;",
-      "bullet5":"de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
-      "not":"NE PAS",
-      "agree":"J’accepte",
-      "enter":"Accéder à CIBER"
+    "legalDisclaimer": {
+      "attention": "Attention",
+      "disclaimer1": "La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
+      "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
+      "bullet1": "d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
+      "bullet2": "de ne pas distribuer ni diffuser les documents;",
+      "bullet3": "de ne faire qu’une seule copie de tout document;",
+      "bullet4": "de détruire toute copie après utilisation;",
+      "bullet5": "de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
+      "not": "NE PAS",
+      "agree": "J’accepte",
+      "enter": "Accéder à CIBER"
     },
     "limitationsDialog": {
       "title": "Restrictions générales",
@@ -343,11 +344,11 @@
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
     },
-    "searchDetails":{
+    "searchDetails": {
       "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}} et {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}",
-      "explore":"",
-      "select":""
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s)}} trouvé(s)",
+      "explore": "",
+      "select": ""
     },
     "svgButton": {
       "strongRelation": "",

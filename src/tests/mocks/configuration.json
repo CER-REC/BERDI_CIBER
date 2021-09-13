@@ -52,6 +52,12 @@
           "french": "Figure"
         },
         {
+          "group": "CONTENT_TYPE",
+          "key": "ALIGNMENT_SHEET",
+          "english": "Alignment Sheet",
+          "french": "Carte-tracé"
+        },
+        {
           "group": "STATUS",
           "key": "OPERATING",
           "english": "Operating",

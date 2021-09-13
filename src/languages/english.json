@@ -28,6 +28,7 @@
     "learnMethods": "Learn more about our methods.",
     "figureCount": "{figures, plural, =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =1 {table} other {tables}}",
+    "alignmentSheetCount": "{alignmentSheets, plural, =1 {alignment sheet} other {alignment sheets}}",
     "termsAndConditions": "Terms and Conditions",
     "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "a11y": {
@@ -215,18 +216,18 @@
       "resetLinkText": "Reset Session",
       "resetMessage": "Please click on the link to reset the session:"
     },
-    "legalDisclaimer":{
-      "attention":"Attention",
-      "disclaimer1":"The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
-      "disclaimer2":"By clicking “I agree” and accessing this database, you agree to:",
-      "bullet1":"use the database for research, private study and/or education only;",
-      "bullet2":"not distribute or publish any document;",
-      "bullet3":"make only a single copy of any document;",
-      "bullet4":"destroy any copy after use; and",
-      "bullet5":"{not} use the database for any commercial or competitive purposes.",
-      "not":"NOT",
-      "agree":"I agree",
-      "enter":"Enter {tool}"
+    "legalDisclaimer": {
+      "attention": "Attention",
+      "disclaimer1": "The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
+      "disclaimer2": "By clicking “I agree” and accessing this database, you agree to:",
+      "bullet1": "use the database for research, private study and/or education only;",
+      "bullet2": "not distribute or publish any document;",
+      "bullet3": "make only a single copy of any document;",
+      "bullet4": "destroy any copy after use; and",
+      "bullet5": "{not} use the database for any commercial or competitive purposes.",
+      "not": "NOT",
+      "agree": "I agree",
+      "enter": "Enter {tool}"
     },
     "limitationsDialog": {
       "title": "General Limitations",
@@ -344,11 +345,11 @@
       "searchPlaceHolder": "Search by keyword(s)",
       "keywords": {}
     },
-    "searchDetails":{
+    "searchDetails": {
       "title": "Search Results",
-      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}} and {figures, plural, =1 {{boldFigures} figure} other {{boldFigures} figures}} found",
-      "explore":"Explore results by",
-      "select":"Select one or more circles to filter the results by topic."
+      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}}, {figures, plural, =1 {{boldFigures} figure} other {{boldFigures} figures}}, and {alignmentSheets, plural, =1 {{boldAlignmentSheets} alignment sheet} other {{boldAlignmentSheets} alignment sheets}} found",
+      "explore": "Explore results by",
+      "select": "Select one or more circles to filter the results by topic."
     },
     "svgButton": {
       "strongRelation": "Strong relation to search terms",

@@ -91,6 +91,7 @@ export const SEARCH = gql`
       hearingOrder
       tableCount(search: $search, valueComponent: $valueComponent)
       figureCount(search: $search, valueComponent: $valueComponent)
+      alignmentSheetCount(search: $search, valueComponent: $valueComponent)
       url
       finalDecisionURL
     }
