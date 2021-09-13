@@ -25,6 +25,7 @@ const getTooltip = (node) => (
     title={node.data.shortName}
     figureCount={node.data.figureCount}
     tableCount={node.data.tableCount}
+    alignmentSheetCount={node.data.alignmentSheetCount}
   />
 );
 const formatData = (applications, ids, baseColor) => {
