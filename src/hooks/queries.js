@@ -118,6 +118,7 @@ export const SEARCH = gql`
         type
         url
         esaFolderURL
+        thumbnailURL
         application {
           name
           consultants
@@ -174,6 +175,7 @@ export const CART_ITEMS = gql`
     contents(ids: $cartIds) {
       id
       title
+      thumbnailURL
       application {
         name
         companyName
