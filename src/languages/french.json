@@ -214,7 +214,7 @@
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
     "legalDisclaimer":{
-      "attention":"",
+      "attention":"Attention",
       "disclaimer1":"La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
       "disclaimer2":"En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
       "bullet1":"d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
@@ -224,7 +224,7 @@
       "bullet5":"de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
       "not":"NE PAS",
       "agree":"J’accepte",
-      "enter":""
+      "enter":"Accéder à CIBER"
     },
     "limitationsDialog": {
       "title": "Restrictions générales",
