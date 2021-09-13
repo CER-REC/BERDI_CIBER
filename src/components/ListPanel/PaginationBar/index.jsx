@@ -52,7 +52,7 @@ const PaginationBar = ({ count, page }) => {
           </li>
           )}
 
-          {(page + 5 >= 8) && (
+          {(page - 5 >= 8) && (
           <li>
             <a onClick={createHandlePageSelect(0)}>{1}</a>
           </li>
