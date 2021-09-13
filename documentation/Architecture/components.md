@@ -15,7 +15,8 @@ only used by a single component should be placed in a subfolder of that componen
 is treated as an `Private` component.
 
 Private components should be refactored into a Public component, if we ever
-need to use them in more than one component.
+need to use them in more than one component. Private components should be the deepest
+path item, and should not have their own subcomponents.
 
 Public components should be treated like a semantically versioned API, and a PR
 should mention any time that the component's properties are changed in a way

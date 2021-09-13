@@ -27,6 +27,7 @@ export default (theme) => ({
   },
   drawer: {
     width: '30em',
+    overflowY: 'unset',
   },
   header: {
     backgroundColor: theme.palette.cart.light,
@@ -53,16 +54,30 @@ export default (theme) => ({
     height: '50px',
   },
   body: {
-    borderBottom: '8px solid',
-    borderBottomColor: theme.palette.secondary.main,
-    overflowY: 'auto',
     height: '100%',
+    width: '100%',
+  },
+  removeButtonText: {
+    fontWeight: 'bold',
+    textDecoration: 'underline',
+    fontSize: '18px',
+    color: theme.palette.cart.dark,
+  },
+  removeButtonIcon: {
+    fontSize: '45px',
+    color: theme.palette.cart.dark,
+  },
+  bodyList: {
+    height: '100%',
+    width: '100%',
   },
   footerDisabled: {
     opacity: 0.25,
     pointerEvents: 'none',
   },
   footer: {
+    borderTop: '8px solid',
+    borderTopColor: theme.palette.secondary.main,
     opacity: 1,
     pointerEvents: 'auto',
   },

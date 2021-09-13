@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography } from '@material-ui/core';
+import {
+  Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, ButtonBase,
+} from '@material-ui/core';
+import { VariableSizeList } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
@@ -8,8 +14,10 @@ import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
+import useCartData from '../../hooks/useCartData';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import styles from './styles';
+import CartItem from './CartItem';
 
 const useStyles = makeStyles(styles);
 
@@ -20,10 +28,15 @@ const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
+  const { cartItems } = useCartData();
   const formRef = useRef(null);
+  const listRef = useRef(null);
+  const rowHeights = useRef({});
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+  const [removeButtonHover, setRemoveButtonHover] = useState(false);
+  const [expandList, setExpandList] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -34,6 +47,17 @@ const Cart = () => {
   const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
+  const handleRemoveAll = () => configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  const handleRemoveButtonHover = () => setRemoveButtonHover(true);
+  const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
+
+  const toggleExpand = (id) => {
+    if (expandList.find((entry) => entry === id)) {
+      setExpandList((list) => list.filter((item) => item !== id));
+    } else {
+      setExpandList((list) => [...list, id]);
+    }
+  };
 
   const cartQuantity = (() => {
     const quantity = config.cartIds.length;
@@ -45,11 +69,34 @@ const Cart = () => {
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize, intl.locale);
+  const formattedFileSize = fileSizeFormatter(fileSize, intl);
+
+  const getRowHeight = (index) => rowHeights.current[index] || 150;
+
+  const onHeightChange = (index, size) => {
+    const hasChanged = rowHeights.current[index] !== size;
+    if (hasChanged) {
+      rowHeights.current[index] = size;
+      listRef.current.resetAfterIndex(index, true);
+    }
+  };
+
+  const renderRow = ({ index, style }) => (
+    <div style={style}>
+      <CartItem
+        data={cartItems[index]}
+        index={index}
+        onHeightChange={onHeightChange}
+        expandList={expandList}
+        toggleExpand={toggleExpand}
+      />
+    </div>
+  );
 
   useEffect(() => {
+    setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
     if (config.cartIds.length === 0) handleShareClose();
-  }, [config.cartIds.length]);
+  }, [config.cartIds]);
 
   return (
     <>
@@ -109,8 +156,49 @@ const Cart = () => {
         </Grid>
 
         {/* Body */}
-        <Grid container className={classes.body}>
-          body
+        <Grid container direction="column" wrap="nowrap" className={classes.body}>
+          <Grid item style={{ margin: '1em 0 0.5em 0.5em' }}>
+            <IconButton
+              aria-label="Remove all"
+              onClick={handleRemoveAll}
+              onMouseEnter={handleRemoveButtonHover}
+              onMouseLeave={handleRemoveButtonHoverEnd}
+              disableRipple
+              disableFocusRipple
+            >
+              {
+                (removeButtonHover && <RemoveCircleIcon className={classes.removeButtonIcon} />)
+                || (<RemoveCircleOutlineIcon className={classes.removeButtonIcon} />)
+              }
+            </IconButton>
+            <ButtonBase
+              disableRipple
+              disableTouchRipple
+              onClick={handleRemoveAll}
+              onMouseEnter={handleRemoveButtonHover}
+              onMouseLeave={handleRemoveButtonHoverEnd}
+            >
+              <Typography className={classes.removeButtonText}>
+                {intl.formatMessage({ id: 'components.cart.removeAll' })}
+              </Typography>
+            </ButtonBase>
+          </Grid>
+          <Grid item className={classes.bodyList}>
+            <AutoSizer>
+              {({ height, width }) => (
+                <VariableSizeList
+                  ref={listRef}
+                  height={height}
+                  itemSize={getRowHeight}
+                  itemCount={cartItems.length}
+                  width={width}
+                  overscanCount={5}
+                >
+                  {renderRow}
+                </VariableSizeList>
+              )}
+            </AutoSizer>
+          </Grid>
         </Grid>
 
         {/* Footer */}
@@ -145,12 +233,12 @@ const Cart = () => {
               className={classes.footerDownloadButton}
               onClick={handleDownloadClick}
             >
-              <form ref={formRef} method="post" action="zip" style={{ display: 'none' }}>
+              <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
               </form>
               <img src={downloadIcon} alt="download button" className={classes.footerDownloadButtonIcon} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-              <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+              <span style={{ fontWeight: 'bold', marginLeft: '5px' }}>
                 {formattedFileSize}
               </span>
             </Button>

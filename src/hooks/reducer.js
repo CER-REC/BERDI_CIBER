@@ -28,7 +28,7 @@ const getValidEnums = (enums, validEnums) => {
     return [];
   }
 
-  return validEnums.filter((validEnum) => enums?.includes(validEnum));
+  return enums.filter((type) => validEnums.includes(type));
 };
 
 export const initialState = {
@@ -236,7 +236,6 @@ export const getReducer = (
       return {
         ...state,
         treemapApplicationIds: initialState.treemapApplicationIds,
-        topics: initialState.topics,
         filter: action.payload,
         fragment: initialState.fragment,
       };

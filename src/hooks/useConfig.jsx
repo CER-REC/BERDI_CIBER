@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { createBrowserHistory } from 'history';
 
@@ -16,7 +16,6 @@ const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses
 const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
-let updatingState = true;
 let unlistenHistory = () => {};
 
 const decodeParameter = (encodedParameter) => {
@@ -82,6 +81,7 @@ export const ConfigProvider = ({ children }) => {
       contentTypes,
     ],
   );
+  const isUpdatingRef = useRef(true);
   const [config, configDispatch] = useReducer(reducer, initialState);
   const updateStateFromURL = useCallback((location) => {
     const query = queryString.parse(location.search);
@@ -99,7 +99,7 @@ export const ConfigProvider = ({ children }) => {
       localStorage.setItem('unreadCartIds', ids);
     }
 
-    updatingState = true;
+    isUpdatingRef.current = true;
 
     configDispatch({
       type: 'changed',
@@ -148,7 +148,7 @@ export const ConfigProvider = ({ children }) => {
   }, [config]);
 
   useEffect(() => {
-    if (updatingState) {
+    if (isUpdatingRef.current) {
       return;
     }
 
@@ -158,8 +158,8 @@ export const ConfigProvider = ({ children }) => {
 
   useEffect(() => {
     // Allow local storage and URL update hooks to be ran before resetting the flag
-    if (updatingState) {
-      updatingState = false;
+    if (isUpdatingRef.current) {
+      isUpdatingRef.current = false;
 
       return;
     }
