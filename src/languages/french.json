@@ -302,20 +302,10 @@
         "url": "csv/fr/fr.zip"
       }
     },
-    "searchPanel": {
-      "exploreButton": "Explorer tout",
-      "filterLabel": "Afficher les filtres",
-      "searchButton": "Recherche",
-      "searchLabel": "Trouver des données : ",
-      "searchPlaceHolder": "Recherche par mots-clés",
-      "keywords": {}
-    },
     "filterPanel": {
       "clearButton": "Effacer tous les filtres"
     },
     "treeMapPanel": {
-      "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "noResults": "Désolé, il n’y a aucun résultat.",
       "noResultsFor": "Désolé, aucun résultat pour {search}.",
@@ -344,6 +334,20 @@
       "titles": {
         "filedDate": "Date du dépôt du projet "
       }
+    },
+    "searchPanel": {
+      "exploreButton": "Explorer tout",
+      "filterLabel": "Afficher les filtres",
+      "searchButton": "Recherche",
+      "searchLabel": "Trouver des données : ",
+      "searchPlaceHolder": "Recherche par mots-clés",
+      "keywords": {}
+    },
+    "searchDetails":{
+      "title": "Résultats de la recherche",
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}} et {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}",
+      "explore":"",
+      "select":""
     },
     "svgButton": {
       "strongRelation": "",
