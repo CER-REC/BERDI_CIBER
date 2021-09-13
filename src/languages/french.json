@@ -24,6 +24,7 @@
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
+    "alignmentSheetCount": "{alignmentSheets, plural, =0 {carte-tracé} =1 {carte-tracé} other {carte(s)-tracé(s)}}",
     "termsAndConditions": "Avis",
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "a11y": {
@@ -155,7 +156,7 @@
       "title": "NOTE SUR L’EXACTITUDE",
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
-    "addContentIdsButton":{
+    "addContentIdsButton": {
       "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux} à l’étagère}"
     },
     "applicationDialog": {
@@ -199,18 +200,18 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
-    "legalDisclaimer":{
-      "attention":"",
-      "disclaimer1":"La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
-      "disclaimer2":"En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
-      "bullet1":"d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
-      "bullet2":"de ne pas distribuer ni diffuser les documents;",
-      "bullet3":"de ne faire qu’une seule copie de tout document;",
-      "bullet4":"de détruire toute copie après utilisation;",
-      "bullet5":"de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
-      "not":"NE PAS",
-      "agree":"J’accepte",
-      "enter":""
+    "legalDisclaimer": {
+      "attention": "",
+      "disclaimer1": "La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
+      "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
+      "bullet1": "d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
+      "bullet2": "de ne pas distribuer ni diffuser les documents;",
+      "bullet3": "de ne faire qu’une seule copie de tout document;",
+      "bullet4": "de détruire toute copie après utilisation;",
+      "bullet5": "de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
+      "not": "NE PAS",
+      "agree": "J’accepte",
+      "enter": ""
     },
     "limitationsDialog": {
       "title": "Restrictions générales",
@@ -219,54 +220,54 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
-      "listPanel":{
-        "projectType":"Type de projet : ",
-        "projectFiled":"Projet déposé le : ",
-        "projectStatus":"Étape du projet : ",
-        "projectLinks":"Liens relatifs au projet : ",
-        "relatedTopics":"Sujets connexes :",
-        "addToShelf":"Ajouter à l’étagère",
-        "seeMore":"Plus de détails",
-        "seeFewer":"Moins de détails",
-        "expandAll":"Développer",
-        "collapseAll":"Réduire",
+      "listPanel": {
+        "projectType": "Type de projet : ",
+        "projectFiled": "Projet déposé le : ",
+        "projectStatus": "Étape du projet : ",
+        "projectLinks": "Liens relatifs au projet : ",
+        "relatedTopics": "Sujets connexes :",
+        "addToShelf": "Ajouter à l’étagère",
+        "seeMore": "Plus de détails",
+        "seeFewer": "Moins de détails",
+        "expandAll": "Développer",
+        "collapseAll": "Réduire",
         "company": "Société",
         "projectName": "Nom du projet : ",
         "esaConsultant": "Nom du consultant de l'EES : ",
         "projectFolder": "Dossier de projet",
         "finalDecision": "Décision finale",
         "esaFolder": "Dossier de l’EES",
-        "ellipsisButton":{
-          "rate":"Signaler ces données",
-          "report":"Évaluer ces données",
-          "download":"Télécharger le tableau",
-          "rateDataDialog":{
-            "rateData":"Signaler ces données",
-            "useful":"Dans quelle mesure croyez-vous que ces données seront utiles?",
-            "rate":"Évaluation",
-            "thankYou":"Merci de votre rétroaction.",
-            "timesRated":"Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-            "improve":"Votre rétroaction nous aidera à améliorer CIBER.",
-            "ratingLabels":{
-              "1":"Pas du tout utiles",
-              "2":"Données à améliorer",
-              "3":"Plutôt utiles",
-              "4":"Utiles",
-              "5":"Très utiles"
+        "ellipsisButton": {
+          "rate": "Signaler ces données",
+          "report": "Évaluer ces données",
+          "download": "Télécharger le tableau",
+          "rateDataDialog": {
+            "rateData": "Signaler ces données",
+            "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
+            "rate": "Évaluation",
+            "thankYou": "Merci de votre rétroaction.",
+            "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
+            "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
+            "ratingLabels": {
+              "1": "Pas du tout utiles",
+              "2": "Données à améliorer",
+              "3": "Plutôt utiles",
+              "4": "Utiles",
+              "5": "Très utiles"
             },
-          "reportDataDialog":{
-            "report":"Évaluer ces données :",
-            "required":"Requis",
-            "whatConcern":"Quel souci souhaitez-vous signaler?",
-            "strangeChars":"Les données comportaient des caractères insolites.",
-            "noData":"Je n’ai pas retrouvé les données dans le document.",
-            "other":"Autre",
-            "explainMore":"Veuillez expliquer plus en détail.",
-            "optional":"Facultatif",
-            "disclaimer":"Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-            "submit":"Envoyer",
-            "thankYou":"Nous avons bien reçu votre signalement.",
-            "flagged":"Ces données seront examinées."
+            "reportDataDialog": {
+              "report": "Évaluer ces données :",
+              "required": "Requis",
+              "whatConcern": "Quel souci souhaitez-vous signaler?",
+              "strangeChars": "Les données comportaient des caractères insolites.",
+              "noData": "Je n’ai pas retrouvé les données dans le document.",
+              "other": "Autre",
+              "explainMore": "Veuillez expliquer plus en détail.",
+              "optional": "Facultatif",
+              "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+              "submit": "Envoyer",
+              "thankYou": "Nous avons bien reçu votre signalement.",
+              "flagged": "Ces données seront examinées."
             }
           }
         }
@@ -302,7 +303,7 @@
     },
     "resultDialog": {
       "seeMore": "Voir plus...",
-      "seeLess":"Voir moin ...",
+      "seeLess": "Voir moin ...",
       "foundOnPage": "Page : ",
       "originalPDF": "PDF original : ",
       "esaFolder": "Dossier de l’EES : ",
@@ -329,11 +330,11 @@
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
     },
-    "searchDetails":{
+    "searchDetails": {
       "title": "Résultats de la recherche",
       "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s) }}",
-      "explore":"",
-      "select":""
+      "explore": "",
+      "select": ""
     },
     "svgButton": {
       "strongRelation": "",
@@ -351,8 +352,8 @@
   },
   "pages": {
     "landing": {
-      "taglineBold":"Tirer des leçons du passé et préparer l’avenir.",
-      "tagline":"Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
+      "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
+      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine.",
         "button": "Lisez notre avertissement",

@@ -17,6 +17,7 @@ const getLabel = (application) => (
     checked={application.selected}
     figureCount={application.figureCount}
     tableCount={application.tableCount}
+    alignmentSheetCount={application.alignmentSheetCount}
   />
 );
 const getTooltip = (node) => (

@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   title: { fontSize: '130%' },
 });
 
-const TreeNode = ({ title, checked, figureCount, tableCount }) => {
+const TreeNode = ({ title, checked, figureCount, tableCount, alignmentSheetCount }) => {
   const intl = useIntl();
   const classes = useStyles();
 
@@ -53,6 +53,11 @@ const TreeNode = ({ title, checked, figureCount, tableCount }) => {
           {`${intl.formatNumber(figureCount)} ${intl.formatMessage({ id: 'common.figureCount' }, { figures: figureCount })}`}
         </span>
       </div>
+      <div className={classes.block} style={{ paddingTop: '0' }}>
+        <span className={classes.counts}>
+          {`${intl.formatNumber(alignmentSheetCount)} ${intl.formatMessage({ id: 'common.alignmentSheetCount' }, { alignmentSheets: alignmentSheetCount })}`}
+        </span>
+      </div>
     </div>
   );
 };
@@ -62,6 +67,7 @@ TreeNode.propTypes = {
   checked: PropTypes.bool.isRequired,
   figureCount: PropTypes.number.isRequired,
   tableCount: PropTypes.number.isRequired,
+  alignmentSheetCount: PropTypes.number.isRequired,
 };
 
 export default TreeNode;
