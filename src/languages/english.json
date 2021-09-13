@@ -99,6 +99,11 @@
         "title": "Electricity and electromagnetism",
         "label": "Electricity",
         "description": "Data that has information related to electromagnetic fields and corona discharge. This applies most often to electricity transmission projects."
+      },
+      "environmental": {
+        "title": "Environmental Obligations",
+        "label": "Environmental Obligations",
+        "description": "Data that has information on legal requirements, policies, or other targets, like the Federal Wetland Policy. This is a new data type. It helps Canada understand how we are meeting our environmental commitments for things like species at risk and wetlands."
       }
     },
     "socioEconomic": {
@@ -112,11 +117,6 @@
         "title": "Economic Offsets and Impact",
         "label": "Jobs and finances",
         "description": "Data that has information on the potential for making profits and contributing to the local economy. This may include conditions for employment or possibilities for education. It may also include proceeds taken by governments."
-      },
-      "environmental": {
-        "title": "Environmental Obligations",
-        "label": "Environmental Obligations",
-        "description": "Data that has information on legal requirements, policies, or other targets, like the Federal Wetland Policy. This is a new data type. It helps Canada understand how we are meeting our environmental commitments for things like species at risk and wetlands."
       },
       "heritage": {
         "title": "Archaeological, paleontological, historical, and culturally significant sites and resources",
@@ -258,7 +258,6 @@
       "projectStatus": "Project status: ",
       "projectLinks": "Project links: ",
       "relatedTopics": "Related topics:",
-      "addToShelf": "Add to shelf",
       "viewMore": "View more details",
       "viewFewer": "View fewer details",
       "expandAll": "Expand all",
