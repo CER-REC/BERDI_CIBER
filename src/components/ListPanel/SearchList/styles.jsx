@@ -20,6 +20,7 @@ export default (theme) => ({
   imageSection: {
     cursor: 'pointer',
     backgroundSize: 'cover',
+    backgroundPosition: 'center',
     maxHeight: '7em',
     width: '95%',
     '& div': {

@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   imageSection: {
     cursor: 'pointer',
     backgroundSize: 'cover',
+    backgroundPosition: 'center',
     height: '6em',
     width: '50%',
     margin: '1.5em 0',
