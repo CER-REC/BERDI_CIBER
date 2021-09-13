@@ -331,7 +331,7 @@
     },
     "searchDetails":{
       "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {0 tableau} =1 {1 tableau} other {# tableaux}} et {figures, plural, =0 {0 figure} =1 {1 figures} other {# figures}}",
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s) }}",
       "explore":"",
       "select":""
     },
