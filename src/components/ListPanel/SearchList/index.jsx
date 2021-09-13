@@ -85,6 +85,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       xl={1}
                       onClick={() => handleClickOpen(content)}
                       className={classes.imageSection}
+                      style={{ backgroundImage: `url(${content.thumbnailURL})` }}
                     >
                       <Grid item>
                         <img alt="A magnifying glass" src={magnifyingGlass} />

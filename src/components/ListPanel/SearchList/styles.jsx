@@ -1,5 +1,3 @@
-import placeHolderImage from '../../../images/listPanel/placeHolder.svg';
-
 export default (theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
@@ -21,8 +19,8 @@ export default (theme) => ({
   },
   imageSection: {
     cursor: 'pointer',
-    backgroundImage: `url(${placeHolderImage})`,
     backgroundSize: 'cover',
+    backgroundPosition: 'center',
     maxHeight: '7em',
     width: '95%',
     '& div': {
