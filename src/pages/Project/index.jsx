@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
-import BetaAlert from '../../components/BetaAlert';
 import NavButtons from '../../components/NavButtons';
 import useConfig from '../../hooks/useConfig';
 
@@ -36,8 +35,6 @@ const Project = () => {
 
   return (
     <>
-      <br />
-      <BetaAlert />
       <br />
       <NavButtons />
       <div className={classes.root}>

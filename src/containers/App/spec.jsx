@@ -177,17 +177,6 @@ describe('Containers/App', () => {
     });
   });
 
-  it('should set the hash from the state fragment', () => {
-    render(<LazyApp />, { configMocked: false });
-    fireEvent.click(screen.getByText('components.betaAlert.link'));
-
-    expect(window.history.pushState).toHaveBeenLastCalledWith(
-      expect.anything(),
-      expect.anything(),
-      expect.stringContaining('#learn'),
-    );
-  });
-
   it('should set the state from the history on back events', async () => {
     render(<LazyApp />, { configMocked: false });
     simulateSearch();

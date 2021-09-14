@@ -1,7 +1,6 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import BetaAlert from '../../components/BetaAlert';
 import NavButtons from '../../components/NavButtons';
 import { lang } from '../../constants';
 import explainer from '../../images/explainer.svg';
@@ -33,8 +32,6 @@ const Data = () => {
 
   return (
     <>
-      <br />
-      <BetaAlert />
       <br />
       <NavButtons />
       <Grid container direction="column" className={classes.root}>
