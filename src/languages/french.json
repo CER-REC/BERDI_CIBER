@@ -338,7 +338,6 @@
     "searchPanel": {
       "exploreButton": "Explorer tout",
       "filterLabel": "Afficher les filtres",
-      "searchButton": "Recherche",
       "searchLabel": "Trouver des données : ",
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
