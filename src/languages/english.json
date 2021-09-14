@@ -401,20 +401,23 @@
       "description": "The opportunity of a legacy, driven by policy - and our plans for the future.",
       "body": {
         "section1": {
-          "header": "About the project",
-          "boldText1": "Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings all of which is available in our library.",
-          "text1": "{boldText} With the introduction of REGDOCS in 2003, we have been digitizing thousands more. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where considerable data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
-          "boldText2": "While this data is publicly available, it is not easily accessible and difficult to navigate.",
-          "text2": "{boldText} Led by the Government of Canada’s Directive on Open Government, we endeavor to understand how best to mine, structure, and present regulatory data to the people we serve. This pilot project is our first step towards meeting that goal.",
-          "boldText3": "This work is ongoing.",
-          "text3": "{boldText} We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications, follow us on Github."
+          "header": "Why we created BERDI",
+          "boldText1": "Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings.",
+          "text1": "{boldText} Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where a large amount of data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
+          "boldText2": "While this data is publicly available from our website, it is not easy to access and is difficult to navigate.",
+          "text2": "{boldText} Led by the Government of Canada’s Directive on {openGov}, we want to understand how best to mine, organize, and present regulatory data to the people we serve. BERDI – a data bank for Biophysical, (Socio)Economic, and Regional Data and Information – is our first step towards meeting that goal.",
+          "openGov": "Open Government",
+          "openGovLink": "https://open.canada.ca/en/about-open-government",
+          "boldText3": "This work is ongoing and we are just getting started.",
+          "text3": "{boldText} BERDI currently includes over 15,000 tables and 9,000 figures, chosen from 38 pipeline projects and their originally submitted ESAs since 2003. We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications on the progress of this project, follow us on {github}.",
+          "github": "Github",
+          "githubLink": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section2": {
           "header1": "Learn how you can help",
-          "text1": "{toolName}, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can create, validate, and prioritize features that improve this use. ",
-          "text2": "If you work or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. ",
-          "bold1": "Please email us with your feedback at {email}.",
-          "email1": "data.donnees@cer-rec.gc.ca"
+          "text1": "BERDI, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can improve its use.",
+          "text2": "If you work in the field of or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. Please email us at {email} with your interest, and we’ll get back to you with details on how you can participate.",
+          "email": "data.donnees@cer-rec.gc.ca"
         }
       }
     },
@@ -505,6 +508,7 @@
         }
       }
     },
-    "back": "Back to {toolName}"
+    "back": "Back to berdi",
+    "altBack":"Back to main page"
   }
 }

@@ -1,19 +1,30 @@
 import { ButtonBase, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import useConfig from '../../../hooks/useConfig';
 import { reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
-  returnLink: {
+  button: {
     textDecoration: 'underline',
     fontWeight: '900',
     color: theme.palette.button.blue,
     marginBottom: '1em',
   },
+  altButton: {
+    padding: '0.7em 0.3em',
+    backgroundColor: '#EAEBED',
+    borderRadius: '5px',
+    boxShadow: '1px 1px #8A8B8D',
+    color: '#07456B',
+    '& span': {
+      padding: '0 0.8em',
+    },
+  },
 }));
 
-const BackButton = () => {
+const BackButton = ({ alt }) => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
@@ -27,11 +38,27 @@ const BackButton = () => {
   }, [configDispatch]);
   const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 
+  if (alt) {
+    return (
+      <ButtonBase onClick={createHandleClick()} className={classes.altButton}>
+        <span>{intl.formatMessage({ id: 'pages.altBack' })}</span>
+      </ButtonBase>
+    );
+  }
+
   return (
-    <ButtonBase onClick={createHandleClick()} className={classes.returnLink}>
-      {`> ${intl.formatMessage({ id: 'pages.back' }, { toolName: intl.formatMessage({ id: 'common.toolName' }) })}`}
+    <ButtonBase onClick={createHandleClick()} className={classes.button}>
+      {`> ${intl.formatMessage({ id: 'pages.back' })}`}
     </ButtonBase>
   );
 };
 
 export default BackButton;
+
+BackButton.propTypes = {
+  alt: PropTypes.bool,
+};
+
+BackButton.defaultProps = {
+  alt: false,
+};
