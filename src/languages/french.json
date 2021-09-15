@@ -401,20 +401,23 @@
       "description": "L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
       "body": {
         "section1": {
-          "header": "Le projet",
-          "boldText1": "Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences, tous disponibles à la bibliothèque.",
-          "text1": "{boldText} Depuis le déploiement du système de dépôt électronique de documents (maintenant appelé REGDOCS), en 2003, des milliers d’autres documents ont été numérisés. Les évaluations environnementales et socioéconomiques, ou EES, comptent au nombre des documents qui renferment des données considérables sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
-          "boldText2": "Bien qu’il s’agisse de données publiques, il peut-être difficile d’y accéder et de les consulter.",
-          "text2": "{boldText} Pour donner suite à la directive fédérale sur le gouvernement ouvert, la Régie s’efforce de déterminer la meilleure manière d’extraire, de structurer et de présenter au public les données liées à la réglementation. Le projet pilote constitue un premier pas en ce sens.",
-          "boldText3": "Il s’agit de travaux continus.",
-          "text3": "{boldText} La Régie entend en effet continuer d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour, suivez-nous sur Github."
+          "header": "Pourquoi avoir créé CIBER",
+          "boldText1": "Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences.",
+          "text1": "{boldText} Ces documents comprennent notamment les évaluations environnementales et socioéconomiques, ou EES, qui renferment un grand nombre de données sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
+          "boldText2": "Bien que le public ait accès à ces données par l’intermédiaire de notre site Web, celui-ci n’est pas des plus convivial et l’accès aux données est ardu.",
+          "text2": "{boldText} Pour donner suite à la directive fédérale sur {openGov}, la Régie souhaite déterminer la meilleure manière d’extraire, d’organiser et de présenter au public les données liées à la réglementation. CIBER – une banque de données et d’informations biophysiques, socioéconomiques et régionales – est le premier pas vers la réalisation de cet objectif.",
+          "openGov": "le gouvernement ouvert",
+          "openGovLink": "https://open.canada.ca/en/about-open-government",
+          "boldText3": "Ce projet continuera d’évoluer au fil du temps.",
+          "text3": "{boldText} CIBER compte actuellement plus de 15 000 tableaux et 9 000 figures extraits des ESS initialement déposées en lien avec 38 projets pipeliniers depuis 2003. La Régie continuera d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour sur l’évolution de ce projet, suivez-nous sur {github}.",
+          "github": "Github",
+          "githubLink": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section2": {
           "header1": "Voyez ce que vous pouvez faire",
-          "text1": "{toolName}, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de créer, valider et hiérarchiser les caractéristiques qui permettront de l’améliorer. ",
-          "text2": "Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. ",
-          "bold1": "Veuillez nous faire parvenir vos commentaires par courriel à l’adresse {email}.",
-          "email1": "data.donnees@rec-cer.gc.ca"
+          "text1": "Le système CIBER, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de l’améliorer.",
+          "text2": "Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. Veuillez nous faire part de votre intérêt par courriel à l’adresse {email}, et nous communiquerons avec vous pour vous donner des précisions sur la façon de participer.",
+          "email": "data.donnees@rec-cer.gc.ca"
         }
       }
     },

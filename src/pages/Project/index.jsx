@@ -22,8 +22,14 @@ const useStyles = makeStyles({
     },
   },
   hr: {
+    marginTop: 0,
+    backgroundColor: '#CCCCCC',
+    height: '1px',
+  },
+  blueHr: {
     backgroundColor: '#07456B',
     height: '3px',
+    marginBottom: 0,
   },
   header: {
     marginTop: '1em',
@@ -49,12 +55,12 @@ const Project = () => {
       <Typography variant="h4" className={classes.header}>
         {intl.formatMessage({ id: 'pages.project.body.section1.header' })}
       </Typography>
-      <hr className={classes.hr} />
+      <hr className={classes.blueHr} />
 
       <br />
       <NavButtons />
+      <hr className={classes.hr} />
       <div className={classes.root}>
-
         <Grid container>
           <Grid item xs={9} style={{ paddingTop: '2em' }}>
             <Typography>
