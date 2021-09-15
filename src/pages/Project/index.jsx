@@ -7,7 +7,7 @@ import useConfig from '../../hooks/useConfig';
 import papers from '../../images/pages/papers.svg';
 import process from '../../images/pages/process.svg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     '& .alert-info > :first-child::before': {
       paddingTop: '4px',
@@ -23,19 +23,19 @@ const useStyles = makeStyles({
   },
   hr: {
     marginTop: 0,
-    backgroundColor: '#CCCCCC',
+    backgroundColor: theme.palette.grey.charcoal,
     height: '1px',
   },
   blueHr: {
-    backgroundColor: '#07456B',
+    backgroundColor: theme.palette.teal.blue,
     height: '3px',
     marginBottom: 0,
   },
   header: {
     marginTop: '1em',
-    color: '#07456B',
+    color: theme.palette.teal.blue,
   },
-});
+}));
 
 const Project = () => {
   const classes = useStyles();
@@ -87,7 +87,11 @@ const Project = () => {
                       )}
                     </strong>
                   ),
-                  openGov: (<a href={intl.formatMessage({ id: 'pages.project.body.section1.openGovLink' })}>{intl.formatMessage({ id: 'pages.project.body.section1.openGov' })}</a>),
+                  openGov: (
+                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.openGovLink' })}>
+                      {intl.formatMessage({ id: 'pages.project.body.section1.openGov' })}
+                    </a>
+                  ),
                 },
               )}
             </Typography>
@@ -103,7 +107,11 @@ const Project = () => {
                       )}
                     </strong>
                   ),
-                  github: (<a href={intl.formatMessage({ id: 'pages.project.body.section1.githubLink' })}>{intl.formatMessage({ id: 'pages.project.body.section1.github' })}</a>),
+                  github: (
+                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.githubLink' })}>
+                      {intl.formatMessage({ id: 'pages.project.body.section1.github' })}
+                    </a>
+                  ),
                 },
               )}
             </Typography>

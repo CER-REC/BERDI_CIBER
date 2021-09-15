@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#EAEBED',
     borderRadius: '5px',
     boxShadow: '1px 1px #8A8B8D',
-    color: '#07456B',
+    color: theme.palette.teal.blue,
     '& span': {
       padding: '0 0.8em',
     },

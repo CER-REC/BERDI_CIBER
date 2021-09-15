@@ -508,6 +508,7 @@
         }
       }
     },
-    "back": "Retourner à ciber"
+    "back": "Retourner à ciber",
+    "altBack":""
   }
 }
