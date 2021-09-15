@@ -30,9 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
     padding: '8px',
   },
-  noBorder: {
-    border: 'none',
-  },
+  noBorder: { border: 'none' },
 }));
 
 const SearchBar = ({ hasShrink }) => {
