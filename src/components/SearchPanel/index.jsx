@@ -41,15 +41,6 @@ const SearchPanel = ({ hasFilter, onChange }) => {
 
   return (
     <Grid container className={`SearchPanel ${classes.root}`} alignItems="center">
-      {
-        !hasFilter && (
-          <Grid item xs={12}>
-            <Typography variant="h6">
-              {intl.formatMessage({ id: 'components.searchPanel.searchLabel' })}
-            </Typography>
-          </Grid>
-        )
-      }
       <Grid item xs={9} className={classes.barContainer}>
         {hasFilter && (
           <>
