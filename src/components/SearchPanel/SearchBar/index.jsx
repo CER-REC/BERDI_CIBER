@@ -12,8 +12,9 @@ const useStyles = makeStyles((theme) => ({
   input: {
     width: '100%',
     '& input': {
-      borderRadius: '10px, 0, 0, 10px',
       backgroundColor: theme.palette.common.white,
+      borderBottomLeftRadius: '10px',
+      borderTopLeftRadius: '10px',
     },
     '& legend': { width: 0 },
   },
