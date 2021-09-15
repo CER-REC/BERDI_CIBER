@@ -30,7 +30,6 @@ export default () => {
         <Typography>{intl.formatMessage({ id: 'pages.landing.taglineBold' })}</Typography>
         <Typography>{intl.formatMessage({ id: 'pages.landing.tagline' })}</Typography>
       </header>
-      <hr />
     </div>
   );
 };

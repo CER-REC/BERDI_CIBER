@@ -6,11 +6,16 @@ import { useIntl } from 'react-intl';
 import ExploreButton from './ExploreButton';
 import SearchBar from './SearchBar';
 import InlineLogo from './InlineLogo';
+import TitleCard from '../TitleCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundImage: 'linear-gradient(180deg, #4F5496 0%, #5B3B67 158.06%)',
+  },
+  rounded: {
     borderRadius: '10px',
+  },
+  searchPanel: {
     padding: '0 1.5em',
     height: '6em',
     color: 'white',
@@ -40,28 +45,31 @@ const SearchPanel = ({ hasFilter, onChange }) => {
   const intl = useIntl();
 
   return (
-    <Grid container className={`SearchPanel ${classes.root}`} alignItems="center">
-      <Grid item xs={9} className={classes.barContainer}>
-        {hasFilter && (
-          <>
-            <InlineLogo />
-            <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
-          </>
-        )}
-        <SearchBar hasShrink={hasFilter} />
+    <div className={`${hasFilter ? classes.rounded : ''} ${classes.root}`}>
+      {!hasFilter && (<TitleCard />)}
+      <Grid container className={classes.searchPanel} alignItems="center">
+        <Grid item xs={9} className={classes.barContainer}>
+          {hasFilter && (
+            <>
+              <InlineLogo />
+              <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
+            </>
+          )}
+          <SearchBar hasShrink={hasFilter} />
+        </Grid>
+        <Grid item xs={3} classes={{ root: classes.sideBlock }}>
+          {hasFilter && (
+            <>
+              <Typography classes={{ root: classes.filterLabel }} variant="h6">
+                {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
+              </Typography>
+              <Switch color="default" onChange={onChange} />
+            </>
+          )}
+          {!hasFilter && <ExploreButton />}
+        </Grid>
       </Grid>
-      <Grid item xs={3} classes={{ root: classes.sideBlock }}>
-        {hasFilter && (
-          <>
-            <Typography classes={{ root: classes.filterLabel }} variant="h6">
-              {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
-            </Typography>
-            <Switch color="default" onChange={onChange} />
-          </>
-        )}
-        {!hasFilter && <ExploreButton />}
-      </Grid>
-    </Grid>
+    </div>
   );
 };
 
