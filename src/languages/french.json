@@ -9,9 +9,11 @@
     "tables": "Tableaux",
     "figures": "Figures",
     "project": "Projet",
-    "topic": "",
+    "topic": "Sujet",
     "previous": "Précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
+    "megabytes": "Mo",
+    "kilobytes": "Ko",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
@@ -24,6 +26,7 @@
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
+    "alignmentSheetCount": "{alignmentSheets, plural, =0 {carte-tracé} =1 {carte-tracé} other {carte(s)-tracé(s)}}",
     "termsAndConditions": "Avis",
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "a11y": {
@@ -36,117 +39,117 @@
     "environmental": {
       "title": "",
       "landscape": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Paysage, terrain et conditions météorologiques",
+        "label": "Paysage et conditions météorologiques",
+        "description": "Données renfermant des renseignements sur les caractéristiques des terres et sur le terrain, comme le pergélisol ou le substratum rocheux. Il peut aussi y avoir de l’information sur les conditions météorologiques ou les dangers de cet ordre."
       },
       "soil": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Sol",
+        "label": "Sol",
+        "description": "Données renfermant des renseignements sur les sédiments ou le sol. Il peut aussi y avoir de l’information sur la contamination des lieux le cas échéant."
       },
       "wetland": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Milieux humides",
+        "label": "Milieux humides",
+        "description": "Données renfermant des renseignements sur les milieux humides, par exemple, les tourbières, les fondrières ou les marécages. Il peut aussi y avoir de l’information sur les milieux humides préoccupants aux yeux des peuples autochtones. Ces données chevauchent un peu celles sur les obligations en matière environnementale."
       },
       "water": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Eau",
+        "label": "Eau",
+        "description": "Données renfermant des renseignements sur les plans d’eau, les eaux souterraines et les débits. Il peut aussi y avoir de l’information sur la pollution et les plans d’eau importants pour les peuples autochtones."
       },
       "fish": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Poissons",
+        "label": "Poissons",
+        "description": "Données renfermant des renseignements sur les poissons et leur habitat. Il peut aussi y avoir de l’information sur la pollution, les espèces en péril et celles qui sont importantes pour les peuples autochtones, sans oublier leur habitat."
       },
       "plant": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Plantes",
+        "label": "Plantes",
+        "description": "Données renfermant des renseignements sur les plantes et la végétation. Il peut s’agir de plantes rares, de communautés et d’espèces végétales ou de communautés écologiques en péril, d’espèces envahissantes ou de plantes importantes pour les peuples autochtones."
       },
       "wildlife": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Faune",
+        "label": "Faune",
+        "description": "Données renfermant des renseignements sur la faune et son habitat, y compris la faune marine. Elles peuvent être utilisées dans le contexte des déplacements et de la mortalité de la faune. Les effets sur les habitats vulnérables comme les nids et les tanières, ainsi que sur les zones clés comme les parcs nationaux ou les sanctuaires, sont également inclus."
       },
       "species": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Espèces en péril",
+        "label": "Espèces en péril",
+        "description": "Données renfermant des renseignements sur les espèces en péril ou à statut particulier et leur habitat. Cela comprend les plantes, la faune, les poissons et les espèces marines. Ces données chevauchent un peu celles sur les obligations en matière environnementale."
       },
       "noise": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Bruit",
+        "label": "Bruit",
+        "description": "Données renfermant des renseignements sur le bruit pouvant provenir d’une installation pipelinière, comme par exemple une usine à gaz ou une station de compression. Cela comprend aussi le bruit causé par les travaux de construction, le dynamitage ou la machinerie."
       },
       "gas": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Émissions de gaz à effet de serre",
+        "label": "Émissions de GES",
+        "description": "Données renfermant des renseignements sur les émissions possibles de gaz à effet de serre. Elles ont été récemment incluses pour aider le Canada à mieux comprendre dans quelle mesure il respecte ses engagements en matière de changements climatiques."
       },
       "air": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Émissions atmosphériques",
+        "label": "Émissions atmosphériques",
+        "description": "Données qui se rapportent aux émissions atmosphériques pouvant par exemple prendre la forme de contaminants ou d’émissions fugitives et pouvant aussi provenir du brûlage à la torche, de l’évacuation ou de l’incinération."
       },
       "electricity": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Électricité et électromagnétisme",
+        "label": "Électricité",
+        "description": "Données renfermant des renseignements sur les champs électromagnétiques et les décharges coronaires. Elles s’appliquent le plus souvent à des projets de transport d’électricité."
+      },
+      "environmental": {
+        "title": "Obligations en matière d’environnement",
+        "label": "Obligations en matière d’environnement",
+        "description": "Données renfermant de l’information sur les exigences légales, les politiques ou d’autres cibles, comme la Politique fédérale de la conservation des terres humides. Elles ont été récemment incluses pour aider le Canada à mieux comprendre dans quelle mesure il respecte ses engagements en matière d’environnement pour des aspects comme les espèces en péril et les milieux humides."
       }
     },
     "socioEconomic": {
       "title": "",
       "infrastructure": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Infrastructure et services sociaux, culturels et économiques",
+        "label": "Infrastructure et services",
+        "description": "Données renfermant des renseignements sur l’infrastructure, comme le logement et les routes. Il peut par exemple s’agir d’effets éventuels comme une demande accrue sur les services à l’échelle locale ou des dommages et des réparations."
       },
       "job": {
-        "title": "",
-        "label": "",
-        "description": ""
-      },
-      "environmental": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Compensations et répercussions économiques",
+        "label": "Emplois et ressources financières",
+        "description": "Données renfermant des renseignements sur la possibilité de réaliser des bénéfices et de contribuer à l’économie locale. Cela peut comprendre des conditions d’emploi ou des possibilités d’études. Il peut aussi s’agir des avantages fiscaux pour les gouvernements."
       },
       "heritage": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Sites et ressources archéologiques, paléontologiques, historiques ou importants sur le plan culturel",
+        "label": "Ressources patrimoniales",
+        "description": "Données renfermant de l’information sur des secteurs ayant une importance historique, même préhistorique ou culturelle."
       },
       "proximity": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Lieux habités à proximité",
+        "label": "Lieux habités à proximité",
+        "description": "Données renfermant des renseignements sur l’incidence de l’activité humaine quant aux lieux habités et à proximité de ceux-ci ou aux ressources si un pipeline était actif. Les terres agricoles, les parcs, les forêts, les plans d’eau et les réserves d’eau potable sont des exemples de tels lieux habités ou ressources."
       },
       "human": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Incidence sur la santé humaine et le panorama",
+        "label": "Santé humaine",
+        "description": "Données renfermant des renseignements sur des parties de l’environnement qui ont une incidence sur la santé humaine, comme par exemple la qualité de l’eau et de l’air, ainsi que sur les panoramas ou qui ont d’autres effets sur les sens."
       },
       "social": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Incidences sur le bien-être social et culturel",
+        "label": "Questions socioculturelles",
+        "description": "Données renfermant des renseignements sur le bien-être social et culturel des peuples autochtones, des résidents ou des collectivités."
       },
       "boat": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Activités à bord d’embarcation ou sur des voies navigables",
+        "label": "Embarcations et voies navigables",
+        "description": "Données renfermant de l’information sur la possibilité d’activité humaine sur des voies navigables, dans des cours d’eau ou autour de ceux-ci. Cela peut comprendre des activités ou des objets situés à l’intérieur des limites d’une voie navigable en présence d’eau en mouvement, mais non si cette voie se retrouve parfois asséchée ou gelée."
       },
       "indigenous": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Utilisation des terres, de l’eau et du plein air par les Autochtones",
+        "label": "Utilisation des terres par les Autochtones",
+        "description": "Données renfermant des renseignements sur la relation entre les peuples autochtones et la terre,  les ressources qui s’y trouvent, l’eau et l’air. Cela peut comprendre des activités saisonnières comme la chasse, le piégeage et la cueillette de baies, mais aussi les réserves, les régions désignées et les territoires traditionnels. Les personnes visées doivent donner leur assentiment avant de pouvoir utiliser ces données."
       },
       "treaty": {
-        "title": "",
-        "label": "",
-        "description": ""
+        "title": "Droits ancestraux et issus de traités",
+        "label": "Droits ancestraux et issus de traités",
+        "description": "Données renfermant des renseignements sur les pratiques, coutumes, traditions et modes d’apprentissage des peuples autochtones. Ces droits sont reconnus et confirmés par l’article 35 de la Loi constitutionnelle de 1982. Ils peuvent découler de traités ou d’autres ententes et promesses gouvernementales."
       }
     }
   },
@@ -155,8 +158,8 @@
       "title": "NOTE SUR L’EXACTITUDE",
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
-    "addContentIdsButton":{
-      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux} à l’étagère}"
+    "addContentIdsButton": {
+      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
@@ -170,10 +173,22 @@
       "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
       "link": "Voyez comment vous pouvez aider."
     },
+    "cart": {
+      "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les restrictions et acceptez de respecter toutes les exigences qui s’y rattachent.",
+      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
+      "headerQuantity": "Éléments sur la tablette",
+      "viewFullList": "Voir la liste complète sur la page",
+      "copyLink": "Copier le lien",
+      "shareDisclaimer": "Il s’agit de votre lien unique vers une collection permanente. Cela signifie que les éléments qui y figurent ne disparaîtront pas et qu’ils ne pourront pas être modifiés. Cette collection peut être consultée par quiconque dispose de ce lien.",
+      "copyConfirmation": "Lien copié!",
+      "removeAll": "Supprimer tout",
+      "projectName": "Nom du projet :",
+      "company": "Société :"
+    },
     "cartButton": {
-      "add": "",
-      "remove": "",
-      "unavailable": "",
+      "add": "Ajouter à l’étagère",
+      "remove": "Retirer de l’étagère",
+      "unavailable": "Données non disponibles",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
@@ -199,18 +214,18 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
-    "legalDisclaimer":{
-      "attention":"",
-      "disclaimer1":"La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
-      "disclaimer2":"En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
-      "bullet1":"d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
-      "bullet2":"de ne pas distribuer ni diffuser les documents;",
-      "bullet3":"de ne faire qu’une seule copie de tout document;",
-      "bullet4":"de détruire toute copie après utilisation;",
-      "bullet5":"de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
-      "not":"NE PAS",
-      "agree":"J’accepte",
-      "enter":""
+    "legalDisclaimer": {
+      "attention": "Attention",
+      "disclaimer1": "La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
+      "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
+      "bullet1": "d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
+      "bullet2": "de ne pas distribuer ni diffuser les documents;",
+      "bullet3": "de ne faire qu’une seule copie de tout document;",
+      "bullet4": "de détruire toute copie après utilisation;",
+      "bullet5": "de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
+      "not": "NE PAS",
+      "agree": "J’accepte",
+      "enter": "Accéder à CIBER"
     },
     "limitationsDialog": {
       "title": "Restrictions générales",
@@ -219,54 +234,53 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
-      "listPanel":{
-        "projectType":"Type de projet : ",
-        "projectFiled":"Projet déposé le : ",
-        "projectStatus":"Étape du projet : ",
-        "projectLinks":"Liens relatifs au projet : ",
-        "relatedTopics":"Sujets connexes :",
-        "addToShelf":"Ajouter à l’étagère",
-        "seeMore":"Plus de détails",
-        "seeFewer":"Moins de détails",
-        "expandAll":"Développer",
-        "collapseAll":"Réduire",
+      "listPanel": {
+        "projectType": "Type de projet : ",
+        "projectFiled": "Projet déposé le : ",
+        "projectStatus": "Étape du projet : ",
+        "projectLinks": "Liens relatifs au projet : ",
+        "relatedTopics": "Sujets connexes :",
+        "seeMore": "Plus de détails",
+        "seeFewer": "Moins de détails",
+        "expandAll": "Développer",
+        "collapseAll": "Réduire",
         "company": "Société",
         "projectName": "Nom du projet : ",
         "esaConsultant": "Nom du consultant de l'EES : ",
         "projectFolder": "Dossier de projet",
         "finalDecision": "Décision finale",
         "esaFolder": "Dossier de l’EES",
-        "ellipsisButton":{
-          "rate":"Signaler ces données",
-          "report":"Évaluer ces données",
-          "download":"Télécharger le tableau",
-          "rateDataDialog":{
-            "rateData":"Signaler ces données",
-            "useful":"Dans quelle mesure croyez-vous que ces données seront utiles?",
-            "rate":"Évaluation",
-            "thankYou":"Merci de votre rétroaction.",
-            "timesRated":"Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-            "improve":"Votre rétroaction nous aidera à améliorer CIBER.",
-            "ratingLabels":{
-              "1":"Pas du tout utiles",
-              "2":"Données à améliorer",
-              "3":"Plutôt utiles",
-              "4":"Utiles",
-              "5":"Très utiles"
+        "ellipsisButton": {
+          "rate": "Signaler ces données",
+          "report": "Évaluer ces données",
+          "download": "Télécharger le tableau",
+          "rateDataDialog": {
+            "rateData": "Signaler ces données",
+            "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
+            "rate": "Évaluation",
+            "thankYou": "Merci de votre rétroaction.",
+            "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
+            "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
+            "ratingLabels": {
+              "1": "Pas du tout utiles",
+              "2": "Données à améliorer",
+              "3": "Plutôt utiles",
+              "4": "Utiles",
+              "5": "Très utiles"
             },
-          "reportDataDialog":{
-            "report":"Évaluer ces données :",
-            "required":"Requis",
-            "whatConcern":"Quel souci souhaitez-vous signaler?",
-            "strangeChars":"Les données comportaient des caractères insolites.",
-            "noData":"Je n’ai pas retrouvé les données dans le document.",
-            "other":"Autre",
-            "explainMore":"Veuillez expliquer plus en détail.",
-            "optional":"Facultatif",
-            "disclaimer":"Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-            "submit":"Envoyer",
-            "thankYou":"Nous avons bien reçu votre signalement.",
-            "flagged":"Ces données seront examinées."
+            "reportDataDialog": {
+              "report": "Évaluer ces données :",
+              "required": "Requis",
+              "whatConcern": "Quel souci souhaitez-vous signaler?",
+              "strangeChars": "Les données comportaient des caractères insolites.",
+              "noData": "Je n’ai pas retrouvé les données dans le document.",
+              "other": "Autre",
+              "explainMore": "Veuillez expliquer plus en détail.",
+              "optional": "Facultatif",
+              "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+              "submit": "Envoyer",
+              "thankYou": "Nous avons bien reçu votre signalement.",
+              "flagged": "Ces données seront examinées."
             }
           }
         }
@@ -302,7 +316,7 @@
     },
     "resultDialog": {
       "seeMore": "Voir plus...",
-      "seeLess":"Voir moin ...",
+      "seeLess": "Voir moin ...",
       "foundOnPage": "Page : ",
       "originalPDF": "PDF original : ",
       "esaFolder": "Dossier de l’EES : ",
@@ -329,16 +343,17 @@
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
     },
-    "searchDetails":{
+    "searchDetails": {
       "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}} et {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}",
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s)}} trouvé(s)",
       "explore":"Explorer les résultats par",
       "select":"Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "svgButton": {
-      "strongRelation": "",
-      "someRelation": "",
-      "noRelation": ""
+      "strongRelation": "Lien étroit avec les termes recherchés",
+      "someRelation": "En partie lié aux termes recherchés",
+      "littleRelation": "Lien ténu avec les termes recherchés",
+      "noRelation": "Absence de lien avec les termes recherchés"
     },
     "loadingIndicator": {
       "api": "veuillez patienter",
@@ -351,8 +366,8 @@
   },
   "pages": {
     "landing": {
-      "taglineBold":"Tirer des leçons du passé et préparer l’avenir.",
-      "tagline":"Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
+      "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
+      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine.",
         "button": "Lisez notre avertissement",

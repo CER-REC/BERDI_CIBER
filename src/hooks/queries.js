@@ -29,6 +29,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
     discovery1:content(id: 16713) {
       id
@@ -38,6 +44,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
     discovery2:content(id: 1376) {
       id
@@ -47,6 +59,12 @@ export const CONFIGURATION = gql`
       pdfURL
       type
       url
+      esaFolderURL
+      application {
+        name
+        applicationURL
+        finalDecisionURL
+      }
     }
   }
 `;
@@ -63,6 +81,7 @@ export const SEARCH = gql`
     $statuses: [Status!]!,
     $contentTypes: [MediaType!]!,
     $searchApplicationIds: [String!]!,
+    $valueComponent: InputValueComponentType,
     $first: Int!,
     $offset: Int!
   ) {
@@ -74,7 +93,8 @@ export const SEARCH = gql`
       endDate: $endDate,
       commodities: $commodities,
       projectTypes: $projectTypes,
-      statuses: $statuses
+      statuses: $statuses,
+      valueComponent: $valueComponent
     ) {
       id
       name
@@ -87,8 +107,9 @@ export const SEARCH = gql`
       type
       filingDate
       hearingOrder
-      tableCount(search: $search)
-      figureCount(search: $search)
+      tableCount(search: $search, valueComponent: $valueComponent)
+      figureCount(search: $search, valueComponent: $valueComponent)
+      alignmentSheetCount(search: $search, valueComponent: $valueComponent)
       url
       finalDecisionURL
     }
@@ -102,6 +123,7 @@ export const SEARCH = gql`
       projectTypes: $projectTypes,
       statuses: $statuses,
       mediaTypes: $contentTypes,
+      valueComponent: $valueComponent,
       first: $first,
       offset: $offset
     ) {
@@ -115,6 +137,7 @@ export const SEARCH = gql`
         type
         url
         esaFolderURL
+        thumbnailURL
         application {
           name
           consultants
@@ -130,6 +153,30 @@ export const SEARCH = gql`
       }
       totalCount
       downloadTableIds
+      valueComponent {
+        landscape
+        soil
+        wetland
+        water
+        fish
+        plant
+        wildlife
+        species
+        noise
+        gas
+        air
+        electricity
+        infrastructure
+        job
+        environmental
+        heritage
+        proximity
+        human
+        social
+        boat
+        indigenous
+        treaty
+      }
     }
   }
 `;
@@ -138,6 +185,20 @@ export const DOWNLOAD_SIZE = gql`
   query($ids: [ID!]!) {
     download(ids: $ids) {
       fileSize
+    }
+  }
+`;
+
+export const CART_ITEMS = gql`
+  query($cartIds: [ID!]!) {
+    contents(ids: $cartIds) {
+      id
+      title
+      thumbnailURL
+      application {
+        name
+        companyName
+      }
     }
   }
 `;

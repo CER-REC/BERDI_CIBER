@@ -19,7 +19,7 @@ import PaginationBar from '../PaginationBar';
 import CartButton from '../../CartButton';
 import styles from './styles';
 import TitleSection from './TitleSection';
-import ViewMoreDetailsButton from './ViewMoreDetailsButton';
+import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 import RelatedTopics from './RelatedTopics';
 import EllipsisButton from '../EllipsisButton';
 
@@ -85,6 +85,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       xl={1}
                       onClick={() => handleClickOpen(content)}
                       className={classes.imageSection}
+                      style={{ backgroundImage: `url(${content.thumbnailURL})` }}
                     >
                       <Grid item>
                         <img alt="A magnifying glass" src={magnifyingGlass} />

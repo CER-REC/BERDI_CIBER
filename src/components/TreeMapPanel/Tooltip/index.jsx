@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   },
 });
 
-const Tooltip = ({ title, figureCount, tableCount }) => {
+const Tooltip = ({ title, figureCount, tableCount, alignmentSheetCount }) => {
   const intl = useIntl();
   const classes = useStyles();
 
@@ -28,6 +28,10 @@ const Tooltip = ({ title, figureCount, tableCount }) => {
         <strong>{intl.formatNumber(figureCount)}</strong>
         {` ${intl.formatMessage({ id: 'common.figureCount' }, { figures: figureCount })}`}
       </p>
+      <p>
+        <strong>{intl.formatNumber(alignmentSheetCount)}</strong>
+        {` ${intl.formatMessage({ id: 'common.alignmentSheetCount' }, { alignmentSheets: alignmentSheetCount })}`}
+      </p>
     </div>
   );
 };
@@ -36,6 +40,7 @@ Tooltip.propTypes = {
   title: PropTypes.string.isRequired,
   figureCount: PropTypes.number.isRequired,
   tableCount: PropTypes.number.isRequired,
+  alignmentSheetCount: PropTypes.number.isRequired,
 };
 
 export default Tooltip;

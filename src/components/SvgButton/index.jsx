@@ -106,6 +106,8 @@ const SvgButton = ({
     <Tooltip
       classes={{ tooltip: classes.tooltip }}
       title={<Topic title={title} description={description} score={score} type={type} />}
+      enterDelay={500}
+      enterNextDelay={500}
       placement="right"
     >
       <div className={classes.root}>

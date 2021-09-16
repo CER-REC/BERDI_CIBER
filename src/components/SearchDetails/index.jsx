@@ -24,15 +24,24 @@ const SearchDetails = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { applications, loading } = useESAData();
-  const { config: { filter } } = useConfig();
+  const { config: { filter, treemapApplicationIds } } = useConfig();
 
-  const figureCount = applications.reduce(
+  const selectedApplications = (treemapApplicationIds.length > 0)
+    ? applications.filter((item) => treemapApplicationIds.includes(item.id))
+    : applications;
+
+  const figureCount = selectedApplications.reduce(
     (count, application) => (application.figureCount + count),
     0,
   );
 
-  const tableCount = applications.reduce(
+  const tableCount = selectedApplications.reduce(
     (count, application) => (application.tableCount + count),
+    0,
+  );
+
+  const alignmentSheetCount = selectedApplications.reduce(
+    (count, application) => (application.alignmentSheetCount + count),
     0,
   );
 
@@ -55,8 +64,10 @@ const SearchDetails = () => {
                 {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
                   tables: tableCount,
                   figures: figureCount,
+                  alignmentSheets: alignmentSheetCount,
                   boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
                   boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
+                  boldAlignmentSheets: (<span className={classes.bold}>{`${alignmentSheetCount.toLocaleString()}`}</span>),
                 })}
               </Typography>
             )) || <NoResultsStatusMessages />
@@ -66,9 +77,9 @@ const SearchDetails = () => {
       </Grid>
 
       {filter === 'topic' && (
-      <Typography variant="h6" className={classes.filterText}>
+        <Typography variant="h6" className={classes.filterText}>
           {intl.formatMessage({ id: 'components.searchDetails.select' })}
-      </Typography>
+        </Typography>
       )}
     </div>
   );

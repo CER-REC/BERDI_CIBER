@@ -1,36 +1,25 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.primary.main,
-    maxHeight: '3em',
+    display: '-webkit-box',
+    height: '3em',
     marginTop: '0.2em',
     overflow: 'hidden',
     width: '6.8em',
+    // TODO: Update to use the line-clamp property when CSS Overflow Module Level 3 is available
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: 'vertical',
   },
 }));
 
 const Label = ({ label }) => {
   const classes = useStyles();
-  const ref = useRef();
-  const [clip, setClip] = useState(label);
-  const ellipsis = (clip.length === label.length) ? '' : '...';
-  const clippedLabel = clip + ellipsis;
 
-  useEffect(() => setClip(label), [label]);
-  useEffect(() => {
-    const isOverflowing = ref.current.clientHeight < ref.current.scrollHeight;
-
-    if (isOverflowing) {
-      setClip(clip.slice(0, -1));
-    }
-  }, [ref, clip]);
-
-  return (
-    <Typography ref={ref} className={classes.root} variant="body1">{clippedLabel}</Typography>
-  );
+  return <Typography className={classes.root} variant="body1">{label}</Typography>;
 };
 
 Label.propTypes = {

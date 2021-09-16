@@ -3,6 +3,7 @@ import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
+import useESAData from '../../hooks/useESAData';
 import air from '../../images/topicsFilter/air.svg';
 import boat from '../../images/topicsFilter/boat.svg';
 import social from '../../images/topicsFilter/culture.svg';
@@ -41,16 +42,16 @@ const environmentalSrcs = {
   gas,
   air,
   electricity,
+  environmental,
 };
 const socioEconomicSrcs = {
   infrastructure,
   job,
-  environmental,
-  heritage,
   proximity,
   human,
-  social,
   boat,
+  heritage,
+  social,
   indigenous,
   treaty,
 };
@@ -93,6 +94,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+const getScore = (number, max) => {
+  if (number === 0) {
+    return 0;
+  }
+
+  const percentage = number / max;
+
+  if (percentage > 0.67) {
+    return 3;
+  }
+
+  if (percentage > 0.33) {
+    return 2;
+  }
+
+  return 1;
+};
 
 // These objects are used to loop over React hook calls
 Object.freeze(environmentalSrcs);
@@ -104,7 +122,10 @@ const TopicsFilter = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
+  const { valueComponent } = useESAData();
   const isLanding = config.page === 'landing';
+  // Need to filter out the __typename from Apollo
+  const maxValueComponent = Math.max(...Object.values(valueComponent).filter(Number));
   const topicProps = {};
   const environmentalTopics = Object.keys(environmentalSrcs);
   const socioEconomicTopics = Object.keys(socioEconomicSrcs);
@@ -117,10 +138,8 @@ const TopicsFilter = () => {
     label: intl.formatMessage({ id: `common.${type}.${topic}.label` }),
     title: intl.formatMessage({ id: `common.${type}.${topic}.title` }),
     description: intl.formatMessage({ id: `common.${type}.${topic}.description` }),
-    // TODO: Hook up score to the search results
-    score: isLanding ? null : (topic.length % 4),
-    // TODO: Hook up disabled to the search results
-    disabled: isLanding ? false : (topic.length % 4) === 0,
+    score: isLanding ? null : getScore(valueComponent[topic], maxValueComponent),
+    disabled: isLanding ? false : (valueComponent[topic] === 0),
     onClick: () => {
       const action = config.topics.includes(topic) ? 'topics/removed' : 'topics/added';
 
@@ -152,7 +171,7 @@ const TopicsFilter = () => {
 
   return (
     <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
-      <Grid item xs={6}>
+      <Grid item xs={7}>
         <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
           <span>{ intl.formatMessage({ id: 'common.environmental.title' }) }</span>
         </Typography>
@@ -178,7 +197,7 @@ const TopicsFilter = () => {
           }
         </div>
       </Grid>
-      <Grid item xs={6}>
+      <Grid item xs={5}>
         <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
           <span>{ intl.formatMessage({ id: 'common.socioEconomic.title' }) }</span>
         </Typography>

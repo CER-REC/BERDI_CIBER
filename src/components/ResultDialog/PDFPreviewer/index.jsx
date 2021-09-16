@@ -36,6 +36,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [isLoading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const handleLoad = () => setLoading(false);
   const fullURL = `${pdfURL}#page=${pageNumber}&pagemode=thumbs&view=fitV&zoom=page-fit`;
   const ref = useRef();
@@ -43,7 +44,10 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   useEffect(() => {
     // Note that onError for the object tag doesn't attach
     if (ref.current) {
-      ref.current.onerror = handleLoad;
+      ref.current.onerror = () => {
+        setHasError(true);
+        handleLoad();
+      };
     }
   });
 
@@ -60,11 +64,15 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         width="100%"
         height="100%"
         type="application/pdf"
-        className={classes.object}
         onLoad={handleLoad}
         role="document"
       >
-        {!isLoading && (
+        {/*
+          Chrome will reload the PDF if the fallback error is rendered in after the initial load
+          because the PDF links are comprised of redirects
+          so the final loaded link doesn't match the original ref
+        */}
+        {hasError && (
           <div className={classes.failureContainer}>
             <img alt="Sheet of paper with X over it" src={pdfFailLoadIcon} />
             <Typography className={classes.failureMessage}>

@@ -3,6 +3,7 @@ import {
 } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import PropTypes from 'prop-types';
 import { lang } from '../../constants';
 import cerLogoEn from '../../images/cerLogoEn.png';
 import cerLogoFr from '../../images/cerLogoFr.png';
@@ -34,14 +35,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LegalDisclaimer = () => {
+const LegalDisclaimer = ({ onClose, open, setOpen }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const [open, setOpen] = useState(true);
   const [checked, setChecked] = useState(false);
   const logo = lang === 'fr' ? cerLogoFr : cerLogoEn;
 
-  const handleClose = (event, reason) => { if (reason !== 'backdropClick') { setOpen(false); } };
+  const handleClose = (_, reason) => { if (reason !== 'backdropClick') { onClose(); setOpen(false); } };
   const toggleChecked = () => setChecked(!checked);
 
   return (
@@ -108,3 +108,9 @@ const LegalDisclaimer = () => {
 };
 
 export default LegalDisclaimer;
+
+LegalDisclaimer.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  setOpen: PropTypes.func.isRequired,
+};
