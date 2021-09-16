@@ -168,11 +168,6 @@
     "applications": {
       "title": "Cliquer pour voir les détails des projets sélectionnés."
     },
-    "betaAlert": {
-      "title": "BÊTA",
-      "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
-      "link": "Voyez comment vous pouvez aider."
-    },
     "cart": {
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les restrictions et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
