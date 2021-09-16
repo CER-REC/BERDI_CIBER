@@ -2,10 +2,10 @@ import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import NavButtons from '../../components/NavButtons';
-import BackButton from '../../components/NavButtons/BackButton';
+import BackButton from '../../components/BackButton';
 import useConfig from '../../hooks/useConfig';
-import papers from '../../images/pages/papers.svg';
-import process from '../../images/pages/process.svg';
+import papers from '../../images/pages/papers.png';
+import process from '../../images/pages/process.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +51,7 @@ const Project = () => {
 
   return (
     <div style={{ paddingTop: '2em' }}>
-      <BackButton alt />
+      <BackButton isContentPage />
       <Typography variant="h4" className={classes.header}>
         {intl.formatMessage({ id: 'pages.project.body.section1.header' })}
       </Typography>
