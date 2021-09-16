@@ -3,7 +3,6 @@ import { Grid, Switch, Typography, Divider, makeStyles } from '@material-ui/core
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-import ExploreButton from './ExploreButton';
 import SearchBar from './SearchBar';
 import InlineLogo from './InlineLogo';
 import TitleCard from '../TitleCard';
@@ -66,7 +65,6 @@ const SearchPanel = ({ hasFilter, onChange }) => {
               <Switch color="default" onChange={onChange} />
             </>
           )}
-          {!hasFilter && <ExploreButton />}
         </Grid>
       </Grid>
     </div>

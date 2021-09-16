@@ -337,7 +337,6 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explore all",
       "filterLabel": "Show filters",
       "searchPlaceHolder": "Search by keyword(s)",
       "keywords": {}
