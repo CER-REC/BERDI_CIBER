@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     },
     textAlign: 'center',
   },
+  header: {
+    color: theme.palette.common.white,
+  },
 }));
 
 export default () => {
@@ -25,7 +28,7 @@ export default () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <header>
+      <header className={classes.header}>
         <img src={lang === 'fr' ? ciberLogo : berdiLogo} alt="Tool Logo" />
         <Typography>{intl.formatMessage({ id: 'pages.landing.taglineBold' })}</Typography>
         <Typography>{intl.formatMessage({ id: 'pages.landing.tagline' })}</Typography>

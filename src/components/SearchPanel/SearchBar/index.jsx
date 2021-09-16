@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '0 10px 10px 0',
     backgroundColor: theme.palette.secondary.main,
     padding: '8px',
+    minWidth: '50px',
   },
   noBorder: { border: 'none' },
 }));

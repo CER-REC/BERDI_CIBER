@@ -6,18 +6,25 @@ import { useIntl } from 'react-intl';
 import SearchBar from './SearchBar';
 import InlineLogo from './InlineLogo';
 import TitleCard from '../TitleCard';
+import owlBanner from '../../images/landing/owlBanner.png';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundImage: 'linear-gradient(180deg, #4F5496 0%, #5B3B67 158.06%)',
+  imageRoot: {
+    backgroundImage: `url(${owlBanner})`,
+    backgroundPositionX: 'right',
+    backgroundPositionY: 'top',
+    backgroundSize: 'cover',
+    paddingBottom: '2em',
   },
-  rounded: {
+  gradientRoot: {
+    backgroundImage: 'linear-gradient(180deg, #4F5496 0%, #5B3B67 158.06%)',
     borderRadius: '10px',
   },
   searchPanel: {
     padding: '0 1.5em',
     height: '6em',
     color: 'white',
+    justifyContent: 'center',
   },
   barContainer: {
     display: 'flex',
@@ -44,7 +51,7 @@ const SearchPanel = ({ hasFilter, onChange }) => {
   const intl = useIntl();
 
   return (
-    <div className={`${hasFilter ? classes.rounded : ''} ${classes.root}`}>
+    <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
       {!hasFilter && (<TitleCard />)}
       <Grid container className={classes.searchPanel} alignItems="center">
         <Grid item xs={9} className={classes.barContainer}>
@@ -56,16 +63,16 @@ const SearchPanel = ({ hasFilter, onChange }) => {
           )}
           <SearchBar hasShrink={hasFilter} />
         </Grid>
-        <Grid item xs={3} classes={{ root: classes.sideBlock }}>
-          {hasFilter && (
+        {hasFilter && (
+          <Grid item xs={3} classes={{ root: classes.sideBlock }}>
             <>
               <Typography classes={{ root: classes.filterLabel }} variant="h6">
                 {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
               </Typography>
               <Switch color="default" onChange={onChange} />
             </>
-          )}
-        </Grid>
+          </Grid>
+        )}
       </Grid>
     </div>
   );

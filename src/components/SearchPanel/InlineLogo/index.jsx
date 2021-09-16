@@ -6,7 +6,7 @@ import ciberLogo from '../../../images/landing/logo-ciber.svg';
 
 const useStyles = makeStyles({
   image: {
-    width: '10em',
+    width: '8em',
     margin: '0 2em 0 1em',
   },
 });
