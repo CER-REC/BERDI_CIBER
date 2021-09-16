@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import SearchBar from './SearchBar';
-import InlineLogo from './InlineLogo';
+import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
 import owlBanner from '../../images/landing/owlBanner.png';
 
@@ -55,7 +55,7 @@ const SearchPanel = ({ hasFilter, onChange }) => {
         <Grid item xs={9} className={classes.barContainer}>
           {hasFilter && (
             <>
-              <InlineLogo />
+              <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
               <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
             </>
           )}

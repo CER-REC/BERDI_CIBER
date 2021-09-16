@@ -1,18 +1,12 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import { Typography, makeStyles } from '@material-ui/core';
-import berdiLogo from '../../images/landing/logo-berdi.svg';
-import ciberLogo from '../../images/landing/logo-ciber.svg';
-import { lang } from '../../constants';
+import ToolLogo from '../ToolLogo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& hr': {
       borderColor: theme.palette.primary.main,
-    },
-    '& img': {
-      marginLeft: '1.5em',
-      width: '18em',
     },
     '& p:first-of-type': {
       fontWeight: 700,
@@ -30,7 +24,7 @@ export default () => {
   return (
     <div className={classes.root}>
       <header className={classes.header}>
-        <img src={lang === 'fr' ? ciberLogo : berdiLogo} alt="Tool Logo" />
+        <ToolLogo style={{ width: '18em', marginLeft: '1.5em' }} />
         <Typography>{intl.formatMessage({ id: 'pages.landing.taglineBold' })}</Typography>
         <Typography>{intl.formatMessage({ id: 'pages.landing.tagline' })}</Typography>
       </header>
