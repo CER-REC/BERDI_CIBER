@@ -332,8 +332,8 @@
     "searchDetails":{
       "title": "Résultats de la recherche",
       "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}} et {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}",
-      "explore":"",
-      "select":""
+      "explore":"Explorer les résultats par",
+      "select":"Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "svgButton": {
       "strongRelation": "",
