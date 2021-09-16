@@ -11,8 +11,6 @@ import owlBanner from '../../images/landing/owlBanner.png';
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
     backgroundImage: `url(${owlBanner})`,
-    backgroundPositionX: 'right',
-    backgroundPositionY: 'top',
     backgroundSize: 'cover',
     paddingBottom: '2em',
   },

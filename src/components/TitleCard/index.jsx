@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) => ({
       borderColor: theme.palette.primary.main,
     },
     '& img': {
-      marginBottom: '1em',
+      marginLeft: '1.5em',
+      width: '18em',
     },
     '& p:first-of-type': {
       fontWeight: 700,
