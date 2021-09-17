@@ -5,6 +5,7 @@ const white = '#FFFFFF';
 const altGrey = '#434343';
 const lightGrey = '#AEAEAE';
 const darkGrey = '#616060';
+const athensGrey = '#EAEBED';
 const darkBlue = '#284162';
 const charcoal = '#CCCCCC';
 const navyBlue = '#26374A';
@@ -46,6 +47,7 @@ const theme = createMuiTheme({
       dark: darkGrey,
       alt: altGrey,
       charcoal,
+      athens: athensGrey,
     },
     dialog: {
       footer: footerBlue,
