@@ -1,7 +1,6 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import BetaAlert from '../../components/BetaAlert';
 import NavButtons from '../../components/NavButtons';
 
 const useStyles = makeStyles((theme) => ({
@@ -24,8 +23,6 @@ const Methods = () => {
   const classes = useStyles();
   return (
     <>
-      <br />
-      <BetaAlert />
       <br />
       <NavButtons />
 
