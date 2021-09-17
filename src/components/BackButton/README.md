@@ -4,5 +4,5 @@ The back button will appear by itself when the user is on the search page. Click
 
 ## Requirements
 
-* [X] Renders the BackButton component 
+* [X] Renders the BackButton component
 * [X] Clicking will take you back to the landing page
