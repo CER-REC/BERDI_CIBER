@@ -1,7 +1,7 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import BackButton from '../../components/NavButtons/BackButton';
+import BackButton from '../../components/BackButton';
 import NavButtons from '../../components/NavButtons';
 import { lang } from '../../constants';
 import explainer from '../../images/explainer.svg';
@@ -46,7 +46,7 @@ const Data = () => {
 
   return (
     <div style={{ paddingTop: '2em' }}>
-      <BackButton alt />
+      <BackButton isContentPage />
       <Typography variant="h4" className={classes.header}>
         {intl.formatMessage({ id: 'pages.data.body.title' })}
       </Typography>

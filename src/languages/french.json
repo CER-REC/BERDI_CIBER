@@ -426,7 +426,7 @@
       "description": "Présentation des évaluations environnementales et socioéconomiques (« EES »).",
       "body": {
         "title": "Qu’est-ce qu’une évaluation environnementale et socioéconomique?",
-        "bold0":"évaluations environnementales et socioéconomiques (« EES »)",
+        "bold0": "évaluations environnementales et socioéconomiques (« EES »)",
         "text1": "Les {bold},  sont des rapports déposés avec chaque demande visant un nouveau pipeline. On conçoit les EES comme des « instantanés » en raison de leur évolution tout au long d’une audience. Il est donc important de noter que les EES recensées pour l’extraction des données correspondent aux documents initialement soumis par les sociétés, plus précisément ceux portant sur les étapes de l’évaluation et de la cessation d’exploitation de projets de grande et de moindre envergure qui ont été déposés depuis 2003.",
         "text2": "Les conditions de base de la zone visée par un pipeline projeté et les effets potentiels du pipeline sur ces conditions sont deux éléments essentiels des EES.",
         "header1": "Renseignements sur les conditions de base",

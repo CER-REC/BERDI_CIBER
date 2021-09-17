@@ -426,7 +426,7 @@
       "description": "An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
       "body": {
         "title": "What is an Environmental Socio-Economic Assessment (ESA)?",
-        "bold0":"Environmental and Socio-Economic Assessments (ESAs)",
+        "bold0": "Environmental and Socio-Economic Assessments (ESAs)",
         "text1": "{bold} are reports filed with every application for a new pipeline. ESAs have been described as a “snapshot in time” because of their evolution throughout a hearing, so it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies - specifically from the Assessment and Abandonment stages of both large and small projects since 2003.",
         "text2": "Two key pieces of information in an ESA are the baseline of the area where a pipeline is proposed, and the effects of the proposed pipeline to that baseline.",
         "header1": "Baseline Information",
