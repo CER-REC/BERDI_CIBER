@@ -2,6 +2,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import NavButtons from '../../components/NavButtons';
+import BackButton from '../../components/BackButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,21 +17,38 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: '900',
     fontSize: '17px',
   },
+  hr: {
+    marginTop: 0,
+    backgroundColor: theme.palette.grey.charcoal,
+    height: '1px',
+  },
+  blueHr: {
+    backgroundColor: theme.palette.teal.blue,
+    height: '3px',
+    marginBottom: 0,
+  },
+  title: {
+    marginTop: '1em',
+    color: theme.palette.teal.blue,
+  },
 }));
 
 const Methods = () => {
   const intl = useIntl();
   const classes = useStyles();
   return (
-    <>
+    <div style={{ paddingTop: '2em' }}>
+      <BackButton isContentPage />
+      <Typography variant="h4" className={classes.title}>
+        {intl.formatMessage({ id: 'pages.methods.body.title' })}
+      </Typography>
+      <hr className={classes.blueHr} />
+
       <br />
       <NavButtons />
+      <hr className={classes.hr} />
 
       <div className={classes.root}>
-        <Typography variant="h5">
-          {intl.formatMessage({ id: 'pages.methods.body.title' })}
-        </Typography>
-
         <section>
           <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section1.paragraph1' })}
@@ -212,7 +230,7 @@ const Methods = () => {
           </Typography>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 export default Methods;
