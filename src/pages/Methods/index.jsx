@@ -112,6 +112,16 @@ const Methods = () => {
 
         <section>
           <Typography className={classes.header}>
+            {intl.formatMessage({ id: 'pages.methods.body.section4a.header' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section4a.paragraph1' })}
+          </Typography>
+        </section>
+
+        <section>
+          <Typography className={classes.header}>
             {intl.formatMessage({ id: 'pages.methods.body.section5.header' })}
           </Typography>
 
@@ -174,17 +184,28 @@ const Methods = () => {
           </Typography>
         </section>
 
-        <section>
-          <Typography className={classes.header}>
+        {/* This section appears in the english translations but not the french translations */}
+        {/* <section>
+          <Typography variant="h5" style={{ paddingTop: '1em' }}>
             {intl.formatMessage({ id: 'pages.methods.body.section7.header' })}
           </Typography>
 
           <Typography>
-            {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' },
+            {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' })}
+          </Typography>
+        </section> */}
+
+        <section>
+          <Typography className={classes.header}>
+            {intl.formatMessage({ id: 'pages.methods.body.section8.header' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section8.paragraph1' },
               {
                 link1: (
-                  <a href={intl.messages['pages.methods.body.section7.url1']}>
-                    {intl.formatMessage({ id: 'pages.methods.body.section7.link1' })}
+                  <a href={intl.messages['pages.methods.body.section8.url1']}>
+                    {intl.formatMessage({ id: 'pages.methods.body.section8.link1' })}
                   </a>
                 ),
               })}

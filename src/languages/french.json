@@ -441,61 +441,65 @@
       "title": "Les méthodes",
       "description": "Voyez comment nous avons transformé des documents de réglementation en données structurées.",
       "body": {
-        "title": "Les méthodes",
+        "title": "Méthodes",
         "section1": {
-          "paragraph1": "Les évaluations environnementales et socioéconomiques (« EES ») peuvent compter plusieurs centaines de pages et sont soumises à la Régie de l’énergie du Canada sous forme de fichiers PDF. Ces fichiers renferment des données qualitatives et quantitatives, notamment du texte, des tableaux, des figures, des cartes et des images satellites.",
-          "paragraph2": "Bien que l’information contenue dans les EES soit détaillée, elle n’est pas facilement consultable ni accessible en raison des limites inhérentes aux fichiers PDF. Aucun fichier de données brutes, comme des tableaux en format CSV, n’est déposé auprès de la Régie; toute l’information pertinente se trouve dans les fichiers PDF. Les personnes qui souhaitent analyser, comparer ou traiter les données doivent les extraire manuellement, en copiant et en collant l’information du fichier PDF dans d’autres logiciels, comme des tableurs. C’est un processus long et fastidieux.",
-          "paragraph3": "Une équipe de scientifiques de données de la Régie a établi un processus permettant de repérer automatiquement les titres des tableaux et des figures des EES ainsi que d’extraire les données contenues dans les tableaux en format CSV. Ce processus nécessite l’utilisation de plusieurs bibliothèques ouvertes dans le langage de programmation Python. Tous les codes sont ouverts et accessibles à partir {link}.",
+          "paragraph1": "Les évaluations environnementales et socioéconomiques (« EES ») peuvent compter plusieurs centaines de pages et sont soumises à la Régie de l’énergie du Canada sous forme de fichiers PDF. Ces fichiers renferment des données qualitatives et quantitatives, notamment du texte, des tableaux, des figures, des cartes et des images satellites.",
+          "paragraph2": "Bien que l’information contenue dans les EES soit détaillée, elle n’est pas facilement consultable ni accessible en raison des limites inhérentes aux fichiers PDF. Aucun fichier de données brutes, comme des tableaux en format CSV, n’est déposé auprès de la Régie; toute l’information pertinente se trouve dans les fichiers PDF. Les utilisateurs qui souhaitent analyser, comparer ou traiter les données doivent les extraire manuellement, en copiant et en collant l’information du fichier PDF dans d’autres logiciels, comme des tableurs. C’est un processus long et fastidieux.",
+          "paragraph3": "Une équipe de scientifiques de données de la Régie a établi un processus permettant de repérer automatiquement les titres des tableaux et des figures des EES ainsi que d’extraire les données contenues dans les tableaux en format CSV. Ce processus nécessite l’utilisation de plusieurs bibliothèques ouvertes dans le langage de programmation Python. Tous les codes sont ouverts et accessibles à partir {link}.",
           "link": "du dépôt GitHub de la Régie",
           "url": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section2": {
-          "header": "Étape 1 – Recueillir les documents PDF pertinents",
-          "paragraph1": "Le personnel de la Régie a répertorié manuellement 1 902 EES en format PDF dans {link1}, le dépôt en ligne de la Régie qui renferme des documents publics sur la conception, la construction, l’exploitation et la cessation d’exploitation des pipelines de ressort fédéral. Un fichier qui répertorie tous ces documents se trouve dans {link2}.",
+          "header": "Étape 1 – Recueillir les documents PDF pertinents",
+          "paragraph1": "Le personnel de la Régie a répertorié manuellement 1 902 EES en format PDF dans {link1}, le dépôt en ligne de la Régie qui renferme des documents publics sur la conception, la construction, l’exploitation et la cessation d’exploitation des pipelines de ressort fédéral. Un fichier qui répertorie tous ces documents se trouve dans le {link2}.",
           "link1": "REGDOCS",
           "url1": "https://apps.cer-rec.gc.ca/REGDOCS/Accueil/Index/",
-          "link2": "le dépôt GitHub de la Régie",
+          "link2": "dépôt GitHub de la Régie",
           "url2": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section3": {
-          "header": "Étape 2 – Convertir les fichiers PDF en fichiers texte",
+          "header": "Étape 2 – Convertir les fichiers PDF en fichiers texte",
           "paragraph1": "Chaque fichier PDF a été converti dans un format texte plus convivial au moyen de la {link1}.",
           "link1": "bibliothèque Tika Python",
           "url1": "https://github.com/chrismattmann/tika-python"
         },
         "section4": {
-          "header": "Étape 3 – Extraire des tableaux et des figures",
-          "paragraph1": "L’étape suivante a consisté à recenser les caractéristiques uniques sur chaque page du PDF et les coordonnées de leurs emplacements. Cette information permet aux utilisateurs de repérer les pages qui ont des caractéristiques d’image (p. ex., taille des blocs, présence de texte) et est utilisée lors de la modélisation pour répertorier les figures qui se trouvent dans les EES. La {link1} a été utilisée pour extraire les détails au niveau de la page.",
+          "header": "Étape 3 – Extraire des tableaux et des figures",
+          "paragraph1": "L’étape suivante a consisté à recenser les caractéristiques uniques sur chaque page du PDF et les coordonnées de leurs emplacements. Cette information permet aux utilisateurs de repérer les pages qui ont des caractéristiques d’image (p. ex., taille des blocs, présence de texte) et est utilisée lors de la modélisation pour répertorier les figures qui se trouvent dans les EES. La {link1} a été utilisée pour extraire les détails au niveau de la page.",
           "link1": "bibliothèque PyMuPDF de Python",
           "url1": "https://pymupdf.readthedocs.io/en/latest/",
-          "paragraph2": "L’extraction des tableaux de chaque fichier PDF s’est faite au moyen d’un processus distinct. La {link2} a servi à convertir tous les tableaux des fichiers PDF en fichiers CSV (valeurs séparées par des virgules). La bibliothèque Camelot se sert des caractéristiques uniques (p. ex., lignes de délimitation ou espace blanc entre les cellules) pour repérer les tableaux dans un fichier PDF. Une fois que les tableaux et les figures ont été répertoriés, la tâche suivante a consisté à les étiqueter.",
+          "paragraph2": "L’extraction des tableaux de chaque fichier PDF s’est faite au moyen d’un processus distinct. La {link2} a servi à convertir tous les tableaux des fichiers PDF en fichiers CSV (valeurs séparées par des virgules). La bibliothèque Camelot se sert des caractéristiques uniques (p. ex., lignes de délimitation ou espace blanc entre les cellules) pour repérer les tableaux dans un fichier PDF. Une fois que les tableaux et les figures ont été répertoriés, la tâche suivante a consisté à les étiqueter.",
           "link2": "bibliothèque Camelot de Python",
           "url2": "https://camelot-py.readthedocs.io/en/master/"
         },
+        "section4a": {
+          "header": "Étape 3a – Extraction de cartes-tracés",
+          "paragraph1": "Après avoir effectué une analyse visuelle, nous avons déterminé que la présence de certaines caractéristiques sur une page précise d’un document PDF nous permettait d’établir s’il s’agissait d’une feuille de tracé ou non. La zone des images, la présence de certains mots clés (comme échelle, kilomètre ou mètre, figure, nord, etc.), le nombre d’images et le nombre de mots sur la page sont quelques-unes des caractéristiques qui ont été utilisées pour établir cette classification. À partir d’un échantillon de fichiers PDF, nous avons ensuite entraîné plusieurs modèles de classification à l’aide de la méthode des k plus proches voisins, d’une machine à vecteurs de support, d’une forêt aléatoire et de Xgboost, puis nous avons calculé l’exactitude de ces modèles. Le modèle de classification optimal a été choisi en fonction de l’exactitude et du temps de traitement. Comme ce modèle optimal a obtenu un niveau d’exactitude supérieur à 95 %, nous l’avons utilisé pour classer toutes les pages PDF de la banque de données des EES pour classer les cartes-tracés."
+        },
         "section5": {
-          "header": "Étape 4 – Titres de tableaux et de figures",
-          "paragraph1": "L’équipe a utilisé les tables des matières des EES dans les fichiers PDF (lorsqu’elles étaient présentes) ainsi qu’un ensemble d’expressions courantes pour repérer les titres des tableaux et des figures. Les titres ont ensuite été appariés à leur tableau ou figure respectifs à l’aide d’expressions courantes. Dans certains cas, les titres figurant dans la table des matières différaient des titres apparaissant dans les tableaux ou les figures. Une calibration a donc été nécessaire pour apparier certains titres avec des figures ou des tableaux."
+          "header": "Étape 4 – Titres de tableaux et de figures",
+          "paragraph1": "L’équipe a utilisé les tables des matières des EES dans les fichiers PDF (lorsqu’elles étaient présentes) ainsi qu’un ensemble d’expressions courantes pour repérer les titres des tableaux et des figures. Les titres ont ensuite été appariés à leur tableau ou figure respectifs à l’aide d’expressions courantes. Dans certains cas, les titres figurant dans la table des matières différaient des titres apparaissant dans les tableaux ou les figures. Une calibration a alors été nécessaire pour apparier les titres avec les figures ou les tableaux."
         },
         "section6": {
-          "header": "Étape 5 – Valider et vérifier",
-          "paragraph1": "En général, la programmation de l’extraction des données de fichiers PDF est un processus imparfait, car chaque fichier PDF peut renfermer divers formats de tableau et avoir été préparé et enregistré au moyen de techniques différentes. Par exemple, les tableaux à bordure noire claire sont plus faciles à extraire avec précision que ceux dont la bordure est floue ou inexistante. Notre équipe a utilisé un processus de validation manuel pour un ensemble de tableaux, de figures et de fichiers PDF. Il est possible qu’il y ait des tableaux dans les fichiers PDF qui n’ont pas été extraits ou qui l’ont été mais pour lesquels il manque certaines données. On estime que de 94 % à 98 % de tous les tableaux en format PDF ont été extraits et que de 88 % à 94 % de ceux-ci présentent des données complètes (sur la base d’un échantillon de 384 tableaux pris au hasard).",
+          "header": "Étape 5 – Valider et vérifier",
+          "paragraph1": "En général, la programmation de l’extraction des données de fichiers PDF est un processus imparfait, car chaque fichier PDF peut renfermer divers formats de tableau et avoir été préparé et enregistré au moyen de techniques différentes. Par exemple, les tableaux à bordure noire claire sont plus faciles à extraire avec précision que ceux dont la bordure est floue ou inexistante. Notre équipe a utilisé un processus de validation manuel pour un ensemble de tableaux, de figures et de fichiers PDF. Il est possible qu’il y ait des tableaux dans les fichiers PDF qui n’ont pas été extraits ou qui l’ont été, mais pour lesquels il manque certaines données. On estime que de 94 % à 98 % de tous les tableaux en format PDF ont été extraits et que de 88 % à 94 % de ceux-ci présentent des données complètes (sur la base d’un échantillon de 384 tableaux pris au hasard).",
           "paragraph2": {
-            "part1": "Dans le cadre des vérifications aux fins d’assurance de la qualité, nous avons constaté que 84 % des tableaux dont l’extraction s’avérait problématique provenaient de 30 fichiers PDF. Ceux-ci se rapportent à cinq projets en particulier (Towerbirch, Brunswick, Réseau principal Est, Wolverine, croisement de Leismer à Kettle River).",
+            "part1": "Dans le cadre des vérifications aux fins d’assurance de la qualité, nous avons constaté que 84 % des tableaux dont l’extraction s’avérait problématique provenaient de 30 fichiers PDF. Ceux-ci se rapportent à cinq projets en particulier (Towerbirch, Brunswick, Réseau principal Est, Wolverine, croisement de Leismer à Kettle River).",
             "table": {
               "title": "Qu’entend-on par « problématique »?",
-              "bullet1": "Les tableaux contiennent une seule colonne ou une seule rangée.",
-              "bullet2": "Ils contiennent plus de 72 % de cellules vides.",
-              "bullet3": "Ils contiennent plus de 80 % de cellules dont les caractères non identifiés.",
-              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page."
+              "bullet1": "Les tableaux contiennent une seule colonne ou une seule rangée;",
+              "bullet2": "Ils contiennent plus de 72 % de cellules vides;",
+              "bullet3": "Ils contiennent plus de 80 % de cellules dont les caractères non identifiés;",
+              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page;"
             },
             "part2": "Les tableaux appartenant à ces fichiers PDF sont indexés, mais ne peuvent pas être téléchargés dans la version actuelle. Ils seront incorporés à une version ultérieure."
           },
-          "paragraph3": "Toutes les images ont été revues et on a ainsi constaté que 92,1 % d’entre elles montraient le bon numéro de page, 89,4 % avaient le bon titre et 99,95 % étaient fidèles à l’image originale. L’extraction des figures n’était pas parfaite en raison de titres différents dans la table des matières (au niveau de l’orthographe ou des formats d’étiquetage), parfois même de l’absence totale de titre. Aussi, les titres des figures intégrés aux images demeuraient invisibles en raison de la méthode d’extraction choisie, fondée sur le texte. Enfin, dans un faible pourcentage de fichiers PDF (0,95 %), le processus d’extraction a mené à des images corrompues où des blocs texte/image étaient partiellement conservés alors que le reste de la figure était tout noir.",
-          "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux possibilités qui n’existaient pas auparavant."
+          "paragraph3": "Toutes les images ont été revues et on a ainsi constaté que 92,1 % d’entre elles montraient le bon numéro de page, 89,4 % avaient le bon titre et 99,95 % étaient fidèles à l’image originale. L’extraction des figures n’était pas parfaite en raison de titres différents dans la table des matières (au niveau de l’orthographe ou des formats d’étiquetage), parfois même de l’absence totale de titre. Aussi, les titres des figures intégrés aux images demeuraient invisibles en raison de la méthode d’extraction choisie, fondée sur le texte. Enfin, dans un faible pourcentage de fichiers PDF (0,95 %), le processus d’extraction a mené à des images corrompues où des blocs texte/image étaient partiellement conservés alors que le reste de la figure était tout noir.",
+          "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux fonctions qui n’existaient pas auparavant."
         },
         "section7": {
           "header": "Remerciements",
-          "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
+          "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
           "link1": "Centre for Operations Excellence",
           "url1": "https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
         }
