@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
   barContainer: {
     display: 'flex',
     alignItems: 'center',
-    height: '100%',
   },
   divider: {
     background: theme.palette.common.white,
