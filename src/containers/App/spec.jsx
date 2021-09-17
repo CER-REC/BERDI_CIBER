@@ -24,7 +24,7 @@ const setURLSearchParams = (search) => {
 };
 
 const simulateSearch = () => {
-  const search = screen.getByText('components.searchPanel.searchButton');
+  const search = screen.getByLabelText('search');
 
   fireEvent.change(getByRole(search.closest('div'), 'textbox'), { target: { value: 'test search' } });
   fireEvent.click(search);
@@ -37,7 +37,8 @@ const simulateFilter = () => {
   fireEvent.click(showFiltersSwitch);
 
   // Wait until the filters are expanded to show the filters block for selection
-  const filters = showFilters.parentNode.nextSibling;
+  // const filters = showFilters.parentNode.nextSibling;
+  const filters = screen.getByLabelText('filters');
 
   // Material UI select component uses the mouse down event
   fireEvent.mouseDown(getByRole(getByText(filters, 'common.project').parentNode, 'button'));
