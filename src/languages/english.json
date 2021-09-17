@@ -170,11 +170,6 @@
     "applications": {
       "title": "Click to view details on selected projects."
     },
-    "betaAlert": {
-      "title": "BETA",
-      "body": "This site will change as we test ideas.",
-      "link": "Learn how you can help."
-    },
     "cart": {
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
       "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",

@@ -92,8 +92,10 @@ export const ConfigProvider = ({ children }) => {
     const fragment = location.hash ? location.hash.substring(1) : '';
 
     if (query.cartIds) {
+      // int-compress-string decompress requires the encoded string
+      const encodedCartIds = queryString.parse(location.search, { decode: false }).cartIds;
       // Due to IIS URL length limits cart IDs require a integer specific compression
-      const ids = JSON.stringify(decompress(query.cartIds).map((id) => id.toString()));
+      const ids = JSON.stringify(decompress(encodedCartIds).map((id) => id.toString()));
 
       localStorage.setItem('cartIds', ids);
       localStorage.setItem('unreadCartIds', ids);

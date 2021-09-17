@@ -168,11 +168,6 @@
     "applications": {
       "title": "Cliquer pour voir les détails des projets sélectionnés."
     },
-    "betaAlert": {
-      "title": "BÊTA",
-      "body": "Ce site changera à mesure que nous mettrons des idées à l’essai.",
-      "link": "Voyez comment vous pouvez aider."
-    },
     "cart": {
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les restrictions et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
@@ -346,8 +341,8 @@
     "searchDetails": {
       "title": "Résultats de la recherche",
       "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s)}} trouvé(s)",
-      "explore": "",
-      "select": ""
+      "explore": "Explorer les résultats par",
+      "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "svgButton": {
       "strongRelation": "Lien étroit avec les termes recherchés",
