@@ -59,7 +59,7 @@ const SearchPanel = ({ hasFilter, onChange }) => {
               <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
             </>
           )}
-          <SearchBar hasShrink={hasFilter} />
+          <SearchBar hasShrink />
         </Grid>
         {hasFilter && (
           <Grid item xs={3} classes={{ root: classes.sideBlock }}>

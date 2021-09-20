@@ -80,7 +80,7 @@ const SearchBar = ({ hasShrink }) => {
       />
       <Button
         className={classes.button}
-        aria-label="search"
+        aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
         variant="contained"
         ref={buttonRef}
         onClick={handleClick}

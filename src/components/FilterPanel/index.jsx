@@ -33,7 +33,10 @@ const FilterPanel = () => {
   const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
   return (
-    <div className={`FilterPanel ${classes.root}`} aria-label="filters">
+    <div
+      className={`FilterPanel ${classes.root}`}
+      aria-label={intl.formatMessage({ id: 'components.filterPanel.filters' })}
+    >
       <Grid container spacing={5}>
         <Filter
           type="APPLICATION_NAMES"
