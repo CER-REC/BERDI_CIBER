@@ -298,7 +298,8 @@
       }
     },
     "filterPanel": {
-      "clearButton": "Effacer tous les filtres"
+      "clearButton": "Effacer tous les filtres",
+      "filters": "Filtres"
     },
     "treeMapPanel": {
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
@@ -331,10 +332,8 @@
       }
     },
     "searchPanel": {
-      "exploreButton": "Explorer tout",
       "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
-      "searchLabel": "Trouver des données : ",
       "searchPlaceHolder": "Recherche par mots-clés",
       "keywords": {}
     },

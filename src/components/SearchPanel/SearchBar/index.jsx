@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Button, TextField, makeStyles } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
@@ -10,33 +11,27 @@ const useStyles = makeStyles((theme) => ({
   root: { width: '100%' },
   input: {
     width: '100%',
-    '& fieldset': { border: '2px solid #000000' },
     '& input': {
       backgroundColor: theme.palette.common.white,
-      borderBottomLeftRadius: '4px',
-      borderTopLeftRadius: '4px',
+      borderBottomLeftRadius: '10px',
+      borderTopLeftRadius: '10px',
     },
     '& legend': { width: 0 },
   },
   labelShrink: {
     backgroundColor: theme.palette.common.white,
-    background: 'linear-gradient(#000, #000), linear-gradient(#000, #000), linear-gradient(#000, #000)',
-    // The .5 accounts for rendering differences between Chrome and Firefox
-    backgroundSize: '2px 14.5px, 100% 2px, 2px 14.5px',
-    backgroundPosition: 'top left, top center, top right',
     backgroundRepeat: 'no-repeat',
     padding: '0 10px',
     paddingTop: '4px',
-    '&.MuiInputLabel-outlined.MuiInputLabel-shrink': {
-      transform: 'translate(8px, -10px) scale(0.75)',
-    },
   },
   disabledLabelShrink: { display: 'none' },
   button: {
-    borderBottomLeftRadius: 0,
-    borderTopLeftRadius: 0,
-    fontWeight: 700,
+    borderRadius: '0 10px 10px 0',
+    backgroundColor: theme.palette.secondary.main,
+    padding: '8px',
+    minWidth: '50px',
   },
+  noBorder: { border: 'none' },
 }));
 
 const SearchBar = ({ hasShrink }) => {
@@ -78,18 +73,20 @@ const SearchBar = ({ hasShrink }) => {
         InputLabelProps={{
           classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
         }}
+        InputProps={{ classes: { notchedOutline: classes.noBorder } }}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         autoFocus
       />
       <Button
-        classes={{ root: classes.button }}
+        className={classes.button}
+        aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
         variant="contained"
         ref={buttonRef}
         onClick={handleClick}
         disableElevation
       >
-        {intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+        <SearchIcon />
       </Button>
     </div>
   );
