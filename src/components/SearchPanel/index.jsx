@@ -20,14 +20,14 @@ const useStyles = makeStyles((theme) => ({
   },
   searchPanel: {
     padding: '0 1.5em',
-    height: '6em',
+    minHeight: '6em',
     color: 'white',
     justifyContent: 'center',
   },
   barContainer: {
     display: 'flex',
     alignItems: 'center',
-    height: '100%',
+    minHeight: '6em',
   },
   divider: {
     background: theme.palette.common.white,
