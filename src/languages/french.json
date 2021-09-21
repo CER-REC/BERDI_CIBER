@@ -497,7 +497,7 @@
           "paragraph3": "Toutes les images ont été revues et on a ainsi constaté que 92,1 % d’entre elles montraient le bon numéro de page, 89,4 % avaient le bon titre et 99,95 % étaient fidèles à l’image originale. L’extraction des figures n’était pas parfaite en raison de titres différents dans la table des matières (au niveau de l’orthographe ou des formats d’étiquetage), parfois même de l’absence totale de titre. Aussi, les titres des figures intégrés aux images demeuraient invisibles en raison de la méthode d’extraction choisie, fondée sur le texte. Enfin, dans un faible pourcentage de fichiers PDF (0,95 %), le processus d’extraction a mené à des images corrompues où des blocs texte/image étaient partiellement conservés alors que le reste de la figure était tout noir.",
           "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux fonctions qui n’existaient pas auparavant."
         },
-        "section7": {
+        "section8": {
           "header": "Remerciements",
           "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
           "link1": "Centre for Operations Excellence",
