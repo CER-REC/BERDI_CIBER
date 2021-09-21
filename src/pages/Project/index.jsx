@@ -1,11 +1,13 @@
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useRef } from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
-
 import NavButtons from '../../components/NavButtons';
+import BackButton from '../../components/BackButton';
 import useConfig from '../../hooks/useConfig';
+import papers from '../../images/pages/papers.png';
+import process from '../../images/pages/process.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     '& .alert-info > :first-child::before': {
       paddingTop: '4px',
@@ -19,7 +21,21 @@ const useStyles = makeStyles({
       marginLeft: '20%',
     },
   },
-});
+  hr: {
+    marginTop: 0,
+    backgroundColor: theme.palette.grey.charcoal,
+    height: '1px',
+  },
+  blueHr: {
+    backgroundColor: theme.palette.teal.blue,
+    height: '3px',
+    marginBottom: 0,
+  },
+  header: {
+    marginTop: '1em',
+    color: theme.palette.teal.blue,
+  },
+}));
 
 const Project = () => {
   const classes = useStyles();
@@ -34,101 +50,102 @@ const Project = () => {
   }, [config]);
 
   return (
-    <>
+    <div style={{ paddingTop: '2em' }}>
+      <BackButton isContentPage />
+      <Typography variant="h4" className={classes.header}>
+        {intl.formatMessage({ id: 'pages.project.body.section1.header' })}
+      </Typography>
+      <hr className={classes.blueHr} />
+
       <br />
       <NavButtons />
+      <hr className={classes.hr} />
       <div className={classes.root}>
+        <Grid container>
+          <Grid item xs={9} style={{ paddingTop: '2em' }}>
+            <Typography>
+              {intl.formatMessage(
+                { id: 'pages.project.body.section1.text1' },
+                {
+                  boldText: (
+                    <strong>
+                      {intl.formatMessage({ id: 'pages.project.body.section1.boldText1' })}
+                    </strong>
+                  ),
+                },
+              )}
+            </Typography>
 
-        <section>
-          <Typography variant="h6">
-            {intl.formatMessage({ id: 'pages.project.body.section1.header' })}
-          </Typography>
+            <Typography>
+              {intl.formatMessage(
+                { id: 'pages.project.body.section1.text2' },
+                {
+                  boldText: (
+                    <strong>
+                      {intl.formatMessage(
+                        { id: 'pages.project.body.section1.boldText2' },
+                      )}
+                    </strong>
+                  ),
+                  openGov: (
+                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.openGovLink' })}>
+                      {intl.formatMessage({ id: 'pages.project.body.section1.openGov' })}
+                    </a>
+                  ),
+                },
+              )}
+            </Typography>
 
-          <Typography>
-            {intl.formatMessage(
-              { id: 'pages.project.body.section1.text1' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage(
-                      { id: 'pages.project.body.section1.boldText1' },
-                    )}
-                  </strong>
-                ),
-              },
-            )}
-          </Typography>
+            <Typography>
+              {intl.formatMessage(
+                { id: 'pages.project.body.section1.text3' },
+                {
+                  boldText: (
+                    <strong>
+                      {intl.formatMessage(
+                        { id: 'pages.project.body.section1.boldText3' },
+                      )}
+                    </strong>
+                  ),
+                  github: (
+                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.githubLink' })}>
+                      {intl.formatMessage({ id: 'pages.project.body.section1.github' })}
+                    </a>
+                  ),
+                },
+              )}
+            </Typography>
+          </Grid>
+          <Grid item xs={3}>
+            <img alt="two stack of papers" src={papers} />
+            <img alt="papers turning into web results" src={process} />
+          </Grid>
 
-          <Typography>
-            {intl.formatMessage(
-              { id: 'pages.project.body.section1.text2' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage(
-                      { id: 'pages.project.body.section1.boldText2' },
-                    )}
-                  </strong>
-                ),
-              },
-            )}
-          </Typography>
+        </Grid>
 
-          <Typography>
-            {intl.formatMessage(
-              { id: 'pages.project.body.section1.text3' },
-              {
-                boldText: (
-                  <strong>
-                    {intl.formatMessage(
-                      { id: 'pages.project.body.section1.boldText3' },
-                    )}
-                  </strong>
-                ),
-              },
-            )}
-          </Typography>
-        </section>
-
-        <section className="alert alert-info" ref={learnRef}>
+        <Grid item xs={9} className="alert alert-info" ref={learnRef}>
           <Typography variant="h6">
             {intl.formatMessage({ id: 'pages.project.body.section2.header1' })}
           </Typography>
 
           <Typography style={{ display: 'inline' }}>
-            {intl.formatMessage(
-              { id: 'pages.project.body.section2.text1' },
+            {intl.formatMessage({ id: 'pages.project.body.section2.text1' })}
+
+            <br />
+            <br />
+
+            {intl.formatMessage({ id: 'pages.project.body.section2.text2' },
               {
-                toolName: (
-                  <strong>
-                    {intl.formatMessage({ id: 'common.toolName' })}
-                  </strong>
+                email: (
+                  <a href={`mailto:${intl.messages['pages.project.body.section2.email']}`}>
+                    {intl.formatMessage({ id: 'pages.project.body.section2.email' })}
+                  </a>
                 ),
-              },
-            )}
-
-            <br />
-            <br />
-
-            {intl.formatMessage({ id: 'pages.project.body.section2.text2' })}
+              })}
           </Typography>
-          <Typography style={{ display: 'inline' }}>
-            <strong>
-              {intl.formatMessage(
-                { id: 'pages.project.body.section2.bold1' },
-                {
-                  email: (
-                    <a href={`mailto:${intl.messages['pages.project.body.section2.email1']}`}>
-                      {intl.formatMessage({ id: 'pages.project.body.section2.email1' })}
-                    </a>
-                  ),
-                },
-              )}
-            </strong>
-          </Typography>
-        </section>
+        </Grid>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen } from '../../tests/utilities';
 import NavButtons from '.';
 
 describe('Components/NavButtons', () => {
+  // Landing page navigation buttons
   const expectPageContentButtonsToBeRendered = () => {
     expect(screen.getAllByRole('button')).toHaveLength(3);
     expect(screen.getByText('pages.project.title').closest('button'))
@@ -15,8 +16,8 @@ describe('Components/NavButtons', () => {
   };
 
   const expectPageNavigationButtonsToBeRendered = () => {
-    expect(screen.getAllByRole('button')).toHaveLength(4);
-    expect(screen.getByText('pages.back', { exact: false })).not.toBeEmpty();
+    // Content page navigation buttons
+    expect(screen.getAllByRole('button')).toHaveLength(3);
     expect(screen.getByText('pages.project.title')).not.toBeEmpty();
     expect(screen.getByText('pages.data.title')).not.toBeEmpty();
     expect(screen.getByText('pages.methods.title')).not.toBeEmpty();
@@ -47,12 +48,6 @@ describe('Components/NavButtons', () => {
   it('should render the page content buttons after clicking the back button', () => {
     render(<NavButtons />, { config: { page: 'search' } });
     fireEvent.click(screen.getByRole('button'));
-    expectPageContentButtonsToBeRendered();
-
-    cleanup();
-
-    render(<NavButtons />, { config: { page: 'project' } });
-    fireEvent.click(screen.getByText('pages.back', { exact: false }));
     expectPageContentButtonsToBeRendered();
   });
 

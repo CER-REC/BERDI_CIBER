@@ -1,4 +1,4 @@
-import { Button, ButtonBase, Grid, makeStyles } from '@material-ui/core';
+import { Button, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
@@ -45,14 +45,7 @@ const SmallButtons = () => {
 
   return (
     <Grid container direction="column">
-      <Grid item>
-        <ButtonBase onClick={createHandleClick('landing')} className={classes.returnLink}>
-          {`> ${intl.formatMessage({ id: 'pages.back' }, { toolName: intl.formatMessage({ id: 'common.toolName' }) })}`}
-        </ButtonBase>
-      </Grid>
-
       <Grid item spacing={2} container className={classes.buttonSection}>
-
         <Grid item>
           <Button onClick={createHandleClick('project')} className={config.page === 'project' ? classes.selectedButton : ''}>
             {intl.formatMessage({ id: 'pages.project.title' })}
