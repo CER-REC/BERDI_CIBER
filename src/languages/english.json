@@ -365,7 +365,7 @@
       "tagline": "Search biophysical, economic, and regional data and information from major pipeline projects, since 2003.",
       "exploreTopics": "Explore the data based on topics",
       "disclaimer": {
-        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health.",
+        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health. {learnMoreLink}",
         "button": "Read our disclaimer",
         "link": "Learn more about the data."
       },
