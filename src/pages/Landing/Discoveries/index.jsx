@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '18px',
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#222546',
+    color: theme.palette.blue.darkBluePurple,
   },
   divider: {
     backgroundColor: theme.palette.blue.navy,

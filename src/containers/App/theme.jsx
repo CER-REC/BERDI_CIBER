@@ -19,6 +19,7 @@ const swansDown = '#D2EDEB';
 const tealBlue = '#07456B';
 const environmental = '#744A95';
 const socioEconomic = '#E14977';
+const darkBluePurple = '#222546';
 
 const theme = createMuiTheme({
   palette: {
@@ -31,6 +32,7 @@ const theme = createMuiTheme({
       navy: navyBlue,
       dark: darkBlue,
       light: lightBlue,
+      darkBluePurple,
     },
     purple: {
       dark: darkPurple,
@@ -137,7 +139,7 @@ const theme = createMuiTheme({
         '&$checked': {
           transform: 'translateX(1em)',
           '& + $track': {
-            backgroundColor: '#222546',
+            backgroundColor: darkBluePurple,
             opacity: 1,
           },
         },

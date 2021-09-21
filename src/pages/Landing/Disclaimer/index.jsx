@@ -14,11 +14,11 @@ const useStyles = makeStyles((theme) => ({
     margin: '1em 0',
   },
   button: {
-    backgroundColor: theme.palette.teal.light,
-    borderColor: theme.palette.teal.dark,
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'black',
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.blue.darkBluePurple,
+    fontWeight: 'bold',
+    borderRadius: '10px',
+    width: '100%',
   },
   link: {
     textDecoration: 'underline',
