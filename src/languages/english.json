@@ -444,8 +444,8 @@
         "title": "Our Methods",
         "section1": {
           "paragraph1": "Environmental and Socio-Economic Assessments (ESAs) can be several hundred pages long and are submitted to the CER as a series of PDF documents. These PDFs contain qualitative and quantitative data, including text, tables, figures, maps and satellite images.",
-          "paragraph2": "While the information contained in each ESA is comprehensive, it is not easily searchable or accessible due to the limitations of the PDF format. No raw data files, such as tables in CSV format, are filed with the CER -- all relevant information is contained within the PDF file. Those interested in analysing, comparing, or processing the data must extract it manually, by copying and pasting information from the PDF into other software programs, such as spreadsheet software. This is time-intensive and tedious.",
-          "paragraph3": "A team of data scientists at the CER created the process for automatically identifying ESA table and figure titles and extracting table data as a CSV. This process uses several open-source libraries in the Python programming language. All code is open source and available on the {link}.",
+          "paragraph2": "While the information contained in each ESA is comprehensive, it is not easily searchable or accessible due to the limitations of the PDF format. No raw data files, such as tables in CSV format, are filed with the CER -- all relevant information is contained within the PDF file. Users interested in analyzing, comparing, or processing the data must extract it manually, by copying and pasting information from the PDF into other software programs, such as spreadsheet software. This is time-intensive and tedious.",
+          "paragraph3": "A team of data scientists at the CER created a process for automatically identifying ESA table and figure titles and extracting table data as a CSV. This process uses several open-source libraries in the Python programming language. All code is open source and available on the {link}.",
           "link": "CER's GitHub repository",
           "url": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
@@ -454,7 +454,7 @@
           "paragraph1": "CER staff manually identified 1,902 ESA PDF documents in REGDOCS. {link1} is the CER's on-line repository of public documents related to the design, construction, operation, and abandonment of federally regulated pipelines. A file that indexes all of these documents is available in our {link2}.",
           "link1": "REGDOCS",
           "url1": "https://apps.cer-rec.gc.ca/REGDOCS/Home/Index",
-          "link2": "CER's GitHub repository",
+          "link2": "CER GitHub repository",
           "url2": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
         "section3": {
@@ -465,22 +465,26 @@
         },
         "section4": {
           "header": "Step 3: Extract tables and figures",
-          "paragraph1": "The next step was to identify unique features of each PDF page and their location coordinates. This information allows users to identify pages that have image features (ex. size of blocks, presence of text, etc.) and is used in modeling to identify ESA Figures. The {link1} was used to extract these page-level PDF details.",
+          "paragraph1": "The next step was to identify unique features of each PDF page and their location coordinates. This information allows users to identify pages that have image features (e.g., size of blocks, presence of text, etc.) and is used in modeling to identify ESA Figures. The {link1} was used to extract these page-level PDF details.",
           "link1": "Python PyMuPDF library",
           "url1": "https://pymupdf.readthedocs.io/en/latest/",
-          "paragraph2": "The extraction of tables from each PDF relied on a separate process. The {link2} was used to convert all tables from the PDFs into CSV (comma-separated value) files. Camelot relies on the presence of unique table features, (e.g. demarcated lines or presence of white space between cells) to identify tables in a PDF document. Once tables and figures were identified, the next task was to label them with their respective title.",
+          "paragraph2": "The extraction of tables from each PDF relied on a separate process. The {link2} was used to convert all tables from  PDFs into CSV (comma-separated value) files. Camelot relies on the presence of unique table features, (e.g., demarcated lines or presence of white space between cells) to identify tables in a PDF document. Once tables and figures were identified, the next task was to label them with their respective title.",
           "link2": "Python Camelot library",
           "url2": "https://camelot-py.readthedocs.io/en/master/"
         },
+        "section4a": {
+          "header": "Step 3a: Extract tables and figures",
+          "paragraph1": "Based on visual inspection, we assumed that we might classify a particular page of a PDF as an alignment sheet or not based on certain features present on the page. Some of the important features chosen for this classification task are area of the images, number of images on a page, number of words on a page, and presence of some keywords (such as scale, kilometers or meters, figure, or north, etc.). We then trained several classification models using k-nearest neighbor, support vector machine, random forest, and Xgboost on a sample dataset of PDFs and calculated the accuracy of these models. The optimum classification model was selected based on the accuracy and the process time. Since we got an accuracy level of >95% for the optimal model, we then used this model to classify all the PDF pages in the ESA databank to classify alignment sheets."
+        },
         "section5": {
           "header": "Step 4: Identify table and figure titles",
-          "paragraph1": "The team used the ESA tables of contents from the PDF files (when available) together with a set of regular expressions to identify table and figure titles. Titles were then matched with their respective table or figure using regular expressions. In some instances, titles as they appear in the table of contents differed from the title spelling in the actual table or figure. Some calibration on matching was employed to match titles with figures or tables in such instances."
+          "paragraph1": "The team used the ESA tables of contents from the PDF files (when available) together with a set of regular expressions to identify table and figure titles. Titles were then matched with their respective table or figure using regular expressions. In some instances, titles as they appear in the table of contents differed from the title spelling in the actual table or figure. In such instances, some calibration on matching was employed to match titles with figures or tables."
         },
         "section6": {
           "header": "Step 5: Validate and verify",
-          "paragraph1": "In general, programming the extraction of data out of PDFs is an imperfect process because each PDF can contain different table formats and be prepared and saved using different techniques. For example, tables with clear, black borders are easier to extract accurately compared to tables that have unclear or no borders. Our team employed a manual validation process for a sample of the tables, figures, and PDFs. It is possible that there are tables in PDFs that were not extracted or tables that were extracted, but are missing some data. It is estimated that 94% to 98% of all tables in PDF have been extracted, and that 88% to 94% of all tables have complete data (based on a random sample of 384 tables). ",
+          "paragraph1": "In general, programming the extraction of data out of PDFs is an imperfect process because each PDF can contain different table formats and be prepared and saved using different techniques. For example, tables with clear, black borders are easier to extract accurately compared to tables that have unclear or no borders. Our team employed a manual validation process for a sample of the tables, figures, and PDFs. It is possible that there are tables in PDFs that were not extracted or tables that were extracted, but are missing some data. It is estimated that 94% to 98% of all tables in PDF have been extracted, and that 88% to 94% of all tables have complete data (based on a random sample of 384 tables).",
           "paragraph2": {
-            "part1": "As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, Leismer to Kettle River Crossover).",
+            "part1": "As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, and Leismer to Kettle River Crossover).",
             "table": {
               "title": "What does problematic mean?",
               "bullet1": "files only contain one column or one row;",
@@ -491,11 +495,15 @@
             "part2": "Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version."
           },
           "paragraph3": "All images were inspected and it was found that 92.1% of images had correct page numbers, 89.4% had correct titles, and 99.95% were faithful to the original image. Figure extraction was not perfect because of different titles for the same figure appearing in the table of contents vs. the body of text (due to spelling variability, inconsistency in labeling formats, or no title present). Secondly, figure titles that were embedded as images were undetected with a text-based extraction approach. Finally, in a small percentage of PDF files (0.95%), the extraction process led to corrupt images where the text/image blocks are partially retained and the rest of the figure is replaced by black colour.",
-          "paragraph4": "While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both possibilities that did not exist previously."
+          "paragraph4": "While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both features that did not previously exist."
         },
-        "section7": {
+        "section7":{
+          "header": "When do we update the data?",
+          "paragraph1": "We check the CER’s public document repository, REGDOCS, for eligible new data twice per year. Data eligible for BERDI comes from environmental and socio-economic assessments included in completed applications for major pipeline projects (>20km in length). Completed applications are those deemed ready for processing by the CER. REGDOCS contains regulatory documents dating back to 2003."
+        },
+        "section8": {
           "header": "Acknowledgements",
-          "paragraph1": "The data science team at the University of British Columbia was instrumental in guiding this project in its early days. The Canada Energy Regulator acknowledges the work of Nipun Goyal, Louis (Xiang) Luo, and Prakhar Sinha (with support from Martha Essak, Erin Martin-Serrano, Stuart Donald, and Gene Moo Lee) at the {link1}, UBC Sauder School of Business. ",
+          "paragraph1": "The data science team at the University of British Columbia was instrumental in guiding this project in its early days. The Canada Energy Regulator acknowledges the work of Nipun Goyal, Louis (Xiang) Luo, and Prakhar Sinha (with support from Martha Essak, Erin Martin-Serrano, Stuart Donald, and Gene Moo Lee) at the {link1}, UBC Sauder School of Business.",
           "link1": "Centre for Operations Excellence",
           "url1": "https://www.sauder.ubc.ca/thought-leadership/research-outreach-centres/centre-operations-excellence"
         }
