@@ -7,7 +7,6 @@ import ImageButton from '../../../components/ImageButton';
 import ResultDialog from '../../../components/ResultDialog';
 import useAPI from '../../../hooks/useAPI';
 import { reportDiscovery } from '../../../utilities/analytics';
-import discoveryBlob from '../../../images/discoveryBlob.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: '#222546',
   },
-  line: {
+  divider: {
     backgroundColor: theme.palette.blue.navy,
     height: '4px',
     marginTop: '0.5em',
@@ -50,7 +49,7 @@ const Discoveries = () => {
       <Typography variant="h6" className={classes.header}>
         {intl.formatMessage({ id: 'pages.landing.discoveries.title' })}
       </Typography>
-      <hr className={classes.line} />
+      <hr className={classes.divider} />
       <Grid container classes={{ root: classes.buttons }} spacing={3}>
         {
           discoveries.map((discovery, index) => (
@@ -67,6 +66,7 @@ const Discoveries = () => {
           ))
         }
       </Grid>
+      <hr className={classes.divider} />
       <ResultDialog open={open} onClose={handleClose} data={content} />
     </div>
   );

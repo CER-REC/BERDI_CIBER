@@ -9,9 +9,9 @@ import discoveryBlob from '../../images/discoveryBlob.svg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    border: `2px solid ${theme.palette.button.blue}`,
+    border: `1px solid ${theme.palette.grey.charcoal}`,
     borderRadius: '10px',
-    boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.20)',
     padding: '0',
     height: '100%',
     zIndex: 1,
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '100%',
     position: 'absolute',
+    bottom: '0.5em',
     zIndex: -1,
   },
   meta: {
@@ -68,7 +69,10 @@ const useStyles = makeStyles((theme) => ({
     flexFlow: 'column',
     padding: '1em',
     textAlign: 'left',
-    '& > h6': { paddingBottom: '0.5em' },
+    '& > h6': {
+      paddingBottom: '0.5em',
+      color: theme.palette.blue.dark,
+    },
     '& > p': { fontSize: 20 },
   },
 }));
