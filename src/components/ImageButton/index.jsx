@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
     height: '8em',
     width: '8em',
     borderRadius: '50%',
-    border: '1px solid black',
+    border: `1px solid ${theme.palette.blue.darkBluePurple}`,
   },
   background: {
     backgroundImage: `url(${discoveryBlob})`,
