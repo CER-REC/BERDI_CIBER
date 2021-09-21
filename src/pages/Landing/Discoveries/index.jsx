@@ -7,10 +7,22 @@ import ImageButton from '../../../components/ImageButton';
 import ResultDialog from '../../../components/ResultDialog';
 import useAPI from '../../../hooks/useAPI';
 import { reportDiscovery } from '../../../utilities/analytics';
+import discoveryBlob from '../../../images/discoveryBlob.svg';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: '1em',
+  },
+  header: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#222546',
+  },
+  line: {
+    backgroundColor: theme.palette.blue.navy,
+    height: '4px',
+    marginTop: '0.5em',
   },
   buttons: {
     paddingBottom: '2em',
@@ -34,11 +46,14 @@ const Discoveries = () => {
 
   return (
     <div className={`Discoveries ${classes.root}`}>
-      <Typography variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.title' })}</Typography>
       {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.disclaimer' })}</Typography>}
+      <Typography variant="h6" className={classes.header}>
+        {intl.formatMessage({ id: 'pages.landing.discoveries.title' })}
+      </Typography>
+      <hr className={classes.line} />
       <Grid container classes={{ root: classes.buttons }} spacing={3}>
         {
-          discoveries.map((discovery) => (
+          discoveries.map((discovery, index) => (
             <Grid key={discovery.content.id} item xs={4}>
               <ImageButton
                 src={discovery.imageSrc}
@@ -46,6 +61,7 @@ const Discoveries = () => {
                 label={intl.formatMessage({ id: discovery.titleId })}
                 onClick={createHandleClick(discovery.content)}
                 isTable={discovery.content.type === 'TABLE'}
+                index={index}
               />
             </Grid>
           ))
