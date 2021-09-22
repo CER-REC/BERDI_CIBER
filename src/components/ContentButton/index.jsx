@@ -4,9 +4,8 @@ import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    border: '2px solid #26374A',
+    border: 'none',
     borderRadius: 10,
-    boxShadow: '0px -4px 0px 0px #26374A inset',
     height: '100%',
     padding: '1.5em',
     '&:hover': {
@@ -24,19 +23,10 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
     },
   },
-  arrow: {
-    border: 'solid black',
-    borderWidth: '0 0.2em 0.2em 0',
-    display: 'inline-block',
-    float: 'right',
-    height: '1em',
-    padding: '0.2em',
-    transform: 'rotate(-45deg) translateX(-0.8em)',
-    width: '1em',
-  },
   title: {
     color: theme.palette.blue.dark,
     display: 'inline-block',
+    textDecoration: 'underline',
   },
 }));
 
@@ -52,7 +42,6 @@ const ContentButton = ({ title, body, onClick }) => {
     >
       <div>
         <Typography classes={{ root: classes.title }} variant="h6">{title}</Typography>
-        <span className={classes.arrow} />
       </div>
       <Typography variant="body1">{body}</Typography>
     </Button>
