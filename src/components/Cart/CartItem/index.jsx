@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
+import ResultDialog from '../../ResultDialog';
 
 const useStyles = makeStyles((theme) => ({
   '@keyframes fade': {
@@ -76,6 +77,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
   const rowRef = useRef({});
   const { config: { unreadCartIds }, configDispatch } = useConfig();
 
+  const [resultsOpen, setResultsOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
@@ -87,6 +89,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
 
   return (
     <ListItem ref={rowRef}>
+      <ResultDialog open={resultsOpen} onClose={() => setResultsOpen(false)} data={data} />
       <Grid
         className={`${classes.root} ${(unreadCartIds.includes(data.id)) ? classes.rootNew : ''}`}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
@@ -123,6 +126,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
                 justify="flex-end"
                 style={{ backgroundImage: `url(${data.thumbnailURL})` }}
                 className={classes.imageSection}
+                onClick={() => setResultsOpen(true)}
               >
                 <Grid item>
                   <img alt="A magnifying glass" src={magnifyingGlass} />

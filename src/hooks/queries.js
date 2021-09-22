@@ -195,10 +195,21 @@ export const CART_ITEMS = gql`
       id
       title
       thumbnailURL
+      url
+      pdfName
+      pdfURL
+      type
+      pdfPageNumber
       application {
         name
         companyName
+        consultants
+        filingDate
+        name
+        applicationURL
+        finalDecisionURL
       }
+      esaFolderURL
     }
   }
 `;
