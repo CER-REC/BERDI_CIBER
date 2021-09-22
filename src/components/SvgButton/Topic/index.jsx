@@ -8,7 +8,7 @@ import Rating from '../Rating';
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: 'white',
-    border: '1px solid #EAEBED',
+    border: `1px solid ${theme.palette.grey.athens}`,
     padding: '2em',
     width: '48em',
     '&> div': {

@@ -1,6 +1,6 @@
 import React from 'react';
 import SmallButtons from './SmallButtons';
-import BackButton from './BackButton';
+import BackButton from '../BackButton';
 import FullButtons from './FullButtons';
 
 import useConfig from '../../hooks/useConfig';
