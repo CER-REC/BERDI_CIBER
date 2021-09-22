@@ -110,7 +110,7 @@ describe('Components/ListPanel', () => {
         expect(result).toContain(`api.commodities.${content.application.commodity}`);
         expect(result).toContain(content.application.hearingOrder);
         expect(screen.getAllByText('components.listPanel.projectLinks').length).toBeGreaterThanOrEqual(1);
-        expect(screen.getAllByText('components.listPanel.relatedTopics').length).toBeGreaterThanOrEqual(1);
+        expect(screen.getAllByText('components.listPanel.relatedTopics.title').length).toBeGreaterThanOrEqual(1);
       });
     });
   });

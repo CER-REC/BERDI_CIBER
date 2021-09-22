@@ -42,7 +42,7 @@ const RelatedTopics = ({ data }) => {
       <RelatedTopicsDialog open={open} onClose={handleClose} data={dialogData} />
 
       <Typography variant="h6">
-        {intl.formatMessage({ id: 'components.listPanel.relatedTopics' })}
+        {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}
       </Typography>
 
       <Grid container justify="flex-start" alignItems="center">

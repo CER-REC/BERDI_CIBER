@@ -38,8 +38,8 @@
     },
     "VCLabels": {
       "headers": {
-      "socioEconomic": "",
-      "environmental": ""
+      "socioEconomic": "Questions socioéconomiques",
+      "environmental": "Environnemental"
       },
       "landscape": {
         "title": "Paysage, terrain et conditions météorologiques",
@@ -505,6 +505,6 @@
       }
     },
     "back": "Retourner à ciber",
-    "altBack":""
+    "altBack":"Retour à la page d’accueil"
   }
 }

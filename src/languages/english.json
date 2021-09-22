@@ -252,7 +252,6 @@
       "projectFiled": "Project filed: ",
       "projectStatus": "Project status: ",
       "projectLinks": "Project links: ",
-      "relatedTopics": "Related topics:",
       "viewMore": "View more details",
       "viewFewer": "View fewer details",
       "expandAll": "Expand all",
@@ -296,6 +295,10 @@
           "thankYou": "Thank you for your report.",
           "flagged": "This data has been flagged for review."
         }
+      },
+      "relatedTopics": {
+        "title": "Related topics:",
+        "button": "See more data related to this"
       }
     },
     "filterPanel": {
