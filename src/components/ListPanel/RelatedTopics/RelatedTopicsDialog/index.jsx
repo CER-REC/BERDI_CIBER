@@ -2,8 +2,8 @@ import React from 'react';
 import { Button, Dialog, Typography, makeStyles, IconButton, Grid } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
-
 import PropTypes from 'prop-types';
+import useConfig from '../../../../hooks/useConfig';
 
 const useStyles = makeStyles(
   {
@@ -37,6 +37,12 @@ const useStyles = makeStyles(
 const RelatedTopicsDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { configDispatch } = useConfig();
+
+  const handleClick = () => {
+    configDispatch({ type: 'topics/added', payload: data.topic });
+    onClose();
+  };
   return (
     <div className={classes.root}>
       <Dialog
@@ -66,7 +72,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
         <Typography className={classes.description}>
           {data.description}
         </Typography>
-        <Button className={classes.button} onClick={onClose}>
+        <Button className={classes.button} onClick={handleClick}>
           {intl.formatMessage({ id: 'components.listPanel.relatedTopics.button' })}
         </Button>
       </Dialog>
@@ -78,5 +84,9 @@ export default RelatedTopicsDialog;
 RelatedTopicsDialog.propTypes = {
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
-  data: PropTypes.shape({ title: PropTypes.string, description: PropTypes.string }).isRequired,
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+    topic: PropTypes.string.isRequired,
+  }).isRequired,
 };

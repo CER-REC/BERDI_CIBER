@@ -15,6 +15,13 @@ const useStyles = makeStyles({
     overflowWrap: 'break-word',
     maxWidth: '30em',
   },
+  link: {
+    color: '#07456B',
+    textDecoration: 'underline',
+    '& span': {
+      cursor: 'pointer',
+    },
+  },
 });
 
 const RelatedTopics = ({ data }) => {
@@ -25,7 +32,13 @@ const RelatedTopics = ({ data }) => {
   const [dialogData, setDialogData] = useState({});
 
   const handleClickOpen = (topic) => {
-    setDialogData({ title: intl.formatMessage({ id: `common.VCLabels.${topic}.label` }), description: intl.formatMessage({ id: `common.VCLabels.${topic}.description` }) });
+    setDialogData(
+      {
+        topic,
+        title: intl.formatMessage({ id: `common.VCLabels.${topic}.label` }),
+        description: intl.formatMessage({ id: `common.VCLabels.${topic}.description` }),
+      },
+    );
     setOpen(true);
   };
 
@@ -48,7 +61,11 @@ const RelatedTopics = ({ data }) => {
       <Grid container justify="flex-start" alignItems="center">
         {sortedValueComponents.map((topic) => (
           <Grid item key={topic} className={classes.relatedTopics} xs={4}>
-            <Typography onClick={() => handleClickOpen(topic)}>{intl.formatMessage({ id: `common.VCLabels.${topic}.label` })}</Typography>
+            <Typography className={classes.link} onClick={() => handleClickOpen(topic)}>
+              <span>
+                {intl.formatMessage({ id: `common.VCLabels.${topic}.label` })}
+              </span>
+            </Typography>
           </Grid>
         ))}
       </Grid>
