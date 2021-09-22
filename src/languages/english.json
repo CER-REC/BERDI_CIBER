@@ -38,8 +38,11 @@
       "close": "close",
       "downloadReport": "download report"
     },
-    "environmental": {
-      "title": "Environmental",
+    "VCLabels": {
+      "headers": {
+        "socioEconomic": "Socio-economic",
+        "environmental": "Environmental"
+      },
       "landscape": {
         "title": "Landscape, terrain, and weather",
         "label": "Landscape and weather",
@@ -104,10 +107,7 @@
         "title": "Environmental Obligations",
         "label": "Environmental Obligations",
         "description": "Data that has information on legal requirements, policies, or other targets, like the Federal Wetland Policy. This is a new data type. It helps Canada understand how we are meeting our environmental commitments for things like species at risk and wetlands."
-      }
-    },
-    "socioEconomic": {
-      "title": "Socio-economic",
+      },
       "infrastructure": {
         "title": "Social, cultural, economic infrastructure and services",
         "label": "Infrastructure and services",
