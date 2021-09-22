@@ -1,5 +1,4 @@
 import React from 'react';
-import Accreditations from '../../components/Accreditations';
 import NavButtons from '../../components/NavButtons';
 import SearchPanel from '../../components/SearchPanel';
 import TopicsFilter from '../../components/TopicsFilter';
@@ -15,7 +14,6 @@ const Landing = () => (
     <Disclaimer />
     <Discoveries />
     <NavButtons />
-    <Accreditations />
   </div>
 );
 
