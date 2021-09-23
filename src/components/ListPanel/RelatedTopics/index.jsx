@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useIntl } from 'react-intl';
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import RelatedTopicsDialog from './RelatedTopicsDialog';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
+import RelatedTopicsDialog from '../RelatedTopicsDialog';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#F4F4F4',
     width: '100%',
@@ -16,13 +16,13 @@ const useStyles = makeStyles({
     maxWidth: '30em',
   },
   link: {
-    color: '#07456B',
+    color: theme.palette.teal.blue,
     textDecoration: 'underline',
     '& span': {
       cursor: 'pointer',
     },
   },
-});
+}));
 
 const RelatedTopics = ({ data }) => {
   const classes = useStyles();
@@ -46,9 +46,11 @@ const RelatedTopics = ({ data }) => {
     setOpen(false);
   };
 
+  // Filters out 0 values, sorts them in descending order, then converts object to array
   const sortedValueComponents = Object.entries(data)
     .filter((item) => item[1] > 0)
-    .sort((a, b) => b[1] - a[1]).map((item) => item[0]);
+    .sort((a, b) => b[1] - a[1])
+    .map((item) => item[0]);
 
   return (
     <div className={classes.root}>
@@ -69,7 +71,6 @@ const RelatedTopics = ({ data }) => {
           </Grid>
         ))}
       </Grid>
-
     </div>
   );
 };
@@ -77,6 +78,5 @@ const RelatedTopics = ({ data }) => {
 export default RelatedTopics;
 
 RelatedTopics.propTypes = {
-  // TODO: make this more specific
   data: PropTypes.shape({}).isRequired,
 };

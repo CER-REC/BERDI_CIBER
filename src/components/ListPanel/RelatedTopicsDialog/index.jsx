@@ -1,39 +1,39 @@
-import React from 'react';
-import { Button, Dialog, Typography, makeStyles, IconButton, Grid } from '@material-ui/core';
+import { Button, Dialog, Grid, IconButton, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
-import useConfig from '../../../../hooks/useConfig';
+import React from 'react';
+import { useIntl } from 'react-intl';
+import useConfig from '../../../hooks/useConfig';
 
-const useStyles = makeStyles(
-  {
-    dialogHeader: {
-      '& div': {
-        textAlign: 'right',
-        marginBottom: '-5px',
-      },
-      '& button': {
-        padding: '10px',
-      },
-      '& svg': {
-        fill: 'black',
-      },
+const useStyles = makeStyles((theme) => ({
+  dialogHeader: {
+    '& div': {
+      textAlign: 'right',
+      marginBottom: '-5px',
     },
-    title: {
-      paddingTop: '0.5em',
-      fontWeight: '400',
+    '& button': {
+      padding: '10px',
     },
-    button: {
-      color: '#284162',
-      border: '1px solid #284162',
-      marginRight: '1em',
-    },
-    description: {
-      color: '#616060',
-      padding: '1em 1em 1em 0 ',
+    '& svg': {
+      fill: 'black',
     },
   },
-);
+  title: {
+    paddingTop: '0.5em',
+    paddingLeft: '0.2em',
+    fontWeight: '400',
+  },
+  button: {
+    color: theme.palette.blue.dark,
+    border: `1px solid ${theme.palette.blue.dark}`,
+    marginRight: '1em',
+  },
+  description: {
+    color: theme.palette.grey.dark,
+    padding: '1em 1em 1em 0 ',
+  },
+}));
+
 const RelatedTopicsDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
@@ -43,6 +43,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
     configDispatch({ type: 'topics/added', payload: data.topic });
     onClose();
   };
+
   return (
     <div className={classes.root}>
       <Dialog
@@ -57,10 +58,11 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
           className={classes.dialogHeader}
         >
           <Grid item>
-            <Typography className={classes.title}>
+            <Typography variant="h6" className={classes.title}>
               {data.title}
             </Typography>
           </Grid>
+
           <Grid item>
             <IconButton aria-label="close" onClick={onClose}>
               <CloseIcon />
@@ -87,6 +89,6 @@ RelatedTopicsDialog.propTypes = {
   data: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
-    topic: PropTypes.string.isRequired,
+    topic: PropTypes.string,
   }).isRequired,
 };
