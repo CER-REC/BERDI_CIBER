@@ -1,7 +1,6 @@
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
-
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import air from '../../images/topicsFilter/air.svg';
@@ -26,6 +25,7 @@ import wetland from '../../images/topicsFilter/reeds.svg';
 import soil from '../../images/topicsFilter/soil.svg';
 import treaty from '../../images/topicsFilter/treaty.svg';
 import water from '../../images/topicsFilter/water.svg';
+import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
 
@@ -94,23 +94,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const getScore = (number, max) => {
-  if (number === 0) {
-    return 0;
-  }
-
-  const percentage = number / max;
-
-  if (percentage > 0.67) {
-    return 3;
-  }
-
-  if (percentage > 0.33) {
-    return 2;
-  }
-
-  return 1;
-};
 
 // These objects are used to loop over React hook calls
 Object.freeze(environmentalSrcs);

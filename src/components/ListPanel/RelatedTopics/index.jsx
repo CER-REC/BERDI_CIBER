@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import RelatedTopicsDialog from '../RelatedTopicsDialog';
+import getScore from '../../../utilities/getScore';
+import { socioEconomicTopics } from '../../../constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,16 +29,21 @@ const useStyles = makeStyles((theme) => ({
 const RelatedTopics = ({ data }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const maxValueComponent = Math.max(...Object.values(data).filter(Number));
 
   const [open, setOpen] = useState(false);
-  const [dialogData, setDialogData] = useState({});
+  const [dialogData, setDialogData] = useState();
 
   const handleClickOpen = (topic) => {
+    const score = getScore(data[topic], maxValueComponent);
+    const type = socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental';
     setDialogData(
       {
         topic,
         title: intl.formatMessage({ id: `common.VCLabels.${topic}.label` }),
         description: intl.formatMessage({ id: `common.VCLabels.${topic}.description` }),
+        score,
+        type,
       },
     );
     setOpen(true);
@@ -54,7 +61,14 @@ const RelatedTopics = ({ data }) => {
 
   return (
     <div className={classes.root}>
-      <RelatedTopicsDialog open={open} onClose={handleClose} data={dialogData} />
+      {dialogData
+      && (
+      <RelatedTopicsDialog
+        open={open}
+        onClose={handleClose}
+        data={dialogData}
+      />
+      )}
 
       <Typography variant="h6">
         {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}

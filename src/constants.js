@@ -18,3 +18,29 @@ export const API_HOST = process.env.API_HOST || '';
 export const ENV_SOCIO_GRADIENT_ID = 'environmentalSocioEconomicGradient';
 
 export const RESULT_COUNT = 10;
+
+export const socioEconomicTopics = [
+  'infrastructure',
+  'job',
+  'proximity',
+  'human',
+  'boat',
+  'heritage',
+  'social',
+  'indigenous',
+  'treaty'];
+
+export const environmentalTopics = [
+  'landscape',
+  'soil',
+  'wetland',
+  'water',
+  'fish',
+  'plant',
+  'wildlife',
+  'species',
+  'noise',
+  'gas',
+  'air',
+  'electricity',
+  'environmental'];

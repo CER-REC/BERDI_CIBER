@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
+import DotsRating from '../../DotsRating';
 
 const useStyles = makeStyles((theme) => ({
   dialogHeader: {
@@ -32,12 +33,23 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey.dark,
     padding: '1em 1em 1em 0 ',
   },
+  relationMessage: {
+    paddingLeft: '1em',
+    color: theme.palette.grey.dark,
+  },
 }));
 
 const RelatedTopicsDialog = ({ open, onClose, data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
+
+  const relationMessages = [
+    intl.formatMessage({ id: 'components.svgButton.noRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.littleRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.someRelation' }),
+    intl.formatMessage({ id: 'components.svgButton.strongRelation' }),
+  ];
 
   const handleClick = () => {
     configDispatch({ type: 'topics/added', payload: data.topic });
@@ -71,6 +83,12 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
         </Grid>
 
         {/* Body */}
+        <Grid item container alignItems="center">
+          <DotsRating score={data.score} type={data.type} />
+          <Typography className={classes.relationMessage}>
+            {relationMessages[data.score]}
+          </Typography>
+        </Grid>
         <Typography className={classes.description}>
           {data.description}
         </Typography>
@@ -90,5 +108,7 @@ RelatedTopicsDialog.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     topic: PropTypes.string,
+    score: PropTypes.number,
+    type: PropTypes.string,
   }).isRequired,
 };

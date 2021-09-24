@@ -1,9 +1,8 @@
-import React from 'react';
-import { Typography, makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { useIntl } from 'react-intl';
-
-import Rating from '../Rating';
+import DotsRating from '../../DotsRating';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +44,7 @@ const Topic = ({ title, description, score, type }) => {
       {
         (typeof score === 'number') && (
           <>
-            <Rating score={score} type={type} />
+            <DotsRating score={score} type={type} />
             <Typography classes={{ root: classes.body }} variant="body1" display="inline">{relationMessages[score]}</Typography>
           </>
         )
