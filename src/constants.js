@@ -28,7 +28,8 @@ export const socioEconomicTopics = [
   'heritage',
   'social',
   'indigenous',
-  'treaty'];
+  'treaty',
+];
 
 export const environmentalTopics = [
   'landscape',
@@ -43,4 +44,5 @@ export const environmentalTopics = [
   'gas',
   'air',
   'electricity',
-  'environmental'];
+  'environmental',
+];

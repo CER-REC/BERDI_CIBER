@@ -20,9 +20,7 @@ const useStyles = makeStyles((theme) => ({
   link: {
     color: theme.palette.teal.blue,
     textDecoration: 'underline',
-    '& span': {
-      cursor: 'pointer',
-    },
+    cursor: 'pointer',
   },
 }));
 
@@ -31,8 +29,7 @@ const RelatedTopics = ({ data }) => {
   const intl = useIntl();
   const maxValueComponent = Math.max(...Object.values(data).filter(Number));
 
-  const [open, setOpen] = useState(false);
-  const [dialogData, setDialogData] = useState();
+  const [dialogData, setDialogData] = useState(null);
 
   const handleClickOpen = (topic) => {
     const score = getScore(data[topic], maxValueComponent);
@@ -40,17 +37,16 @@ const RelatedTopics = ({ data }) => {
     setDialogData(
       {
         topic,
-        title: intl.formatMessage({ id: `common.VCLabels.${topic}.label` }),
-        description: intl.formatMessage({ id: `common.VCLabels.${topic}.description` }),
+        title: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
+        description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
         score,
         type,
       },
     );
-    setOpen(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setDialogData(null);
   };
 
   // Filters out 0 values, sorts them in descending order, then converts object to array
@@ -64,7 +60,7 @@ const RelatedTopics = ({ data }) => {
       {dialogData
       && (
       <RelatedTopicsDialog
-        open={open}
+        open={Boolean(dialogData)}
         onClose={handleClose}
         data={dialogData}
       />
@@ -74,13 +70,11 @@ const RelatedTopics = ({ data }) => {
         {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}
       </Typography>
 
-      <Grid container justify="flex-start" alignItems="center">
+      <Grid container>
         {sortedValueComponents.map((topic) => (
           <Grid item key={topic} className={classes.relatedTopics} xs={4}>
-            <Typography className={classes.link} onClick={() => handleClickOpen(topic)}>
-              <span>
-                {intl.formatMessage({ id: `common.VCLabels.${topic}.label` })}
-              </span>
+            <Typography component="span" className={classes.link} onClick={() => handleClickOpen(topic)}>
+              {intl.formatMessage({ id: `common.vcLabels.${topic}.label` })}
             </Typography>
           </Grid>
         ))}

@@ -38,7 +38,7 @@
       "close": "close",
       "downloadReport": "download report"
     },
-    "VCLabels": {
+    "vcLabels": {
       "headers": {
         "socioEconomic": "Socio-economic",
         "environmental": "Environmental"
@@ -500,7 +500,7 @@
           "paragraph3": "All images were inspected and it was found that 92.1% of images had correct page numbers, 89.4% had correct titles, and 99.95% were faithful to the original image. Figure extraction was not perfect because of different titles for the same figure appearing in the table of contents vs. the body of text (due to spelling variability, inconsistency in labeling formats, or no title present). Secondly, figure titles that were embedded as images were undetected with a text-based extraction approach. Finally, in a small percentage of PDF files (0.95%), the extraction process led to corrupt images where the text/image blocks are partially retained and the rest of the figure is replaced by black colour.",
           "paragraph4": "While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both features that did not previously exist."
         },
-        "section7":{
+        "section7": {
           "header": "When do we update the data?",
           "paragraph1": "We check the CER’s public document repository, REGDOCS, for eligible new data twice per year. Data eligible for BERDI comes from environmental and socio-economic assessments included in completed applications for major pipeline projects (>20km in length). Completed applications are those deemed ready for processing by the CER. REGDOCS contains regulatory documents dating back to 2003."
         },
@@ -513,6 +513,6 @@
       }
     },
     "back": "Back to berdi",
-    "altBack":"Back to main page"
+    "altBack": "Back to main page"
   }
 }

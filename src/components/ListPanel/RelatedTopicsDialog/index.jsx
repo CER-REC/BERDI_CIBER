@@ -20,8 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    paddingTop: '0.5em',
-    paddingLeft: '0.2em',
+    paddingTop: '1em',
     fontWeight: '400',
   },
   button: {
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '1em 1em 1em 0 ',
   },
   relationMessage: {
-    paddingLeft: '1em',
+    paddingLeft: '0.5em',
     color: theme.palette.grey.dark,
   },
 }));
@@ -61,7 +60,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
       <Dialog
         open={open}
         onClose={onClose}
-        PaperProps={{ style: { maxWidth: '35em', padding: '0.5em 0 1em 1em' } }}
+        PaperProps={{ style: { maxWidth: '35em', padding: '0 0 1em 1.5em' } }}
       >
         {/* Header */}
         <Grid
@@ -76,7 +75,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
           </Grid>
 
           <Grid item>
-            <IconButton aria-label="close" onClick={onClose}>
+            <IconButton aria-label="close" onClick={onClose} style={{ paddingTop: '0.5em' }}>
               <CloseIcon />
             </IconButton>
           </Grid>

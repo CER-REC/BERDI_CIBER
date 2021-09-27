@@ -118,9 +118,9 @@ const TopicsFilter = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     iconRef: useRef(),
     src,
-    label: intl.formatMessage({ id: `common.VCLabels.${topic}.label` }),
-    title: intl.formatMessage({ id: `common.VCLabels.${topic}.title` }),
-    description: intl.formatMessage({ id: `common.VCLabels.${topic}.description` }),
+    label: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
+    title: intl.formatMessage({ id: `common.vcLabels.${topic}.title` }),
+    description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
     score: isLanding ? null : getScore(valueComponent[topic], maxValueComponent),
     disabled: isLanding ? false : (valueComponent[topic] === 0),
     onClick: () => {
@@ -156,7 +156,7 @@ const TopicsFilter = () => {
     <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
       <Grid item xs={7}>
         <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.VCLabels.headers.environmental' }) }</span>
+          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.environmental' }) }</span>
         </Typography>
         <div className={classes.topics}>
           {
@@ -182,7 +182,7 @@ const TopicsFilter = () => {
       </Grid>
       <Grid item xs={5}>
         <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.VCLabels.headers.socioEconomic' }) }</span>
+          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.socioEconomic' }) }</span>
         </Typography>
         <div className={classes.topics}>
           {
