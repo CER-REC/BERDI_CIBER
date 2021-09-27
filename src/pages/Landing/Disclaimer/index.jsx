@@ -55,7 +55,7 @@ const Disclaimer = () => {
             { id: 'pages.landing.disclaimer.body' },
             {
               learnMoreLink: (
-                <Typography variant="body1" className={classes.link} onClick={handleLinkClick}>
+                <Typography variant="body1" component="span" className={classes.link} onClick={handleLinkClick}>
                   {intl.formatMessage({ id: 'pages.landing.disclaimer.link' })}
                 </Typography>
               ),

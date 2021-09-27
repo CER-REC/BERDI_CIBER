@@ -106,7 +106,7 @@ const ImageButton = ({ isTable, src, bgAngle, caption, label, onClick }) => {
       <div className={classes.image} style={{ backgroundImage: `url(${src})` }} />
       <div className={classes.text}>
         <Typography variant="h6">{label}</Typography>
-        <Typography component="p">{caption}</Typography>
+        <Typography>{caption}</Typography>
         <div className={classes.fill} />
       </div>
     </IconButton>
