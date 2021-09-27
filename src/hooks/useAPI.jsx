@@ -9,6 +9,7 @@ import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
 
 const discoveryImages = [discovery0, discovery1, discovery2];
+const discoveryBGAngles = [145, 180, 0];
 
 const getStatuses = (translations) => {
   const statuses = translations.filter(
@@ -126,17 +127,11 @@ export default () => {
 
     if (data) {
       discoveryImages.forEach((imageSrc, index) => {
-        let bgAngle = 0;
-        if (index === 0) {
-          bgAngle = 145;
-        } else if (index === 1) {
-          bgAngle = 180;
-        }
         contents.push({
           titleId: `pages.landing.discoveries.cards.${index}.title`,
           bodyId: `pages.landing.discoveries.cards.${index}.body`,
           imageSrc,
-          bgAngle,
+          bgAngle: discoveryBGAngles[index],
           content: data[`discovery${index}`],
         });
       });
