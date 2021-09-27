@@ -8,9 +8,20 @@ import ResultDialog from '../../../components/ResultDialog';
 import useAPI from '../../../hooks/useAPI';
 import { reportDiscovery } from '../../../utilities/analytics';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     paddingTop: '1em',
+  },
+  header: {
+    fontSize: '18px',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: theme.palette.blue.darkBluePurple,
+  },
+  divider: {
+    backgroundColor: theme.palette.blue.navy,
+    height: '4px',
+    marginTop: '0.5em',
   },
   buttons: {
     paddingBottom: '2em',
@@ -34,14 +45,18 @@ const Discoveries = () => {
 
   return (
     <div className={`Discoveries ${classes.root}`}>
-      <Typography variant="h6">{intl.formatMessage({ id: 'pages.landing.discoveries.title' })}</Typography>
       {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.disclaimer' })}</Typography>}
+      <Typography variant="h6" className={classes.header}>
+        {intl.formatMessage({ id: 'pages.landing.discoveries.title' })}
+      </Typography>
+      <hr className={classes.divider} />
       <Grid container classes={{ root: classes.buttons }} spacing={3}>
         {
           discoveries.map((discovery) => (
             <Grid key={discovery.content.id} item xs={4}>
               <ImageButton
                 src={discovery.imageSrc}
+                bgAngle={discovery.bgAngle}
                 caption={intl.formatMessage({ id: discovery.bodyId })}
                 label={intl.formatMessage({ id: discovery.titleId })}
                 onClick={createHandleClick(discovery.content)}
@@ -51,6 +66,7 @@ const Discoveries = () => {
           ))
         }
       </Grid>
+      <hr className={classes.divider} />
       <ResultDialog open={open} onClose={handleClose} data={content} />
     </div>
   );

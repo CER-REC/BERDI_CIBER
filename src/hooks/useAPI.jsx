@@ -9,6 +9,7 @@ import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
 
 const discoveryImages = [discovery0, discovery1, discovery2];
+const discoveryBGAngles = [145, 180, 0];
 
 const getStatuses = (translations) => {
   const statuses = translations.filter(
@@ -130,6 +131,7 @@ export default () => {
           titleId: `pages.landing.discoveries.cards.${index}.title`,
           bodyId: `pages.landing.discoveries.cards.${index}.body`,
           imageSrc,
+          bgAngle: discoveryBGAngles[index],
           content: data[`discovery${index}`],
         });
       });

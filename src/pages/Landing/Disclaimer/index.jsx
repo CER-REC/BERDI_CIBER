@@ -8,24 +8,23 @@ import { reportDisclaimer, reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    borderRadius: '10px',
     backgroundColor: theme.palette.teal.light,
     padding: '1.5em',
     margin: '1em 0',
-    '& p': {
-      fontSize: 20,
-      margin: 0,
-    },
   },
   button: {
-    backgroundColor: theme.palette.teal.light,
-    borderColor: theme.palette.teal.dark,
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    color: 'black',
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.blue.darkBluePurple,
+    fontWeight: 'bold',
+    borderRadius: '10px',
+    width: '100%',
   },
   link: {
-    fontSize: 20,
-    fontWeight: 700,
+    textDecoration: 'underline',
+    display: 'inline',
+    fontWeight: 'bold',
+    cursor: 'pointer',
   },
   sideBlock: {
     margin: 'auto',
@@ -51,17 +50,18 @@ const Disclaimer = () => {
   return (
     <Grid container className={`Disclaimer ${classes.root}`}>
       <Grid item xs={9}>
-        <Typography component="p">
-          {intl.formatMessage({ id: 'pages.landing.disclaimer.body' })}
+        <Typography variant="body1">
+          {intl.formatMessage(
+            { id: 'pages.landing.disclaimer.body' },
+            {
+              learnMoreLink: (
+                <Typography variant="body1" component="span" className={classes.link} onClick={handleLinkClick}>
+                  {intl.formatMessage({ id: 'pages.landing.disclaimer.link' })}
+                </Typography>
+              ),
+            },
+          )}
         </Typography>
-        <Button
-          classes={{ text: classes.link }}
-          color="inherit"
-          onClick={handleLinkClick}
-          disableRipple
-        >
-          {intl.formatMessage({ id: 'pages.landing.disclaimer.link' })}
-        </Button>
       </Grid>
       <Grid item xs={3} classes={{ root: classes.sideBlock }}>
         <Button
