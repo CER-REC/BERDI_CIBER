@@ -52,15 +52,15 @@ const Discoveries = () => {
       <hr className={classes.divider} />
       <Grid container classes={{ root: classes.buttons }} spacing={3}>
         {
-          discoveries.map((discovery, index) => (
+          discoveries.map((discovery) => (
             <Grid key={discovery.content.id} item xs={4}>
               <ImageButton
                 src={discovery.imageSrc}
+                bgAngle={discovery.bgAngle}
                 caption={intl.formatMessage({ id: discovery.bodyId })}
                 label={intl.formatMessage({ id: discovery.titleId })}
                 onClick={createHandleClick(discovery.content)}
                 isTable={discovery.content.type === 'TABLE'}
-                index={index}
               />
             </Grid>
           ))

@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageButton = ({ isTable, src, caption, label, index, onClick }) => {
+const ImageButton = ({ isTable, src, bgAngle, caption, label, onClick }) => {
   const classes = useStyles();
   const intl = useIntl();
   const typeLabel = useMemo(() => {
@@ -87,13 +87,6 @@ const ImageButton = ({ isTable, src, caption, label, index, onClick }) => {
 
     return intl.formatMessage({ id: 'api.content.FIGURE' });
   }, [isTable, intl]);
-
-  let bgAngle = 0;
-  if (index === 0) {
-    bgAngle = 145;
-  } else if (index === 1) {
-    bgAngle = 180;
-  }
 
   return (
     <IconButton
@@ -123,9 +116,9 @@ const ImageButton = ({ isTable, src, caption, label, index, onClick }) => {
 ImageButton.propTypes = {
   isTable: PropTypes.bool.isRequired,
   src: PropTypes.string.isRequired,
+  bgAngle: PropTypes.number.isRequired,
   caption: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  index: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
 };
 

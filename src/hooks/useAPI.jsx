@@ -126,10 +126,17 @@ export default () => {
 
     if (data) {
       discoveryImages.forEach((imageSrc, index) => {
+        let bgAngle = 0;
+        if (index === 0) {
+          bgAngle = 145;
+        } else if (index === 1) {
+          bgAngle = 180;
+        }
         contents.push({
           titleId: `pages.landing.discoveries.cards.${index}.title`,
           bodyId: `pages.landing.discoveries.cards.${index}.body`,
           imageSrc,
+          bgAngle,
           content: data[`discovery${index}`],
         });
       });
