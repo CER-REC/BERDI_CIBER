@@ -20,7 +20,7 @@ import CartButton from '../../CartButton';
 import styles from './styles';
 import TitleSection from './TitleSection';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
-import RelatedTopics from './RelatedTopics';
+import RelatedTopics from '../RelatedTopics';
 import EllipsisButton from '../EllipsisButton';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
@@ -152,7 +152,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                     {/* This section only renders if the content id is in the expanded list */}
                     {(expandList.includes(content.id)) && (
-                    <RelatedTopics />
+                    <RelatedTopics data={content.valueComponent} />
                     )}
                   </Grid>
                 </TableCell>

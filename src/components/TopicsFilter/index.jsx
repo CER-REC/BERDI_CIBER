@@ -1,7 +1,6 @@
+import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React, { useEffect, useRef, useState } from 'react';
-import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
-
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import air from '../../images/topicsFilter/air.svg';
@@ -26,6 +25,7 @@ import wetland from '../../images/topicsFilter/bulrushes.svg';
 import soil from '../../images/topicsFilter/soil.svg';
 import treaty from '../../images/topicsFilter/treaty.svg';
 import water from '../../images/topicsFilter/water.svg';
+import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
 
@@ -94,23 +94,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-const getScore = (number, max) => {
-  if (number === 0) {
-    return 0;
-  }
-
-  const percentage = number / max;
-
-  if (percentage > 0.67) {
-    return 3;
-  }
-
-  if (percentage > 0.33) {
-    return 2;
-  }
-
-  return 1;
-};
 
 // These objects are used to loop over React hook calls
 Object.freeze(environmentalSrcs);
@@ -130,14 +113,14 @@ const TopicsFilter = () => {
   const environmentalTopics = Object.keys(environmentalSrcs);
   const socioEconomicTopics = Object.keys(socioEconomicSrcs);
   const handleRef = (node) => setLayerNode(node);
-  const getProps = (topic, src, type) => ({
+  const getProps = (topic, src) => ({
     // This will be looped through two static lists
     // eslint-disable-next-line react-hooks/rules-of-hooks
     iconRef: useRef(),
     src,
-    label: intl.formatMessage({ id: `common.${type}.${topic}.label` }),
-    title: intl.formatMessage({ id: `common.${type}.${topic}.title` }),
-    description: intl.formatMessage({ id: `common.${type}.${topic}.description` }),
+    label: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
+    title: intl.formatMessage({ id: `common.vcLabels.${topic}.title` }),
+    description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
     score: isLanding ? null : getScore(valueComponent[topic], maxValueComponent),
     disabled: isLanding ? false : (valueComponent[topic] === 0),
     onClick: () => {
@@ -161,10 +144,10 @@ const TopicsFilter = () => {
   }, [config.fragment, layerNode]);
 
   environmentalTopics.forEach((topic) => {
-    topicProps[topic] = getProps(topic, environmentalSrcs[topic], 'environmental');
+    topicProps[topic] = getProps(topic, environmentalSrcs[topic]);
   });
   socioEconomicTopics.forEach((topic) => {
-    topicProps[topic] = getProps(topic, socioEconomicSrcs[topic], 'socioEconomic');
+    topicProps[topic] = getProps(topic, socioEconomicSrcs[topic]);
   });
 
   const nodes = config.topics.map((topic) => topicProps[topic].iconRef.current).filter(Boolean);
@@ -173,7 +156,7 @@ const TopicsFilter = () => {
     <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
       <Grid item xs={7}>
         <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.environmental.title' }) }</span>
+          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.environmental' }) }</span>
         </Typography>
         <div className={classes.topics}>
           {
@@ -199,7 +182,7 @@ const TopicsFilter = () => {
       </Grid>
       <Grid item xs={5}>
         <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.socioEconomic.title' }) }</span>
+          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.socioEconomic' }) }</span>
         </Typography>
         <div className={classes.topics}>
           {

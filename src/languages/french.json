@@ -36,8 +36,11 @@
       "close": "close",
       "downloadReport": "download report"
     },
-    "environmental": {
-      "title": "",
+    "vcLabels": {
+      "headers": {
+        "socioEconomic": "Questions socioéconomiques",
+        "environmental": "Environnemental"
+      },
       "landscape": {
         "title": "Paysage, terrain et conditions météorologiques",
         "label": "Paysage et conditions météorologiques",
@@ -102,10 +105,7 @@
         "title": "Obligations en matière d’environnement",
         "label": "Obligations en matière d’environnement",
         "description": "Données renfermant de l’information sur les exigences légales, les politiques ou d’autres cibles, comme la Politique fédérale de la conservation des terres humides. Elles ont été récemment incluses pour aider le Canada à mieux comprendre dans quelle mesure il respecte ses engagements en matière d’environnement pour des aspects comme les espèces en péril et les milieux humides."
-      }
-    },
-    "socioEconomic": {
-      "title": "",
+      },
       "infrastructure": {
         "title": "Infrastructure et services sociaux, culturels et économiques",
         "label": "Infrastructure et services",
@@ -505,6 +505,6 @@
       }
     },
     "back": "Retourner à ciber",
-    "altBack":""
+    "altBack": "Retour à la page d’accueil"
   }
 }

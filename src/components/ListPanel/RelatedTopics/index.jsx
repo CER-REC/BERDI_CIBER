@@ -1,0 +1,90 @@
+import { Grid, makeStyles, Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { useIntl } from 'react-intl';
+import RelatedTopicsDialog from '../RelatedTopicsDialog';
+import getScore from '../../../utilities/getScore';
+import { socioEconomicTopics } from '../../../constants';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: '#F4F4F4',
+    width: '100%',
+    padding: '1em 3em',
+  },
+  relatedTopics: {
+    padding: '0 3em 1em 0',
+    overflowWrap: 'break-word',
+    maxWidth: '30em',
+  },
+  link: {
+    color: theme.palette.teal.blue,
+    textDecoration: 'underline',
+    cursor: 'pointer',
+  },
+}));
+
+const RelatedTopics = ({ data }) => {
+  const classes = useStyles();
+  const intl = useIntl();
+  const maxValueComponent = Math.max(...Object.values(data).filter(Number));
+
+  const [dialogData, setDialogData] = useState(null);
+
+  const handleClickOpen = (topic) => {
+    const score = getScore(data[topic], maxValueComponent);
+    const type = socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental';
+    setDialogData(
+      {
+        topic,
+        title: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
+        description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
+        score,
+        type,
+      },
+    );
+  };
+
+  const handleClose = () => {
+    setDialogData(null);
+  };
+
+  // Filters out 0 values, sorts them in descending order, then converts object to array
+  const sortedValueComponents = Object.entries(data)
+    .filter((item) => item[1] > 0)
+    .sort((a, b) => b[1] - a[1])
+    .map((item) => item[0]);
+
+  return (
+    <div className={classes.root}>
+      {dialogData
+      && (
+      <RelatedTopicsDialog
+        open={Boolean(dialogData)}
+        onClose={handleClose}
+        data={dialogData}
+      />
+      )}
+
+      <Typography variant="h6">
+        {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}
+      </Typography>
+
+      <Grid container>
+        {sortedValueComponents.map((topic) => (
+          <Grid item key={topic} className={classes.relatedTopics} xs={4}>
+            <Typography component="span" className={classes.link} onClick={() => handleClickOpen(topic)}>
+              {intl.formatMessage({ id: `common.vcLabels.${topic}.label` })}
+            </Typography>
+          </Grid>
+        ))}
+      </Grid>
+    </div>
+  );
+};
+
+export default RelatedTopics;
+
+RelatedTopics.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+};

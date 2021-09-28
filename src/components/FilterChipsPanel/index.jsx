@@ -38,14 +38,7 @@ const useAssembledChipLabels = () => {
     projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
     commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
     statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
-    topics: config.topics.map((item) => intl.formatMessage({
-      id: `common.environmental.${item}.label`,
-      defaultMessage: intl.formatMessage({
-        id: `common.socioEconomic.${item}.label`,
-        // A non-empty string must be defined to avoid missing translation errors
-        defaultMessage: ' ',
-      }),
-    })),
+    topics: config.topics.map((item) => intl.formatMessage({ id: `common.vcLabels.${item}.label` })),
     dateRange: (hasStartDate || hasEndDate)
       ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
   };

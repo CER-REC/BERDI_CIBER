@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Icon, IconButton, Tooltip, makeStyles } from '@material-ui/core';
+import { Icon, IconButton, makeStyles, Tooltip } from '@material-ui/core';
 import PropTypes from 'prop-types';
-
+import React, { useEffect, useState } from 'react';
+import DotsRating from '../DotsRating';
 import Label from './Label';
-import Rating from './Rating';
 import Topic from './Topic';
 
 const pulseMS = 1500;
@@ -121,7 +120,7 @@ const SvgButton = ({
         >
           <Icon ref={iconRef} classes={{ root: classes.icon }}>
             <img className={classes.svg} src={src} alt={label} />
-            <Rating score={score} type={type} />
+            <DotsRating score={score} type={type} />
           </Icon>
           <Label label={label} />
         </IconButton>

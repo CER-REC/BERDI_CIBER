@@ -150,6 +150,30 @@ export const SEARCH = gql`
           applicationURL
           finalDecisionURL
         }
+        valueComponent {
+          landscape
+          soil
+          wetland
+          water
+          fish
+          plant
+          wildlife
+          species
+          noise
+          gas
+          air
+          electricity
+          infrastructure
+          job
+          environmental
+          heritage
+          proximity
+          human
+          social
+          boat
+          indigenous
+          treaty
+        }
       }
       totalCount
       downloadTableIds
