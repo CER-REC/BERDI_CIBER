@@ -206,7 +206,6 @@ const Cart = () => {
                   itemSize={getRowHeight}
                   itemCount={cartItems.length}
                   width={width}
-                  overscanCount={5}
                 >
                   {renderRow}
                 </VariableSizeList>
