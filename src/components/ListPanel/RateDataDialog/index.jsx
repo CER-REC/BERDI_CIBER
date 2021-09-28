@@ -1,34 +1,53 @@
+import React, { useState } from 'react';
+import { useMutation } from '@apollo/react-hooks';
 import {
   Button,
   Dialog,
   Grid,
   IconButton, makeStyles, Typography,
 } from '@material-ui/core';
-
 import CloseIcon from '@material-ui/icons/Close';
+import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+
 import hands from '../../../images/listPanel/hands.svg';
 import styles from './styles';
 import LeafRating from '../LeafRating';
 
+const CREATE_RATING = gql`
+  mutation($id: ID!, $score: Int!) {
+    createRatingFeedback(rating: { id: $id, score: $score } )
+  }
+`;
 const useStyles = makeStyles(styles);
 
 const ReportDataDialog = ({ title, open, onClose }) => {
   const intl = useIntl();
   const classes = useStyles();
 
+  // TODO: Instead of submitted we can check data?.createRatingFeedback, if that is true then everything was successful
   const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
+  const [createRating, { data, loading, error }] = useMutation(CREATE_RATING);
 
   const handleSubmit = () => {
-    setSubmitted(true);
+    createRating({
+      variables: {
+        // TODO: Pass in ID and replace
+        id: 1,
+        score: rating,
+      },
+    });
   };
   const handleClose = () => {
     onClose();
   };
+
+  if ((data && !data.createRatingFeedback) || error) {
+    // TODO: Handle error
+  }
 
   return (
     <Dialog
