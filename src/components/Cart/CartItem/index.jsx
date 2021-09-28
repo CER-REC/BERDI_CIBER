@@ -70,7 +70,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => {
+const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onResultsOpen }) => {
   const classes = useStyles();
   const intl = useIntl();
   const rowRef = useRef({});
@@ -123,6 +123,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand }) => 
                 justify="flex-end"
                 style={{ backgroundImage: `url(${data.thumbnailURL})` }}
                 className={classes.imageSection}
+                onClick={onResultsOpen}
               >
                 <Grid item>
                   <img alt="A magnifying glass" src={magnifyingGlass} />
@@ -185,6 +186,7 @@ CartItem.propTypes = {
   onHeightChange: PropTypes.func.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
+  onResultsOpen: PropTypes.func.isRequired,
 };
 
 export default CartItem;

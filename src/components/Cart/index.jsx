@@ -18,6 +18,7 @@ import useCartData from '../../hooks/useCartData';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import styles from './styles';
 import CartItem from './CartItem';
+import ResultDialog from '../ResultDialog';
 
 const useStyles = makeStyles(styles);
 
@@ -37,6 +38,8 @@ const Cart = () => {
   const [shareOpen, setShareOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const [expandList, setExpandList] = useState([]);
+  const [resultsOpen, setResultsOpen] = useState(false);
+  const [resultsData, setResultsData] = useState();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -81,6 +84,11 @@ const Cart = () => {
     }
   };
 
+  const onResultsOpen = (index) => {
+    setResultsData(cartItems[index]);
+    setResultsOpen(true);
+  };
+
   const renderRow = ({ index, style }) => (
     <div style={style}>
       <CartItem
@@ -89,6 +97,7 @@ const Cart = () => {
         onHeightChange={onHeightChange}
         expandList={expandList}
         toggleExpand={toggleExpand}
+        onResultsOpen={() => onResultsOpen(index)}
       />
     </div>
   );
@@ -100,6 +109,11 @@ const Cart = () => {
 
   return (
     <>
+      <ResultDialog
+        open={resultsOpen}
+        onClose={() => setResultsOpen(false)}
+        data={resultsData}
+      />
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
         <svg
           height={newDotSize}
