@@ -234,9 +234,8 @@
         "projectFiled": "Projet déposé le : ",
         "projectStatus": "Étape du projet : ",
         "projectLinks": "Liens relatifs au projet : ",
-        "relatedTopics": "Sujets connexes :",
-        "seeMore": "Plus de détails",
-        "seeFewer": "Moins de détails",
+        "viewMore": "Plus de détails",
+        "viewFewer": "Moins de détails",
         "expandAll": "Développer",
         "collapseAll": "Réduire",
         "company": "Société",
@@ -278,6 +277,10 @@
               "flagged": "Ces données seront examinées."
             }
           }
+        },
+        "relatedTopics": {
+          "title": "Sujets connexes :",
+          "button": "Consultez plus de données à ce sujet"
         }
       },
       "termsTitle": {
