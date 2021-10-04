@@ -9,6 +9,8 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
+import mergeRefs from 'react-merge-refs';
+import InfiniteLoader from 'react-window-infinite-loader';
 import ShareCard from './ShareCard';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
@@ -29,7 +31,6 @@ const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
-  const { cartItems } = useCartData();
   const formRef = useRef(null);
   const listRef = useRef(null);
   const rowHeights = useRef({});
@@ -84,23 +85,49 @@ const Cart = () => {
     }
   };
 
+  let queryIndices = [0, 50];
+  let idsToQuery = config.cartIds.slice(queryIndices[0], queryIndices[1]);
+
+  console.log(`slicing at ${queryIndices[0]},${queryIndices[1]}`);
+  console.log(idsToQuery);
+
+  const { loading, cartItems } = useCartData(idsToQuery);
+
+  console.log(loading);
+  console.log(cartItems);
+  console.log("\n");
+
+  const loadMoreItems = (startIndex, stopIndex) => {
+    queryIndices = [startIndex, stopIndex + 1];
+    console.log(`loading more items at ${startIndex}, ${stopIndex}`);
+    idsToQuery = config.cartIds.slice(startIndex, stopIndex + 1);
+
+    return new Promise((resolve) => setTimeout(() => {
+      console.log('finished loading items');
+      resolve();
+    }, 10000));
+  };
+
   const onResultsOpen = (index) => {
     setResultsData(cartItems[index]);
     setResultsOpen(true);
   };
 
-  const renderRow = ({ index, style }) => (
-    <div style={style}>
-      <CartItem
-        data={cartItems[index]}
-        index={index}
-        onHeightChange={onHeightChange}
-        expandList={expandList}
-        toggleExpand={toggleExpand}
-        onResultsOpen={() => onResultsOpen(index)}
-      />
-    </div>
-  );
+  const renderRow = ({ index, style }) => {
+    if (loading) return (<span>Loading...</span>);
+    return (
+      <div style={style}>
+        <CartItem
+          data={cartItems[index]}
+          index={index}
+          onHeightChange={onHeightChange}
+          expandList={expandList}
+          toggleExpand={toggleExpand}
+          onResultsOpen={() => onResultsOpen(index)}
+        />
+      </div>
+    );
+  };
 
   useEffect(() => {
     setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
@@ -200,15 +227,24 @@ const Cart = () => {
           <Grid item className={classes.bodyList}>
             <AutoSizer>
               {({ height, width }) => (
-                <VariableSizeList
-                  ref={listRef}
-                  height={height}
-                  itemSize={getRowHeight}
-                  itemCount={cartItems.length}
-                  width={width}
+                <InfiniteLoader
+                  isItemLoaded={() => loading}
+                  itemCount={config.cartIds}
+                  loadMoreItems={loadMoreItems}
                 >
-                  {renderRow}
-                </VariableSizeList>
+                  {({ onItemsRendered, ref }) => (
+                    <VariableSizeList
+                      ref={mergeRefs([listRef, ref])}
+                      height={height}
+                      itemSize={getRowHeight}
+                      itemCount={config.cartIds}
+                      width={width}
+                      onItemsRendered={onItemsRendered}
+                    >
+                      {renderRow}
+                    </VariableSizeList>
+                  )}
+                </InfiniteLoader>
               )}
             </AutoSizer>
           </Grid>

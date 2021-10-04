@@ -59,8 +59,10 @@
     "react-dom": "^16.13.1",
     "react-intl": "^5.6.4",
     "react-markdown": "^5.0.2",
+    "react-merge-refs": "^1.1.0",
     "react-virtualized-auto-sizer": "^1.0.6",
     "react-window": "^1.8.6",
+    "react-window-infinite-loader": "^1.0.7",
     "uuid": "^8.3.1",
     "whatwg-fetch": "^3.2.0"
   },
