@@ -42,7 +42,7 @@ const useStyles = makeStyles({
   },
 });
 
-const EllipsisButton = ({ downloadURL, title }) => {
+const EllipsisButton = ({ downloadURL, title, contentId }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -62,8 +62,18 @@ const EllipsisButton = ({ downloadURL, title }) => {
 
   return (
     <>
-      <RateDataDialog open={rateOpen} onClose={handleRateClose} title={title} />
-      <ReportDataDialog open={reportOpen} onClose={handleReportClose} title={title} />
+      <RateDataDialog
+        open={rateOpen}
+        onClose={handleRateClose}
+        title={title}
+        contentId={contentId}
+      />
+      <ReportDataDialog
+        open={reportOpen}
+        onClose={handleReportClose}
+        title={title}
+        contentId={contentId}
+      />
       <Menu
         anchorEl={anchorEl}
         keepMounted
@@ -104,6 +114,7 @@ export default EllipsisButton;
 EllipsisButton.propTypes = {
   downloadURL: PropTypes.string,
   title: PropTypes.string.isRequired,
+  contentId: PropTypes.string.isRequired,
 };
 
 EllipsisButton.defaultProps = {

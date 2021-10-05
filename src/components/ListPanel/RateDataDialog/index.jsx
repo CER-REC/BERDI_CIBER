@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import {
   Button,
@@ -9,45 +8,40 @@ import {
 import CloseIcon from '@material-ui/icons/Close';
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-
 import hands from '../../../images/listPanel/hands.svg';
-import styles from './styles';
 import LeafRating from '../LeafRating';
+import styles from './styles';
 
 const CREATE_RATING = gql`
   mutation($id: ID!, $score: Int!) {
     createRatingFeedback(rating: { id: $id, score: $score } )
   }
 `;
+
 const useStyles = makeStyles(styles);
 
-const ReportDataDialog = ({ title, open, onClose }) => {
+const ReportDataDialog = ({ title, open, onClose, contentId }) => {
   const intl = useIntl();
   const classes = useStyles();
 
-  // TODO: Instead of submitted we can check data?.createRatingFeedback, if that is true then everything was successful
-  const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
-  const [createRating, { data, loading, error }] = useMutation(CREATE_RATING);
+  const [createRating, { data, error }] = useMutation(CREATE_RATING);
 
   const handleSubmit = () => {
     createRating({
       variables: {
-        // TODO: Pass in ID and replace
-        id: 1,
+        id: contentId,
         score: rating,
       },
     });
   };
+
   const handleClose = () => {
     onClose();
   };
-
-  if ((data && !data.createRatingFeedback) || error) {
-    // TODO: Handle error
-  }
 
   return (
     <Dialog
@@ -77,8 +71,23 @@ const ReportDataDialog = ({ title, open, onClose }) => {
 
           </Grid>
         </Grid>
-        {!submitted
-          ? (
+
+        {!data?.createRatingFeedback && (
+          // Form submission failure
+          (data && !data.createRatingFeedback) || error ? (
+            <Grid container alignItems="center" direction="column" className={classes.submitted}>
+              <Grid item container justify="center" style={{ padding: '0 2em' }}>
+                <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
+                <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+              </Grid>
+
+              <Grid item className={classes.imageSection}>
+                <img alt="two hands holding a plant" src={hands} />
+              </Grid>
+
+            </Grid>
+          ) : (
+            // Form unsubmitted
             <Grid className={classes.body}>
               <Grid container style={{ paddingLeft: '2em' }}>
                 <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
@@ -101,27 +110,24 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                 </Grid>
               </Grid>
             </Grid>
-          ) : (
-            <Grid container alignItems="center" direction="column" className={classes.submitted}>
-              <Grid item container justify="center" style={{ padding: '0 2em' }}>
-                <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>
-                <Typography variant="h6" style={{ fontWeight: 'normal', textAlign: 'center' }}>
-                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.timesRated' }, {
-                    // TODO: these numbers can be swapped for whatever comes back from the API
-                    num: '3',
-                    ratingText: intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${2}` }),
-                  })}
-                </Typography>
-              </Grid>
+          )
+        )}
 
-              <Grid item className={classes.imageSection}>
-                <img alt="two hands holding a plant" src={hands} />
-              </Grid>
+        {/* Form submitted successfully */}
+        { data?.createRatingFeedback && (
+        <Grid container alignItems="center" direction="column" className={classes.submitted}>
+          <Grid item container justify="center" style={{ padding: '0 2em' }}>
+            <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>
+          </Grid>
 
-              <Typography className={classes.bottomText}>
-                {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
-              </Typography>
-            </Grid>
+          <Grid item className={classes.imageSection}>
+            <img alt="two hands holding a plant" src={hands} />
+          </Grid>
+
+          <Typography className={classes.bottomText}>
+            {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
+          </Typography>
+        </Grid>
           )}
       </Grid>
     </Dialog>
@@ -134,4 +140,5 @@ ReportDataDialog.propTypes = {
   title: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  contentId: PropTypes.string.isRequired,
 };

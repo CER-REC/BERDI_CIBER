@@ -29,6 +29,7 @@
     "alignmentSheetCount": "{alignmentSheets, plural, =0 {carte-tracé} =1 {carte-tracé} other {carte(s)-tracé(s)}}",
     "termsAndConditions": "Avis",
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
+    "errorMessage": "Une erreur s’est produite.",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -203,7 +204,6 @@
       "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/"
     },
     "errorBoundary": {
-      "errorMessage": "Une erreur s’est produite.",
       "restoreLinkText": "Rétablir la session.",
       "restoreMessage": "Veuillez cliquer sur le lien pour rétablir la session.",
       "resetLinkText": "Réinitialiser la session.",
@@ -249,6 +249,7 @@
           "rate": "Signaler ces données",
           "report": "Évaluer ces données",
           "download": "Télécharger le tableau",
+          "tryAgainLater": "",
           "rateDataDialog": {
             "rateData": "Signaler ces données",
             "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",

@@ -73,7 +73,7 @@ class ErrorBoundary extends React.PureComponent {
       return (
         <section className={`ErrorBoundary ${classes.root}`}>
           <section className={classes.errorMessage}>
-            <FormattedMessage id="components.errorBoundary.errorMessage" tagName="h1" />
+            <FormattedMessage id="common.errorMessage" tagName="h1" />
           </section>
           <section className="restoreLink">
             <FormattedMessage id="components.errorBoundary.restoreMessage" />
