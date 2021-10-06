@@ -65,6 +65,7 @@ const Cart = () => {
   useEffect(() => {
     setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
     if (config.cartIds.length === 0) handleShareClose();
+    setLoadedItems((list) => list.filter((item) => config.cartIds.includes(item.id)));
   }, [config.cartIds]);
 
   const toggleExpand = (id) => {
@@ -102,17 +103,11 @@ const Cart = () => {
     if queryOffset + amountToLoad >= config.cartIds.length, no more pages
   */
 
-  const updateLoadedItems = (items) => {
-    setLoadedItems(items);
-    console.log('\nloaded items:');
-    console.log(loadedItems);
-  };
-
   let queryAmount = config.cartIds.length;
   if (queryAmount > maxQueryAmount) queryAmount = maxQueryAmount;
 
   // maybe pass in function to update state?
-  const { loadMore, hasNextPage, loading, cartItems } = useCartData(queryOffset, queryAmount, updateLoadedItems);
+  const { loadMore, hasNextPage, loading, cartItems } = useCartData(queryOffset, queryAmount, (items) => setLoadedItems(items));
 
   const itemCount = hasNextPage ? loadedItems.length + 1 : loadedItems.length;
   const isItemLoaded = (index) => !hasNextPage || index < loadedItems.length;
@@ -127,11 +122,8 @@ const Cart = () => {
     setResultsOpen(true);
   };
 
-  const renderRow = ({ index, style }) => {
-    if (!isItemLoaded(index)) {
-      return <div style={style}><span>{`Loading ${index}...`}</span></div>;
-    }
-    return (
+  const renderRow = ({ index, style }) => (
+    isItemLoaded(index) && (
       <div style={style}>
         <CartItem
           data={loadedItems[index]}
@@ -142,8 +134,8 @@ const Cart = () => {
           onResultsOpen={() => onResultsOpen(index)}
         />
       </div>
-    );
-  };
+    )
+  );
 
   return (
     <>
@@ -242,7 +234,6 @@ const Cart = () => {
                   isItemLoaded={isItemLoaded}
                   itemCount={itemCount}
                   loadMoreItems={loadMoreItems}
-                  minimumBatchSize={1}
                   threshold={2}
                 >
                   {({ onItemsRendered, ref: infiniteLoaderRef }) => (

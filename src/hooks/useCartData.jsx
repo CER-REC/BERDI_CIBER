@@ -2,17 +2,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { CART_ITEMS } from './queries';
 import useConfig from './useConfig';
 
-const getPaginationInfo = (queryOffset, amountToLoad, idsLength) => {
-  let endIndex = queryOffset + amountToLoad;
-  const hasNextPage = endIndex < idsLength;
-  if (!hasNextPage) endIndex = idsLength;
-  return {
-    endIndex,
-    hasNextPage,
-  };
-};
-
-export default (queryOffset, amountToLoad, updateLoadedItems) => {
+export default (queryOffset, amountToLoad, setLoadedItems) => {
   const { config: { cartIds } } = useConfig();
 
   // TODO: ensure that slice isn't rerendering if nothing changes;
@@ -21,7 +11,9 @@ export default (queryOffset, amountToLoad, updateLoadedItems) => {
   // modify hasNextPage = false when there are no more elemnts to grab (no more pages)
   //  if queryOffset + amountToLoad >= config.cartIds.length, no more pages
 
-  const { endIndex, hasNextPage } = getPaginationInfo(queryOffset, amountToLoad, cartIds.length);
+  let endIndex = queryOffset + amountToLoad;
+  const hasNextPage = endIndex < cartIds.length;
+  if (!hasNextPage) endIndex = cartIds.length;
   const idChunk = cartIds.slice(queryOffset, endIndex);
   console.log(`initial query: slicing ${queryOffset} to ${endIndex} (${cartIds.length})\n`);
 
@@ -45,7 +37,7 @@ export default (queryOffset, amountToLoad, updateLoadedItems) => {
     updateQuery: (previousResult, { fetchMoreResult }) => {
       if (!previousResult || !fetchMoreResult) return;
       console.log(fetchMoreResult.contents, previousResult.contents);
-      updateLoadedItems([...fetchMoreResult.contents, ...previousResult.contents]);
+      setLoadedItems([...fetchMoreResult.contents, ...previousResult.contents]);
     },
   });
 
