@@ -1,9 +1,8 @@
-import { Button, makeStyles, Grid } from '@material-ui/core';
-import React, { useState, useCallback } from 'react';
+import { Button, Grid, makeStyles } from '@material-ui/core';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
 import SearchList from './SearchList';
-import LimitationsDialog from '../LimitationsDialog';
 
 const useStyles = makeStyles((theme) => ({
   expandButtons: {
@@ -38,10 +37,6 @@ const ListSection = () => {
     setExpandList([]);
   };
 
-  const [open, setOpen] = useState(false);
-  const handleButtonClick = useCallback(() => setOpen(true), [setOpen]);
-  const handleClose = useCallback(() => setOpen(false), [setOpen]);
-
   return (
     <>
       <Grid container justify="space-between" style={{ paddingBottom: '0.5em' }}>
@@ -50,16 +45,6 @@ const ListSection = () => {
           <Button onClick={collapseAll} variant="outlined">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
         </Grid>
 
-        <Grid item style={{ paddingRight: '0.5em' }}>
-          <Button color="primary" variant="contained" disableElevation onClick={handleButtonClick}>
-            {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
-          </Button>
-          <LimitationsDialog
-            open={open}
-            hasDownload
-            onClose={handleClose}
-          />
-        </Grid>
       </Grid>
 
       <SearchList expandList={expandList} toggleExpand={toggleExpand} />
