@@ -26,6 +26,7 @@ const useStyles = makeStyles(styles);
 
 const newDotSize = 14;
 const newDotR = newDotSize / 2;
+const maxQueryAmount = 20;
 
 const Cart = () => {
   const classes = useStyles();
@@ -41,6 +42,8 @@ const Cart = () => {
   const [expandList, setExpandList] = useState([]);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
+  const [queryOffset, setQueryOffset] = useState(0);
+  const [loadedItems, setLoadedItems] = useState([]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -51,9 +54,18 @@ const Cart = () => {
   const handleDownloadClick = () => formRef.current.submit();
   const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
-  const handleRemoveAll = () => configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  const handleRemoveAll = () => {
+    configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+    setLoadedItems([]);
+    setQueryOffset(0);
+  };
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
+
+  useEffect(() => {
+    setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
+    if (config.cartIds.length === 0) handleShareClose();
+  }, [config.cartIds]);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -85,40 +97,44 @@ const Cart = () => {
     }
   };
 
-  let queryIndices = [0, 50];
-  let idsToQuery = config.cartIds.slice(queryIndices[0], queryIndices[1]);
+  /*
+    config.cartIds.slice(queryOffset, queryOffset + amountToLoad + 1);
+    if queryOffset + amountToLoad >= config.cartIds.length, no more pages
+  */
 
-  console.log(`slicing at ${queryIndices[0]},${queryIndices[1]}`);
-  console.log(idsToQuery);
+  const updateLoadedItems = (items) => {
+    setLoadedItems(items);
+    console.log('\nloaded items:');
+    console.log(loadedItems);
+  };
 
-  const { loading, cartItems } = useCartData(idsToQuery);
+  let queryAmount = config.cartIds.length;
+  if (queryAmount > maxQueryAmount) queryAmount = maxQueryAmount;
 
-  console.log(loading);
-  console.log(cartItems);
-  console.log("\n");
+  // maybe pass in function to update state?
+  const { loadMore, hasNextPage, loading, cartItems } = useCartData(queryOffset, queryAmount, updateLoadedItems);
 
-  const loadMoreItems = (startIndex, stopIndex) => {
-    queryIndices = [startIndex, stopIndex + 1];
-    console.log(`loading more items at ${startIndex}, ${stopIndex}`);
-    idsToQuery = config.cartIds.slice(startIndex, stopIndex + 1);
+  const itemCount = hasNextPage ? loadedItems.length + 1 : loadedItems.length;
+  const isItemLoaded = (index) => !hasNextPage || index < loadedItems.length;
 
-    return new Promise((resolve) => setTimeout(() => {
-      console.log('finished loading items');
-      resolve();
-    }, 10000));
+  const loadMoreItems = loading ? () => { } : () => {
+    setQueryOffset(queryOffset + queryAmount);
+    loadMore();
   };
 
   const onResultsOpen = (index) => {
-    setResultsData(cartItems[index]);
+    setResultsData(loadedItems[index]);
     setResultsOpen(true);
   };
 
   const renderRow = ({ index, style }) => {
-    if (loading) return (<span>Loading...</span>);
+    if (!isItemLoaded(index)) {
+      return <div style={style}><span>{`Loading ${index}...`}</span></div>;
+    }
     return (
       <div style={style}>
         <CartItem
-          data={cartItems[index]}
+          data={loadedItems[index]}
           index={index}
           onHeightChange={onHeightChange}
           expandList={expandList}
@@ -128,11 +144,6 @@ const Cart = () => {
       </div>
     );
   };
-
-  useEffect(() => {
-    setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
-    if (config.cartIds.length === 0) handleShareClose();
-  }, [config.cartIds]);
 
   return (
     <>
@@ -228,16 +239,18 @@ const Cart = () => {
             <AutoSizer>
               {({ height, width }) => (
                 <InfiniteLoader
-                  isItemLoaded={() => loading}
-                  itemCount={config.cartIds}
+                  isItemLoaded={isItemLoaded}
+                  itemCount={itemCount}
                   loadMoreItems={loadMoreItems}
+                  minimumBatchSize={1}
+                  threshold={2}
                 >
-                  {({ onItemsRendered, ref }) => (
+                  {({ onItemsRendered, ref: infiniteLoaderRef }) => (
                     <VariableSizeList
-                      ref={mergeRefs([listRef, ref])}
+                      ref={mergeRefs([listRef, infiniteLoaderRef])}
                       height={height}
                       itemSize={getRowHeight}
-                      itemCount={config.cartIds}
+                      itemCount={itemCount}
                       width={width}
                       onItemsRendered={onItemsRendered}
                     >
