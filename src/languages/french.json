@@ -229,57 +229,6 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
-      "listPanel": {
-        "projectType": "Type de projet : ",
-        "projectFiled": "Projet déposé le : ",
-        "projectStatus": "Étape du projet : ",
-        "projectLinks": "Liens relatifs au projet : ",
-        "relatedTopics": "Sujets connexes :",
-        "seeMore": "Plus de détails",
-        "seeFewer": "Moins de détails",
-        "expandAll": "Développer",
-        "collapseAll": "Réduire",
-        "company": "Société",
-        "projectName": "Nom du projet : ",
-        "esaConsultant": "Nom du consultant de l'EES : ",
-        "projectFolder": "Dossier de projet",
-        "finalDecision": "Décision finale",
-        "esaFolder": "Dossier de l’EES",
-        "ellipsisButton": {
-          "rate": "Signaler ces données",
-          "report": "Évaluer ces données",
-          "download": "Télécharger le tableau",
-          "rateDataDialog": {
-            "rateData": "Signaler ces données",
-            "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
-            "rate": "Évaluation",
-            "thankYou": "Merci de votre rétroaction.",
-            "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-            "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
-            "ratingLabels": {
-              "1": "Pas du tout utiles",
-              "2": "Données à améliorer",
-              "3": "Plutôt utiles",
-              "4": "Utiles",
-              "5": "Très utiles"
-            },
-            "reportDataDialog": {
-              "report": "Évaluer ces données :",
-              "required": "Requis",
-              "whatConcern": "Quel souci souhaitez-vous signaler?",
-              "strangeChars": "Les données comportaient des caractères insolites.",
-              "noData": "Je n’ai pas retrouvé les données dans le document.",
-              "other": "Autre",
-              "explainMore": "Veuillez expliquer plus en détail.",
-              "optional": "Facultatif",
-              "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-              "submit": "Envoyer",
-              "thankYou": "Nous avons bien reçu votre signalement.",
-              "flagged": "Ces données seront examinées."
-            }
-          }
-        }
-      },
       "termsTitle": {
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
         "link": "\"l’Avis\""
@@ -295,6 +244,60 @@
         "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
         "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
         "url": "csv/fr/fr.zip"
+      }
+    },
+    "listPanel": {
+      "projectType": "Type de projet : ",
+      "projectFiled": "Projet déposé le : ",
+      "projectStatus": "Étape du projet : ",
+      "projectLinks": "Liens relatifs au projet : ",
+      "viewMore": "Plus de détails",
+      "viewFewer": "Moins de détails",
+      "expandAll": "Développer",
+      "collapseAll": "Réduire",
+      "company": "Société",
+      "projectName": "Nom du projet : ",
+      "esaConsultant": "Nom du consultant de l'EES : ",
+      "projectFolder": "Dossier de projet",
+      "finalDecision": "Décision finale",
+      "esaFolder": "Dossier de l’EES",
+      "ellipsisButton": {
+        "rate": "Signaler ces données",
+        "report": "Évaluer ces données",
+        "download": "Télécharger le tableau",
+        "rateDataDialog": {
+          "rateData": "Signaler ces données",
+          "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
+          "rate": "Évaluation",
+          "thankYou": "Merci de votre rétroaction.",
+          "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
+          "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
+          "ratingLabels": {
+            "1": "Pas du tout utiles",
+            "2": "Données à améliorer",
+            "3": "Plutôt utiles",
+            "4": "Utiles",
+            "5": "Très utiles"
+          },
+          "reportDataDialog": {
+            "report": "Évaluer ces données :",
+            "required": "Requis",
+            "whatConcern": "Quel souci souhaitez-vous signaler?",
+            "strangeChars": "Les données comportaient des caractères insolites.",
+            "noData": "Je n’ai pas retrouvé les données dans le document.",
+            "other": "Autre",
+            "explainMore": "Veuillez expliquer plus en détail.",
+            "optional": "Facultatif",
+            "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+            "submit": "Envoyer",
+            "thankYou": "Nous avons bien reçu votre signalement.",
+            "flagged": "Ces données seront examinées."
+          }
+        }
+      },
+      "relatedTopics": {
+        "title": "Sujets connexes :",
+        "button": "Consultez plus de données à ce sujet"
       }
     },
     "filterPanel": {
@@ -361,7 +364,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
-      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur 38 projets pipeliniers.",
+      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
         "button": "Lisez notre avertissement",
