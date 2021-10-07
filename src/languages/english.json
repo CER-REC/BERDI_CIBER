@@ -396,7 +396,7 @@
       }
     },
     "project": {
-      "title": "The project",
+      "title": "Why we created BERDI",
       "description": "The opportunity of a legacy, driven by policy - and our plans for the future.",
       "body": {
         "section1": {
@@ -421,7 +421,7 @@
       }
     },
     "data": {
-      "title": "The data",
+      "title": "What are ESAs?",
       "description": "An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
       "body": {
         "title": "What is an Environmental Socio-Economic Assessment (ESA)?",
@@ -442,7 +442,7 @@
       }
     },
     "methods": {
-      "title": "The methods",
+      "title": "Our extraction method",
       "description": "Learn how we turned regulatory documents into structured data.",
       "body": {
         "title": "Our Methods",

@@ -1,4 +1,4 @@
-import { ButtonBase, Grid, Icon, makeStyles, Popover, Slider, Typography } from '@material-ui/core';
+import { makeStyles, Popover, Slider, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   slider: {
     height: '5em',
-    width: '300px',
+    width: '335px',
     padding: '1.5em',
   },
   thumb: {
@@ -37,18 +37,38 @@ const useStyles = makeStyles((theme) => ({
   line: {
     transform: 'translateX(2px)',
   },
-  label: { fontWeight: 600 },
+  label: {
+    fontWeight: 600,
+  },
   datePicker: {
-    width: '100%',
-    borderRadius: 5,
     position: 'relative',
-    backgroundColor: theme.palette.background.paper,
+    fontSize: '1.57rem',
     border: '2px solid #000000',
-    fontSize: 16,
-    padding: '0.4em',
-    justifyContent: 'flex-start',
-    transition: theme.transitions.create(['border-color', 'box-shadow']),
-    '&:focus': { borderRadius: 5 },
+    padding: '0.5em',
+    borderRadius: '5px',
+    minHeight: '39px',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
+    cursor: 'pointer',
+    width: '100%',
+    '& span': {
+      position: 'absolute',
+      bottom: '8px',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      maxWidth: 'calc(100% - 50px)',
+    },
+    '& img': {
+      width: '2em',
+      height: '1.4em',
+      marginTop: '-0.2em',
+      marginRight: '0.2em',
+      top: '10px',
+      right: 0,
+      position: 'absolute',
+    },
+
   },
 }));
 
@@ -124,21 +144,18 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   const shortenDate = (date) => new Date(date).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
   return (
-    <div style={{ width: '300px' }}>
+    <>
       <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
-      <ButtonBase
-        disableRipple
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
+      <div
         className={classes.datePicker}
         onClick={handlePopoverClick}
+        role="button"
+        tabIndex={0}
       >
-        <Grid container alignItems="center" justify="space-between">
-
-          {`${shortenDate(toStartDate(startIndex))} - ${shortenDate(toEndDate(endIndex))}`}
-          <Icon style={{ width: 'auto' }}>
-            <img style={{ verticalAlign: 'baseline' }} src={sliderIcon} alt="a depiction of the date slider" />
-          </Icon>
-        </Grid>
-      </ButtonBase>
+        <span>{`${shortenDate(toStartDate(startIndex))} - ${shortenDate(toEndDate(endIndex))}`}</span>
+        <img src={sliderIcon} alt="a depiction of the date slider" />
+      </div>
 
       <Popover
         className={classes.popover}
@@ -172,7 +189,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
           />
         </div>
       </Popover>
-    </div>
+    </>
   );
 };
 export default DateSlider;
