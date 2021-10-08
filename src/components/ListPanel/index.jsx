@@ -9,7 +9,9 @@ const useStyles = makeStyles((theme) => ({
     '& button': {
       color: theme.palette.teal.blue,
       borderColor: theme.palette.teal.blue,
-      padding: '0.3em 2.2em',
+      padding: '0.2em 2.5em',
+      fontWeight: '400',
+      fontSize: '16px',
     },
   },
 }));
