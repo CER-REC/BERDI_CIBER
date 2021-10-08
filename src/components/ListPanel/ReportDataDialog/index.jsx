@@ -37,8 +37,8 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
 
   const getConcern = () => {
     switch (selection) {
-      case 'strange characters':
-      case 'data not in document':
+      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' }):
+      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' }):
         return selection;
       default:
         return otherConcern || null;
@@ -59,6 +59,25 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
   const handleClose = () => {
     onClose();
   };
+
+  const SubmissionMessage = () => (
+    <Grid container justify="center" className={classes.submitted}>
+      {(data && !data.createReportFeedback) || error ? (
+        <>
+          <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+        </>
+      ) : (
+        <>
+          <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
+        </>
+      )}
+      <Grid item className={classes.imageSection}>
+        <img alt="two hands holding a plant" src={hands} />
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Dialog
@@ -88,89 +107,65 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
           </Grid>
         </Grid>
 
-        {!data?.createReportFeedback && (
-          (data && !data.createReportFeedback) || error ? (
-          // Form submission failure
-            <Grid container justify="center" className={classes.submitted}>
-              <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
-              <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
-
-              <Grid item className={classes.imageSection}>
-                <img alt="two hands holding a plant" src={hands} />
-              </Grid>
-            </Grid>
-          ) : (
+        {(!data?.createReportFeedback && !error) ? (
           // Form unsubmitted
-            <Grid item className={classes.body}>
-              <Grid container item justify="flex-end">
-                <Grid item className={classes.requiredText}>
-                  <span>* </span>
-                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.required' })}
-                </Grid>
-              </Grid>
-
-              <Grid item>
-                <Grid item style={{ padding: '0 2em 1em' }}>
-                  <form>
-                    <FormControl component="fieldset">
-                      <FormLabel component="legend" className={classes.formLabel}>
-                        {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.whatConcern' })}
-                        <span style={{ color: 'red' }}>*</span>
-                      </FormLabel>
-                      <RadioGroup className={classes.radioGroup} aria-label="reason" name="reason" value={selection} onChange={handleChange}>
-                        <FormControlLabel value="strange characters" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
-                        <FormControlLabel value="data not in document" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
-                        <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.other' })} />
-                        <InputBase onChange={(e) => setOtherConcern(e.target.value.trim())} className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
-                      </RadioGroup>
-                    </FormControl>
-
-                    <FormControl className={classes.moreDetail}>
-                      <p>
-                        {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.explainMore' })}
-                        <sup>
-                          {` (${intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.optional' })})`}
-                        </sup>
-                      </p>
-                      <InputBase onChange={(e) => setDetails(e.target.value)} style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
-                      <Typography variant="body2">
-                        {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
-                          terms: (
-                            <a href={intl.formatMessage({ id: 'common.limitationsURL' })}>
-                              {intl.formatMessage({ id: 'common.termsAndConditions' })}
-                            </a>
-                          ),
-                        })}
-                      </Typography>
-                    </FormControl>
-
-                    <Button
-                  // If there is no concern value, disable the button
-                      disabled={!getConcern()}
-                      type="submit"
-                      className={!getConcern() ? classes.disabledButton : classes.button}
-                      onClick={handleSubmit}
-                    >
-                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.submit' })}
-                    </Button>
-                  </form>
-                </Grid>
+          <Grid item className={classes.body}>
+            <Grid container item justify="flex-end">
+              <Grid item className={classes.requiredText}>
+                <span>* </span>
+                {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.required' })}
               </Grid>
             </Grid>
-          )
-        )}
 
-        {/* Form submitted successfully */}
-        {data?.createReportFeedback && (
-          <Grid container justify="center" className={classes.submitted}>
-            <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
-            <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
+            <Grid item>
+              <Grid item style={{ padding: '0 2em 1em' }}>
+                <form>
+                  <FormControl component="fieldset">
+                    <FormLabel component="legend" className={classes.formLabel}>
+                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.whatConcern' })}
+                      <span style={{ color: 'red' }}>*</span>
+                    </FormLabel>
+                    <RadioGroup className={classes.radioGroup} aria-label="concern" name="concern" onChange={handleChange}>
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
+                      <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.other' })} />
+                      <InputBase onChange={(e) => setOtherConcern(e.target.value.trim())} className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
+                    </RadioGroup>
+                  </FormControl>
 
-            <Grid item className={classes.imageSection}>
-              <img alt="two hands holding a plant" src={hands} />
+                  <FormControl className={classes.moreDetail}>
+                    <p>
+                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.explainMore' })}
+                      <sup>
+                        {` (${intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.optional' })})`}
+                      </sup>
+                    </p>
+                    <InputBase onChange={(e) => setDetails(e.target.value)} style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
+                    <Typography variant="body2">
+                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
+                        terms: (
+                          <a href={intl.formatMessage({ id: 'common.limitationsURL' })}>
+                            {intl.formatMessage({ id: 'common.termsAndConditions' })}
+                          </a>
+                        ),
+                      })}
+                    </Typography>
+                  </FormControl>
+
+                  <Button
+                    // If there is no concern value, disable the button
+                    disabled={!getConcern()}
+                    type="submit"
+                    className={!getConcern() ? classes.disabledButton : classes.button}
+                    onClick={handleSubmit}
+                  >
+                    {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.submit' })}
+                  </Button>
+                </form>
+              </Grid>
             </Grid>
           </Grid>
-        )}
+        ) : <SubmissionMessage />}
       </Grid>
     </Dialog>
   );

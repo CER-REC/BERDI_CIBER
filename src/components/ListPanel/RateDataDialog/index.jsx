@@ -43,6 +43,23 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
     onClose();
   };
 
+  const SubmissionMessage = () => (
+    <Grid container alignItems="center" direction="column" className={classes.submitted}>
+      <Grid item container justify="center" style={{ padding: '0 2em' }}>
+        {(data && !data.createRatingFeedback) || error ? (
+          <>
+            <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
+            <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+          </>
+        ) : <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>}
+      </Grid>
+
+      <Grid item className={classes.imageSection}>
+        <img alt="two hands holding a plant" src={hands} />
+      </Grid>
+    </Grid>
+  );
+
   return (
     <Dialog
       open={open}
@@ -72,63 +89,31 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
           </Grid>
         </Grid>
 
-        {!data?.createRatingFeedback && (
-          // Form submission failure
-          (data && !data.createRatingFeedback) || error ? (
-            <Grid container alignItems="center" direction="column" className={classes.submitted}>
-              <Grid item container justify="center" style={{ padding: '0 2em' }}>
-                <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
-                <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
-              </Grid>
-
-              <Grid item className={classes.imageSection}>
-                <img alt="two hands holding a plant" src={hands} />
-              </Grid>
-
+        {(!data?.createRatingFeedback && !error) ? (
+          <Grid className={classes.body}>
+            <Grid container style={{ paddingLeft: '2em' }}>
+              <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
+              <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
             </Grid>
-          ) : (
-            // Form unsubmitted
-            <Grid className={classes.body}>
-              <Grid container style={{ paddingLeft: '2em' }}>
-                <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
-                <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
-              </Grid>
 
-              <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>
-                {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
-              </Grid>
+            <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>
+              {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
+            </Grid>
 
-              <Grid container justify="flex-end">
-                <Grid item style={{ padding: '0 1em 1em' }}>
-                  <Button
-                    disabled={!rating}
-                    className={!rating ? classes.disabledButton : classes.button}
-                    onClick={handleSubmit}
-                  >
-                    {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rate' })}
-                  </Button>
-                </Grid>
+            <Grid container justify="flex-end">
+              <Grid item style={{ padding: '0 1em 1em' }}>
+                <Button
+                  disabled={!rating}
+                  className={!rating ? classes.disabledButton : classes.button}
+                  onClick={handleSubmit}
+                >
+                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rate' })}
+                </Button>
               </Grid>
             </Grid>
-          )
-        )}
-
-        {/* Form submitted successfully */}
-        { data?.createRatingFeedback && (
-        <Grid container alignItems="center" direction="column" className={classes.submitted}>
-          <Grid item container justify="center" style={{ padding: '0 2em' }}>
-            <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>
           </Grid>
-
-          <Grid item className={classes.imageSection}>
-            <img alt="two hands holding a plant" src={hands} />
-          </Grid>
-
-          <Typography className={classes.bottomText}>
-            {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
-          </Typography>
-        </Grid>
-          )}
+        )
+          : <SubmissionMessage />}
       </Grid>
     </Dialog>
   );
