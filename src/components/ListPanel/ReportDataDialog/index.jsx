@@ -1,3 +1,4 @@
+import { useMutation } from '@apollo/react-hooks';
 import {
   Button,
   Dialog,
@@ -6,29 +7,77 @@ import {
   IconButton, InputBase, makeStyles, Radio, RadioGroup, Typography,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import hands from '../../../images/listPanel/hands.svg';
 import styles from './styles';
 
+const CREATE_REPORT = gql`
+  mutation($id: ID!, $concern: String!, $details: String) {
+    createReportFeedback(report: { id: $id, concern: $concern, details:$details } )
+  }
+`;
+
 const useStyles = makeStyles(styles);
 
-const ReportDataDialog = ({ title, open, onClose }) => {
+const ReportDataDialog = ({ title, open, onClose, contentId }) => {
   const intl = useIntl();
   const classes = useStyles();
 
-  const [selection, setSelection] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [otherConcern, setOtherConcern] = useState();
+  const [details, setDetails] = useState();
+  const [selection, setSelection] = useState();
+  const [createReport, { data, error }] = useMutation(CREATE_REPORT);
+
   const handleChange = (event) => {
     setSelection(event.target.value);
   };
-  const handleSubmit = () => {
-    setSubmitted(true);
+
+  const getConcern = () => {
+    switch (selection) {
+      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' }):
+      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' }):
+        return selection;
+      default:
+        return otherConcern || null;
+    }
   };
+
+  const handleSubmit = (event) => {
+    createReport({
+      variables: {
+        id: contentId,
+        concern: getConcern(),
+        details,
+      },
+    });
+    event.preventDefault();
+  };
+
   const handleClose = () => {
     onClose();
   };
+
+  const SubmissionMessage = () => (
+    <Grid container justify="center" className={classes.submitted}>
+      {(data && !data.createReportFeedback) || error ? (
+        <>
+          <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+        </>
+      ) : (
+        <>
+          <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
+        </>
+      )}
+      <Grid item className={classes.imageSection}>
+        <img alt="two hands holding a plant" src={hands} />
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Dialog
@@ -58,7 +107,8 @@ const ReportDataDialog = ({ title, open, onClose }) => {
           </Grid>
         </Grid>
 
-        {!submitted ? (
+        {(!data?.createReportFeedback && !error) ? (
+          // Form unsubmitted
           <Grid item className={classes.body}>
             <Grid container item justify="flex-end">
               <Grid item className={classes.requiredText}>
@@ -75,11 +125,11 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                       {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.whatConcern' })}
                       <span style={{ color: 'red' }}>*</span>
                     </FormLabel>
-                    <RadioGroup className={classes.radioGroup} aria-label="reason" name="reason" value={selection} onChange={handleChange}>
-                      <FormControlLabel value="strange characters" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
-                      <FormControlLabel value="data not in document" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
+                    <RadioGroup className={classes.radioGroup} aria-label="concern" name="concern" onChange={handleChange}>
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
                       <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.other' })} />
-                      <InputBase className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
+                      <InputBase onChange={(e) => setOtherConcern(e.target.value.trim())} className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
                     </RadioGroup>
                   </FormControl>
 
@@ -90,7 +140,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                         {` (${intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.optional' })})`}
                       </sup>
                     </p>
-                    <InputBase style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
+                    <InputBase onChange={(e) => setDetails(e.target.value)} style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
                     <Typography variant="body2">
                       {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
                         terms: (
@@ -103,9 +153,10 @@ const ReportDataDialog = ({ title, open, onClose }) => {
                   </FormControl>
 
                   <Button
-                    disabled={selection === null}
+                    // If there is no concern value, disable the button
+                    disabled={!getConcern()}
                     type="submit"
-                    className={!selection ? classes.disabledButton : classes.button}
+                    className={!getConcern() ? classes.disabledButton : classes.button}
                     onClick={handleSubmit}
                   >
                     {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.submit' })}
@@ -114,17 +165,7 @@ const ReportDataDialog = ({ title, open, onClose }) => {
               </Grid>
             </Grid>
           </Grid>
-        ) : (
-          <>
-            <Grid container justify="center" className={classes.submitted}>
-              <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
-              <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
-              <Grid item className={classes.imageSection}>
-                <img alt="two hands holding a plant" src={hands} />
-              </Grid>
-            </Grid>
-          </>
-        )}
+        ) : <SubmissionMessage />}
       </Grid>
     </Dialog>
   );
@@ -136,4 +177,5 @@ ReportDataDialog.propTypes = {
   title: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  contentId: PropTypes.string.isRequired,
 };
