@@ -1,7 +1,7 @@
 import { ButtonBase, makeStyles } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import PropTypes from 'prop-types';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'underline',
     fontWeight: '900',
     color: theme.palette.button.blue,
-    marginBottom: '1em',
   },
   altButton: {
     padding: '0.7em 0.3em',

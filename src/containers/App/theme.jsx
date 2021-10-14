@@ -21,6 +21,7 @@ const tealBlue = '#07456B';
 const environmental = '#744A95';
 const socioEconomic = '#E14977';
 const darkBluePurple = '#222546';
+const twilightPurple = '#4F5395';
 
 const theme = createMuiTheme({
   palette: {
@@ -38,6 +39,7 @@ const theme = createMuiTheme({
     purple: {
       dark: darkPurple,
       light: lightPurple,
+      twilight: twilightPurple,
     },
     teal: {
       dark: darkTeal,
@@ -123,7 +125,7 @@ const theme = createMuiTheme({
         padding: '0.2em 2.5em',
         textTransform: 'none',
         '&$selected': {
-          backgroundColor: '#4F5395',
+          backgroundColor: twilightPurple,
           color: white,
           '&:hover': { backgroundColor: lighten(lightPurple, 0.2) },
         },

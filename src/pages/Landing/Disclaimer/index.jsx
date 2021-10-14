@@ -40,6 +40,7 @@ const Disclaimer = () => {
   const handleLinkClick = useCallback(() => {
     reportSection('data');
     configDispatch({ type: 'page/changed', payload: 'data' });
+    window.scrollTo(0, 0);
   }, [configDispatch]);
   const handleButtonClick = useCallback(() => {
     reportDisclaimer();

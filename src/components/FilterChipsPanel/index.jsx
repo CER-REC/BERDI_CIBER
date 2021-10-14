@@ -8,8 +8,7 @@ import { lang } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   chip: {
-    background: '#E1F1DA',
-    border: '1px solid black',
+    background: '#EDEDED',
     borderRadius: '30px',
     margin: '1em 0.5em 0 0.5em',
     paddingRight: '0.3em',

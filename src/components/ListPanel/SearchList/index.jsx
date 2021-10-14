@@ -122,11 +122,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
                                 </td>
                                 <td>
                                   <Typography>
-                                    <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
-                                    <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                    <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                    <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
                                     {(content.application.finalDecisionURL
                                     && content.application.finalDecisionURL.toLowerCase() !== 'pending')
-                                    && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                    && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
                                   </Typography>
                                 </td>
                               </tr>
@@ -146,7 +146,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
                       <CartButton data={content} />
                       <Grid item>
-                        <EllipsisButton downloadURL={content.url} title={content.title} />
+                        <EllipsisButton
+                          downloadURL={content.url}
+                          title={content.title}
+                          contentId={content.id}
+                        />
                       </Grid>
                     </Grid>
 
