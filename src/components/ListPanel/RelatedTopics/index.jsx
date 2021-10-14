@@ -84,7 +84,7 @@ const RelatedTopics = ({ valueComponents, type }) => {
           {rows.map((row, index) => (
             <tr key={`row-${index}`}>
               {row.map((item, index2) => (
-                <td key={`topic-${index2}`}>
+                <td key={`topic-${(item && item[index2]) || index2}`}>
                   {item ? (
                     <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
                       {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
