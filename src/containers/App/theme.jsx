@@ -179,6 +179,9 @@ const theme = createMuiTheme({
         borderBottom: 'none',
       },
     },
+    MuiCircularProgress: {
+      circle: { color: tealBlue },
+    },
   },
   breakpoints: {
     values: {
