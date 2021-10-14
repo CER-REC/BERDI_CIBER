@@ -1,34 +1,64 @@
+import { useMutation } from '@apollo/react-hooks';
 import {
   Button,
   Dialog,
   Grid,
   IconButton, makeStyles, Typography,
 } from '@material-ui/core';
-
 import CloseIcon from '@material-ui/icons/Close';
+import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import hands from '../../../images/listPanel/hands.svg';
-import styles from './styles';
 import LeafRating from '../LeafRating';
+import styles from './styles';
+
+const CREATE_RATING = gql`
+  mutation($id: ID!, $score: Int!) {
+    createRatingFeedback(rating: { id: $id, score: $score } )
+  }
+`;
 
 const useStyles = makeStyles(styles);
 
-const ReportDataDialog = ({ title, open, onClose }) => {
+const ReportDataDialog = ({ title, open, onClose, contentId }) => {
   const intl = useIntl();
   const classes = useStyles();
 
-  const [submitted, setSubmitted] = useState(false);
   const [rating, setRating] = useState(null);
   const [hover, setHover] = useState(-1);
+  const [createRating, { data, error }] = useMutation(CREATE_RATING);
 
   const handleSubmit = () => {
-    setSubmitted(true);
+    createRating({
+      variables: {
+        id: contentId,
+        score: rating,
+      },
+    });
   };
+
   const handleClose = () => {
     onClose();
   };
+
+  const SubmissionMessage = () => (
+    <Grid container alignItems="center" direction="column" className={classes.submitted}>
+      <Grid item container justify="center" style={{ padding: '0 2em' }}>
+        {(data && !data.createRatingFeedback) || error ? (
+          <>
+            <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
+            <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+          </>
+        ) : <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>}
+      </Grid>
+
+      <Grid item className={classes.imageSection}>
+        <img alt="two hands holding a plant" src={hands} />
+      </Grid>
+    </Grid>
+  );
 
   return (
     <Dialog
@@ -58,52 +88,32 @@ const ReportDataDialog = ({ title, open, onClose }) => {
 
           </Grid>
         </Grid>
-        {!submitted
-          ? (
-            <Grid className={classes.body}>
-              <Grid container style={{ paddingLeft: '2em' }}>
-                <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
-                <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
-              </Grid>
 
-              <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>
-                {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
-              </Grid>
+        {(!data?.createRatingFeedback && !error) ? (
+          <Grid className={classes.body}>
+            <Grid container style={{ paddingLeft: '2em' }}>
+              <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
+              <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
+            </Grid>
 
-              <Grid container justify="flex-end">
-                <Grid item style={{ padding: '0 1em 1em' }}>
-                  <Button
-                    disabled={!rating}
-                    className={!rating ? classes.disabledButton : classes.button}
-                    onClick={handleSubmit}
-                  >
-                    {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rate' })}
-                  </Button>
-                </Grid>
+            <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>
+              {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
+            </Grid>
+
+            <Grid container justify="flex-end">
+              <Grid item style={{ padding: '0 1em 1em' }}>
+                <Button
+                  disabled={!rating}
+                  className={!rating ? classes.disabledButton : classes.button}
+                  onClick={handleSubmit}
+                >
+                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rate' })}
+                </Button>
               </Grid>
             </Grid>
-          ) : (
-            <Grid container alignItems="center" direction="column" className={classes.submitted}>
-              <Grid item container justify="center" style={{ padding: '0 2em' }}>
-                <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>
-                <Typography variant="h6" style={{ fontWeight: 'normal', textAlign: 'center' }}>
-                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.timesRated' }, {
-                    // TODO: these numbers can be swapped for whatever comes back from the API
-                    num: '3',
-                    ratingText: intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${2}` }),
-                  })}
-                </Typography>
-              </Grid>
-
-              <Grid item className={classes.imageSection}>
-                <img alt="two hands holding a plant" src={hands} />
-              </Grid>
-
-              <Typography className={classes.bottomText}>
-                {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.improve' })}
-              </Typography>
-            </Grid>
-          )}
+          </Grid>
+        )
+          : <SubmissionMessage />}
       </Grid>
     </Dialog>
   );
@@ -115,4 +125,5 @@ ReportDataDialog.propTypes = {
   title: PropTypes.string.isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
+  contentId: PropTypes.string.isRequired,
 };

@@ -30,7 +30,7 @@ describe('Components/ErrorBoundary', () => {
     });
 
     it('should render the error message', () => {
-      expect(screen.getByRole('heading')).toHaveTextContent('components.errorBoundary.errorMessage');
+      expect(screen.getByRole('heading')).toHaveTextContent('common.errorMessage');
     });
 
     it('should render reload links', () => {

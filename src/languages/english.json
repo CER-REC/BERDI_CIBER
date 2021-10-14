@@ -31,6 +31,7 @@
     "alignmentSheetCount": "{alignmentSheets, plural, =1 {alignment sheet} other {alignment sheets}}",
     "termsAndConditions": "Terms and Conditions",
     "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
+    "errorMessage": "Something went wrong.",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -205,7 +206,6 @@
       "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/"
     },
     "errorBoundary": {
-      "errorMessage": "Something went wrong.",
       "restoreLinkText": "Restore Session",
       "restoreMessage": "Please click on the link to restore the session:",
       "resetLinkText": "Reset Session",
@@ -266,6 +266,7 @@
         "rate": "Rate this data",
         "report": "Report this data",
         "download": "Download table",
+        "tryAgainLater": "Please provide your feedback at a later time.",
         "rateDataDialog": {
           "rateData": "Rate this data",
           "useful": "How useful do you think this data will be?",
@@ -396,7 +397,7 @@
       }
     },
     "project": {
-      "title": "The project",
+      "title": "Why we created BERDI",
       "description": "The opportunity of a legacy, driven by policy - and our plans for the future.",
       "body": {
         "section1": {
@@ -421,7 +422,7 @@
       }
     },
     "data": {
-      "title": "The data",
+      "title": "What are ESAs?",
       "description": "An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
       "body": {
         "title": "What is an Environmental Socio-Economic Assessment (ESA)?",
@@ -442,7 +443,7 @@
       }
     },
     "methods": {
-      "title": "The methods",
+      "title": "Our extraction method",
       "description": "Learn how we turned regulatory documents into structured data.",
       "body": {
         "title": "Our Methods",

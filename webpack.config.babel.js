@@ -1,6 +1,8 @@
 const Path = require('path');
 const Webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// Remove module and use output.clean option in Webpack 5
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const BUILD_DIR = Path.resolve(__dirname, 'public/script');
 
@@ -78,5 +80,6 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
       },
     }),
+    new CleanWebpackPlugin(),
   ].filter((v) => !!v),
 };
