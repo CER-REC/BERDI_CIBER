@@ -1,4 +1,5 @@
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+/* eslint-disable no-plusplus */
+import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -12,22 +13,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     padding: '1em 3em',
   },
-  relatedTopics: {
-    paddingBottom: '1em',
-    paddingRight: '6.5em',
-  },
-  topicsColumn: {
-    maxHeight: '200px',
-    width: 'calc(155px + 6.5em)',
-    // Because design specified a max height for the columns,
-    // the height needs to be adjusted manually as the screen sizes down to remain responsive
-    '@media screen and (max-width: 1185px)': {
-      maxHeight: '220px',
-    },
-    '@media screen and (max-width: 980px)': {
-      maxHeight: '275px',
-    },
-  },
   title: {
     fontWeight: 'bold',
     fontSize: '16px',
@@ -39,25 +24,34 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     fontSize: '14px',
   },
+  tableBody: {
+    '& td': {
+      paddingBottom: '1em',
+      paddingRight: '6.5em',
+      maxWidth: '155px',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
+  },
 }));
 
-const RelatedTopics = ({ data }) => {
+const RelatedTopics = ({ valueComponents, type }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const maxValueComponent = Math.max(...Object.values(data).filter(Number));
+  const maxValueComponent = Math.max(...Object.values(valueComponents).filter(Number));
 
   const [dialogData, setDialogData] = useState(null);
 
   const handleClickOpen = (topic) => {
-    const score = getScore(data[topic], maxValueComponent);
-    const type = socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental';
+    const score = getScore(valueComponents[topic], maxValueComponent);
     setDialogData(
       {
         topic,
         title: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
         description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
         score,
-        type,
+        type: socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental',
       },
     );
   };
@@ -67,10 +61,42 @@ const RelatedTopics = ({ data }) => {
   };
 
   // Filters out 0 values, sorts them in descending order, then converts object to array
-  const sortedValueComponents = Object.entries(data)
+  const sortedValueComponents = Object.entries(valueComponents)
     .filter((item) => item[1] > 0)
     .sort((a, b) => b[1] - a[1])
     .map((item) => item[0]);
+
+  const createTopicsTable = () => {
+    const rows = [];
+
+    for (let i = 0; i < 6; i++) {
+      const columns = [];
+      for (let j = 0; j < 4; j++) {
+        const index = i + (j * 6);
+        columns.push(sortedValueComponents[index]);
+      }
+      rows.push(columns);
+    }
+    return (
+      <table style={{ width: '100%' }}>
+        <tbody className={classes.tableBody}>
+          {rows.map((row) => (
+            <tr>
+              {row.map((item) => (
+                <td>
+                  {item ? (
+                    <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
+                      {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
+                    </Typography>
+                  ) : null}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <div className={classes.root}>
@@ -82,20 +108,18 @@ const RelatedTopics = ({ data }) => {
         data={dialogData}
       />
       )}
-
       <Typography variant="h6" className={classes.title}>
         {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}
       </Typography>
 
-      <Grid container direction="column" className={classes.topicsColumn}>
-        {sortedValueComponents.map((topic) => (
-          <Grid item key={topic} className={classes.relatedTopics}>
-            <Typography component="span" className={classes.link} onClick={() => handleClickOpen(topic)}>
-              {intl.formatMessage({ id: `common.vcLabels.${topic}.label` })}
-            </Typography>
-          </Grid>
-        ))}
-      </Grid>
+      {sortedValueComponents ? (
+        createTopicsTable()) : (
+          <Typography variant="h6" className={classes.title}>
+            {intl.formatMessage({ id: 'components.listPanel.relatedTopics.noTopics' }, {
+              type: intl.formatMessage({ id: `api.content.${type}` }).toLowerCase(),
+            })}
+          </Typography>
+      )}
     </div>
   );
 };
@@ -103,5 +127,6 @@ const RelatedTopics = ({ data }) => {
 export default RelatedTopics;
 
 RelatedTopics.propTypes = {
-  data: PropTypes.shape({}).isRequired,
+  valueComponents: PropTypes.shape({}).isRequired,
+  type: PropTypes.string.isRequired,
 };
