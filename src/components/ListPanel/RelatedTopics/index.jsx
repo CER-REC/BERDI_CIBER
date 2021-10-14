@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-plusplus */
 import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
@@ -80,10 +81,10 @@ const RelatedTopics = ({ valueComponents, type }) => {
     return (
       <table style={{ width: '100%' }}>
         <tbody className={classes.tableBody}>
-          {rows.map((row) => (
-            <tr>
-              {row.map((item) => (
-                <td>
+          {rows.map((row, index) => (
+            <tr key={`row-${index}`}>
+              {row.map((item, index2) => (
+                <td key={`topic-${index2}`}>
                   {item ? (
                     <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
                       {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
@@ -112,7 +113,7 @@ const RelatedTopics = ({ valueComponents, type }) => {
         {intl.formatMessage({ id: 'components.listPanel.relatedTopics.title' })}
       </Typography>
 
-      {sortedValueComponents ? (
+      {sortedValueComponents.length ? (
         createTopicsTable()) : (
           <Typography variant="h6" className={classes.title}>
             {intl.formatMessage({ id: 'components.listPanel.relatedTopics.noTopics' }, {
