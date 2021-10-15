@@ -9,12 +9,15 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import { useIntl } from 'react-intl';
+import mergeRefs from 'react-merge-refs';
+import InfiniteLoader from 'react-window-infinite-loader';
+
 import ShareCard from './ShareCard';
 import downloadIcon from '../../images/Download.svg';
 import shelfIcon from '../../images/cart/shelf.svg';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
-import useCartData from '../../hooks/useCartData';
+import useLazyCartData from '../../hooks/useLazyCartData';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import styles from './styles';
 import CartItem from './CartItem';
@@ -24,15 +27,18 @@ const useStyles = makeStyles(styles);
 
 const newDotSize = 14;
 const newDotR = newDotSize / 2;
+const preloadCount = 20;
+const debounceMS = 1000;
 
 const Cart = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
-  const { cartItems } = useCartData();
+  const { cartItems, loadContents, isContentLoaded } = useLazyCartData();
   const formRef = useRef(null);
   const listRef = useRef(null);
   const rowHeights = useRef({});
+  const infiniteLoaderRef = useRef();
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
@@ -106,6 +112,28 @@ const Cart = () => {
     setExpandList((list) => list.filter((item) => config.cartIds.includes(item)));
     if (config.cartIds.length === 0) handleShareClose();
   }, [config.cartIds]);
+
+  useEffect(() => {
+    if (!open) {
+      return undefined;
+    }
+
+    // TODO: Move to use loadMoreItems over referencing the last rendered indexes
+    // There's an issue with InfiniteLoader's loadMoreItems not being called
+    // in certain conditions (such as shrinkage of the list at certain scroll positions),
+    // possibly due to how the event works with the virtualized scrollbar with large lists
+    const interval = setInterval(() => {
+      // eslint-disable-next-line no-underscore-dangle
+      const start = infiniteLoaderRef.current?._lastRenderedStartIndex - preloadCount;
+      // eslint-disable-next-line no-underscore-dangle
+      const end = infiniteLoaderRef.current?._lastRenderedStopIndex + preloadCount;
+      const contentIds = config.cartIds.slice(Math.max(start, 0), end + 1);
+
+      loadContents(contentIds);
+    }, debounceMS);
+
+    return () => clearInterval(interval);
+  }, [open, config.cartIds, loadContents]);
 
   return (
     <>
@@ -200,16 +228,25 @@ const Cart = () => {
           <Grid item className={classes.bodyList}>
             <AutoSizer>
               {({ height, width }) => (
-                <VariableSizeList
-                  ref={listRef}
-                  height={height}
-                  itemSize={getRowHeight}
-                  itemCount={cartItems.length}
-                  width={width}
-                  overscanCount={5}
+                <InfiniteLoader
+                  ref={infiniteLoaderRef}
+                  isItemLoaded={isContentLoaded}
+                  itemCount={config.cartIds.length}
+                  loadMoreItems={() => {}}
                 >
-                  {renderRow}
-                </VariableSizeList>
+                  {({ onItemsRendered, ref: infiniteLoaderListRef }) => (
+                    <VariableSizeList
+                      ref={mergeRefs([listRef, infiniteLoaderListRef])}
+                      height={height}
+                      itemSize={getRowHeight}
+                      itemCount={config.cartIds.length}
+                      width={width}
+                      onItemsRendered={onItemsRendered}
+                    >
+                      {renderRow}
+                    </VariableSizeList>
+                  )}
+                </InfiniteLoader>
               )}
             </AutoSizer>
           </Grid>
