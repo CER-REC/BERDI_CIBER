@@ -67,7 +67,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
   const getProjectTypeAct = (filingDate) => {
     // This date represents the date the NEB act was renamed the CER act
-    const cutOffDate = new Date('2019-10-28');
+    const cutOffDate = new Date('2019-08-28');
 
     return filingDate.getTime() <= cutOffDate.getTime()
       ? intl.formatMessage({ id: 'components.listPanel.projectTypeNEB' })
