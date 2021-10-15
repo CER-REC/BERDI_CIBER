@@ -248,7 +248,8 @@
       }
     },
     "listPanel": {
-      "projectType": "Project type: ",
+      "projectTypeCER": "Project type (CER Act)",
+      "projectTypeNEB": "Project type (NEB Act)",
       "projectFiled": "Project filed: ",
       "projectStatus": "Project status: ",
       "projectLinks": "Project links: ",
