@@ -29,6 +29,8 @@ import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
 
+const delayMS = 2000;
+const maxWaitMS = 3000;
 const environmentalSrcs = {
   landscape,
   soil,
@@ -55,6 +57,9 @@ const socioEconomicSrcs = {
   indigenous,
   treaty,
 };
+const environmentalTopics = Object.keys(environmentalSrcs);
+const socioEconomicTopics = Object.keys(socioEconomicSrcs);
+
 const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: 0,
@@ -95,13 +100,33 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// These objects are used to loop over React hook calls
-Object.freeze(environmentalSrcs);
-Object.freeze(socioEconomicSrcs);
+const setRandomPulse = (pulseRef, setPulseTopic) => {
+  const timeout = delayMS + (Math.random() * maxWaitMS);
+
+  if (!pulseRef.topics.length) {
+    // eslint-disable-next-line no-param-reassign
+    pulseRef.topics = environmentalTopics.concat(socioEconomicTopics);
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  pulseRef.timeoutId = setTimeout(() => {
+    const randomIndex = Math.floor(Math.random() * pulseRef.topics.length);
+    const topic = pulseRef.topics[randomIndex];
+
+    pulseRef.topics.splice(randomIndex, 1);
+    setRandomPulse(pulseRef, setPulseTopic);
+    setPulseTopic(topic);
+  }, timeout);
+};
+
+// These arrays are used to loop over React hook calls
+Object.freeze(environmentalTopics);
+Object.freeze(socioEconomicTopics);
 
 const TopicsFilter = () => {
   const [layerNode, setLayerNode] = useState();
   const [hoverNode, setHoverNode] = useState();
+  const [pulseTopic, setPulseTopic] = useState();
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
@@ -110,8 +135,7 @@ const TopicsFilter = () => {
   // Need to filter out the __typename from Apollo
   const maxValueComponent = Math.max(...Object.values(valueComponent).filter(Number));
   const topicProps = {};
-  const environmentalTopics = Object.keys(environmentalSrcs);
-  const socioEconomicTopics = Object.keys(socioEconomicSrcs);
+
   const handleRef = (node) => setLayerNode(node);
   const getProps = (topic, src) => ({
     // This will be looped through two static lists
@@ -150,7 +174,26 @@ const TopicsFilter = () => {
     topicProps[topic] = getProps(topic, socioEconomicSrcs[topic]);
   });
 
+  if (pulseTopic) {
+    topicProps[pulseTopic].pulse = true;
+  }
+
   const nodes = config.topics.map((topic) => topicProps[topic].iconRef.current).filter(Boolean);
+
+  useEffect(() => {
+    if (!isLanding) {
+      return undefined;
+    }
+
+    const pulseRef = {
+      timeoutId: null,
+      topics: [],
+    };
+
+    setRandomPulse(pulseRef, setPulseTopic);
+
+    return () => clearTimeout(pulseRef.timeoutId);
+  }, [isLanding]);
 
   return (
     <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
@@ -171,7 +214,7 @@ const TopicsFilter = () => {
                 score={topicProps[topic].score}
                 type="environmental"
                 disabled={topicProps[topic].disabled}
-                isPulsing={isLanding}
+                pulse={topicProps[topic].pulse}
                 onClick={topicProps[topic].onClick}
                 onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
                 onMouseLeave={() => setHoverNode()}
@@ -197,7 +240,7 @@ const TopicsFilter = () => {
                 score={topicProps[topic].score}
                 type="socioEconomic"
                 disabled={topicProps[topic].disabled}
-                isPulsing={isLanding}
+                pulse={topicProps[topic].pulse}
                 onClick={topicProps[topic].onClick}
                 onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
                 onMouseLeave={() => setHoverNode()}
