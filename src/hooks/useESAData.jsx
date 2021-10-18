@@ -53,7 +53,24 @@ export default () => {
     },
     skip: (config.page !== 'search') || !hasVariables(config),
   });
-  const applications = useMemo(() => data?.applications || [], [data]);
+  const applications = useMemo(() => {
+    if (data) {
+      const types = config.contentTypes;
+
+      if (!types.length) {
+        return data.applications;
+      }
+
+      return data.applications.map((application) => ({
+        ...application,
+        alignmentSheetCount: types.includes('ALIGNMENT_SHEET') ? application.alignmentSheetCount : 0,
+        figureCount: types.includes('FIGURE') ? application.figureCount : 0,
+        tableCount: types.includes('TABLE') ? application.tableCount : 0,
+      }));
+    }
+
+    return [];
+  }, [config.contentTypes, data]);
   const valueComponent = useMemo(() => data?.contentSearch.valueComponent || {}, [data]);
   const excludedTreemapApplicationIds = useMemo(
     () => treemapApplicationIds.filter(

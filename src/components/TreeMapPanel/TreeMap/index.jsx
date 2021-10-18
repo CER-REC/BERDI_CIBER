@@ -29,19 +29,18 @@ const getTooltip = (node) => (
   />
 );
 const formatData = (applications, ids, baseColor) => {
-  const sortedApplications = applications.sort(
-    (a, b) => (b.tableCount + b.figureCount) - (a.tableCount + a.figureCount),
-  );
-  const largestCount = sortedApplications[0].tableCount + sortedApplications[0].figureCount;
-  const data = sortedApplications.map((application) => {
-    const totalCount = application.tableCount + application.figureCount;
-    const percentage = (totalCount / largestCount);
+  const sortedTotalCountApplications = applications.map((application) => ({
+    ...application,
+    totalCount: application.tableCount + application.figureCount + application.alignmentSheetCount,
+  })).sort((applicationA, applicationB) => (applicationB.totalCount - applicationA.totalCount));
+  const largestCount = sortedTotalCountApplications[0].totalCount;
+  const data = sortedTotalCountApplications.map((application) => {
+    const percentage = (application.totalCount / largestCount);
     const color = lighten(baseColor, lightenCoefficient * (1 - percentage));
 
     return {
       ...application,
       color,
-      totalCount,
       selected: ids.includes(application.id),
     };
   });
