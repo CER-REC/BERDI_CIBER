@@ -122,8 +122,8 @@ const SearchList = ({ toggleExpand, expandList }) => {
                                 </td>
                                 <td>
                                   <Typography>
-                                    <a href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
-                                    <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                    <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                    <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
                                     {(content.application.finalDecisionURL
                                     && content.application.finalDecisionURL.toLowerCase() !== 'pending')
                                     && <a href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
@@ -155,9 +155,13 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     </Grid>
 
                     {/* This section only renders if the content id is in the expanded list */}
-                    {(expandList.includes(content.id)) && (
-                    <RelatedTopics valueComponents={content.valueComponent} type={content.type} />
-                    )}
+                    {expandList.includes(content.id)
+                      && (
+                      <RelatedTopics
+                        valueComponents={content.valueComponent}
+                        type={content.type}
+                      />
+                      )}
                   </Grid>
                 </TableCell>
               </TableRow>

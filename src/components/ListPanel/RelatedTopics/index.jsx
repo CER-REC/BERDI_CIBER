@@ -1,5 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable no-plusplus */
 import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
@@ -29,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     '& td': {
       paddingBottom: '1em',
       paddingRight: '6.5em',
-      maxWidth: '155px',
+      width: '25%',
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
@@ -45,13 +43,12 @@ const RelatedTopics = ({ valueComponents, type }) => {
   const [dialogData, setDialogData] = useState(null);
 
   const handleClickOpen = (topic) => {
-    const score = getScore(valueComponents[topic], maxValueComponent);
     setDialogData(
       {
         topic,
         title: intl.formatMessage({ id: `common.vcLabels.${topic}.label` }),
         description: intl.formatMessage({ id: `common.vcLabels.${topic}.description` }),
-        score,
+        score: getScore(valueComponents[topic], maxValueComponent),
         type: socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental',
       },
     );
@@ -70,8 +67,10 @@ const RelatedTopics = ({ valueComponents, type }) => {
   const createTopicsTable = () => {
     const rows = [];
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 6; i++) {
       const columns = [];
+      // eslint-disable-next-line no-plusplus
       for (let j = 0; j < 4; j++) {
         const index = i + (j * 6);
         columns.push(sortedValueComponents[index]);
@@ -81,18 +80,20 @@ const RelatedTopics = ({ valueComponents, type }) => {
     return (
       <table style={{ width: '100%' }}>
         <tbody className={classes.tableBody}>
-          {rows.map((row, index) => (
-            <tr key={`row-${index}`}>
-              {row.map((item, index2) => (
-                <td key={`topic-${(item && item[index2]) || index2}`}>
-                  {item ? (
-                    <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
-                      {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
-                    </Typography>
-                  ) : null}
-                </td>
-              ))}
-            </tr>
+          {rows.map((row) => (
+            row.filter(Boolean).length ? (
+              <tr key={row.reduce((acc, val) => acc.concat(val), '')}>
+                {row.map((item, index2) => (
+                  <td key={`topic-${(item) || index2}`}>
+                    {item ? (
+                      <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
+                        {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
+                      </Typography>
+                    ) : null}
+                  </td>
+                ))}
+              </tr>
+            ) : null
           ))}
         </tbody>
       </table>
