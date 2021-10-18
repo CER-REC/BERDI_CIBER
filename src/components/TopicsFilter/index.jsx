@@ -30,7 +30,7 @@ import SvgButton from '../SvgButton';
 import Blob from './Blob';
 
 const delayMS = 2000;
-const maxWaitMS = 3000;
+const maxWaitMS = 1500;
 const environmentalSrcs = {
   landscape,
   soil,
