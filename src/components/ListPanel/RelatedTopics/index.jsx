@@ -13,9 +13,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '1em 3em',
   },
   title: {
-    fontWeight: 'bold',
+    fontWeight: 700,
     fontSize: '16px',
     paddingBottom: '1em',
+    color: theme.palette.grey.dark,
   },
   link: {
     color: theme.palette.teal.blue,
@@ -78,7 +79,7 @@ const RelatedTopics = ({ valueComponents, type }) => {
       rows.push(columns);
     }
     return (
-      <table style={{ width: '100%' }}>
+      <table style={{ width: '100%', tableLayout: 'fixed' }}>
         <tbody className={classes.tableBody}>
           {rows.map((row) => (
             row.filter(Boolean).length ? (

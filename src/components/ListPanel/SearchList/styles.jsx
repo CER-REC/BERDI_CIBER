@@ -1,10 +1,6 @@
 export default (theme) => ({
   tableHeader: {
     padding: '0.4em 0.4em 0.4em 0',
-    '& h6': {
-      fontWeight: 'normal',
-      color: theme.palette.grey.alt,
-    },
     '& .tableCellInner': {
       padding: '1em 1em 1em 0',
       boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',

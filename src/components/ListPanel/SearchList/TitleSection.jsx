@@ -12,6 +12,10 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '1em',
     marginBottom: '1em',
   },
+  title: {
+    fontWeight: 'normal',
+    color: theme.palette.grey.alt,
+  },
 }));
 
 const TitleSection = ({ title, content, handleClickOpen, setExpandedTitles, expandedTitles }) => {
@@ -20,7 +24,7 @@ const TitleSection = ({ title, content, handleClickOpen, setExpandedTitles, expa
 
   if (title.length < 150) {
     return (
-      <Typography variant="h6" onClick={() => handleClickOpen(content)}>
+      <Typography variant="h6" className={classes.title} onClick={() => handleClickOpen(content)}>
         {title}
       </Typography>
     );
@@ -29,7 +33,7 @@ const TitleSection = ({ title, content, handleClickOpen, setExpandedTitles, expa
   if (title.length >= 150 && expandedTitles.includes(title)) {
     return (
       <>
-        <Typography variant="h6" onClick={() => handleClickOpen(content)}>
+        <Typography variant="h6" className={classes.title} onClick={() => handleClickOpen(content)}>
           {title}
         </Typography>
         <ButtonBase
@@ -43,7 +47,7 @@ const TitleSection = ({ title, content, handleClickOpen, setExpandedTitles, expa
   }
   return (
     <>
-      <Typography variant="h6" onClick={() => handleClickOpen(content)}>
+      <Typography variant="h6" className={classes.title} onClick={() => handleClickOpen(content)}>
         {title.substring(0, 150).concat('...')}
       </Typography>
       <ButtonBase
