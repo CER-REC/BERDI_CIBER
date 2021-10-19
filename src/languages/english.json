@@ -299,7 +299,8 @@
       },
       "relatedTopics": {
         "title": "Related topics:",
-        "button": "See more data related to this"
+        "button": "See more data related to this",
+        "noTopics": "This {type} has no related topics."
       }
     },
     "filterPanel": {
