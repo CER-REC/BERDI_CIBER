@@ -297,7 +297,17 @@
       },
       "relatedTopics": {
         "title": "Sujets connexes :",
-        "button": "Consultez plus de données à ce sujet"
+        "button": "Consultez plus de données à ce sujet",
+        "NEBAct": {
+          "large": "",
+          "small": "",
+          "abandonment": ""
+        },
+        "CERAct": {
+          "large": "",
+          "small": "",
+          "abandonment": ""
+        }
       }
     },
     "filterPanel": {

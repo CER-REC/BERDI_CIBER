@@ -22,6 +22,7 @@ import TitleSection from './TitleSection';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 import RelatedTopics from '../RelatedTopics';
 import EllipsisButton from '../EllipsisButton';
+import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -64,15 +65,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
       </td>
     </tr>
   );
-
-  const getProjectTypeAct = (filingDate) => {
-    // This date represents the date the NEB act was renamed the CER act
-    const cutOffDate = new Date('2019-08-28');
-
-    return filingDate.getTime() <= cutOffDate.getTime()
-      ? intl.formatMessage({ id: 'components.listPanel.projectTypeNEB' })
-      : intl.formatMessage({ id: 'components.listPanel.projectTypeCER' });
-  };
 
   return (
     <>
@@ -120,7 +112,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                               {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
                               {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
                               {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), getProjectTypeAct(new Date(content.application.filingDate)))}
+                              {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
                               {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
                               {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
                               <tr>
@@ -165,7 +157,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                     {/* This section only renders if the content id is in the expanded list */}
                     {(expandList.includes(content.id)) && (
-                    <RelatedTopics data={content.valueComponent} />
+                      <RelatedTopics data={content.valueComponent} />
                     )}
                   </Grid>
                 </TableCell>
