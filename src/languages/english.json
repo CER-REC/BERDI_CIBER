@@ -417,7 +417,8 @@
           "header1": "Learn how you can help",
           "text1": "BERDI, an Open Government initiative, was created to increase access and “unlock” historical data for the benefit of Canadians. Our first and most important step is to better understand the uses for this tool so we can improve its use.",
           "text2": "If you work in the field of or have an interest in environmental research, environmental policy, or environmental and socio-economic data of any kind, we want to hear from you. Please email us at {email} with your interest, and we’ll get back to you with details on how you can participate.",
-          "email": "data.donnees@cer-rec.gc.ca"
+          "email": "data.donnees@cer-rec.gc.ca",
+          "subject": "BERDI: Feedback or Inquiry"
         }
       }
     },
