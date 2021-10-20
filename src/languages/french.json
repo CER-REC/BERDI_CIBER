@@ -414,7 +414,8 @@
           "header1": "Voyez ce que vous pouvez faire",
           "text1": "Le système CIBER, qui s’inscrit dans le cadre de l’initiative du gouvernement ouvert, a été créé pour accroître l’accès aux données passées et les « déverrouiller » au profit des Canadiens. La première étape du processus, et la plus importante, consiste à mieux comprendre les utilisations de cet outil afin de l’améliorer.",
           "text2": "Si vous travaillez ou avez un intérêt dans la recherche environnementale, la politique environnementale ou les données environnementales et socioéconomiques de quelque nature que ce soit, nous voulons connaître votre opinion. Veuillez nous faire part de votre intérêt par courriel à l’adresse {email}, et nous communiquerons avec vous pour vous donner des précisions sur la façon de participer.",
-          "email": "data.donnees@rec-cer.gc.ca"
+          "email": "data.donnees@rec-cer.gc.ca",
+          "subject": "CIBER : Commentaire ou question"
         }
       }
     },
