@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
-  makeStyles, Grid, IconButton, Typography, ListItem,
+  makeStyles, Grid, IconButton, Typography, ListItem, CircularProgress,
 } from '@material-ui/core';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
+
 import useConfig from '../../../hooks/useConfig';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
@@ -84,6 +85,16 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onRes
   useEffect(() => {
     onHeightChange(index, rowRef.current.clientHeight);
   }, [rowRef.current.clientHeight, index, onHeightChange]);
+
+  if (!data) {
+    return (
+      <ListItem ref={rowRef}>
+        <div className={classes.root} style={{ textAlign: 'center' }}>
+          <CircularProgress size={86} />
+        </div>
+      </ListItem>
+    );
+  }
 
   return (
     <ListItem ref={rowRef}>
@@ -181,12 +192,16 @@ CartItem.propTypes = {
       name: PropTypes.string,
       companyName: PropTypes.string,
     }),
-  }).isRequired,
+  }),
   index: PropTypes.number.isRequired,
   onHeightChange: PropTypes.func.isRequired,
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
   onResultsOpen: PropTypes.func.isRequired,
+};
+
+CartItem.defaultProps = {
+  data: null,
 };
 
 export default CartItem;

@@ -2,7 +2,6 @@ import { useEffect, useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 import { toDateOnlyString } from '../utilities/date';
-import { RESULT_COUNT } from '../constants';
 import useConfig from './useConfig';
 import { SEARCH } from './queries';
 
@@ -48,12 +47,29 @@ export default () => {
       contentTypes: config.contentTypes,
       searchApplicationIds: treemapApplicationIds.length ? treemapApplicationIds : applicationIds,
       valueComponent: valueComponentFilter,
-      first: RESULT_COUNT,
-      offset: config.searchIndex * RESULT_COUNT,
+      first: config.resultCount,
+      offset: config.searchIndex * config.resultCount,
     },
     skip: (config.page !== 'search') || !hasVariables(config),
   });
-  const applications = useMemo(() => data?.applications || [], [data]);
+  const applications = useMemo(() => {
+    if (data) {
+      const types = config.contentTypes;
+
+      if (!types.length) {
+        return data.applications;
+      }
+
+      return data.applications.map((application) => ({
+        ...application,
+        alignmentSheetCount: types.includes('ALIGNMENT_SHEET') ? application.alignmentSheetCount : 0,
+        figureCount: types.includes('FIGURE') ? application.figureCount : 0,
+        tableCount: types.includes('TABLE') ? application.tableCount : 0,
+      }));
+    }
+
+    return [];
+  }, [config.contentTypes, data]);
   const valueComponent = useMemo(() => data?.contentSearch.valueComponent || {}, [data]);
   const excludedTreemapApplicationIds = useMemo(
     () => treemapApplicationIds.filter(

@@ -156,8 +156,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
                     </Grid>
 
                     {/* This section only renders if the content id is in the expanded list */}
-                    {(expandList.includes(content.id)) && (
-                      <RelatedTopics data={content.valueComponent} />
+                    {expandList.includes(content.id) && (
+                      <RelatedTopics
+                        valueComponents={content.valueComponent}
+                        type={content.type}
+                      />
                     )}
                   </Grid>
                 </TableCell>

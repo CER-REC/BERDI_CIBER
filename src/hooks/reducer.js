@@ -62,6 +62,7 @@ export const initialState = {
   fragment: '',
   cartIds: [],
   unreadCartIds: [],
+  resultCount: 10,
 };
 
 export const getReducer = (
@@ -98,6 +99,7 @@ export const getReducer = (
         fragment: action.payload.fragment || initialState.fragment,
         cartIds: action.payload.cartIds || initialState.cartIds,
         unreadCartIds: action.payload.unreadCartIds || initialState.unreadCartIds,
+        resultCount: action.payload.resultCount || initialState.resultCount,
       };
     case 'page/changed':
       return {
@@ -120,6 +122,7 @@ export const getReducer = (
         fragment: initialState.fragment,
         cartIds: state.cartIds || initialState.cartIds,
         unreadCartIds: state.unreadCartIds || initialState.unreadCartIds,
+        resultCount: state.resultCount || initialState.resultCount,
       };
     case 'search/changed':
       return {
@@ -281,6 +284,11 @@ export const getReducer = (
       return {
         ...state,
         unreadCartIds: initialState.unreadCartIds,
+      };
+    case 'resultCount/changed':
+      return {
+        ...state,
+        resultCount: action.payload || initialState.resultCount,
       };
     default:
       return state;

@@ -1,28 +1,12 @@
 import { Icon, IconButton, makeStyles, Tooltip } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import DotsRating from '../DotsRating';
 import Label from './Label';
 import Topic from './Topic';
 
 const pulseMS = 1500;
-const delayMS = 500;
-const maxWaitMS = 8000;
 const circleWidth = '3.5em';
-
-const setRandomPulse = (node, pulseClass, setTimeoutId) => {
-  const timeout = pulseMS + delayMS + (Math.random() * maxWaitMS);
-
-  const id = setTimeout(() => {
-    if (document.body.contains(node)) {
-      node.classList.add(pulseClass);
-      setTimeout(() => node.classList.remove(pulseClass), pulseMS);
-      setRandomPulse(node, pulseClass, setTimeoutId);
-    }
-  }, timeout);
-
-  setTimeoutId(id);
-};
 
 const useStyles = makeStyles({
   root: { display: 'inline-block' },
@@ -80,24 +64,12 @@ const SvgButton = ({
   score,
   type,
   disabled,
-  isPulsing,
+  pulse,
   onClick,
   onMouseEnter,
   onMouseLeave,
 }) => {
   const classes = useStyles();
-  const [timeoutId, setTimeoutId] = useState();
-
-  useEffect(() => {
-    if (!isPulsing) {
-      clearTimeout(timeoutId);
-
-      return;
-    }
-
-    setRandomPulse(iconRef.current, classes.pulse, setTimeoutId);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPulsing, iconRef, classes]);
 
   return (
     // Need to wrap the button in another element
@@ -118,7 +90,11 @@ const SvgButton = ({
           disabled={disabled}
           disableRipple
         >
-          <Icon ref={iconRef} classes={{ root: classes.icon }}>
+          <Icon
+            ref={iconRef}
+            className={pulse ? classes.pulse : null}
+            classes={{ root: classes.icon }}
+          >
             <img className={classes.svg} src={src} alt={label} />
             <DotsRating score={score} type={type} />
           </Icon>
@@ -138,7 +114,7 @@ SvgButton.propTypes = {
   score: PropTypes.number,
   type: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
-  isPulsing: PropTypes.bool,
+  pulse: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
   onMouseEnter: PropTypes.func.isRequired,
   onMouseLeave: PropTypes.func.isRequired,
@@ -147,7 +123,7 @@ SvgButton.propTypes = {
 SvgButton.defaultProps = {
   score: null,
   disabled: false,
-  isPulsing: false,
+  pulse: false,
 };
 
 export default SvgButton;

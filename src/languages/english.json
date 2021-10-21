@@ -309,7 +309,8 @@
           "large": "Large Projects (CER Act: Section 183, over 40 km)",
           "small": "Small Projects (CER Act: Section 214, under 40 km)",
           "abandonment": "Pipeline Abandonment (CER Act: Section 241)"
-        }
+        },
+        "noTopics": "This {type} has no related topics."
       }
     },
     "filterPanel": {

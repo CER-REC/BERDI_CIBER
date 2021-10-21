@@ -41,7 +41,7 @@ const LegalDisclaimer = ({ onClose, open, setOpen }) => {
   const [checked, setChecked] = useState(false);
   const logo = lang === 'fr' ? cerLogoFr : cerLogoEn;
 
-  const handleClose = (_, reason) => { if (reason !== 'backdropClick') { onClose(); setOpen(false); } };
+  const handleClose = (_, reason) => { if (reason !== 'backdropClick') { onClose(); setOpen(false); setChecked(false); } };
   const toggleChecked = () => setChecked(!checked);
 
   return (
