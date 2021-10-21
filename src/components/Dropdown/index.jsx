@@ -16,17 +16,21 @@ import IconCheckbox from '../IconCheckbox';
 import BootstrapInput from './BootstrapInput';
 import DataTooltip from './DataTooltip';
 
-const useStyles = makeStyles(() => ({
-  root: { width: '100%' },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    color: theme.palette.teal.blue,
+  },
   label: { fontWeight: 600 },
   item: {
     fontSize: 16,
     '& > span': { padding: '0 0.5em 0 0' },
     '&.Mui-selected': { backgroundColor: 'transparent' },
+    color: theme.palette.teal.blue,
   },
   menu: {
     background: '#F8F8F8',
-    border: '1px solid #9E9E9E',
+    border: `1px solid ${theme.palette.teal.blue}`,
     borderRadius: 0,
   },
 }));
@@ -61,6 +65,8 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         return intl.formatMessage({ id: `api.projects.${name}` });
       case 'CONTENT_TYPES':
         return intl.formatMessage({ id: `api.content.${name}` });
+      case 'resultCount':
+        return intl.formatMessage({ id: 'components.dropdown.resultsCountLabel' }, { num: name });
       default:
         return name;
     }
@@ -75,12 +81,23 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     return intl.formatMessage({ id: 'components.dropdown.multiple' });
   }, [intl, getDropdownItemName]);
-  const labelId = type === 'APPLICATION_NAMES' ? 'common.project' : `components.dropdown.${type}`;
+
+  const getHeaderLabel = () => {
+    switch (type) {
+      case 'APPLICATION_NAMES':
+        return intl.formatMessage({ id: 'common.project' });
+      case 'resultCount':
+        // No header for result count dropdown
+        return '';
+      default:
+        return intl.formatMessage({ id: `components.dropdown.${type}` });
+    }
+  };
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
       <Typography classes={{ root: classes.label }}>
-        {intl.formatMessage({ id: labelId })}
+        {getHeaderLabel()}
         {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select

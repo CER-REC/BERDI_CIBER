@@ -14,14 +14,15 @@ import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent } from '../../../utilities/analytics';
-import ResultDialog from '../../ResultDialog';
-import PaginationBar from '../PaginationBar';
 import CartButton from '../../CartButton';
+import DropDown from '../../Dropdown';
+import ResultDialog from '../../ResultDialog';
+import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
+import EllipsisButton from '../EllipsisButton';
+import PaginationBar from '../PaginationBar';
+import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
 import TitleSection from './TitleSection';
-import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
-import RelatedTopics from '../RelatedTopics';
-import EllipsisButton from '../EllipsisButton';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -29,7 +30,7 @@ const useStyles = makeStyles(styles);
 const SearchList = ({ toggleExpand, expandList }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const { config } = useConfig();
+  const { config, configDispatch } = useConfig();
   const { contents, totalCount } = useESAData();
   const pageNumber = useMemo(
     () => (totalCount ? config.searchIndex : 0),
@@ -64,6 +65,10 @@ const SearchList = ({ toggleExpand, expandList }) => {
       </td>
     </tr>
   );
+
+  const handleResultCountChange = (items) => {
+    configDispatch({ type: 'resultCount/changed', payload: items[1].toString() });
+  };
 
   return (
     <>
@@ -168,6 +173,15 @@ const SearchList = ({ toggleExpand, expandList }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <div style={{ maxWidth: '18%', paddingTop: '1em' }}>
+        <DropDown
+          type="resultCount"
+          hasHelp={false}
+          options={['10', '25', '50', '100']}
+          value={[config.resultCount.toString()]}
+          onChange={handleResultCountChange}
+        />
+      </div>
       <PaginationBar
         count={totalCount}
         page={pageNumber}
