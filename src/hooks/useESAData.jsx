@@ -2,7 +2,6 @@ import { useEffect, useMemo } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 
 import { toDateOnlyString } from '../utilities/date';
-import { RESULT_COUNT } from '../constants';
 import useConfig from './useConfig';
 import { SEARCH } from './queries';
 
@@ -48,8 +47,8 @@ export default () => {
       contentTypes: config.contentTypes,
       searchApplicationIds: treemapApplicationIds.length ? treemapApplicationIds : applicationIds,
       valueComponent: valueComponentFilter,
-      first: RESULT_COUNT,
-      offset: config.searchIndex * RESULT_COUNT,
+      first: config.resultCount,
+      offset: config.searchIndex * config.resultCount,
     },
     skip: (config.page !== 'search') || !hasVariables(config),
   });

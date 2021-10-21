@@ -90,6 +90,7 @@ export const ConfigProvider = ({ children }) => {
     const searchIndex = parseInt(query.searchIndex, 10);
     const cartIndex = parseInt(query.cartIndex, 10);
     const fragment = location.hash ? location.hash.substring(1) : '';
+    const resultCount = parseInt(query.resultCount, 10);
 
     if (query.cartIds) {
       // int-compress-string decompress requires the encoded string
@@ -124,6 +125,7 @@ export const ConfigProvider = ({ children }) => {
         fragment,
         cartIds: JSON.parse(localStorage.getItem('cartIds')),
         unreadCartIds: JSON.parse(localStorage.getItem('unreadCartIds')),
+        resultCount,
       },
     });
   }, [configDispatch]);
