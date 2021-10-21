@@ -17,7 +17,7 @@
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
-    "applicationType": "Type de demande : ",
+    "projectType": "Type de projet : ",
     "commodity": "Produit : ",
     "consultants": "Nom du consultant de l'EES : ",
     "companyName": "Nom de la société : ",
