@@ -3,7 +3,7 @@ import { InputBase, withStyles } from '@material-ui/core';
 const BootstrapInput = withStyles((theme) => ({
   root: {
     '& svg': {
-      color: theme.palette.primary.main,
+      color: theme.palette.teal.blue,
       height: '1.4em',
       marginTop: '-0.2em',
       marginRight: '0.2em',
@@ -11,12 +11,15 @@ const BootstrapInput = withStyles((theme) => ({
     },
   },
   input: {
-    border: '2px solid #000000',
+    border: `2px solid ${theme.palette.teal.blue}`,
     borderRadius: 5,
     fontSize: 16,
     padding: '0.5em',
     '&:focus': { borderRadius: 5 },
-    '&.MuiSelect-select.MuiSelect-select': { paddingRight: '2em' },
+    '&.MuiSelect-select.MuiSelect-select': {
+      paddingRight: '2em',
+      color: theme.palette.teal.blue,
+    },
   },
 }))(InputBase);
 

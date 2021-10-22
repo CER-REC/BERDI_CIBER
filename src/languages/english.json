@@ -203,7 +203,8 @@
       "nebAct": "NEB Act",
       "cerAct": "CER Act",
       "nebLink": "https://lois-laws.justice.gc.ca/eng/acts/N-7/",
-      "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/"
+      "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/",
+      "resultsCountLabel": "{num} results per page"
     },
     "errorBoundary": {
       "restoreLinkText": "Restore Session",
