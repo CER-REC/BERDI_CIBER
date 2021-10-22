@@ -36,6 +36,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
     () => (totalCount ? config.searchIndex : 0),
     [totalCount, config.searchIndex],
   );
+  const resultCountOptions = ['10', '25', '50', '100'];
 
   const [open, setOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
@@ -49,6 +50,10 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleResultCountChange = (items) => {
+    configDispatch({ type: 'resultCount/changed', payload: items[1] });
   };
 
   const createTableRow = (data, title) => (
@@ -65,10 +70,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
       </td>
     </tr>
   );
-
-  const handleResultCountChange = (items) => {
-    configDispatch({ type: 'resultCount/changed', payload: items[1].toString() });
-  };
 
   return (
     <>
@@ -177,7 +178,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
         <DropDown
           type="resultCount"
           hasHelp={false}
-          options={['10', '25', '50', '100']}
+          options={resultCountOptions}
           value={[config.resultCount.toString()]}
           onChange={handleResultCountChange}
         />
