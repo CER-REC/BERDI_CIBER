@@ -137,7 +137,7 @@ const Project = () => {
             {intl.formatMessage({ id: 'pages.project.body.section2.text2' },
               {
                 email: (
-                  <a href={`mailto:${intl.messages['pages.project.body.section2.email']}`}>
+                  <a href={`mailto:${intl.messages['pages.project.body.section2.email']}?subject=${intl.messages['pages.project.body.section2.subject']}`}>
                     {intl.formatMessage({ id: 'pages.project.body.section2.email' })}
                   </a>
                 ),

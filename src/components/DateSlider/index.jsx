@@ -36,14 +36,16 @@ const useStyles = makeStyles((theme) => ({
   },
   line: {
     transform: 'translateX(2px)',
+    color: theme.palette.teal.blue,
   },
   label: {
     fontWeight: 600,
+    color: theme.palette.teal.blue,
   },
   datePicker: {
     position: 'relative',
     fontSize: '1.57rem',
-    border: '2px solid #000000',
+    border: `2px solid ${theme.palette.teal.blue}`,
     padding: '0.5em',
     borderRadius: '5px',
     minHeight: '39px',
@@ -58,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
       textOverflow: 'ellipsis',
       overflow: 'hidden',
       maxWidth: 'calc(100% - 50px)',
+      color: theme.palette.teal.blue,
     },
     '& img': {
       width: '2em',

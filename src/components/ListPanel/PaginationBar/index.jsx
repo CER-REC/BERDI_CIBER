@@ -44,7 +44,7 @@ const PaginationBar = ({ count, page }) => {
 
       <Grid item>
         {/* TODO: Make a list item component to reduce repetition */}
-        <ul className="pagination">
+        <ul className="pagination" style={{ marginTop: 0 }}>
 
           {page > 0 && (
           <li>
