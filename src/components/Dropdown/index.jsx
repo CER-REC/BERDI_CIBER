@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   FormControl,
   MenuItem,
@@ -39,6 +39,8 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { applicationIdLabels } = useAPI();
+  const [isOpen, setIsOpen] = useState(false);
+
   const handleChange = useCallback((event) => {
     const selected = event.target.value;
 
@@ -101,10 +103,12 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select
+        open={isOpen}
         value={value || []}
         onChange={handleChange}
         multiple
         input={<BootstrapInput />}
+        onClick={() => setIsOpen(!isOpen)}
         MenuProps={{
           classes: { paper: classes.menu },
           anchorOrigin: {
