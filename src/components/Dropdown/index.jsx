@@ -103,12 +103,12 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         {hasHelp && (<DataTooltip />)}
       </Typography>
       <Select
-        open={isOpen}
+        open={type === 'resultCount' ? isOpen : undefined}
         value={value || []}
         onChange={handleChange}
         multiple
         input={<BootstrapInput />}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => type === 'resultCount' && setIsOpen(!isOpen)}
         MenuProps={{
           classes: { paper: classes.menu },
           anchorOrigin: {
