@@ -265,6 +265,7 @@
         "rate": "Signaler ces données",
         "report": "Évaluer ces données",
         "download": "Télécharger le tableau",
+        "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
         "rateDataDialog": {
           "rateData": "Signaler ces données",
           "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
