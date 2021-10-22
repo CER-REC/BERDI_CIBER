@@ -7,6 +7,7 @@ import { useIntl } from 'react-intl';
 import downloadIcon from '../../images/Download.svg';
 import { reportDownload, reportView } from '../../utilities/analytics';
 import styles from './styles';
+import getProjectTypeLabel from '../../utilities/getProjectTypeLabel';
 
 const useStyles = makeStyles(styles);
 
@@ -36,8 +37,9 @@ const ApplicationDialog = ({ data, onClose }) => {
     label: 'common.fullProjectName',
     content: data.name,
   }, {
-    label: 'common.applicationType',
-    content: intl.formatMessage({ id: `api.projects.${data.type}` }),
+    label: 'common.projectType',
+    content: intl.formatMessage({ id: getProjectTypeLabel(data.type, new Date(data.filingDate)) }),
+
   }, {
     label: 'common.commodity',
     content: intl.formatMessage({ id: `api.commodities.${data.commodity}` }),

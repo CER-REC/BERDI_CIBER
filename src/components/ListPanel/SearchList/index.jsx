@@ -14,6 +14,7 @@ import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent } from '../../../utilities/analytics';
+import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 import CartButton from '../../CartButton';
 import DropDown from '../../Dropdown';
 import ResultDialog from '../../ResultDialog';
@@ -117,7 +118,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                               {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
                               {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
                               {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.projects.${content.application.type}` }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
+                              {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
                               {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
                               {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
                               <tr>

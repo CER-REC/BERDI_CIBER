@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, render, screen, waitFor } from '../../tests/utilities';
 import ListPanel from '.';
 import mockData from '../../tests/mocks/data.json';
+import getProjectTypeLabel from '../../utilities/getProjectTypeLabel';
 
 describe('Components/ListPanel', () => {
   test('should render component', () => {
@@ -106,7 +107,9 @@ describe('Components/ListPanel', () => {
         expect(result).toContain(content.application.consultants);
         expect(result).toContain(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }));
         expect(result).toContain(`api.statuses.${content.application.status}`);
-        expect(result).toContain(`api.projects.${content.application.type}`);
+        expect(result).toContain(
+          getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)),
+        );
         expect(result).toContain(`api.commodities.${content.application.commodity}`);
         expect(result).toContain(content.application.hearingOrder);
         expect(screen.getAllByText('components.listPanel.projectLinks').length).toBeGreaterThanOrEqual(1);

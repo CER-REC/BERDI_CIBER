@@ -19,6 +19,8 @@ export const ENV_SOCIO_GRADIENT_ID = 'environmentalSocioEconomicGradient';
 
 export const RESULT_COUNT = 10;
 
+export const NEB_ACT_CUTOFF_DATE = new Date('2019-08-28');
+
 export const socioEconomicTopics = [
   'infrastructure',
   'job',

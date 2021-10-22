@@ -19,7 +19,7 @@
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
     "fullProjectName": "Full Project Name: ",
-    "applicationType": "Application Type: ",
+    "projectType": "Project Type: ",
     "commodity": "Commodity: ",
     "consultants": "ESA Consultant(s): ",
     "companyName": "Company Name: ",
@@ -194,7 +194,7 @@
       "STATUSES": "Pipeline status",
       "COMMODITIES": "Commodity",
       "CONTENT_TYPES": "Results type",
-      "PROJECT_TYPES": "Project type (NEB Act)",
+      "PROJECT_TYPES": "Project type",
       "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
@@ -301,6 +301,16 @@
       "relatedTopics": {
         "title": "Related topics:",
         "button": "See more data related to this",
+        "NEBAct": {
+          "large": "Large Projects (NEB Act: Section 52, over 40 km)",
+          "small": "Small Projects (NEB Act: Section 58, under 40 km)",
+          "abandonment": "Pipeline Abandonment (NEB Act: Section 72)"
+        },
+        "CERAct": {
+          "large": "Large Projects (CER Act: Section 183, over 40 km)",
+          "small": "Small Projects (CER Act: Section 214, under 40 km)",
+          "abandonment": "Pipeline Abandonment (CER Act: Section 241)"
+        },
         "noTopics": "This {type} has no related topics."
       }
     },
