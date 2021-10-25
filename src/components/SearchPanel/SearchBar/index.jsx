@@ -6,6 +6,7 @@ import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
 import { reportSearch } from '../../../utilities/analytics';
+import SearchHelpDialog from '../SearchHelpDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: { width: '100%' },
@@ -49,6 +50,7 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchBar = ({ hasShrink }) => {
   const [search, setSearch] = useState('');
+  const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
@@ -65,12 +67,9 @@ const SearchBar = ({ hasShrink }) => {
 
   useEffect(() => setSearch(config.search), [config.search]);
 
-  const handleSearchHelpClicked = () => {
-
-  };
-
   return (
     <div className={`Keywords ${classes.root}`}>
+      <SearchHelpDialog open={searchHelpOpen} onClose={() => setSearchHelpOpen(false)} />
       <Grid container wrap="nowrap">
         <Grid item xs={9}>
           <TextField
@@ -89,7 +88,7 @@ const SearchBar = ({ hasShrink }) => {
           />
         </Grid>
         <Grid item xs={2} className={classes.searchHelpBox}>
-          <Typography variant="body2" onClick={handleSearchHelpClicked}>
+          <Typography variant="body2" onClick={() => setSearchHelpOpen(true)}>
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           </Typography>
         </Grid>
