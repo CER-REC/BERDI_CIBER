@@ -13,6 +13,7 @@ const buttonBlue = '#054169';
 const lightBlue = '#D7FAFF';
 const lightPurple = '#4F5292';
 const darkPurple = '#593D6C';
+const altPurple = '#5B3B67';
 const lightTeal = '#D9F4F3';
 const darkTeal = '#66C8C3';
 const footerBlue = '#EAF9FF';
@@ -40,6 +41,7 @@ const theme = createMuiTheme({
       dark: darkPurple,
       light: lightPurple,
       twilight: twilightPurple,
+      alt: altPurple,
     },
     teal: {
       dark: darkTeal,

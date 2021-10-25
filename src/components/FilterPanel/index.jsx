@@ -9,7 +9,7 @@ import Filter from './Filter';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    borderColor: theme.palette.secondary.main,
+    borderColor: theme.palette.purple.alt,
     borderStyle: 'solid',
     borderWidth: '3px',
     padding: '1.5em',
