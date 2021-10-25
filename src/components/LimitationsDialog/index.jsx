@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
       '&:not(:last-child)': { paddingBottom: '2em' },
     },
     '& mark': {
-      background: '#BBEBFF',
+      background: theme.palette.blue.inline,
       paddingLeft: 0,
       paddingRight: '0.5em',
       fontFamily: 'Courier',
