@@ -43,8 +43,8 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: '7em',
     backgroundColor: theme.palette.common.white,
     textDecoration: 'underline',
-    cursor: 'pointer',
     color: theme.palette.button.blue,
+    '& p': { cursor: 'pointer' },
   },
 }));
 
