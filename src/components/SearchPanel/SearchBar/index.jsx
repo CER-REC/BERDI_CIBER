@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Button, TextField, makeStyles, Typography, Grid, Box } from '@material-ui/core';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Button, TextField, makeStyles, Typography, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -11,10 +11,12 @@ const useStyles = makeStyles((theme) => ({
   root: { width: '100%' },
   input: {
     width: '100%',
+    margin: '0',
     '& input': {
       backgroundColor: theme.palette.common.white,
       borderBottomLeftRadius: '10px',
       borderTopLeftRadius: '10px',
+      paddingBottom: '11px',
     },
     '& legend': { width: 0 },
   },
@@ -33,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
   },
   noBorder: { border: 'none' },
   searchHelpBox: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    minWidth: '3em',
+    maxWidth: '7em',
     backgroundColor: theme.palette.common.white,
     textDecoration: 'underline',
     cursor: 'pointer',
@@ -41,8 +48,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchBar = ({ hasShrink }) => {
-  const inputRef = useRef();
-  const buttonRef = useRef();
   const [search, setSearch] = useState('');
   const classes = useStyles();
   const intl = useIntl();
@@ -58,18 +63,15 @@ const SearchBar = ({ hasShrink }) => {
     }
   }, [handleClick]);
 
-  // useEffect(() => {
-  //   if (inputRef.current && buttonRef.current) {
-  //     // Moving the button by the text field input to make it easier to style
-  //     inputRef.current.parentNode.insertBefore(buttonRef.current, inputRef.current.nextSibling);
-  //   }
-  // }, [inputRef, buttonRef]);
-
   useEffect(() => setSearch(config.search), [config.search]);
+
+  const handleSearchHelpClicked = () => {
+
+  };
 
   return (
     <div className={`Keywords ${classes.root}`}>
-      <Grid container alignItems="center">
+      <Grid container wrap="nowrap">
         <Grid item xs={9}>
           <TextField
             classes={{ root: classes.input }}
@@ -77,7 +79,6 @@ const SearchBar = ({ hasShrink }) => {
             variant="outlined"
             margin="dense"
             value={search}
-            inputRef={inputRef}
             InputLabelProps={{
               classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
             }}
@@ -87,19 +88,16 @@ const SearchBar = ({ hasShrink }) => {
             autoFocus
           />
         </Grid>
-        <Grid item xs={1}>
-          <Box className={classes.searchHelpBox}>
-            <Typography variant="body2" onClick={() => console.log('help clicked')}>
-              {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-            </Typography>
-          </Box>
+        <Grid item xs={2} className={classes.searchHelpBox}>
+          <Typography variant="body2" onClick={handleSearchHelpClicked}>
+            {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+          </Typography>
         </Grid>
         <Grid item xs={1}>
           <Button
             className={classes.button}
             aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
             variant="contained"
-            ref={buttonRef}
             onClick={handleClick}
             disableElevation
           >
