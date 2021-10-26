@@ -75,6 +75,7 @@ const SearchBar = ({ hasShrink }) => {
           <TextField
             classes={{ root: classes.input }}
             label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
+            id={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
             variant="outlined"
             margin="dense"
             value={search}

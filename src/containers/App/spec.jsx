@@ -24,10 +24,10 @@ const setURLSearchParams = (search) => {
 };
 
 const simulateSearch = () => {
-  const search = screen.getByLabelText('components.searchPanel.searchButton');
-
-  fireEvent.change(getByRole(search.closest('div'), 'textbox'), { target: { value: 'test search' } });
-  fireEvent.click(search);
+  const searchButton = screen.getByLabelText('components.searchPanel.searchButton');
+  const searchField = screen.getByLabelText('components.searchPanel.searchPlaceHolder');
+  fireEvent.change(searchField, { target: { value: 'test search' } });
+  fireEvent.click(searchButton);
 };
 
 const simulateFilter = () => {
