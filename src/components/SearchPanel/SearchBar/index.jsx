@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.common.white,
       borderBottomLeftRadius: '10px',
       borderTopLeftRadius: '10px',
-      paddingBottom: '11px',
+      padding: '11px',
     },
     '& legend': { width: 0 },
   },
@@ -92,7 +92,7 @@ const SearchBar = ({ hasShrink }) => {
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           </Typography>
         </Grid>
-        <Grid item xs={1}>
+        <Grid item xs={1} style={{ display: 'flex' }}>
           <Button
             className={classes.button}
             aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
