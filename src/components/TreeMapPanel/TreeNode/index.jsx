@@ -24,7 +24,6 @@ const useStyles = makeStyles({
       float: 'left',
     },
   },
-  checked: { border: '4px solid black' },
   counts: {
     whiteSpace: 'nowrap',
     textTransform: 'lowercase',
@@ -33,12 +32,12 @@ const useStyles = makeStyles({
   title: { fontSize: '130%' },
 });
 
-const TreeNode = ({ title, checked, figureCount, tableCount, alignmentSheetCount }) => {
+const TreeNode = ({ title, figureCount, tableCount, alignmentSheetCount }) => {
   const intl = useIntl();
   const classes = useStyles();
 
   return (
-    <div className={`TreeNode ${classes.root} ${checked ? classes.checked : ''}`}>
+    <div className={`TreeNode ${classes.root}`}>
       <div className={classes.emptyPlaceholder} />
       <div className={classes.block}>
         <span className={classes.title}>{title}</span>
@@ -64,7 +63,6 @@ const TreeNode = ({ title, checked, figureCount, tableCount, alignmentSheetCount
 
 TreeNode.propTypes = {
   title: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
   figureCount: PropTypes.number.isRequired,
   tableCount: PropTypes.number.isRequired,
   alignmentSheetCount: PropTypes.number.isRequired,
