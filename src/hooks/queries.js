@@ -21,7 +21,7 @@ export const CONFIGURATION = gql`
       id
       shortName
     }
-    discovery0:content(id: 13025) {
+    discovery0:content(id: 12879) {
       id
       title
       esaSections
@@ -36,7 +36,7 @@ export const CONFIGURATION = gql`
         finalDecisionURL
       }
     }
-    discovery1:content(id: 16713) {
+    discovery1:content(id: 17837) {
       id
       title
       esaSections
@@ -51,7 +51,7 @@ export const CONFIGURATION = gql`
         finalDecisionURL
       }
     }
-    discovery2:content(id: 1376) {
+    discovery2:content(id: 3300) {
       id
       title
       esaSections
