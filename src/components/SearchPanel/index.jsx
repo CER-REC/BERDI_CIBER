@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: '2em',
   },
   gradientRoot: {
-    backgroundImage: 'linear-gradient(180deg, #4F5496 0%, #5B3B67 158.06%)',
+    backgroundImage: `linear-gradient(180deg, #4F5496 0%, ${theme.palette.purple.alt} 158.06%)`,
     borderRadius: '10px',
   },
   searchPanel: {
