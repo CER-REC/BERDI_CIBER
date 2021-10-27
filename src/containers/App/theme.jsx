@@ -10,6 +10,7 @@ const darkBlue = '#284162';
 const charcoal = '#CCCCCC';
 const navyBlue = '#26374A';
 const buttonBlue = '#054169';
+const inlineBlue = '#BBEBFF';
 const lightBlue = '#D7FAFF';
 const lightPurple = '#4F5292';
 const darkPurple = '#593D6C';
@@ -36,6 +37,7 @@ const theme = createMuiTheme({
       dark: darkBlue,
       light: lightBlue,
       darkBluePurple,
+      inline: inlineBlue,
     },
     purple: {
       dark: darkPurple,
