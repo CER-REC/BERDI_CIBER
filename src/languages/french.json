@@ -405,7 +405,7 @@
       }
     },
     "project": {
-      "title": "Le projet",
+      "title": "Pourquoi avoir créé CIBER",
       "description": "L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
       "body": {
         "section1": {
@@ -431,7 +431,7 @@
       }
     },
     "data": {
-      "title": "Les données",
+      "title": "En quoi consiste une EES?",
       "description": "Présentation des évaluations environnementales et socioéconomiques (« EES »).",
       "body": {
         "title": "Qu’est-ce qu’une évaluation environnementale et socioéconomique?",
@@ -452,7 +452,7 @@
       }
     },
     "methods": {
-      "title": "Les méthodes",
+      "title": "Notre méthode d’extraction",
       "description": "Voyez comment nous avons transformé des documents de réglementation en données structurées.",
       "body": {
         "title": "Méthodes",
