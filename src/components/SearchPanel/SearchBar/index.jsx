@@ -36,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
   },
   noBorder: { border: 'none' },
   searchHelpBox: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
     minWidth: '3em',
     maxWidth: '7em',
     backgroundColor: theme.palette.common.white,
@@ -88,12 +85,12 @@ const SearchBar = ({ hasShrink }) => {
             autoFocus
           />
         </Grid>
-        <Grid item xs={2} className={classes.searchHelpBox}>
+        <Grid item container xs={2} alignItems="center" justify="space-evenly" className={classes.searchHelpBox}>
           <Typography variant="body2" onClick={() => setSearchHelpOpen(true)}>
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           </Typography>
         </Grid>
-        <Grid item xs={1} style={{ display: 'flex' }}>
+        <Grid item container xs={1}>
           <Button
             className={classes.button}
             aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}

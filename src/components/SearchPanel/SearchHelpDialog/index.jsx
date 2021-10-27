@@ -6,7 +6,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
-    height: '80%',
+    maxHeight: '80%',
   },
   header: {
     background: theme.palette.teal.blue,
@@ -16,8 +16,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
   },
   content: {
-    marginTop: '1em',
-    marginBottom: '1em',
+    margin: '1em 0',
   },
   bodyText: {
     lineHeight: 1.5,
