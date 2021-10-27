@@ -46,6 +46,9 @@ const useStyles = makeStyles({
       width: '100%',
     },
     height: '35vh',
+    "& div[id*='Application']": {
+      borderRadius: '5px',
+    },
   },
 });
 
@@ -59,11 +62,19 @@ const TreeMap = () => {
     [applications, treemapApplicationIds, theme.palette.secondary.main],
   );
 
-  const getColor = (application) => (
-    application.selected
+  const getColor = (application) => {
+    if (application.color) {
+      // This will return the appropriate colors for borders
+      return application.color;
+    }
+    if (application.id === 'esaData') {
+      // if outer wrapper, return white
+      return '#FFFFFF';
+    }
+    return application.selected
       ? theme.palette.teal.dark
-      : theme.palette.cart.light
-  );
+      : theme.palette.cart.light;
+  };
 
   const handleClick = (node) => {
     if (node.data.selected) {
@@ -87,10 +98,11 @@ const TreeMap = () => {
         labelSkipSize={0}
         labelTextColor="black"
         borderWidth={3}
-        borderColor="#FFFFFF"
+        borderColor={getColor}
         colors={getColor}
         onClick={handleClick}
         label={getLabel}
+        innerPadding={5}
       />
     </Grid>
   );
