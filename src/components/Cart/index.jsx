@@ -1,27 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
 import {
-  Button, Drawer, Grid, IconButton, Icon, makeStyles, Typography, ButtonBase,
+  Button, ButtonBase, Drawer, Grid, Icon, IconButton, makeStyles, Typography,
 } from '@material-ui/core';
-import { VariableSizeList } from 'react-window';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-import CloseIcon from '@material-ui/icons/Close';
+import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import ShareIcon from '@material-ui/icons/Share';
+import React, { useEffect, useRef, useState } from 'react';
 import { useIntl } from 'react-intl';
 import mergeRefs from 'react-merge-refs';
+import AutoSizer from 'react-virtualized-auto-sizer';
+import { VariableSizeList } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-
-import ShareCard from './ShareCard';
-import downloadIcon from '../../images/Download.svg';
-import shelfIcon from '../../images/cart/shelf.svg';
-import useDownloadSize from '../../hooks/useDownloadSize';
 import useConfig from '../../hooks/useConfig';
+import useDownloadSize from '../../hooks/useDownloadSize';
 import useLazyCartData from '../../hooks/useLazyCartData';
+import rightArrow from '../../images/cart/rightArrow.png';
+import shelfIcon from '../../images/cart/shelf.svg';
+import downloadIcon from '../../images/Download.svg';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
-import styles from './styles';
-import CartItem from './CartItem';
 import ResultDialog from '../ResultDialog';
+import CartItem from './CartItem';
+import ShareCard from './ShareCard';
+import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
@@ -188,7 +187,9 @@ const Cart = () => {
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
-              <CloseIcon style={{ fontSize: '30px' }} />
+              <Icon>
+                <img src={rightArrow} alt="an arrow pointing right" style={{ verticalAlign: 'unset' }} />
+              </Icon>
             </IconButton>
           </Grid>
           <ShareCard

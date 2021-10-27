@@ -48,6 +48,9 @@ export default (theme) => ({
   headerButtonContainer: {
     display: 'flex',
     justifyContent: 'space-between',
+    '& svg': {
+      color: '#42464B',
+    },
   },
   headerButton: {
     width: '50px',
