@@ -1,14 +1,12 @@
-import React, { useMemo } from 'react';
 import { Grid, makeStyles, useTheme } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
-
+import React, { useMemo } from 'react';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import { reportFilter } from '../../../utilities/analytics';
-import TreeNode from '../TreeNode';
 import Tooltip from '../Tooltip';
+import TreeNode from '../TreeNode';
 
-const getColor = (application) => (application.selected ? '#66C8C3' : '#D2EDEB');
 const getLabel = (application) => (
   <TreeNode
     title={application.shortName}
@@ -60,6 +58,13 @@ const TreeMap = () => {
     () => formatData(applications, treemapApplicationIds, theme.palette.secondary.main),
     [applications, treemapApplicationIds, theme.palette.secondary.main],
   );
+
+  const getColor = (application) => (
+    application.selected
+      ? theme.palette.teal.dark
+      : theme.palette.cart.light
+  );
+
   const handleClick = (node) => {
     if (node.data.selected) {
       configDispatch({ type: 'treemapApplicationIds/removed', payload: node.id });
