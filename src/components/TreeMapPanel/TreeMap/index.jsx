@@ -1,20 +1,15 @@
-import React, { useMemo } from 'react';
-import { Grid, lighten, makeStyles, useTheme } from '@material-ui/core';
+import { Grid, makeStyles, useTheme } from '@material-ui/core';
 import { ResponsiveTreeMapHtml } from '@nivo/treemap';
-
+import React, { useMemo } from 'react';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import { reportFilter } from '../../../utilities/analytics';
-import TreeNode from '../TreeNode';
 import Tooltip from '../Tooltip';
+import TreeNode from '../TreeNode';
 
-const lightenCoefficient = 0.7;
-
-const getColor = (application) => application.color;
 const getLabel = (application) => (
   <TreeNode
     title={application.shortName}
-    checked={application.selected}
     figureCount={application.figureCount}
     tableCount={application.tableCount}
     alignmentSheetCount={application.alignmentSheetCount}
@@ -28,22 +23,15 @@ const getTooltip = (node) => (
     alignmentSheetCount={node.data.alignmentSheetCount}
   />
 );
-const formatData = (applications, ids, baseColor) => {
+const formatData = (applications, ids) => {
   const sortedTotalCountApplications = applications.map((application) => ({
     ...application,
     totalCount: application.tableCount + application.figureCount + application.alignmentSheetCount,
   })).sort((applicationA, applicationB) => (applicationB.totalCount - applicationA.totalCount));
-  const largestCount = sortedTotalCountApplications[0].totalCount;
-  const data = sortedTotalCountApplications.map((application) => {
-    const percentage = (application.totalCount / largestCount);
-    const color = lighten(baseColor, lightenCoefficient * (1 - percentage));
-
-    return {
-      ...application,
-      color,
-      selected: ids.includes(application.id),
-    };
-  });
+  const data = sortedTotalCountApplications.map((application) => ({
+    ...application,
+    selected: ids.includes(application.id),
+  }));
 
   return {
     id: 'esaData',
@@ -70,6 +58,13 @@ const TreeMap = () => {
     () => formatData(applications, treemapApplicationIds, theme.palette.secondary.main),
     [applications, treemapApplicationIds, theme.palette.secondary.main],
   );
+
+  const getColor = (application) => (
+    application.selected
+      ? theme.palette.teal.dark
+      : theme.palette.cart.light
+  );
+
   const handleClick = (node) => {
     if (node.data.selected) {
       configDispatch({ type: 'treemapApplicationIds/removed', payload: node.id });
