@@ -5,7 +5,9 @@ import TopicsFilter from '../../components/TopicsFilter';
 import Disclaimer from './Disclaimer';
 import Discoveries from './Discoveries';
 import ExploreHeader from '../../components/ExploreHeader';
+import OSDPFooter from '../../components/OSDPFooter';
 
+const showOSDPFooter = false;
 const Landing = () => (
   <div className="Landing">
     <SearchPanel hasFilter={false} />
@@ -14,6 +16,7 @@ const Landing = () => (
     <Disclaimer />
     <Discoveries />
     <NavButtons />
+    {showOSDPFooter && <OSDPFooter />}
   </div>
 );
 
