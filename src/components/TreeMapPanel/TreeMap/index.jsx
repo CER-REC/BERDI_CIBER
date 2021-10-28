@@ -36,6 +36,7 @@ const formatData = (applications, ids) => {
   return {
     id: 'esaData',
     children: data,
+    color: '#FFFFFF',
   };
 };
 const useStyles = makeStyles({
@@ -46,9 +47,12 @@ const useStyles = makeStyles({
       width: '100%',
     },
     height: '35vh',
+    // Select all treemap leaf nodes
     "& div[id*='Application']": {
       borderRadius: '5px',
     },
+    // Disable the tooltip when you hover over whitespace in the treemap
+    '& #esaData': { pointerEvents: 'none' },
   },
 });
 
@@ -66,10 +70,6 @@ const TreeMap = () => {
     if (application.color) {
       // This will return the appropriate colors for borders
       return application.color;
-    }
-    if (application.id === 'esaData') {
-      // if outer wrapper, return white
-      return '#FFFFFF';
     }
     return application.selected
       ? theme.palette.teal.dark
