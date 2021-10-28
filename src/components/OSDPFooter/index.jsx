@@ -32,9 +32,11 @@ const OSDPFooter = () => {
   const classes = useStyles();
   const intl = useIntl();
 
+  const handleClick = () => window.open(`${intl.formatMessage({ id: 'common.osdpURL' })}`, '_blank', 'noopener noreferrer');
+
   return (
     <Grid container className={classes.root}>
-      <Grid container item xs={7}>
+      <Grid container item xs={7} direction="column">
         <Typography style={{ fontSize: '24px' }}>
           {intl.formatMessage({ id: 'components.osdpFooter.header' })}
         </Typography>
@@ -43,7 +45,13 @@ const OSDPFooter = () => {
         </Typography>
       </Grid>
       <Grid container item xs={5} justify="flex-end" alignContent="center">
-        <Button className={classes.button} variant="contained" color="primary" disableElevation>
+        <Button
+          className={classes.button}
+          variant="contained"
+          color="primary"
+          disableElevation
+          onClick={handleClick}
+        >
           <Typography className={classes.buttonLabel}>
             {intl.formatMessage({ id: 'components.osdpFooter.button' })}
           </Typography>

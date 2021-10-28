@@ -32,6 +32,7 @@
     "termsAndConditions": "Terms and Conditions",
     "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "errorMessage": "Something went wrong.",
+    "osdpURL": "https://osdp-psdo.canada.ca/en/osdp",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",

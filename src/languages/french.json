@@ -30,6 +30,7 @@
     "termsAndConditions": "Avis",
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "errorMessage": "Une erreur s’est produite.",
+    "osdpURL": "https://osdp-psdo.canada.ca/fr/psdo",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
