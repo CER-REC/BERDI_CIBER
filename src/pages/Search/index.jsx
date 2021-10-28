@@ -10,6 +10,7 @@ import FilterPanel from '../../components/FilterPanel';
 import LimitationsDialog from '../../components/LimitationsDialog';
 import ListSection from '../../components/ListPanel';
 import NavButtons from '../../components/NavButtons';
+import OSDPFooter from '../../components/OSDPFooter';
 import SearchDetails from '../../components/SearchDetails';
 import SearchPanel from '../../components/SearchPanel';
 import TopicsFilter from '../../components/TopicsFilter';
@@ -30,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const showOSDPFooter = false;
 const Search = () => {
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
@@ -97,6 +99,7 @@ const Search = () => {
       <hr className={classes.hr} />
       <Cart />
       <ListSection />
+      {showOSDPFooter && <OSDPFooter />}
     </>
   );
 };
