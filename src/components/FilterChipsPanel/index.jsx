@@ -14,9 +14,7 @@ const useStyles = makeStyles(() => ({
     paddingRight: '0.3em',
     fontSize: 16,
     color: 'black',
-  },
-  chipLabel: {
-    maxWidth: '30em',
+    maxWidth: '32em',
   },
   closeButton: {
     fill: 'black',
@@ -75,7 +73,7 @@ const FilterChipsPanel = () => {
             className={classes.closeButton}
           />
         )}
-        classes={{ root: classes.chip, label: classes.chipLabel }}
+        className={classes.chip}
       />
     )))
   );
