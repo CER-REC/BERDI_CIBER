@@ -36,6 +36,7 @@ const formatData = (applications, ids) => {
   return {
     id: 'esaData',
     children: data,
+    color: '#FFFFFF',
   };
 };
 const useStyles = makeStyles({
@@ -46,6 +47,12 @@ const useStyles = makeStyles({
       width: '100%',
     },
     height: '35vh',
+    // Select all treemap leaf nodes by getting all IDs that start with Application
+    "& div[id^='Application']": {
+      borderRadius: '5px',
+    },
+    // Disable the tooltip when you hover over whitespace in the treemap
+    '& #esaData': { pointerEvents: 'none' },
   },
 });
 
@@ -59,11 +66,15 @@ const TreeMap = () => {
     [applications, treemapApplicationIds, theme.palette.secondary.main],
   );
 
-  const getColor = (application) => (
-    application.selected
+  const getColor = (application) => {
+    if (application.color) {
+      // This will return the appropriate colors for borders
+      return application.color;
+    }
+    return application.selected
       ? theme.palette.teal.dark
-      : theme.palette.cart.light
-  );
+      : theme.palette.cart.light;
+  };
 
   const handleClick = (node) => {
     if (node.data.selected) {
@@ -87,10 +98,11 @@ const TreeMap = () => {
         labelSkipSize={0}
         labelTextColor="black"
         borderWidth={3}
-        borderColor="#FFFFFF"
+        borderColor={getColor}
         colors={getColor}
         onClick={handleClick}
         label={getLabel}
+        innerPadding={5}
       />
     </Grid>
   );
