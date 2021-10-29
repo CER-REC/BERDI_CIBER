@@ -14,6 +14,7 @@ const useStyles = makeStyles(() => ({
     paddingRight: '0.3em',
     fontSize: 16,
     color: 'black',
+    maxWidth: '32em',
   },
   closeButton: {
     fill: 'black',
