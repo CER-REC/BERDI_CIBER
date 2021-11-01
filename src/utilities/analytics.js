@@ -56,6 +56,34 @@ const reportDownload = (name) => report('TABLE', 'Download', { value: name });
 
 const reportView = (type, name) => report(type, 'View', { value: name });
 
+const reportTopicFilter = (topic) => report('circleclassification', 'click', { value: topic });
+
+const reportChip = (name) => report('keywordtags', 'click', { value: name });
+
+const reportFilterToggle = (filter) => report('toggle', 'click', { value: filter });
+
+const reportDetails = (name) => report('details', 'click', { value: name });
+
+const reportRateData = () => report('details', 'click', { value: 'ratedata' });
+
+const reportReportData = () => report('details', 'click', { value: 'reportdata' });
+
+const reportExpand = () => report('navbutton', 'click', { value: 'Expand' });
+
+const reportCollapse = () => report('navbutton', 'click', { value: 'Collapse' });
+
+const reportCartDownload = () => report('download', 'click', { value: 'downloadalltable' });
+
+const reportCartOpen = () => report('shelf', 'click', { value: 'open' });
+
+const reportCartAdd = (name) => report('shelf', 'add to shelf', { value: name });
+
+const reportCartRemove = (name) => report('shelf', 'remove from shelf', { value: name });
+
+const reportCartShare = () => report('shelf', 'click', { value: 'share' });
+
+const reportCartRemoveAll = () => report('shelf', 'click', { value: 'removeall' });
+
 export {
   reportSearch,
   reportSection,
@@ -67,4 +95,18 @@ export {
   reportContent,
   reportDownload,
   reportView,
+  reportTopicFilter,
+  reportChip,
+  reportFilterToggle,
+  reportDetails,
+  reportRateData,
+  reportReportData,
+  reportExpand,
+  reportCollapse,
+  reportCartDownload,
+  reportCartOpen,
+  reportCartAdd,
+  reportCartRemove,
+  reportCartShare,
+  reportCartRemoveAll,
 };
