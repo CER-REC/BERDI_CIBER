@@ -5,15 +5,19 @@ import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
 import minus from '../../../images/cartButton/minus.svg';
+import { reportCartRemove } from '../../../utilities/analytics';
 import styles from '../styles';
 
 const useStyles = makeStyles(styles);
 
-const RemoveButton = ({ cartId }) => {
+const RemoveButton = ({ data }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
-  const handleClick = () => configDispatch({ type: 'cartIds/removed', payload: cartId });
+  const handleClick = () => {
+    configDispatch({ type: 'cartIds/removed', payload: data.id });
+    reportCartRemove(data.title);
+  };
 
   return (
     <Button className={`CartButton ${classes.root} ${classes.remove}`} onClick={handleClick}>
@@ -24,7 +28,10 @@ const RemoveButton = ({ cartId }) => {
 };
 
 RemoveButton.propTypes = {
-  cartId: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default RemoveButton;

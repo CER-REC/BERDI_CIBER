@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import upCaret from '../../images/listPanel/upCaret.svg';
 import downCaret from '../../images/listPanel/downCaret.svg';
+import { reportDetails } from '../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,10 +17,15 @@ const useStyles = makeStyles((theme) => ({
 const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
   const intl = useIntl();
   const classes = useStyles();
+  const handleClick = () => {
+    toggleExpand(content.id);
+    reportDetails(content.title);
+  };
+
   if (expandList.includes(content.id)) {
     // expanded already
     return (
-      <ButtonBase className={classes.root} onClick={() => toggleExpand(content.id)}>
+      <ButtonBase className={classes.root} onClick={handleClick}>
         <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
         <img alt="Up caret" src={upCaret} />
       </ButtonBase>
@@ -27,7 +33,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
   }
   // not expanded
   return (
-    <ButtonBase className={classes.root} onClick={() => toggleExpand(content.id)}>
+    <ButtonBase className={classes.root} onClick={handleClick}>
       <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
       <img alt="Down caret" src={downCaret} />
     </ButtonBase>
@@ -38,6 +44,9 @@ export default ViewMoreDetailsButton;
 
 ViewMoreDetailsButton.propTypes = {
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
-  content: PropTypes.shape({ id: PropTypes.string }).isRequired,
+  content: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+  }).isRequired,
   toggleExpand: PropTypes.func.isRequired,
 };

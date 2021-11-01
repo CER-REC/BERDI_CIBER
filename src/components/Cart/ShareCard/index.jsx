@@ -8,6 +8,7 @@ import DoneIcon from '@material-ui/icons/Done';
 import CloseIcon from '@material-ui/icons/Close';
 import { compress } from 'int-compress-string';
 import useConfig from '../../../hooks/useConfig';
+import { reportCartShare } from '../../../utilities/analytics';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -28,6 +29,7 @@ const ShareCard = ({ open, onClose }) => {
     navigator.clipboard.writeText(cartURL);
     setSnackbarOpen(true);
     setCopySuccess(true);
+    reportCartShare();
   };
   const handleClose = () => {
     onClose();

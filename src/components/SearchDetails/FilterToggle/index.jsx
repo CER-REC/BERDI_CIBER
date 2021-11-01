@@ -3,6 +3,7 @@ import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
+import { reportFilterToggle } from '../../../utilities/analytics';
 
 const FilterToggle = () => {
   const intl = useIntl();
@@ -10,6 +11,7 @@ const FilterToggle = () => {
   const handleChange = (event, value) => {
     if (value !== null) {
       configDispatch({ type: 'filter/changed', payload: value });
+      reportFilterToggle(value);
     }
   };
 

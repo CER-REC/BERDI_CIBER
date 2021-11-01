@@ -7,6 +7,7 @@ describe('Containers/App', () => {
   describe('with a download URL', () => {
     const data = {
       id: '0',
+      title: 'Test',
       type: 'TABLE',
       url: 'http://test',
     };
@@ -43,6 +44,7 @@ describe('Containers/App', () => {
   describe('without a download URL', () => {
     const data = {
       id: '0',
+      title: 'Test',
       type: 'TABLE',
       url: null,
     };
@@ -67,6 +69,7 @@ describe('Containers/App', () => {
   it('should not render component for figure data', () => {
     const figureData = {
       id: '0',
+      title: 'Test',
       type: 'FIGURE',
       url: null,
     };

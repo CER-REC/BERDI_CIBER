@@ -2,6 +2,7 @@ import { Button, Grid, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
+import { reportExpand, reportCollapse } from '../../utilities/analytics';
 import SearchList from './SearchList';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,9 +35,11 @@ const ListSection = () => {
   const expandAll = () => {
     const allIds = contents.map((content) => content.id);
     setExpandList(allIds);
+    reportExpand();
   };
   const collapseAll = () => {
     setExpandList([]);
+    reportCollapse();
   };
 
   return (
