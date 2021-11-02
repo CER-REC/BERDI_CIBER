@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     backgroundColor: theme.palette.teal.blue,
     maxHeight: '6em',
-    padding: '0.4em 1em',
+    padding: '0.4em 2em',
   },
   buttonIcon: {
     marginLeft: '0.75em',
@@ -29,7 +29,7 @@ const OSDPFooter = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Grid container item xs={7} direction="column">
+      <Grid container item xs={8} direction="column">
         <Typography style={{ fontSize: '24px' }}>
           {intl.formatMessage({ id: 'components.osdpFooter.header' })}
         </Typography>
@@ -37,7 +37,7 @@ const OSDPFooter = () => {
           {intl.formatMessage({ id: 'components.osdpFooter.body' })}
         </Typography>
       </Grid>
-      <Grid container item xs={5} justify="flex-end" alignContent="center">
+      <Grid container item xs={4} justify="flex-end" alignContent="center">
         <Button
           className={classes.button}
           variant="contained"
