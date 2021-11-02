@@ -20,6 +20,7 @@ export const Primary = Template.bind({});
 Primary.args = {
   data: {
     id: '0',
+    title: 'Title',
     type: 'TABLE',
     url: 'https://test',
   },
@@ -29,6 +30,7 @@ export const Unavailable = Template.bind({});
 Unavailable.args = {
   data: {
     id: '0',
+    title: '',
     type: 'TABLE',
     url: null,
   },

@@ -9,6 +9,7 @@ import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
+import { reportCartRemove } from '../../../utilities/analytics';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -80,7 +81,10 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onRes
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
-  const handleRemoveItem = () => configDispatch({ type: 'cartIds/removed', payload: data.id });
+  const handleRemoveItem = () => {
+    configDispatch({ type: 'cartIds/removed', payload: data.id });
+    reportCartRemove(data.title);
+  };
 
   useEffect(() => {
     onHeightChange(index, rowRef.current.clientHeight);

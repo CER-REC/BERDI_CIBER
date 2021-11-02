@@ -17,6 +17,7 @@ import rightArrow from '../../images/cart/rightArrow.png';
 import shelfIcon from '../../images/cart/shelf.svg';
 import downloadIcon from '../../images/Download.svg';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
+import { reportCartOpen, reportCartDownload, reportCartRemoveAll } from '../../utilities/analytics';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
 import ShareCard from './ShareCard';
@@ -46,16 +47,25 @@ const Cart = () => {
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true);
+    reportCartOpen();
+  };
   const handleClose = () => {
     setOpen(false);
     setShareOpen(false);
     configDispatch({ type: 'unreadCartIds/removed' });
   };
-  const handleDownloadClick = () => formRef.current.submit();
+  const handleDownloadClick = () => {
+    formRef.current.submit();
+    reportCartDownload();
+  };
   const handleShareOpen = () => setShareOpen(true);
   const handleShareClose = () => setShareOpen(false);
-  const handleRemoveAll = () => configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+  const handleRemoveAll = () => {
+    configDispatch({ type: 'cartIds/removed', payload: config.cartIds });
+    reportCartRemoveAll();
+  };
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
 

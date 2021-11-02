@@ -18,15 +18,16 @@ const CartButton = ({ data }) => {
   }
 
   if (cartIds.includes(data.id)) {
-    return <RemoveButton cartId={data.id} />;
+    return <RemoveButton data={data} />;
   }
 
-  return <AddButton cartId={data.id} />;
+  return <AddButton data={data} />;
 };
 
 CartButton.propTypes = {
   data: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     url: PropTypes.string,
   }).isRequired,

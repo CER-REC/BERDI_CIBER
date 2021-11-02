@@ -4,6 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useAPI from '../../hooks/useAPI';
+import { reportChip } from '../../utilities/analytics';
 import { lang } from '../../constants';
 
 const useStyles = makeStyles(() => ({
@@ -50,7 +51,9 @@ const FilterChipsPanel = () => {
   const chipLabels = useAssembledChipLabels();
 
   // Assemble new state on chip click
-  const removeFilter = (chipType, index) => () => {
+  const removeFilter = (chipType, index, label) => () => {
+    reportChip(label);
+
     if ((chipType === 'search') || (chipType === 'topics') || (chipType === 'dateRange')) {
       configDispatch({ type: `${chipType}/removed`, payload: config[chipType]?.[index] });
 
@@ -66,8 +69,8 @@ const FilterChipsPanel = () => {
       <Chip
         key={chipLabel}
         label={chipLabel}
-        onClick={removeFilter(chipType, index)}
-        onDelete={removeFilter(chipType, index)}
+        onClick={removeFilter(chipType, index, chipLabel)}
+        onDelete={removeFilter(chipType, index, chipLabel)}
         deleteIcon={(
           <CloseIcon
             className={classes.closeButton}

@@ -6,7 +6,7 @@ import download from '../../../images/listPanel/download.svg';
 import flag from '../../../images/listPanel/flag.svg';
 import leaf from '../../../images/listPanel/leaf.svg';
 import ellipsisIcon from '../../../images/listPanel/ellipsis.svg';
-import { reportDownload } from '../../../utilities/analytics';
+import { reportDownload, reportRateData, reportReportData } from '../../../utilities/analytics';
 import RateDataDialog from '../RateDataDialog';
 import ReportDataDialog from '../ReportDataDialog';
 
@@ -56,9 +56,17 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
     setAnchorEl(null);
   };
   const handleRateClose = () => setRateOpen(false);
-  const handleRateClick = () => { handleClose(); setRateOpen(true); };
+  const handleRateClick = () => {
+    handleClose();
+    setRateOpen(true);
+    reportRateData();
+  };
   const handleReportClose = () => setReportOpen(false);
-  const handleReportClick = () => { handleClose(); setReportOpen(true); };
+  const handleReportClick = () => {
+    handleClose();
+    setReportOpen(true);
+    reportReportData();
+  };
 
   return (
     <>

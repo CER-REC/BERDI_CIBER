@@ -25,6 +25,7 @@ import wetland from '../../images/topicsFilter/bulrushes.svg';
 import soil from '../../images/topicsFilter/soil.svg';
 import treaty from '../../images/topicsFilter/treaty.svg';
 import water from '../../images/topicsFilter/water.svg';
+import { reportTopicFilter } from '../../utilities/analytics';
 import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
@@ -158,6 +159,8 @@ const TopicsFilter = () => {
           payload: { page: 'search', fragment: 'topic' },
         });
       }
+
+      reportTopicFilter(topic);
     },
   });
 
