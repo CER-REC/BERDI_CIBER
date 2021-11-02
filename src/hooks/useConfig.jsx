@@ -10,7 +10,7 @@ import { toDateOnly, toDateOnlyString } from '../utilities/date';
 import { initialState, getReducer } from './reducer';
 import useAPI from './useAPI';
 
-const parameters = ['page', 'filter', 'searchIndex', 'cartIndex'];
+const parameters = ['page', 'filter', 'searchIndex', 'cartIndex', 'resultCount'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
 const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
