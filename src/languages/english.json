@@ -32,6 +32,7 @@
     "termsAndConditions": "Terms and Conditions",
     "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "errorMessage": "Something went wrong.",
+    "osdpURL": "https://osdp-psdo.canada.ca/en/osdp",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -317,6 +318,11 @@
     "filterPanel": {
       "clearButton": "Clear all filters",
       "filters": "Filters"
+    },
+    "osdpFooter": {
+      "header": "Explore more open data with Open Science Data Portal.",
+      "body": "Open Science Data Portal provides access to more environmental data and scientific publications that can be used to understand the cumulative effects of human activities.",
+      "button": "Visit Open Science Data Portal"
     },
     "treeMapPanel": {
       "boxSelect": "Select a box to filter by project and access project details.",
