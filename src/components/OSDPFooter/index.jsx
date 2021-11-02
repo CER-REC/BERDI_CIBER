@@ -16,10 +16,6 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: '6em',
     padding: '0.4em 1em',
   },
-  buttonLabel: {
-    position: 'relative',
-    top: '1px',
-  },
   buttonIcon: {
     marginLeft: '0.75em',
   },
@@ -49,7 +45,7 @@ const OSDPFooter = () => {
           disableElevation
           onClick={handleClick}
         >
-          <Typography className={classes.buttonLabel}>
+          <Typography>
             {intl.formatMessage({ id: 'components.osdpFooter.button' })}
           </Typography>
           <OpenInNewIcon className={classes.buttonIcon} />
