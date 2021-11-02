@@ -6,7 +6,6 @@ import { useIntl } from 'react-intl';
 const useStyles = makeStyles((theme) => ({
   root: {
     background: '#D0EDF8',
-    border: '1px solid transparent',
     borderRadius: '10px',
     padding: '1.5em 1.5em 1.5em 3em',
     marginBottom: '1em',
@@ -14,10 +13,8 @@ const useStyles = makeStyles((theme) => ({
   button: {
     color: theme.palette.common.white,
     backgroundColor: theme.palette.teal.blue,
-    boxShadow: 'none',
     maxHeight: '6em',
     padding: '0.4em 1em',
-    alignItems: 'center',
   },
   buttonLabel: {
     position: 'relative',
