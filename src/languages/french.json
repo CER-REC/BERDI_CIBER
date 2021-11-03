@@ -316,6 +316,11 @@
       "clearButton": "Effacer tous les filtres",
       "filters": "Filtres"
     },
+    "osdpFooter": {
+      "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
+      "body": "La plateforme de science et de données ouvertes permet d’accéder à plus de données sur l’environnement et à plus de publications scientifiques sur les effets cumulatifs des activités humaines.",
+      "button": "Visitez la plateforme de science et de données ouvertes"
+    },
     "treeMapPanel": {
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "noResults": "Désolé, il n’y a aucun résultat.",
@@ -377,6 +382,7 @@
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
       "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
+      "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
         "button": "Lisez notre avertissement",
