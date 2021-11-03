@@ -71,6 +71,15 @@ const SearchHelpDialog = ({ open, onClose }) => {
         </Typography>
         <br />
 
+        {intl.locale === 'fr' && (
+          <>
+            <Typography variant="body2">
+              {intl.formatMessage({ id: 'components.searchPanel.helpDialog.frenchDisclaimer' })}
+            </Typography>
+            <br />
+          </>
+        )}
+
         <Typography style={{ fontWeight: 'bold' }}>
           {intl.formatMessage({ id: 'components.searchPanel.helpDialog.exactPhraseHeader' })}
         </Typography>
