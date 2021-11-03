@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     marginBottom: '1em',
   },
   menu: {
+    marginTop: '2em',
     '& img': {
       paddingRight: '0.5em',
     },
@@ -86,7 +87,7 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
-        MenuListProps={{ onMouseLeave: handleClose }}
+        onClose={handleClose}
         className={classes.menu}
         disableRestoreFocus
         disableAutoFocusItem
