@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     marginBottom: '1em',
   },
   menu: {
-    marginTop: '2em',
+    marginTop: '0.5em',
     '& img': {
       paddingRight: '0.5em',
     },
@@ -85,6 +85,8 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
       />
       <Menu
         anchorEl={anchorEl}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        getContentAnchorEl={null}
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
