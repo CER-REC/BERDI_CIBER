@@ -175,8 +175,8 @@ export const SEARCH = gql`
           treaty
         }
       }
-      totalCount
       downloadTableIds
+      ids
       valueComponent {
         landscape
         soil
