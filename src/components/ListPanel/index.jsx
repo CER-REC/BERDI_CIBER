@@ -21,7 +21,7 @@ const ListSection = () => {
   const classes = useStyles();
   const intl = useIntl();
 
-  const { contents } = useESAData();
+  const { ids } = useESAData();
   const [expandList, setExpandList] = useState([]);
 
   const toggleExpand = (id) => {
@@ -33,8 +33,7 @@ const ListSection = () => {
   };
 
   const expandAll = () => {
-    const allIds = contents.map((content) => content.id);
-    setExpandList(allIds);
+    setExpandList(ids);
     reportExpand();
   };
   const collapseAll = () => {
