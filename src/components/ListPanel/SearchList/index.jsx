@@ -24,6 +24,7 @@ import PaginationBar from '../PaginationBar';
 import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
 import TitleSection from './TitleSection';
+import useAPI from '../../../hooks/useAPI';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -33,6 +34,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const { contents, totalCount } = useESAData();
+  const { applicationIdLabels } = useAPI();
   const pageNumber = useMemo(
     () => (totalCount ? config.searchIndex : 0),
     [totalCount, config.searchIndex],
@@ -110,7 +112,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                       <table className={classes.details}>
                         <tbody>
-                          {createTableRow(content.application.name, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
+                          {createTableRow(applicationIdLabels[content.application.name], intl.formatMessage({ id: 'components.listPanel.projectName' }))}
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
                           {
                             (expandList.includes(content.id)) && (
