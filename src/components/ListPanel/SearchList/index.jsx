@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -24,7 +24,7 @@ import PaginationBar from '../PaginationBar';
 import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
 import TitleSection from './TitleSection';
-import useAPI from '../../../hooks/useAPI';
+import ApplicationDialog from '../../ApplicationDialog';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -34,7 +34,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const { contents, totalCount } = useESAData();
-  const { applicationIdLabels } = useAPI();
   const pageNumber = useMemo(
     () => (totalCount ? config.searchIndex : 0),
     [totalCount, config.searchIndex],
@@ -44,6 +43,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const [open, setOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
   const [expandedTitles, setExpandedTitles] = useState([]);
+  const [projectData, setProjectData] = useState();
 
   const handleClickOpen = (content) => {
     reportContent(content.title);
@@ -59,13 +59,34 @@ const SearchList = ({ toggleExpand, expandList }) => {
     configDispatch({ type: 'resultCount/changed', payload: items[1] });
   };
 
+  const createTableTitle = (title) => (
+    <td style={{ whiteSpace: 'nowrap' }}>
+      <Typography style={{ fontWeight: 'bold' }}>
+        {title}
+      </Typography>
+    </td>
+  );
+
+  const createTableProjectRow = (data, title) => (
+    <tr>
+      {createTableTitle(title)}
+      <td>
+        <Button
+          key={data.id}
+          className={classes.button}
+          color="inherit"
+          onClick={() => setProjectData(data)}
+          disableRipple
+        >
+          {data.shortName}
+        </Button>
+      </td>
+    </tr>
+  );
+
   const createTableRow = (data, title) => (
     <tr>
-      <td style={{ whiteSpace: 'nowrap' }}>
-        <Typography style={{ fontWeight: 'bold' }}>
-          {title}
-        </Typography>
-      </td>
+      {createTableTitle(title)}
       <td>
         <Typography>
           {data}
@@ -77,6 +98,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
+      <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
       <TableContainer component={Paper} className={classes.tableParent}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
@@ -112,7 +134,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                       <table className={classes.details}>
                         <tbody>
-                          {createTableRow(applicationIdLabels[content.application.name], intl.formatMessage({ id: 'components.listPanel.projectName' }))}
+                          {createTableProjectRow(content.application, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
                           {
                             (expandList.includes(content.id)) && (
