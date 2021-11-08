@@ -140,6 +140,7 @@ export const SEARCH = gql`
         thumbnailURL
         application {
           name
+          shortName
           consultants
           filingDate
           companyName
