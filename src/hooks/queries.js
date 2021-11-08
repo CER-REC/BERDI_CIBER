@@ -150,6 +150,8 @@ export const SEARCH = gql`
           hearingOrder
           applicationURL
           finalDecisionURL
+          tableCount
+          figureCount
         }
         valueComponent {
           landscape
