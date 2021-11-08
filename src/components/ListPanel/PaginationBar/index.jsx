@@ -10,7 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import { RESULT_COUNT } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,8 +29,8 @@ const useStyles = makeStyles((theme) => ({
 const PaginationBar = ({ count, page }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const { configDispatch } = useConfig();
-  const pageCount = Math.ceil(count / RESULT_COUNT);
+  const { configDispatch, config: { resultCount } } = useConfig();
+  const pageCount = Math.ceil(count / resultCount);
 
   const handlePageSelect = useCallback((pageIndex) => {
     configDispatch({ type: 'searchIndex/changed', payload: pageIndex });

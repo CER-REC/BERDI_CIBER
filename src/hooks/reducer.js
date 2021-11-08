@@ -303,6 +303,7 @@ export const getReducer = (
       return {
         ...state,
         resultCount: action.payload || initialState.resultCount,
+        searchIndex: 0,
       };
     default:
       return state;

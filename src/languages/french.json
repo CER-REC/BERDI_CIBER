@@ -316,6 +316,11 @@
       "clearButton": "Effacer tous les filtres",
       "filters": "Filtres"
     },
+    "osdpFooter": {
+      "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
+      "body": "La plateforme de science et de données ouvertes permet d’accéder à plus de données sur l’environnement et à plus de publications scientifiques sur les effets cumulatifs des activités humaines.",
+      "button": "Visitez la plateforme de science et de données ouvertes"
+    },
     "treeMapPanel": {
       "boxSelect": "Sélectionner une case pour filtrer par projet et accéder aux détails du projet.",
       "noResults": "Désolé, il n’y a aucun résultat.",
@@ -350,7 +355,47 @@
       "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
-      "keywords": {}
+      "keywords": {},
+      "searchHelp": "Aide pour la recherche",
+      "helpDialog": {
+        "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
+        "exampleHeader": "Exemple :",
+        "example1": "Rivière Saskatchewan",
+        "help2": "CIBER affichera les résultats qui contiennent le mot Saskatchewan et ceux qui contiennent le mot rivière.",
+        "frenchDisclaimer": "Remarque : Les contenus des tableaux s’affichent dans la langue dans laquelle ils ont été déposés. Les titres des contenus de la base de données ont été traduits en français. Vous pouvez utiliser des termes anglais pour faire des recherches dans la version française de CIBER.",
+        "exactPhraseHeader": "Recherche d’une phrase exacte",
+        "exact1": "Pour trouver une phrase exacte, encadrez-la de guillemets.",
+        "example2": "“Rivière Saskatchewan”",
+        "exact2": "CIBER affichera uniquement les résultats qui contiennent l’expression exacte « rivière Saskatchewan ».",
+        "requireOrExcludeHeader": "Inclure ou exclure des mots",
+        "require1": "Ajoutez le signe « + » avant un terme pour exiger qu’il apparaisse dans chaque résultat de recherche.",
+        "example3": "habitat +caribou +Colombie +Britannique",
+        "require2": "Les résultats affichés par CIBER contiendront les mots caribou, Colombie et Britannique, mais pas nécessairement le mot habitat.",
+        "exclude1": "Utilisez le signe « - » avant un mot pour vous assurer qu’il n’apparaisse pas dans les résultats.",
+        "example4": "-habitat +caribou +Colombie +Britannique",
+        "exclude2": "Les résultats affichés par CIBER contiendront les mots caribou, Colombie et Britannique, mais pas le mot habitat.",
+        "booleanHeader": "Utiliser des opérateurs booléens",
+        "boolean1": "CIBER accepte les opérateurs booléens de recherche ET et SAUF.",
+        "boolean2": "Utilisez ET pour vous assurer que deux termes ou plus figurent dans vos résultats de recherche. Cet opérateur agit comme le signe « + ».",
+        "example5": "Colombie ET Britannique ET caribou",
+        "isTheSameAs": "produira les mêmes résultats que",
+        "example6": "+Colombie +Britannique +caribou",
+        "boolean3": "Utilisez SAUF pour exclure des termes de vos résultats de recherche. Cet opérateur agit comme le signe « - ».",
+        "example7": "caribou SAUF habitat",
+        "example8": "caribou -habitat",
+        "specificFieldHeader": "Recherche d’un terme dans un champ précis",
+        "specificField1": "Vous pouvez restreindre les résultats de votre recherche à un champ précis.",
+        "example9": "titre : caribou",
+        "specificField2": "CIBER cherchera dans la base de données tous les titres qui contiennent le mot caribou.",
+        "availableFieldsHeader": "Les champs disponibles sont les suivants :",
+        "fieldItem1": "title : Le titre anglais d’un document.",
+        "fieldItem2": "titre : Le titre français d’un document.",
+        "fieldItem3": "esa : Nom anglais de la section de l’EES associée à un élément.",
+        "fieldItem4": "ees : Nom français de la section de l’EES associée à un élément.",
+        "fieldItem5": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
+        "specificField4": "Le moteur de recherche de CIBER est basé sur la technologie Apache Lucene et peut effectuer des recherches plus détaillées et plus précises. Pour obtenir des trucs et des conseils de recherche plus poussés, consultez le {luceneLink}",
+        "luceneLink": "site d’Apache Lucene."
+      }
     },
     "searchDetails": {
       "title": "Résultats de la recherche",
@@ -377,6 +422,7 @@
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
       "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
+      "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
         "button": "Lisez notre avertissement",

@@ -16,6 +16,7 @@ const useStyles = makeStyles({
     marginBottom: '1em',
   },
   menu: {
+    marginTop: '0.5em',
     '& img': {
       paddingRight: '0.5em',
     },
@@ -49,7 +50,7 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
   const [rateOpen, setRateOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
 
-  const handleMouseEnter = (event) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
@@ -84,9 +85,11 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
       />
       <Menu
         anchorEl={anchorEl}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+        getContentAnchorEl={null}
         keepMounted
         open={Boolean(anchorEl)}
-        MenuListProps={{ onMouseLeave: handleClose }}
+        onClose={handleClose}
         className={classes.menu}
         disableRestoreFocus
         disableAutoFocusItem
@@ -110,7 +113,7 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
         )}
       </Menu>
 
-      <ButtonBase className={classes.button} onMouseEnter={handleMouseEnter}>
+      <ButtonBase className={classes.button} onClick={handleClick}>
         <img alt="Ellipsis" src={ellipsisIcon} />
       </ButtonBase>
     </>

@@ -385,7 +385,7 @@
         "boolean3": "Use NOT to exclude search terms from the search results. This is the same as using the - sign.",
         "example7": "caribou NOT habitat",
         "example8": "caribou -habitat",
-        "specificFieldHeader": "Search for a term within a specific field:",
+        "specificFieldHeader": "Search for a term within a specific field",
         "specificField1": "You can restrict your search to specific fields in the dataset.",
         "example9": "title: caribou",
         "specificField2": "BERDI will search the dataset for anything that has the word caribou in its title field.",

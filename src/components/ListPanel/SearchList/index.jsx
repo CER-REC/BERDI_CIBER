@@ -33,10 +33,10 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
-  const { contents, totalCount } = useESAData();
+  const { contents, ids } = useESAData();
   const pageNumber = useMemo(
-    () => (totalCount ? config.searchIndex : 0),
-    [totalCount, config.searchIndex],
+    () => (ids.length ? config.searchIndex : 0),
+    [ids.length, config.searchIndex],
   );
   const resultCountOptions = ['10', '25', '50', '100'];
 
@@ -209,7 +209,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
         />
       </div>
       <PaginationBar
-        count={totalCount}
+        count={ids.length}
         page={pageNumber}
       />
     </>

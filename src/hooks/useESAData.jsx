@@ -103,8 +103,8 @@ export default () => {
     error,
     applications,
     contents: data?.contentSearch.contents || [],
-    totalCount: data?.contentSearch.totalCount || 0,
     downloadTableIds: data?.contentSearch.downloadTableIds || [],
+    ids: data?.contentSearch.ids || [],
     valueComponent,
   };
 };
