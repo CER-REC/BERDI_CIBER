@@ -197,9 +197,7 @@ const Cart = () => {
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
-              <Icon>
-                <img src={rightArrow} alt="an arrow pointing right" style={{ verticalAlign: 'unset' }} />
-              </Icon>
+              <img src={rightArrow} alt="an arrow pointing right" style={{ verticalAlign: 'unset', paddingBottom: '1px' }} />
             </IconButton>
           </Grid>
           <ShareCard
