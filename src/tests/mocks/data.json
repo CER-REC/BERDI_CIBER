@@ -221,6 +221,7 @@
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application Test 2 Long Name",
+            "shortName": "Application Test 2 Short Name",
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
@@ -229,7 +230,9 @@
             "type": "LARGE",
             "filingDate": "2007-05-30T00:00:00",
             "hearingOrder": "OH-4-2007",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": null,
@@ -269,6 +272,7 @@
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application Test 2 Long Name",
+            "shortName": "Application Test 2 Short Name",
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
@@ -277,7 +281,9 @@
             "type": "LARGE",
             "filingDate": "2007-05-30T00:00:00",
             "hearingOrder": "OH-4-2007",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "https://test",
