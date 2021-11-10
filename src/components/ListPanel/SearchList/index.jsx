@@ -74,6 +74,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
         <Grid container justify="flex-start">
           <Button
             key={data.id}
+            className={classes.projectButton}
             color="inherit"
             onClick={() => setProjectData(data)}
             disableRipple
@@ -139,30 +140,30 @@ const SearchList = ({ toggleExpand, expandList }) => {
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
                           {
                             (expandList.includes(content.id)) && (
-                            <>
-                              {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
-                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
-                              {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
-                              {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
-                              <tr>
-                                <td>
-                                  <Typography style={{ fontWeight: 'bold' }}>
-                                    {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
-                                  </Typography>
-                                </td>
-                                <td>
-                                  <Typography>
-                                    <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
-                                    <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
-                                    {(content.application.finalDecisionURL
-                                    && content.application.finalDecisionURL.toLowerCase() !== 'pending')
-                                    && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
-                                  </Typography>
-                                </td>
-                              </tr>
-                            </>
+                              <>
+                                {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
+                                {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
+                                {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
+                                {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
+                                {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
+                                {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
+                                <tr>
+                                  <td>
+                                    <Typography style={{ fontWeight: 'bold' }}>
+                                      {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
+                                    </Typography>
+                                  </td>
+                                  <td>
+                                    <Typography>
+                                      <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                      <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                      {(content.application.finalDecisionURL
+                                        && content.application.finalDecisionURL.toLowerCase() !== 'pending')
+                                        && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                    </Typography>
+                                  </td>
+                                </tr>
+                              </>
                             )
                           }
                         </tbody>
