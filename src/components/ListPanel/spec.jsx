@@ -32,7 +32,7 @@ describe('Components/ListPanel', () => {
       contents.forEach((content, index) => {
         const result = screen.getAllByLabelText('content card')[index].textContent;
         expect(result).toContain(content.title.substring(0, 150));
-        expect(result).toContain(content.application.name);
+        expect(result).toContain(content.application.shortName);
         expect(result).toContain(content.application.companyName);
       });
     });
@@ -102,7 +102,7 @@ describe('Components/ListPanel', () => {
         const result = screen.getAllByLabelText('content card')[index].textContent;
 
         expect(result).toContain(content.title.substring(0, 150));
-        expect(result).toContain(content.application.name);
+        expect(result).toContain(content.application.shortName);
         expect(result).toContain(content.application.companyName);
         expect(result).toContain(content.application.consultants);
         expect(result).toContain(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }));
