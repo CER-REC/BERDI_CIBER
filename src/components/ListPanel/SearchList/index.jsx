@@ -71,15 +71,16 @@ const SearchList = ({ toggleExpand, expandList }) => {
     <tr>
       {createTableTitle(title)}
       <td>
-        <Button
-          key={data.id}
-          className={classes.button}
-          color="inherit"
-          onClick={() => setProjectData(data)}
-          disableRipple
-        >
-          {data.shortName}
-        </Button>
+        <Grid container justify="flex-start">
+          <Button
+            key={data.id}
+            color="inherit"
+            onClick={() => setProjectData(data)}
+            disableRipple
+          >
+            {data.shortName}
+          </Button>
+        </Grid>
       </td>
     </tr>
   );
