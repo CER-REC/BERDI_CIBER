@@ -13,7 +13,7 @@ import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
-import { reportContent } from '../../../utilities/analytics';
+import { reportContent, reportProject } from '../../../utilities/analytics';
 import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 import CartButton from '../../CartButton';
 import DropDown from '../../Dropdown';
@@ -59,6 +59,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
     configDispatch({ type: 'resultCount/changed', payload: items[1] });
   };
 
+  const handleProjectClick = (data) => {
+    setProjectData(data);
+    reportProject(data.shortName);
+  };
+
   const createTableTitle = (title) => (
     <td style={{ whiteSpace: 'nowrap' }}>
       <Typography style={{ fontWeight: 'bold' }}>
@@ -76,7 +81,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
             key={data.id}
             className={classes.projectButton}
             color="inherit"
-            onClick={() => setProjectData(data)}
+            onClick={() => handleProjectClick(data)}
             disableRipple
           >
             {data.shortName}
