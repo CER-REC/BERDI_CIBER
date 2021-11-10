@@ -11,6 +11,7 @@ const PATH = `/${applicationPath.en}/`;
 const PORT = 6007;
 
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
+  title: applicationPath.en,
   template: '.serveLazyDevServerTemplate.html',
 }));
 webpackConfig.output.publicPath = PATH;
