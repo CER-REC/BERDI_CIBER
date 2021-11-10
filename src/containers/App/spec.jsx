@@ -121,7 +121,6 @@ describe('Containers/App', () => {
     expect(screen.getByText('Dec 2000 - Dec 2000')).toBeInTheDocument();
 
     await waitFor(() => {
-      expect(getByText(screen.getByText('components.applications.title').parentNode, 'Test2')).toBeInTheDocument();
       expect(screen.getByText('3').closest('li')).toHaveClass('active');
     });
   });
