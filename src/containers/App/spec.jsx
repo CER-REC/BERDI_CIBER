@@ -30,6 +30,7 @@ const simulateSearch = () => {
   fireEvent.click(searchButton);
 };
 
+// eslint-disable-next-line no-unused-vars
 const simulateFilter = () => {
   const showFilters = screen.getByText('components.searchPanel.filterLabel').parentNode;
   const showFiltersSwitch = getByRole(showFilters, 'checkbox');
@@ -129,6 +130,7 @@ describe('Containers/App', () => {
 
   // TODO: fix this test after treemap ids are removed
   // it('should push the state to the history', async () => {
+  // eslint-disable-next-line max-len
   //   const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
 
   //   render(<LazyApp />, { configMocked: false });
@@ -142,6 +144,7 @@ describe('Containers/App', () => {
   //     // jsdom strictly checks for a null to stop navigation
   //     next.target = null;
 
+  // eslint-disable-next-line max-len
   //     fireEvent.click(getByText(screen.getByText('components.treeMapPanel.boxSelect').nextSibling, 'Test1'));
   //     fireEvent.click(next);
   //   });
