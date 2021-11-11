@@ -76,7 +76,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
     <tr>
       {createTableTitle(title)}
       <td>
-        {/* <Grid container justify="flex-start"> */}
         <Button
           className={classes.projectButton}
           color="inherit"
@@ -85,7 +84,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
         >
           {data.shortName}
         </Button>
-        {/* </Grid> */}
       </td>
     </tr>
   );
