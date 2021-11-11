@@ -229,6 +229,7 @@ export const CART_ITEMS = gql`
       pdfPageNumber
       application {
         name
+        shortName
         companyName
         consultants
         filingDate

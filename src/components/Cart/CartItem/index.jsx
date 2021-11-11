@@ -154,7 +154,7 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onRes
                     </td>
                     <td>
                       <Typography>
-                        {data.application.name}
+                        {data.application.shortName}
                       </Typography>
                     </td>
                   </tr>
@@ -193,7 +193,7 @@ CartItem.propTypes = {
     title: PropTypes.string,
     thumbnailURL: PropTypes.string,
     application: PropTypes.shape({
-      name: PropTypes.string,
+      shortName: PropTypes.string,
       companyName: PropTypes.string,
     }),
   }),
