@@ -24,23 +24,19 @@ const SearchDetails = () => {
   const classes = useStyles();
   const intl = useIntl();
   const { applications, loading } = useESAData();
-  const { config: { filter, treemapApplicationIds } } = useConfig();
+  const { config: { filter } } = useConfig();
 
-  const selectedApplications = (treemapApplicationIds.length > 0)
-    ? applications.filter((item) => treemapApplicationIds.includes(item.id))
-    : applications;
-
-  const figureCount = selectedApplications.reduce(
+  const figureCount = applications.reduce(
     (count, application) => (application.figureCount + count),
     0,
   );
 
-  const tableCount = selectedApplications.reduce(
+  const tableCount = applications.reduce(
     (count, application) => (application.tableCount + count),
     0,
   );
 
-  const alignmentSheetCount = selectedApplications.reduce(
+  const alignmentSheetCount = applications.reduce(
     (count, application) => (application.alignmentSheetCount + count),
     0,
   );

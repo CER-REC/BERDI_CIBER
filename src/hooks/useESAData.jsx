@@ -14,13 +14,12 @@ const hasVariables = (config) => (
   && config.projectTypes
   && config.statuses
   && config.contentTypes
-  && config.treemapApplicationIds
   && !Number.isNaN(config.searchIndex)
 );
 
 export default () => {
   const {
-    config: { applicationIds, topics, treemapApplicationIds },
+    config: { applicationIds, topics },
     config,
     configDispatch,
   } = useConfig();
@@ -45,7 +44,7 @@ export default () => {
       projectTypes: config.projectTypes,
       statuses: config.statuses,
       contentTypes: config.contentTypes,
-      searchApplicationIds: treemapApplicationIds.length ? treemapApplicationIds : applicationIds,
+      searchApplicationIds: applicationIds,
       valueComponent: valueComponentFilter,
       first: config.resultCount,
       offset: config.searchIndex * config.resultCount,
@@ -71,12 +70,6 @@ export default () => {
     return [];
   }, [config.contentTypes, data]);
   const valueComponent = useMemo(() => data?.contentSearch.valueComponent || {}, [data]);
-  const excludedTreemapApplicationIds = useMemo(
-    () => treemapApplicationIds.filter(
-      (id) => !applications.find((application) => (application.id === id)),
-    ),
-    [treemapApplicationIds, applications],
-  );
   const excludedTopics = useMemo(
     () => {
       const zeroes = Object.keys(valueComponent).filter((topic) => !valueComponent[topic]);
@@ -85,12 +78,6 @@ export default () => {
     },
     [topics, valueComponent],
   );
-
-  useEffect(() => {
-    if (excludedTreemapApplicationIds.length && !loading) {
-      configDispatch({ type: 'treemapApplicationIds/removed', payload: excludedTreemapApplicationIds });
-    }
-  }, [configDispatch, excludedTreemapApplicationIds, loading]);
 
   useEffect(() => {
     if (excludedTopics.length && !loading) {

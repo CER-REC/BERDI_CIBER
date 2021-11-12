@@ -13,7 +13,7 @@ import useAPI from './useAPI';
 const parameters = ['page', 'filter', 'searchIndex', 'cartIndex', 'resultCount'];
 const dateParameters = ['startDate', 'endDate'];
 const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
-const encodedParameters = ['search', 'applicationIds', 'treemapApplicationIds'];
+const encodedParameters = ['search', 'applicationIds'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
 let unlistenHistory = () => {};
@@ -117,7 +117,6 @@ export const ConfigProvider = ({ children }) => {
         projectTypes: query.projectTypes?.split(','),
         statuses: query.statuses?.split(','),
         contentTypes: query.contentTypes?.split(','),
-        treemapApplicationIds: decodeParameter(query.treemapApplicationIds),
         topics: query.topics?.split(','),
         filter: query.filter,
         searchIndex,
