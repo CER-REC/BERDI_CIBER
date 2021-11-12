@@ -231,7 +231,17 @@
       "close": "Close",
       "accuracy": {
         "title": "Accuracy",
-        "body": "CSV table data is extracted according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. Extracted data is limited to the data contained in the ESA that is filed for the first time in a specific Application to which that ESA applies. ESA-related information that is filed after that initial Application-specific ESA is filed is excluded from this collection. In the event of variance, the original PDF in REGDOCS is the main source. Data sources for ESA tables are cited at the discretion of those writing the ESAs and may vary according to ESA."
+        "body": "CSV table data is extracted automatically according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. In the event of a discrepancy, the correct source is the original PDF file in REGDOCS, the Canada Energy Regulator’s regulatory database. Original PDF file location information can be found in the README file included with your download or within BERDI’s search results."
+      },
+      "usage": {
+        "title": "Usage",
+        "header": "Per the usage agreement for BERDI, you must:",
+        "bullet1": "use the database for research, private study and/or education only;",
+        "bullet2": "not distribute or publish any document;",
+        "bullet3": "make only a single copy of any document;",
+        "bullet4": "destroy any copy after use; and",
+        "bullet5": "NOT use the database for any commercial or competitive purposes. only use the database for research, private study and/or education. The database may not be used for commercial or competitive purposes.",
+        "footer": "In addition, the CER’s website’s Terms and Conditions apply to this repository."
       },
       "termsTitle": {
         "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
@@ -239,8 +249,8 @@
       },
       "citation": {
         "title": "Citation",
-        "body": "To cite this data bank, please use the following {cite} To cite individual data tables, please also cite the original ESA PDF in REGDOCS.",
-        "cite": "Canada Energy Regulator (2020): Environmental and Socio-Economic Assessment Data Bank."
+        "body": "To cite this search tool, please use the following template: {cite} To cite individual data tables, please refer to the original PDF documents for citation details.",
+        "cite": "Canada Energy Regulator (Accessed: [date]). BERDI. https://www.cer-rec.gc.ca/berdi DOI: ____________."
       },
       "dataSection": {
         "zipText": "You are about to download a ZIP package including the below:",

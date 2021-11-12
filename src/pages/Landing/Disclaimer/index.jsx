@@ -75,7 +75,6 @@ const Disclaimer = () => {
         </Button>
         <LimitationsDialog
           open={open}
-          hasDownload={false}
           onClose={handleClose}
         />
       </Grid>
