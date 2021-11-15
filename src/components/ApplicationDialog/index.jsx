@@ -129,16 +129,12 @@ const ApplicationDialog = ({ data, onClose }) => {
                 onClick={handleViewClick}
                 color="primary"
                 variant="outlined"
+                href={data.applicationURL}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Typography>
-                  <a
-                    className={classes.folderLink}
-                    href={data.applicationURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
-                  </a>
+                <Typography className={classes.folderLink}>
+                  {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
                 </Typography>
               </Button>
             </Grid>
