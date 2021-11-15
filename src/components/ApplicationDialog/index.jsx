@@ -132,6 +132,7 @@ const ApplicationDialog = ({ data, onClose }) => {
                 href={data.applicationURL}
                 target="_blank"
                 rel="noopener noreferrer"
+                style={{ outline: 'none' }}
               >
                 <Typography className={classes.folderLink}>
                   {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
