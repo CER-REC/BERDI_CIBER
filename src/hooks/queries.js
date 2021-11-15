@@ -230,12 +230,17 @@ export const CART_ITEMS = gql`
       application {
         name
         shortName
-        companyName
         consultants
         filingDate
-        name
+        companyName
+        status
+        type
+        commodity
+        hearingOrder
         applicationURL
         finalDecisionURL
+        tableCount
+        figureCount
       }
       esaFolderURL
     }
