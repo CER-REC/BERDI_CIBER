@@ -25,7 +25,7 @@ import wetland from '../../images/topicsFilter/bulrushes.svg';
 import soil from '../../images/topicsFilter/soil.svg';
 import treaty from '../../images/topicsFilter/treaty.svg';
 import water from '../../images/topicsFilter/water.svg';
-import { reportTopicFilter } from '../../utilities/analytics';
+import { reportAddTopicFilter, reportRemoveTopicFilter } from '../../utilities/analytics';
 import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
@@ -149,7 +149,17 @@ const TopicsFilter = () => {
     score: isLanding ? null : getScore(valueComponent[topic], maxValueComponent),
     disabled: isLanding ? false : (valueComponent[topic] === 0),
     onClick: () => {
-      const action = config.topics.includes(topic) ? 'topics/removed' : 'topics/added';
+      let action;
+
+      if (config.topics.includes(topic)) {
+        action = 'topics/removed';
+
+        reportRemoveTopicFilter(topic);
+      } else {
+        action = 'topics/added';
+
+        reportAddTopicFilter(topic);
+      }
 
       configDispatch({ type: action, payload: topic });
 
@@ -159,8 +169,6 @@ const TopicsFilter = () => {
           payload: { page: 'search', fragment: 'topic' },
         });
       }
-
-      reportTopicFilter(topic);
     },
   });
 
