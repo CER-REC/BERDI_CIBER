@@ -56,7 +56,9 @@ const reportDownload = (name) => report('TABLE', 'Download', { value: name });
 
 const reportView = (type, name) => report(type, 'View', { value: name });
 
-const reportTopicFilter = (topic) => report('circleclassification', 'click', { value: topic });
+const reportAddTopicFilter = (topic) => report('circleclassification', 'click', { value: topic });
+
+const reportRemoveTopicFilter = (topic) => report('circleclassification', 'unclick', { value: topic });
 
 const reportChip = (name) => report('keywordtags', 'click', { value: name });
 
@@ -84,6 +86,8 @@ const reportCartShare = () => report('shelf', 'click', { value: 'share' });
 
 const reportCartRemoveAll = () => report('shelf', 'click', { value: 'removeall' });
 
+const reportSearchHelp = () => report('searchhelp', 'click', { value: 'searchhelp' });
+
 export {
   reportSearch,
   reportSection,
@@ -95,7 +99,8 @@ export {
   reportContent,
   reportDownload,
   reportView,
-  reportTopicFilter,
+  reportAddTopicFilter,
+  reportRemoveTopicFilter,
   reportChip,
   reportFilterToggle,
   reportDetails,
@@ -109,4 +114,5 @@ export {
   reportCartRemove,
   reportCartShare,
   reportCartRemoveAll,
+  reportSearchHelp,
 };
