@@ -97,9 +97,7 @@ const LegalDisclaimer = ({ onClose, open, setOpen }) => {
             style={{ padding: '0.2em 1.5em' }}
             onClick={handleClose}
           >
-            {intl.formatMessage({ id: 'components.legalDisclaimer.enter' }, {
-              tool: intl.formatMessage({ id: 'common.toolName' }).toUpperCase(),
-            })}
+            {intl.formatMessage({ id: 'components.legalDisclaimer.enter' })}
           </Button>
         </Grid>
       </Grid>
