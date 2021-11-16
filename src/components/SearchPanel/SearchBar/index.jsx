@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
-import { reportSearch } from '../../../utilities/analytics';
+import { reportSearch, reportSearchHelp } from '../../../utilities/analytics';
 import SearchHelpDialog from '../SearchHelpDialog';
 
 const useStyles = makeStyles((theme) => ({
@@ -61,6 +61,10 @@ const SearchBar = ({ hasShrink }) => {
       handleClick();
     }
   }, [handleClick]);
+  const handleSearchHelpClick = useCallback(() => {
+    setSearchHelpOpen(true);
+    reportSearchHelp();
+  }, []);
 
   useEffect(() => setSearch(config.search), [config.search]);
 
@@ -86,7 +90,7 @@ const SearchBar = ({ hasShrink }) => {
           />
         </Grid>
         <Grid item container xs={2} alignItems="center" justify="space-evenly" className={classes.searchHelpBox}>
-          <Typography variant="body2" onClick={() => setSearchHelpOpen(true)}>
+          <Typography variant="body2" onClick={handleSearchHelpClick}>
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           </Typography>
         </Grid>
