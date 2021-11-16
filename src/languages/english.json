@@ -10,7 +10,6 @@
     "tables": "Tables",
     "figures": "Figures",
     "previous": "Previous",
-    "download": "Download",
     "downloadAllTables": "Download all tables",
     "megabytes": "MB",
     "kilobytes": "KB",
@@ -346,8 +345,7 @@
     },
     "resultsList": {
       "dataButton": {
-        "label": "Access full dataset",
-        "link": "csv/en/en.zip"
+        "label": "Access full dataset"
       },
       "titles": {
         "filedDate": "Project Filed Date"
@@ -357,7 +355,6 @@
       "filterLabel": "Show filters",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
-      "keywords": {},
       "searchHelp": "Search Help",
       "helpDialog": {
         "help1": "By default, the BERDI search engine searches the full titles and contents of the dataset for matches with any of the keyword search terms you provide. Capitalization will be ignored.",
@@ -560,7 +557,7 @@
         },
         "section7": {
           "header": "When do we update the data?",
-          "paragraph1": "We check the CER’s public document repository, REGDOCS, for eligible new data twice per year. Data eligible for BERDI comes from environmental and socio-economic assessments included in completed applications for major pipeline projects (>20km in length). Completed applications are those deemed ready for processing by the CER. REGDOCS contains regulatory documents dating back to 2003."
+          "paragraph1": "We check the CER’s public document repository, REGDOCS, for eligible new data twice per year. Data eligible for BERDI comes from environmental and socio-economic assessments. These assessments are a routine part of documentation found in  completed applications for major pipeline projects (>20km in length). Completed applications are those deemed ready for processing by the CER. REGDOCS contains regulatory documents dating back to 2003."
         },
         "section8": {
           "header": "Acknowledgements",
