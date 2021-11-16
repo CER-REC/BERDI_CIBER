@@ -9,7 +9,7 @@ import TitleCard from '../TitleCard';
 
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
-    background: 'linear-gradient(#4f5699, #5b3b66)',
+    background: 'linear-gradient(#4F5699, #544275)',
     backgroundSize: 'cover',
     paddingBottom: '2em',
   },
