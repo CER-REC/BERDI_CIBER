@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import CloseIcon from '@material-ui/icons/Close';
 import useAPI from '../../hooks/useAPI';
-import { reportDownload } from '../../utilities/analytics';
+import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
@@ -95,10 +95,8 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   }, [intl, onClose]);
 
   const handleMethodsClick = () => {
+    reportSection('methods');
     configDispatch({ type: 'page/changed', payload: 'methods' });
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 1);
   };
 
   return (
