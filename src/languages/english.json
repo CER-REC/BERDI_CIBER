@@ -231,7 +231,8 @@
       "close": "Close",
       "accuracy": {
         "title": "Accuracy",
-        "body": "CSV table data is extracted automatically according to the methods outlined in the Methodology Documentation and may contain some inaccuracies. In the event of a discrepancy, the correct source is the original PDF file in REGDOCS, the Canada Energy Regulator’s regulatory database. Original PDF file location information can be found in the README file included with your download or within BERDI’s search results."
+        "body": "CSV table data is extracted automatically according to the methods outlined in the {link} and may contain some inaccuracies. In the event of a discrepancy, the correct source is the original PDF file in REGDOCS, the Canada Energy Regulator’s regulatory database. Original PDF file location information can be found in the README file included with your download or within BERDI’s search results.",
+        "link": "Methodology Documentation"
       },
       "usage": {
         "title": "Usage",

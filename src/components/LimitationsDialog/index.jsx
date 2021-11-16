@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import CloseIcon from '@material-ui/icons/Close';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload } from '../../utilities/analytics';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -44,6 +45,13 @@ const useStyles = makeStyles((theme) => ({
       padding: '0.5em 0',
     },
   },
+  methodsLink: {
+    '& span': {
+      cursor: 'pointer',
+      color: '#295376',
+      textDecoration: 'underline',
+    },
+  },
   downloadSection: {
     padding: '1.5em',
     borderColor: theme.palette.blue.dark,
@@ -79,11 +87,19 @@ const useStyles = makeStyles((theme) => ({
 const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { configDispatch } = useConfig();
   const { fileSize, csvCount, tableCount, fileDownloadURL } = useAPI();
   const handleClick = useCallback(() => {
     reportDownload(intl.messages['common.downloadAllTables']);
     onClose();
   }, [intl, onClose]);
+
+  const handleMethodsClick = () => {
+    configDispatch({ type: 'page/changed', payload: 'methods' });
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 1);
+  };
 
   return (
     <Dialog
@@ -113,8 +129,18 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.title' })}
         </Typography>
-        <Typography>
-          {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' })}
+        <Typography className={classes.methodsLink}>
+          {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' }, {
+            link: (
+              <span
+                onKeyDown={(e) => e.key === 'Enter' && handleMethodsClick}
+                onClick={handleMethodsClick}
+                role="button"
+                tabIndex="0"
+              >
+                {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.link' })}
+              </span>),
+          })}
         </Typography>
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.usage.title' })}
