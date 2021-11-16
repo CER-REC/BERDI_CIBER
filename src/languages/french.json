@@ -1,6 +1,5 @@
 {
   "common": {
-    "toolName": "ciber",
     "description": "Explorez plus de 15 000 tableaux extraits de 38 demandes visant des pipelines et des évaluations environnementales et socioéconomiques y afférentes – le début de quelque chose de nouveau à la Régie de l’énergie du Canada.",
     "char": {
       "colon": ":",
@@ -563,7 +562,7 @@
         }
       }
     },
-    "back": "Retourner à ciber",
+    "back": "Retourner à CIBER",
     "altBack": "Retour à la page d’accueil"
   }
 }
