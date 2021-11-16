@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import {
-  makeStyles, Grid, IconButton, Typography, ListItem, CircularProgress,
+  makeStyles, Grid, IconButton, Typography, ListItem, CircularProgress, Button,
 } from '@material-ui/core';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
@@ -67,12 +67,23 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 'bold',
     },
   },
+  projectButton: {
+    minWidth: 'auto',
+  },
   footer: {
     alignContent: 'flex-start',
   },
 }));
 
-const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onResultsOpen }) => {
+const CartItem = ({
+  data,
+  index,
+  onHeightChange,
+  expandList,
+  toggleExpand,
+  onResultsOpen,
+  onProjectOpen,
+}) => {
   const classes = useStyles();
   const intl = useIntl();
   const rowRef = useRef({});
@@ -153,9 +164,14 @@ const CartItem = ({ data, index, onHeightChange, expandList, toggleExpand, onRes
                       </Typography>
                     </td>
                     <td>
-                      <Typography>
-                        {data.application.name}
-                      </Typography>
+                      <Button
+                        className={classes.projectButton}
+                        color="inherit"
+                        onClick={() => onProjectOpen(data.application)}
+                        disableRipple
+                      >
+                        {data.application.shortName}
+                      </Button>
                     </td>
                   </tr>
                   <tr>
@@ -193,7 +209,7 @@ CartItem.propTypes = {
     title: PropTypes.string,
     thumbnailURL: PropTypes.string,
     application: PropTypes.shape({
-      name: PropTypes.string,
+      shortName: PropTypes.string,
       companyName: PropTypes.string,
     }),
   }),
@@ -202,6 +218,7 @@ CartItem.propTypes = {
   expandList: PropTypes.arrayOf(PropTypes.string).isRequired,
   toggleExpand: PropTypes.func.isRequired,
   onResultsOpen: PropTypes.func.isRequired,
+  onProjectOpen: PropTypes.func.isRequired,
 };
 
 CartItem.defaultProps = {

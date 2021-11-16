@@ -17,11 +17,12 @@ import rightArrow from '../../images/cart/rightArrow.png';
 import shelfIcon from '../../images/cart/shelf.svg';
 import downloadIcon from '../../images/Download.svg';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
-import { reportCartOpen, reportCartDownload, reportCartRemoveAll } from '../../utilities/analytics';
+import { reportCartOpen, reportCartDownload, reportCartRemoveAll, reportProject } from '../../utilities/analytics';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
 import ShareCard from './ShareCard';
 import styles from './styles';
+import ApplicationDialog from '../ApplicationDialog';
 
 const useStyles = makeStyles(styles);
 
@@ -46,6 +47,7 @@ const Cart = () => {
   const [expandList, setExpandList] = useState([]);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
+  const [projectData, setProjectData] = useState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -104,6 +106,11 @@ const Cart = () => {
     setResultsOpen(true);
   };
 
+  const handleProjectClick = (application) => {
+    setProjectData(application);
+    reportProject(application.shortName);
+  };
+
   const renderRow = ({ index, style }) => (
     <div style={style}>
       <CartItem
@@ -113,6 +120,7 @@ const Cart = () => {
         expandList={expandList}
         toggleExpand={toggleExpand}
         onResultsOpen={() => onResultsOpen(index)}
+        onProjectOpen={handleProjectClick}
       />
     </div>
   );
@@ -151,6 +159,7 @@ const Cart = () => {
         onClose={() => setResultsOpen(false)}
         data={resultsData}
       />
+      <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
         <svg
           height={newDotSize}
@@ -241,7 +250,7 @@ const Cart = () => {
                   ref={infiniteLoaderRef}
                   isItemLoaded={isContentLoaded}
                   itemCount={config.cartIds.length}
-                  loadMoreItems={() => {}}
+                  loadMoreItems={() => { }}
                 >
                   {({ onItemsRendered, ref: infiniteLoaderListRef }) => (
                     <VariableSizeList

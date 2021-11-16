@@ -146,6 +146,20 @@ export const getReducer = (
         applicationIds: getValidEnums(action.payload, applicationIds),
         searchIndex: 0,
       };
+    case 'applicationIds/added':
+      return {
+        ...state,
+        applicationIds: [...new Set(state.applicationIds.concat(action.payload))],
+        searchIndex: 0,
+      };
+    case 'applicationIds/removed':
+      ids = [].concat(action.payload);
+
+      return {
+        ...state,
+        applicationIds: state.applicationIds.filter((id) => !ids.includes(id)),
+        searchIndex: 0,
+      };
     case 'regions/changed':
       return {
         ...state,
