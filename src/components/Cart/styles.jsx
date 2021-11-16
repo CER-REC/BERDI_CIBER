@@ -4,7 +4,7 @@ export default (theme) => ({
     position: 'fixed',
     right: 0,
     top: '50%',
-    zIndex: '1',
+    zIndex: 10,
     padding: '10px 10px 5px 0',
     borderRadius: 0,
   },

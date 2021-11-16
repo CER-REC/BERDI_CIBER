@@ -36,4 +36,8 @@ export default (theme) => ({
       paddingRight: '0.5em',
     },
   },
+  projectButton: {
+    minWidth: 'auto',
+    marginRight: '1em',
+  },
 });

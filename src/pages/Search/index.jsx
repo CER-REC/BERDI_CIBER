@@ -3,7 +3,6 @@ import React, { useCallback, useState } from 'react';
 import { useIntl } from 'react-intl';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
-import Applications from '../../components/Applications';
 import Cart from '../../components/Cart';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import FilterPanel from '../../components/FilterPanel';
@@ -77,15 +76,12 @@ const Search = () => {
         )}
       </Grid>
       <SearchPanel hasFilter onChange={handleFilterChange} />
-      { open && <FilterPanel /> }
+      {open && <FilterPanel />}
       <SearchDetails />
-      { (config.filter === 'topic') && <TopicsFilter /> }
+      {(config.filter === 'topic') && <TopicsFilter />}
       {
         (config.filter === 'project') && (
-          <>
-            <TreeMapPanel />
-            <Applications />
-          </>
+          <TreeMapPanel />
         )
       }
       <Grid container alignItems="center">

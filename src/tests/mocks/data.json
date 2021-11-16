@@ -65,9 +65,10 @@
           "pdfPageNumber": 33,
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2393484",
           "pdfName": "B10-4 - V5D_TR_5D1_3of4_TRAD_LAND_RESOURCE - A3S2H0",
-          "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "shortName": "Mackenzie Gas",
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -76,7 +77,9 @@
             "commodity": "GAS",
             "hearingOrder": "GH-1-2004",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "FIGURE",
           "url": null,
@@ -113,9 +116,10 @@
           "pdfPageNumber": 19,
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758520",
           "pdfName": "B2-21_ESA_Appendix_1D_LiegeLateral_EPP_Part1of1 - A4K2S6",
-          "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "shortName": "Mackenzie Gas",
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -124,7 +128,9 @@
             "commodity": "GAS",
             "hearingOrder": "GH-1-2004",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-19_doc-num-A4K2S6.zip",
@@ -161,9 +167,10 @@
           "pdfPageNumber": 20,
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758826",
           "pdfName": "B2-18_ESA_Appendix_1A_Boundary_EPP_Part1of1 - A4K2S3",
-          "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "shortName": "Mackenzie Gas",
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -172,7 +179,9 @@
             "commodity": "GAS",
             "hearingOrder": "GH-1-2004",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-20_doc-num-A4K2S3.zip",
@@ -212,6 +221,7 @@
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application Test 2 Long Name",
+            "shortName": "Application Test 2 Short Name",
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
@@ -220,7 +230,9 @@
             "type": "LARGE",
             "filingDate": "2007-05-30T00:00:00",
             "hearingOrder": "OH-4-2007",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": null,
@@ -260,6 +272,7 @@
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
           "application": {
             "name": "Application Test 2 Long Name",
+            "shortName": "Application Test 2 Short Name",
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
@@ -268,7 +281,9 @@
             "type": "LARGE",
             "filingDate": "2007-05-30T00:00:00",
             "hearingOrder": "OH-4-2007",
-            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+            "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
+            "tableCount": 2131,
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "https://test",

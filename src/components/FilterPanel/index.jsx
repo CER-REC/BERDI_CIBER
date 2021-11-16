@@ -11,8 +11,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     borderColor: theme.palette.purple.alt,
     borderStyle: 'solid',
+    borderTopStyle: 'none',
     borderWidth: '3px',
     padding: '1.5em',
+    paddingTop: '3em',
+    position: 'relative',
+    top: '-1.5em',
   },
   button: {
     marginTop: '1.5em',

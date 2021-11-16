@@ -140,6 +140,7 @@ export const SEARCH = gql`
         thumbnailURL
         application {
           name
+          shortName
           consultants
           filingDate
           companyName
@@ -149,6 +150,8 @@ export const SEARCH = gql`
           hearingOrder
           applicationURL
           finalDecisionURL
+          tableCount
+          figureCount
         }
         valueComponent {
           landscape
@@ -226,12 +229,18 @@ export const CART_ITEMS = gql`
       pdfPageNumber
       application {
         name
-        companyName
+        shortName
         consultants
         filingDate
-        name
+        companyName
+        status
+        type
+        commodity
+        hearingOrder
         applicationURL
         finalDecisionURL
+        tableCount
+        figureCount
       }
       esaFolderURL
     }

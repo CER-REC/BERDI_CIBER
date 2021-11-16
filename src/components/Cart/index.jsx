@@ -16,8 +16,9 @@ import useLazyCartData from '../../hooks/useLazyCartData';
 import rightArrow from '../../images/cart/rightArrow.png';
 import shelfIcon from '../../images/cart/shelf.svg';
 import downloadIcon from '../../images/Download.svg';
-import { reportCartDownload, reportCartOpen, reportCartRemoveAll, reportDisclaimer } from '../../utilities/analytics';
+import { reportCartDownload, reportCartOpen, reportCartRemoveAll, reportDisclaimer, reportProject } from '../../utilities/analytics';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
+import ApplicationDialog from '../ApplicationDialog';
 import LimitationsDialog from '../LimitationsDialog';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
@@ -48,6 +49,7 @@ const Cart = () => {
   const [expandList, setExpandList] = useState([]);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
+  const [projectData, setProjectData] = useState();
 
   const handleOpen = () => {
     setOpen(true);
@@ -112,6 +114,11 @@ const Cart = () => {
     setResultsOpen(true);
   };
 
+  const handleProjectClick = (application) => {
+    setProjectData(application);
+    reportProject(application.shortName);
+  };
+
   const renderRow = ({ index, style }) => (
     <div style={style}>
       <CartItem
@@ -121,6 +128,7 @@ const Cart = () => {
         expandList={expandList}
         toggleExpand={toggleExpand}
         onResultsOpen={() => onResultsOpen(index)}
+        onProjectOpen={handleProjectClick}
       />
     </div>
   );
@@ -163,6 +171,7 @@ const Cart = () => {
         onClose={() => setResultsOpen(false)}
         data={resultsData}
       />
+      <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
       <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
         <svg
           height={newDotSize}
@@ -209,9 +218,7 @@ const Cart = () => {
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
-              <Icon>
-                <img src={rightArrow} alt="an arrow pointing right" style={{ verticalAlign: 'unset' }} />
-              </Icon>
+              <img src={rightArrow} alt="an arrow pointing right" />
             </IconButton>
           </Grid>
           <ShareCard
@@ -255,7 +262,7 @@ const Cart = () => {
                   ref={infiniteLoaderRef}
                   isItemLoaded={isContentLoaded}
                   itemCount={config.cartIds.length}
-                  loadMoreItems={() => {}}
+                  loadMoreItems={() => { }}
                 >
                   {({ onItemsRendered, ref: infiniteLoaderListRef }) => (
                     <VariableSizeList

@@ -59,11 +59,11 @@ const useStyles = makeStyles({
 const TreeMap = () => {
   const { applications } = useESAData();
   const classes = useStyles();
-  const { config: { treemapApplicationIds }, configDispatch } = useConfig();
+  const { config: { applicationIds }, configDispatch } = useConfig();
   const theme = useTheme();
   const data = useMemo(
-    () => formatData(applications, treemapApplicationIds, theme.palette.secondary.main),
-    [applications, treemapApplicationIds, theme.palette.secondary.main],
+    () => formatData(applications, applicationIds, theme.palette.secondary.main),
+    [applications, applicationIds, theme.palette.secondary.main],
   );
 
   const getColor = (application) => {
@@ -71,16 +71,14 @@ const TreeMap = () => {
       // This will return the appropriate colors for borders
       return application.color;
     }
-    return application.selected
-      ? theme.palette.teal.dark
-      : theme.palette.cart.light;
+    return theme.palette.teal.dark;
   };
 
   const handleClick = (node) => {
     if (node.data.selected) {
-      configDispatch({ type: 'treemapApplicationIds/removed', payload: node.id });
+      configDispatch({ type: 'applicationIds/removed', payload: node.id });
     } else {
-      configDispatch({ type: 'treemapApplicationIds/added', payload: node.id });
+      configDispatch({ type: 'applicationIds/added', payload: node.id });
     }
 
     reportFilter('treemap', node.data.shortName, !node.data.selected);

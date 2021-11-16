@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Button, Grid, Typography } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -13,7 +13,7 @@ import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
 import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
-import { reportContent } from '../../../utilities/analytics';
+import { reportContent, reportProject } from '../../../utilities/analytics';
 import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 import CartButton from '../../CartButton';
 import DropDown from '../../Dropdown';
@@ -24,6 +24,7 @@ import PaginationBar from '../PaginationBar';
 import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
 import TitleSection from './TitleSection';
+import ApplicationDialog from '../../ApplicationDialog';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -42,6 +43,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const [open, setOpen] = useState(false);
   const [selectedLineData, setSelectedLineData] = useState(null);
   const [expandedTitles, setExpandedTitles] = useState([]);
+  const [projectData, setProjectData] = useState();
 
   const handleClickOpen = (content) => {
     reportContent(content.title);
@@ -57,13 +59,38 @@ const SearchList = ({ toggleExpand, expandList }) => {
     configDispatch({ type: 'resultCount/changed', payload: items[1] });
   };
 
+  const handleProjectClick = (data) => {
+    setProjectData(data);
+    reportProject(data.shortName);
+  };
+
+  const createTableTitle = (title) => (
+    <td style={{ whiteSpace: 'nowrap' }}>
+      <Typography style={{ fontWeight: 'bold' }}>
+        {title}
+      </Typography>
+    </td>
+  );
+
+  const createTableProjectRow = (data, title) => (
+    <tr>
+      {createTableTitle(title)}
+      <td>
+        <Button
+          className={classes.projectButton}
+          color="inherit"
+          onClick={() => handleProjectClick(data)}
+          disableRipple
+        >
+          {data.shortName}
+        </Button>
+      </td>
+    </tr>
+  );
+
   const createTableRow = (data, title) => (
     <tr>
-      <td style={{ whiteSpace: 'nowrap' }}>
-        <Typography style={{ fontWeight: 'bold' }}>
-          {title}
-        </Typography>
-      </td>
+      {createTableTitle(title)}
       <td>
         <Typography>
           {data}
@@ -75,6 +102,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
+      <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
       <TableContainer component={Paper} className={classes.tableParent}>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableBody>
@@ -110,34 +138,34 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                       <table className={classes.details}>
                         <tbody>
-                          {createTableRow(content.application.name, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
+                          {createTableProjectRow(content.application, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
                           {
                             (expandList.includes(content.id)) && (
-                            <>
-                              {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
-                              {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
-                              {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
-                              {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
-                              {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
-                              <tr>
-                                <td>
-                                  <Typography style={{ fontWeight: 'bold' }}>
-                                    {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
-                                  </Typography>
-                                </td>
-                                <td>
-                                  <Typography>
-                                    <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
-                                    <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
-                                    {(content.application.finalDecisionURL
-                                    && content.application.finalDecisionURL.toLowerCase() !== 'pending')
-                                    && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
-                                  </Typography>
-                                </td>
-                              </tr>
-                            </>
+                              <>
+                                {createTableRow(content.application.consultants, intl.formatMessage({ id: 'components.listPanel.esaConsultant' }))}
+                                {createTableRow(new Date(content.application.filingDate).toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'long', day: 'numeric' }), intl.formatMessage({ id: 'components.listPanel.projectFiled' }))}
+                                {createTableRow(intl.formatMessage({ id: `api.statuses.${content.application.status}` }), intl.formatMessage({ id: 'components.listPanel.projectStatus' }))}
+                                {createTableRow(intl.formatMessage({ id: getProjectTypeLabel(content.application.type, new Date(content.application.filingDate)) }), intl.formatMessage({ id: 'components.listPanel.projectType' }))}
+                                {createTableRow(intl.formatMessage({ id: `api.commodities.${content.application.commodity}` }), intl.formatMessage({ id: 'common.commodity' }))}
+                                {createTableRow(content.application.hearingOrder, intl.formatMessage({ id: 'common.hearingOrder' }))}
+                                <tr>
+                                  <td>
+                                    <Typography style={{ fontWeight: 'bold' }}>
+                                      {intl.formatMessage({ id: 'components.listPanel.projectLinks' })}
+                                    </Typography>
+                                  </td>
+                                  <td>
+                                    <Typography>
+                                      <a target="_blank" rel="noopener noreferrer" href={content.application.applicationURL}>{intl.formatMessage({ id: 'components.listPanel.projectFolder' })}</a>
+                                      <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
+                                      {(content.application.finalDecisionURL
+                                        && content.application.finalDecisionURL.toLowerCase() !== 'pending')
+                                        && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                    </Typography>
+                                  </td>
+                                </tr>
+                              </>
                             )
                           }
                         </tbody>
