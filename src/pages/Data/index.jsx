@@ -88,12 +88,20 @@ const Data = () => {
             {intl.formatMessage({ id: 'pages.data.body.text3' },
               {
                 link1: (
-                  <a href={intl.messages['pages.data.body.url1']}>
+                  <a
+                    href={intl.messages['pages.data.body.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.data.body.link1' })}
                   </a>
                 ),
                 link2: (
-                  <a href={intl.messages['pages.data.body.url2']}>
+                  <a
+                    href={intl.messages['pages.data.body.url2']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.data.body.link2' })}
                   </a>
                 ),
@@ -121,7 +129,11 @@ const Data = () => {
           <Typography>
             {intl.formatMessage({ id: 'pages.data.body.footer' }, {
               link: (
-                <a href={intl.messages['pages.data.body.url3']}>
+                <a
+                  href={intl.messages['pages.data.body.url3']}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {intl.formatMessage({ id: 'pages.data.body.link3' })}
                 </a>),
             })}
