@@ -6,12 +6,10 @@ import { useIntl } from 'react-intl';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
-import owlBanner from '../../images/landing/owlBanner.png';
 
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
-    backgroundImage: `url(${owlBanner})`,
-    backgroundSize: 'cover',
+    background: 'linear-gradient(#4F5699, #544275)',
     paddingBottom: '2em',
   },
   gradientRoot: {
