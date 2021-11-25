@@ -63,7 +63,11 @@ const Methods = () => {
               { id: 'pages.methods.body.section1.paragraph3' },
               {
                 link: (
-                  <a href={intl.messages['pages.methods.body.section1.url']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section1.url']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section1.link' })}
                   </a>
                 ),
@@ -81,12 +85,20 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section2.paragraph1' },
               {
                 link1: (
-                  <a href={intl.messages['pages.methods.body.section2.url1']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section2.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section2.link1' })}
                   </a>
                 ),
                 link2: (
-                  <a href={intl.messages['pages.methods.body.section2.url2']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section2.url2']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section2.link2' })}
                   </a>
                 ),
@@ -103,7 +115,11 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section3.paragraph1' },
               {
                 link1: (
-                  <a href={intl.messages['pages.methods.body.section3.url1']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section3.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section3.link1' })}
                   </a>
                 ),
@@ -120,7 +136,11 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section4.paragraph1' },
               {
                 link1: (
-                  <a href={intl.messages['pages.methods.body.section4.url1']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section4.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section4.link1' })}
                   </a>
                 ),
@@ -222,7 +242,11 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section8.paragraph1' },
               {
                 link1: (
-                  <a href={intl.messages['pages.methods.body.section8.url1']}>
+                  <a
+                    href={intl.messages['pages.methods.body.section8.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.methods.body.section8.link1' })}
                   </a>
                 ),

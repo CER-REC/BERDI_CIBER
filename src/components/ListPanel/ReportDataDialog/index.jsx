@@ -144,7 +144,11 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
                     <Typography variant="body2">
                       {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
                         terms: (
-                          <a href={intl.formatMessage({ id: 'common.limitationsURL' })}>
+                          <a
+                            href={intl.formatMessage({ id: 'common.limitationsURL' })}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
                             {intl.formatMessage({ id: 'common.termsAndConditions' })}
                           </a>
                         ),
