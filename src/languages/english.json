@@ -1,6 +1,5 @@
 {
   "common": {
-    "toolName": "berdi",
     "description": "Search over 15,000 tables extracted from 38 pipeline applications and their Environmental and Socio-Economic Assessments - the start of something new, at the Canada Energy Regulator.",
     "char": {
       "colon": ":",
@@ -221,7 +220,7 @@
       "bullet5": "{not} use the database for any commercial or competitive purposes.",
       "not": "NOT",
       "agree": "I agree",
-      "enter": "Enter {tool}"
+      "enter": "Enter BERDI"
     },
     "limitationsDialog": {
       "title": "General Limitations",
@@ -579,7 +578,7 @@
         }
       }
     },
-    "back": "Back to berdi",
+    "back": "Back to BERDI",
     "altBack": "Back to main page"
   }
 }

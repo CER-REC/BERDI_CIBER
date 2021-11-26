@@ -88,7 +88,11 @@ const Project = () => {
                     </strong>
                   ),
                   openGov: (
-                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.openGovLink' })}>
+                    <a
+                      href={intl.formatMessage({ id: 'pages.project.body.section1.openGovLink' })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {intl.formatMessage({ id: 'pages.project.body.section1.openGov' })}
                     </a>
                   ),
@@ -108,7 +112,11 @@ const Project = () => {
                     </strong>
                   ),
                   github: (
-                    <a href={intl.formatMessage({ id: 'pages.project.body.section1.githubLink' })}>
+                    <a
+                      href={intl.formatMessage({ id: 'pages.project.body.section1.githubLink' })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {intl.formatMessage({ id: 'pages.project.body.section1.github' })}
                     </a>
                   ),
@@ -137,7 +145,11 @@ const Project = () => {
             {intl.formatMessage({ id: 'pages.project.body.section2.text2' },
               {
                 email: (
-                  <a href={`mailto:${intl.messages['pages.project.body.section2.email']}?subject=${intl.messages['pages.project.body.section2.subject']}`}>
+                  <a
+                    href={`mailto:${intl.messages['pages.project.body.section2.email']}?subject=${intl.messages['pages.project.body.section2.subject']}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {intl.formatMessage({ id: 'pages.project.body.section2.email' })}
                   </a>
                 ),

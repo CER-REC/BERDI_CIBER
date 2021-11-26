@@ -95,7 +95,7 @@ const ApplicationDialog = ({ data, onClose }) => {
               component="span"
               className={classes.statusIndicator}
             >
-              {intl.formatMessage({ id: `api.statuses.${data.status}` }) }
+              {intl.formatMessage({ id: `api.statuses.${data.status}` })}
             </Typography>
           </Grid>
         </Grid>
@@ -129,16 +129,14 @@ const ApplicationDialog = ({ data, onClose }) => {
                 onClick={handleViewClick}
                 color="primary"
                 variant="outlined"
+                href={data.applicationURL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ outline: 'none' }}
+                className={classes.folderLink}
               >
                 <Typography>
-                  <a
-                    className={classes.folderLink}
-                    href={data.applicationURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
-                  </a>
+                  {intl.formatMessage({ id: 'components.applicationDialog.regdocs' })}
                 </Typography>
               </Button>
             </Grid>

@@ -17,13 +17,16 @@ const useStyles = makeStyles((theme) => ({
 const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
   const intl = useIntl();
   const classes = useStyles();
+  const isExpanded = expandList.includes(content.id);
   const handleClick = () => {
     toggleExpand(content.id);
-    reportDetails(content.title);
+
+    if (!isExpanded) {
+      reportDetails(content.title);
+    }
   };
 
-  if (expandList.includes(content.id)) {
-    // expanded already
+  if (isExpanded) {
     return (
       <ButtonBase className={classes.root} onClick={handleClick}>
         <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
@@ -31,7 +34,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
       </ButtonBase>
     );
   }
-  // not expanded
+
   return (
     <ButtonBase className={classes.root} onClick={handleClick}>
       <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>

@@ -9,6 +9,7 @@ export default (theme) => ({
   },
   folderLink: {
     '&:not(:hover):not(:visited)': { color: theme.palette.blue.dark },
+    '&:hover': { textDecoration: 'underline' },
   },
   footer: {
     backgroundColor: theme.palette.dialog.footer,

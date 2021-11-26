@@ -30,7 +30,6 @@ const simulateSearch = () => {
   fireEvent.click(searchButton);
 };
 
-// eslint-disable-next-line no-unused-vars
 const simulateFilter = () => {
   const showFilters = screen.getByText('components.searchPanel.filterLabel').parentNode;
   const showFiltersSwitch = getByRole(showFilters, 'checkbox');
@@ -107,7 +106,7 @@ describe('Containers/App', () => {
   });
 
   it('should set the state from the URL parameters', async () => {
-    setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDIiXQ%3D%3D');
+    setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D');
     render(<LazyApp />, { configMocked: false });
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
@@ -128,33 +127,29 @@ describe('Containers/App', () => {
 
   it.todo('should set the cart state from the URL parameter');
 
-  // TODO: fix this test after treemap ids are removed
-  // it('should push the state to the history', async () => {
-  // eslint-disable-next-line max-len
-  //   const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D&treemapApplicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
+  it('should push the state to the history', async () => {
+    const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
 
-  //   render(<LazyApp />, { configMocked: false });
-  //   simulateSearch();
-  //   simulateFilter();
+    render(<LazyApp />, { configMocked: false });
+    simulateSearch();
+    simulateFilter();
 
-  //   await waitFor(() => {
-  //     const next = screen.getByText('common.next');
+    await waitFor(() => {
+      const next = screen.getByText('common.next');
 
-  //     // Hack to stop navigation not implemented error
-  //     // jsdom strictly checks for a null to stop navigation
-  //     next.target = null;
+      // Hack to stop navigation not implemented error
+      // jsdom strictly checks for a null to stop navigation
+      next.target = null;
 
-  // eslint-disable-next-line max-len
-  //     fireEvent.click(getByText(screen.getByText('components.treeMapPanel.boxSelect').nextSibling, 'Test1'));
-  //     fireEvent.click(next);
-  //   });
+      fireEvent.click(next);
+    });
 
-  //   expect(window.history.pushState).toHaveBeenLastCalledWith(
-  //     expect.anything(),
-  //     expect.anything(),
-  //     expect.stringContaining(expected),
-  //   );
-  // });
+    expect(window.history.pushState).toHaveBeenLastCalledWith(
+      expect.anything(),
+      expect.anything(),
+      expect.stringContaining(expected),
+    );
+  });
 
   it('should push the state to the history ignoring bad config values', async () => {
     // Using BigInt to mock a bad config state for throwing a error when setting data in URL
@@ -170,7 +165,7 @@ describe('Containers/App', () => {
   });
 
   it('should set the state ignoring bad URL parameters', async () => {
-    setURLSearchParams('?page=search&searchIndex=&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=&commodities=&projectTypes=&statuses=&contentTypes=&search=IiI%3D&applicationIds=BAD_DATA&treemapApplicationIds=BAD_DATA');
+    setURLSearchParams('?page=search&searchIndex=&cartIndex=&startDate=2000-01-01&endDate=2000-01-31&regions=&commodities=&projectTypes=&statuses=&contentTypes=&search=IiI%3D&applicationIds=BAD_DATA');
     render(<LazyApp />, { configMocked: false });
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();

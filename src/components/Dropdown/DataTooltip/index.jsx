@@ -45,12 +45,20 @@ const DataTooltip = () => {
                   { id: 'components.dropdown.tooltip' },
                   {
                     nebAct: (
-                      <a href={intl.formatMessage({ id: 'components.dropdown.nebLink' })}>
+                      <a
+                        href={intl.formatMessage({ id: 'components.dropdown.nebLink' })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {intl.formatMessage({ id: 'components.dropdown.nebAct' })}
                       </a>
                     ),
                     cerAct: (
-                      <a href={intl.formatMessage({ id: 'components.dropdown.cerLink' })}>
+                      <a
+                        href={intl.formatMessage({ id: 'components.dropdown.cerLink' })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         {intl.formatMessage({ id: 'components.dropdown.cerAct' })}
                       </a>
                     ),
