@@ -16,13 +16,14 @@ import useLazyCartData from '../../hooks/useLazyCartData';
 import rightArrow from '../../images/cart/rightArrow.png';
 import shelfIcon from '../../images/cart/shelf.svg';
 import downloadIcon from '../../images/Download.svg';
+import { reportCartDownload, reportCartOpen, reportCartRemoveAll, reportDisclaimer, reportProject } from '../../utilities/analytics';
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
-import { reportCartOpen, reportCartDownload, reportCartRemoveAll, reportProject } from '../../utilities/analytics';
+import ApplicationDialog from '../ApplicationDialog';
+import LimitationsDialog from '../LimitationsDialog';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
 import ShareCard from './ShareCard';
 import styles from './styles';
-import ApplicationDialog from '../ApplicationDialog';
 
 const useStyles = makeStyles(styles);
 
@@ -43,6 +44,7 @@ const Cart = () => {
 
   const [open, setOpen] = useState(false);
   const [shareOpen, setShareOpen] = useState(false);
+  const [limitationsOpen, setLimitationsOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const [expandList, setExpandList] = useState([]);
   const [resultsOpen, setResultsOpen] = useState(false);
@@ -70,6 +72,12 @@ const Cart = () => {
   };
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
+
+  const handleLimitationsOpen = () => {
+    reportDisclaimer();
+    setLimitationsOpen(true);
+  };
+  const handleLimitationsClose = () => setLimitationsOpen(false);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -154,6 +162,10 @@ const Cart = () => {
 
   return (
     <>
+      <LimitationsDialog
+        open={limitationsOpen}
+        onClose={handleLimitationsClose}
+      />
       <ResultDialog
         open={resultsOpen}
         onClose={() => setResultsOpen(false)}
@@ -283,9 +295,14 @@ const Cart = () => {
                 { id: 'components.cart.downloadDisclaimer' },
                 {
                   limitationsURL: (
-                    <a href={intl.formatMessage({ id: 'common.limitationsURL' })} target="_blank" rel="noopener noreferrer">
+                    <span
+                      role="button"
+                      tabIndex="0"
+                      onClick={handleLimitationsOpen}
+                      onKeyDown={(e) => e.key === 'Enter' && handleLimitationsOpen()}
+                    >
                       {intl.formatMessage({ id: 'common.limitations' })}
-                    </a>
+                    </span>
                   ),
                 },
               )}

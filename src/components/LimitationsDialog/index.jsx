@@ -1,9 +1,11 @@
-import { Button, Dialog, makeStyles, Typography } from '@material-ui/core';
+import { Button, Dialog, makeStyles, Typography, IconButton, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
+import CloseIcon from '@material-ui/icons/Close';
 import useAPI from '../../hooks/useAPI';
-import { reportDownload } from '../../utilities/analytics';
+import { reportDownload, reportSection } from '../../utilities/analytics';
+import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
   dialog: {
@@ -16,10 +18,14 @@ const useStyles = makeStyles((theme) => ({
       width: 'calc(100% - 3em)',
     },
   },
-  title: {
+  titleSection: {
     backgroundColor: theme.palette.blue.dark,
     color: theme.palette.common.white,
-    padding: '0.8em',
+    '& button': {
+      color: 'white',
+      paddingRight: 0,
+    },
+    padding: '0 1em',
   },
   body: {
     padding: '1.5em',
@@ -34,15 +40,16 @@ const useStyles = makeStyles((theme) => ({
       paddingTop: '1em',
       '&:not(:last-child)': { paddingBottom: '2em' },
     },
-    '& mark': {
-      background: theme.palette.blue.inline,
-      paddingLeft: 0,
-      paddingRight: '0.5em',
-      fontFamily: 'Courier',
-    },
     '& span': {
       display: 'block',
       padding: '0.5em 0',
+    },
+  },
+  methodsLink: {
+    '& span': {
+      cursor: 'pointer',
+      color: '#295376',
+      textDecoration: 'underline',
     },
   },
   downloadSection: {
@@ -68,20 +75,29 @@ const useStyles = makeStyles((theme) => ({
       color: '#theme.palette.blue.dark',
     },
   },
-  footer: {
-    padding: '1.5em',
-    textAlign: 'right',
+  cite: {
+    background: 'white',
+    fontWeight: 500,
+    paddingLeft: 0,
+    paddingRight: '0.5em',
+    fontFamily: 'Roboto Mono',
   },
 }));
 
 const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
+  const { configDispatch } = useConfig();
   const { fileSize, csvCount, tableCount, fileDownloadURL } = useAPI();
   const handleClick = useCallback(() => {
     reportDownload(intl.messages['common.downloadAllTables']);
     onClose();
   }, [intl, onClose]);
+
+  const handleMethodsClick = () => {
+    reportSection('methods');
+    configDispatch({ type: 'page/changed', payload: 'methods' });
+  };
 
   return (
     <Dialog
@@ -92,36 +108,63 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
       maxWidth="sm"
       fullWidth
     >
-      <Typography classes={{ root: classes.title }} variant="h6">
-        {intl.formatMessage({ id: 'components.limitationsDialog.title' })}
-      </Typography>
+      {/* Title Section */}
+      <Grid container className={classes.titleSection}>
+        <Grid item xs={11} style={{ padding: '0.5em 0' }}>
+          <Typography variant="h6">
+            {intl.formatMessage({ id: 'components.limitationsDialog.title' })}
+          </Typography>
+        </Grid>
+
+        <Grid container justify="flex-end" item xs={1}>
+          <IconButton aria-label="close" onClick={onClose}>
+            <CloseIcon />
+          </IconButton>
+        </Grid>
+      </Grid>
+
       <div className={classes.body}>
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.title' })}
         </Typography>
-        <Typography>
-          {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' })}
+        <Typography className={classes.methodsLink}>
+          {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' }, {
+            link: (
+              <span
+                onKeyDown={(e) => e.key === 'Enter' && handleMethodsClick}
+                onClick={handleMethodsClick}
+                role="button"
+                tabIndex="0"
+              >
+                {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.link' })}
+              </span>),
+          })}
         </Typography>
         <Typography component="h6">
-          {intl.formatMessage({ id: 'common.termsAndConditions' })}
+          {intl.formatMessage({ id: 'components.limitationsDialog.usage.title' })}
         </Typography>
-        <Typography>
-          {
-            intl.formatMessage(
-              { id: 'components.limitationsDialog.termsTitle.body' },
-              {
-                link: (
-                  <a
-                    href={intl.formatMessage({ id: 'common.limitationsURL' })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.limitationsDialog.termsTitle.link' })}
-                  </a>
-                ),
-              },
-            )
-          }
+        <Typography style={{ paddingBottom: '1em' }}>
+          {intl.formatMessage({ id: 'components.limitationsDialog.usage.header' })}
+        </Typography>
+        <ul style={{ fontFamily: 'Noto Sans, sans-serif', fontSize: '14px' }}>
+          <li>
+            {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet1' })}
+          </li>
+          <li>
+            {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet2' })}
+          </li>
+          <li>
+            {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet3' })}
+          </li>
+          <li>
+            {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet4' })}
+          </li>
+          <li>
+            {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet5' })}
+          </li>
+        </ul>
+        <Typography style={{ paddingTop: 0 }}>
+          {intl.formatMessage({ id: 'components.limitationsDialog.usage.footer' })}
         </Typography>
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.citation.title' })}
@@ -132,10 +175,8 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               { id: 'components.limitationsDialog.citation.body' },
               {
                 cite: (
-                  <span>
-                    <mark>
-                      {intl.formatMessage({ id: 'components.limitationsDialog.citation.cite' })}
-                    </mark>
+                  <span className={classes.cite}>
+                    {intl.formatMessage({ id: 'components.limitationsDialog.citation.cite' })}
                   </span>
                 ),
               },
@@ -143,69 +184,60 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           }
         </Typography>
       </div>
-      { hasDownload
-      && (
-      <div className={classes.downloadSection}>
-        <Typography>
-          {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.zipText' })}
-        </Typography>
-        <Typography>
-          <span>
-            &#8226;
-            {intl.formatMessage(
-              { id: 'components.limitationsDialog.dataSection.countsText' },
-              {
-                csvCount: intl.formatNumber(csvCount),
-                tableCount: intl.formatNumber(tableCount),
-                part2: (
-                  <span style={{ fontWeight: 'normal' }}>
-                    {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
-                  </span>
-                ),
-              },
-            )}
-          </span>
-        </Typography>
+      { hasDownload && (
+        <div className={classes.downloadSection}>
+          <Typography>
+            {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.zipText' })}
+          </Typography>
+          <Typography>
+            <span>
+              &#8226;
+              {intl.formatMessage(
+                { id: 'components.limitationsDialog.dataSection.countsText' },
+                {
+                  csvCount: intl.formatNumber(csvCount),
+                  tableCount: intl.formatNumber(tableCount),
+                  part2: (
+                    <span style={{ fontWeight: 'normal' }}>
+                      {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
+                    </span>
+                  ),
+                },
+              )}
+            </span>
+          </Typography>
 
-        <Typography>
-          <span>
-            {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.limitationsText' })}
-          </span>
-        </Typography>
+          <Typography>
+            <span>
+              {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.limitationsText' })}
+            </span>
+          </Typography>
 
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={handleClick}
-          href={fileDownloadURL}
-          disableElevation
-        >
-          <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-          <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-            {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
-          </span>
-        </Button>
-      </div>
-      ) }
-      <hr />
-      <div className={classes.footer}>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={onClose}
-          disableElevation
-        >
-          {intl.formatMessage({ id: 'components.limitationsDialog.close' })}
-        </Button>
-      </div>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={handleClick}
+            href={fileDownloadURL}
+            disableElevation
+          >
+            <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
+            <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+              {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
+            </span>
+          </Button>
+        </div>
+      )}
     </Dialog>
   );
 };
 
 LimitationsDialog.propTypes = {
   open: PropTypes.bool.isRequired,
-  hasDownload: PropTypes.bool.isRequired,
+  hasDownload: PropTypes.bool,
   onClose: PropTypes.func.isRequired,
 };
 
+LimitationsDialog.defaultProps = {
+  hasDownload: false,
+};
 export default LimitationsDialog;

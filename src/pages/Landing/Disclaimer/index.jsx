@@ -40,7 +40,6 @@ const Disclaimer = () => {
   const handleLinkClick = useCallback(() => {
     reportSection('data');
     configDispatch({ type: 'page/changed', payload: 'data' });
-    window.scrollTo(0, 0);
   }, [configDispatch]);
   const handleButtonClick = useCallback(() => {
     reportDisclaimer();
@@ -75,7 +74,6 @@ const Disclaimer = () => {
         </Button>
         <LimitationsDialog
           open={open}
-          hasDownload={false}
           onClose={handleClose}
         />
       </Grid>

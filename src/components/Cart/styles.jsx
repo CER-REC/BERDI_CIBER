@@ -92,6 +92,11 @@ export default (theme) => ({
   },
   disclaimerText: {
     fontSize: '14px',
+    '& span': {
+      cursor: 'pointer',
+      color: '#295376',
+      textDecoration: 'underline',
+    },
   },
   footerDownloadButton: {
     marginBottom: '2em',

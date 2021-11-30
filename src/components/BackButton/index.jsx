@@ -33,7 +33,6 @@ const BackButton = ({ isContentPage }) => {
     configDispatch({ type: 'filters/removed' });
     configDispatch({ type: 'search/removed' });
     configDispatch({ type: 'page/changed', payload: 'landing' });
-    window.scrollTo(0, 0);
   }, [configDispatch]);
   const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 

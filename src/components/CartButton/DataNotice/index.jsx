@@ -15,7 +15,6 @@ const DataNotice = () => {
   const handleClick = () => {
     reportSection('methods');
     configDispatch({ type: 'page/changed', payload: 'methods' });
-    window.scrollTo(0, 0);
   };
 
   return (

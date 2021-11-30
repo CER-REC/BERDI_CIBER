@@ -32,6 +32,15 @@ const Content = () => {
     return () => clearTimeout(timeoutId);
   }, [disclaimerOpen]);
 
+  useEffect(() => {
+    switch (config.page) {
+      case 'search':
+        break;
+      default:
+        window.scrollTo(0, 0);
+        break;
+    }
+  }, [config.page]);
   return (
     <>
       <LegalDisclaimer
