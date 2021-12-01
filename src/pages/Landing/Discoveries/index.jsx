@@ -2,7 +2,6 @@ import React, { useCallback, useState } from 'react';
 import { Grid, Typography, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
-import { lang } from '../../../constants';
 import ImageButton from '../../../components/ImageButton';
 import ResultDialog from '../../../components/ResultDialog';
 import useAPI from '../../../hooks/useAPI';
@@ -45,7 +44,6 @@ const Discoveries = () => {
 
   return (
     <div className={`Discoveries ${classes.root}`}>
-      {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.disclaimer' })}</Typography>}
       <Typography variant="h6" className={classes.header}>
         {intl.formatMessage({ id: 'pages.landing.discoveries.title' })}
       </Typography>

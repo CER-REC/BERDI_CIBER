@@ -140,6 +140,14 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               </span>),
           })}
         </Typography>
+
+        {intl.locale === 'fr' && (
+          <>
+            <Typography style={{ paddingTop: 0 }} variant="body2">
+              {intl.formatMessage({ id: 'components.searchPanel.helpDialog.frenchDisclaimer' })}
+            </Typography>
+          </>
+        )}
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.usage.title' })}
         </Typography>
