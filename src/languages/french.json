@@ -310,7 +310,7 @@
           "small": "Projets de petite envergure (LRCE, article 214, de moins de 40 km)",
           "abandonment": "Cessation d’exploitation de pipeline (LRCE, article 241)"
         },
-        "noTopics": "Aucun sujet connexe n’est associé à {gender, select, male {ce} other {cette}} {type}."
+        "noTopics": "Aucun sujet connexe n’est associé à {gender, select, masculine {ce} other {cette}} {type}."
       }
     },
     "filterPanel": {
