@@ -6,6 +6,8 @@ import RelatedTopicsDialog from '../RelatedTopicsDialog';
 import getScore from '../../../utilities/getScore';
 import { socioEconomicTopics } from '../../../constants';
 
+const masculineTypes = ['ALIGNMENT_SHEET'];
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: '#F4F4F4',
@@ -120,6 +122,7 @@ const RelatedTopics = ({ valueComponents, type }) => {
           <Typography variant="h6" className={classes.title}>
             {intl.formatMessage({ id: 'components.listPanel.relatedTopics.noTopics' }, {
               type: intl.formatMessage({ id: `api.content.${type}` }).toLowerCase(),
+              gender: masculineTypes.includes(type) ? 'masculine' : 'feminine',
             })}
           </Typography>
       )}

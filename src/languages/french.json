@@ -5,14 +5,15 @@
       "colon": ":",
       "percent": "%"
     },
-    "tables": "Tableaux",
-    "figures": "Figures",
     "project": "Projet",
     "topic": "Sujet",
+    "tables": "Tableaux",
+    "figures": "Figures",
     "previous": "Précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
     "megabytes": "Mo",
     "kilobytes": "Ko",
+    "limitations": "restrictions",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
     "fullProjectName": "Nom complet du projet : ",
@@ -167,7 +168,7 @@
       "tables": "Télécharger les tableaux de l'EES"
     },
     "cart": {
-      "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les restrictions et acceptez de respecter toutes les exigences qui s’y rattachent.",
+      "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
       "headerQuantity": "Éléments sur la tablette",
       "viewFullList": "Voir la liste complète sur la page",
@@ -198,7 +199,8 @@
       "nebAct": "Loi sur l’Office national de l’énergie",
       "cerAct": "Loi sur la Régie canadienne de l’énergie",
       "nebLink": "https://lois-laws.justice.gc.ca/fra/lois/N-7/",
-      "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/"
+      "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/",
+      "resultsCountLabel": "{num} résultats par page"
     },
     "errorBoundary": {
       "restoreLinkText": "Rétablir la session.",
@@ -239,8 +241,7 @@
         "zipText": "Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
         "countsText": "{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
         "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
-        "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences.",
-        "url": "csv/fr/fr.zip"
+        "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences."
       }
     },
     "listPanel": {
@@ -276,36 +277,37 @@
             "3": "Plutôt utiles",
             "4": "Utiles",
             "5": "Très utiles"
-          },
-          "reportDataDialog": {
-            "report": "Évaluer ces données :",
-            "required": "Requis",
-            "whatConcern": "Quel souci souhaitez-vous signaler?",
-            "strangeChars": "Les données comportaient des caractères insolites.",
-            "noData": "Je n’ai pas retrouvé les données dans le document.",
-            "other": "Autre",
-            "explainMore": "Veuillez expliquer plus en détail.",
-            "optional": "Facultatif",
-            "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-            "submit": "Envoyer",
-            "thankYou": "Nous avons bien reçu votre signalement.",
-            "flagged": "Ces données seront examinées."
           }
+        },
+        "reportDataDialog": {
+          "report": "Évaluer ces données :",
+          "required": "Requis",
+          "whatConcern": "Quel souci souhaitez-vous signaler?",
+          "strangeChars": "Les données comportaient des caractères insolites.",
+          "noData": "Je n’ai pas retrouvé les données dans le document.",
+          "other": "Autre",
+          "explainMore": "Veuillez expliquer plus en détail.",
+          "optional": "Facultatif",
+          "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+          "submit": "Envoyer",
+          "thankYou": "Nous avons bien reçu votre signalement.",
+          "flagged": "Ces données seront examinées."
         }
       },
       "relatedTopics": {
         "title": "Sujets connexes :",
         "button": "Consultez plus de données à ce sujet",
         "NEBAct": {
-          "large": "",
-          "small": "",
-          "abandonment": ""
+          "large": "Projets de grande envergure (Loi sur l’Office national de l’énergie, article 52, de plus de 40 km)",
+          "small": "Projets de petite envergure (Loi sur l’Office national de l’énergie, article 58, de moins de 40 km)",
+          "abandonment": "Cessation d’exploitation de pipeline (Loi sur l’Office national de l’énergie, article 72)"
         },
         "CERAct": {
-          "large": "",
-          "small": "",
-          "abandonment": ""
-        }
+          "large": "Projets de grande envergure (LRCE, article 183, de plus de 40 km)",
+          "small": "Projets de petite envergure (LRCE, article 214, de moins de 40 km)",
+          "abandonment": "Cessation d’exploitation de pipeline (LRCE, article 241)"
+        },
+        "noTopics": "Aucun sujet connexe n’est associé à {gender, select, masculine {ce} other {cette}} {type}."
       }
     },
     "filterPanel": {
@@ -340,8 +342,7 @@
     },
     "resultsList": {
       "dataButton": {
-        "label": "Accès à l’ensemble de données complet",
-        "link": "csv/fr/fr.zip"
+        "label": "Accès à l’ensemble de données complet"
       },
       "titles": {
         "filedDate": "Date du dépôt du projet "
@@ -351,7 +352,6 @@
       "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
-      "keywords": {},
       "searchHelp": "Aide pour la recherche",
       "helpDialog": {
         "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
@@ -553,6 +553,10 @@
           },
           "paragraph3": "Toutes les images ont été revues et on a ainsi constaté que 92,1 % d’entre elles montraient le bon numéro de page, 89,4 % avaient le bon titre et 99,95 % étaient fidèles à l’image originale. L’extraction des figures n’était pas parfaite en raison de titres différents dans la table des matières (au niveau de l’orthographe ou des formats d’étiquetage), parfois même de l’absence totale de titre. Aussi, les titres des figures intégrés aux images demeuraient invisibles en raison de la méthode d’extraction choisie, fondée sur le texte. Enfin, dans un faible pourcentage de fichiers PDF (0,95 %), le processus d’extraction a mené à des images corrompues où des blocs texte/image étaient partiellement conservés alors que le reste de la figure était tout noir.",
           "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux fonctions qui n’existaient pas auparavant."
+        },
+        "section7": {
+          "header": "À quel moment mettons-nous à jour les données?",
+          "paragraph1": "Nous consultons le dépôt central de documents publics de la Régie, REGDOCS, pour connaître les nouvelles données admissibles pour CIBER deux fois par année. Ces données proviennent d’évaluations environnementales et socioéconomiques. Celles-ci font partie de la documentation courante que l’on trouve dans les demandes dûment remplies pour de grands projets pipeliniers (de plus de 20 km de longueur). Les demandes dûment remplies sont celles que la Régie juge prêtes à être traitées. REGDOCS contient des documents de réglementation remontant à 2003."
         },
         "section8": {
           "header": "Remerciements",

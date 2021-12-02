@@ -222,8 +222,7 @@ const Methods = () => {
           </Typography>
         </section>
 
-        {/* This section appears in the english translations but not the french translations */}
-        {/* <section>
+        <section>
           <Typography variant="h5" style={{ paddingTop: '1em' }}>
             {intl.formatMessage({ id: 'pages.methods.body.section7.header' })}
           </Typography>
@@ -231,7 +230,7 @@ const Methods = () => {
           <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' })}
           </Typography>
-        </section> */}
+        </section>
 
         <section>
           <Typography className={classes.header}>
