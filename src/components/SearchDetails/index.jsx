@@ -68,7 +68,7 @@ const SearchDetails = () => {
                     boldAlignmentSheets: (<span className={classes.bold}>{`${alignmentSheetCount.toLocaleString()}`}</span>),
                   })}
                 </Typography>
-                {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'pages.landing.discoveries.disclaimer' })}</Typography>}
+                {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'common.frenchDisclaimerShort' })}</Typography>}
               </div>
             )) || <NoResultsStatusMessages />
           )
