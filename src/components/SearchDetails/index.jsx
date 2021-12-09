@@ -5,6 +5,7 @@ import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 import FilterToggle from './FilterToggle';
 import NoResultsStatusMessages from './NoResultsStatusMessages';
+import { lang } from '../../constants';
 
 const useStyles = makeStyles({
   counts: {
@@ -56,16 +57,19 @@ const SearchDetails = () => {
         {(
           !loading && (
             (applications.length && (
-              <Typography variant="h6" className={classes.counts}>
-                {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
-                  tables: tableCount,
-                  figures: figureCount,
-                  alignmentSheets: alignmentSheetCount,
-                  boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
-                  boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
-                  boldAlignmentSheets: (<span className={classes.bold}>{`${alignmentSheetCount.toLocaleString()}`}</span>),
-                })}
-              </Typography>
+              <div>
+                <Typography variant="h6" className={classes.counts}>
+                  {intl.formatMessage({ id: 'components.searchDetails.counts' }, {
+                    tables: tableCount,
+                    figures: figureCount,
+                    alignmentSheets: alignmentSheetCount,
+                    boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
+                    boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
+                    boldAlignmentSheets: (<span className={classes.bold}>{`${alignmentSheetCount.toLocaleString()}`}</span>),
+                  })}
+                </Typography>
+                {lang === 'fr' && <Typography classes={{ root: classes.subtitle }}>{intl.formatMessage({ id: 'common.frenchDisclaimerShort' })}</Typography>}
+              </div>
             )) || <NoResultsStatusMessages />
           )
         )}

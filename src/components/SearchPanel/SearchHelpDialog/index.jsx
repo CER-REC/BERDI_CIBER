@@ -74,7 +74,7 @@ const SearchHelpDialog = ({ open, onClose }) => {
         {intl.locale === 'fr' && (
           <>
             <Typography variant="body2">
-              {intl.formatMessage({ id: 'components.searchPanel.helpDialog.frenchDisclaimer' })}
+              {intl.formatMessage({ id: 'common.frenchDisclaimerLong' })}
             </Typography>
             <br />
           </>

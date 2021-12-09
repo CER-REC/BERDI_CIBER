@@ -31,6 +31,8 @@
     "termsLink": "https://www.cer-rec.gc.ca/fr/avis.html",
     "errorMessage": "Une erreur s’est produite.",
     "osdpURL": "https://osdp-psdo.canada.ca/fr/psdo",
+    "frenchDisclaimerLong": "Remarque : Les contenus des tableaux s’affichent dans la langue dans laquelle ils ont été déposés. Les titres des contenus de la base de données ont été traduits en français. Vous pouvez utiliser des termes anglais pour faire des recherches dans la version française de CIBER.",
+    "frenchDisclaimerShort": "Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -358,7 +360,6 @@
         "exampleHeader": "Exemple :",
         "example1": "Rivière Saskatchewan",
         "help2": "CIBER affichera les résultats qui contiennent le mot Saskatchewan et ceux qui contiennent le mot rivière.",
-        "frenchDisclaimer": "Remarque : Les contenus des tableaux s’affichent dans la langue dans laquelle ils ont été déposés. Les titres des contenus de la base de données ont été traduits en français. Vous pouvez utiliser des termes anglais pour faire des recherches dans la version française de CIBER.",
         "exactPhraseHeader": "Recherche d’une phrase exacte",
         "exact1": "Pour trouver une phrase exacte, encadrez-la de guillemets.",
         "example2": "“Rivière Saskatchewan”",
@@ -426,7 +427,6 @@
       },
       "discoveries": {
         "title": "Voyez ces intéressantes découvertes",
-        "disclaimer": "Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
         "accreditations": {
           "title": "Accréditations",
           "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"
