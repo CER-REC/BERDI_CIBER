@@ -230,6 +230,16 @@
         "title": "Exactitude",
         "body": "Les données CSV contenues dans les tableaux sont extraites selon les méthodes décrites dans la documentation à ce sujet; il est toutefois possible qu’elles soient inexactes. Les données extraites se limitent à celles contenues dans l’EES déposée pour la première fois dans le cadre d’une demande précise. Elles ne tiennent pas compte des renseignements relatifs à une EES ayant été déposés après l’étape de la demande initiale. En cas d’écart, le document PDF original dans REGDOCS fait foi. Les sources de données pour les tableaux relatifs aux EES sont précisées, à la discrétion des personnes qui rédigent les EES; elles peuvent donc varier selon le cas."
       },
+      "usage": {
+        "title": "Utilisation",
+        "header": "Selon la convention d’utilisation de CIBER :",
+        "bullet1": "vous pouvez utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
+        "bullet2": "vous ne pouvez pas distribuer ni diffuser les documents;",
+        "bullet3": "vous ne pouvez faire qu’une seule copie de tout document;",
+        "bullet4": "vous devez détruire toute copie après utilisation;",
+        "bullet5": "vous ne pouvez PAS utiliser la base de données à des fins commerciales ou concurrentielles. Vous ne pouvez l’utiliser que pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études. La base de données ne peut pas être utilisée à des fins commerciales ou concurrentielles.",
+        "footer": "En outre, l’Avis qui se trouve dans le site Web de la Régie s’applique à ce dépôt."
+      },
       "termsTitle": {
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
         "link": "\"l’Avis\""
@@ -396,7 +406,7 @@
     },
     "searchDetails": {
       "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figures} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} carte(s)-tracé(s)}} trouvé(s)",
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figure} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} cartes-tracés}} {total, plural, =0 {trouvé} =1 {trouvé} other {trouvés}}",
       "explore": "Explorer les résultats par",
       "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
