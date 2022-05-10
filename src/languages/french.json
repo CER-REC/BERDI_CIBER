@@ -1,10 +1,5 @@
 {
   "common": {
-    "description": "Explorez plus de 15 000 tableaux extraits de 38 demandes visant des pipelines et des évaluations environnementales et socioéconomiques y afférentes – le début de quelque chose de nouveau à la Régie de l’énergie du Canada.",
-    "char": {
-      "colon": ":",
-      "percent": "%"
-    },
     "project": "Projet",
     "topic": "Sujet",
     "tables": "Tableaux",
@@ -470,7 +465,7 @@
           "openGov": "le gouvernement ouvert",
           "openGovLink": "https://open.canada.ca/en/about-open-government",
           "boldText3": "Ce projet continuera d’évoluer au fil du temps.",
-          "text3": "{boldText} CIBER compte actuellement plus de 15 000 tableaux et 9 000 figures extraits des ESS initialement déposées en lien avec 38 projets pipeliniers depuis 2003. La Régie continuera d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour sur l’évolution de ce projet, suivez-nous sur {github}.",
+          "text3": "{boldText} CIBER compte actuellement des tableaux, des illustrations ainsi que des cartes-tracés extraits d’évaluations environnementales et socioéconomiques initialement déposées en lien avec de grands projets pipeliniers depuis 2003. La Régie continuera d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour sur l’évolution de ce projet, suivez-nous sur {github}.",
           "github": "Github",
           "githubLink": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
