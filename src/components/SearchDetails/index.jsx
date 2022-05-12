@@ -63,6 +63,7 @@ const SearchDetails = () => {
                     tables: tableCount,
                     figures: figureCount,
                     alignmentSheets: alignmentSheetCount,
+                    total: tableCount + figureCount + alignmentSheetCount,
                     boldTables: (<span className={classes.bold}>{`${tableCount.toLocaleString()}`}</span>),
                     boldFigures: (<span className={classes.bold}>{`${figureCount.toLocaleString()}`}</span>),
                     boldAlignmentSheets: (<span className={classes.bold}>{`${alignmentSheetCount.toLocaleString()}`}</span>),

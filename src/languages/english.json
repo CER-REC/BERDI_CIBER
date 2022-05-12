@@ -1,10 +1,5 @@
 {
   "common": {
-    "description": "Search over 15,000 tables extracted from 38 pipeline applications and their Environmental and Socio-Economic Assessments - the start of something new, at the Canada Energy Regulator.",
-    "char": {
-      "colon": ":",
-      "percent": "%"
-    },
     "project": "Project",
     "topic": "Topic",
     "tables": "Tables",
@@ -469,7 +464,7 @@
           "openGov": "Open Government",
           "openGovLink": "https://open.canada.ca/en/about-open-government",
           "boldText3": "This work is ongoing and we are just getting started.",
-          "text3": "{boldText} BERDI currently includes over 15,000 tables and 9,000 figures, chosen from 38 pipeline projects and their originally submitted ESAs since 2003. We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications on the progress of this project, follow us on {github}.",
+          "text3": "{boldText} BERDI currently includes tables, figures and alignment sheets chosen from major pipeline projects and their originally submitted ESAs, since 2003. We will continue to experiment with ways to improve, structure, and explore regulatory data, using new datasets. To receive update notifications on the progress of this project, follow us on {github}.",
           "github": "Github",
           "githubLink": "https://github.com/CER-REC/esa-data-bank_banque-donnees-ees"
         },
