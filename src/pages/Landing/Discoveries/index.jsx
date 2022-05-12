@@ -58,7 +58,7 @@ const Discoveries = () => {
                 caption={intl.formatMessage({ id: discovery.bodyId })}
                 label={intl.formatMessage({ id: discovery.titleId })}
                 onClick={createHandleClick(discovery.content)}
-                isTable={discovery.content.type === 'TABLE'}
+                type={discovery.content.type}
               />
             </Grid>
           ))

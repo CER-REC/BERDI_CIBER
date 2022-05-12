@@ -1,12 +1,18 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { IconButton, Typography, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import alignmentSheet from '../../images/alignmentSheet.svg';
 import figure from '../../images/figure.svg';
 import table from '../../images/table.svg';
 import discoveryBlob from '../../images/discoveryBlob.svg';
 
+const typeImages = {
+  ALIGNMENT_SHEET: alignmentSheet,
+  FIGURE: figure,
+  TABLE: table,
+};
 const useStyles = makeStyles((theme) => ({
   root: {
     border: `1px solid ${theme.palette.grey.charcoal}`,
@@ -77,16 +83,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ImageButton = ({ isTable, src, bgAngle, caption, label, onClick }) => {
+const ImageButton = ({ type, src, bgAngle, caption, label, onClick }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const typeLabel = useMemo(() => {
-    if (isTable) {
-      return intl.formatMessage({ id: 'api.content.TABLE' });
-    }
-
-    return intl.formatMessage({ id: 'api.content.FIGURE' });
-  }, [isTable, intl]);
+  const typeLabel = intl.formatMessage({ id: `api.content.${type}` });
 
   return (
     <IconButton
@@ -98,7 +98,7 @@ const ImageButton = ({ isTable, src, bgAngle, caption, label, onClick }) => {
       <div className={classes.background} style={{ transform: `rotate(${bgAngle}deg)` }} />
       <div className={classes.meta}>
         <img
-          src={isTable ? table : figure}
+          src={typeImages[type]}
           alt={typeLabel}
         />
         <Typography component="span">{typeLabel}</Typography>
@@ -114,7 +114,7 @@ const ImageButton = ({ isTable, src, bgAngle, caption, label, onClick }) => {
 };
 
 ImageButton.propTypes = {
-  isTable: PropTypes.bool.isRequired,
+  type: PropTypes.oneOf(['ALIGNMENT_SHEET', 'FIGURE', 'TABLE']).isRequired,
   src: PropTypes.string.isRequired,
   bgAngle: PropTypes.number.isRequired,
   caption: PropTypes.string.isRequired,
