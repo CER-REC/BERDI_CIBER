@@ -4,6 +4,9 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
 import sliderIcon from '../../images/datePicker/sliderIcon.svg';
+import isActivateKey from '../../utilities/isActivateKey';
+
+const debounceMS = 20;
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -54,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     width: '100%',
+    '&:focus': { backgroundColor: theme.palette.action.selected },
     '& span': {
       position: 'absolute',
       bottom: '8px',
@@ -71,7 +75,6 @@ const useStyles = makeStyles((theme) => ({
       right: 0,
       position: 'absolute',
     },
-
   },
 }));
 
@@ -90,7 +93,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   );
 
   const totalDifference = getMonthDifference(maxDate);
-
+  const [debounceId, setDebounceId] = useState();
   const [startIndex, setStartIndex] = useState(0);
   const [endIndex, setEndIndex] = useState(totalDifference);
 
@@ -124,12 +127,13 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
 
   const handleChange = useCallback((_, dates) => {
     const [start, end] = dates;
+    const timeoutId = setTimeout(() => onChange(toStartDate(start), toEndDate(end)), debounceMS);
+
+    clearTimeout(debounceId);
+    setDebounceId(timeoutId);
     setStartIndex(start);
     setEndIndex(end);
-
-    // Send the change in dates to the reducer
-    onChange(toStartDate(start), toEndDate(end));
-  }, [onChange, toEndDate, toStartDate]);
+  }, [onChange, debounceId, toEndDate, toStartDate]);
 
   useEffect(() => {
     setStartIndex(getMonthDifference(startDate));
@@ -149,10 +153,10 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   return (
     <>
       <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
-      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events */}
       <div
         className={classes.datePicker}
         onClick={handlePopoverClick}
+        onKeyPress={(event) => (isActivateKey(event) && handlePopoverClick(event))}
         role="button"
         tabIndex={0}
       >
