@@ -1,5 +1,5 @@
 import {
-  Button, ButtonBase, Drawer, Grid, Icon, IconButton, makeStyles, Typography,
+  Button, Drawer, Grid, Icon, IconButton, makeStyles, Typography,
 } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
@@ -50,6 +50,7 @@ const Cart = () => {
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
   const [projectData, setProjectData] = useState();
+  const isEmpty = config.cartIds.length === 0;
 
   const handleOpen = () => {
     setOpen(true);
@@ -172,7 +173,7 @@ const Cart = () => {
         data={resultsData}
       />
       <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
-      <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small">
+      <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small" disableElevation={false}>
         <svg
           height={newDotSize}
           width={newDotSize}
@@ -214,7 +215,7 @@ const Cart = () => {
             </a>
           </Grid>
           <Grid item container xs={3} className={classes.headerButtonContainer}>
-            <IconButton disabled={config.cartIds.length === 0} aria-label="share" onClick={handleShareOpen} className={classes.headerButton}>
+            <IconButton disabled={isEmpty} aria-label="share" onClick={handleShareOpen} className={classes.headerButton}>
               <ShareIcon />
             </IconButton>
             <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
@@ -230,30 +231,24 @@ const Cart = () => {
         {/* Body */}
         <Grid container direction="column" wrap="nowrap" className={classes.body}>
           <Grid item style={{ margin: '1em 0 0.5em 0.5em' }}>
-            <IconButton
+            <Button
               aria-label="Remove all"
+              classes={{
+                root: classes.removeButton,
+                label: classes.removeButtonText,
+              }}
+              disabled={isEmpty}
               onClick={handleRemoveAll}
               onMouseEnter={handleRemoveButtonHover}
               onMouseLeave={handleRemoveButtonHoverEnd}
               disableRipple
-              disableFocusRipple
             >
               {
                 (removeButtonHover && <RemoveCircleIcon className={classes.removeButtonIcon} />)
                 || (<RemoveCircleOutlineIcon className={classes.removeButtonIcon} />)
               }
-            </IconButton>
-            <ButtonBase
-              disableRipple
-              disableTouchRipple
-              onClick={handleRemoveAll}
-              onMouseEnter={handleRemoveButtonHover}
-              onMouseLeave={handleRemoveButtonHoverEnd}
-            >
-              <Typography className={classes.removeButtonText}>
-                {intl.formatMessage({ id: 'components.cart.removeAll' })}
-              </Typography>
-            </ButtonBase>
+              {intl.formatMessage({ id: 'components.cart.removeAll' })}
+            </Button>
           </Grid>
           <Grid item className={classes.bodyList}>
             <AutoSizer>
@@ -287,7 +282,7 @@ const Cart = () => {
           container
           direction="column"
           alignItems="center"
-          className={(config.cartIds.length === 0) ? classes.footerDisabled : classes.footer}
+          className={isEmpty ? classes.footerDisabled : classes.footer}
         >
           <Grid item className={classes.footerDisclaimer}>
             <Typography className={classes.disclaimerText}>
@@ -295,14 +290,9 @@ const Cart = () => {
                 { id: 'components.cart.downloadDisclaimer' },
                 {
                   limitationsURL: (
-                    <span
-                      role="button"
-                      tabIndex="0"
-                      onClick={handleLimitationsOpen}
-                      onKeyDown={(e) => e.key === 'Enter' && handleLimitationsOpen()}
-                    >
+                    <Button color="secondary" disabled={isEmpty} onClick={handleLimitationsOpen} disableRipple>
                       {intl.formatMessage({ id: 'common.limitations' })}
-                    </span>
+                    </Button>
                   ),
                 },
               )}
@@ -316,6 +306,7 @@ const Cart = () => {
               disableElevation
               variant="contained"
               color="primary"
+              disabled={isEmpty}
               className={classes.footerDownloadButton}
               onClick={handleDownloadClick}
             >

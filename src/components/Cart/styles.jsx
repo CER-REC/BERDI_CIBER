@@ -60,6 +60,11 @@ export default (theme) => ({
     height: '100%',
     width: '100%',
   },
+  removeButton: {
+    margin: '0.85em 0.35em',
+    padding: '0 0.5em',
+    '&.Mui-focusVisible': { backgroundColor: theme.palette.action.hover },
+  },
   removeButtonText: {
     fontWeight: 'bold',
     textDecoration: 'underline',
@@ -69,6 +74,7 @@ export default (theme) => ({
   removeButtonIcon: {
     fontSize: '45px',
     color: theme.palette.cart.dark,
+    marginRight: '0.25em',
   },
   bodyList: {
     height: '100%',
@@ -92,11 +98,6 @@ export default (theme) => ({
   },
   disclaimerText: {
     fontSize: '14px',
-    '& span': {
-      cursor: 'pointer',
-      color: '#295376',
-      textDecoration: 'underline',
-    },
   },
   footerDownloadButton: {
     marginBottom: '2em',
