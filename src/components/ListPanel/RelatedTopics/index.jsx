@@ -1,4 +1,4 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Button, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -22,9 +22,11 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     color: theme.palette.teal.blue,
-    textDecoration: 'underline',
-    cursor: 'pointer',
     fontSize: '14px',
+    maxWidth: '100%',
+    '& > $label': {
+      maxWidth: '100%',
+    },
   },
   tableBody: {
     '& td': {
@@ -89,9 +91,9 @@ const RelatedTopics = ({ valueComponents, type }) => {
                 {row.map((item, index2) => (
                   <td key={`topic-${(item) || index2}`}>
                     {item ? (
-                      <Typography component="span" className={classes.link} onClick={() => handleClickOpen(item)}>
+                      <Button className={classes.link} color="inherit" onClick={() => handleClickOpen(item)} disableRipple>
                         {intl.formatMessage({ id: `common.vcLabels.${item}.label` })}
-                      </Typography>
+                      </Button>
                     ) : null}
                   </td>
                 ))}
