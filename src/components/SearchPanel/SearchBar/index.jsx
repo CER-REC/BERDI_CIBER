@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, TextField, makeStyles, Typography, Grid } from '@material-ui/core';
+import { Button, TextField, makeStyles, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -39,9 +39,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: '3em',
     maxWidth: '7em',
     backgroundColor: theme.palette.common.white,
-    textDecoration: 'underline',
     color: theme.palette.button.blue,
-    '& p': { cursor: 'pointer' },
+    fontSize: 14,
   },
 }));
 
@@ -90,9 +89,14 @@ const SearchBar = ({ hasShrink }) => {
           />
         </Grid>
         <Grid item container xs={2} alignItems="center" justify="space-evenly" className={classes.searchHelpBox}>
-          <Typography variant="body2" onClick={handleSearchHelpClick}>
+          <Button
+            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+            color="inherit"
+            onClick={handleSearchHelpClick}
+            disableRipple
+          >
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-          </Typography>
+          </Button>
         </Grid>
         <Grid item container xs={1}>
           <Button
