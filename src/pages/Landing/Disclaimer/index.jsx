@@ -20,12 +20,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     width: '100%',
   },
-  link: {
-    textDecoration: 'underline',
-    display: 'inline',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-  },
+  link: { fontWeight: 'bold' },
   sideBlock: {
     margin: 'auto',
     textAlign: 'right',
@@ -55,9 +50,14 @@ const Disclaimer = () => {
             { id: 'pages.landing.disclaimer.body' },
             {
               learnMoreLink: (
-                <Typography variant="body1" component="span" className={classes.link} onClick={handleLinkClick}>
+                <Button
+                  className={classes.link}
+                  color="inherit"
+                  onClick={handleLinkClick}
+                  disableRipple
+                >
                   {intl.formatMessage({ id: 'pages.landing.disclaimer.link' })}
-                </Typography>
+                </Button>
               ),
             },
           )}
