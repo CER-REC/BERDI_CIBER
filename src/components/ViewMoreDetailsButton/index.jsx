@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonBase, makeStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import upCaret from '../../images/listPanel/upCaret.svg';
@@ -9,6 +9,7 @@ import { reportDetails } from '../../utilities/analytics';
 const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.blue.dark,
+    fontSize: 'inherit',
     fontWeight: 'bold',
     marginTop: '1em',
   },
@@ -28,18 +29,18 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
 
   if (isExpanded) {
     return (
-      <ButtonBase className={classes.root} onClick={handleClick}>
+      <Button color="primary" className={classes.root} onClick={handleClick} disableFocusRipple>
         <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
         <img alt="Up caret" src={upCaret} />
-      </ButtonBase>
+      </Button>
     );
   }
 
   return (
-    <ButtonBase className={classes.root} onClick={handleClick}>
+    <Button color="primary" className={classes.root} onClick={handleClick} disableFocusRipple>
       <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
       <img alt="Down caret" src={downCaret} />
-    </ButtonBase>
+    </Button>
   );
 };
 
