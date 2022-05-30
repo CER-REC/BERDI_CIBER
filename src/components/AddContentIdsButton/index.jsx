@@ -1,16 +1,14 @@
 import React from 'react';
-import { ButtonBase, makeStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useESAData from '../../hooks/useESAData';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'block',
     color: theme.palette.teal.blue,
-    textDecoration: 'underline',
-    paddingTop: '1em',
     float: 'right',
+    marginTop: '1em',
   },
 }));
 
@@ -28,7 +26,12 @@ const AddContentIdsButton = () => {
   }
 
   return (
-    <ButtonBase className={classes.root} onClick={handleAddAllClick}>
+    <Button
+      className={classes.root}
+      color="inherit"
+      onClick={handleAddAllClick}
+      disableRipple
+    >
       {intl.formatMessage({ id: 'components.addContentIdsButton.add' }, {
         num: downloadTableIds.length,
         formattedNum: (
@@ -37,7 +40,7 @@ const AddContentIdsButton = () => {
           </span>
         ),
       })}
-    </ButtonBase>
+    </Button>
   );
 };
 
