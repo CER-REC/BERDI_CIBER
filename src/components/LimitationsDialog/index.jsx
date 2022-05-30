@@ -209,7 +209,6 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             variant="contained"
             onClick={handleClick}
             href={fileDownloadURL}
-            disableElevation
           >
             <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
             <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>

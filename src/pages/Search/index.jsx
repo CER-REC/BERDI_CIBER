@@ -63,7 +63,7 @@ const Search = () => {
         </Grid>
         {config.page === 'search' && (
           <Grid item>
-            <Button color="primary" variant="outlined" className={classes.dataButton} disableElevation onClick={handleButtonClick}>
+            <Button color="primary" variant="outlined" className={classes.dataButton} onClick={handleButtonClick}>
               {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
             </Button>
 

@@ -303,7 +303,6 @@ const Cart = () => {
           </Grid>
           <Grid item>
             <Button
-              disableElevation
               variant="contained"
               color="primary"
               disabled={isEmpty}

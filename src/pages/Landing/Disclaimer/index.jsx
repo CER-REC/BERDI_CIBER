@@ -68,7 +68,6 @@ const Disclaimer = () => {
           classes={{ root: classes.button }}
           variant="contained"
           onClick={handleButtonClick}
-          disableElevation
         >
           {intl.formatMessage({ id: 'pages.landing.disclaimer.button' })}
         </Button>

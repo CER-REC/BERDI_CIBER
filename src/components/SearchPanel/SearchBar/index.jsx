@@ -104,7 +104,6 @@ const SearchBar = ({ hasShrink }) => {
             aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
             variant="contained"
             onClick={handleClick}
-            disableElevation
           >
             <SearchIcon />
           </Button>
