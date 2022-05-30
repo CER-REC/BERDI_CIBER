@@ -44,7 +44,8 @@ Object.defineProperty(global, 'location', {
 });
 
 jest.spyOn(global.history, 'pushState');
-jest.setTimeout(10000);
+// https://github.com/testing-library/dom-testing-library/issues/820
+jest.setTimeout(30000);
 
 afterEach(() => {
   window.location.search = '';
