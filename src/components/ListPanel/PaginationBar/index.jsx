@@ -1,140 +1,46 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/*
-  These eslint disables are for the way the WET template
-  uses the anchor tag as a button and not a link or nav
-*/
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import React, { useCallback } from 'react';
-import { useIntl } from 'react-intl';
+import React from 'react';
+import PageItem from '../PageItem';
 import useConfig from '../../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
     marginLeft: theme.spacing(2.5),
-    // This level of specificity is needed to override the WET template styles
-    '& .pager > li.active > a, .pagination > li.active > a': {
-      backgroundColor: theme.palette.blue.navy,
-    },
-    '& .pager > li > a, .pagination > li:not(.active) > a': {
-      color: theme.palette.blue.navy,
-    },
   },
 }));
 
 const PaginationBar = ({ count, page }) => {
   const classes = useStyles();
-  const intl = useIntl();
-  const { configDispatch, config: { resultCount } } = useConfig();
+  const { config: { resultCount } } = useConfig();
   const pageCount = Math.ceil(count / resultCount);
-
-  const handlePageSelect = useCallback((pageIndex) => {
-    configDispatch({ type: 'searchIndex/changed', payload: pageIndex });
-  }, [configDispatch]);
-
-  const createHandlePageSelect = (pageIndex) => () => handlePageSelect(pageIndex);
 
   return count !== 0 && (
     <Grid container justify="center" className={classes.root}>
 
       <Grid item>
-        {/* TODO: Make a list item component to reduce repetition */}
         <ul className="pagination" style={{ marginTop: 0 }}>
-
-          {page > 0 && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 1)} rel="prev">{intl.formatMessage({ id: 'common.previous' })}</a>
-          </li>
+          {(page > 0) && <PageItem page={page} rel="prev" />}
+          {(page >= 3) && <PageItem page={1} /> }
+          {(page - 4 >= 1) && (page === pageCount - 1) && <PageItem page={page - 4} />}
+          {(page - 3 >= 1) && (page >= pageCount - 2) && <PageItem page={page - 3} />}
+          {(page - 2 >= 1) && (page >= pageCount - 3) && <PageItem page={page - 2} />}
+          {(page - 1 >= 1) && <PageItem page={page - 1} />}
+          {(page >= 1) && <PageItem page={page} />}
+          <PageItem page={page + 1} active />
+          {(page + 2 < pageCount) && <PageItem page={page + 2} />}
+          {(page + 3 < pageCount) && <PageItem page={page + 3} />}
+          {(page + 4 < pageCount) && (page < 3) && <PageItem page={page + 4} />}
+          {(page + 5 < pageCount) && (page < 2) && <PageItem page={page + 5} />}
+          {(page + 6 < pageCount) && (page === 0) && <PageItem page={page + 6} />}
+          {(page + 1 < pageCount) && (
+            <>
+              <PageItem page={pageCount} />
+              <PageItem page={page + 2} rel="next" />
+            </>
           )}
-
-          {(page - 5 >= 8) && (
-          <li>
-            <a onClick={createHandlePageSelect(0)}>{1}</a>
-          </li>
-          )}
-
-          {(page - 4 >= 1) && (page === pageCount - 1) && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 5)}>{page - 4}</a>
-          </li>
-          )}
-
-          {(page - 3 >= 1) && (page >= pageCount - 2) && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 4)}>{page - 3}</a>
-          </li>
-          )}
-
-          {(page - 2 >= 1) && (page >= pageCount - 3) && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 3)}>{page - 2}</a>
-          </li>
-          )}
-
-          {(page - 1 >= 1) && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 2)}>{page - 1}</a>
-          </li>
-          )}
-
-          {(page >= 1) && (
-          <li>
-            <a onClick={createHandlePageSelect(page - 1)}>{page}</a>
-          </li>
-          )}
-
-          <li className="active">
-            <a>{page + 1}</a>
-          </li>
-
-          {(page + 2 < pageCount) && (
-          <li>
-            <a onClick={createHandlePageSelect(page + 1)}>{page + 2}</a>
-          </li>
-          )}
-
-          {(page + 3 < pageCount) && (
-          <li>
-            <a onClick={createHandlePageSelect(page + 2)}>{page + 3}</a>
-          </li>
-          )}
-
-          {(page + 4 < pageCount) && (page < 3) && (
-          <li>
-            <a onClick={createHandlePageSelect(page + 3)}>{page + 4}</a>
-          </li>
-          )}
-
-          {(page + 5 < pageCount) && (page < 2) && (
-          <li>
-            <a onClick={createHandlePageSelect(page + 4)}>{page + 5}</a>
-          </li>
-          )}
-
-          {(page + 6 < pageCount) && (page === 0) && (
-          <li>
-            <a onClick={createHandlePageSelect(page + 5)}>{page + 6}</a>
-          </li>
-          )}
-
-          {page + 1 < pageCount && (
-          <>
-            <li>
-              <a onClick={createHandlePageSelect(pageCount - 1)}>
-                {pageCount}
-              </a>
-            </li>
-
-            <li>
-              <a onClick={createHandlePageSelect(page + 1)} rel="next">{intl.formatMessage({ id: 'common.next' })}</a>
-            </li>
-          </>
-          )}
-
         </ul>
       </Grid>
     </Grid>
