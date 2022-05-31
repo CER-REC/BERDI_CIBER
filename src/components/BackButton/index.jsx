@@ -5,6 +5,8 @@ import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
+const boxShadow = '1px 1px #8A8B8D';
+
 const useStyles = makeStyles((theme) => ({
   button: {
     fontWeight: '900',
@@ -14,9 +16,10 @@ const useStyles = makeStyles((theme) => ({
     padding: '0.5em 1em',
     backgroundColor: theme.palette.grey.athens,
     borderRadius: '5px',
-    boxShadow: '1px 1px #8A8B8D',
+    boxShadow,
     color: theme.palette.teal.blue,
     fontSize: '1.6rem',
+    '&:hover': { boxShadow },
   },
 }));
 
