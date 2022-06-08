@@ -103,7 +103,6 @@ const FilterPanel = () => {
             color="primary"
             variant="contained"
             onClick={handleClick}
-            disableElevation
           >
             {intl.formatMessage({ id: 'components.filterPanel.clearButton' })}
           </Button>

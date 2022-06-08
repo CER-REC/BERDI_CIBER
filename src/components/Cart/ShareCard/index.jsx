@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button, ButtonBase, Grid, IconButton, makeStyles, Typography, Card, Divider, Snackbar,
+  Button, Grid, IconButton, makeStyles, Typography, Card, Divider, Snackbar,
 } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 import DoneIcon from '@material-ui/icons/Done';
@@ -65,11 +65,15 @@ const ShareCard = ({ open, onClose }) => {
             </Button>
           </Grid>
           <Grid container alignItems="center" item xs={4}>
-            <ButtonBase disableRipple disableTouchRipple onClick={handleCopyCartURL}>
+            <Button
+              color="primary"
+              onClick={handleCopyCartURL}
+              disableFocusRipple
+            >
               <Typography variant="body2" style={{ fontWeight: 'bold' }}>
                 {intl.formatMessage({ id: 'components.cart.copyLink' })}
               </Typography>
-            </ButtonBase>
+            </Button>
             {copySuccess && (<DoneIcon className={classes.doneIcon} />)}
           </Grid>
         </Grid>

@@ -12,7 +12,6 @@ import { useIntl } from 'react-intl';
 import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
-import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportContent, reportProject } from '../../../utilities/analytics';
 import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 import CartButton from '../../CartButton';
@@ -23,8 +22,9 @@ import EllipsisButton from '../EllipsisButton';
 import PaginationBar from '../PaginationBar';
 import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
-import TitleSection from './TitleSection';
+import TitleSection from '../TitleSection';
 import ApplicationDialog from '../../ApplicationDialog';
+import ThumbnailButton from '../../ThumbnailButton';
 
 const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
@@ -82,7 +82,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
           onClick={() => handleProjectClick(data)}
           disableRipple
         >
-          {data.shortName}
+          <Typography>{data.shortName}</Typography>
         </Button>
       </td>
     </tr>
@@ -99,6 +99,14 @@ const SearchList = ({ toggleExpand, expandList }) => {
     </tr>
   );
 
+  const handleTitleChange = (title) => {
+    if (expandedTitles.includes(title)) {
+      setExpandedTitles(expandedTitles.filter((expandedTitle) => expandedTitle !== title));
+    } else {
+      setExpandedTitles([...expandedTitles, title]);
+    }
+  };
+
   return (
     <>
       <ResultDialog open={open} onClose={handleClose} data={selectedLineData} />
@@ -110,30 +118,18 @@ const SearchList = ({ toggleExpand, expandList }) => {
               <TableRow key={content.id} aria-label="content card">
                 <TableCell component="th" scope="row" className={classes.tableHeader}>
                   <Grid className="tableCellInner" container>
-                    <Grid
-                      item
-                      container
-                      alignItems="flex-end"
-                      justify="flex-end"
-                      xs={3}
-                      md={2}
-                      xl={1}
-                      onClick={() => handleClickOpen(content)}
-                      className={classes.imageSection}
-                      style={{ backgroundImage: `url(${content.thumbnailURL})` }}
-                    >
-                      <Grid item>
-                        <img alt="A magnifying glass" src={magnifyingGlass} />
-                      </Grid>
+                    <Grid item xs={3} md={2} xl={1}>
+                      <ThumbnailButton
+                        src={content.thumbnailURL}
+                        onClick={() => handleClickOpen(content)}
+                      />
                     </Grid>
-
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
                       <TitleSection
                         title={content.title}
-                        content={content}
-                        handleClickOpen={handleClickOpen}
-                        setExpandedTitles={setExpandedTitles}
-                        expandedTitles={expandedTitles}
+                        onClick={() => handleClickOpen(content)}
+                        onChange={() => handleTitleChange(content.title)}
+                        isExpanded={expandedTitles.includes(content.title)}
                       />
 
                       <table className={classes.details}>

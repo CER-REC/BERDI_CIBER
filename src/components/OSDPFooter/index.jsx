@@ -42,7 +42,6 @@ const OSDPFooter = () => {
           className={classes.button}
           variant="contained"
           color="primary"
-          disableElevation
           onClick={handleClick}
         >
           <Typography>

@@ -93,7 +93,6 @@ const LegalDisclaimer = ({ onClose, open, setOpen }) => {
             disabled={!checked}
             variant="contained"
             color="primary"
-            disableFocusRipple
             style={{ padding: '0.2em 1.5em' }}
             onClick={handleClose}
           >

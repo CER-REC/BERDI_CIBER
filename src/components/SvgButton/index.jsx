@@ -8,13 +8,17 @@ import Topic from './Topic';
 const pulseMS = 1500;
 const circleWidth = '3.5em';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: { display: 'inline-block' },
   // Tooltip popup positioning is based on the tooltip wrapper's size
   tooltip: { maxWidth: 'none' },
   button: {
     padding: 0,
-    '&:hover': { backgroundColor: 'transparent' },
+    '&.Mui-focusVisible .MuiIcon-root': { backgroundColor: theme.palette.action.hover },
+    '&:hover': {
+      backgroundColor: 'transparent',
+      '& .MuiIcon-root': { backgroundColor: theme.palette.action.hover },
+    },
   },
   buttonLabel: { display: 'block' },
   disabled: { opacity: 0.2 },
@@ -53,7 +57,7 @@ const useStyles = makeStyles({
       boxShadow: '0 0 0 1em rgba(0, 0, 0, 0)',
     },
   },
-});
+}));
 
 const SvgButton = ({
   iconRef,

@@ -37,6 +37,7 @@ const IconCheckbox = ({ checked }) => {
       icon={icon}
       checkedIcon={iconChecked}
       checked={checked}
+      disabled
     />
   );
 };

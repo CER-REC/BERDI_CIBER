@@ -8,8 +8,8 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../../hooks/useConfig';
-import magnifyingGlass from '../../../images/listPanel/magnifyingGlass.svg';
 import { reportCartRemove } from '../../../utilities/analytics';
+import ThumbnailButton from '../../ThumbnailButton';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     color: theme.palette.grey.alt,
   },
+  thumbnail: {
+    margin: '1.5em 0',
+    width: '50%',
+  },
   titleTruncated: {
     fontSize: '18px',
     overflow: 'hidden',
@@ -41,20 +45,12 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: '18px',
   },
+  removeButton: {
+    '&.Mui-focusVisible': { backgroundColor: theme.palette.action.hover },
+  },
   removeButtonIcon: {
     fontSize: '45px',
     color: theme.palette.cart.dark,
-  },
-  imageSection: {
-    cursor: 'pointer',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '6em',
-    width: '50%',
-    margin: '1.5em 0',
-    '& img': {
-      margin: '0.5em 1em',
-    },
   },
   infoTable: {
     color: theme.palette.grey.dark,
@@ -127,6 +123,7 @@ const CartItem = ({
           </Grid>
           <Grid item xs={2} style={{ margin: '-0.5em' }}>
             <IconButton
+              className={classes.removeButton}
               onClick={handleRemoveItem}
               onMouseEnter={handleRemoveButtonHover}
               onMouseLeave={handleRemoveButtonHoverEnd}
@@ -143,18 +140,11 @@ const CartItem = ({
         <Grid container item direction="column" className={classes.footer}>
           {expandList.includes(data.id) && (
             <Grid container direction="column">
-              <Grid
-                container
-                alignItems="flex-end"
-                justify="flex-end"
-                style={{ backgroundImage: `url(${data.thumbnailURL})` }}
-                className={classes.imageSection}
+              <ThumbnailButton
+                className={classes.thumbnail}
+                src={data.thumbnailURL}
                 onClick={onResultsOpen}
-              >
-                <Grid item>
-                  <img alt="A magnifying glass" src={magnifyingGlass} />
-                </Grid>
-              </Grid>
+              />
               <table className={classes.infoTable}>
                 <tbody>
                   <tr>

@@ -36,7 +36,6 @@ const formatData = (applications, ids) => {
   return {
     id: 'esaData',
     children: data,
-    color: '#FFFFFF',
   };
 };
 const useStyles = makeStyles({
@@ -65,12 +64,12 @@ const TreeMap = () => {
     () => formatData(applications, applicationIds, theme.palette.secondary.main),
     [applications, applicationIds, theme.palette.secondary.main],
   );
-
+  // Project nodes are wrapped in a root node
   const getColor = (application) => {
-    if (application.color) {
-      // This will return the appropriate colors for borders
-      return application.color;
+    if (application.id === 'esaData') {
+      return 'none';
     }
+
     return theme.palette.teal.dark;
   };
 
@@ -95,8 +94,6 @@ const TreeMap = () => {
         tile="squarify"
         labelSkipSize={0}
         labelTextColor="black"
-        borderWidth={3}
-        borderColor={getColor}
         colors={getColor}
         onClick={handleClick}
         label={getLabel}

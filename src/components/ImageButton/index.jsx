@@ -20,7 +20,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: '0 0 10px rgba(0, 0, 0, 0.20)',
     padding: '0',
     height: '100%',
+    overflow: 'hidden',
     zIndex: 1,
+    '&.Mui-focusVisible': { backgroundColor: theme.palette.action.hover },
   },
   buttonLabel: {
     display: 'flex',

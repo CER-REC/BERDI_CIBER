@@ -25,6 +25,29 @@ const socioEconomic = '#E14977';
 const darkBluePurple = '#222546';
 const twilightPurple = '#4F5395';
 
+const textButtonStyle = {
+  fontSize: 'inherit',
+  lineHeight: 'normal',
+  minWidth: 'unset',
+  padding: 0,
+  textAlign: 'left',
+  textDecoration: 'underline',
+  verticalAlign: 'text-bottom',
+  '&:hover': {
+    backgroundColor: 'inherit',
+  },
+  '& > $label': {
+    display: 'inline',
+    fontSize: 'inherit',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  },
+  '&$focusVisible': {
+    textDecoration: 'none',
+  },
+};
+
+const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
   palette: {
     primary: { main: black },
@@ -93,12 +116,19 @@ const theme = createMuiTheme({
       root: {
         borderRadius: '5px',
         textTransform: 'none',
+        '&$disabled': {
+          color: null,
+        },
       },
       contained: {
         backgroundColor: darkTeal,
         color: black,
         padding: '0.5em 2em',
         '&:hover': { backgroundColor: lighten(darkTeal, 0.2) },
+        '&$disabled': {
+          backgroundColor: null,
+          color: null,
+        },
         '& > $label': {
           fontSize: 16,
         },
@@ -109,16 +139,22 @@ const theme = createMuiTheme({
           backgroundColor: '#5B7495',
         },
       },
-      colorInherit: {
-        fontSize: 16,
-        fontWeight: 400,
+      colorInherit: textButtonStyle,
+      textPrimary: {
+        minWidth: 'unset',
         padding: 0,
-        lineHeight: 'normal',
-        textDecoration: 'underline',
-        verticalAlign: 'text-bottom',
+        textAlign: 'left',
         '&:hover': {
           backgroundColor: 'inherit',
         },
+        '&$focusVisible': {
+          backgroundColor: defaultTheme.palette.action.focus,
+        },
+      },
+      textSecondary: {
+        color: '#295376',
+        // TODO: Refactor button styles so textButtonStyle is in the default text variant setup
+        ...textButtonStyle,
       },
     },
     MuiToggleButton: {
@@ -136,10 +172,14 @@ const theme = createMuiTheme({
       },
     },
     MuiSwitch: {
+      input: {
+        '&[type=checkbox]': { margin: 0 },
+      },
       root: {
         width: 'calc(3em + 6px)',
         height: 'calc(1.5em + 6px)',
         padding: 0,
+        '& .MuiTouchRipple-child': { backgroundColor: black },
       },
       switchBase: {
         padding: '3px',
@@ -196,6 +236,11 @@ const theme = createMuiTheme({
       md: 960,
       lg: 1280,
       xl: 2600,
+    },
+  },
+  props: {
+    MuiButton: {
+      disableElevation: true,
     },
   },
 });

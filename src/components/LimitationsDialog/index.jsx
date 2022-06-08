@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.common.white,
     '& button': {
       color: 'white',
-      paddingRight: 0,
+      marginRight: '-0.5em',
     },
     padding: '0 1em',
   },
@@ -39,17 +39,6 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
       paddingTop: '1em',
       '&:not(:last-child)': { paddingBottom: '2em' },
-    },
-    '& span': {
-      display: 'block',
-      padding: '0.5em 0',
-    },
-  },
-  methodsLink: {
-    '& span': {
-      cursor: 'pointer',
-      color: '#295376',
-      textDecoration: 'underline',
     },
   },
   downloadSection: {
@@ -77,9 +66,9 @@ const useStyles = makeStyles((theme) => ({
   },
   cite: {
     background: 'white',
+    display: 'block',
     fontWeight: 500,
-    paddingLeft: 0,
-    paddingRight: '0.5em',
+    padding: '0.5em 0',
     fontFamily: 'Roboto Mono',
   },
 }));
@@ -127,17 +116,13 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.title' })}
         </Typography>
-        <Typography className={classes.methodsLink}>
+        <Typography>
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.body' }, {
             link: (
-              <span
-                onKeyDown={(e) => e.key === 'Enter' && handleMethodsClick}
-                onClick={handleMethodsClick}
-                role="button"
-                tabIndex="0"
-              >
+              <Button color="secondary" onClick={handleMethodsClick} disableRipple>
                 {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.link' })}
-              </span>),
+              </Button>
+            ),
           })}
         </Typography>
 
@@ -224,7 +209,6 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             variant="contained"
             onClick={handleClick}
             href={fileDownloadURL}
-            disableElevation
           >
             <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
             <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>

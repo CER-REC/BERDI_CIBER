@@ -1,4 +1,4 @@
-import { ButtonBase, makeStyles, Menu, MenuItem } from '@material-ui/core';
+import { Button, makeStyles, Menu, MenuItem } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -10,10 +10,11 @@ import { reportDownload, reportRateData, reportReportData } from '../../../utili
 import RateDataDialog from '../RateDataDialog';
 import ReportDataDialog from '../ReportDataDialog';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   button: {
-    paddingRight: '1em',
+    marginRight: '1em',
     marginBottom: '1em',
+    '&.Mui-focusVisible': { boxShadow: `0 0 0 8px ${theme.palette.action.focus}` },
   },
   menu: {
     marginTop: '0.5em',
@@ -41,7 +42,7 @@ const useStyles = makeStyles({
     borderColor: '#7B7E81',
     borderWidth: '1px',
   },
-});
+}));
 
 const EllipsisButton = ({ downloadURL, title, contentId }) => {
   const classes = useStyles();
@@ -91,8 +92,6 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         className={classes.menu}
-        disableRestoreFocus
-        disableAutoFocusItem
       >
         <MenuItem onClick={handleRateClick} style={{ paddingLeft: '10px' }}>
           <img alt="a maple leaf" src={leaf} />
@@ -104,7 +103,7 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
         </MenuItem>
 
         {downloadURL && (
-          <a href={downloadURL} style={{ color: 'unset', textDecoration: 'none' }} onClick={() => reportDownload(title)}>
+          <a role="button" tabIndex="0" href={downloadURL} style={{ color: 'unset', textDecoration: 'none' }} onClick={() => reportDownload(title)}>
             <MenuItem onClick={handleClose} className={classes.border}>
               <img alt="a down arrow" src={download} />
               {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.download' })}
@@ -113,9 +112,9 @@ const EllipsisButton = ({ downloadURL, title, contentId }) => {
         )}
       </Menu>
 
-      <ButtonBase className={classes.button} onClick={handleClick}>
+      <Button color="primary" className={classes.button} onClick={handleClick} disableFocusRipple>
         <img alt="Ellipsis" src={ellipsisIcon} />
-      </ButtonBase>
+      </Button>
     </>
   );
 };

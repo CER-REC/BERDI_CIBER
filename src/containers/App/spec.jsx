@@ -51,7 +51,7 @@ const simulateFilter = () => {
   fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.CONTENT_TYPES').parentNode, 'button'));
   fireEvent.click(screen.getByText('api.content.TABLE'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.PROJECT_TYPES').parentNode, 'button'));
+  fireEvent.mouseDown(getByText(screen.getByText('components.dropdown.PROJECT_TYPES').parentNode, 'components.dropdown.select'));
   fireEvent.click(screen.getByText('api.projects.SMALL'));
   fireEvent.click(screen.getByText('api.projects.LARGE'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
@@ -128,11 +128,21 @@ describe('Containers/App', () => {
   it.todo('should set the cart state from the URL parameter');
 
   it('should push the state to the history', async () => {
-    const expected = 'page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&startDate=2000-01-01&endDate=2000-01-31&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D';
+    const expectedDates = 'startDate=2000-01-01&endDate=2000-01-31';
+    const expected = `page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&${expectedDates}&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D`;
 
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
     simulateFilter();
+
+    // Date slider has a debounce
+    await waitFor(() => {
+      expect(window.history.pushState).toHaveBeenLastCalledWith(
+        expect.anything(),
+        expect.anything(),
+        expect.stringContaining(expectedDates),
+      );
+    });
 
     await waitFor(() => {
       const next = screen.getByText('common.next');
@@ -191,7 +201,7 @@ describe('Containers/App', () => {
   it('should save the cart IDs to local storage', async () => {
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
-    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').closest('tr'), 'components.cartButton.add')));
     await waitFor(() => {
       expect(window.localStorage.getItem('cartIds')).toEqual('["3473"]');
       expect(window.localStorage.getItem('unreadCartIds')).toEqual('["3473"]');
@@ -203,7 +213,7 @@ describe('Containers/App', () => {
     window.localStorage.setItem('unreadCartIds', '["1"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
-    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.add')));
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').closest('tr'), 'components.cartButton.add')));
     await waitFor(() => {
       expect(window.localStorage.getItem('cartIds')).toEqual('["1","8454","77","3473"]');
       expect(window.localStorage.getItem('unreadCartIds')).toEqual('["1","3473"]');
@@ -214,7 +224,7 @@ describe('Containers/App', () => {
     window.localStorage.setItem('cartIds', '["3473"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
-    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').closest('tr'), 'components.cartButton.remove')));
     await waitFor(() => {
       expect(window.localStorage.getItem('cartIds')).toEqual('[]');
       expect(window.localStorage.getItem('unreadCartIds')).toEqual('[]');
@@ -226,7 +236,7 @@ describe('Containers/App', () => {
     window.localStorage.setItem('unreadCartIds', '["3473","77"]');
     render(<LazyApp />, { configMocked: false });
     simulateSearch();
-    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').parentNode.parentNode, 'components.cartButton.remove')));
+    await waitFor(() => fireEvent.click(getByText(screen.getByText('Available Download Data Test').closest('tr'), 'components.cartButton.remove')));
     await waitFor(() => {
       expect(window.localStorage.getItem('cartIds')).toEqual('["1","77"]');
       expect(window.localStorage.getItem('unreadCartIds')).toEqual('["77"]');

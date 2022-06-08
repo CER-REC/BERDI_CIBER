@@ -1,25 +1,25 @@
-import { ButtonBase, makeStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
+const boxShadow = '1px 1px #8A8B8D';
+
 const useStyles = makeStyles((theme) => ({
   button: {
-    textDecoration: 'underline',
     fontWeight: '900',
     color: theme.palette.button.blue,
   },
   altButton: {
-    padding: '0.7em 0.3em',
+    padding: '0.5em 1em',
     backgroundColor: theme.palette.grey.athens,
     borderRadius: '5px',
-    boxShadow: '1px 1px #8A8B8D',
+    boxShadow,
     color: theme.palette.teal.blue,
-    '& span': {
-      padding: '0 0.8em',
-    },
+    fontSize: '1.6rem',
+    '&:hover': { boxShadow },
   },
 }));
 
@@ -38,16 +38,16 @@ const BackButton = ({ isContentPage }) => {
 
   if (isContentPage) {
     return (
-      <ButtonBase onClick={createHandleClick()} className={classes.altButton}>
-        <span>{intl.formatMessage({ id: 'pages.altBack' })}</span>
-      </ButtonBase>
+      <Button onClick={createHandleClick()} className={classes.altButton}>
+        {intl.formatMessage({ id: 'pages.altBack' })}
+      </Button>
     );
   }
 
   return (
-    <ButtonBase onClick={createHandleClick()} className={classes.button}>
+    <Button onClick={createHandleClick()} className={classes.button} color="inherit" disableRipple>
       {`< ${intl.formatMessage({ id: 'pages.back' })}`}
-    </ButtonBase>
+    </Button>
   );
 };
 
