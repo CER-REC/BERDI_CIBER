@@ -552,8 +552,8 @@
               "title": "Qu’entend-on par « problématique »?",
               "bullet1": "Les tableaux contiennent une seule colonne ou une seule rangée;",
               "bullet2": "Ils contiennent plus de 72 % de cellules vides;",
-              "bullet3": "Ils contiennent plus de 80 % de cellules dont les caractères non identifiés;",
-              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page;"
+              "bullet3": "Ils contiennent plus de 80 % de cellules contenant des caractères non identifiés;",
+              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page."
             },
             "part2": "Les tableaux appartenant à ces fichiers PDF sont indexés, mais ne peuvent pas être téléchargés dans la version actuelle. Ils seront incorporés à une version ultérieure."
           },

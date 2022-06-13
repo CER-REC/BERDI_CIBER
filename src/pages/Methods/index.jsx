@@ -146,6 +146,20 @@ const Methods = () => {
                 ),
               })}
           </Typography>
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section4.paragraph2' },
+              {
+                link2: (
+                  <a
+                    href={intl.messages['pages.methods.body.section4.url2']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'pages.methods.body.section4.link2' })}
+                  </a>
+                ),
+              })}
+          </Typography>
         </section>
 
         <section>
