@@ -424,7 +424,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
-      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
+      "tagline": "Explorez les contenus et les informations biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
       "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",

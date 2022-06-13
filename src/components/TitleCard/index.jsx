@@ -2,6 +2,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { Typography, makeStyles } from '@material-ui/core';
 import ToolLogo from '../ToolLogo';
+import { lang, DATA_UPDATE_DATE } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,14 @@ export default () => {
       <header className={classes.header}>
         <ToolLogo style={{ width: '18em', marginLeft: '1.5em' }} />
         <Typography>{intl.formatMessage({ id: 'pages.landing.taglineBold' })}</Typography>
-        <Typography>{intl.formatMessage({ id: 'pages.landing.tagline' })}</Typography>
+        <Typography>
+          {
+            intl.formatMessage(
+              { id: 'pages.landing.tagline' },
+              { updateDate: DATA_UPDATE_DATE.toLocaleDateString(lang, { year: 'numeric', month: 'short', day: 'numeric' }) },
+            )
+          }
+        </Typography>
       </header>
     </div>
   );
