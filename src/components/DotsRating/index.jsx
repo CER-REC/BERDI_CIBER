@@ -33,24 +33,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Rating = ({ score, type }) => {
+const DotsRating = ({ score, type }) => {
   const classes = useStyles();
   const keys = score ? [...Array(score).keys()] : [];
 
   return (
-    <div className={classes.root}>
+    <div className={`DotsRating ${classes.root}`}>
       { keys.map((key) => <div key={key} className={`${classes.circle} ${type}`} />) }
     </div>
   );
 };
 
-Rating.propTypes = {
+DotsRating.propTypes = {
   score: PropTypes.number,
   type: PropTypes.string.isRequired,
 };
 
-Rating.defaultProps = {
+DotsRating.defaultProps = {
   score: null,
 };
 
-export default Rating;
+export default DotsRating;
