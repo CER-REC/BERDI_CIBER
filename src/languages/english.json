@@ -410,6 +410,9 @@
       "littleRelation": "Little relation to search terms",
       "noRelation": "No relation to search terms"
     },
+    "topicsFilter": {
+      "notification": "Some results have been removed. Please see notice below regarding Indigenous Knowledge in BERDI."
+    },
     "loadingIndicator": {
       "api": "connecting",
       "app": "loading"
