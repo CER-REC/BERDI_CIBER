@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import DotsRating from '../../DotsRating';
+import Notification from '../../Notification';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.grey.athens}`,
     padding: '2em',
     width: '48em',
-    '&> div': {
+    '& > .DotsRating': {
       display: 'inline-block',
       fontSize: '2em',
-      '&> div:last-child': { marginRight: '0.5em' },
+      '& > div:last-child': { marginRight: '0.5em' },
     },
   },
   title: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Topic = ({ title, description, score, type }) => {
+const Topic = ({ title, description, notification, score, type }) => {
   const classes = useStyles();
   const intl = useIntl();
   const relationMessages = [
@@ -50,6 +51,7 @@ const Topic = ({ title, description, score, type }) => {
         )
       }
       <Typography classes={{ root: classes.body }} variant="body1">{description}</Typography>
+      {notification && <Notification>{notification}</Notification>}
     </div>
   );
 };
@@ -57,11 +59,13 @@ const Topic = ({ title, description, score, type }) => {
 Topic.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  notification: PropTypes.string,
   score: PropTypes.number,
   type: PropTypes.string.isRequired,
 };
 
 Topic.defaultProps = {
+  notification: null,
   score: null,
 };
 
