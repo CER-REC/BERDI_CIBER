@@ -1,4 +1,4 @@
-import { Button, Grid, makeStyles } from '@material-ui/core';
+import { Button, makeStyles } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
@@ -7,6 +7,8 @@ import SearchList from './SearchList';
 
 const useStyles = makeStyles((theme) => ({
   expandButtons: {
+    paddingBottom: '0.5em',
+    paddingTop: '1em',
     '& button': {
       color: theme.palette.teal.blue,
       borderColor: theme.palette.teal.blue,
@@ -43,13 +45,10 @@ const ListSection = () => {
 
   return (
     <>
-      <Grid container justify="space-between" style={{ paddingBottom: '0.5em' }}>
-        <Grid item className={classes.expandButtons}>
-          <Button onClick={expandAll} variant="outlined" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
-          <Button onClick={collapseAll} variant="outlined">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
-        </Grid>
-
-      </Grid>
+      <div className={classes.expandButtons}>
+        <Button onClick={expandAll} variant="outlined" style={{ marginRight: '0.5em' }}>{intl.formatMessage({ id: 'components.listPanel.expandAll' })}</Button>
+        <Button onClick={collapseAll} variant="outlined">{intl.formatMessage({ id: 'components.listPanel.collapseAll' })}</Button>
+      </div>
 
       <SearchList expandList={expandList} toggleExpand={toggleExpand} />
     </>

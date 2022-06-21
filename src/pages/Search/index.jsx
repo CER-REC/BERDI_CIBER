@@ -6,6 +6,7 @@ import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import FilterPanel from '../../components/FilterPanel';
+import IKNotification from '../../components/IKNotification';
 import LimitationsDialog from '../../components/LimitationsDialog';
 import ListSection from '../../components/ListPanel';
 import NavButtons from '../../components/NavButtons';
@@ -93,6 +94,7 @@ const Search = () => {
         </Grid>
       </Grid>
       <hr className={classes.hr} />
+      <IKNotification />
       <Cart />
       <ListSection />
       {showOSDPFooter && <OSDPFooter />}

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.content.background,
     borderRadius: 10,
     display: 'flex',
-    marginTop: '1.5em',
+    fontSize: '1rem',
     padding: '1.2em 1.4em',
   },
   icon: {

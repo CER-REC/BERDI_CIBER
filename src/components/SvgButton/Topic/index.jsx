@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey.dark,
     fontSize: 14,
     paddingTop: '0.2em',
+    '&:not(:last-child)': { paddingBottom: '1em' },
   },
 }));
 
