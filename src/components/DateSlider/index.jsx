@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { lang } from '../../constants';
-import sliderIcon from '../../images/datePicker/sliderIcon.svg';
 import isActivateKey from '../../utilities/isActivateKey';
 
 const debounceMS = 20;
@@ -161,7 +160,6 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
         tabIndex={0}
       >
         <span>{`${shortenDate(toStartDate(startIndex))} - ${shortenDate(toEndDate(endIndex))}`}</span>
-        <img src={sliderIcon} alt="a depiction of the date slider" />
       </div>
 
       <Popover
