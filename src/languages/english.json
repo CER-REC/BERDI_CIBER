@@ -203,6 +203,26 @@
       "resetLinkText": "Reset Session",
       "resetMessage": "Please click on the link to reset the session:"
     },
+    "ikNotification": {
+      "title": "Notice regarding Indigenous Knowledge in BERDI",
+      "ikDialog": {
+        "body1": "Publicly available Environmental and Socio-Economic Assessment files occasionally contain Indigenous Knowledge that, while not marked as confidential, could still be considered culturally sensitive.  Such information is collected as necessary by proponents as part of their Indigenous engagement processes in order to meet the {link}.",
+        "link1": "CER’s Filing Manual requirements",
+        "url1": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/",
+        "body2": "The CER, along with the Impact Assessment Agency of Canada, Transport Canada, and Fisheries and Oceans Canada have developed an Indigenous Knowledge Policy Framework (the Framework)  in consultation with Indigenous peoples. Within this Framework, it is noted that Indigenous Knowledge needs to be understood and considered within the context provided by the Nation or community.  This includes considering Indigenous Knowledge only for the purpose for which it is provided.",
+        "body3": "Using a mix of automatic methods and manual verification, we have removed items from our search index that could be culturally sensitive Indigenous Knowledge. This represents a small subset of the information available in BERDI – not all information about or relating to Indigenous communities is culturally sensitive. To understand our methods of identifying Indigenous Knowledge, please see BERDI’s methods page.",
+        "body4": "BERDI does not contain any information that is classified as confidential. Please see {link} for information about how Confidential Indigenous Knowledge is protected.",
+        "link4": "this page",
+        "url4": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/confidential-indigenous-knowledge.html",
+        "body5": "If you are a member of an Indigenous community and would like to inquire about the data that BERDI has about your community, please contact {link}.",
+        "body6": "If you are a researcher, educator, journalist, analyst, or otherwise interested in using the data you find in BERDI, please consider how to use this data respectfully. We encourage you to familiarize yourself with both the Federal Indigenous Knowledge Policy Framework and {link} and the historical reasons for their need. Please also consider that each Indigenous community has a right to decide how their information is used.",
+        "link6": "First Nations Principles of Ownership, Control, Access, and Possession (OCAP)",
+        "url6": "https://fnigc.ca/ocap-training/",
+        "footer": "If you find any information in BERDI that you believe constitutes Indigenous Knowledge, please report it using the built-in reporting function or send it to {link}.",
+        "emailLink": "data.donnees@cer-rec.gc.ca",
+        "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
+      }
+    },
     "legalDisclaimer": {
       "attention": "Attention",
       "disclaimer1": "The BERDI database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
