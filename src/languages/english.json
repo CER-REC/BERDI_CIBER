@@ -190,11 +190,14 @@
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "select": "- Select -",
-      "tooltip": "This dataset is limited to projects falling under the former {nebAct}. The current {cerAct} has amended and added new categories of projects.",
+      "tooltip": "This dataset includes major pipeline and abandonment projects that fall under the {cerAct} and the former {nebAct}, including: ",
       "nebAct": "NEB Act",
       "cerAct": "CER Act",
       "nebLink": "https://lois-laws.justice.gc.ca/eng/acts/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/eng/acts/C-15.1/",
+      "bullet1": "Large Projects over 40 km (CER Act s. 183, NEB Act s. 52)",
+      "bullet2": "Small Projects under 40 km (CER Act s. 214, NEB Act s. 58)",
+      "bullet3": "Pipeline Abandonment (CER Act s. 241(1), NEB Act s. 72)",
       "resultsCountLabel": "{num} results per page"
     },
     "errorBoundary": {
