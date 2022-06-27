@@ -45,14 +45,14 @@ Issues Affected: 1234
 ```
 docs(Standards/Git): Adds Conventional Commits as a commit standard
 
-Committizen has been installed and provides `git cz` alias for guided commit messages
+Commitizen has been installed and provides `git cz` alias for guided commit messages
 
 Issues Affected: 1114
 ```
 
-[Committizen](https://commitizen.github.io/cz-cli/) has been installed and will
+[Commitizen](https://commitizen.github.io/cz-cli/) has been installed and will
 provide a guided commit message workflow when running `npm run cz`. This can be
-aliased to `git cz` by running `npm install -g committizen`. This will simplify
+aliased to `git cz` by running `npm install -g commitizen`. This will simplify
 the process of writing a good commit message, but the message may still be written
 manually.
 
