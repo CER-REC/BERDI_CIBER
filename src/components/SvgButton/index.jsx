@@ -4,9 +4,11 @@ import React from 'react';
 import DotsRating from '../DotsRating';
 import Label from './Label';
 import Topic from './Topic';
+import info from '../../images/info.svg';
 
 const pulseMS = 1500;
 const circleWidth = '3.5em';
+const notificationWidth = '1.2em';
 
 const useStyles = makeStyles((theme) => ({
   root: { display: 'inline-block' },
@@ -29,8 +31,23 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     height: circleWidth,
     margin: 'auto',
+    overflow: 'visible',
     padding: '0.4em',
     width: circleWidth,
+    '&> div': { position: 'relative' },
+  },
+  notification: {
+    backgroundColor: theme.palette.icon.grey,
+    backgroundImage: `url(${info})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'auto 50%',
+    borderRadius: '50%',
+    height: notificationWidth,
+    position: 'absolute',
+    right: `calc(${notificationWidth} / -2)`,
+    top: `calc(${notificationWidth} / -2)`,
+    width: notificationWidth,
   },
   pulse: {
     '&:before': {
@@ -46,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
       width: circleWidth,
     },
   },
-  svg: { height: 'calc(100% - 0.4em)' },
+  svg: { width: 'calc(100% - 0.4em)' },
   '@keyframes pulse': {
     from: {
       transform: 'scale(0.95)',
@@ -65,6 +82,7 @@ const SvgButton = ({
   label,
   title,
   description,
+  notification,
   score,
   type,
   disabled,
@@ -80,7 +98,15 @@ const SvgButton = ({
     // because a disabled button doesn't fire the events to trigger the tooltip
     <Tooltip
       classes={{ tooltip: classes.tooltip }}
-      title={<Topic title={title} description={description} score={score} type={type} />}
+      title={(
+        <Topic
+          title={title}
+          description={description}
+          notification={disabled ? null : notification}
+          score={score}
+          type={type}
+        />
+      )}
       enterDelay={500}
       enterNextDelay={500}
       placement="right"
@@ -99,7 +125,10 @@ const SvgButton = ({
             className={pulse ? classes.pulse : null}
             classes={{ root: classes.icon }}
           >
-            <img className={classes.svg} src={src} alt={label} />
+            <div>
+              <img className={classes.svg} src={src} alt={label} />
+              {!disabled && notification && <div className={classes.notification} />}
+            </div>
             <DotsRating score={score} type={type} />
           </Icon>
           <Label label={label} />
@@ -115,6 +144,7 @@ SvgButton.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  notification: PropTypes.string,
   score: PropTypes.number,
   type: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
@@ -125,6 +155,7 @@ SvgButton.propTypes = {
 };
 
 SvgButton.defaultProps = {
+  notification: null,
   score: null,
   disabled: false,
   pulse: false,

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import DotsRating from '../../DotsRating';
+import Notification from '../../Notification';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,11 +11,6 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.grey.athens}`,
     padding: '2em',
     width: '48em',
-    '&> div': {
-      display: 'inline-block',
-      fontSize: '2em',
-      '&> div:last-child': { marginRight: '0.5em' },
-    },
   },
   title: {
     color: theme.palette.primary.main,
@@ -26,9 +22,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 14,
     paddingTop: '0.2em',
   },
+  rating: {
+    alignItems: 'center',
+    display: 'flex',
+    fontSize: '2em',
+    '& > p': { padding: '0 0 0 0.5em' },
+  },
 }));
 
-const Topic = ({ title, description, score, type }) => {
+const Topic = ({ title, description, notification, score, type }) => {
   const classes = useStyles();
   const intl = useIntl();
   const relationMessages = [
@@ -43,13 +45,14 @@ const Topic = ({ title, description, score, type }) => {
       <Typography classes={{ root: classes.title }}>{title}</Typography>
       {
         (typeof score === 'number') && (
-          <>
+          <div className={classes.rating}>
             <DotsRating score={score} type={type} />
             <Typography classes={{ root: classes.body }} variant="body1" display="inline">{relationMessages[score]}</Typography>
-          </>
+          </div>
         )
       }
       <Typography classes={{ root: classes.body }} variant="body1">{description}</Typography>
+      {notification && <Notification>{notification}</Notification>}
     </div>
   );
 };
@@ -57,11 +60,13 @@ const Topic = ({ title, description, score, type }) => {
 Topic.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  notification: PropTypes.string,
   score: PropTypes.number,
   type: PropTypes.string.isRequired,
 };
 
 Topic.defaultProps = {
+  notification: null,
   score: null,
 };
 

@@ -62,6 +62,7 @@ const theme = createMuiTheme({
       darkBluePurple,
       inline: inlineBlue,
     },
+    icon: { grey: '#42464B' },
     purple: {
       dark: darkPurple,
       light: lightPurple,
@@ -86,6 +87,9 @@ const theme = createMuiTheme({
     cart: {
       light: swansDown,
       dark: tealBlue,
+    },
+    content: {
+      background: '#EDF1F4',
     },
     environmental,
     socioEconomic,

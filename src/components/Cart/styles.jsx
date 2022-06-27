@@ -38,7 +38,7 @@ export default (theme) => ({
   headerQuantity: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#42464B',
+    color: theme.palette.icon.grey,
   },
   headerLink: {
     fontSize: 14,
@@ -49,7 +49,7 @@ export default (theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     '& svg': {
-      color: '#42464B',
+      color: theme.palette.icon.grey,
     },
   },
   headerButton: {

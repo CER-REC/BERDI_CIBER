@@ -412,6 +412,9 @@
       "littleRelation": "Lien ténu avec les termes recherchés",
       "noRelation": "Absence de lien avec les termes recherchés"
     },
+    "topicsFilter": {
+      "notification": "Certains résultats ont été supprimés. Veuillez consulter l’avis ci-dessous relatif aux connaissances autochtones dans CIBER."
+    },
     "loadingIndicator": {
       "api": "veuillez patienter",
       "app": "veuillez patienter"

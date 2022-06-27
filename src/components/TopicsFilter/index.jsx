@@ -136,7 +136,10 @@ const TopicsFilter = () => {
   // Need to filter out the __typename from Apollo
   const maxValueComponent = Math.max(...Object.values(valueComponent).filter(Number));
   const topicProps = {};
-
+  const topicNotifications = {
+    indigenous: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
+    treaty: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
+  };
   const handleRef = (node) => setLayerNode(node);
   const getProps = (topic, src) => ({
     // This will be looped through two static lists
@@ -222,6 +225,7 @@ const TopicsFilter = () => {
                 label={topicProps[topic].label}
                 title={topicProps[topic].title}
                 description={topicProps[topic].description}
+                notification={topicNotifications[topic]}
                 score={topicProps[topic].score}
                 type="environmental"
                 disabled={topicProps[topic].disabled}
@@ -248,6 +252,7 @@ const TopicsFilter = () => {
                 label={topicProps[topic].label}
                 title={topicProps[topic].title}
                 description={topicProps[topic].description}
+                notification={topicNotifications[topic]}
                 score={topicProps[topic].score}
                 type="socioEconomic"
                 disabled={topicProps[topic].disabled}
