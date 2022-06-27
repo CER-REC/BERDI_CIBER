@@ -38,7 +38,7 @@ const DotsRating = ({ score, type }) => {
   const keys = score ? [...Array(score).keys()] : [];
 
   return (
-    <div className={`DotsRating ${classes.root}`}>
+    <div className={classes.root}>
       { keys.map((key) => <div key={key} className={`${classes.circle} ${type}`} />) }
     </div>
   );

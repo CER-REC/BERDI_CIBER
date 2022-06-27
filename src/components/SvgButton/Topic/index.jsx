@@ -11,11 +11,6 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${theme.palette.grey.athens}`,
     padding: '2em',
     width: '48em',
-    '& > .DotsRating': {
-      display: 'inline-block',
-      fontSize: '2em',
-      '& > div:last-child': { marginRight: '0.5em' },
-    },
   },
   title: {
     color: theme.palette.primary.main,
@@ -26,6 +21,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.grey.dark,
     fontSize: 14,
     paddingTop: '0.2em',
+  },
+  rating: {
+    alignItems: 'center',
+    display: 'flex',
+    fontSize: '2em',
+    '& > p': { padding: '0 0 0 0.5em' },
   },
 }));
 
@@ -44,10 +45,10 @@ const Topic = ({ title, description, notification, score, type }) => {
       <Typography classes={{ root: classes.title }}>{title}</Typography>
       {
         (typeof score === 'number') && (
-          <>
+          <div className={classes.rating}>
             <DotsRating score={score} type={type} />
             <Typography classes={{ root: classes.body }} variant="body1" display="inline">{relationMessages[score]}</Typography>
-          </>
+          </div>
         )
       }
       <Typography classes={{ root: classes.body }} variant="body1">{description}</Typography>
