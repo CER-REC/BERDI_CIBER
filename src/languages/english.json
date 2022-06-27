@@ -422,7 +422,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Learn from the past and prepare the future.",
-      "tagline": "Search biophysical, economic, and regional data and information from major pipeline projects, since 2003.",
+      "tagline": "Search Biophysical, Economic, and Regional Data and Information from major pipeline projects, since 2003. Data last updated: {updateDate}. New data is added twice a year.",
       "exploreTopics": "Explore the data based on topics",
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health. {learnMoreLink}",
@@ -534,7 +534,7 @@
           "url2": "https://camelot-py.readthedocs.io/en/master/"
         },
         "section4a": {
-          "header": "Step 3a: Extract tables and figures",
+          "header": "Step 3a: Extract alignment sheets",
           "paragraph1": "Based on visual inspection, we assumed that we might classify a particular page of a PDF as an alignment sheet or not based on certain features present on the page. Some of the important features chosen for this classification task are area of the images, number of images on a page, number of words on a page, and presence of some keywords (such as scale, kilometers or meters, figure, or north, etc.). We then trained several classification models using k-nearest neighbor, support vector machine, random forest, and Xgboost on a sample dataset of PDFs and calculated the accuracy of these models. The optimum classification model was selected based on the accuracy and the process time. Since we got an accuracy level of >95% for the optimal model, we then used this model to classify all the PDF pages in the ESA databank to classify alignment sheets."
         },
         "section5": {
@@ -548,9 +548,9 @@
             "part1": "As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, and Leismer to Kettle River Crossover).",
             "table": {
               "title": "What does problematic mean?",
-              "bullet1": "files only contain one column or one row;",
-              "bullet2": "contains more than 72% blank cells;",
-              "bullet3": "contains more than 80% cells with non-identified characters; or",
+              "bullet1": "Files contain only one column or one row;",
+              "bullet2": "Files contain more than 72% blank cells;",
+              "bullet3": "Files contain more than 80% cells with non-identified characters; or",
               "bullet4": "Two or more files are indexed with the same title and page, even though they are different."
             },
             "part2": "Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version."

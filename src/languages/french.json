@@ -424,7 +424,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
-      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
+      "tagline": "Explorez les contenus et les informations biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
       "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
@@ -552,8 +552,8 @@
               "title": "Qu’entend-on par « problématique »?",
               "bullet1": "Les tableaux contiennent une seule colonne ou une seule rangée;",
               "bullet2": "Ils contiennent plus de 72 % de cellules vides;",
-              "bullet3": "Ils contiennent plus de 80 % de cellules dont les caractères non identifiés;",
-              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page;"
+              "bullet3": "Ils contiennent plus de 80 % de cellules contenant des caractères non identifiés;",
+              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page."
             },
             "part2": "Les tableaux appartenant à ces fichiers PDF sont indexés, mais ne peuvent pas être téléchargés dans la version actuelle. Ils seront incorporés à une version ultérieure."
           },

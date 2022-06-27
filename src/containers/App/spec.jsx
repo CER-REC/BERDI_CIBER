@@ -25,7 +25,7 @@ const setURLSearchParams = (search) => {
 
 const simulateSearch = () => {
   const searchButton = screen.getByLabelText('components.searchPanel.searchButton');
-  const searchField = screen.getByLabelText('components.searchPanel.searchPlaceHolder');
+  const searchField = screen.getByRole('textbox');
   fireEvent.change(searchField, { target: { value: 'test search' } });
   fireEvent.click(searchButton);
 };

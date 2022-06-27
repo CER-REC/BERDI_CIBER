@@ -36,11 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   noBorder: { border: 'none' },
   searchHelpBox: {
-    minWidth: '3em',
-    maxWidth: '7em',
     backgroundColor: theme.palette.common.white,
     color: theme.palette.button.blue,
+    display: 'flex',
     fontSize: 14,
+    justifyContent: 'center',
+    width: '10em',
   },
 }));
 
@@ -71,24 +72,21 @@ const SearchBar = ({ hasShrink }) => {
     <div className={`Keywords ${classes.root}`}>
       <SearchHelpDialog open={searchHelpOpen} onClose={() => setSearchHelpOpen(false)} />
       <Grid container wrap="nowrap">
-        <Grid item xs={9}>
-          <TextField
-            classes={{ root: classes.input }}
-            label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
-            id={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
-            variant="outlined"
-            margin="dense"
-            value={search}
-            InputLabelProps={{
-              classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
-            }}
-            InputProps={{ classes: { notchedOutline: classes.noBorder } }}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            autoFocus
-          />
-        </Grid>
-        <Grid item container xs={2} alignItems="center" justify="space-evenly" className={classes.searchHelpBox}>
+        <TextField
+          classes={{ root: classes.input }}
+          label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
+          variant="outlined"
+          margin="dense"
+          value={search}
+          InputLabelProps={{
+            classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
+          }}
+          InputProps={{ classes: { notchedOutline: classes.noBorder } }}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          autoFocus
+        />
+        <span className={classes.searchHelpBox}>
           <Button
             aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
             color="inherit"
@@ -97,17 +95,15 @@ const SearchBar = ({ hasShrink }) => {
           >
             {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           </Button>
-        </Grid>
-        <Grid item container xs={1}>
-          <Button
-            className={classes.button}
-            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
-            variant="contained"
-            onClick={handleClick}
-          >
-            <SearchIcon />
-          </Button>
-        </Grid>
+        </span>
+        <Button
+          className={classes.button}
+          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+          variant="contained"
+          onClick={handleClick}
+        >
+          <SearchIcon />
+        </Button>
       </Grid>
     </div>
   );
