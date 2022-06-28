@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100%',
     padding: '1.5em',
     '&:hover': {
-      backgroundColor: '#EDF1F4',
+      backgroundColor: theme.palette.content.background,
     },
   },
   buttonLabel: {

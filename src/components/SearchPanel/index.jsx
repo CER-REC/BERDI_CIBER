@@ -50,8 +50,12 @@ const SearchPanel = ({ hasFilter, onChange }) => {
 
   return (
     <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
-      {!hasFilter && (<TitleCard />)}
       <Grid container className={classes.searchPanel} alignItems="center">
+        {!hasFilter && (
+          <Grid item xs={9}>
+            <TitleCard />
+          </Grid>
+        )}
         <Grid item xs={9} className={classes.barContainer}>
           {hasFilter && (
             <>

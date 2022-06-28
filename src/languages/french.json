@@ -205,6 +205,26 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
+    "ikNotification": {
+      "title": "Avis relatif aux connaissances autochtones dans CIBER",
+      "ikDialog": {
+        "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
+        "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada de la Régie",
+        "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/index.html",
+        "body2": "La Régie, de concert avec l’Agence d’évaluation d’impact du Canada, Transports Canada et Pêches et Océans Canada, en partenariat avec les peuples autochtones, a élaboré un cadre stratégique sur les connaissances autochtones (le « cadre stratégique »). Ce cadre stratégique indique qu’il est nécessaire de bien saisir et de prendre en compte le contexte dans lequel ces informations ont été communiquées par la nation ou la communauté, ce qui inclut en réserver l’utilisation aux fins pour lesquelles elles ont été transmises.",
+        "body3": "En jumelant des moyens automatiques et une vérification manuelle, nous avons supprimé des entrées de notre index de recherche qui étaient susceptibles de diriger l’utilisateur vers des connaissances autochtones qui pourraient être délicates sur le plan culturel. Cela ne touche qu’un petit sous-ensemble d’entrées de CIBER, les informations se rapportant à des collectivités autochtones n’appartenant pas toutes à cette catégorie. Pour comprendre la façon dont nous avons relevé les connaissances autochtones, nous vous invitons à consulter la page portant sur celle-ci dans CIBER.",
+        "body4": "CIBER ne renferme aucun renseignement classé confidentiel. Veuillez consulter {link} pour en savoir davantage sur la façon dont les connaissances autochtones confidentielles sont protégées.",
+        "link4": "cette page",
+        "url4": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/connaissances-autochtones-confidentielles.html",
+        "body5": "Si vous êtes un membre d’une communauté autochtone et que vous désirez vous renseigner sur les données portant sur celle-ci qui se trouvent dans CIBER, veuillez écrire à {link}.",
+        "body6": "Si vous êtes un chercheur, un éducateur, un journaliste, un analyste ou quelqu’un qui souhaite utiliser les données contenues dans CIBER, nous vous demandons d’en faire un usage respectueux. Nous vous encourageons à vous renseigner sur le cadre stratégique fédéral sur les connaissances autochtones et les {link} ainsi que sur les raisons historiques de leur nécessité. Veuillez aussi tenir compte du fait que chaque communauté autochtone a le droit de déterminer la façon dont ses informations peuvent être utilisées.",
+        "link6": "principes de propriété, de contrôle, d’accès et de possession des Premières Nations (« PCAP »)",
+        "url6": "https://fnigc.ca/fr/les-principes-de-pcap-des-premieres-nations/",
+        "footer": "Si vous découvrez des informations dans CIBER qui, à votre avis, constituent des connaissances autochtones, nous vous prions de les signaler en utilisant la fonction prévue à cette fin dans CIBER ou de les faire parvenir à l’adresse {link}.",
+        "emailLink": "data.donnees@cer-rec.gc.ca",
+        "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
+      }
+    },
     "legalDisclaimer": {
       "attention": "Attention",
       "disclaimer1": "La base de données sur les CIBER favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
@@ -412,6 +432,9 @@
       "littleRelation": "Lien ténu avec les termes recherchés",
       "noRelation": "Absence de lien avec les termes recherchés"
     },
+    "topicsFilter": {
+      "notification": "Certains résultats ont été supprimés. Veuillez consulter l’avis ci-dessous relatif aux connaissances autochtones dans CIBER."
+    },
     "loadingIndicator": {
       "api": "veuillez patienter",
       "app": "veuillez patienter"
@@ -424,7 +447,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
-      "tagline": "Explorez les contenus et information biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers.",
+      "tagline": "Explorez les contenus et les informations biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
       "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
@@ -552,8 +575,8 @@
               "title": "Qu’entend-on par « problématique »?",
               "bullet1": "Les tableaux contiennent une seule colonne ou une seule rangée;",
               "bullet2": "Ils contiennent plus de 72 % de cellules vides;",
-              "bullet3": "Ils contiennent plus de 80 % de cellules dont les caractères non identifiés;",
-              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page;"
+              "bullet3": "Ils contiennent plus de 80 % de cellules contenant des caractères non identifiés;",
+              "bullet4": "Deux fichiers différents ou plus sont indexés avec le même titre et au même numéro de page."
             },
             "part2": "Les tableaux appartenant à ces fichiers PDF sont indexés, mais ne peuvent pas être téléchargés dans la version actuelle. Ils seront incorporés à une version ultérieure."
           },

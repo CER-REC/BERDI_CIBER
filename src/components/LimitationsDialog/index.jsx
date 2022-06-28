@@ -1,34 +1,14 @@
-import { Button, Dialog, makeStyles, Typography, IconButton, Grid } from '@material-ui/core';
+import { makeStyles, Button, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
-import CloseIcon from '@material-ui/icons/Close';
+import CERDialog from '../CERDialog';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
 
 const useStyles = makeStyles((theme) => ({
-  dialog: {
-    borderRadius: '5px',
-    boxShadow: '2px 4px 4px rgba(0, 0, 0, 0.25)',
-    '& hr': {
-      borderColor: theme.palette.primary.main,
-      borderWidth: '2px',
-      margin: '0 auto',
-      width: 'calc(100% - 3em)',
-    },
-  },
-  titleSection: {
-    backgroundColor: theme.palette.blue.dark,
-    color: theme.palette.common.white,
-    '& button': {
-      color: 'white',
-      marginRight: '-0.5em',
-    },
-    padding: '0 1em',
-  },
   body: {
-    padding: '1.5em',
     '& h6': {
       fontSize: '14px',
       fontWeight: 700,
@@ -42,11 +22,11 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   downloadSection: {
-    padding: '1.5em',
     borderColor: theme.palette.blue.dark,
     borderStyle: 'solid',
     borderWidth: '2px',
-    margin: '0 1.5em 2em 1.5em',
+    marginTop: '1.5em',
+    padding: '1.5em',
     '& p': {
       fontSize: '14px',
       lineHeight: 'normal',
@@ -89,29 +69,11 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   };
 
   return (
-    <Dialog
-      className="LimitationsDialog"
-      classes={{ paper: classes.dialog }}
+    <CERDialog
+      title={intl.formatMessage({ id: 'components.limitationsDialog.title' })}
       open={open}
       onClose={onClose}
-      maxWidth="sm"
-      fullWidth
     >
-      {/* Title Section */}
-      <Grid container className={classes.titleSection}>
-        <Grid item xs={11} style={{ padding: '0.5em 0' }}>
-          <Typography variant="h6">
-            {intl.formatMessage({ id: 'components.limitationsDialog.title' })}
-          </Typography>
-        </Grid>
-
-        <Grid container justify="flex-end" item xs={1}>
-          <IconButton aria-label="close" onClick={onClose}>
-            <CloseIcon />
-          </IconButton>
-        </Grid>
-      </Grid>
-
       <div className={classes.body}>
         <Typography component="h6">
           {intl.formatMessage({ id: 'components.limitationsDialog.accuracy.title' })}
@@ -217,7 +179,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           </Button>
         </div>
       )}
-    </Dialog>
+    </CERDialog>
   );
 };
 

@@ -206,6 +206,26 @@
       "resetLinkText": "Reset Session",
       "resetMessage": "Please click on the link to reset the session:"
     },
+    "ikNotification": {
+      "title": "Notice regarding Indigenous Knowledge in BERDI",
+      "ikDialog": {
+        "body1": "Publicly available Environmental and Socio-Economic Assessment files occasionally contain Indigenous Knowledge that, while not marked as confidential, could still be considered culturally sensitive.  Such information is collected as necessary by proponents as part of their Indigenous engagement processes in order to meet the {link}.",
+        "link1": "CER’s Filing Manual requirements",
+        "url1": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/",
+        "body2": "The CER, along with the Impact Assessment Agency of Canada, Transport Canada, and Fisheries and Oceans Canada have developed an Indigenous Knowledge Policy Framework (the Framework)  in consultation with Indigenous peoples. Within this Framework, it is noted that Indigenous Knowledge needs to be understood and considered within the context provided by the Nation or community.  This includes considering Indigenous Knowledge only for the purpose for which it is provided.",
+        "body3": "Using a mix of automatic methods and manual verification, we have removed items from our search index that could be culturally sensitive Indigenous Knowledge. This represents a small subset of the information available in BERDI – not all information about or relating to Indigenous communities is culturally sensitive. To understand our methods of identifying Indigenous Knowledge, please see BERDI’s methods page.",
+        "body4": "BERDI does not contain any information that is classified as confidential. Please see {link} for information about how Confidential Indigenous Knowledge is protected.",
+        "link4": "this page",
+        "url4": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/confidential-indigenous-knowledge.html",
+        "body5": "If you are a member of an Indigenous community and would like to inquire about the data that BERDI has about your community, please contact {link}.",
+        "body6": "If you are a researcher, educator, journalist, analyst, or otherwise interested in using the data you find in BERDI, please consider how to use this data respectfully. We encourage you to familiarize yourself with both the Federal Indigenous Knowledge Policy Framework and {link} and the historical reasons for their need. Please also consider that each Indigenous community has a right to decide how their information is used.",
+        "link6": "First Nations Principles of Ownership, Control, Access, and Possession (OCAP)",
+        "url6": "https://fnigc.ca/ocap-training/",
+        "footer": "If you find any information in BERDI that you believe constitutes Indigenous Knowledge, please report it using the built-in reporting function or send it to {link}.",
+        "emailLink": "data.donnees@cer-rec.gc.ca",
+        "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
+      }
+    },
     "legalDisclaimer": {
       "attention": "Attention",
       "disclaimer1": "The BERDI database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
@@ -413,6 +433,9 @@
       "littleRelation": "Little relation to search terms",
       "noRelation": "No relation to search terms"
     },
+    "topicsFilter": {
+      "notification": "Some results have been removed. Please see notice below regarding Indigenous Knowledge in BERDI."
+    },
     "loadingIndicator": {
       "api": "connecting",
       "app": "loading"
@@ -425,7 +448,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Learn from the past and prepare the future.",
-      "tagline": "Search biophysical, economic, and regional data and information from major pipeline projects, since 2003.",
+      "tagline": "Search Biophysical, Economic, and Regional Data and Information from major pipeline projects, since 2003. Data last updated: {updateDate}. New data is added twice a year.",
       "exploreTopics": "Explore the data based on topics",
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health. {learnMoreLink}",
@@ -537,7 +560,7 @@
           "url2": "https://camelot-py.readthedocs.io/en/master/"
         },
         "section4a": {
-          "header": "Step 3a: Extract tables and figures",
+          "header": "Step 3a: Extract alignment sheets",
           "paragraph1": "Based on visual inspection, we assumed that we might classify a particular page of a PDF as an alignment sheet or not based on certain features present on the page. Some of the important features chosen for this classification task are area of the images, number of images on a page, number of words on a page, and presence of some keywords (such as scale, kilometers or meters, figure, or north, etc.). We then trained several classification models using k-nearest neighbor, support vector machine, random forest, and Xgboost on a sample dataset of PDFs and calculated the accuracy of these models. The optimum classification model was selected based on the accuracy and the process time. Since we got an accuracy level of >95% for the optimal model, we then used this model to classify all the PDF pages in the ESA databank to classify alignment sheets."
         },
         "section5": {
@@ -551,9 +574,9 @@
             "part1": "As part of the quality assurance of the table extraction process, we found that 30 PDFs account for 84% of problematic extracted tables files. These files are concentrated in 5 projects (Towerbirch, Brunswick, Eastern Mainline, Wolverine, and Leismer to Kettle River Crossover).",
             "table": {
               "title": "What does problematic mean?",
-              "bullet1": "files only contain one column or one row;",
-              "bullet2": "contains more than 72% blank cells;",
-              "bullet3": "contains more than 80% cells with non-identified characters; or",
+              "bullet1": "Files contain only one column or one row;",
+              "bullet2": "Files contain more than 72% blank cells;",
+              "bullet3": "Files contain more than 80% cells with non-identified characters; or",
               "bullet4": "Two or more files are indexed with the same title and page, even though they are different."
             },
             "part2": "Tables belonging to these pdfs are indexed but not available to download in the current version. They will be incorporated in a later version."
