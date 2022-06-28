@@ -54,32 +54,51 @@ const DataTooltip = () => {
         PaperProps={{ classes: { root: classes.tooltip } }}
       >
         <Typography classes={{ root: classes.body }}>
-          {
-            intl.formatMessage(
-              { id: 'components.dropdown.tooltip' },
-              {
-                nebAct: (
-                  <a
-                    href={intl.formatMessage({ id: 'components.dropdown.nebLink' })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.dropdown.nebAct' })}
-                  </a>
-                ),
-                cerAct: (
-                  <a
-                    href={intl.formatMessage({ id: 'components.dropdown.cerLink' })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {intl.formatMessage({ id: 'components.dropdown.cerAct' })}
-                  </a>
-                ),
-              },
-            )
-          }
+          {intl.formatMessage(
+            { id: 'components.dropdown.tooltip' },
+            {
+              cerAct: (
+                <a
+                  href={intl.formatMessage({
+                    id: 'components.dropdown.cerLink',
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {intl.formatMessage({ id: 'components.dropdown.cerAct' })}
+                </a>
+              ),
+              nebAct: (
+                <a
+                  href={intl.formatMessage({
+                    id: 'components.dropdown.nebLink',
+                  })}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {intl.formatMessage({ id: 'components.dropdown.nebAct' })}
+                </a>
+              ),
+            },
+          )}
         </Typography>
+        <ul style={{ marginBottom: '0px' }}>
+          <li>
+            <Typography classes={{ root: classes.body }}>
+              {intl.formatMessage({ id: 'components.dropdown.bullet1' })}
+            </Typography>
+          </li>
+          <li>
+            <Typography classes={{ root: classes.body }}>
+              {intl.formatMessage({ id: 'components.dropdown.bullet2' })}
+            </Typography>
+          </li>
+          <li>
+            <Typography classes={{ root: classes.body }}>
+              {intl.formatMessage({ id: 'components.dropdown.bullet3' })}
+            </Typography>
+          </li>
+        </ul>
       </Popover>
     </>
   );
