@@ -82,7 +82,7 @@ const DataTooltip = () => {
             },
           )}
         </Typography>
-        <ul>
+        <ul style={{ marginBottom: '0px' }}>
           <li>
             <Typography classes={{ root: classes.body }}>
               {intl.formatMessage({ id: 'components.dropdown.bullet1' })}
