@@ -8,9 +8,6 @@ import { reportChip } from '../../utilities/analytics';
 import { lang } from '../../constants';
 
 const useStyles = makeStyles(() => ({
-  bold: {
-    fontWeight: '700',
-  },
   chip: {
     background: '#EDEDED',
     borderRadius: '30px',
@@ -70,7 +67,7 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Typography variant="body2" className={classes.bold}>
+      <Typography variant="body2">
         {intl.formatMessage({ id: 'components.searchDetails.currentFilters' }).toUpperCase()}
       </Typography>
       {
