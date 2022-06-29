@@ -1,33 +1,32 @@
-import React from "react";
-import { Chip, makeStyles, Typography } from "@material-ui/core";
-import CloseIcon from "@material-ui/icons/Close";
-import { useIntl } from "react-intl";
-import useConfig from "../../hooks/useConfig";
-import useAPI from "../../hooks/useAPI";
-import { reportChip } from "../../utilities/analytics";
-import { lang } from "../../constants";
+import React from 'react';
+import { Chip, makeStyles, Typography } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
+import { useIntl } from 'react-intl';
+import useConfig from '../../hooks/useConfig';
+import useAPI from '../../hooks/useAPI';
+import { reportChip } from '../../utilities/analytics';
+import { lang } from '../../constants';
 
 const useStyles = makeStyles(() => ({
   bold: {
     fontWeight: '700',
   },
   chip: {
-    background: "#EDEDED",
-    borderRadius: "30px",
-    margin: "1em 0.5em 0 0.5em",
-    paddingRight: "0.3em",
+    background: '#EDEDED',
+    borderRadius: '30px',
+    margin: '1em 0.5em 0 0.5em',
+    paddingRight: '0.3em',
     fontSize: 16,
-    color: "black",
-    maxWidth: "32em",
+    color: 'black',
+    maxWidth: '32em',
   },
   closeButton: {
-    fill: "black",
-    transform: "scale(1.15)",
+    fill: 'black',
+    transform: 'scale(1.15)',
   },
 }));
 
-const getFormattedDate = (date) =>
-  date.toLocaleDateString(`${lang}-CA`, { year: "numeric", month: "short" });
+const getFormattedDate = (date) => date.toLocaleDateString(`${lang}-CA`, { year: 'numeric', month: 'short' });
 
 const useAssembledChipLabels = () => {
   const { config } = useConfig();
@@ -38,33 +37,21 @@ const useAssembledChipLabels = () => {
   return {
     search: [config.search].filter(Boolean),
     applicationIds: config.applicationIds.map(
-      (item) => applicationIdLabels[item]
+      (item) => applicationIdLabels[item],
     ),
-    regions: config.regions.map((item) =>
-      intl.formatMessage({ id: `api.regions.${item}` })
-    ),
-    contentTypes: config.contentTypes.map((item) =>
-      intl.formatMessage({ id: `api.content.${item}` })
-    ),
-    projectTypes: config.projectTypes.map((item) =>
-      intl.formatMessage({ id: `api.projects.${item}` })
-    ),
-    commodities: config.commodities.map((item) =>
-      intl.formatMessage({ id: `api.commodities.${item}` })
-    ),
-    statuses: config.statuses.map((item) =>
-      intl.formatMessage({ id: `api.statuses.${item}` })
-    ),
-    topics: config.topics.map((item) =>
-      intl.formatMessage({ id: `common.vcLabels.${item}.label` })
-    ),
+    regions: config.regions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })),
+    contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `api.content.${item}` })),
+    projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
+    commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
+    statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
+    topics: config.topics.map((item) => intl.formatMessage({ id: `common.vcLabels.${item}.label` })),
     dateRange:
       hasStartDate || hasEndDate
         ? [
-            `${getFormattedDate(config.startDate)} - ${getFormattedDate(
-              config.endDate
-            )}`,
-          ]
+          `${getFormattedDate(config.startDate)} - ${getFormattedDate(
+            config.endDate,
+          )}`,
+        ]
         : [],
   };
 };
@@ -80,9 +67,9 @@ const FilterChipsPanel = () => {
     reportChip(label);
 
     if (
-      chipType === "search" ||
-      chipType === "topics" ||
-      chipType === "dateRange"
+      chipType === 'search'
+      || chipType === 'topics'
+      || chipType === 'dateRange'
     ) {
       configDispatch({
         type: `${chipType}/removed`,
@@ -93,7 +80,7 @@ const FilterChipsPanel = () => {
     }
 
     const newState = config[chipType].filter(
-      (_, configIndex) => index !== configIndex
+      (_, configIndex) => index !== configIndex,
     );
 
     configDispatch({ type: `${chipType}/changed`, payload: newState });
@@ -101,11 +88,10 @@ const FilterChipsPanel = () => {
   return (
     <div>
       <Typography variant="body2" className={classes.bold}>
-        {intl.formatMessage({ id: "components.searchDetails.currentFilters" }).toUpperCase()}
+        {intl.formatMessage({ id: 'components.searchDetails.currentFilters' }).toUpperCase()}
       </Typography>
       {
-        Object.keys(chipLabels).map((chipType) =>
-        chipLabels[chipType].map((chipLabel, index) => (
+        Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
           <Chip
             key={chipLabel}
             label={chipLabel}
