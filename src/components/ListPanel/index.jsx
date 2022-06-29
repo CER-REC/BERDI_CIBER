@@ -1,5 +1,4 @@
 import { Button, makeStyles } from '@material-ui/core';
-import { autoType } from 'd3';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
