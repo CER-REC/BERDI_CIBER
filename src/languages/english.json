@@ -425,7 +425,8 @@
       "title": "Search Results",
       "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}}, {figures, plural, =1 {{boldFigures} figure} other {{boldFigures} figures}}, and {alignmentSheets, plural, =1 {{boldAlignmentSheets} alignment sheet} other {{boldAlignmentSheets} alignment sheets}} found",
       "explore": "Explore results by",
-      "select": "Select one or more circles to filter the results by topic."
+      "select": "Select one or more circles to filter the results by topic.",
+      "currentFilters": "Current Filters and Search Terms"
     },
     "svgButton": {
       "strongRelation": "Strong relation to search terms",
