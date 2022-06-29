@@ -1,4 +1,5 @@
 import { Button, makeStyles } from '@material-ui/core';
+import { autoType } from 'd3';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import useESAData from '../../hooks/useESAData';
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
   expandButtons: {
     paddingBottom: '0.5em',
     paddingTop: '1em',
+    float: 'right',
     '& button': {
       color: theme.palette.teal.blue,
       borderColor: theme.palette.teal.blue,

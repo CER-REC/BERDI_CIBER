@@ -15,7 +15,7 @@ const useStyles = makeStyles({
     fontWeight: '700',
   },
   filterText: {
-    fontWeight: '400',
+    fontWeight: 'lighter',
     paddingBottom: '0.5em',
     paddingTop: '0.8em',
   },

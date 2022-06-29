@@ -93,7 +93,6 @@ const Search = () => {
           <AddContentIdsButton />
         </Grid>
       </Grid>
-      <hr className={classes.hr} />
       <IKNotification />
       <Cart />
       <ListSection />
