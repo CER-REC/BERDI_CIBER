@@ -36,23 +36,15 @@ const useAssembledChipLabels = () => {
   const hasEndDate = config.endDate.getTime() !== maxDate.getTime();
   return {
     search: [config.search].filter(Boolean),
-    applicationIds: config.applicationIds.map(
-      (item) => applicationIdLabels[item],
-    ),
+    applicationIds: config.applicationIds.map((item) => applicationIdLabels[item]),
     regions: config.regions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })),
     contentTypes: config.contentTypes.map((item) => intl.formatMessage({ id: `api.content.${item}` })),
     projectTypes: config.projectTypes.map((item) => intl.formatMessage({ id: `api.projects.${item}` })),
     commodities: config.commodities.map((item) => intl.formatMessage({ id: `api.commodities.${item}` })),
     statuses: config.statuses.map((item) => intl.formatMessage({ id: `api.statuses.${item}` })),
     topics: config.topics.map((item) => intl.formatMessage({ id: `common.vcLabels.${item}.label` })),
-    dateRange:
-      hasStartDate || hasEndDate
-        ? [
-          `${getFormattedDate(config.startDate)} - ${getFormattedDate(
-            config.endDate,
-          )}`,
-        ]
-        : [],
+    dateRange: (hasStartDate || hasEndDate)
+      ? [`${getFormattedDate(config.startDate)} - ${getFormattedDate(config.endDate)}`] : [],
   };
 };
 
@@ -66,22 +58,13 @@ const FilterChipsPanel = () => {
   const removeFilter = (chipType, index, label) => () => {
     reportChip(label);
 
-    if (
-      chipType === 'search'
-      || chipType === 'topics'
-      || chipType === 'dateRange'
-    ) {
-      configDispatch({
-        type: `${chipType}/removed`,
-        payload: config[chipType]?.[index],
-      });
+    if ((chipType === 'search') || (chipType === 'topics') || (chipType === 'dateRange')) {
+      configDispatch({ type: `${chipType}/removed`, payload: config[chipType]?.[index] });
 
       return;
     }
 
-    const newState = config[chipType].filter(
-      (_, configIndex) => index !== configIndex,
-    );
+    const newState = config[chipType].filter((_, configIndex) => index !== configIndex);
 
     configDispatch({ type: `${chipType}/changed`, payload: newState });
   };
