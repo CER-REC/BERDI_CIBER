@@ -339,9 +339,15 @@
         "noTopics": "This {type} has no related topics."
       }
     },
+    "filterToggle": {
+      "explore": "Explore results by"
+    },
     "filterPanel": {
       "clearButton": "Clear all filters",
       "filters": "Filters"
+    },
+    "filterChipsPanel": {
+      "title": "Current Filters and Search Terms"
     },
     "osdpFooter": {
       "header": "Explore more open data with Open Science Data Portal.",
@@ -356,6 +362,9 @@
       "noResultsForWithFilters": "Sorry, there are no results for {search} with these filters.",
       "noResultsForWithDateRange": "Sorry, there are no results for {search} within this date range.",
       "noResultsWithDateRange": "Sorry, there are no results within this date range."
+    },
+    "topicsFilterPanel": {
+      "select": "Select one or more circles to filter the results by topic."
     },
     "resultDialog": {
       "seeMore": "See more...",
@@ -423,9 +432,7 @@
     },
     "searchDetails": {
       "title": "Search Results",
-      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}}, {figures, plural, =1 {{boldFigures} figure} other {{boldFigures} figures}}, and {alignmentSheets, plural, =1 {{boldAlignmentSheets} alignment sheet} other {{boldAlignmentSheets} alignment sheets}} found",
-      "explore": "Explore results by",
-      "select": "Select one or more circles to filter the results by topic."
+      "counts": "{tables, plural, =1 {{boldTables} table} other {{boldTables} tables}}, {figures, plural, =1 {{boldFigures} figure} other {{boldFigures} figures}}, and {alignmentSheets, plural, =1 {{boldAlignmentSheets} alignment sheet} other {{boldAlignmentSheets} alignment sheets}} found"
     },
     "svgButton": {
       "strongRelation": "Strong relation to search terms",

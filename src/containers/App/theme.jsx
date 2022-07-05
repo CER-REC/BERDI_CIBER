@@ -107,6 +107,10 @@ const theme = createMuiTheme({
         fontWeight: 700,
         lineHeight: 'normal',
       },
+      subtitle1: {
+        padding: '1em 0px 0.5em',
+        fontSize: 14,
+      },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
       caption: {

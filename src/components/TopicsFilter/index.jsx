@@ -210,63 +210,68 @@ const TopicsFilter = () => {
   }, [isLanding]);
 
   return (
-    <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
-      <Grid item xs={7}>
-        <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.environmental' }) }</span>
-        </Typography>
-        <div className={classes.topics}>
-          {
-            environmentalTopics.map((topic) => (
-              <SvgButton
-                key={topicProps[topic].label}
-                iconRef={topicProps[topic].iconRef}
-                src={topicProps[topic].src}
-                label={topicProps[topic].label}
-                title={topicProps[topic].title}
-                description={topicProps[topic].description}
-                notification={topicNotifications[topic]}
-                score={topicProps[topic].score}
-                type="environmental"
-                disabled={topicProps[topic].disabled}
-                pulse={topicProps[topic].pulse}
-                onClick={topicProps[topic].onClick}
-                onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
-                onMouseLeave={() => setHoverNode()}
-              />
-            ))
-          }
-        </div>
+    <>
+      <Typography variant="h6" style={{ fontWeight: 'lighter', padding: '0.8em 0 0.5em 0.3em' }}>
+        {intl.formatMessage({ id: 'components.topicsFilterPanel.select' })}
+      </Typography>
+      <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
+        <Grid item xs={7}>
+          <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">
+            <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.environmental' }) }</span>
+          </Typography>
+          <div className={classes.topics}>
+            {
+              environmentalTopics.map((topic) => (
+                <SvgButton
+                  key={topicProps[topic].label}
+                  iconRef={topicProps[topic].iconRef}
+                  src={topicProps[topic].src}
+                  label={topicProps[topic].label}
+                  title={topicProps[topic].title}
+                  description={topicProps[topic].description}
+                  notification={topicNotifications[topic]}
+                  score={topicProps[topic].score}
+                  type="environmental"
+                  disabled={topicProps[topic].disabled}
+                  pulse={topicProps[topic].pulse}
+                  onClick={topicProps[topic].onClick}
+                  onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
+                  onMouseLeave={() => setHoverNode()}
+                />
+              ))
+            }
+          </div>
+        </Grid>
+        <Grid item xs={5}>
+          <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
+            <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.socioEconomic' }) }</span>
+          </Typography>
+          <div className={classes.topics}>
+            {
+              socioEconomicTopics.map((topic) => (
+                <SvgButton
+                  key={topicProps[topic].label}
+                  iconRef={topicProps[topic].iconRef}
+                  src={topicProps[topic].src}
+                  label={topicProps[topic].label}
+                  title={topicProps[topic].title}
+                  description={topicProps[topic].description}
+                  notification={topicNotifications[topic]}
+                  score={topicProps[topic].score}
+                  type="socioEconomic"
+                  disabled={topicProps[topic].disabled}
+                  pulse={topicProps[topic].pulse}
+                  onClick={topicProps[topic].onClick}
+                  onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
+                  onMouseLeave={() => setHoverNode()}
+                />
+              ))
+            }
+          </div>
+        </Grid>
+        <Blob layerNode={layerNode} pointNodes={nodes} hoverNode={hoverNode} />
       </Grid>
-      <Grid item xs={5}>
-        <Typography className={`${classes.header} + ${classes.socioEconomic}`} variant="h5">
-          <span>{ intl.formatMessage({ id: 'common.vcLabels.headers.socioEconomic' }) }</span>
-        </Typography>
-        <div className={classes.topics}>
-          {
-            socioEconomicTopics.map((topic) => (
-              <SvgButton
-                key={topicProps[topic].label}
-                iconRef={topicProps[topic].iconRef}
-                src={topicProps[topic].src}
-                label={topicProps[topic].label}
-                title={topicProps[topic].title}
-                description={topicProps[topic].description}
-                notification={topicNotifications[topic]}
-                score={topicProps[topic].score}
-                type="socioEconomic"
-                disabled={topicProps[topic].disabled}
-                pulse={topicProps[topic].pulse}
-                onClick={topicProps[topic].onClick}
-                onMouseEnter={() => setHoverNode(topicProps[topic].iconRef.current)}
-                onMouseLeave={() => setHoverNode()}
-              />
-            ))
-          }
-        </div>
-      </Grid>
-      <Blob layerNode={layerNode} pointNodes={nodes} hoverNode={hoverNode} />
-    </Grid>
+    </>
   );
 };
 
