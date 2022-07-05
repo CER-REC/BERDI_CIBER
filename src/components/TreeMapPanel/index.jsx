@@ -15,7 +15,7 @@ const TreeMapPanel = () => {
 
   return (
     <>
-      <Typography style={{ padding: '0.5em 0 0.2em 0' }}>
+      <Typography variant="h6" style={{ fontWeight: '400', padding: '0.8em 0 0.5em 0.3em' }}>
         {intl.formatMessage({ id: 'components.treeMapPanel.boxSelect' })}
       </Typography>
       <TreeMap />
