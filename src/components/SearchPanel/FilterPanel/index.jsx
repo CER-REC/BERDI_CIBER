@@ -8,9 +8,9 @@ import useConfig from '../../../hooks/useConfig';
 import DateSlider from '../../DateSlider';
 import Filter from '../Filter';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
-    width: '100%'
+    width: '100%',
   },
   button: {
     marginTop: '1.8em',
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
   },
   showMore: {
     cursor: 'pointer',
-  }
+  },
 }));
 
 const FilterPanel = () => {
@@ -71,7 +71,8 @@ const FilterPanel = () => {
           hasHelp={false}
         />
       </Grid>
-      {open &&
+      {open
+        && (
         <Grid container spacing={2}>
           <Filter
             type="REGIONS"
@@ -105,15 +106,17 @@ const FilterPanel = () => {
             </Button>
           </Grid>
         </Grid>
-      }
-      <Grid container direction="row" alignItems="center" justify='center' style={{paddingTop: '1em'}}>
+        )}
+      <Grid container direction="row" alignItems="center" justify="center" style={{ paddingTop: '1em' }}>
         <Grid item>
           <Typography className={classes.showMore} onClick={() => setOpen(!open)}>
-            {open ? intl.formatMessage({ id: 'components.filterPanel.viewLessFilters' }): intl.formatMessage({ id: 'components.filterPanel.viewMoreFilters'})}
+            {open ? intl.formatMessage({ id: 'components.filterPanel.viewLessFilters' }) : intl.formatMessage({ id: 'components.filterPanel.viewMoreFilters' })}
           </Typography>
         </Grid>
         <Grid item>
-          {open ? <KeyboardArrowUp className={classes.showMore} /> : <KeyboardArrowDown className={classes.showMore} />}
+          {open
+            ? <KeyboardArrowUp className={classes.showMore} />
+            : <KeyboardArrowDown className={classes.showMore} />}
         </Grid>
       </Grid>
     </div>

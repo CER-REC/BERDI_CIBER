@@ -109,7 +109,7 @@ const theme = createMuiTheme({
       },
       subtitle1: {
         fontWeight: 600,
-        color: white
+        color: white,
       },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
@@ -237,11 +237,11 @@ const theme = createMuiTheme({
       circle: { color: tealBlue },
     },
     MuiSelect: {
-      select: { 
+      select: {
         backgroundColor: white,
-        '&:focus': { backgroundColor: white }
+        '&:focus': { backgroundColor: white },
       },
-    }
+    },
   },
   breakpoints: {
     values: {

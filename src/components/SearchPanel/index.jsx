@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     position: 'relative',
     zIndex: 1,
-    paddingBottom: '2em'
+    paddingBottom: '2em',
   },
   searchPanel: {
     padding: '0 1.5em',
@@ -74,7 +74,7 @@ const SearchPanel = ({ hasFilter }) => {
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool.isRequired
+  hasFilter: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;

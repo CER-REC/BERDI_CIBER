@@ -17,7 +17,6 @@ import TopicsFilter from '../../components/TopicsFilter';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
-import { reportShowFilter } from '../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   hr: {

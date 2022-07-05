@@ -147,7 +147,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
 
   return (
     <>
-      <Typography variant='subtitle1'>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
+      <Typography variant="subtitle1">{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
       <div
         className={classes.datePicker}
         onClick={handlePopoverClick}
