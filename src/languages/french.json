@@ -342,6 +342,9 @@
       "clearButton": "Effacer tous les filtres",
       "filters": "Filtres"
     },
+    "filterChipsPanel": {
+      "title": "Filtres et termes de recherche actuels"
+    },
     "osdpFooter": {
       "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
       "body": "La plateforme de science et de données ouvertes permet d’accéder à plus de données sur l’environnement et à plus de publications scientifiques sur les effets cumulatifs des activités humaines.",

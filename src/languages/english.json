@@ -343,6 +343,9 @@
       "clearButton": "Clear all filters",
       "filters": "Filters"
     },
+    "filterChipsPanel": {
+      "title": "Current Filters and Search Terms"
+    },
     "osdpFooter": {
       "header": "Explore more open data with Open Science Data Portal.",
       "body": "Open Science Data Portal provides access to more environmental data and scientific publications that can be used to understand the cumulative effects of human activities.",

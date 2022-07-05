@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chip, makeStyles } from '@material-ui/core';
+import { Chip, makeStyles, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
@@ -47,6 +47,7 @@ const useAssembledChipLabels = () => {
 
 const FilterChipsPanel = () => {
   const classes = useStyles();
+  const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const chipLabels = useAssembledChipLabels();
 
@@ -65,20 +66,23 @@ const FilterChipsPanel = () => {
     configDispatch({ type: `${chipType}/changed`, payload: newState });
   };
   return (
-    Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
-      <Chip
-        key={chipLabel}
-        label={chipLabel}
-        onClick={removeFilter(chipType, index, chipLabel)}
-        onDelete={removeFilter(chipType, index, chipLabel)}
-        deleteIcon={(
-          <CloseIcon
-            className={classes.closeButton}
+    <div>
+      <Typography variant="body2">
+        {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
+      </Typography>
+      {
+        Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
+          <Chip
+            key={chipLabel}
+            label={chipLabel}
+            onClick={removeFilter(chipType, index, chipLabel)}
+            onDelete={removeFilter(chipType, index, chipLabel)}
+            deleteIcon={<CloseIcon className={classes.closeButton} />}
+            className={classes.chip}
           />
-        )}
-        className={classes.chip}
-      />
-    )))
+        )))
+      }
+    </div>
   );
 };
 
