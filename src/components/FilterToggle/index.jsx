@@ -7,11 +7,6 @@ import useConfig from '../../hooks/useConfig';
 import { reportFilterToggle } from '../../utilities/analytics';
 
 const useStyles = makeStyles({
-  filterText: {
-    fontWeight: '400',
-    paddingBottom: '0.5em',
-    paddingTop: '0.8em',
-  },
   toggleButton: {
     width: '50%',
   },
@@ -32,7 +27,7 @@ const FilterToggle = () => {
     <div style={{ paddingLeft: '0.3em' }}>
       <Grid container justify="space-between" style={{ padding: '1em 0 0.5em' }}>
         <Typography variant="body2">
-          {intl.formatMessage({ id: 'components.searchDetails.explore' }).toUpperCase()}
+          {intl.formatMessage({ id: 'components.filterToggle.explore' }).toUpperCase()}
         </Typography>
       </Grid>
       <ToggleButtonGroup
@@ -48,12 +43,6 @@ const FilterToggle = () => {
           { intl.formatMessage({ id: 'common.project' }) }
         </ToggleButton>
       </ToggleButtonGroup>
-
-      {filter === 'topic' && (
-        <Typography variant="h6" className={classes.filterText}>
-          {intl.formatMessage({ id: 'components.searchDetails.select' })}
-        </Typography>
-      )}
     </div>
   );
 };

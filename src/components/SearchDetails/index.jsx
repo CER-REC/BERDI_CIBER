@@ -14,14 +14,6 @@ const useStyles = makeStyles({
     fontWeight: '700',
     fontSize: '23px',
   },
-  filterText: {
-    fontWeight: '400',
-    paddingBottom: '0.5em',
-    paddingTop: '0.8em',
-  },
-  smallerFontSize: {
-    fontSize: '20px',
-  },
 });
 
 const SearchDetails = () => {
