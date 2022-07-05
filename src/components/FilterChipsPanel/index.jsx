@@ -68,7 +68,7 @@ const FilterChipsPanel = () => {
   return (
     <div>
       <Typography variant="body2">
-        {intl.formatMessage({ id: 'components.searchDetails.currentFilters' }).toUpperCase()}
+        {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
       </Typography>
       {
         Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
