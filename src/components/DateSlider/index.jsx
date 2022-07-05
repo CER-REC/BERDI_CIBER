@@ -40,11 +40,8 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateX(2px)',
     color: theme.palette.teal.blue,
   },
-  label: {
-    fontWeight: 600,
-    color: theme.palette.teal.blue,
-  },
   datePicker: {
+    backgroundColor: 'white',
     position: 'relative',
     fontSize: '1.57rem',
     border: `2px solid ${theme.palette.teal.blue}`,
@@ -56,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     width: '100%',
-    '&:focus': { backgroundColor: theme.palette.action.selected },
     '& span': {
       position: 'absolute',
       bottom: '8px',
@@ -151,7 +147,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
 
   return (
     <>
-      <Typography className={classes.label}>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
+      <Typography variant='subtitle1'>{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
       <div
         className={classes.datePicker}
         onClick={handlePopoverClick}

@@ -21,16 +21,15 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     color: theme.palette.teal.blue,
   },
-  label: { fontWeight: 600 },
   item: {
-    fontSize: 16,
+    fontSize: 14,
     '& > span': { padding: '0 0.5em 0 0' },
     '&.Mui-selected': { backgroundColor: 'transparent' },
     '&.Mui-focusVisible': { backgroundColor: theme.palette.action.hover },
     color: theme.palette.teal.blue,
   },
   menu: {
-    background: '#F8F8F8',
+    background: 'white',
     border: `1px solid ${theme.palette.teal.blue}`,
     borderRadius: 0,
   },
@@ -98,7 +97,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
   return (
     <FormControl className={`DropDown ${classes.root}`}>
-      <Typography classes={{ root: classes.label }}>
+      <Typography variant="subtitle1">
         {getHeaderLabel()}
         {hasHelp && (<DataTooltip />)}
       </Typography>

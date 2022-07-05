@@ -5,7 +5,6 @@ import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
-import FilterPanel from '../../components/FilterPanel';
 import IKNotification from '../../components/IKNotification';
 import LimitationsDialog from '../../components/LimitationsDialog';
 import ListSection from '../../components/ListPanel';
@@ -33,19 +32,10 @@ const useStyles = makeStyles((theme) => ({
 
 const showOSDPFooter = false;
 const Search = () => {
-  const [open, setOpen] = useState(false);
   const { loading } = useAPI();
   const { config } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
-
-  const handleFilterChange = useCallback((event) => {
-    if (event.target.checked) {
-      reportShowFilter();
-    }
-
-    setOpen(event.target.checked);
-  }, [setOpen]);
 
   const [limitationsOpen, setLimitationsOpen] = useState(false);
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
@@ -76,8 +66,7 @@ const Search = () => {
           </Grid>
         )}
       </Grid>
-      <SearchPanel hasFilter onChange={handleFilterChange} />
-      {open && <FilterPanel />}
+      <SearchPanel hasFilter />
       <SearchDetails />
       {(config.filter === 'topic') && <TopicsFilter />}
       {

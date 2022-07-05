@@ -1,11 +1,11 @@
 import React from 'react';
-import { Grid, Switch, Typography, Divider, makeStyles } from '@material-ui/core';
+import { Grid, Divider, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
+import FilterPanel from './FilterPanel';
 
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     position: 'relative',
     zIndex: 1,
+    paddingBottom: '2em'
   },
   searchPanel: {
     padding: '0 1.5em',
@@ -44,9 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchPanel = ({ hasFilter, onChange }) => {
+const SearchPanel = ({ hasFilter }) => {
   const classes = useStyles();
-  const intl = useIntl();
 
   return (
     <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
@@ -65,28 +65,16 @@ const SearchPanel = ({ hasFilter, onChange }) => {
           )}
           <SearchBar hasShrink />
         </Grid>
-        {hasFilter && (
-          <Grid item xs={3} classes={{ root: classes.sideBlock }}>
-            <>
-              <Typography classes={{ root: classes.filterLabel }} variant="h6">
-                {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
-              </Typography>
-              <Switch color="default" onChange={onChange} />
-            </>
-          </Grid>
-        )}
+        <Grid item xs={9}>
+          <FilterPanel />
+        </Grid>
       </Grid>
     </div>
   );
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-};
-
-SearchPanel.defaultProps = {
-  onChange: () => { },
+  hasFilter: PropTypes.bool.isRequired
 };
 
 export default SearchPanel;

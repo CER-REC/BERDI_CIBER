@@ -107,6 +107,10 @@ const theme = createMuiTheme({
         fontWeight: 700,
         lineHeight: 'normal',
       },
+      subtitle1: {
+        fontWeight: 600,
+        color: white
+      },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
       caption: {
@@ -232,6 +236,12 @@ const theme = createMuiTheme({
     MuiCircularProgress: {
       circle: { color: tealBlue },
     },
+    MuiSelect: {
+      select: { 
+        backgroundColor: white,
+        '&:focus': { backgroundColor: white }
+      },
+    }
   },
   breakpoints: {
     values: {

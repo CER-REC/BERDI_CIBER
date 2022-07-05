@@ -341,7 +341,9 @@
     },
     "filterPanel": {
       "clearButton": "Clear all filters",
-      "filters": "Filters"
+      "filters": "Filters",
+      "viewMoreFilters": "View more filters",
+      "viewLessFilters": "View fewer filters"
     },
     "osdpFooter": {
       "header": "Explore more open data with Open Science Data Portal.",
