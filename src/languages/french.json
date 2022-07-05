@@ -338,9 +338,15 @@
         "noTopics": "Aucun sujet connexe n’est associé à {gender, select, masculine {ce} other {cette}} {type}."
       }
     },
+    "filterToggle": {
+      "explore": "Explorer les résultats par"
+    },
     "filterPanel": {
       "clearButton": "Effacer tous les filtres",
       "filters": "Filtres"
+    },
+    "filterChipsPanel": {
+      "title": "Filtres et termes de recherche actuels"
     },
     "osdpFooter": {
       "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
@@ -355,6 +361,9 @@
       "noResultsForWithFilters": "Désolé, aucun résultat à partir de ces filtres pour {search}.",
       "noResultsForWithDateRange": "Désolé, aucun résultat pour {search} dans cette plage de dates.",
       "noResultsWithDateRange": "Désolé, aucun résultat dans cette plage de dates."
+    },
+    "topicsFilterPanel": {
+      "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "resultDialog": {
       "seeMore": "Voir plus...",
@@ -422,9 +431,7 @@
     },
     "searchDetails": {
       "title": "Résultats de la recherche",
-      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figure} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} cartes-tracés}} {total, plural, =0 {trouvé} =1 {trouvé} other {trouvés}}",
-      "explore": "Explorer les résultats par",
-      "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
+      "counts": "{tables, plural, =0 {{boldTables} tableau} =1 {{boldTables} tableau} other {{boldTables} tableaux}}, {figures, plural, =0 {{boldFigures} figure} =1 {{boldFigures} figure} other {{boldFigures} figures}}, et {alignmentSheets, plural, =0 {{boldAlignmentSheets} carte-tracé } =1 {{boldAlignmentSheets} carte-tracé } other {{boldAlignmentSheets} cartes-tracés}} {total, plural, =0 {trouvé} =1 {trouvé} other {trouvés}}"
     },
     "svgButton": {
       "strongRelation": "Lien étroit avec les termes recherchés",

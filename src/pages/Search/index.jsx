@@ -5,6 +5,7 @@ import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
+import FilterToggle from '../../components/FilterToggle';
 import IKNotification from '../../components/IKNotification';
 import LimitationsDialog from '../../components/LimitationsDialog';
 import ListSection from '../../components/ListPanel';
@@ -67,7 +68,7 @@ const Search = () => {
         )}
       </Grid>
       <SearchPanel hasFilter />
-      <SearchDetails />
+      <FilterToggle />
       {(config.filter === 'topic') && <TopicsFilter />}
       {
         (config.filter === 'project') && (
@@ -75,6 +76,9 @@ const Search = () => {
         )
       }
       <Grid container alignItems="center">
+        <Grid item xs={12}>
+          <SearchDetails />
+        </Grid>
         <Grid item xs={9}>
           <FilterChipsPanel />
         </Grid>
