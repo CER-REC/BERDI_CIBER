@@ -211,7 +211,7 @@ const TopicsFilter = () => {
 
   return (
     <>
-      <Typography variant="h6" style={{ fontWeight: 'lighter', padding: '0.8em 0 0.5em 0.3em' }}>
+      <Typography variant="subtitle2">
         {intl.formatMessage({ id: 'components.topicsFilterPanel.select' })}
       </Typography>
       <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
