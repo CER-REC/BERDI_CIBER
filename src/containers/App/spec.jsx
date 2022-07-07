@@ -3,6 +3,8 @@ import { act } from 'react-dom/test-utils';
 
 import {
   cleanup,
+  getAllByRole,
+  getByRole,
   getByText,
   fireEvent,
   render,
@@ -28,44 +30,39 @@ const simulateSearch = () => {
   fireEvent.click(searchButton);
 };
 
-/* const simulateFilter = () => {
-  const showFilters = screen.getByText('components.searchPanel.filterLabel').parentNode;
-  const showFiltersSwitch = getByRole(showFilters, 'checkbox');
-
-  fireEvent.click(showFiltersSwitch);
-
-  // Wait until the filters are expanded to show the filters block for selection
+const simulateFilter = () => {
   const filters = screen.getByLabelText('components.filterPanel.filters');
+  const filterToggle = screen.getByRole('group');
 
+  fireEvent.click(screen.getByText('components.filterPanel.viewMoreFilters'));
   // Material UI select component uses the mouse down event
   fireEvent.mouseDown(getByRole(getByText(filters, 'common.project').parentNode, 'button'));
   fireEvent.click(screen.getByText('Test1'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.REGIONS').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(getByText(filters, 'components.dropdown.REGIONS').parentNode, 'button'));
   fireEvent.click(screen.getByText('api.regions.AB'));
   fireEvent.click(screen.getByText('api.regions.BC'));
   fireEvent.click(screen.getByText('api.regions.QC'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.CONTENT_TYPES').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(getByText(filters, 'components.dropdown.CONTENT_TYPES').parentNode, 'button'));
   fireEvent.click(screen.getByText('api.content.TABLE'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByText(screen.getByText('components.dropdown.PROJECT_TYPES').parentNode, 'components.dropdown.select'));
+  fireEvent.mouseDown(getByText(getByText(filters, 'components.dropdown.PROJECT_TYPES').parentNode, 'components.dropdown.select'));
   fireEvent.click(screen.getByText('api.projects.SMALL'));
   fireEvent.click(screen.getByText('api.projects.LARGE'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.COMMODITIES').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(getByText(filters, 'components.dropdown.COMMODITIES').parentNode, 'button'));
   fireEvent.click(screen.getByText('api.commodities.OIL'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.mouseDown(getByRole(screen.getByText('components.dropdown.STATUSES').parentNode, 'button'));
+  fireEvent.mouseDown(getByRole(getByText(filters, 'components.dropdown.STATUSES').parentNode, 'button'));
   fireEvent.click(screen.getByText('api.statuses.APPROVED'));
   fireEvent.click(screen.getByText('api.statuses.REVOKED'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.click(getByRole(screen.getByText('components.dropdown.dateLabel').parentNode, 'button'));
+  fireEvent.click(getByRole(getByText(filters, 'components.dropdown.dateLabel').parentNode, 'button'));
   fireEvent.keyDown(getAllByRole(screen.getByRole('presentation'), 'slider')[1], { key: 'Home' });
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.click(showFiltersSwitch);
-  fireEvent.click(screen.getByText('common.project'));
-}; */
+  fireEvent.click(getByText(filterToggle, 'common.project'));
+};
 
 describe('Containers/App', () => {
   beforeEach(() => {
@@ -103,29 +100,31 @@ describe('Containers/App', () => {
     expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument();
   });
 
-  /* it('should set the state from the URL parameters', async () => {
+  it('should set the state from the URL parameters', async () => {
     setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D');
     render(<LazyApp />, { configMocked: false });
 
+    const filterChipsPanel = screen.getByText('components.filterChipsPanel.title', { exact: false }).parentNode;
+
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
-    expect(screen.getByText('fish')).toBeInTheDocument();
-    expect(screen.getByText('Test1')).toBeInTheDocument();
-    expect(screen.getByText('api.regions.MB')).toBeInTheDocument();
-    expect(screen.getByText('api.content.FIGURE')).toBeInTheDocument();
-    expect(screen.getByText('api.content.TABLE')).toBeInTheDocument();
-    expect(screen.getByText('api.projects.ABANDONMENT')).toBeInTheDocument();
-    expect(screen.getByText('api.commodities.GAS')).toBeInTheDocument();
-    expect(screen.getByText('api.statuses.WITHDRAWN')).toBeInTheDocument();
-    expect(screen.getByText('Dec 2000 - Dec 2000')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'fish')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'Test1')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.regions.MB')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.content.FIGURE')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.content.TABLE')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.projects.ABANDONMENT')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.commodities.GAS')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'api.statuses.WITHDRAWN')).toBeInTheDocument();
+    expect(getByText(filterChipsPanel, 'Dec 2000 - Dec 2000')).toBeInTheDocument();
 
     await waitFor(() => {
       expect(screen.getByText('3').closest('li')).toHaveClass('active');
     });
-  }); */
+  });
 
   it.todo('should set the cart state from the URL parameter');
 
-  /* it('should push the state to the history', async () => {
+  it('should push the state to the history', async () => {
     const expectedDates = 'startDate=2000-01-01&endDate=2000-01-31';
     const expected = `page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&${expectedDates}&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D`;
 
@@ -157,7 +156,7 @@ describe('Containers/App', () => {
       expect.anything(),
       expect.stringContaining(expected),
     );
-  }); */
+  });
 
   it('should push the state to the history ignoring bad config values', async () => {
     // Using BigInt to mock a bad config state for throwing a error when setting data in URL
