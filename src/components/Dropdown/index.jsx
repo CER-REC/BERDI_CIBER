@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.teal.blue,
   },
   menu: {
-    background: 'white',
+    background: '#F8F8F8',
     border: `1px solid ${theme.palette.teal.blue}`,
     borderRadius: 0,
   },

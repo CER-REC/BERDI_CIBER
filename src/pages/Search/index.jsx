@@ -62,7 +62,7 @@ const Search = () => {
           </Grid>
         )}
       </Grid>
-      <SearchPanel hasFilter />
+      <SearchPanel hasTagline />
       <FilterToggle />
       {(config.filter === 'topic') && <TopicsFilter />}
       {

@@ -34,30 +34,21 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.common.white,
     marginRight: '2.5em',
   },
-  sideBlock: {
-    margin: 'auto',
-    textAlign: 'right',
-  },
-  filterLabel: {
-    display: 'inline-block',
-    paddingRight: '0.5em',
-    verticalAlign: 'middle',
-  },
 }));
 
-const SearchPanel = ({ hasFilter }) => {
+const SearchPanel = ({ hasTagline }) => {
   const classes = useStyles();
 
   return (
-    <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
+    <div className={`${hasTagline ? classes.gradientRoot : classes.imageRoot}`}>
       <Grid container className={classes.searchPanel} alignItems="center">
-        {!hasFilter && (
+        {!hasTagline && (
           <Grid item xs={9}>
             <TitleCard />
           </Grid>
         )}
         <Grid item xs={9} className={classes.barContainer}>
-          {hasFilter && (
+          {hasTagline && (
             <>
               <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
               <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
@@ -74,7 +65,7 @@ const SearchPanel = ({ hasFilter }) => {
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool.isRequired,
+  hasTagline: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;

@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Grid, makeStyles, Typography } from '@material-ui/core';
-import { KeyboardArrowUp, KeyboardArrowDown } from '@material-ui/icons';
+import { Button, Grid, makeStyles } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import useAPI from '../../../hooks/useAPI';
 import useConfig from '../../../hooks/useConfig';
 import DateSlider from '../../DateSlider';
 import Filter from '../Filter';
+import ViewMoreFiltersButton from '../ViewMoreFiltersButton';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,9 +15,6 @@ const useStyles = makeStyles(() => ({
   button: {
     marginTop: '1.8em',
     width: '100%',
-  },
-  showMore: {
-    cursor: 'pointer',
   },
 }));
 
@@ -34,10 +31,12 @@ const FilterPanel = () => {
   }, [configDispatch]);
   const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
+  const toggleExpand = () => setOpen(!open);
+
   return (
     <div
       className={`FilterPanel ${classes.root}`}
-      aria-label={intl.formatMessage({ id: 'components.filterPanel.filters' })}
+      aria-label={intl.formatMessage({ id: 'components.searchPanel.filterPanel.filters' })}
     >
       <Grid container spacing={2}>
         <Filter
@@ -102,22 +101,13 @@ const FilterPanel = () => {
               variant="contained"
               onClick={handleClick}
             >
-              {intl.formatMessage({ id: 'components.filterPanel.clearButton' })}
+              {intl.formatMessage({ id: 'components.searchPanel.filterPanel.clearButton' })}
             </Button>
           </Grid>
         </Grid>
         )}
       <Grid container direction="row" alignItems="center" justify="center" style={{ paddingTop: '1em' }}>
-        <Grid item>
-          <Typography className={classes.showMore} onClick={() => setOpen(!open)}>
-            {open ? intl.formatMessage({ id: 'components.filterPanel.viewLessFilters' }) : intl.formatMessage({ id: 'components.filterPanel.viewMoreFilters' })}
-          </Typography>
-        </Grid>
-        <Grid item>
-          {open
-            ? <KeyboardArrowUp className={classes.showMore} />
-            : <KeyboardArrowDown className={classes.showMore} />}
-        </Grid>
+        <ViewMoreFiltersButton isOpen={open} toggleExpand={toggleExpand} />
       </Grid>
     </div>
   );

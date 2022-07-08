@@ -341,10 +341,6 @@
     "filterToggle": {
       "explore": "Explorer les résultats par"
     },
-    "filterPanel": {
-      "clearButton": "Effacer tous les filtres",
-      "filters": "Filtres"
-    },
     "filterChipsPanel": {
       "title": "Filtres et termes de recherche actuels"
     },
@@ -386,10 +382,13 @@
       }
     },
     "searchPanel": {
-      "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
       "searchHelp": "Aide pour la recherche",
+      "filterPanel": {
+        "clearButton": "Effacer tous les filtres",
+        "filters": "Filtres"
+      },
       "helpDialog": {
         "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
         "exampleHeader": "Exemple :",

@@ -42,8 +42,6 @@ const reportDiscovery = (name) => report('discovery', 'click', { value: name });
 
 const reportSearch = (search) => report('search', 'search', { value: search });
 
-const reportShowFilter = () => report('search', 'filter', { label: 'show' });
-
 const reportFilter = (type, value, checked) => (
   report(type, 'filter', { label: value, value: (checked ? 'check' : 'uncheck') })
 );
@@ -93,7 +91,6 @@ export {
   reportSection,
   reportDisclaimer,
   reportDiscovery,
-  reportShowFilter,
   reportFilter,
   reportProject,
   reportContent,

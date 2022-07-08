@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
     lineHeight: 'normal',
     padding: '0.8em 0 0.5em 0.3em',
     fontWeight: 'lighter',
-  }
+  },
 }));
 
 const setRandomPulse = (pulseRef, setPulseTopic) => {
