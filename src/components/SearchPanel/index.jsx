@@ -84,12 +84,14 @@ const SearchPanel = ({ hasTagline, onChange }) => {
         <Grid item xs={9}>
           <FilterPanel />
         </Grid>
-        <Button
-          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
-          onClick={handleClick}
-        >
-          {hasTagline ? "See Results" : "Search"}
-        </Button>
+        <Grid item xs={12}>
+          <Button
+            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+            onClick={handleClick}
+          >
+            {hasTagline ? "See Results" : "Search"}
+          </Button>
+        </Grid>
       </Grid>
     </div>
   );

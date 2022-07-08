@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0',
     '& input': {
       backgroundColor: theme.palette.common.white,
-      borderBottomLeftRadius: '10px',
-      borderTopLeftRadius: '10px',
+      borderRadius: '10px',
       padding: '11px',
     },
     '& legend': { width: 0 },
@@ -70,15 +69,15 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
           onKeyDown={onEnterPressed}
           autoFocus
         />
+        <Button
+          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+          color="inherit"
+          onClick={handleSearchHelpClick}
+          disableRipple
+        >
+          {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+        </Button>
       </Grid>
-      <Button
-        aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-        color="inherit"
-        onClick={handleSearchHelpClick}
-        disableRipple
-      >
-        {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-      </Button>
     </div>
   );
 };
