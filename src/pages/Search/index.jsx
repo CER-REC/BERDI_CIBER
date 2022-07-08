@@ -21,10 +21,6 @@ import useConfig from '../../hooks/useConfig';
 import { reportShowFilter } from '../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
-  hr: {
-    backgroundColor: 'black',
-    height: '1px',
-  },
   dataButton: {
     color: theme.palette.purple.twilight,
     borderColor: theme.palette.purple.twilight,
@@ -97,7 +93,6 @@ const Search = () => {
           <AddContentIdsButton />
         </Grid>
       </Grid>
-      <hr className={classes.hr} />
       <IKNotification />
       <Cart />
       <ListSection />

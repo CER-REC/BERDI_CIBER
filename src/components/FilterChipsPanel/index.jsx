@@ -11,8 +11,7 @@ const useStyles = makeStyles(() => ({
   chip: {
     background: '#EDEDED',
     borderRadius: '30px',
-    margin: '1em 0.5em 0 0.5em',
-    paddingRight: '0.3em',
+    margin: '0 0.5em 0.8em 0.5em',
     fontSize: 16,
     color: 'black',
     maxWidth: '32em',
@@ -67,7 +66,7 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Typography variant="body2">
+      <Typography variant="subtitle1">
         {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
       </Typography>
       {
