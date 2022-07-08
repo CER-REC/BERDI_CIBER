@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     width: '100%',
+    '&:focus-visible': { backgroundColor: theme.palette.grey.light },
     '& span': {
       position: 'absolute',
       bottom: '8px',
@@ -147,7 +148,9 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
 
   return (
     <>
-      <Typography variant="subtitle1">{intl.formatMessage({ id: 'components.dropdown.dateLabel' })}</Typography>
+      <Typography style={{ fontWeight: 600, color: 'white' }}>
+        {intl.formatMessage({ id: 'components.dropdown.dateLabel' })}
+      </Typography>
       <div
         className={classes.datePicker}
         onClick={handlePopoverClick}

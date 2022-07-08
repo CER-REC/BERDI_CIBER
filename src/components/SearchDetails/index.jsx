@@ -12,7 +12,6 @@ const useStyles = makeStyles({
   },
   bold: {
     fontWeight: '700',
-    fontSize: '23px',
   },
 });
 
@@ -37,12 +36,10 @@ const SearchDetails = () => {
   );
 
   return (
-    <div style={{ paddingLeft: '0.3em' }}>
-      <Grid container justify="space-between" style={{ padding: '1em 0 0.5em' }}>
-        <Typography variant="body2">
-          {intl.formatMessage({ id: 'components.searchDetails.title' }).toUpperCase()}
-        </Typography>
-      </Grid>
+    <div>
+      <Typography variant="subtitle2">
+        {intl.formatMessage({ id: 'components.searchDetails.title' }).toUpperCase()}
+      </Typography>
 
       <Grid container justify={loading ? 'flex-end' : 'space-between'}>
         {(

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, makeStyles, Typography } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { useIntl } from 'react-intl';
 
@@ -25,11 +25,9 @@ const FilterToggle = () => {
 
   return (
     <div style={{ paddingLeft: '0.3em' }}>
-      <Grid container justify="space-between" style={{ padding: '1em 0 0.5em' }}>
-        <Typography variant="body2">
-          {intl.formatMessage({ id: 'components.filterToggle.explore' }).toUpperCase()}
-        </Typography>
-      </Grid>
+      <Typography variant="subtitle2">
+        {intl.formatMessage({ id: 'components.filterToggle.explore' }).toUpperCase()}
+      </Typography>
       <ToggleButtonGroup
         value={filter}
         onChange={handleChange}

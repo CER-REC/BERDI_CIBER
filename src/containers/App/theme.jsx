@@ -111,6 +111,10 @@ const theme = createMuiTheme({
         fontWeight: 600,
         color: white,
       },
+      subtitle2: {
+        padding: '1em 0px 0.5em',
+        fontSize: 14,
+      },
       body1: { fontSize: 16 },
       body2: { fontSize: 14 },
       caption: {
@@ -177,38 +181,6 @@ const theme = createMuiTheme({
           color: white,
           '&:hover': { backgroundColor: lighten(lightPurple, 0.2) },
         },
-      },
-    },
-    MuiSwitch: {
-      input: {
-        '&[type=checkbox]': { margin: 0 },
-      },
-      root: {
-        width: 'calc(3em + 6px)',
-        height: 'calc(1.5em + 6px)',
-        padding: 0,
-        '& .MuiTouchRipple-child': { backgroundColor: black },
-      },
-      switchBase: {
-        padding: '3px',
-        color: white,
-        '&$checked': {
-          transform: 'translateX(1em)',
-          '& + $track': {
-            backgroundColor: darkBluePurple,
-            opacity: 1,
-          },
-        },
-      },
-      thumb: {
-        boxShadow: 'none',
-        height: '1em',
-        width: '1em',
-      },
-      track: {
-        backgroundColor: '#E0E0E0',
-        borderRadius: '1em',
-        opacity: 1,
       },
     },
     MuiTooltip: {
