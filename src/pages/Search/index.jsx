@@ -1,5 +1,5 @@
 import { Button, Grid, makeStyles } from '@material-ui/core';
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { useIntl } from 'react-intl';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
 const showOSDPFooter = false;
 const Search = () => {
+  const ref = useRef();
   const [open, setOpen] = useState(false);
   const { loading } = useAPI();
   const { config } = useConfig();
@@ -51,6 +52,12 @@ const Search = () => {
   if (loading) {
     return null;
   }
+
+  useEffect(() => {
+    if (config.fragment === 'search') {
+      ref.current.scrollIntoView({behaviour: 'smooth'});
+    }
+  }, [config]);
 
   return (
     <>
@@ -77,13 +84,9 @@ const Search = () => {
       {open && <FilterPanel />}
       <FilterToggle />
       {(config.filter === 'topic') && <TopicsFilter />}
-      {
-        (config.filter === 'project') && (
-          <TreeMapPanel />
-        )
-      }
+      {(config.filter === 'project') && (<TreeMapPanel />)}
       <Grid container alignItems="center">
-        <Grid item xs={12}>
+        <Grid item xs={12} ref={ref}>
           <SearchDetails />
         </Grid>
         <Grid item xs={9}>

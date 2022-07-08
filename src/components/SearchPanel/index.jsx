@@ -1,8 +1,10 @@
-import React from 'react';
-import { Grid, Switch, Typography, Divider, makeStyles } from '@material-ui/core';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Grid, Switch, Typography, Divider, makeStyles, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import useConfig from '../../hooks/useConfig';
+import { reportSearch, reportSearchHelp } from '../../utilities/analytics';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
@@ -29,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     minHeight: '6em',
   },
-  divider: {
-    background: theme.palette.common.white,
-    marginRight: '2.5em',
-  },
   sideBlock: {
     margin: 'auto',
     textAlign: 'right',
@@ -45,8 +43,25 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchPanel = ({ hasFilter, onChange }) => {
+  const [search, setSearch] = useState('');
   const classes = useStyles();
   const intl = useIntl();
+  const { config, configDispatch } = useConfig();
+
+  const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
+  
+  const handleClick = useCallback(() => {
+    reportSearch(search);
+    configDispatch({ type: 'search/changed', payload: { search: search.trim(), fragment: 'search' }});
+  }, [search, configDispatch]);
+
+  const handleKeyDown = useCallback((event) => {
+    if (event.key === 'Enter') {
+      handleClick();
+    }
+  }, [handleClick]);
+
+  useEffect(() => setSearch(config.search), [config.search]);
 
   return (
     <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
@@ -60,10 +75,9 @@ const SearchPanel = ({ hasFilter, onChange }) => {
           {hasFilter && (
             <>
               <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
-              <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
             </>
           )}
-          <SearchBar hasShrink />
+          <SearchBar hasShrink textValue={search} onTextChanged={handleChange} onEnterPressed={handleKeyDown} />
         </Grid>
         {hasFilter && (
           <Grid item xs={3} classes={{ root: classes.sideBlock }}>
@@ -75,6 +89,12 @@ const SearchPanel = ({ hasFilter, onChange }) => {
             </>
           </Grid>
         )}
+        <Button
+          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+          onClick={handleClick}
+        >
+          {hasFilter ? "See Results" : "Search"}
+        </Button>
       </Grid>
     </div>
   );

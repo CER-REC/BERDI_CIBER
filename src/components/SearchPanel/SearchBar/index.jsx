@@ -1,11 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Button, TextField, makeStyles, Grid } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-import useConfig from '../../../hooks/useConfig';
-import { reportSearch, reportSearchHelp } from '../../../utilities/analytics';
+import { reportSearchHelp } from '../../../utilities/analytics';
 import SearchHelpDialog from '../SearchHelpDialog';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,28 +43,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchBar = ({ hasShrink }) => {
-  const [search, setSearch] = useState('');
+const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
   const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
-  const { config, configDispatch } = useConfig();
-  const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
-  const handleClick = useCallback(() => {
-    reportSearch(search);
-    configDispatch({ type: 'search/changed', payload: search.trim() });
-  }, [search, configDispatch]);
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'Enter') {
-      handleClick();
-    }
-  }, [handleClick]);
   const handleSearchHelpClick = useCallback(() => {
     setSearchHelpOpen(true);
     reportSearchHelp();
   }, []);
-
-  useEffect(() => setSearch(config.search), [config.search]);
 
   return (
     <div className={`Keywords ${classes.root}`}>
@@ -77,40 +61,38 @@ const SearchBar = ({ hasShrink }) => {
           label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
           variant="outlined"
           margin="dense"
-          value={search}
+          value={textValue}
           InputLabelProps={{
             classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
           }}
           InputProps={{ classes: { notchedOutline: classes.noBorder } }}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          onChange={onTextChanged}
+          onKeyDown={onEnterPressed}
           autoFocus
         />
-        <span className={classes.searchHelpBox}>
-          <Button
-            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-            color="inherit"
-            onClick={handleSearchHelpClick}
-            disableRipple
-          >
-            {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-          </Button>
-        </span>
-        <Button
-          className={classes.button}
-          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
-          variant="contained"
-          onClick={handleClick}
-        >
-          <SearchIcon />
-        </Button>
       </Grid>
+      <Button
+        aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+        color="inherit"
+        onClick={handleSearchHelpClick}
+        disableRipple
+      >
+        {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+      </Button>
     </div>
   );
 };
 
 SearchBar.propTypes = {
   hasShrink: PropTypes.bool.isRequired,
+  textValue: PropTypes.string,
+  onTextChanged: PropTypes.func,
+  onEnterPressed: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  onTextChanged: () => { },
+  onEnterPressed: () => { },
 };
 
 export default SearchBar;
