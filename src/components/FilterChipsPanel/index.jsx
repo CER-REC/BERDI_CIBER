@@ -66,7 +66,7 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle2">
         {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
       </Typography>
       {

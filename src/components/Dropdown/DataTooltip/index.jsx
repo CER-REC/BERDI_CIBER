@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 'inherit',
     height: '1.2em',
     width: '1.2em',
+    color: 'white'
   },
   tooltip: {
     border: '1px solid #BBBBBB',

@@ -13,7 +13,7 @@ const Filter = ({ type, action, options, value, hasHelp }) => {
   );
 
   return (
-    <Grid className="Filter" item xs={4}>
+    <Grid className="Filter" item xs={3}>
       <Dropdown
         type={type}
         hasHelp={hasHelp}

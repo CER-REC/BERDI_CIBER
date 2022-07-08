@@ -10,7 +10,7 @@ import OSDPFooter from '../../components/OSDPFooter';
 const showOSDPFooter = false;
 const Landing = () => (
   <div className="Landing">
-    <SearchPanel hasFilter={false} />
+    <SearchPanel hasTagline={false} />
     <ExploreHeader />
     <TopicsFilter />
     <Disclaimer />

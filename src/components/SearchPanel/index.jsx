@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { Grid, Switch, Typography, Divider, makeStyles, Button } from '@material-ui/core';
+import { Grid, Switch, Typography, makeStyles, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
@@ -8,6 +8,7 @@ import { reportSearch, reportSearchHelp } from '../../utilities/analytics';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
+import FilterPanel from './FilterPanel';
 
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     position: 'relative',
     zIndex: 1,
+    paddingBottom: '2em',
   },
   searchPanel: {
     padding: '0 1.5em',
@@ -42,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchPanel = ({ hasFilter, onChange }) => {
+const SearchPanel = ({ hasTagline, onChange }) => {
   const [search, setSearch] = useState('');
   const classes = useStyles();
   const intl = useIntl();
@@ -64,36 +66,29 @@ const SearchPanel = ({ hasFilter, onChange }) => {
   useEffect(() => setSearch(config.search), [config.search]);
 
   return (
-    <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
+    <div className={`${hasTagline ? classes.gradientRoot : classes.imageRoot}`}>
       <Grid container className={classes.searchPanel} alignItems="center">
-        {!hasFilter && (
+        {!hasTagline && (
           <Grid item xs={9}>
             <TitleCard />
           </Grid>
         )}
         <Grid item xs={9} className={classes.barContainer}>
-          {hasFilter && (
+          {hasTagline && (
             <>
               <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
             </>
           )}
           <SearchBar hasShrink textValue={search} onTextChanged={handleChange} onEnterPressed={handleKeyDown} />
         </Grid>
-        {hasFilter && (
-          <Grid item xs={3} classes={{ root: classes.sideBlock }}>
-            <>
-              <Typography classes={{ root: classes.filterLabel }} variant="h6">
-                {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
-              </Typography>
-              <Switch color="default" onChange={onChange} />
-            </>
-          </Grid>
-        )}
+        <Grid item xs={9}>
+          <FilterPanel />
+        </Grid>
         <Button
           aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
           onClick={handleClick}
         >
-          {hasFilter ? "See Results" : "Search"}
+          {hasTagline ? "See Results" : "Search"}
         </Button>
       </Grid>
     </div>
@@ -101,12 +96,7 @@ const SearchPanel = ({ hasFilter, onChange }) => {
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-};
-
-SearchPanel.defaultProps = {
-  onChange: () => { },
+  hasTagline: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;

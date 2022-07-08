@@ -342,10 +342,6 @@
     "filterToggle": {
       "explore": "Explore results by"
     },
-    "filterPanel": {
-      "clearButton": "Clear all filters",
-      "filters": "Filters"
-    },
     "filterChipsPanel": {
       "title": "Current Filters and Search Terms"
     },
@@ -387,10 +383,15 @@
       }
     },
     "searchPanel": {
-      "filterLabel": "Show filters",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
       "searchHelp": "Search Help",
+      "filterPanel": {
+        "clearButton": "Clear all filters",
+        "filters": "Filters",
+        "viewMore": "View more filters",
+        "viewFewer": "View fewer filters"
+      },
       "helpDialog": {
         "help1": "By default, the BERDI search engine searches the full titles and contents of the dataset for matches with any of the keyword search terms you provide. Capitalization will be ignored.",
         "exampleHeader": "Example:",
