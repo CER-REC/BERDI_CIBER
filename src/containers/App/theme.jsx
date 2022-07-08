@@ -211,7 +211,7 @@ const theme = createMuiTheme({
     MuiSelect: {
       select: {
         backgroundColor: white,
-        '&:focus-visible': { backgroundColor: lightGrey }
+        '&:focus-visible': { backgroundColor: lightGrey },
       },
     },
   },
