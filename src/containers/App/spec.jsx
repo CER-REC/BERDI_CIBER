@@ -31,10 +31,10 @@ const simulateSearch = () => {
 };
 
 const simulateFilter = () => {
-  const filters = screen.getByLabelText('components.filterPanel.filters');
+  const filters = screen.getByLabelText('components.searchPanel.filterPanel.filters');
   const filterToggle = screen.getByRole('group');
 
-  fireEvent.click(screen.getByText('components.filterPanel.viewMoreFilters'));
+  fireEvent.click(screen.getByText('components.searchPanel.filterPanel.viewMore'));
   // Material UI select component uses the mouse down event
   fireEvent.mouseDown(getByRole(getByText(filters, 'common.project').parentNode, 'button'));
   fireEvent.click(screen.getByText('Test1'));
