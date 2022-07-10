@@ -384,7 +384,6 @@
     "searchPanel": {
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
-      "searchHelp": "Aide pour la recherche",
       "filterPanel": {
         "clearButton": "Effacer tous les filtres",
         "filters": "Filtres"

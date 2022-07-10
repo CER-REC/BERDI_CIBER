@@ -1,10 +1,10 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { Grid, Switch, Typography, makeStyles, Button } from '@material-ui/core';
+import { Grid, makeStyles, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
-import { reportSearch, reportSearchHelp } from '../../utilities/analytics';
+import { reportSearch } from '../../utilities/analytics';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
@@ -42,19 +42,24 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: '0.5em',
     verticalAlign: 'middle',
   },
+  searchButton: {
+    backgroundColor: 'white',
+    minWidth: '10em',
+    marginTop: '1em',
+  },
 }));
 
-const SearchPanel = ({ hasTagline, onChange }) => {
+const SearchPanel = ({ hasTagline }) => {
   const [search, setSearch] = useState('');
   const classes = useStyles();
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
 
   const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
-  
+
   const handleClick = useCallback(() => {
     reportSearch(search);
-    configDispatch({ type: 'search/changed', payload: { search: search.trim(), fragment: 'search' }});
+    configDispatch({ type: 'search/changed', payload: { search: search.trim(), fragment: 'search' } });
   }, [search, configDispatch]);
 
   const handleKeyDown = useCallback((event) => {
@@ -68,28 +73,42 @@ const SearchPanel = ({ hasTagline, onChange }) => {
   return (
     <div className={`${hasTagline ? classes.gradientRoot : classes.imageRoot}`}>
       <Grid container className={classes.searchPanel} alignItems="center">
-        {!hasTagline && (
-          <Grid item xs={9}>
-            <TitleCard />
-          </Grid>
-        )}
+        <Grid item xs={9} style={{ textAlign: 'center' }}>
+          {
+            hasTagline
+              ? <ToolLogo style={{ width: '8em', marginTop: '1em' }} />
+              : <TitleCard />
+          }
+        </Grid>
         <Grid item xs={9} className={classes.barContainer}>
-          {hasTagline && (
-            <>
-              <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
-            </>
-          )}
-          <SearchBar hasShrink textValue={search} onTextChanged={handleChange} onEnterPressed={handleKeyDown} />
+          <SearchBar
+            hasShrink
+            textValue={search}
+            onTextChanged={handleChange}
+            onEnterPressed={handleKeyDown}
+          />
         </Grid>
         <Grid item xs={9}>
           <FilterPanel />
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ textAlign: 'center' }}>
           <Button
-            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+            className={classes.searchButton}
+            aria-label={
+              hasTagline ?
+              intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' }) :
+              intl.formatMessage({ id: 'components.searchPanel.searchButton' })
+            }
             onClick={handleClick}
+            variant="contained"
+            disableRipple
+            size="small"
           >
-            {hasTagline ? "See Results" : "Search"}
+            {
+              hasTagline ? 
+              intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' }) : 
+              intl.formatMessage({ id: 'components.searchPanel.searchButton' })
+            }
           </Button>
         </Grid>
       </Grid>

@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
 const showOSDPFooter = false;
 const Search = () => {
   const ref = useRef();
-  const [open, setOpen] = useState(false);
   const { loading } = useAPI();
   const { config } = useConfig();
   const classes = useStyles();
@@ -39,15 +38,16 @@ const Search = () => {
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
   const handleClose = useCallback(() => setLimitationsOpen(false), [setLimitationsOpen]);
 
+  useEffect(() => {
+    if (config.fragment === 'search') {
+      ref.current.scrollIntoView({ behaviour: 'smooth' });
+      config.fragment = '';
+    }
+  }, [config]);
+
   if (loading) {
     return null;
   }
-
-  useEffect(() => {
-    if (config.fragment === 'search') {
-      ref.current.scrollIntoView({behaviour: 'smooth'});
-    }
-  }, [config]);
 
   return (
     <>

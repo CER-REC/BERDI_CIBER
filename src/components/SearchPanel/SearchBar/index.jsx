@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, TextField, makeStyles, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
@@ -25,19 +25,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '4px',
   },
   disabledLabelShrink: { display: 'none' },
-  button: {
-    borderRadius: '0 10px 10px 0',
-    backgroundColor: theme.palette.secondary.main,
-    padding: '8px',
-    minWidth: '50px',
-  },
   noBorder: { border: 'none' },
-  searchHelpBox: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.button.blue,
-    display: 'flex',
-    fontSize: 14,
-    justifyContent: 'center',
+  helpButton: {
+    marginLeft: '1em',
+    fontSize: '12px',
     width: '10em',
   },
 }));
@@ -70,6 +61,7 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
           autoFocus
         />
         <Button
+          className={classes.helpButton}
           aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           color="inherit"
           onClick={handleSearchHelpClick}
@@ -90,6 +82,7 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
+  textValue: null,
   onTextChanged: () => { },
   onEnterPressed: () => { },
 };
