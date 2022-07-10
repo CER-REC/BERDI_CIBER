@@ -33,15 +33,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     minHeight: '6em',
   },
-  sideBlock: {
-    margin: 'auto',
-    textAlign: 'right',
-  },
-  filterLabel: {
-    display: 'inline-block',
-    paddingRight: '0.5em',
-    verticalAlign: 'middle',
-  },
   searchButton: {
     backgroundColor: 'white',
     minWidth: '10em',
