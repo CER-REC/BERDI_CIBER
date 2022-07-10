@@ -7,6 +7,7 @@ import useConfig from '../../../hooks/useConfig';
 import DateSlider from '../../DateSlider';
 import Filter from '../Filter';
 import ViewMoreFiltersButton from '../ViewMoreFiltersButton';
+import { reportShowFilter } from '../../../utilities/analytics';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,7 +32,12 @@ const FilterPanel = () => {
   }, [configDispatch]);
   const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
-  const toggleExpand = () => setOpen(!open);
+  const toggleExpand = () => {
+    if (!open)
+      reportShowFilter();
+
+    setOpen(!open);
+  };
 
   return (
     <div
