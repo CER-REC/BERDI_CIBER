@@ -33,8 +33,7 @@ const FilterPanel = () => {
   const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
   const toggleExpand = () => {
-    if (!open)
-      reportShowFilter();
+    if (!open) reportShowFilter();
 
     setOpen(!open);
   };
