@@ -18,6 +18,7 @@
     "companyName": "Company name: ",
     "hearingOrder": "Hearing order: ",
     "filingDate": "Filing date: ",
+    "region": "Province: ",
     "learnMethods": "Learn more about our methods.",
     "figureCount": "{figures, plural, =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =1 {table} other {tables}}",

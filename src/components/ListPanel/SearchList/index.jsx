@@ -45,6 +45,8 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const [expandedTitles, setExpandedTitles] = useState([]);
   const [projectData, setProjectData] = useState();
 
+  const getFullRegions = (shortRegions) => shortRegions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })).sort().join(', ');
+
   const handleClickOpen = (content) => {
     reportContent(content.title);
     setOpen(true);
@@ -136,6 +138,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                         <tbody>
                           {createTableProjectRow(content.application, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
                           {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
+                          {createTableRow(getFullRegions(content.application.regions), intl.formatMessage({ id: 'common.region' }))}
                           {
                             (expandList.includes(content.id)) && (
                               <>

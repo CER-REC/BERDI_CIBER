@@ -85,6 +85,7 @@ const CartItem = ({
   const rowRef = useRef({});
   const { config: { unreadCartIds }, configDispatch } = useConfig();
 
+  const getFullRegions = (shortRegions) => shortRegions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })).sort().join(', ');
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
@@ -176,6 +177,18 @@ const CartItem = ({
                       </Typography>
                     </td>
                   </tr>
+                  <tr>
+                    <td className={classes.infoLabel}>
+                      <Typography>
+                        {intl.formatMessage({ id: 'common.region' })}
+                      </Typography>
+                    </td>
+                    <td>
+                      <Typography>
+                        {getFullRegions(data.application.regions)}
+                      </Typography>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </Grid>
@@ -201,6 +214,7 @@ CartItem.propTypes = {
     application: PropTypes.shape({
       shortName: PropTypes.string,
       companyName: PropTypes.string,
+      regions: PropTypes.string,
     }),
   }),
   index: PropTypes.number.isRequired,

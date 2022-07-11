@@ -18,6 +18,7 @@
     "companyName": "Nom de la société : ",
     "hearingOrder": "Ordonnance d’audience : ",
     "filingDate": "Date de dépôt : ",
+    "region": "Province : ",
     "learnMethods": "Renseignez-vous sur nos méthodes.",
     "figureCount": "{figures, plural, =0 {figure} =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =0 {tableau} =1 {tableau} other {tableaux}}",
@@ -174,7 +175,8 @@
       "copyConfirmation": "Lien copié!",
       "removeAll": "Supprimer tout",
       "projectName": "Nom du projet :",
-      "company": "Société :"
+      "company": "Société :",
+      "region": "Province :"
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
@@ -283,6 +285,7 @@
       "collapseAll": "Réduire",
       "company": "Société",
       "projectName": "Nom du projet : ",
+      "region": "Province :",
       "esaConsultant": "Nom du consultant de l'EES : ",
       "projectFolder": "Dossier de projet",
       "finalDecision": "Décision finale",
