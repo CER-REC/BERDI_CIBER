@@ -55,7 +55,7 @@ export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
 
   const regions = useMemo(
-    () => (data ? data.configuration.regions : []),
+    () => (data ? data.configuration.regions.sort() : []),
     [data],
   );
 
@@ -65,17 +65,17 @@ export default () => {
   );
 
   const projectTypes = useMemo(
-    () => (data ? getProjectTypes(data.configuration.translations) : []),
+    () => (data ? getProjectTypes(data.configuration.translations).sort() : []),
     [data],
   );
 
   const commodities = useMemo(
-    () => (data ? getCommodities(data.configuration.translations) : []),
+    () => (data ? getCommodities(data.configuration.translations).sort() : []),
     [data],
   );
 
   const contentTypes = useMemo(
-    () => (data ? getContentTypes(data.configuration.translations) : []),
+    () => (data ? getContentTypes(data.configuration.translations).sort() : []),
     [data],
   );
 
