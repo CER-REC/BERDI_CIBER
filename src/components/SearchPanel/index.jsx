@@ -86,9 +86,9 @@ const SearchPanel = ({ hasTagline }) => {
           <Button
             className={classes.searchButton}
             aria-label={
-              hasTagline ?
-              intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' }) :
-              intl.formatMessage({ id: 'components.searchPanel.searchButton' })
+              hasTagline
+                ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
+                : intl.formatMessage({ id: 'components.searchPanel.searchButton' })
             }
             onClick={handleClick}
             variant="contained"
@@ -96,9 +96,9 @@ const SearchPanel = ({ hasTagline }) => {
             size="small"
           >
             {
-              hasTagline ? 
-              intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' }) : 
-              intl.formatMessage({ id: 'components.searchPanel.searchButton' })
+              hasTagline
+                ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
+                : intl.formatMessage({ id: 'components.searchPanel.searchButton' })
             }
           </Button>
         </Grid>
