@@ -5,7 +5,6 @@ import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
-import FilterPanel from '../../components/FilterPanel';
 import FilterToggle from '../../components/FilterToggle';
 import IKNotification from '../../components/IKNotification';
 import LimitationsDialog from '../../components/LimitationsDialog';
@@ -18,7 +17,6 @@ import TopicsFilter from '../../components/TopicsFilter';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
-import { reportShowFilter } from '../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   dataButton: {
@@ -30,19 +28,10 @@ const useStyles = makeStyles((theme) => ({
 
 const showOSDPFooter = false;
 const Search = () => {
-  const [open, setOpen] = useState(false);
   const { loading } = useAPI();
   const { config } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
-
-  const handleFilterChange = useCallback((event) => {
-    if (event.target.checked) {
-      reportShowFilter();
-    }
-
-    setOpen(event.target.checked);
-  }, [setOpen]);
 
   const [limitationsOpen, setLimitationsOpen] = useState(false);
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
@@ -73,8 +62,7 @@ const Search = () => {
           </Grid>
         )}
       </Grid>
-      <SearchPanel hasFilter onChange={handleFilterChange} />
-      {open && <FilterPanel />}
+      <SearchPanel hasTagline />
       <FilterToggle />
       {(config.filter === 'topic') && <TopicsFilter />}
       {

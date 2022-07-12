@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 
 import useESAData from '../../hooks/useESAData';
+import SelectHelpText from '../SelectHelpText';
 import TreeMap from './TreeMap';
 
 const TreeMapPanel = () => {
@@ -15,9 +15,7 @@ const TreeMapPanel = () => {
 
   return (
     <>
-      <Typography variant="subtitle2">
-        {intl.formatMessage({ id: 'components.treeMapPanel.boxSelect' })}
-      </Typography>
+      <SelectHelpText text={intl.formatMessage({ id: 'components.treeMapPanel.boxSelect' })} />
       <TreeMap />
     </>
   );

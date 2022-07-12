@@ -180,13 +180,15 @@
       "unavailable": "Data not available",
       "dataNotice": "We were unable to extract the table for download. Please view the original document."
     },
+    "dateSlider": {
+      "dateLabel": "Filing date"
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "Pipeline status",
       "COMMODITIES": "Commodity",
       "CONTENT_TYPES": "Results type",
       "PROJECT_TYPES": "Project type",
-      "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "select": "- Select -",
@@ -342,10 +344,6 @@
     "filterToggle": {
       "explore": "Explore results by"
     },
-    "filterPanel": {
-      "clearButton": "Clear all filters",
-      "filters": "Filters"
-    },
     "filterChipsPanel": {
       "title": "Current Filters and Search Terms"
     },
@@ -387,10 +385,15 @@
       }
     },
     "searchPanel": {
-      "filterLabel": "Show filters",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
       "searchHelp": "Search Help",
+      "filterPanel": {
+        "clearButton": "Clear all filters",
+        "filters": "Filters",
+        "viewMore": "View more filters",
+        "viewFewer": "View fewer filters"
+      },
       "helpDialog": {
         "help1": "By default, the BERDI search engine searches the full titles and contents of the dataset for matches with any of the keyword search terms you provide. Capitalization will be ignored.",
         "exampleHeader": "Example:",

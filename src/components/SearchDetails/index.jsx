@@ -37,7 +37,7 @@ const SearchDetails = () => {
 
   return (
     <div>
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle2">
         {intl.formatMessage({ id: 'components.searchDetails.title' }).toUpperCase()}
       </Typography>
 

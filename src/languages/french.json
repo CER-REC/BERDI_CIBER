@@ -182,13 +182,15 @@
       "unavailable": "Données non disponibles",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
+    "dateSlider": {
+      "dateLabel": "Date de dépôt"
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
       "CONTENT_TYPES": "Type de résultats",
       "PROJECT_TYPES": "Type de projet",
-      "dateLabel": "Date de dépôt",
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "select": "- Sélectionner -",
@@ -341,10 +343,6 @@
     "filterToggle": {
       "explore": "Explorer les résultats par"
     },
-    "filterPanel": {
-      "clearButton": "Effacer tous les filtres",
-      "filters": "Filtres"
-    },
     "filterChipsPanel": {
       "title": "Filtres et termes de recherche actuels"
     },
@@ -386,10 +384,13 @@
       }
     },
     "searchPanel": {
-      "filterLabel": "Afficher les filtres",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
       "searchHelp": "Aide pour la recherche",
+      "filterPanel": {
+        "clearButton": "Effacer tous les filtres",
+        "filters": "Filtres"
+      },
       "helpDialog": {
         "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
         "exampleHeader": "Exemple :",
