@@ -58,7 +58,7 @@ const simulateFilter = () => {
   fireEvent.click(screen.getByText('api.statuses.APPROVED'));
   fireEvent.click(screen.getByText('api.statuses.REVOKED'));
   fireEvent.click(screen.getByRole('presentation').firstChild);
-  fireEvent.click(getByRole(getByText(filters, 'components.dropdown.dateLabel').parentNode, 'button'));
+  fireEvent.click(getByRole(getByText(filters, 'components.dateSlider.dateLabel').parentNode, 'button'));
   fireEvent.keyDown(getAllByRole(screen.getByRole('presentation'), 'slider')[1], { key: 'Home' });
   fireEvent.click(screen.getByRole('presentation').firstChild);
   fireEvent.click(getByText(filterToggle, 'common.project'));

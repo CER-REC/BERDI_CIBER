@@ -180,13 +180,15 @@
       "unavailable": "Data not available",
       "dataNotice": "We were unable to extract the table for download. Please view the original document."
     },
+    "dateSlider": {
+      "dateLabel": "Filing date"
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "Pipeline status",
       "COMMODITIES": "Commodity",
       "CONTENT_TYPES": "Results type",
       "PROJECT_TYPES": "Project type",
-      "dateLabel": "Filing date",
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "select": "- Select -",

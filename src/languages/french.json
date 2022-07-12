@@ -182,13 +182,15 @@
       "unavailable": "Données non disponibles",
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
+    "dateSlider": {
+      "dateLabel": "Date de dépôt"
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
       "CONTENT_TYPES": "Type de résultats",
       "PROJECT_TYPES": "Type de projet",
-      "dateLabel": "Date de dépôt",
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "select": "- Sélectionner -",

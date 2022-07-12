@@ -149,7 +149,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
   return (
     <>
       <Typography style={{ fontWeight: 600, color: 'white' }}>
-        {intl.formatMessage({ id: 'components.dropdown.dateLabel' })}
+        {intl.formatMessage({ id: 'components.dateSlider.dateLabel' })}
       </Typography>
       <div
         className={classes.datePicker}
