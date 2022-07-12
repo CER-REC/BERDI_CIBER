@@ -12,6 +12,7 @@ import { useIntl } from 'react-intl';
 import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
+import useGetFullRegions from '../../../hooks/useGetFullRegions';
 import { reportContent, reportProject } from '../../../utilities/analytics';
 import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
 import CartButton from '../../CartButton';
@@ -34,6 +35,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const { contents, ids } = useESAData();
+  const getFullRegions = useGetFullRegions();
   const pageNumber = useMemo(
     () => (ids.length ? config.searchIndex : 0),
     [ids.length, config.searchIndex],
@@ -44,8 +46,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
   const [selectedLineData, setSelectedLineData] = useState(null);
   const [expandedTitles, setExpandedTitles] = useState([]);
   const [projectData, setProjectData] = useState();
-
-  const getFullRegions = (shortRegions) => shortRegions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })).sort().join(', ');
 
   const handleClickOpen = (content) => {
     reportContent(content.title);

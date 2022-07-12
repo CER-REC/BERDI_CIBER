@@ -7,6 +7,7 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
 
+import useGetFullRegions from '../../../hooks/useGetFullRegions';
 import useConfig from '../../../hooks/useConfig';
 import { reportCartRemove } from '../../../utilities/analytics';
 import ThumbnailButton from '../../ThumbnailButton';
@@ -85,7 +86,6 @@ const CartItem = ({
   const rowRef = useRef({});
   const { config: { unreadCartIds }, configDispatch } = useConfig();
 
-  const getFullRegions = (shortRegions) => shortRegions.map((item) => intl.formatMessage({ id: `api.regions.${item}` })).sort().join(', ');
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const handleRemoveButtonHover = () => setRemoveButtonHover(true);
   const handleRemoveButtonHoverEnd = () => setRemoveButtonHover(false);
@@ -93,6 +93,8 @@ const CartItem = ({
     configDispatch({ type: 'cartIds/removed', payload: data.id });
     reportCartRemove(data.title);
   };
+
+  const getFullRegions = useGetFullRegions();
 
   useEffect(() => {
     onHeightChange(index, rowRef.current.clientHeight);
@@ -214,7 +216,7 @@ CartItem.propTypes = {
     application: PropTypes.shape({
       shortName: PropTypes.string,
       companyName: PropTypes.string,
-      regions: PropTypes.string,
+      regions: PropTypes.arrayOf(PropTypes.string),
     }),
   }),
   index: PropTypes.number.isRequired,
