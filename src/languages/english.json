@@ -11,6 +11,8 @@
     "limitations": "limitations",
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
+    "projectName":"Project name: ",
+    "company": "Company: ",
     "fullProjectName": "Full project name: ",
     "projectType": "Project type: ",
     "commodity": "Commodity: ",
@@ -18,6 +20,7 @@
     "companyName": "Company name: ",
     "hearingOrder": "Hearing order: ",
     "filingDate": "Filing date: ",
+    "region": "Province: ",
     "learnMethods": "Learn more about our methods.",
     "figureCount": "{figures, plural, =1 {figure} other {figures}}",
     "tableCount": "{tables, plural, =1 {table} other {tables}}",
@@ -170,9 +173,7 @@
       "copyLink": "Copy link",
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
       "copyConfirmation": "Link copied!",
-      "removeAll": "Remove all",
-      "projectName": "Project name:",
-      "company": "Company:"
+      "removeAll": "Remove all"
     },
     "cartButton": {
       "add": "Add to shelf",
@@ -284,8 +285,6 @@
       "viewFewer": "View fewer details",
       "expandAll": "Expand all",
       "collapseAll": "Collapse all",
-      "company": "Company: ",
-      "projectName": "Project name: ",
       "esaConsultant": "ESA consultant: ",
       "projectFolder": "Project folder",
       "finalDecision": "Final decision",

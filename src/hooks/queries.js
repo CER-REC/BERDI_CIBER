@@ -141,6 +141,7 @@ export const SEARCH = gql`
         application {
           name
           shortName
+          regions
           consultants
           filingDate
           companyName
@@ -230,6 +231,7 @@ export const CART_ITEMS = gql`
       application {
         name
         shortName
+        regions
         consultants
         filingDate
         companyName

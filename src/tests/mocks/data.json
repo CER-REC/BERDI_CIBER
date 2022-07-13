@@ -69,6 +69,7 @@
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
+            "regions": ["AB"],
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -120,6 +121,7 @@
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
+            "regions": ["AB"],
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -171,6 +173,7 @@
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
+            "regions": ["AB"],
             "consultants": "Imperial Oil",
             "filingDate": "2004-10-07T00:00:00",
             "companyName": "Imperial Oil Resources Ventures Limited (Mackenzie Gas Pipeline and Mackenzie Gathering System) IORVL",
@@ -222,6 +225,7 @@
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",
+            "regions": ["BC"],
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
@@ -273,6 +277,7 @@
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",
+            "regions": ["BC"],
             "companyName": "Enbridge Pipelines Inc.",
             "commodity": "OIL",
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/465178",
