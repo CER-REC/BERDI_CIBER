@@ -104,6 +104,8 @@ describe('Components/ListPanel', () => {
         expect(result).toContain(content.title.substring(0, 150));
         expect(result).toContain(content.application.shortName);
         expect(result).toContain(content.application.companyName);
+        const regions = content.application.regions.map((item) => `api.regions.${item}`).sort().join(', ');
+        expect(result).toContain(regions);
         expect(result).toContain(content.application.consultants);
         expect(result).toContain(new Date(content.application.filingDate).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }));
         expect(result).toContain(`api.statuses.${content.application.status}`);

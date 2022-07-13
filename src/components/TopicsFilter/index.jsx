@@ -29,6 +29,7 @@ import { reportAddTopicFilter, reportRemoveTopicFilter } from '../../utilities/a
 import getScore from '../../utilities/getScore';
 import SvgButton from '../SvgButton';
 import Blob from './Blob';
+import SelectHelpText from '../SelectHelpText';
 
 const delayMS = 2000;
 const maxWaitMS = 1500;
@@ -98,12 +99,6 @@ const useStyles = makeStyles((theme) => ({
       margin: '1.2em 0',
       textAlign: 'center',
     },
-  },
-  selectText: {
-    fontSize: 20,
-    lineHeight: 'normal',
-    padding: '0.8em 0 0.5em 0.3em',
-    fontWeight: 'lighter',
   },
 }));
 
@@ -217,9 +212,7 @@ const TopicsFilter = () => {
 
   return (
     <>
-      <Typography className={classes.selectText}>
-        {intl.formatMessage({ id: 'components.topicsFilterPanel.select' })}
-      </Typography>
+      <SelectHelpText text={intl.formatMessage({ id: 'components.topicsFilterPanel.select' })} />
       <Grid ref={handleRef} classes={{ root: classes.root }} container spacing={10}>
         <Grid item xs={7}>
           <Typography className={`${classes.header} + ${classes.environmental}`} variant="h5">

@@ -7,6 +7,7 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
 
+import useGetFullRegions from '../../../hooks/useGetFullRegions';
 import useConfig from '../../../hooks/useConfig';
 import { reportCartRemove } from '../../../utilities/analytics';
 import ThumbnailButton from '../../ThumbnailButton';
@@ -93,6 +94,8 @@ const CartItem = ({
     reportCartRemove(data.title);
   };
 
+  const getFullRegions = useGetFullRegions();
+
   useEffect(() => {
     onHeightChange(index, rowRef.current.clientHeight);
   }, [rowRef.current.clientHeight, index, onHeightChange]);
@@ -150,7 +153,7 @@ const CartItem = ({
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        {intl.formatMessage({ id: 'components.cart.projectName' })}
+                        {intl.formatMessage({ id: 'common.projectName' })}
                       </Typography>
                     </td>
                     <td>
@@ -167,12 +170,24 @@ const CartItem = ({
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        {intl.formatMessage({ id: 'components.cart.company' })}
+                        {intl.formatMessage({ id: 'common.company' })}
                       </Typography>
                     </td>
                     <td>
                       <Typography>
                         {data.application.companyName}
+                      </Typography>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className={classes.infoLabel}>
+                      <Typography>
+                        {intl.formatMessage({ id: 'common.region' })}
+                      </Typography>
+                    </td>
+                    <td>
+                      <Typography>
+                        {getFullRegions(data.application.regions)}
                       </Typography>
                     </td>
                   </tr>
@@ -201,6 +216,7 @@ CartItem.propTypes = {
     application: PropTypes.shape({
       shortName: PropTypes.string,
       companyName: PropTypes.string,
+      regions: PropTypes.arrayOf(PropTypes.string),
     }),
   }),
   index: PropTypes.number.isRequired,
