@@ -384,9 +384,10 @@
       }
     },
     "searchPanel": {
+      "seeResultsButton": "See Results",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
-      "searchHelp": "Search Help",
+      "searchHelp": "See Advanced Search Tips",
       "filterPanel": {
         "clearButton": "Clear all filters",
         "filters": "Filters",

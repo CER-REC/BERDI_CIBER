@@ -126,7 +126,7 @@ export const getReducer = (
         page: 'search',
         search: action.payload || initialState.search,
         searchIndex: 0,
-        fragment: initialState.fragment,
+        fragment: 'search',
       };
     case 'search/removed':
       return {

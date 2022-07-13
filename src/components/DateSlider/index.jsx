@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
       bottom: '8px',
       textOverflow: 'ellipsis',
       overflow: 'hidden',
-      maxWidth: 'calc(100% - 50px)',
       color: theme.palette.teal.blue,
     },
     '& img': {
@@ -148,7 +147,7 @@ const DateSlider = ({ maxDate, minDate, startDate, endDate, onChange }) => {
 
   return (
     <>
-      <Typography style={{ fontWeight: 600, color: 'white' }}>
+      <Typography variant="subtitle1">
         {intl.formatMessage({ id: 'components.dateSlider.dateLabel' })}
       </Typography>
       <div

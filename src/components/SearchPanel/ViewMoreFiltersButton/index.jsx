@@ -10,7 +10,9 @@ const useStyles = makeStyles(() => ({
     color: 'white',
     fontSize: 'inherit',
     fontWeight: 'bold',
-    marginTop: '1em',
+  },
+  spanStyle: {
+    fontSize: '14px',
   },
   caret: {
     filter: 'brightness(0) invert(1)',
@@ -24,7 +26,7 @@ const ViewMoreFiltersButton = ({ isOpen, toggleExpand }) => {
   if (isOpen) {
     return (
       <Button color="primary" className={classes.root} onClick={toggleExpand} disableFocusRipple>
-        <span>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewFewer' })}</span>
+        <span className={classes.spanStyle}>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewFewer' })}</span>
         <img alt="Up caret" src={upCaret} className={classes.caret} />
       </Button>
     );
@@ -32,7 +34,7 @@ const ViewMoreFiltersButton = ({ isOpen, toggleExpand }) => {
 
   return (
     <Button color="primary" className={classes.root} onClick={toggleExpand} disableFocusRipple>
-      <span>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewMore' })}</span>
+      <span className={classes.spanStyle}>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewMore' })}</span>
       <img alt="Down caret" src={downCaret} className={classes.caret} />
     </Button>
   );
