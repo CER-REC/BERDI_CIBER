@@ -153,7 +153,7 @@ const CartItem = ({
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        {intl.formatMessage({ id: 'components.cart.projectName' })}
+                        {intl.formatMessage({ id: 'common.projectName' })}
                       </Typography>
                     </td>
                     <td>
@@ -170,7 +170,7 @@ const CartItem = ({
                   <tr>
                     <td className={classes.infoLabel}>
                       <Typography>
-                        {intl.formatMessage({ id: 'components.cart.company' })}
+                        {intl.formatMessage({ id: 'common.company' })}
                       </Typography>
                     </td>
                     <td>

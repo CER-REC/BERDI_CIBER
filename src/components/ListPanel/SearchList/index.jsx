@@ -136,8 +136,8 @@ const SearchList = ({ toggleExpand, expandList }) => {
 
                       <table className={classes.details}>
                         <tbody>
-                          {createTableProjectRow(content.application, intl.formatMessage({ id: 'components.listPanel.projectName' }))}
-                          {createTableRow(content.application.companyName, intl.formatMessage({ id: 'components.listPanel.company' }))}
+                          {createTableProjectRow(content.application, intl.formatMessage({ id: 'common.projectName' }))}
+                          {createTableRow(content.application.companyName, intl.formatMessage({ id: 'common.company' }))}
                           {createTableRow(getFullRegions(content.application.regions), intl.formatMessage({ id: 'common.region' }))}
                           {
                             (expandList.includes(content.id)) && (

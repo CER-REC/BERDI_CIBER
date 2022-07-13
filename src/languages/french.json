@@ -11,6 +11,8 @@
     "limitations": "restrictions",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
+    "projectName": "Nom du projet :",
+    "company": "Société :",
     "fullProjectName": "Nom complet du projet : ",
     "projectType": "Type de projet : ",
     "commodity": "Produit : ",
@@ -173,10 +175,7 @@
       "copyLink": "Copier le lien",
       "shareDisclaimer": "Il s’agit de votre lien unique vers une collection permanente. Cela signifie que les éléments qui y figurent ne disparaîtront pas et qu’ils ne pourront pas être modifiés. Cette collection peut être consultée par quiconque dispose de ce lien.",
       "copyConfirmation": "Lien copié!",
-      "removeAll": "Supprimer tout",
-      "projectName": "Nom du projet :",
-      "company": "Société :",
-      "region": "Province :"
+      "removeAll": "Supprimer tout"
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
@@ -185,7 +184,6 @@
       "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
     },
     "dropdown": {
-      "REGIONS": "Province",
       "STATUSES": "État – pipeline ",
       "COMMODITIES": "Produit",
       "CONTENT_TYPES": "Type de résultats",
@@ -283,9 +281,6 @@
       "viewFewer": "Moins de détails",
       "expandAll": "Développer",
       "collapseAll": "Réduire",
-      "company": "Société",
-      "projectName": "Nom du projet : ",
-      "region": "Province :",
       "esaConsultant": "Nom du consultant de l'EES : ",
       "projectFolder": "Dossier de projet",
       "finalDecision": "Décision finale",
