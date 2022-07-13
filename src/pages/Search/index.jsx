@@ -40,7 +40,9 @@ const Search = () => {
 
   useEffect(() => {
     if (config.fragment === 'search') {
-      ref.current.scrollIntoView({ behaviour: 'smooth' });
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+      // Removing fragment directly to workaround config
+      // pushing multiple URL state changes into history
       config.fragment = '';
     }
   }, [config]);

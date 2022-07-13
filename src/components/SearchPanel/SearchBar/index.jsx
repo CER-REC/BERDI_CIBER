@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
+const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
   const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
@@ -57,7 +57,7 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
           }}
           InputProps={{ classes: { notchedOutline: classes.noBorder } }}
           onChange={onTextChanged}
-          onKeyDown={onEnterPressed}
+          onKeyDown={onKeyDown}
           autoFocus
         />
         <Button
@@ -77,14 +77,12 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onEnterPressed }) => {
 SearchBar.propTypes = {
   hasShrink: PropTypes.bool.isRequired,
   textValue: PropTypes.string,
-  onTextChanged: PropTypes.func,
-  onEnterPressed: PropTypes.func,
+  onTextChanged: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
 };
 
 SearchBar.defaultProps = {
   textValue: null,
-  onTextChanged: () => { },
-  onEnterPressed: () => { },
 };
 
 export default SearchBar;

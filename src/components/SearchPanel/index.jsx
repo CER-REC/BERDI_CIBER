@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: 'white',
     minWidth: '10em',
     marginTop: '1em',
+    '&:focus-visible': { backgroundColor: theme.palette.grey.light },
   },
 }));
 
@@ -46,11 +47,15 @@ const SearchPanel = ({ hasTagline }) => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
 
+  const searchButtonText = hasTagline
+    ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
+    : intl.formatMessage({ id: 'components.searchPanel.searchButton' });
+
   const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
 
   const handleClick = useCallback(() => {
     reportSearch(search);
-    configDispatch({ type: 'search/changed', payload: { search: search.trim(), fragment: 'search' } });
+    configDispatch({ type: 'search/changed', payload: search.trim() });
   }, [search, configDispatch]);
 
   const handleKeyDown = useCallback((event) => {
@@ -76,7 +81,7 @@ const SearchPanel = ({ hasTagline }) => {
             hasShrink
             textValue={search}
             onTextChanged={handleChange}
-            onEnterPressed={handleKeyDown}
+            onKeyDown={handleKeyDown}
           />
         </Grid>
         <Grid item xs={9}>
@@ -85,21 +90,13 @@ const SearchPanel = ({ hasTagline }) => {
         <Grid item xs={12} style={{ textAlign: 'center' }}>
           <Button
             className={classes.searchButton}
-            aria-label={
-              hasTagline
-                ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
-                : intl.formatMessage({ id: 'components.searchPanel.searchButton' })
-            }
+            aria-label={searchButtonText}
             onClick={handleClick}
             variant="contained"
             disableRipple
             size="small"
           >
-            {
-              hasTagline
-                ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
-                : intl.formatMessage({ id: 'components.searchPanel.searchButton' })
-            }
+            {searchButtonText}
           </Button>
         </Grid>
       </Grid>
