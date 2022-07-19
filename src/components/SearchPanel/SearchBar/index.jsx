@@ -1,11 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Button, TextField, makeStyles, Grid } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
-import useConfig from '../../../hooks/useConfig';
-import { reportSearch, reportSearchHelp } from '../../../utilities/analytics';
+import { reportSearchHelp } from '../../../utilities/analytics';
 import SearchHelpDialog from '../SearchHelpDialog';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0',
     '& input': {
       backgroundColor: theme.palette.common.white,
-      borderBottomLeftRadius: '10px',
-      borderTopLeftRadius: '10px',
+      borderRadius: '10px',
       padding: '11px',
     },
     '& legend': { width: 0 },
@@ -28,45 +25,22 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '4px',
   },
   disabledLabelShrink: { display: 'none' },
-  button: {
-    borderRadius: '0 10px 10px 0',
-    backgroundColor: theme.palette.secondary.main,
-    padding: '8px',
-    minWidth: '50px',
-  },
   noBorder: { border: 'none' },
-  searchHelpBox: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.button.blue,
-    display: 'flex',
-    fontSize: 14,
-    justifyContent: 'center',
+  helpButton: {
+    marginLeft: '1em',
+    fontSize: '12px',
     width: '10em',
   },
 }));
 
-const SearchBar = ({ hasShrink }) => {
-  const [search, setSearch] = useState('');
+const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
   const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
-  const { config, configDispatch } = useConfig();
-  const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
-  const handleClick = useCallback(() => {
-    reportSearch(search);
-    configDispatch({ type: 'search/changed', payload: search.trim() });
-  }, [search, configDispatch]);
-  const handleKeyDown = useCallback((event) => {
-    if (event.key === 'Enter') {
-      handleClick();
-    }
-  }, [handleClick]);
   const handleSearchHelpClick = useCallback(() => {
     setSearchHelpOpen(true);
     reportSearchHelp();
   }, []);
-
-  useEffect(() => setSearch(config.search), [config.search]);
 
   return (
     <div className={`Keywords ${classes.root}`}>
@@ -77,32 +51,23 @@ const SearchBar = ({ hasShrink }) => {
           label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
           variant="outlined"
           margin="dense"
-          value={search}
+          value={textValue}
           InputLabelProps={{
             classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
           }}
           InputProps={{ classes: { notchedOutline: classes.noBorder } }}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
+          onChange={onTextChanged}
+          onKeyDown={onKeyDown}
           autoFocus
         />
-        <span className={classes.searchHelpBox}>
-          <Button
-            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-            color="inherit"
-            onClick={handleSearchHelpClick}
-            disableRipple
-          >
-            {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
-          </Button>
-        </span>
         <Button
-          className={classes.button}
-          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
-          variant="contained"
-          onClick={handleClick}
+          className={classes.helpButton}
+          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
+          color="inherit"
+          onClick={handleSearchHelpClick}
+          disableRipple
         >
-          <SearchIcon />
+          {intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
         </Button>
       </Grid>
     </div>
@@ -111,6 +76,13 @@ const SearchBar = ({ hasShrink }) => {
 
 SearchBar.propTypes = {
   hasShrink: PropTypes.bool.isRequired,
+  textValue: PropTypes.string,
+  onTextChanged: PropTypes.func.isRequired,
+  onKeyDown: PropTypes.func.isRequired,
+};
+
+SearchBar.defaultProps = {
+  textValue: null,
 };
 
 export default SearchBar;

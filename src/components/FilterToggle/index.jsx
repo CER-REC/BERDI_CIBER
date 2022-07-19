@@ -25,7 +25,7 @@ const FilterToggle = () => {
 
   return (
     <div style={{ paddingLeft: '0.3em' }}>
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle2">
         {intl.formatMessage({ id: 'components.filterToggle.explore' }).toUpperCase()}
       </Typography>
       <ToggleButtonGroup

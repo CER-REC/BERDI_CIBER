@@ -1,11 +1,14 @@
-import React from 'react';
-import { Grid, Switch, Typography, Divider, makeStyles } from '@material-ui/core';
+import React, { useCallback, useState, useEffect } from 'react';
+import { Grid, makeStyles, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import useConfig from '../../hooks/useConfig';
+import { reportSearch } from '../../utilities/analytics';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
+import FilterPanel from './FilterPanel';
 
 const useStyles = makeStyles((theme) => ({
   imageRoot: {
@@ -17,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     position: 'relative',
     zIndex: 1,
+    paddingBottom: '2em',
   },
   searchPanel: {
     padding: '0 1.5em',
@@ -29,64 +33,79 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     minHeight: '6em',
   },
-  divider: {
-    background: theme.palette.common.white,
-    marginRight: '2.5em',
-  },
-  sideBlock: {
-    margin: 'auto',
-    textAlign: 'right',
-  },
-  filterLabel: {
-    display: 'inline-block',
-    paddingRight: '0.5em',
-    verticalAlign: 'middle',
+  searchButton: {
+    backgroundColor: 'white',
+    minWidth: '10em',
+    marginTop: '1em',
+    '&:focus-visible': { backgroundColor: theme.palette.grey.light },
   },
 }));
 
-const SearchPanel = ({ hasFilter, onChange }) => {
+const SearchPanel = ({ hasTagline }) => {
+  const [search, setSearch] = useState('');
   const classes = useStyles();
   const intl = useIntl();
+  const { config, configDispatch } = useConfig();
+
+  const searchButtonText = hasTagline
+    ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
+    : intl.formatMessage({ id: 'components.searchPanel.searchButton' });
+
+  const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
+
+  const handleClick = useCallback(() => {
+    reportSearch(search);
+    configDispatch({ type: 'search/changed', payload: search.trim() });
+  }, [search, configDispatch]);
+
+  const handleKeyDown = useCallback((event) => {
+    if (event.key === 'Enter') {
+      handleClick();
+    }
+  }, [handleClick]);
+
+  useEffect(() => setSearch(config.search), [config.search]);
 
   return (
-    <div className={`${hasFilter ? classes.gradientRoot : classes.imageRoot}`}>
+    <div className={`${hasTagline ? classes.gradientRoot : classes.imageRoot}`}>
       <Grid container className={classes.searchPanel} alignItems="center">
-        {!hasFilter && (
-          <Grid item xs={9}>
-            <TitleCard />
-          </Grid>
-        )}
-        <Grid item xs={9} className={classes.barContainer}>
-          {hasFilter && (
-            <>
-              <ToolLogo style={{ width: '8em', margin: '0 2em 0 1em' }} />
-              <Divider orientation="vertical" flexItem classes={{ root: classes.divider }} />
-            </>
-          )}
-          <SearchBar hasShrink />
+        <Grid item xs={9} style={{ textAlign: 'center' }}>
+          {
+            hasTagline
+              ? <ToolLogo style={{ width: '8em', marginTop: '1em' }} />
+              : <TitleCard />
+          }
         </Grid>
-        {hasFilter && (
-          <Grid item xs={3} classes={{ root: classes.sideBlock }}>
-            <>
-              <Typography classes={{ root: classes.filterLabel }} variant="h6">
-                {intl.formatMessage({ id: 'components.searchPanel.filterLabel' })}
-              </Typography>
-              <Switch color="default" onChange={onChange} />
-            </>
-          </Grid>
-        )}
+        <Grid item xs={9} className={classes.barContainer}>
+          <SearchBar
+            hasShrink
+            textValue={search}
+            onTextChanged={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+        </Grid>
+        <Grid item xs={9}>
+          <FilterPanel />
+        </Grid>
+        <Grid item xs={12} style={{ textAlign: 'center' }}>
+          <Button
+            className={classes.searchButton}
+            aria-label={searchButtonText}
+            onClick={handleClick}
+            variant="contained"
+            disableRipple
+            size="small"
+          >
+            {searchButtonText}
+          </Button>
+        </Grid>
       </Grid>
     </div>
   );
 };
 
 SearchPanel.propTypes = {
-  hasFilter: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-};
-
-SearchPanel.defaultProps = {
-  onChange: () => { },
+  hasTagline: PropTypes.bool.isRequired,
 };
 
 export default SearchPanel;
