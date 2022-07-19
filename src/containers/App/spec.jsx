@@ -247,16 +247,4 @@ describe('Containers/App', () => {
 
     await waitFor(() => expect(screen.getAllByText('components.cartButton.remove')).not.toHaveLength(0));
   });
-
-  it('should render the methods page when the data unavailable link is clicked', async () => {
-    render(<LazyApp />, { configMocked: false });
-    simulateSearch();
-
-    await waitFor(() => fireEvent.mouseOver(screen.getAllByText('components.cartButton.unavailable')[0]));
-    await waitFor(() => {
-      fireEvent.click(getByText(screen.getByRole('tooltip'), 'common.learnMethods'));
-
-      expect(screen.getByText('pages.methods.body.title')).toBeInTheDocument();
-    });
-  });
 });
