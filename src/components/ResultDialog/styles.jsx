@@ -52,7 +52,6 @@ export default (theme) => ({
   },
   dialogProject: {
     fontSize: 16,
-    fontWeight: 'bold',
     paddingTop: '10px',
     width: '100%',
     textAlign: 'left',

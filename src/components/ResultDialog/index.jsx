@@ -127,7 +127,9 @@ const ResultDialog = ({ open, onClose, data }) => {
       <Grid container direction="column" className={classes.dialogContent}>
         <Grid item container>
           <Typography className={classes.dialogProject}>
-            {data.application.name}
+            {intl.formatMessage({ id: 'components.resultDialog.title' }, {
+              shortName: (<strong style={{fontWeight: '700'}}>{data.application.shortName}</strong>)
+            })}
           </Typography>
         </Grid>
 
@@ -139,6 +141,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         <Grid item container>
           <table className={classes.dialogDataContainer}>
             {createTableRow('foundOnPage', data.pdfPageNumber)}
+            <a href={data.pdfURL} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>Open original PDF</a>
             {createTableRow('originalPDF', getDataAnchorElement(data.pdfURL))}
             {createTableRow('esaFolder', getDataAnchorElement(data.esaFolderURL))}
             {createTableRow('projectFolder', getDataAnchorElement(data.application.applicationURL))}
