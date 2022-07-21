@@ -287,41 +287,6 @@
       "projectFolder": "Dossier de projet",
       "finalDecision": "Décision finale",
       "esaFolder": "Dossier de l’EES",
-      "ellipsisButton": {
-        "rate": "Signaler ces données",
-        "report": "Évaluer ces données",
-        "download": "Télécharger le tableau",
-        "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
-        "rateDataDialog": {
-          "rateData": "Signaler ces données",
-          "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
-          "rate": "Évaluation",
-          "thankYou": "Merci de votre rétroaction.",
-          "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-          "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
-          "ratingLabels": {
-            "1": "Pas du tout utiles",
-            "2": "Données à améliorer",
-            "3": "Plutôt utiles",
-            "4": "Utiles",
-            "5": "Très utiles"
-          }
-        },
-        "reportDataDialog": {
-          "report": "Évaluer ces données :",
-          "required": "Requis",
-          "whatConcern": "Quel souci souhaitez-vous signaler?",
-          "strangeChars": "Les données comportaient des caractères insolites.",
-          "noData": "Je n’ai pas retrouvé les données dans le document.",
-          "other": "Autre",
-          "explainMore": "Veuillez expliquer plus en détail.",
-          "optional": "Facultatif",
-          "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-          "submit": "Envoyer",
-          "thankYou": "Nous avons bien reçu votre signalement.",
-          "flagged": "Ces données seront examinées."
-        }
-      },
       "relatedTopics": {
         "title": "Sujets connexes :",
         "button": "Consultez plus de données à ce sujet",
@@ -425,6 +390,41 @@
         "fieldItem5": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
         "specificField4": "Le moteur de recherche de CIBER est basé sur la technologie Apache Lucene et peut effectuer des recherches plus détaillées et plus précises. Pour obtenir des trucs et des conseils de recherche plus poussés, consultez le {luceneLink}",
         "luceneLink": "site d’Apache Lucene."
+      }
+    },
+    "searchActionResults": {
+      "rate": "Signaler ces données",
+      "report": "Évaluer ces données",
+      "download": "Télécharger le tableau",
+      "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
+      "rateDataDialog": {
+        "rateData": "Signaler ces données",
+        "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
+        "rate": "Évaluation",
+        "thankYou": "Merci de votre rétroaction.",
+        "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
+        "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
+        "ratingLabels": {
+          "1": "Pas du tout utiles",
+          "2": "Données à améliorer",
+          "3": "Plutôt utiles",
+          "4": "Utiles",
+          "5": "Très utiles"
+        }
+      },
+      "reportDataDialog": {
+        "report": "Évaluer ces données :",
+        "required": "Requis",
+        "whatConcern": "Quel souci souhaitez-vous signaler?",
+        "strangeChars": "Les données comportaient des caractères insolites.",
+        "noData": "Je n’ai pas retrouvé les données dans le document.",
+        "other": "Autre",
+        "explainMore": "Veuillez expliquer plus en détail.",
+        "optional": "Facultatif",
+        "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+        "submit": "Envoyer",
+        "thankYou": "Nous avons bien reçu votre signalement.",
+        "flagged": "Ces données seront examinées."
       }
     },
     "searchDetails": {

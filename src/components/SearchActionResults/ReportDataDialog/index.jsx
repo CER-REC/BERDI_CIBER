@@ -11,7 +11,7 @@ import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import hands from '../../../images/listPanel/hands.svg';
+import hands from '../../../images/searchActionResults/hands.svg';
 import styles from './styles';
 
 const CREATE_REPORT = gql`
@@ -37,8 +37,8 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
 
   const getConcern = () => {
     switch (selection) {
-      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' }):
-      case intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' }):
+      case intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.strangeChars' }):
+      case intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.noData' }):
         return selection;
       default:
         return otherConcern || null;
@@ -65,12 +65,12 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
       {(data && !data.createReportFeedback) || error ? (
         <>
           <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
-          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.searchActionResults.tryAgainLater' })}</Typography>
         </>
       ) : (
         <>
-          <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.thankYou' })}</Typography>
-          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.flagged' })}</Typography>
+          <Typography variant="h6">{intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.thankYou' })}</Typography>
+          <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.flagged' })}</Typography>
         </>
       )}
       <Grid item className={classes.imageSection}>
@@ -90,7 +90,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
 
           <Grid container direction="row">
             <Grid item xs={11} style={{ padding: '0.5em 0' }}>
-              <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.report' })}</Typography>
+              <Typography variant="h6">{intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.report' })}</Typography>
 
               <Grid item>
                 <Typography>
@@ -113,7 +113,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
             <Grid container item justify="flex-end">
               <Grid item className={classes.requiredText}>
                 <span>* </span>
-                {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.required' })}
+                {intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.required' })}
               </Grid>
             </Grid>
 
@@ -122,27 +122,27 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
                 <form>
                   <FormControl component="fieldset">
                     <FormLabel component="legend" className={classes.formLabel}>
-                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.whatConcern' })}
+                      {intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.whatConcern' })}
                       <span style={{ color: 'red' }}>*</span>
                     </FormLabel>
                     <RadioGroup className={classes.radioGroup} aria-label="concern" name="concern" onChange={handleChange}>
-                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.strangeChars' })} />
-                      <FormControlLabel value={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.noData' })} />
-                      <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.other' })} />
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.strangeChars' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.strangeChars' })} />
+                      <FormControlLabel value={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.noData' })} control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.noData' })} />
+                      <FormControlLabel value="other" control={<Radio color="primary" />} label={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.other' })} />
                       <InputBase onChange={(e) => setOtherConcern(e.target.value.trim())} className={classes.otherText} disabled={selection !== 'other'} name="otherText" />
                     </RadioGroup>
                   </FormControl>
 
                   <FormControl className={classes.moreDetail}>
                     <p>
-                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.explainMore' })}
+                      {intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.explainMore' })}
                       <sup>
-                        {` (${intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.optional' })})`}
+                        {` (${intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.optional' })})`}
                       </sup>
                     </p>
                     <InputBase onChange={(e) => setDetails(e.target.value)} style={{ paddingLeft: '0.4em' }} multiline rowsMin={4} type="text" name="explanation" rows="3" cols="20" />
                     <Typography variant="body2">
-                      {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.disclaimer' }, {
+                      {intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.disclaimer' }, {
                         terms: (
                           <a
                             href={intl.formatMessage({ id: 'common.limitationsURL' })}
@@ -163,7 +163,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
                     className={!getConcern() ? classes.disabledButton : classes.button}
                     onClick={handleSubmit}
                   >
-                    {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.reportDataDialog.submit' })}
+                    {intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.submit' })}
                   </Button>
                 </form>
               </Grid>

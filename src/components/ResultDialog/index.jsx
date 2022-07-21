@@ -13,9 +13,9 @@ import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
 import { reportView } from '../../utilities/analytics';
-import CartButton from '../CartButton';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
+import SearchActionResults from '../SearchActionResults';
 
 const useStyles = makeStyles(styles);
 
@@ -135,7 +135,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         <Grid container justify="space-between" style={{ paddingBottom: '20px' }}>
           <Grid item xs={8}>{createTitleSection(data.title)}</Grid>
-          <Grid item xs={2}><CartButton data={data} /></Grid>
+          <SearchActionResults content={data} />
         </Grid>
 
         <Grid item container>

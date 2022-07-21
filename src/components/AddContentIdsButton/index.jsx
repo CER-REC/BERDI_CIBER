@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
 const AddContentIdsButton = () => {
   const intl = useIntl();
   const classes = useStyles();
-  const { downloadTableIds } = useESAData();
+  const { ids } = useESAData();
   const { configDispatch } = useConfig();
   const handleAddAllClick = () => {
-    configDispatch({ type: 'cartIds/added', payload: downloadTableIds });
+    configDispatch({ type: 'cartIds/added', payload: ids });
   };
 
-  if (!downloadTableIds.length) {
+  if (!ids.length) {
     return null;
   }
 
@@ -33,10 +33,10 @@ const AddContentIdsButton = () => {
       disableRipple
     >
       {intl.formatMessage({ id: 'components.addContentIdsButton.add' }, {
-        num: downloadTableIds.length,
+        num: ids.length,
         formattedNum: (
           <span style={{ fontWeight: 700 }}>
-            {intl.formatNumber(downloadTableIds.length)}
+            {intl.formatNumber(ids.length)}
           </span>
         ),
       })}

@@ -15,19 +15,17 @@ import useESAData from '../../../hooks/useESAData';
 import useGetFullRegions from '../../../hooks/useGetFullRegions';
 import { reportContent, reportProject } from '../../../utilities/analytics';
 import getProjectTypeLabel from '../../../utilities/getProjectTypeLabel';
-import CartButton from '../../CartButton';
 import DropDown from '../../Dropdown';
 import ResultDialog from '../../ResultDialog';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
-import EllipsisButton from '../EllipsisButton';
 import PaginationBar from '../PaginationBar';
 import RelatedTopics from '../RelatedTopics';
 import styles from './styles';
 import TitleSection from '../TitleSection';
 import ApplicationDialog from '../../ApplicationDialog';
 import ThumbnailButton from '../../ThumbnailButton';
+import SearchActionResults from '../../SearchActionResults';
 
-const getJustify = (content) => (content.type === 'TABLE' ? 'space-between' : 'flex-end');
 const useStyles = makeStyles(styles);
 
 const SearchList = ({ toggleExpand, expandList }) => {
@@ -177,16 +175,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       />
                     </Grid>
 
-                    <Grid container item direction="column" alignItems="flex-end" justify={getJustify(content)} xs={2}>
-                      <CartButton data={content} />
-                      <Grid item>
-                        <EllipsisButton
-                          downloadURL={content.url}
-                          title={content.title}
-                          contentId={content.id}
-                        />
-                      </Grid>
-                    </Grid>
+                    <SearchActionResults content={content} />
 
                     {/* This section only renders if the content id is in the expanded list */}
                     {expandList.includes(content.id) && (
