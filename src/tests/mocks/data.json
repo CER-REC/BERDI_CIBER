@@ -2,7 +2,7 @@
   "data": {
     "applications": [
       {
-        "id": "Application Test 1",
+        "id": "1",
         "name": "Application Test 3 Long Name",
         "shortName": "Test1",
         "companyName": "Enbridge Southern Lights GP Inc.",
@@ -20,7 +20,7 @@
         "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885"
       },
       {
-        "id": "Application Test 2",
+        "id": "2",
         "name": "Application Test 2 Long Name",
         "shortName": "Test2",
         "companyName": "Enbridge Pipelines Inc.",
@@ -38,7 +38,7 @@
         "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
       },
       {
-        "id": "Application Test 3",
+        "id": "3",
         "name": "Application Test 3 Long Name",
         "shortName": "Test3",
         "companyName": "Enbridge Pipelines Inc.",

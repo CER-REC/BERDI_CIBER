@@ -18,7 +18,7 @@ describe('Components/FilterChipsPanel', () => {
     render(<FilterChipsPanel />, {
       config: {
         search: 'testSearch',
-        applicationIds: ['Application Test 1'],
+        applicationIds: ['1'],
         regions: ['AB'],
         contentTypes: ['TABLE'],
         projectTypes: ['LARGE'],
