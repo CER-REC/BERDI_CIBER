@@ -120,7 +120,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         displayEmpty
       >
         {
-          options.sort().map((entry) => (
+          options.map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
               <IconCheckbox checked={value.indexOf(entry) !== -1} />
               {getDropdownItemName(entry)}
