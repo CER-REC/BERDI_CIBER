@@ -327,15 +327,17 @@
       "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "resultDialog": {
+      "title": "Ce document PDF a été déposé avant l’audience pour {shortName}",
       "seeMore": "Voir plus...",
       "seeLess": "Voir moin ...",
       "foundOnPage": "Page : ",
-      "originalPDF": "PDF original : ",
-      "esaFolder": "Dossier de l’EES : ",
-      "projectFolder": "Dossier de projet : ",
-      "finalDecision": "Décision finale : ",
-      "notApplicable": "Sans objet",
-      "pending": "En attente",
+      "originalPDF": "Ouvrir le fichier PDF original",
+      "externalLinksTitle": "Liens externes vers les originaux dans REGDOCS",
+      "esaFolder": "Voir le dossier de l’EES",
+      "projectFolder": "Voir le dossier du projet",
+      "viewFinalDecision": "Voir la décision définitive",
+      "finalDecisionNotApplicable": "Décision finale : Sans objet",
+      "finalDecisionPending": "Décision finale : En attente",
       "failedToLoad": "L’ouverture du visualiseur de PDF a échoué."
     },
     "resultsList": {
