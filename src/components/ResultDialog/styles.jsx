@@ -48,8 +48,6 @@ export default (theme) => ({
   },
   external: {
     marginLeft: '3px',
-    marginRight: '2em',
-    display: 'inline-block',
     verticalAlign: 'middle',
   },
 });

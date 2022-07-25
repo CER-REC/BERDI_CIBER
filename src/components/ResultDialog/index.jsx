@@ -71,10 +71,10 @@ const ResultDialog = ({ open, onClose, data }) => {
   }, [data]);
 
   const getExternalLinkElement = (label, href) => (
-    <Typography>
+    <Typography style={{ marginRight: '2em' }}>
       <a href={href} target="_blank" rel="external noreferrer" onClick={handleViewClick}>
         {intl.formatMessage({ id: `components.resultDialog.${label}` })}
-        <span><OpenInNew className={classes.external} fontSize="small" /></span>
+        <OpenInNew className={classes.external} fontSize="small" />
       </a>
     </Typography>
   );
@@ -119,7 +119,7 @@ const ResultDialog = ({ open, onClose, data }) => {
         <Grid item container>
           <Typography className={classes.dialogProject}>
             {intl.formatMessage({ id: 'components.resultDialog.title' }, {
-              shortName: (<strong style={{ fontWeight: '700' }}>{data.application.shortName}</strong>),
+              shortName: (<strong>{data.application.shortName}</strong>),
             })}
           </Typography>
         </Grid>
@@ -140,7 +140,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         <Grid item container>
           <Typography>{intl.formatMessage({ id: 'components.resultDialog.externalLinksTitle' })}</Typography>
-          <Grid item container>
+          <Grid container>
             {getExternalLinkElement('esaFolder', data.esaFolderURL)}
             {getExternalLinkElement('projectFolder', data.application.applicationURL)}
             {
@@ -182,7 +182,6 @@ ResultDialog.propTypes = {
       shortName: PropTypes.string,
       consultants: PropTypes.string,
       filingDate: PropTypes.string,
-      name: PropTypes.string,
       applicationURL: PropTypes.string,
       finalDecisionURL: PropTypes.string,
     }),
