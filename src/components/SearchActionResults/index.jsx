@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Grid } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'react-intl';
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
     width: '100%',
     borderTop: '1px dotted',
     margin: '0',
-    marginTop: topMargin
+    marginTop: topMargin,
   },
 }));
 
@@ -89,7 +89,7 @@ const SearchActionResults = ({ content }) => {
       >
         <img alt="a generic flag" src={flag} />
         {intl.formatMessage({
-          id: 'components.searchActionResults.report'
+          id: 'components.searchActionResults.report',
         })}
       </Button>
     </>
