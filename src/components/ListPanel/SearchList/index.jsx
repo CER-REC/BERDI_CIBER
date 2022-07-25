@@ -175,7 +175,9 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       />
                     </Grid>
 
-                    <SearchActionResults content={content} />
+                    <Grid item xs={2}>
+                      <SearchActionResults content={content} />
+                    </Grid>
 
                     {/* This section only renders if the content id is in the expanded list */}
                     {expandList.includes(content.id) && (

@@ -133,7 +133,7 @@ const ResultDialog = ({ open, onClose, data }) => {
 
         <Grid container justify="space-between" style={{ paddingBottom: '20px' }}>
           <Grid item xs={8}>{createTitleSection(data.title)}</Grid>
-          <SearchActionResults content={data} />
+          <Grid item xs={2}><SearchActionResults content={data} /></Grid>
         </Grid>
 
         <Grid item container>

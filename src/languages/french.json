@@ -169,7 +169,7 @@
     },
     "cart": {
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
-      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
+      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures et les cartes-tracés ne sont pas téléchargées.",
       "headerQuantity": "Éléments sur la tablette",
       "viewFullList": "Voir la liste complète sur la page",
       "copyLink": "Copier le lien",
@@ -179,9 +179,7 @@
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
-      "remove": "Retirer de l’étagère",
-      "unavailable": "Données non disponibles",
-      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
+      "remove": "Retirer de l’étagère"
     },
     "dateSlider": {
       "dateLabel": "Date de dépôt"

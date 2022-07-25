@@ -167,7 +167,7 @@
     },
     "cart": {
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
-      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",
+      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures and alignment sheets are excluded from download.",
       "headerQuantity": "Items in the Shelf",
       "viewFullList": "View full list on page",
       "copyLink": "Copy link",
@@ -177,9 +177,7 @@
     },
     "cartButton": {
       "add": "Add to shelf",
-      "remove": "Remove from shelf",
-      "unavailable": "Data not available",
-      "dataNotice": "We were unable to extract the table for download. Please view the original document."
+      "remove": "Remove from shelf"
     },
     "dateSlider": {
       "dateLabel": "Filing date"

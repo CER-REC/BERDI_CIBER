@@ -90,7 +90,6 @@ export default () => {
     error,
     applications,
     contents: data?.contentSearch.contents || [],
-    downloadTableIds: data?.contentSearch.downloadTableIds || [],
     ids: data?.contentSearch.ids || [],
     valueComponent,
   };
