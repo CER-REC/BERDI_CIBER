@@ -161,7 +161,7 @@
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "addContentIdsButton": {
-      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux}} à l’étagère"
+      "add": "Ajouter {num, plural, =1 {un article} other {{formattedNum} articles}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
@@ -194,11 +194,14 @@
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "select": "- Sélectionner -",
-      "tooltip": "Cet ensemble de données se limite aux projets visés par l’ancienne {nebAct}. La {cerAct} actuelle a modifié et ajouté des catégories de projets.",
+      "tooltip": "Cet ensemble de données comprend les grands projets concernant des pipelines et la cessation d’exploitation visés par la LRCE et l’ancienne {nebAct}. {cerAct} notamment: ",
       "nebAct": "Loi sur l’Office national de l’énergie",
       "cerAct": "Loi sur la Régie canadienne de l’énergie",
       "nebLink": "https://lois-laws.justice.gc.ca/fra/lois/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/",
+      "bullet1": "les grands projets de plus de 40 km (art. 183 de la LRCE et art. 52 de la Loi); ",
+      "bullet2": "les petits projets de moins de 40 km (art. 214 de la LRCE, art. 58 de la Loi); ",
+      "bullet3": "la cessation d’exploitation (paragraphe 241(1) de la LRCE et article 72 de la Loi).",
       "resultsCountLabel": "{num} résultats par page"
     },
     "errorBoundary": {
@@ -382,11 +385,15 @@
       }
     },
     "searchPanel": {
+      "seeResultsButton": "Afficher les résultats",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
+      "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
         "clearButton": "Effacer tous les filtres",
-        "filters": "Filtres"
+        "filters": "Filtres",
+        "viewMore": "Plus de filtres",
+        "viewFewer": "Moins de filtres"
       },
       "helpDialog": {
         "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
