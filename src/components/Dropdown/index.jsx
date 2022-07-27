@@ -72,6 +72,14 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         return name;
     }
   }, [type, applicationIdLabels, intl]);
+
+  const sortOptions = options.map((entry) => (
+    { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
+    const x = a.value.toLowerCase();
+    const y = b.value.toLowerCase();
+    return x.localeCompare(y);
+  });
+
   const renderValue = useCallback((selected) => {
     if (selected.length === 0) {
       return intl.formatMessage({ id: 'components.dropdown.select' });
@@ -120,10 +128,10 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         displayEmpty
       >
         {
-          options.map((entry) => (
-            <MenuItem classes={{ root: classes.item }} key={entry} value={entry}>
-              <IconCheckbox checked={value.indexOf(entry) !== -1} />
-              {getDropdownItemName(entry)}
+          sortOptions.map((entry) => (
+            <MenuItem classes={{ root: classes.item }} key={entry.key} value={entry.key}>
+              <IconCheckbox checked={value.indexOf(entry.key) !== -1} />
+              {entry.value}
             </MenuItem>
           ))
         }
