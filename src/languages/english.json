@@ -159,7 +159,7 @@
       "body": "Results will be shown in the original language they were filed in. Results may be limited. Some data has been excluded."
     },
     "addContentIdsButton": {
-      "add": "Add {num, plural, =1 {{formattedNum} table} other {all {formattedNum} tables}} to your shelf"
+      "add": "Add {num, plural, =1 {{formattedNum} item} other {all {formattedNum} items}} to your shelf"
     },
     "applicationDialog": {
       "regdocs": "View REGDOCS Folder",
@@ -167,7 +167,7 @@
     },
     "cart": {
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
-      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures are excluded from download.",
+      "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures and alignment sheets are excluded from download.",
       "headerQuantity": "Items in the Shelf",
       "viewFullList": "View full list on page",
       "copyLink": "Copy link",
@@ -177,9 +177,7 @@
     },
     "cartButton": {
       "add": "Add to shelf",
-      "remove": "Remove from shelf",
-      "unavailable": "Data not available",
-      "dataNotice": "We were unable to extract the table for download. Please view the original document."
+      "remove": "Remove from shelf"
     },
     "dateSlider": {
       "dateLabel": "Filing date"
@@ -289,41 +287,6 @@
       "projectFolder": "Project folder",
       "finalDecision": "Final decision",
       "esaFolder": "ESA folder",
-      "ellipsisButton": {
-        "rate": "Rate this data",
-        "report": "Report this data",
-        "download": "Download table",
-        "tryAgainLater": "Please provide your feedback at a later time.",
-        "rateDataDialog": {
-          "rateData": "Rate this data",
-          "useful": "How useful do you think this data will be?",
-          "rate": "Rate",
-          "thankYou": "Thank you for your feedback",
-          "timesRated": "This data is rated {num} time(s) with an average rating of {ratingText}.",
-          "improve": "Your rating will help us improve BERDI.",
-          "ratingLabels": {
-            "1": "Not at all",
-            "2": "Needs improvement",
-            "3": "Somewhat",
-            "4": "Good enough",
-            "5": "Very useful!"
-          }
-        },
-        "reportDataDialog": {
-          "report": "Report this data:",
-          "required": "required",
-          "whatConcern": "What concern would you like to report?",
-          "strangeChars": "The data had strange characters.",
-          "noData": "I couldn't find the data in the original document.",
-          "other": "Other",
-          "explainMore": "Please explain in more detail",
-          "optional": "optional",
-          "disclaimer": "Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
-          "submit": "Submit",
-          "thankYou": "Thank you for your report.",
-          "flagged": "This data has been flagged for review."
-        }
-      },
       "relatedTopics": {
         "title": "Related topics:",
         "button": "See more data related to this",
@@ -364,15 +327,17 @@
       "select": "Select one or more circles to filter the results by topic."
     },
     "resultDialog": {
+      "title": "This PDF was submitted prior to the hearing for {shortName}",
       "seeMore": "See more...",
       "seeLess": "See less...",
-      "foundOnPage": "Found on page:",
-      "originalPDF": "Original PDF:",
-      "esaFolder": "ESA folder:",
-      "projectFolder": "Project folder:",
-      "finalDecision": "Final decision:",
-      "notApplicable": "Not applicable",
-      "pending": "Pending",
+      "foundOnPage": "Found on page: ",
+      "originalPDF": "Open original PDF",
+      "externalLinksTitle": "External liks to original files in REGDOCS",
+      "esaFolder": "View ESA folder",
+      "projectFolder": "View project folder",
+      "viewFinalDecision": "View final decision",
+      "finalDecisionNotApplicable": "Final Decision: Not Applicable",
+      "finalDecisionPending": "Final Decision: Pending",
       "failedToLoad": "PDF viewer has failed to load."
     },
     "resultsList": {
@@ -431,6 +396,41 @@
         "fieldItem5": "csv: The content of the table associated with an item in the language in which it was originally filed.",
         "specificField4": "BERDI’s search engine is built on Apache Lucene and has the capacity to do more detailed and refined searches.  For more advanced search tricks and tips, please see {luceneLink}",
         "luceneLink": "Apache Lucene's documentation."
+      }
+    },
+    "searchActionResults": {
+      "rate": "Rate this data",
+      "report": "Report this data",
+      "download": "Download table",
+      "tryAgainLater": "Please provide your feedback at a later time.",
+      "rateDataDialog": {
+        "rateData": "Rate this data",
+        "useful": "How useful do you think this data will be?",
+        "rate": "Rate",
+        "thankYou": "Thank you for your feedback",
+        "timesRated": "This data is rated {num} time(s) with an average rating of {ratingText}.",
+        "improve": "Your rating will help us improve BERDI.",
+        "ratingLabels": {
+          "1": "Not at all",
+          "2": "Needs improvement",
+          "3": "Somewhat",
+          "4": "Good enough",
+          "5": "Very useful!"
+        }
+      },
+      "reportDataDialog": {
+        "report": "Report this data:",
+        "required": "required",
+        "whatConcern": "What concern would you like to report?",
+        "strangeChars": "The data had strange characters.",
+        "noData": "I couldn't find the data in the original document.",
+        "other": "Other",
+        "explainMore": "Please explain in more detail",
+        "optional": "optional",
+        "disclaimer": "Your feedback is voluntary and your personal information is not required. Any personal information that you choose to provide is protected under the provisions of the Privacy Act. The Act provides you with a right of access to your information. To request access, please contact atip.office@cer-rec.gc.ca. To learn more about how we collect and store this information, please review our {terms}.",
+        "submit": "Submit",
+        "thankYou": "Thank you for your report.",
+        "flagged": "This data has been flagged for review."
       }
     },
     "searchDetails": {

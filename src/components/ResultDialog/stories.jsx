@@ -7,7 +7,7 @@ import ReadMe from './README.md';
 
 const data = {
   application: {
-    name: 'applicationName',
+    shortName: 'shortApplicationName',
     applicationURL: 'https://applicationURL.ca',
     finalDecisionURL: 'https://finalDecisionURL.ca',
   },

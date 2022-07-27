@@ -1,11 +1,4 @@
 export default (theme) => ({
-  downloadIcon: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    alignContent: 'center',
-    justifyContent: 'center',
-    overflow: 'visible',
-  },
   dialogHeader: {
     '& div': {
       textAlign: 'right',
@@ -21,17 +14,6 @@ export default (theme) => ({
     justifyContent: 'flex-end',
     width: '100%',
     height: '8%',
-  },
-  dialogFooterButtons: {
-    width: '16em',
-    '& button': {
-      borderRadius: '5px',
-      width: '100%',
-    },
-    '& a, a:hover, a:visited, a:active': {
-      textDecoration: 'none',
-      fontSize: 15,
-    },
   },
   seeMoreButton: {
     color: theme.palette.blue.dark,
@@ -52,7 +34,6 @@ export default (theme) => ({
   },
   dialogProject: {
     fontSize: 16,
-    fontWeight: 'bold',
     paddingTop: '10px',
     width: '100%',
     textAlign: 'left',
@@ -63,14 +44,10 @@ export default (theme) => ({
   },
   dialogLabel: {
     fontSize: 16,
-    fontWeight: 'bold',
     marginRight: '15px',
-    textAlign: 'right',
   },
-  dialogDataContainer: {
-    width: 'unset',
-  },
-  finalDecision: {
-    lineHeight: 1.8,
+  external: {
+    marginLeft: '3px',
+    verticalAlign: 'middle',
   },
 });

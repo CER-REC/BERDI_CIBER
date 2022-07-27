@@ -60,7 +60,7 @@ export default () => {
   );
 
   const statuses = useMemo(
-    () => (data ? getStatuses(data.configuration.translations) : []),
+    () => (data ? getStatuses(data.configuration.translations).sort() : []),
     [data],
   );
 

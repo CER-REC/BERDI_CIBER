@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { cleanup, fireEvent, render, screen, waitFor } from '../../tests/utilities';
+import { cleanup, fireEvent, render, screen } from '../../tests/utilities';
 import CartButton from '.';
 
 describe('Containers/App', () => {
@@ -39,42 +39,5 @@ describe('Containers/App', () => {
       fireEvent.click(screen.getByText('components.cartButton.add'));
       expect(screen.getByText('components.cartButton.remove')).toBeInTheDocument();
     });
-  });
-
-  describe('without a download URL', () => {
-    const data = {
-      id: '0',
-      title: 'Test',
-      type: 'TABLE',
-      url: null,
-    };
-
-    it('should render the unavailable state', async () => {
-      render(<CartButton data={data} />);
-
-      expect(screen.getByText('components.cartButton.unavailable')).toBeInTheDocument();
-    });
-
-    it('should render show additional information on mouse over', async () => {
-      render(<CartButton data={data} />);
-      fireEvent.mouseOver(screen.getByText('components.cartButton.unavailable'));
-
-      await waitFor(() => {
-        expect(screen.getByText('components.cartButton.dataNotice')).toBeInTheDocument();
-        expect(screen.getByText('common.learnMethods')).toBeInTheDocument();
-      });
-    });
-  });
-
-  it('should not render component for figure data', () => {
-    const figureData = {
-      id: '0',
-      title: 'Test',
-      type: 'FIGURE',
-      url: null,
-    };
-    const { container } = render(<CartButton data={figureData} />);
-
-    expect(container).toBeEmpty();
   });
 });

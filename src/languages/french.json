@@ -161,7 +161,7 @@
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "addContentIdsButton": {
-      "add": "{num, plural, =1 {Ajouter un tableau} other {Ajoutez les {formattedNum} tableaux}} à l’étagère"
+      "add": "Ajouter {num, plural, =1 {un article} other {{formattedNum} articles}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
@@ -169,7 +169,7 @@
     },
     "cart": {
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
-      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures sont exclues du téléchargement.",
+      "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures et les cartes-tracés ne sont pas téléchargées.",
       "headerQuantity": "Éléments sur la tablette",
       "viewFullList": "Voir la liste complète sur la page",
       "copyLink": "Copier le lien",
@@ -179,9 +179,7 @@
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
-      "remove": "Retirer de l’étagère",
-      "unavailable": "Données non disponibles",
-      "dataNotice": "Nous n’avons pas été en mesure d’extraire le tableau pour le télécharger. Veuillez consulter le document original."
+      "remove": "Retirer de l’étagère"
     },
     "dateSlider": {
       "dateLabel": "Date de dépôt"
@@ -195,11 +193,14 @@
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "select": "- Sélectionner -",
-      "tooltip": "Cet ensemble de données se limite aux projets visés par l’ancienne {nebAct}. La {cerAct} actuelle a modifié et ajouté des catégories de projets.",
+      "tooltip": "Cet ensemble de données comprend les grands projets concernant des pipelines et la cessation d’exploitation visés par la LRCE et l’ancienne {nebAct}. {cerAct} notamment: ",
       "nebAct": "Loi sur l’Office national de l’énergie",
       "cerAct": "Loi sur la Régie canadienne de l’énergie",
       "nebLink": "https://lois-laws.justice.gc.ca/fra/lois/N-7/",
       "cerLink": "https://laws-lois.justice.gc.ca/fra/lois/C-15.1/",
+      "bullet1": "les grands projets de plus de 40 km (art. 183 de la LRCE et art. 52 de la Loi); ",
+      "bullet2": "les petits projets de moins de 40 km (art. 214 de la LRCE, art. 58 de la Loi); ",
+      "bullet3": "la cessation d’exploitation (paragraphe 241(1) de la LRCE et article 72 de la Loi).",
       "resultsCountLabel": "{num} résultats par page"
     },
     "errorBoundary": {
@@ -288,41 +289,6 @@
       "projectFolder": "Dossier de projet",
       "finalDecision": "Décision finale",
       "esaFolder": "Dossier de l’EES",
-      "ellipsisButton": {
-        "rate": "Signaler ces données",
-        "report": "Évaluer ces données",
-        "download": "Télécharger le tableau",
-        "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
-        "rateDataDialog": {
-          "rateData": "Signaler ces données",
-          "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
-          "rate": "Évaluation",
-          "thankYou": "Merci de votre rétroaction.",
-          "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-          "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
-          "ratingLabels": {
-            "1": "Pas du tout utiles",
-            "2": "Données à améliorer",
-            "3": "Plutôt utiles",
-            "4": "Utiles",
-            "5": "Très utiles"
-          }
-        },
-        "reportDataDialog": {
-          "report": "Évaluer ces données :",
-          "required": "Requis",
-          "whatConcern": "Quel souci souhaitez-vous signaler?",
-          "strangeChars": "Les données comportaient des caractères insolites.",
-          "noData": "Je n’ai pas retrouvé les données dans le document.",
-          "other": "Autre",
-          "explainMore": "Veuillez expliquer plus en détail.",
-          "optional": "Facultatif",
-          "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
-          "submit": "Envoyer",
-          "thankYou": "Nous avons bien reçu votre signalement.",
-          "flagged": "Ces données seront examinées."
-        }
-      },
       "relatedTopics": {
         "title": "Sujets connexes :",
         "button": "Consultez plus de données à ce sujet",
@@ -363,15 +329,17 @@
       "select": "Sélectionner un ou plusieurs cercles pour filtrer les résultats par sujet."
     },
     "resultDialog": {
+      "title": "Ce document PDF a été déposé avant l’audience pour {shortName}",
       "seeMore": "Voir plus...",
       "seeLess": "Voir moin ...",
       "foundOnPage": "Page : ",
-      "originalPDF": "PDF original : ",
-      "esaFolder": "Dossier de l’EES : ",
-      "projectFolder": "Dossier de projet : ",
-      "finalDecision": "Décision finale : ",
-      "notApplicable": "Sans objet",
-      "pending": "En attente",
+      "originalPDF": "Ouvrir le fichier PDF original",
+      "externalLinksTitle": "Liens externes vers les originaux dans REGDOCS",
+      "esaFolder": "Voir le dossier de l’EES",
+      "projectFolder": "Voir le dossier du projet",
+      "viewFinalDecision": "Voir la décision définitive",
+      "finalDecisionNotApplicable": "Décision finale : Sans objet",
+      "finalDecisionPending": "Décision finale : En attente",
       "failedToLoad": "L’ouverture du visualiseur de PDF a échoué."
     },
     "resultsList": {
@@ -383,11 +351,15 @@
       }
     },
     "searchPanel": {
+      "seeResultsButton": "Afficher les résultats",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
+      "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
         "clearButton": "Effacer tous les filtres",
-        "filters": "Filtres"
+        "filters": "Filtres",
+        "viewMore": "Plus de filtres",
+        "viewFewer": "Moins de filtres"
       },
       "helpDialog": {
         "help1": "Par défaut, le moteur de recherche de CIBER recherche les titres complets et le contenu de la base de données pour trouver des termes qui correspondent aux mots-clés que vous avez entrés. Les recherches ne sont pas sensibles à la casse.",
@@ -426,6 +398,41 @@
         "fieldItem5": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
         "specificField4": "Le moteur de recherche de CIBER est basé sur la technologie Apache Lucene et peut effectuer des recherches plus détaillées et plus précises. Pour obtenir des trucs et des conseils de recherche plus poussés, consultez le {luceneLink}",
         "luceneLink": "site d’Apache Lucene."
+      }
+    },
+    "searchActionResults": {
+      "rate": "Signaler ces données",
+      "report": "Évaluer ces données",
+      "download": "Télécharger le tableau",
+      "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
+      "rateDataDialog": {
+        "rateData": "Signaler ces données",
+        "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
+        "rate": "Évaluation",
+        "thankYou": "Merci de votre rétroaction.",
+        "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
+        "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
+        "ratingLabels": {
+          "1": "Pas du tout utiles",
+          "2": "Données à améliorer",
+          "3": "Plutôt utiles",
+          "4": "Utiles",
+          "5": "Très utiles"
+        }
+      },
+      "reportDataDialog": {
+        "report": "Évaluer ces données :",
+        "required": "Requis",
+        "whatConcern": "Quel souci souhaitez-vous signaler?",
+        "strangeChars": "Les données comportaient des caractères insolites.",
+        "noData": "Je n’ai pas retrouvé les données dans le document.",
+        "other": "Autre",
+        "explainMore": "Veuillez expliquer plus en détail.",
+        "optional": "Facultatif",
+        "disclaimer": "Votre rétroaction est volontaire et sans obligation de fournir des renseignements personnels. Si vous en fournissez, ils seront protégés conformément aux dispositions de la Loi sur la protection des renseignements personnels, qui vous accorde un droit d’accès. Vous pouvez présenter une telle demande à l’adresse atip.office@cer-rec.gc.ca. Pour en apprendre davantage sur la façon dont nous recueillons et conservons cette information, veuillez consulter nos conditions.",
+        "submit": "Envoyer",
+        "thankYou": "Nous avons bien reçu votre signalement.",
+        "flagged": "Ces données seront examinées."
       }
     },
     "searchDetails": {

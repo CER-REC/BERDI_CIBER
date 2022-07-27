@@ -10,7 +10,7 @@ import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import hands from '../../../images/listPanel/hands.svg';
+import hands from '../../../images/searchActionResults/hands.svg';
 import LeafRating from '../LeafRating';
 import styles from './styles';
 
@@ -49,9 +49,9 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
         {(data && !data.createRatingFeedback) || error ? (
           <>
             <Typography variant="h6">{intl.formatMessage({ id: 'common.errorMessage' })}</Typography>
-            <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.tryAgainLater' })}</Typography>
+            <Typography variant="h6" style={{ fontWeight: 'normal' }}>{intl.formatMessage({ id: 'components.searchActionResults.tryAgainLater' })}</Typography>
           </>
-        ) : <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.thankYou' })}</Typography>}
+        ) : <Typography variant="h6">{intl.formatMessage({ id: 'components.searchActionResults.rateDataDialog.thankYou' })}</Typography>}
       </Grid>
 
       <Grid item className={classes.imageSection}>
@@ -71,7 +71,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
 
           <Grid container>
             <Grid item xs={11} style={{ padding: '0.5em 0' }}>
-              <Typography variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rateData' })}</Typography>
+              <Typography variant="h6">{intl.formatMessage({ id: 'components.searchActionResults.rateDataDialog.rateData' })}</Typography>
 
               <Grid item>
                 <Typography>
@@ -92,12 +92,12 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
         {(!data?.createRatingFeedback && !error) ? (
           <Grid className={classes.body}>
             <Grid container style={{ paddingLeft: '2em' }}>
-              <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.useful' })}</Typography>
+              <Typography style={{ paddingTop: '1em', fontWeight: 300 }} variant="h6">{intl.formatMessage({ id: 'components.searchActionResults.rateDataDialog.useful' })}</Typography>
               <LeafRating rating={rating} onChangeActive={setHover} onChange={setRating} />
             </Grid>
 
             <Grid style={{ fontWeight: 700, paddingLeft: '2em' }}>
-              {rating !== null && intl.formatMessage({ id: `components.listPanel.ellipsisButton.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
+              {rating !== null && intl.formatMessage({ id: `components.searchActionResults.rateDataDialog.ratingLabels.${hover !== -1 ? hover : rating}` })}
             </Grid>
 
             <Grid container justify="flex-end">
@@ -107,7 +107,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
                   className={!rating ? classes.disabledButton : classes.button}
                   onClick={handleSubmit}
                 >
-                  {intl.formatMessage({ id: 'components.listPanel.ellipsisButton.rateDataDialog.rate' })}
+                  {intl.formatMessage({ id: 'components.searchActionResults.rateDataDialog.rate' })}
                 </Button>
               </Grid>
             </Grid>
