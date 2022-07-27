@@ -38,13 +38,12 @@ describe('Components/ResultDialog', () => {
 
   test('data fields should be present', () => {
     render(<ResultDialog open onClose={noop} data={data} />);
-    expect(screen.getByText(data.application.name)).toBeInTheDocument();
     expect(screen.getByText(data.title)).toBeInTheDocument();
     expect(screen.getByText(data.pdfPageNumber)).toBeInTheDocument();
-    expect(screen.getByText(data.pdfURL)).toHaveAttribute('href', data.pdfURL);
-    expect(screen.getByText(data.esaFolderURL)).toHaveAttribute('href', data.esaFolderURL);
-    expect(screen.getByText(data.application.applicationURL)).toHaveAttribute('href', data.application.applicationURL);
-    expect(screen.getByText(data.application.finalDecisionURL)).toHaveAttribute('href', data.application.finalDecisionURL);
+    expect(screen.getByText('components.resultDialog.originalPDF')).toHaveAttribute('href', data.pdfURL);
+    expect(screen.getByText('components.resultDialog.esaFolder')).toHaveAttribute('href', data.esaFolderURL);
+    expect(screen.getByText('components.resultDialog.projectFolder')).toHaveAttribute('href', data.application.applicationURL);
+    expect(screen.getByText('components.resultDialog.viewFinalDecision')).toHaveAttribute('href', data.application.finalDecisionURL);
   });
 
   test('download button should not be present if there is no url', () => {
@@ -59,12 +58,12 @@ describe('Components/ResultDialog', () => {
 
   test('should show not applicable when finalDecisionURL is blank', () => {
     render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'noFinalDecisionURL', application: { name: 'name' } }} />);
-    expect(screen.queryByText('components.resultDialog.notApplicable')).toBeInTheDocument();
+    expect(screen.queryByText('components.resultDialog.finalDecisionNotApplicable')).toBeInTheDocument();
   });
 
   test('should show pending when finalDecisionURL is pending', () => {
     render(<ResultDialog open onClose={noop} data={{ id: '0', type: 'FIGURE', title: 'pendingFinalDecisionURL', application: { name: 'name', finalDecisionURL: 'pending' } }} />);
-    expect(screen.queryByText('components.resultDialog.pending')).toBeInTheDocument();
+    expect(screen.queryByText('components.resultDialog.finalDecisionPending')).toBeInTheDocument();
   });
 
   test('should stop rendering the loading spinner when the PDF is loaded', () => {

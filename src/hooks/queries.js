@@ -179,7 +179,6 @@ export const SEARCH = gql`
           treaty
         }
       }
-      downloadTableIds
       ids
       valueComponent {
         landscape
