@@ -21,51 +21,6 @@ export const CONFIGURATION = gql`
       id
       shortName
     }
-    discovery0:content(id: 12879) {
-      id
-      title
-      esaSections
-      pdfPageNumber
-      pdfURL
-      type
-      url
-      esaFolderURL
-      application {
-        name
-        applicationURL
-        finalDecisionURL
-      }
-    }
-    discovery1:content(id: 17837) {
-      id
-      title
-      esaSections
-      pdfPageNumber
-      pdfURL
-      type
-      url
-      esaFolderURL
-      application {
-        name
-        applicationURL
-        finalDecisionURL
-      }
-    }
-    discovery2:content(id: 3300) {
-      id
-      title
-      esaSections
-      pdfPageNumber
-      pdfURL
-      type
-      url
-      esaFolderURL
-      application {
-        name
-        applicationURL
-        finalDecisionURL
-      }
-    }
   }
 `;
 

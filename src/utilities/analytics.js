@@ -38,8 +38,6 @@ const reportSection = (page) => report('section', 'click', { value: page });
 
 const reportDisclaimer = () => report('disclaimer', 'click', { value: 'Read Our Disclaimer' });
 
-const reportDiscovery = (name) => report('discovery', 'click', { value: name });
-
 const reportSearch = (search) => report('search', 'search', { value: search });
 
 const reportShowFilter = () => report('search', 'filter', { label: 'show' });
@@ -92,7 +90,6 @@ export {
   reportSearch,
   reportSection,
   reportDisclaimer,
-  reportDiscovery,
   reportShowFilter,
   reportFilter,
   reportProject,

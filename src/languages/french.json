@@ -465,27 +465,6 @@
         "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
         "button": "Lisez notre avertissement",
         "link": "Pour en savoir plus sur les données."
-      },
-      "discoveries": {
-        "title": "Voyez ces intéressantes découvertes",
-        "accreditations": {
-          "title": "Accréditations",
-          "body": "Du Noun Project : aide par Scribble.liners; aide par hafiudin; Risques par Ralf Schmitzer; Image par Flatart; Tableau par IconMark"
-        },
-        "cards": {
-          "0": {
-            "title": "État du pergélisol",
-            "body": "Pergélisol de la toundra dans le Nord canadien."
-          },
-          "1": {
-            "title": "Nids de rapaces",
-            "body": "Des oiseaux nichent dans un couloir pipelinier en Saskatchewan."
-          },
-          "2": {
-            "title": "Poissons de ruisseau",
-            "body": "Espèce de poisson observée dans un ruisseau près de Camrose, en Alberta."
-          }
-        }
       }
     },
     "project": {

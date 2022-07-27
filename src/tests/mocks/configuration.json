@@ -240,51 +240,6 @@
         "id": "Application Test A",
         "shortName": "Test A"
       }
-    ],
-    "discovery0": {
-      "id": "1",
-      "title": "Table Test 1",
-      "esaSections": "Test 1 ESA Sections",
-      "pdfPageNumber": 111,
-      "pdfURL": "https://apps.cer-rec.gc.ca/",
-      "type": "TABLE",
-      "url": "http://localhost/berdi/csv/en/tables/test1.zip",
-      "esaFolderURL": "http://localhost/berdi/test",
-      "application": {
-        "name": "D 1 App",
-        "applicationURL": "http://localhost/berdi/test",
-        "finalDecisionURL": null
-      }
-    },
-    "discovery1": {
-      "id": "2",
-      "title": "Figure Test 1",
-      "esaSections": "Test 1 ESA Sections",
-      "pdfPageNumber": 9,
-      "pdfURL": "https://apps.cer-rec.gc.ca/",
-      "type": "FIGURE",
-      "url": null,
-      "esaFolderURL": "http://localhost/berdi/test",
-      "application": {
-        "name": "D 1 App",
-        "applicationURL": "http://localhost/berdi/test",
-        "finalDecisionURL": null
-      }
-    },
-    "discovery2": {
-      "id": "13",
-      "title": "Table Test 10",
-      "esaSections": "Appendix 6: Aquatic Assessment",
-      "pdfPageNumber": 1,
-      "pdfURL": "https://apps.cer-rec.gc.ca/",
-      "type": "TABLE",
-      "url": "http://localhost/berdi/csv/en/tables/test10.zip",
-      "esaFolderURL": "http://localhost/berdi/test",
-      "application": {
-        "name": "D 2 App",
-        "applicationURL": "http://localhost/berdi/test",
-        "finalDecisionURL": "pending"
-      }
-    }
+    ]
   }
 }
