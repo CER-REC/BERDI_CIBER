@@ -90,20 +90,7 @@ export default () => {
   }, [data]);
 
   const applicationIds = useMemo(
-    () => Object.keys(applicationIdLabels).sort((idA, idB) => {
-      const labelA = applicationIdLabels[idA];
-      const labelB = applicationIdLabels[idB];
-
-      if (labelA < labelB) {
-        return -1;
-      }
-      if (labelA > labelB) {
-        return 1;
-      }
-
-      return 0;
-    }),
-    [applicationIdLabels],
+    () => Object.keys(applicationIdLabels), [applicationIdLabels],
   );
 
   const maxDate = useMemo(

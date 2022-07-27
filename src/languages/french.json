@@ -185,7 +185,8 @@
       "dateLabel": "Date de dépôt"
     },
     "dropdown": {
-      "STATUSES": "État – pipeline ",
+      "REGIONS": "Province",
+      "STATUSES": "État – pipeline",
       "COMMODITIES": "Produit",
       "CONTENT_TYPES": "Type de résultats",
       "PROJECT_TYPES": "Type de projet",
