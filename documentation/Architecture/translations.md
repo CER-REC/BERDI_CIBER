@@ -57,4 +57,4 @@ export default Component;
 
 ## Changing Languages
 
-To change the language, use the console and set ```localStorage['dev-lang'] = 'fr``` to view the French version of the application.
+To change the language, use the console and set `localStorage['dev-lang'] = 'fr'` to view the French version of the application.

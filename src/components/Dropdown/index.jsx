@@ -77,9 +77,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
     const x = a.value.toLowerCase();
     const y = b.value.toLowerCase();
-    if (x < y) { return -1; }
-    if (x > y) { return 1; }
-    return 0;
+    return x.localeCompare(y);
   });
 
   const renderValue = useCallback((selected) => {

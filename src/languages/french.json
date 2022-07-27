@@ -188,7 +188,7 @@
     },
     "dropdown": {
       "REGIONS": "Province",
-      "STATUSES": "État – pipeline ",
+      "STATUSES": "État – pipeline",
       "COMMODITIES": "Produit",
       "CONTENT_TYPES": "Type de résultats",
       "PROJECT_TYPES": "Type de projet",
