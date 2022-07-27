@@ -135,7 +135,7 @@ const ResultDialog = ({ open, onClose, data }) => {
               {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
             </a>
           </Grid>
-          <SearchActionResults content={data} />
+          <Grid item xs={2}><SearchActionResults content={data} /></Grid>
         </Grid>
 
         <Grid item container>

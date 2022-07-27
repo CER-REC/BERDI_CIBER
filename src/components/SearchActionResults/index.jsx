@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Grid } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'react-intl';
@@ -11,16 +11,19 @@ import leaf from '../../images/searchActionResults/leaf.svg';
 import download from '../../images/searchActionResults/download.svg';
 import { reportDownload, reportRateData, reportReportData } from '../../utilities/analytics';
 
+const topMargin = '0.5em';
+
 const useStyles = makeStyles(() => ({
   searchActionButton: {
     width: '100%',
     justifyContent: 'space-between',
-    marginTop: '0.5em',
+    marginTop: topMargin,
   },
   hr: {
     width: '100%',
     borderTop: '1px dotted',
-    margin: '0.5em 0 0 0',
+    margin: '0',
+    marginTop: topMargin,
   },
 }));
 
@@ -43,14 +46,7 @@ const SearchActionResults = ({ content }) => {
   };
 
   return (
-    <Grid
-      container
-      item
-      direction="column"
-      alignItems="flex-end"
-      spacing={1}
-      xs={2}
-    >
+    <>
       <RateDataDialog
         open={rateOpen}
         onClose={handleRateClose}
@@ -65,6 +61,7 @@ const SearchActionResults = ({ content }) => {
       />
       <CartButton data={content} />
       <Button
+        href={content.url}
         variant="outlined"
         onClick={() => reportDownload(content.title)}
         className={classes.searchActionButton}
@@ -95,7 +92,7 @@ const SearchActionResults = ({ content }) => {
           id: 'components.searchActionResults.report',
         })}
       </Button>
-    </Grid>
+    </>
   );
 };
 
