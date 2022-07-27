@@ -12,6 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
+import OpenInNew from '@material-ui/icons/OpenInNew';
 import { reportView } from '../../utilities/analytics';
 import styles from './styles';
 import PDFPreviewer from './PDFPreviewer';
@@ -69,28 +70,18 @@ const ResultDialog = ({ open, onClose, data }) => {
     reportView(data.type, data.title);
   }, [data]);
 
-  const getDataAnchorElement = (href) => <a href={href} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>{href}</a>;
+  const getExternalLinkElement = (label, href) => (
+    <Typography style={{ marginRight: '2em' }}>
+      <a href={href} target="_blank" rel="external noreferrer" onClick={handleViewClick}>
+        {intl.formatMessage({ id: `components.resultDialog.${label}` })}
+        <OpenInNew className={classes.external} fontSize="small" />
+      </a>
+    </Typography>
+  );
 
   if (!data) {
     return null;
   }
-
-  const createTableRow = (label, dataItem) => (
-    <tbody>
-      <tr>
-        <td>
-          <Typography className={classes.dialogLabel}>
-            {intl.formatMessage({ id: `components.resultDialog.${label}` })}
-          </Typography>
-        </td>
-        <td>
-          <Typography>
-            {dataItem}
-          </Typography>
-        </td>
-      </tr>
-    </tbody>
-  );
 
   return (
     <Dialog
@@ -127,42 +118,43 @@ const ResultDialog = ({ open, onClose, data }) => {
       <Grid container direction="column" className={classes.dialogContent}>
         <Grid item container>
           <Typography className={classes.dialogProject}>
-            {data.application.name}
+            {intl.formatMessage({ id: 'components.resultDialog.title' }, {
+              shortName: (<strong>{data.application.shortName}</strong>),
+            })}
           </Typography>
         </Grid>
 
         <Grid container justify="space-between" style={{ paddingBottom: '20px' }}>
-          <Grid item xs={8}>{createTitleSection(data.title)}</Grid>
+          <Grid item xs={8}>
+            {createTitleSection(data.title)}
+            <Typography className={classes.dialogLabel}>
+              <strong>{intl.formatMessage({ id: 'components.resultDialog.foundOnPage' })}</strong>
+              {data.pdfPageNumber}
+            </Typography>
+            <a href={data.pdfURL} target="_blank" rel="noopener noreferrer" onClick={handleViewClick}>
+              {intl.formatMessage({ id: 'components.resultDialog.originalPDF' })}
+            </a>
+          </Grid>
           <Grid item xs={2}><SearchActionResults content={data} /></Grid>
         </Grid>
 
         <Grid item container>
-          <table className={classes.dialogDataContainer}>
-            {createTableRow('foundOnPage', data.pdfPageNumber)}
-            {createTableRow('originalPDF', getDataAnchorElement(data.pdfURL))}
-            {createTableRow('esaFolder', getDataAnchorElement(data.esaFolderURL))}
-            {createTableRow('projectFolder', getDataAnchorElement(data.application.applicationURL))}
-            <tbody>
-              <tr>
-                <td>
-                  <Typography className={classes.dialogLabel}>
-                    {intl.formatMessage({ id: 'components.resultDialog.finalDecision' })}
-                  </Typography>
-                </td>
-                <td>
-                  {(!data.application.finalDecisionURL && (
-                    <Typography className={classes.finalDecision}>
-                      {intl.formatMessage({ id: 'components.resultDialog.notApplicable' })}
-                    </Typography>
-                  )) || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
-                    <Typography className={classes.finalDecision}>
-                      {intl.formatMessage({ id: 'components.resultDialog.pending' })}
-                    </Typography>
-                  )) || (getDataAnchorElement(data.application.finalDecisionURL))}
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <Typography>{intl.formatMessage({ id: 'components.resultDialog.externalLinksTitle' })}</Typography>
+          <Grid container>
+            {getExternalLinkElement('esaFolder', data.esaFolderURL)}
+            {getExternalLinkElement('projectFolder', data.application.applicationURL)}
+            {
+              (!data.application.finalDecisionURL && (
+                <Typography>
+                  {intl.formatMessage({ id: 'components.resultDialog.finalDecisionNotApplicable' })}
+                </Typography>
+              )) || (data.application.finalDecisionURL.toLowerCase() === 'pending' && (
+                <Typography>
+                  {intl.formatMessage({ id: 'components.resultDialog.finalDecisionPending' })}
+                </Typography>
+              )) || getExternalLinkElement('viewFinalDecision', data.application.finalDecisionURL)
+            }
+          </Grid>
         </Grid>
       </Grid>
 
@@ -187,9 +179,9 @@ ResultDialog.propTypes = {
     type: PropTypes.string,
     pdfPageNumber: PropTypes.number,
     application: PropTypes.shape({
+      shortName: PropTypes.string,
       consultants: PropTypes.string,
       filingDate: PropTypes.string,
-      name: PropTypes.string,
       applicationURL: PropTypes.string,
       finalDecisionURL: PropTypes.string,
     }),
