@@ -1,29 +1,20 @@
 import { Button, makeStyles } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import { reportSection } from '../../utilities/analytics';
 
-const boxShadow = '1px 1px #8A8B8D';
-
 const useStyles = makeStyles((theme) => ({
   button: {
-    fontWeight: '900',
+    fontWeight: '700',
+    fontSize: '16px',
     color: theme.palette.button.blue,
-  },
-  altButton: {
-    padding: '0.5em 1em',
-    backgroundColor: theme.palette.grey.athens,
-    borderRadius: '5px',
-    boxShadow,
-    color: theme.palette.teal.blue,
-    fontSize: '1.6rem',
-    '&:hover': { boxShadow },
+    '&:hover': { backgroundColor: theme.palette.grey.light },
   },
 }));
 
-const BackButton = ({ isContentPage }) => {
+const BackButton = () => {
   const { configDispatch } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
@@ -36,27 +27,12 @@ const BackButton = ({ isContentPage }) => {
   }, [configDispatch]);
   const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 
-  if (isContentPage) {
-    return (
-      <Button onClick={createHandleClick()} className={classes.altButton}>
-        {intl.formatMessage({ id: 'pages.altBack' })}
-      </Button>
-    );
-  }
-
   return (
-    <Button onClick={createHandleClick()} className={classes.button} color="inherit" disableRipple>
-      {`< ${intl.formatMessage({ id: 'pages.back' })}`}
+    <Button onClick={createHandleClick()} className={classes.button}>
+      <ArrowBackIcon fontSize="small" style={{ verticalAlign: 'middle', marginRight: '0.5em' }} />
+      {intl.formatMessage({ id: 'pages.back' })}
     </Button>
   );
 };
 
 export default BackButton;
-
-BackButton.propTypes = {
-  isContentPage: PropTypes.bool,
-};
-
-BackButton.defaultProps = {
-  isContentPage: false,
-};

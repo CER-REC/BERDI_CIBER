@@ -46,7 +46,7 @@ const Data = () => {
 
   return (
     <div style={{ paddingTop: '2em' }}>
-      <BackButton isContentPage />
+      <BackButton />
       <Typography variant="h4" className={classes.header}>
         {intl.formatMessage({ id: 'pages.data.body.title' })}
       </Typography>

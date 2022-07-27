@@ -38,7 +38,7 @@ const Methods = () => {
   const classes = useStyles();
   return (
     <div style={{ paddingTop: '2em' }}>
-      <BackButton isContentPage />
+      <BackButton />
       <Typography variant="h4" className={classes.title}>
         {intl.formatMessage({ id: 'pages.methods.body.title' })}
       </Typography>
