@@ -138,6 +138,10 @@ const TopicsFilter = () => {
   const maxValueComponent = Math.max(...Object.values(valueComponent).filter(Number));
   const topicProps = {};
   const topicNotifications = {
+    wetland: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
+    water: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
+    fish: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
+    plant: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
     indigenous: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
     treaty: intl.formatMessage({ id: 'components.topicsFilter.notification' }),
   };
