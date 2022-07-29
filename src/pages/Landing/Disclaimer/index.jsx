@@ -9,16 +9,18 @@ import { reportDisclaimer, reportSection } from '../../../utilities/analytics';
 const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: '10px',
-    backgroundColor: theme.palette.teal.light,
+    backgroundColor: theme.palette.blue.light,
     padding: '1.5em',
     margin: '1em 0',
   },
   button: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.blue.darkBluePurple,
+    backgroundColor: 'white',
     fontWeight: 'bold',
     borderRadius: '10px',
     width: '100%',
+    '&:hover': {
+      backgroundColor: theme.palette.content.background,
+    },
   },
   link: { fontWeight: 'bold' },
   sideBlock: {
@@ -66,7 +68,7 @@ const Disclaimer = () => {
       <Grid item xs={3} classes={{ root: classes.sideBlock }}>
         <Button
           classes={{ root: classes.button }}
-          variant="contained"
+          variant="outlined"
           onClick={handleButtonClick}
         >
           {intl.formatMessage({ id: 'pages.landing.disclaimer.button' })}

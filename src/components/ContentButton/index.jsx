@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 10,
     height: '100%',
     padding: '1.5em',
+    backgroundColor: theme.palette.cart.light,
     '&:hover': {
       backgroundColor: theme.palette.content.background,
     },

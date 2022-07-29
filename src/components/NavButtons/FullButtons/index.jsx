@@ -5,9 +5,14 @@ import useConfig from '../../../hooks/useConfig';
 import { reportSection } from '../../../utilities/analytics';
 import ContentButton from '../../ContentButton';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     paddingBottom: '2.5em',
+  },
+  divider: {
+    backgroundColor: theme.palette.blue.navy,
+    height: '4px',
+    marginTop: '0.5em',
   },
   subtitle: { fontSize: 20 },
 }));
@@ -25,6 +30,7 @@ const FullButtons = () => {
 
   return (
     <div className={`TitleContent ${classes.root} `}>
+      <hr className={classes.divider} />
       <section>
         <Grid container spacing={5}>
           <Grid item xs={4}>
