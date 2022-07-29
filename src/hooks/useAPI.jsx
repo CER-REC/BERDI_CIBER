@@ -1,15 +1,9 @@
 import { useQuery } from '@apollo/react-hooks';
 import { useMemo } from 'react';
 
-import discovery0 from '../images/discovery0.png';
-import discovery1 from '../images/discovery1.png';
-import discovery2 from '../images/discovery2.png';
 import { toDateOnly } from '../utilities/date';
 import getI18NMessages from '../utilities/getI18NMessages';
 import { CONFIGURATION } from './queries';
-
-const discoveryImages = [discovery0, discovery1, discovery2];
-const discoveryBGAngles = [145, 180, 0];
 
 const getStatuses = (translations) => {
   const statuses = translations.filter(
@@ -109,24 +103,6 @@ export default () => {
     [data],
   );
 
-  const discoveries = useMemo(() => {
-    const contents = [];
-
-    if (data) {
-      discoveryImages.forEach((imageSrc, index) => {
-        contents.push({
-          titleId: `pages.landing.discoveries.cards.${index}.title`,
-          bodyId: `pages.landing.discoveries.cards.${index}.body`,
-          imageSrc,
-          bgAngle: discoveryBGAngles[index],
-          content: data[`discovery${index}`],
-        });
-      });
-    }
-
-    return contents;
-  }, [data]);
-
   const fileSize = data ? data.configuration.fileSize : null;
 
   const fileDownloadURL = data ? data.configuration.fileDownloadURL : null;
@@ -148,7 +124,6 @@ export default () => {
     translations,
     maxDate,
     minDate,
-    discoveries,
     fileSize,
     fileDownloadURL,
     tableCount,
