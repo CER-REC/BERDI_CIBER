@@ -390,10 +390,8 @@
         "specificField2": "BERDI will search the dataset for anything that has the word caribou in its title field.",
         "availableFieldsHeader": "Available fields are:",
         "fieldItem1": "title: The English-language title of an item.",
-        "fieldItem2": "titre: The French-language title of an item.",
-        "fieldItem3": "esa: The English-language name of the section of the ESA associated with an item.",
-        "fieldItem4": "ees: The French-language name of the section of the ESA associated with an item.",
-        "fieldItem5": "csv: The content of the table associated with an item in the language in which it was originally filed.",
+        "fieldItem2": "esa: The English-language name of the section of the ESA associated with an item.",
+        "fieldItem3": "csv: The content of the table associated with an item in the language in which it was originally filed.",
         "specificField4": "BERDI’s search engine is built on Apache Lucene and has the capacity to do more detailed and refined searches.  For more advanced search tricks and tips, please see {luceneLink}",
         "luceneLink": "Apache Lucene's documentation."
       }
