@@ -474,8 +474,8 @@
       "body": {
         "section1": {
           "header": "Pourquoi avoir créé CIBER",
-          "boldText1": "Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences.",
-          "text1": "{boldText} Ces documents comprennent notamment les évaluations environnementales et socioéconomiques, ou EES, qui renferment un grand nombre de données sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
+          "boldText1": "L’outil CIBER a été créé pour permettre au public d’accéder aux données recueillies par la Régie de l’énergie du Canada.",
+          "text1": "{boldText} Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences. Ces documents comprennent notamment les évaluations environnementales et socioéconomiques, ou EES, qui renferment un grand nombre de données sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
           "boldText2": "Bien que le public ait accès à ces données par l’intermédiaire de notre site Web, celui-ci n’est pas des plus convivial et l’accès aux données est ardu.",
           "text2": "{boldText} Pour donner suite à la directive fédérale sur {openGov}, la Régie souhaite déterminer la meilleure manière d’extraire, d’organiser et de présenter au public les données liées à la réglementation. CIBER – une banque de données et d’informations biophysiques, socioéconomiques et régionales – est le premier pas vers la réalisation de cet objectif.",
           "openGov": "le gouvernement ouvert",
