@@ -461,7 +461,7 @@
           "boldText2": "Bien que le public ait accès à ces données par l’intermédiaire de notre site Web, celui-ci n’est pas des plus convivial et l’accès aux données est ardu.",
           "text2": "{boldText} Pour donner suite à la directive fédérale sur {openGov}, la Régie souhaite déterminer la meilleure manière d’extraire, d’organiser et de présenter au public les données liées à la réglementation. CIBER – une banque de données et d’informations biophysiques, socioéconomiques et régionales – est le premier pas vers la réalisation de cet objectif.",
           "openGov": "le gouvernement ouvert",
-          "openGovLink": "https://open.canada.ca/en/about-open-government",
+          "openGovLink": "https://ouvert.canada.ca/fr/apropos-gouvernement-ouvert",
           "boldText3": "Ce projet continuera d’évoluer au fil du temps.",
           "text3": "{boldText} CIBER compte actuellement des tableaux, des illustrations ainsi que des cartes-tracés extraits d’évaluations environnementales et socioéconomiques initialement déposées en lien avec de grands projets pipeliniers depuis 2003. La Régie continuera d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour sur l’évolution de ce projet, suivez-nous sur {github}.",
           "github": "Github",
