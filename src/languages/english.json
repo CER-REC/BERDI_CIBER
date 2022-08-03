@@ -456,8 +456,8 @@
       "body": {
         "section1": {
           "header": "Why we created BERDI",
-          "boldText1": "Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings.",
-          "text1": "{boldText} Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where a large amount of data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
+          "boldText1": "BERDI (pronounced “birdie”) was created to make data collected by the Canada Energy Regulator accessible to the public.",
+          "text1": "{boldText} Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where a large amount of data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
           "boldText2": "While this data is publicly available from our website, it is not easy to access and is difficult to navigate.",
           "text2": "{boldText} Led by the Government of Canada’s Directive on {openGov}, we want to understand how best to mine, organize, and present regulatory data to the people we serve. BERDI – a data bank for Biophysical, (Socio)Economic, and Regional Data and Information – is our first step towards meeting that goal.",
           "openGov": "Open Government",
