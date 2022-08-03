@@ -21,7 +21,7 @@ const RemoveButton = ({ data }) => {
 
   return (
     <Button className={`CartButton ${classes.root} ${classes.remove}`} onClick={handleClick}>
-      <img alt="Minus" src={minus} />
+      <img alt={intl.formatMessage({ id: 'components.cartButton.removeAltText' })} src={minus} />
       {intl.formatMessage({ id: 'components.cartButton.remove' })}
     </Button>
   );

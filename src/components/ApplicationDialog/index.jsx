@@ -85,7 +85,7 @@ const ApplicationDialog = ({ data, onClose }) => {
           className={classes.right}
         >
           <Grid item>
-            <IconButton aria-label="close" onClick={onClose}>
+            <IconButton aria-label={intl.formatMessage({ id: 'common.closeAltText' })} onClick={onClose}>
               <CloseIcon />
             </IconButton>
           </Grid>

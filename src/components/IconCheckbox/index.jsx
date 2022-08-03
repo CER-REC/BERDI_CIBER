@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import checkedIcon from '../../images/checkedIcon.png';
 import uncheckedIcon from '../../images/uncheckedIcon.png';
+import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,11 +15,12 @@ const useStyles = makeStyles(() => ({
 
 const IconCheckbox = ({ checked }) => {
   const classes = useStyles();
+  const intl = useIntl();
   const icon = useMemo(() => (
     <Icon>
       <img
         src={uncheckedIcon}
-        alt="Unchecked icon"
+        alt={intl.formatMessage({ id: 'components.iconCheckbox.uncheckedAltText' })}
       />
     </Icon>
   ), []);
@@ -26,7 +28,7 @@ const IconCheckbox = ({ checked }) => {
     <Icon>
       <img
         src={checkedIcon}
-        alt="Checked icon"
+        alt={intl.formatMessage({ id: 'components.iconCheckbox.checkedAltText' })}
       />
     </Icon>
   ), []);

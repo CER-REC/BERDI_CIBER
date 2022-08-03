@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IconButton, Popover, Typography, makeStyles } from '@material-ui/core';
-import { HelpOutline } from '@material-ui/icons';
+import { HelpOutline, SettingsInputComponentSharp } from '@material-ui/icons';
 import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles((theme) => ({
@@ -41,7 +41,11 @@ const DataTooltip = () => {
 
   return (
     <>
-      <IconButton classes={{ root: classes.root }} onClick={handleClick}>
+      <IconButton 
+        aria-label={intl.formatMessage({ id: 'components.dropdown.helpAriaText' })}
+        classes={{ root: classes.root }} 
+        onClick={handleClick}
+      >
         <HelpOutline className={classes.icon} />
       </IconButton>
       <Popover

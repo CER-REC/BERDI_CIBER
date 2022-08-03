@@ -21,7 +21,7 @@ const AddButton = ({ data }) => {
 
   return (
     <Button className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
-      <img alt="Plus" src={plus} />
+      <img alt={intl.formatMessage({ id: 'components.cartButton.addAltText' })} src={plus} />
       {intl.formatMessage({ id: 'components.cartButton.add' })}
     </Button>
   );

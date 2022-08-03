@@ -100,7 +100,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
             </Grid>
 
             <Grid item xs={1}>
-              <IconButton aria-label="close" onClick={handleClose}>
+              <IconButton aria-label={intl.formatMessage({ id: 'common.closeAltText' })} onClick={handleClose}>
                 <CloseIcon />
               </IconButton>
             </Grid>

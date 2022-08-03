@@ -185,7 +185,7 @@ const Cart = () => {
         <Grid container alignItems="center" spacing={1}>
           <Grid item xs={6}>
             <Icon style={{ overflow: 'visible' }}>
-              <img src={shelfIcon} alt="a shelf holding books" style={{ maxWidth: '1.6em' }} />
+              <img src={shelfIcon} alt={intl.formatMessage({ id: 'components.cart.shelfAltText' })} style={{ maxWidth: '1.6em' }} />
             </Icon>
           </Grid>
           <Grid item xs={6}>

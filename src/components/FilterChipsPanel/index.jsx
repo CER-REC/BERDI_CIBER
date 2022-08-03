@@ -76,7 +76,7 @@ const FilterChipsPanel = () => {
             label={chipLabel}
             onClick={removeFilter(chipType, index, chipLabel)}
             onDelete={removeFilter(chipType, index, chipLabel)}
-            deleteIcon={<CloseIcon className={classes.closeButton} />}
+            deleteIcon={<CloseIcon aria-label={intl.formatMessage({ id: 'common.closeAltText' })} className={classes.closeButton} />}
             className={classes.chip}
           />
         )))

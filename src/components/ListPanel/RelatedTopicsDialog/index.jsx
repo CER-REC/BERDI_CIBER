@@ -75,7 +75,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
           </Grid>
 
           <Grid item>
-            <IconButton aria-label="close" onClick={onClose} style={{ paddingTop: '0.5em' }}>
+            <IconButton aria-label={intl.formatMessage({ id: 'common.closeAltText' })} onClick={onClose} style={{ paddingTop: '0.5em' }}>
               <CloseIcon />
             </IconButton>
           </Grid>
