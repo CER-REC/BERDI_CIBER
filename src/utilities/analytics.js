@@ -64,8 +64,6 @@ const reportFilterToggle = (filter) => report('toggle', 'click', { value: filter
 
 const reportDetails = (name) => report('details', 'click', { value: name });
 
-const reportRateData = () => report('details', 'click', { value: 'ratedata' });
-
 const reportReportData = () => report('details', 'click', { value: 'reportdata' });
 
 const reportExpand = () => report('navbutton', 'click', { value: 'Expand' });
@@ -101,7 +99,6 @@ export {
   reportChip,
   reportFilterToggle,
   reportDetails,
-  reportRateData,
   reportReportData,
   reportExpand,
   reportCollapse,

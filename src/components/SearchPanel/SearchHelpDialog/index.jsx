@@ -158,8 +158,6 @@ const SearchHelpDialog = ({ open, onClose }) => {
         <li>{intl.formatMessage({ id: 'components.searchPanel.helpDialog.fieldItem1' })}</li>
         <li>{intl.formatMessage({ id: 'components.searchPanel.helpDialog.fieldItem2' })}</li>
         <li>{intl.formatMessage({ id: 'components.searchPanel.helpDialog.fieldItem3' })}</li>
-        <li>{intl.formatMessage({ id: 'components.searchPanel.helpDialog.fieldItem4' })}</li>
-        <li>{intl.formatMessage({ id: 'components.searchPanel.helpDialog.fieldItem5' })}</li>
       </ul>
       <br />
       <Typography className={classes.bodyText}>

@@ -400,34 +400,16 @@
         "specificField2": "BERDI will search the dataset for anything that has the word caribou in its title field.",
         "availableFieldsHeader": "Available fields are:",
         "fieldItem1": "title: The English-language title of an item.",
-        "fieldItem2": "titre: The French-language title of an item.",
-        "fieldItem3": "esa: The English-language name of the section of the ESA associated with an item.",
-        "fieldItem4": "ees: The French-language name of the section of the ESA associated with an item.",
-        "fieldItem5": "csv: The content of the table associated with an item in the language in which it was originally filed.",
+        "fieldItem2": "esa: The English-language name of the section of the ESA associated with an item.",
+        "fieldItem3": "csv: The content of the table associated with an item in the language in which it was originally filed.",
         "specificField4": "BERDI’s search engine is built on Apache Lucene and has the capacity to do more detailed and refined searches.  For more advanced search tricks and tips, please see {luceneLink}",
         "luceneLink": "Apache Lucene's documentation."
       }
     },
     "searchActionResults": {
-      "rate": "Rate this data",
       "report": "Report this data",
       "download": "Download table",
       "tryAgainLater": "Please provide your feedback at a later time.",
-      "rateDataDialog": {
-        "rateData": "Rate this data",
-        "useful": "How useful do you think this data will be?",
-        "rate": "Rate",
-        "thankYou": "Thank you for your feedback",
-        "timesRated": "This data is rated {num} time(s) with an average rating of {ratingText}.",
-        "improve": "Your rating will help us improve BERDI.",
-        "ratingLabels": {
-          "1": "Not at all",
-          "2": "Needs improvement",
-          "3": "Somewhat",
-          "4": "Good enough",
-          "5": "Very useful!"
-        }
-      },
       "reportDataDialog": {
         "report": "Report this data:",
         "required": "required",
@@ -482,8 +464,8 @@
       "body": {
         "section1": {
           "header": "Why we created BERDI",
-          "boldText1": "Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings.",
-          "text1": "{boldText} Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where a large amount of data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
+          "boldText1": "BERDI (pronounced “birdie”) was created to make data collected by the Canada Energy Regulator accessible to the public.",
+          "text1": "{boldText} Since 1965, the Canada Energy Regulator has collected thousands of documents from over 700 hearings. Among these documents are Environmental and Socio-Economic Assessments, or ESAs, where a large amount of data has been captured about public safety, species at risk, and environmental protection (such as water, soils and plants) to name a few.",
           "boldText2": "While this data is publicly available from our website, it is not easy to access and is difficult to navigate.",
           "text2": "{boldText} Led by the Government of Canada’s Directive on {openGov}, we want to understand how best to mine, organize, and present regulatory data to the people we serve. BERDI – a data bank for Biophysical, (Socio)Economic, and Regional Data and Information – is our first step towards meeting that goal.",
           "openGov": "Open Government",

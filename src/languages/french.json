@@ -401,35 +401,17 @@
         "example9": "titre : caribou",
         "specificField2": "CIBER cherchera dans la base de données tous les titres qui contiennent le mot caribou.",
         "availableFieldsHeader": "Les champs disponibles sont les suivants :",
-        "fieldItem1": "title : Le titre anglais d’un document.",
-        "fieldItem2": "titre : Le titre français d’un document.",
-        "fieldItem3": "esa : Nom anglais de la section de l’EES associée à un élément.",
-        "fieldItem4": "ees : Nom français de la section de l’EES associée à un élément.",
-        "fieldItem5": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
+        "fieldItem1": "titre : Le titre français d’un document.",
+        "fieldItem2": "ees : Nom français de la section de l’EES associée à un élément.",
+        "fieldItem3": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
         "specificField4": "Le moteur de recherche de CIBER est basé sur la technologie Apache Lucene et peut effectuer des recherches plus détaillées et plus précises. Pour obtenir des trucs et des conseils de recherche plus poussés, consultez le {luceneLink}",
         "luceneLink": "site d’Apache Lucene."
       }
     },
     "searchActionResults": {
-      "rate": "Signaler ces données",
       "report": "Évaluer ces données",
       "download": "Télécharger le tableau",
       "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
-      "rateDataDialog": {
-        "rateData": "Signaler ces données",
-        "useful": "Dans quelle mesure croyez-vous que ces données seront utiles?",
-        "rate": "Évaluation",
-        "thankYou": "Merci de votre rétroaction.",
-        "timesRated": "Ces données ont été notées {num} fois et ont obtenu la mention {ratingText}.  ",
-        "improve": "Votre rétroaction nous aidera à améliorer CIBER.",
-        "ratingLabels": {
-          "1": "Pas du tout utiles",
-          "2": "Données à améliorer",
-          "3": "Plutôt utiles",
-          "4": "Utiles",
-          "5": "Très utiles"
-        }
-      },
       "reportDataDialog": {
         "report": "Évaluer ces données :",
         "required": "Requis",
@@ -484,12 +466,12 @@
       "body": {
         "section1": {
           "header": "Pourquoi avoir créé CIBER",
-          "boldText1": "Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences.",
-          "text1": "{boldText} Ces documents comprennent notamment les évaluations environnementales et socioéconomiques, ou EES, qui renferment un grand nombre de données sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
+          "boldText1": "L’outil CIBER a été créé pour permettre au public d’accéder aux données recueillies par la Régie de l’énergie du Canada.",
+          "text1": "{boldText} Depuis 1965, la Régie de l’énergie du Canada a recueilli des milliers de documents en lien avec plus de 700 audiences. Ces documents comprennent notamment les évaluations environnementales et socioéconomiques, ou EES, qui renferment un grand nombre de données sur, par exemple, la sécurité du public, les espèces en péril et la protection de l’environnement (eaux, sols, plantes).",
           "boldText2": "Bien que le public ait accès à ces données par l’intermédiaire de notre site Web, celui-ci n’est pas des plus convivial et l’accès aux données est ardu.",
           "text2": "{boldText} Pour donner suite à la directive fédérale sur {openGov}, la Régie souhaite déterminer la meilleure manière d’extraire, d’organiser et de présenter au public les données liées à la réglementation. CIBER – une banque de données et d’informations biophysiques, socioéconomiques et régionales – est le premier pas vers la réalisation de cet objectif.",
           "openGov": "le gouvernement ouvert",
-          "openGovLink": "https://open.canada.ca/en/about-open-government",
+          "openGovLink": "https://ouvert.canada.ca/fr/apropos-gouvernement-ouvert",
           "boldText3": "Ce projet continuera d’évoluer au fil du temps.",
           "text3": "{boldText} CIBER compte actuellement des tableaux, des illustrations ainsi que des cartes-tracés extraits d’évaluations environnementales et socioéconomiques initialement déposées en lien avec de grands projets pipeliniers depuis 2003. La Régie continuera d’expérimenter des moyens d’améliorer, de structurer et d’explorer les données liées à la réglementation à l’aide de nouveaux ensembles. Pour recevoir les avis de mise à jour sur l’évolution de ce projet, suivez-nous sur {github}.",
           "github": "Github",
