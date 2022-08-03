@@ -391,11 +391,9 @@
         "example9": "titre : caribou",
         "specificField2": "CIBER cherchera dans la base de données tous les titres qui contiennent le mot caribou.",
         "availableFieldsHeader": "Les champs disponibles sont les suivants :",
-        "fieldItem1": "title : Le titre anglais d’un document.",
-        "fieldItem2": "titre : Le titre français d’un document.",
-        "fieldItem3": "esa : Nom anglais de la section de l’EES associée à un élément.",
-        "fieldItem4": "ees : Nom français de la section de l’EES associée à un élément.",
-        "fieldItem5": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
+        "fieldItem1": "titre : Le titre français d’un document.",
+        "fieldItem2": "ees : Nom français de la section de l’EES associée à un élément.",
+        "fieldItem3": "csv : Le contenu du tableau associé à un élément dans la langue dans laquelle il a été déposé.",
         "specificField4": "Le moteur de recherche de CIBER est basé sur la technologie Apache Lucene et peut effectuer des recherches plus détaillées et plus précises. Pour obtenir des trucs et des conseils de recherche plus poussés, consultez le {luceneLink}",
         "luceneLink": "site d’Apache Lucene."
       }
