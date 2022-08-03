@@ -31,6 +31,7 @@
     "osdpURL": "https://osdp-psdo.canada.ca/en/osdp",
     "logoAltText": "berdi logo",
     "closeAltText": "Close icon",
+    "downloadAltText": "Download icon",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -168,6 +169,7 @@
       "tables": "Download ESA Tables"
     },
     "cart": {
+      "shelfAriaText": "Expand to see {num, plural, =1 {{num} item} other {all {num} items}} on shelf",
       "shelfAltText": "Bookshelf icon",
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
       "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures and alignment sheets are excluded from download.",
@@ -176,7 +178,11 @@
       "copyLink": "Copy link",
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
       "copyConfirmation": "Link copied!",
-      "removeAll": "Remove all"
+      "removeAll": "Remove all",
+      "removeAllAltText": "Remove item icon",
+      "shareAltText": "Share icon",
+      "collapseShelfAltText": "Collapse shelf icon",
+      "collapseShelfAriaText": "Collapse shelf"
     },
     "cartButton": {
       "add": "Add to shelf",
@@ -317,7 +323,8 @@
       "explore": "Explore results by"
     },
     "filterChipsPanel": {
-      "title": "Current Filters and Search Terms"
+      "title": "Current Filters and Search Terms",
+      "chipAriaText": "Search term includes {term}"
     },
     "osdpFooter": {
       "header": "Explore more open data with Open Science Data Portal.",
@@ -408,6 +415,7 @@
     },
     "searchActionResults": {
       "report": "Report this data",
+      "reportAltText": "Flag icon",
       "download": "Download table",
       "tryAgainLater": "Please provide your feedback at a later time.",
       "reportDataDialog": {

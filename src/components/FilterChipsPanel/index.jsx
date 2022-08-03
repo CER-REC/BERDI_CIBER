@@ -72,11 +72,12 @@ const FilterChipsPanel = () => {
       {
         Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
           <Chip
+            aria-label={intl.formatMessage({ id: 'components.filterChipsPanel.chipAriaText' }, { term: chipLabel })}
             key={chipLabel}
             label={chipLabel}
             onClick={removeFilter(chipType, index, chipLabel)}
             onDelete={removeFilter(chipType, index, chipLabel)}
-            deleteIcon={<CloseIcon aria-label={intl.formatMessage({ id: 'common.closeAltText' })} className={classes.closeButton} />}
+            deleteIcon={<CloseIcon className={classes.closeButton} />}
             className={classes.chip}
           />
         )))

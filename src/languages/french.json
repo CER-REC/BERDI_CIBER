@@ -33,6 +33,7 @@
     "frenchDisclaimerShort": "Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
     "logoAltText": "Lobo ciber",
     "closeAltText": "Fermer",
+    "downloadAltText": "Télécharger",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -170,6 +171,7 @@
       "tables": "Télécharger les tableaux de l'EES"
     },
     "cart": {
+      "shelfAriaText": "Ouvrir pour voir {num, plural, =1 {un article} other {{num} articles}} sur la tablette",
       "shelfAltText": "Étagère",
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures et les cartes-tracés ne sont pas téléchargées.",
@@ -178,7 +180,11 @@
       "copyLink": "Copier le lien",
       "shareDisclaimer": "Il s’agit de votre lien unique vers une collection permanente. Cela signifie que les éléments qui y figurent ne disparaîtront pas et qu’ils ne pourront pas être modifiés. Cette collection peut être consultée par quiconque dispose de ce lien.",
       "copyConfirmation": "Lien copié!",
-      "removeAll": "Supprimer tout"
+      "removeAll": "Supprimer tout",
+      "removeAllAltText": "Supprimer un élément",
+      "shareAltText": "Partager",
+      "collapseShelfAltText": "Réduire la tablette",
+      "collapseShelfAriaText": "Réduire la tablette"
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
@@ -319,7 +325,8 @@
       "explore": "Explorer les résultats par"
     },
     "filterChipsPanel": {
-      "title": "Filtres et termes de recherche actuels"
+      "title": "Filtres et termes de recherche actuels",
+      "chipAriaText": "Les termes de recherche comprennent {term}"
     },
     "osdpFooter": {
       "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
@@ -410,6 +417,7 @@
     },
     "searchActionResults": {
       "report": "Évaluer ces données",
+      "reportAltText": "Drapeau",
       "download": "Télécharger le tableau",
       "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
       "reportDataDialog": {

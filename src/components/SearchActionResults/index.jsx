@@ -53,7 +53,7 @@ const SearchActionResults = ({ content }) => {
         className={classes.searchActionButton}
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
-        <img alt="a down arrow" src={download} />
+        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} />
         {intl.formatMessage({
           id: 'components.searchActionResults.download',
         })}
@@ -64,7 +64,7 @@ const SearchActionResults = ({ content }) => {
         onClick={handleReportClick}
         className={classes.searchActionButton}
       >
-        <img alt="a generic flag" src={flag} />
+        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} />
         {intl.formatMessage({
           id: 'components.searchActionResults.report',
         })}

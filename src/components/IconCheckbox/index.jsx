@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 import { Checkbox, Icon, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
+import { useIntl } from 'react-intl';
 import checkedIcon from '../../images/checkedIcon.png';
 import uncheckedIcon from '../../images/uncheckedIcon.png';
-import { useIntl } from 'react-intl';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,7 +23,7 @@ const IconCheckbox = ({ checked }) => {
         alt={intl.formatMessage({ id: 'components.iconCheckbox.uncheckedAltText' })}
       />
     </Icon>
-  ), []);
+  ), [intl]);
   const iconChecked = useMemo(() => (
     <Icon>
       <img
@@ -31,7 +31,7 @@ const IconCheckbox = ({ checked }) => {
         alt={intl.formatMessage({ id: 'components.iconCheckbox.checkedAltText' })}
       />
     </Icon>
-  ), []);
+  ), [intl]);
 
   return (
     <Checkbox

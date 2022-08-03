@@ -173,7 +173,14 @@ const Cart = () => {
         data={resultsData}
       />
       <ApplicationDialog data={projectData} onClose={() => setProjectData(null)} />
-      <Button className={classes.cartButton} onClick={handleOpen} variant="contained" size="small" disableElevation={false}>
+      <Button
+        aria-label={intl.formatMessage({ id: 'components.cart.shelfAriaText' }, { num: cartQuantity })}
+        className={classes.cartButton}
+        onClick={handleOpen}
+        variant="contained"
+        size="small"
+        disableElevation={false}
+      >
         <svg
           height={newDotSize}
           width={newDotSize}
@@ -184,7 +191,9 @@ const Cart = () => {
         </svg>
         <Grid container alignItems="center" spacing={1}>
           <Grid item xs={6}>
-            <Icon style={{ overflow: 'visible' }}>
+            <Icon
+              style={{ overflow: 'visible' }}
+            >
               <img src={shelfIcon} alt={intl.formatMessage({ id: 'components.cart.shelfAltText' })} style={{ maxWidth: '1.6em' }} />
             </Icon>
           </Grid>
@@ -215,11 +224,11 @@ const Cart = () => {
             </a>
           </Grid>
           <Grid item container xs={3} className={classes.headerButtonContainer}>
-            <IconButton disabled={isEmpty} aria-label="share" onClick={handleShareOpen} className={classes.headerButton}>
+            <IconButton disabled={isEmpty} aria-label={intl.formatMessage({ id: 'components.cart.shareAltText' })} onClick={handleShareOpen} className={classes.headerButton}>
               <ShareIcon />
             </IconButton>
-            <IconButton aria-label="close" onClick={handleClose} className={classes.headerButton}>
-              <img src={rightArrow} alt="an arrow pointing right" />
+            <IconButton aria-label={intl.formatMessage({ id: 'components.cart.collapseShelfAriaText' })} onClick={handleClose} className={classes.headerButton}>
+              <img src={rightArrow} alt={intl.formatMessage({ id: 'components.cart.collapseShelfAltText' })} />
             </IconButton>
           </Grid>
           <ShareCard
@@ -232,7 +241,7 @@ const Cart = () => {
         <Grid container direction="column" wrap="nowrap" className={classes.body}>
           <Grid item style={{ margin: '1em 0 0.5em 0.5em' }}>
             <Button
-              aria-label="Remove all"
+              aria-label={intl.formatMessage({ id: 'components.cart.removeAllAltText' })}
               classes={{
                 root: classes.removeButton,
                 label: classes.removeButtonText,
