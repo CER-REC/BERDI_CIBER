@@ -73,12 +73,26 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
     }
   }, [type, applicationIdLabels, intl]);
 
-  const sortOptions = options.map((entry) => (
-    { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
-    const x = a.value.toLowerCase();
-    const y = b.value.toLowerCase();
-    return x.localeCompare(y);
-  });
+  const sortOptions = () => {
+    if (type === "PROJECT_TYPES"){
+      const sortedProjectTypes = ["SMALL", "LARGE", "ABANDONMENT"];
+      return sortedProjectTypes.map((entry) => (
+        {key: entry, value: getDropdownItemName(entry)}
+      ));
+    }
+
+    else {
+      let sorted = options.map((entry) => (
+        { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
+        const x = a.value.toLowerCase();
+        const y = b.value.toLowerCase();
+        return x.localeCompare(y);
+      })
+      
+      console.log(sorted);
+      return sorted;
+    }
+};
 
   const renderValue = useCallback((selected) => {
     if (selected.length === 0) {
@@ -128,7 +142,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
         displayEmpty
       >
         {
-          sortOptions.map((entry) => (
+          sortOptions().map((entry) => (
             <MenuItem classes={{ root: classes.item }} key={entry.key} value={entry.key}>
               <IconCheckbox checked={value.indexOf(entry.key) !== -1} />
               {entry.value}
