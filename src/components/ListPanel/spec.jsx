@@ -70,7 +70,7 @@ describe('Components/ListPanel', () => {
       fireEvent.click(heading);
       expect(screen.getByRole('dialog')).not.toBeNull();
 
-      const closeButton = screen.getByLabelText('close');
+      const closeButton = screen.getByLabelText('common.closeAltText');
       fireEvent.click(closeButton);
     });
 
