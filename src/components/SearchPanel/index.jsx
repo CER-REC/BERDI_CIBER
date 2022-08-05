@@ -1,7 +1,6 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { Grid, makeStyles, Button } from '@material-ui/core';
+import { Grid, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
-import { useIntl } from 'react-intl';
 
 import useConfig from '../../hooks/useConfig';
 import { reportSearch } from '../../utilities/analytics';
@@ -33,23 +32,12 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     minHeight: '6em',
   },
-  searchButton: {
-    backgroundColor: 'white',
-    minWidth: '10em',
-    marginTop: '1em',
-    '&:focus-visible': { backgroundColor: theme.palette.grey.light },
-  },
 }));
 
 const SearchPanel = ({ hasTagline }) => {
   const [search, setSearch] = useState('');
   const classes = useStyles();
-  const intl = useIntl();
   const { config, configDispatch } = useConfig();
-
-  const searchButtonText = hasTagline
-    ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
-    : intl.formatMessage({ id: 'components.searchPanel.searchButton' });
 
   const handleChange = useCallback((event) => setSearch(event.target.value), [setSearch]);
 
@@ -85,19 +73,7 @@ const SearchPanel = ({ hasTagline }) => {
           />
         </Grid>
         <Grid item xs={9}>
-          <FilterPanel />
-        </Grid>
-        <Grid item xs={12} style={{ textAlign: 'center' }}>
-          <Button
-            className={classes.searchButton}
-            aria-label={searchButtonText}
-            onClick={handleClick}
-            variant="contained"
-            disableRipple
-            size="small"
-          >
-            {searchButtonText}
-          </Button>
+          <FilterPanel hasTagline={hasTagline} onClick={handleClick} />
         </Grid>
       </Grid>
     </div>
