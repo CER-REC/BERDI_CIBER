@@ -3,8 +3,12 @@ import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 import LoadingIndicator from '../../LoadingIndicator';
+import { API_HOST, applicationPath } from '../../../constants';
 import pdfFailLoadIcon from '../../../images/pdfFailLoad.svg';
 
+const pdfjsURL = `${API_HOST}/${applicationPath.en}/pdfjs/web/viewer.html?file=`;
+// CER PDF are blocked by CORs for local development
+const pdfViewerURL = process.env.NODE_ENV === 'development' ? '' : pdfjsURL;
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
@@ -38,7 +42,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
   const [isLoading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const handleLoad = () => setLoading(false);
-  const fullURL = `${pdfURL}#page=${pageNumber}&pagemode=thumbs&view=fitV&zoom=page-fit`;
+  const fullURL = `${pdfViewerURL}${pdfURL}#page=${pageNumber}&pagemode=thumbs&view=fitV&zoom=page-fit`;
   const ref = useRef();
 
   useEffect(() => {
