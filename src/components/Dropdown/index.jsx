@@ -74,25 +74,22 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   }, [type, applicationIdLabels, intl]);
 
   const sortOptions = () => {
-    if (type === "PROJECT_TYPES"){
-      const sortedProjectTypes = ["SMALL", "LARGE", "ABANDONMENT"];
+    if (type === 'PROJECT_TYPES') {
+      const sortedProjectTypes = ['SMALL', 'LARGE', 'ABANDONMENT'];
       return sortedProjectTypes.map((entry) => (
-        {key: entry, value: getDropdownItemName(entry)}
+        { key: entry, value: getDropdownItemName(entry) }
       ));
     }
 
-    else {
-      let sorted = options.map((entry) => (
-        { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
-        const x = a.value.toLowerCase();
-        const y = b.value.toLowerCase();
-        return x.localeCompare(y);
-      })
-      
-      console.log(sorted);
-      return sorted;
-    }
-};
+    const sorted = options.map((entry) => (
+      { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
+      const x = a.value.toLowerCase();
+      const y = b.value.toLowerCase();
+      return x.localeCompare(y);
+    });
+
+    return sorted;
+  };
 
   const renderValue = useCallback((selected) => {
     if (selected.length === 0) {
