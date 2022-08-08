@@ -11,6 +11,7 @@
     "limitations": "restrictions",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
+    "pageAriaText": "Page {number}",
     "projectName": "Nom du projet :",
     "company": "Société :",
     "fullProjectName": "Nom complet du projet : ",
@@ -184,7 +185,8 @@
       "removeAllAltText": "Supprimer un élément",
       "shareAltText": "Partager",
       "collapseShelfAltText": "Réduire la tablette",
-      "collapseShelfAriaText": "Réduire la tablette"
+      "collapseShelfAriaText": "Réduire la tablette",
+      "removeTitleAriaText": "Supprimer {title}"
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
@@ -371,6 +373,7 @@
       "seeResultsButton": "Afficher les résultats",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
+      "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
         "clearButton": "Effacer tous les filtres",

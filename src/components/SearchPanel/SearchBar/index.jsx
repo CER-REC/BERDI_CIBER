@@ -41,6 +41,9 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
     setSearchHelpOpen(true);
     reportSearchHelp();
   }, []);
+  const inputProps = {
+    'aria-label': intl.formatMessage({ id: 'components.searchPanel.searchAriaText' })
+  }
 
   return (
     <div className={`Keywords ${classes.root}`}>
@@ -56,6 +59,7 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
             classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
           }}
           InputProps={{ classes: { notchedOutline: classes.noBorder } }}
+          inputProps={inputProps}
           onChange={onTextChanged}
           onKeyDown={onKeyDown}
           autoFocus

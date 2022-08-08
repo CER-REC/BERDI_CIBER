@@ -37,7 +37,7 @@ const PageItem = ({ page, active, rel }) => {
   if (active) {
     return (
       <li className={`${classes.root} active`}>
-        <a>{label}</a>
+        <a aria-label={intl.formatMessage({ id: 'common.pageAriaText' }, { number: page })}>{label}</a>
       </li>
     );
   }
@@ -51,6 +51,7 @@ const PageItem = ({ page, active, rel }) => {
   return (
     <li className={classes.root}>
       <a
+        aria-label={intl.formatMessage({ id: 'common.pageAriaText' }, { number: page })}
         role="button"
         tabIndex="0"
         rel={rel}

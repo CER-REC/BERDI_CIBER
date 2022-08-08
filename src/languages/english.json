@@ -11,6 +11,7 @@
     "limitations": "limitations",
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
+    "pageAriaText": "Page {number}",
     "projectName":"Project name: ",
     "company": "Company: ",
     "fullProjectName": "Full project name: ",
@@ -182,7 +183,8 @@
       "removeAllAltText": "Remove item icon",
       "shareAltText": "Share icon",
       "collapseShelfAltText": "Collapse shelf icon",
-      "collapseShelfAriaText": "Collapse shelf"
+      "collapseShelfAriaText": "Collapse shelf",
+      "removeTitleAriaText": "Remove {title}"
     },
     "cartButton": {
       "add": "Add to shelf",
@@ -369,6 +371,7 @@
       "seeResultsButton": "See Results",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
+      "searchAriaText": "Search by keywords",
       "searchHelp": "See Advanced Search Tips",
       "filterPanel": {
         "clearButton": "Clear all filters",
