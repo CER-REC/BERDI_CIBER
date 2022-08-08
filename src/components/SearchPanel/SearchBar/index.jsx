@@ -41,9 +41,10 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
     setSearchHelpOpen(true);
     reportSearchHelp();
   }, []);
+
   const inputProps = {
-    'aria-label': intl.formatMessage({ id: 'components.searchPanel.searchAriaText' })
-  }
+    'aria-label': intl.formatMessage({ id: 'components.searchPanel.searchAriaText' }),
+  };
 
   return (
     <div className={`Keywords ${classes.root}`}>
@@ -59,6 +60,8 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
             classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
           }}
           InputProps={{ classes: { notchedOutline: classes.noBorder } }}
+          // Ignoring the next line because TextField has two props with slightly different casing.
+          // eslint-disable-next-line react/jsx-no-duplicate-props
           inputProps={inputProps}
           onChange={onTextChanged}
           onKeyDown={onKeyDown}
