@@ -24,6 +24,10 @@ const setURLSearchParams = (search) => {
 };
 
 const simulateSearch = () => {
+  
+  // TODO: Remove this line of code after search button has been moved in.
+  fireEvent.click(screen.getByText('components.searchPanel.filterPanel.viewMore'));
+
   const searchButton = screen.getByLabelText('components.searchPanel.searchButton');
   const searchField = screen.getByRole('textbox');
   fireEvent.change(searchField, { target: { value: 'test search' } });
