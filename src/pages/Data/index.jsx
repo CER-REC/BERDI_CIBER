@@ -68,7 +68,7 @@ const Data = () => {
         </Grid>
 
         <Grid item className={classes.imageContainer} style={{ padding: '0', minHeight: '28em' }}>
-          <img alt="Sketch showing process of esa's from submission to decision." src={lang === 'en' ? explainer : explainerFR} />
+          <img alt={intl.formatMessage({ id: 'pages.data.body.imgAlt1'})} src={lang === 'en' ? explainer : explainerFR} />
         </Grid>
 
         <Grid item>
@@ -110,7 +110,7 @@ const Data = () => {
         </Grid>
 
         <Grid item className={classes.imageContainer}>
-          <img alt="Graph showing effects and baseline" src={lang === 'en' ? studyArea : studyAreaFR} />
+          <img alt={intl.formatMessage({ id: 'pages.data.body.imgAlt1'})}  src={lang === 'en' ? studyArea : studyAreaFR} />
         </Grid>
 
         <Grid item>

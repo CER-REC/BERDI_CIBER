@@ -152,7 +152,7 @@ const ApplicationDialog = ({ data, onClose }) => {
                 <Icon className={classes.icon}>
                   <img
                     src={downloadIcon}
-                    alt="download button"
+                    alt={intl.formatMessage({ id: 'common.downloadAltText' })}
                   />
                 </Icon>
                 <Typography>

@@ -321,7 +321,7 @@ const Cart = () => {
               <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
                 <input type="hidden" name="ids" value={config.cartIds} />
               </form>
-              <img src={downloadIcon} alt="download button" className={classes.footerDownloadButtonIcon} />
+              <img src={downloadIcon} alt={intl.formatMessage({ id: 'common.downloadAltText' })} className={classes.footerDownloadButtonIcon} />
               <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
               <span style={{ fontWeight: 'bold', marginLeft: '5px' }}>
                 {formattedFileSize}

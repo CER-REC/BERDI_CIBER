@@ -39,7 +39,7 @@ const ThumbnailButton = ({ className, src, onClick }) => {
       onClick={onClick}
       disableRipple
     >
-      <img alt="A magnifying glass" src={magnifyingGlass} />
+      <img alt="" src={magnifyingGlass} />
     </Button>
   );
 };
