@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const FilterPanel = ({ hasTagline, onClick }) => {
+const FilterPanel = ({ isSearchPage, onClick }) => {
   const [open, setOpen] = useState(false);
   const { maxDate, minDate } = useAPI();
   const { config, configDispatch } = useConfig();
@@ -39,7 +39,7 @@ const FilterPanel = ({ hasTagline, onClick }) => {
   }, [configDispatch]);
   const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
-  const searchButtonText = hasTagline
+  const searchButtonText = isSearchPage
     ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })
     : intl.formatMessage({ id: 'components.searchPanel.searchButton' });
 
@@ -140,12 +140,12 @@ const FilterPanel = ({ hasTagline, onClick }) => {
 };
 
 FilterPanel.propTypes = {
-  hasTagline: PropTypes.bool,
+  isSearchPage: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
 
 FilterPanel.defaultProps = {
-  hasTagline: false,
+  isSearchPage: false,
 };
 
 export default FilterPanel;

@@ -73,7 +73,7 @@ const SearchPanel = ({ hasTagline }) => {
           />
         </Grid>
         <Grid item xs={9}>
-          <FilterPanel hasTagline={hasTagline} onClick={handleClick} />
+          <FilterPanel isSearchPage={hasTagline} onClick={handleClick} />
         </Grid>
       </Grid>
     </div>
