@@ -167,14 +167,14 @@
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "addContentIdsButton": {
-      "add": "Ajouter {num, plural, =1 {un article} other {{formattedNum} articles}} à l’étagère"
+      "add": "Ajouter {num, plural, =0 {{formattedNum} article} =1 {{formattedNum} article} other {{formattedNum} articles}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
       "tables": "Télécharger les tableaux de l'EES"
     },
     "cart": {
-      "shelfAriaText": "Ouvrir pour voir {num, plural, =1 {un article} other {{num} articles}} sur la tablette",
+      "shelfAriaText": "Ouvrir pour voir {num, plural, =0 {{num} article} =1 {{num} article} other {{num} articles}} sur la tablette",
       "shelfAltText": "Étagère",
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures et les cartes-tracés ne sont pas téléchargées.",
