@@ -44,13 +44,13 @@ const PageItem = ({ page, active, rel }) => {
   }
 
   if (rel === 'prev') {
-    ariaLabel = intl.formatMessage({ id: 'common.previousAriaText' })
+    ariaLabel = intl.formatMessage({ id: 'common.previousAriaText' });
     label = intl.formatMessage({ id: 'common.previous' });
   } else if (rel === 'next') {
-    ariaLabel = intl.formatMessage({ id: 'common.nextAriaText' })
+    ariaLabel = intl.formatMessage({ id: 'common.nextAriaText' });
     label = intl.formatMessage({ id: 'common.next' });
   } else if (page !== undefined) {
-    ariaLabel = intl.formatMessage({ id: 'common.pageAriaText' }, { number: page })
+    ariaLabel = intl.formatMessage({ id: 'common.pageAriaText' }, { number: page });
   }
 
   return (
