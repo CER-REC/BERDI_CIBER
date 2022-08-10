@@ -20,7 +20,7 @@ const RemoveButton = ({ data }) => {
   };
 
   return (
-    <Button className={`CartButton ${classes.root} ${classes.remove}`} onClick={handleClick}>
+    <Button aria-label={intl.formatMessage({ id: 'components.cartButton.remove' })} className={`CartButton ${classes.root} ${classes.remove}`} onClick={handleClick}>
       <img alt={intl.formatMessage({ id: 'components.cartButton.removeAltText' })} src={minus} />
       {intl.formatMessage({ id: 'components.cartButton.remove' })}
     </Button>

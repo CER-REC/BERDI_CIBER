@@ -297,6 +297,7 @@
       }
     },
     "listPanel": {
+      "previewAriaText": "Aperçu {title}",
       "projectType": "Type de projet : ",
       "projectFiled": "Projet déposé le : ",
       "projectStatus": "Étape du projet : ",

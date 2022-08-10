@@ -182,7 +182,6 @@
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
       "copyConfirmation": "Link copied!",
       "removeAll": "Remove all",
-      "removeAllAltText": "Remove item icon",
       "shareAltText": "Share icon",
       "collapseShelfAltText": "Collapse shelf icon",
       "collapseShelfAriaText": "Collapse shelf",
@@ -295,6 +294,7 @@
       }
     },
     "listPanel": {
+      "previewAriaText": "Preview {title}",
       "projectType": "Project type: ",
       "projectFiled": "Project filed: ",
       "projectStatus": "Project status: ",

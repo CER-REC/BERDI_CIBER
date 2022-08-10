@@ -20,7 +20,7 @@ const AddButton = ({ data }) => {
   };
 
   return (
-    <Button className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
+    <Button aria-label={intl.formatMessage({ id: 'components.cartButton.add' })} className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
       <img alt={intl.formatMessage({ id: 'components.cartButton.addAltText' })} src={plus} />
       {intl.formatMessage({ id: 'components.cartButton.add' })}
     </Button>

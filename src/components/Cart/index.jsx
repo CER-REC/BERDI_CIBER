@@ -241,7 +241,7 @@ const Cart = () => {
         <Grid container direction="column" wrap="nowrap" className={classes.body}>
           <Grid item style={{ margin: '1em 0 0.5em 0.5em' }}>
             <Button
-              aria-label={intl.formatMessage({ id: 'components.cart.removeAllAltText' })}
+              aria-label={intl.formatMessage({ id: 'components.cart.removeAll' })}
               classes={{
                 root: classes.removeButton,
                 label: classes.removeButtonText,

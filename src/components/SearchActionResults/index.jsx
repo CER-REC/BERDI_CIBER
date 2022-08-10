@@ -47,6 +47,7 @@ const SearchActionResults = ({ content }) => {
       />
       <CartButton data={content} />
       <Button
+        aria-label={intl.formatMessage({ id: 'components.searchActionResults.download' })}
         href={content.url}
         variant="outlined"
         onClick={() => reportDownload(content.title)}
@@ -60,6 +61,7 @@ const SearchActionResults = ({ content }) => {
       </Button>
       <hr className={classes.hr} />
       <Button
+        aria-label={intl.formatMessage({ id: 'components.searchActionResults.report' })}
         variant="outlined"
         onClick={handleReportClick}
         className={classes.searchActionButton}
