@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Button, TextField, makeStyles, Grid } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
+import SearchIcon from '@material-ui/icons/Search';
 
 import { reportSearchHelp } from '../../../utilities/analytics';
 import SearchHelpDialog from '../SearchHelpDialog';
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0',
     '& input': {
       backgroundColor: theme.palette.common.white,
-      borderRadius: '10px',
+      borderRadius: '10px 0 0 10px',
       padding: '11px',
     },
     '& legend': { width: 0 },
@@ -31,9 +32,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '12px',
     width: '10em',
   },
+  button: {
+    borderRadius: '0 10px 10px 0',
+    backgroundColor: theme.palette.secondary.main,
+    padding: '8px',
+    minWidth: '50px',
+  },
 }));
 
-const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
+const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown, handleSearch }) => {
   const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
@@ -61,6 +68,14 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown }) => {
           autoFocus
         />
         <Button
+          className={classes.button}
+          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+          variant="contained"
+          onClick={handleSearch}
+        >
+          <SearchIcon />
+        </Button>
+        <Button
           className={classes.helpButton}
           aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
           color="inherit"
@@ -79,6 +94,7 @@ SearchBar.propTypes = {
   textValue: PropTypes.string,
   onTextChanged: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
+  handleSearch: PropTypes.func.isRequired,
 };
 
 SearchBar.defaultProps = {

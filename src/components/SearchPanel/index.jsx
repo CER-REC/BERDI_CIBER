@@ -70,6 +70,7 @@ const SearchPanel = ({ hasTagline }) => {
             textValue={search}
             onTextChanged={handleChange}
             onKeyDown={handleKeyDown}
+            handleSearch={handleClick}
           />
         </Grid>
         <Grid item xs={9}>
