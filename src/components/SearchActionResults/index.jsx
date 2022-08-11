@@ -47,24 +47,26 @@ const SearchActionResults = ({ content }) => {
       />
       <CartButton data={content} />
       <Button
+        aria-label={intl.formatMessage({ id: 'components.searchActionResults.download' })}
         href={content.url}
         variant="outlined"
         onClick={() => reportDownload(content.title)}
         className={classes.searchActionButton}
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
-        <img alt="a down arrow" src={download} />
+        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} />
         {intl.formatMessage({
           id: 'components.searchActionResults.download',
         })}
       </Button>
       <hr className={classes.hr} />
       <Button
+        aria-label={intl.formatMessage({ id: 'components.searchActionResults.report' })}
         variant="outlined"
         onClick={handleReportClick}
         className={classes.searchActionButton}
       >
-        <img alt="a generic flag" src={flag} />
+        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} />
         {intl.formatMessage({
           id: 'components.searchActionResults.report',
         })}

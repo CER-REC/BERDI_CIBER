@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 const PageItem = ({ page, active, rel }) => {
   let label = page;
+  let ariaLabel = page;
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
@@ -37,20 +38,25 @@ const PageItem = ({ page, active, rel }) => {
   if (active) {
     return (
       <li className={`${classes.root} active`}>
-        <a>{label}</a>
+        <a aria-label={ariaLabel}>{label}</a>
       </li>
     );
   }
 
   if (rel === 'prev') {
+    ariaLabel = intl.formatMessage({ id: 'common.previousAriaText' });
     label = intl.formatMessage({ id: 'common.previous' });
   } else if (rel === 'next') {
+    ariaLabel = intl.formatMessage({ id: 'common.nextAriaText' });
     label = intl.formatMessage({ id: 'common.next' });
+  } else {
+    ariaLabel = intl.formatMessage({ id: 'common.pageAriaText' }, { number: page });
   }
 
   return (
     <li className={classes.root}>
       <a
+        aria-label={ariaLabel}
         role="button"
         tabIndex="0"
         rel={rel}

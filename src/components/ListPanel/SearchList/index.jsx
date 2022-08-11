@@ -120,6 +120,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                   <Grid className="tableCellInner" container>
                     <Grid item xs={3} md={2} xl={1}>
                       <ThumbnailButton
+                        ariaText={intl.formatMessage({ id: 'components.listPanel.previewAriaText' }, { title: content.title })}
                         src={content.thumbnailURL}
                         onClick={() => handleClickOpen(content)}
                       />

@@ -5,12 +5,15 @@
     "tables": "Tables",
     "figures": "Figures",
     "previous": "Previous",
+    "previousAriaText": "Previous page",
     "downloadAllTables": "Download all tables",
     "megabytes": "MB",
     "kilobytes": "KB",
     "limitations": "limitations",
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
+    "nextAriaText": "Next page",
+    "pageAriaText": "Page {number}",
     "projectName":"Project name: ",
     "company": "Company: ",
     "fullProjectName": "Full project name: ",
@@ -29,6 +32,9 @@
     "termsLink": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "errorMessage": "Something went wrong.",
     "osdpURL": "https://osdp-psdo.canada.ca/en/osdp",
+    "logoAltText": "berdi logo",
+    "closeAltText": "Close icon",
+    "downloadAltText": "Download icon",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -166,6 +172,8 @@
       "tables": "Download ESA Tables"
     },
     "cart": {
+      "shelfAriaText": "Expand to see {num, plural, =1 {{num} item} other {all {num} items}} on shelf",
+      "shelfAltText": "Bookshelf icon",
       "downloadDisclaimer": "By downloading these files, you understand the {limitationsURL} and agree to adhere to all requirements.",
       "dataDisclaimer": "Data is shown in the original language it was filed in. Titles have been translated. Figures and alignment sheets are excluded from download.",
       "headerQuantity": "Items in the Shelf",
@@ -173,11 +181,17 @@
       "copyLink": "Copy link",
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
       "copyConfirmation": "Link copied!",
-      "removeAll": "Remove all"
+      "removeAll": "Remove all",
+      "shareAltText": "Share icon",
+      "collapseShelfAltText": "Collapse shelf icon",
+      "collapseShelfAriaText": "Collapse shelf",
+      "removeTitleAriaText": "Remove {title}"
     },
     "cartButton": {
       "add": "Add to shelf",
-      "remove": "Remove from shelf"
+      "addAltText": "Add icon",
+      "remove": "Remove from shelf",
+      "removeAltText": "Remove icon"
     },
     "dateSlider": {
       "dateLabel": "Filing date"
@@ -191,6 +205,7 @@
       "all": "(All)",
       "multiple": "(Multiple selected)",
       "select": "- Select -",
+      "helpAriaText": "Help dialog for Project type",
       "tooltip": "This dataset includes major pipeline and abandonment projects that fall under the {cerAct} and the former {nebAct}, including: ",
       "nebAct": "NEB Act",
       "cerAct": "CER Act",
@@ -200,6 +215,10 @@
       "bullet2": "Small Projects under 40 km (CER Act s. 214, NEB Act s. 58)",
       "bullet3": "Pipeline Abandonment (CER Act s. 241(1), NEB Act s. 72)",
       "resultsCountLabel": "{num} results per page"
+    },
+    "iconCheckbox": {
+      "checkedAltText": "Checked icon",
+      "uncheckedAltText": "Unchecked icon"
     },
     "errorBoundary": {
       "restoreLinkText": "Restore Session",
@@ -275,6 +294,7 @@
       }
     },
     "listPanel": {
+      "previewAriaText": "Preview {title}",
       "projectType": "Project type: ",
       "projectFiled": "Project filed: ",
       "projectStatus": "Project status: ",
@@ -307,7 +327,8 @@
       "explore": "Explore results by"
     },
     "filterChipsPanel": {
-      "title": "Current Filters and Search Terms"
+      "title": "Current Filters and Search Terms",
+      "chipAriaText": "Search term includes {term}"
     },
     "osdpFooter": {
       "header": "Explore more open data with Open Science Data Portal.",
@@ -352,6 +373,7 @@
       "seeResultsButton": "See Results",
       "searchButton": "Search",
       "searchPlaceHolder": "Search by keyword(s)",
+      "searchAriaText": "Search by keywords",
       "searchHelp": "See Advanced Search Tips",
       "filterPanel": {
         "clearButton": "Clear all filters",
@@ -398,6 +420,7 @@
     },
     "searchActionResults": {
       "report": "Report this data",
+      "reportAltText": "Flag icon",
       "download": "Download table",
       "tryAgainLater": "Please provide your feedback at a later time.",
       "reportDataDialog": {
@@ -481,6 +504,7 @@
         "title": "What is an Environmental Socio-Economic Assessment (ESA)?",
         "bold0": "Environmental and Socio-Economic Assessments (ESAs)",
         "text1": "{bold} are reports filed with every application for a new pipeline. ESAs have been described as a “snapshot in time” because of their evolution throughout a hearing, so it is important to note that the ESAs we identified for data extraction are the original ESAs submitted by companies - specifically from the Assessment and Abandonment stages of both large and small projects since 2003.",
+        "imgAlt1": "Diagram showing the process of ESA's from application submission to IR (information request), comment stage, oral stage, and ending with a decision.",
         "text2": "Two key pieces of information in an ESA are the baseline of the area where a pipeline is proposed, and the effects of the proposed pipeline to that baseline.",
         "header1": "Baseline Information",
         "text3": "Baseline information describes the current state of an area where a proposed pipeline might be built and uses information from desktop and field research, and/or public engagement activities. This information includes a wide variety of topics, or “Valued Components,” ranging from wetlands, species at risk and air emissions, to traditional land use, social and cultural well-being, and human health. The CER’s {link1} and {link2} provide details on the topics to consider under biophysical and socio-economic categories.",
@@ -488,6 +512,7 @@
         "url1": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/filing-manual-guide-a-facilities-applications-a2.html",
         "link2": "Filing Manual Checklist",
         "url2": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/filing-manual-appendix-1-filing-manual-checklist.pdf",
+        "imgAlt2": "Diagram showing the study area along the proposed pipeline project and symbols representing the baseline and predicted effects data.",
         "header2": "Effects Analyses",
         "text4": "Effects analysis predicts the effects associated with a proposed project. Companies are required to propose mitigation measures they will undertake to sustain this baseline, like undertaking pre-construction surveys for nesting birds at a certain time of the year to avoid interrupting bird nesting. These analyses also evaluate the potential impacts of a project once mitigation is applied (called residual effects), to assess the significance and likelihood of residual adverse environmental and socio-economic effects occurring. Companies are also required to assess cumulative effects, which result from the interaction with surrounding projects (for example, a mine, or an urban development). The level of detail required by the CER varies with the nature and scale of the project.",
         "footer": "For a brief overview of the environmental aspect of ESAs, view the Canada Energy Regulator’s {link}.",

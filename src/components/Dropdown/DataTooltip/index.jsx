@@ -41,7 +41,11 @@ const DataTooltip = () => {
 
   return (
     <>
-      <IconButton classes={{ root: classes.root }} onClick={handleClick}>
+      <IconButton
+        aria-label={intl.formatMessage({ id: 'components.dropdown.helpAriaText' })}
+        classes={{ root: classes.root }}
+        onClick={handleClick}
+      >
         <HelpOutline className={classes.icon} />
       </IconButton>
       <Popover

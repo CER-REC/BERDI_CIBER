@@ -125,8 +125,8 @@ const Project = () => {
             </Typography>
           </Grid>
           <Grid item xs={3}>
-            <img alt="two stack of papers" src={papers} />
-            <img alt="papers turning into web results" src={process} />
+            <img src={papers} alt="" />
+            <img src={process} alt="" />
           </Grid>
 
         </Grid>

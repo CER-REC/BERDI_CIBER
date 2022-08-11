@@ -1,6 +1,7 @@
 import { makeStyles, Dialog, DialogContent, DialogTitle, IconButton, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useIntl } from 'react-intl';
 import CloseIcon from '@material-ui/icons/Close';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CERDialog = ({ children, title, open, onClose }) => {
+  const intl = useIntl();
   const classes = useStyles();
 
   return (
@@ -38,7 +40,7 @@ const CERDialog = ({ children, title, open, onClose }) => {
         <Typography variant="h6">
           {title}
         </Typography>
-        <IconButton aria-label="close" onClick={onClose}>
+        <IconButton aria-label={intl.formatMessage({ id: 'common.closeAltText' })} onClick={onClose}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>

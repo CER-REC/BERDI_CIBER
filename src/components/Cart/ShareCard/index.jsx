@@ -48,6 +48,7 @@ const ShareCard = ({ open, onClose }) => {
         {/* Close button header */}
         <Grid item style={{ textAlign: 'right', height: '1.5em' }}>
           <IconButton
+            aria-label={intl.formatMessage({ id: 'common.closeAltText' })}
             onClick={handleClose}
             style={{ width: '30px', height: '30px' }}
           >

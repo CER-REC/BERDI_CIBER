@@ -28,18 +28,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ThumbnailButton = ({ className, src, onClick }) => {
+const ThumbnailButton = ({ className, src, onClick, ariaText }) => {
   const classes = useStyles();
 
   return (
     <Button
+      aria-label={ariaText}
       className={className}
       classes={{ root: classes.root, label: classes.label }}
       style={{ backgroundImage: `url(${src})` }}
       onClick={onClick}
       disableRipple
     >
-      <img alt="A magnifying glass" src={magnifyingGlass} />
+      <img alt="" src={magnifyingGlass} />
     </Button>
   );
 };
@@ -48,6 +49,7 @@ ThumbnailButton.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  ariaText: PropTypes.func.isRequired,
 };
 
 ThumbnailButton.defaultProps = {

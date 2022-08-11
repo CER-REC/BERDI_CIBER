@@ -126,6 +126,7 @@ const CartItem = ({
           </Grid>
           <Grid item xs={2} style={{ margin: '-0.5em' }}>
             <IconButton
+              aria-label={intl.formatMessage({ id: 'components.cart.removeTitleAriaText' }, { title: data.title })}
               className={classes.removeButton}
               onClick={handleRemoveItem}
               onMouseEnter={handleRemoveButtonHover}

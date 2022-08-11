@@ -5,12 +5,15 @@
     "tables": "Tableaux",
     "figures": "Figures",
     "previous": "Précédente",
+    "previousAriaText": "Page précédente",
     "downloadAllTables": "Télécharger tous les tableaux",
     "megabytes": "Mo",
     "kilobytes": "Ko",
     "limitations": "restrictions",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
+    "nextAriaText": "Page suivant",
+    "pageAriaText": "Page {number}",
     "projectName": "Nom du projet :",
     "company": "Société :",
     "fullProjectName": "Nom complet du projet : ",
@@ -31,6 +34,9 @@
     "osdpURL": "https://osdp-psdo.canada.ca/fr/psdo",
     "frenchDisclaimerLong": "Remarque : Les contenus des tableaux s’affichent dans la langue dans laquelle ils ont été déposés. Les titres des contenus de la base de données ont été traduits en français. Vous pouvez utiliser des termes anglais pour faire des recherches dans la version française de CIBER.",
     "frenchDisclaimerShort": "Remarque : Les figures et les tableaux sont dans la langue dans laquelle ils ont été déposés.",
+    "logoAltText": "Lobo ciber",
+    "closeAltText": "Fermer",
+    "downloadAltText": "Télécharger",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -161,13 +167,15 @@
       "body": "Les résultats seront affichés dans la langue dans laquelle ils ont été déposés. Ils peuvent être limités. Certaines données ont été exclues."
     },
     "addContentIdsButton": {
-      "add": "Ajouter {num, plural, =1 {un article} other {{formattedNum} articles}} à l’étagère"
+      "add": "Ajouter {num, plural, =0 {{formattedNum} article} =1 {{formattedNum} article} other {{formattedNum} articles}} à l’étagère"
     },
     "applicationDialog": {
       "regdocs": "Consulter le dossier REGDOCS",
       "tables": "Télécharger les tableaux de l'EES"
     },
     "cart": {
+      "shelfAriaText": "Ouvrir pour voir {num, plural, =0 {{num} article} =1 {{num} article} other {{num} articles}} sur la tablette",
+      "shelfAltText": "Étagère",
       "downloadDisclaimer": "En téléchargeant ces fichiers, vous comprenez les {limitationsURL} et acceptez de respecter toutes les exigences qui s’y rattachent.",
       "dataDisclaimer": "Les données sont présentées dans la langue dans laquelle elles ont été déposées. Les titres ont été traduits. Les figures et les cartes-tracés ne sont pas téléchargées.",
       "headerQuantity": "Éléments sur la tablette",
@@ -175,11 +183,18 @@
       "copyLink": "Copier le lien",
       "shareDisclaimer": "Il s’agit de votre lien unique vers une collection permanente. Cela signifie que les éléments qui y figurent ne disparaîtront pas et qu’ils ne pourront pas être modifiés. Cette collection peut être consultée par quiconque dispose de ce lien.",
       "copyConfirmation": "Lien copié!",
-      "removeAll": "Supprimer tout"
+      "removeAll": "Supprimer tout",
+      "removeAllAltText": "Supprimer un élément",
+      "shareAltText": "Partager",
+      "collapseShelfAltText": "Réduire la tablette",
+      "collapseShelfAriaText": "Réduire la tablette",
+      "removeTitleAriaText": "Supprimer {title}"
     },
     "cartButton": {
       "add": "Ajouter à l’étagère",
-      "remove": "Retirer de l’étagère"
+      "addAltText": "Ajouter",
+      "remove": "Retirer de l’étagère",
+      "removeAltText": "Supprimer"
     },
     "dateSlider": {
       "dateLabel": "Date de dépôt"
@@ -193,6 +208,7 @@
       "all": "(Tous)",
       "multiple": "(Plusieurs sélectionnés)",
       "select": "- Sélectionner -",
+      "helpAriaText": "Boîte de dialogue liée à Type de projet",
       "tooltip": "Cet ensemble de données comprend les grands projets concernant des pipelines et la cessation d’exploitation visés par la LRCE et l’ancienne {nebAct}. {cerAct} notamment: ",
       "nebAct": "Loi sur l’Office national de l’énergie",
       "cerAct": "Loi sur la Régie canadienne de l’énergie",
@@ -202,6 +218,10 @@
       "bullet2": "les petits projets de moins de 40 km (art. 214 de la LRCE, art. 58 de la Loi); ",
       "bullet3": "la cessation d’exploitation (paragraphe 241(1) de la LRCE et article 72 de la Loi).",
       "resultsCountLabel": "{num} résultats par page"
+    },
+    "iconCheckbox": {
+      "checkedAltText": "Cocher",
+      "uncheckedAltText": "Décocher"
     },
     "errorBoundary": {
       "restoreLinkText": "Rétablir la session.",
@@ -277,6 +297,7 @@
       }
     },
     "listPanel": {
+      "previewAriaText": "Aperçu {title}",
       "projectType": "Type de projet : ",
       "projectFiled": "Projet déposé le : ",
       "projectStatus": "Étape du projet : ",
@@ -309,7 +330,8 @@
       "explore": "Explorer les résultats par"
     },
     "filterChipsPanel": {
-      "title": "Filtres et termes de recherche actuels"
+      "title": "Filtres et termes de recherche actuels",
+      "chipAriaText": "Les termes de recherche comprennent {term}"
     },
     "osdpFooter": {
       "header": "Explorer plus de données ouvertes grâce à la plateforme de science et de données ouvertes.",
@@ -354,6 +376,7 @@
       "seeResultsButton": "Afficher les résultats",
       "searchButton": "Recherche",
       "searchPlaceHolder": "Recherche par mots-clés",
+      "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
         "clearButton": "Effacer tous les filtres",
@@ -400,6 +423,7 @@
     },
     "searchActionResults": {
       "report": "Évaluer ces données",
+      "reportAltText": "Drapeau",
       "download": "Télécharger le tableau",
       "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
       "reportDataDialog": {
@@ -483,6 +507,7 @@
         "title": "Qu’est-ce qu’une évaluation environnementale et socioéconomique?",
         "bold0": "évaluations environnementales et socioéconomiques (« EES »)",
         "text1": "Les {bold},  sont des rapports déposés avec chaque demande visant un nouveau pipeline. On conçoit les EES comme des « instantanés » en raison de leur évolution tout au long d’une audience. Il est donc important de noter que les EES recensées pour l’extraction des données correspondent aux documents initialement soumis par les sociétés, plus précisément ceux portant sur les étapes de l’évaluation et de la cessation d’exploitation de projets de grande et de moindre envergure qui ont été déposés depuis 2003.",
+        "imgAlt1": "Diagramme qui montre le processus d’EES, de la présentation de la demande à la DR (demande de renseignements), l’étape des commentaires, l’audience orale et la décision finale.",
         "text2": "Les conditions de base de la zone visée par un pipeline projeté et les effets potentiels du pipeline sur ces conditions sont deux éléments essentiels des EES.",
         "header1": "Renseignements sur les conditions de base",
         "text3": "Les renseignements sur les conditions de base décrivent l’état actuel d’une zone où on projette la construction d’un pipeline et sont fondés sur des recherches documentaires et sur le terrain, de même que sur des activités de mobilisation du public. Ces renseignements portent sur un vaste éventail de sujets, ou « composantes valorisées », qui vont des milieux humides, des espèces en péril et des émissions atmosphériques à l’utilisation des terres à des fins traditionnelles, au bien-être social et culturel et à la santé humaine. {link1} et les {link2} de la Régie fournissent des précisions sur les sujets à examiner dans les catégories biophysiques et socioéconomiques.",
@@ -490,6 +515,7 @@
         "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-annexe-1-listes-controle-guide-depot.html",
         "link2": "Listes de contrôle du Guide de dépôt",
         "url2": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-annexe-1-listes-controle-guide-depot.pdf",
+        "imgAlt2": "Diagramme montrant la zone d’étude qui longe le pipeline projeté et image des symboles qui représentent les conditions de base et les données sur les effets prévus.",
         "header2": "Analyse des effets",
         "text4": "L’analyse des effets permet de prédire les effets associés à un projet proposé. Les sociétés sont tenues de proposer des mesures d’atténuation pour préserver les conditions de base, par exemple en effectuant, avant la construction, des études visant à éviter d’interrompre la nidification de certains oiseaux à une période précise de l’année. Ces analyses évaluent également les effets éventuels d’un projet une fois les mesures d’atténuation appliquées (appelés effets résiduels), afin de mesurer la probabilité d’effets environnementaux et socioéconomiques négatifs résiduels, ainsi que leur portée. Les sociétés doivent aussi évaluer les effets cumulatifs découlant de l’interaction de leur projet avec les projets avoisinants (p. ex., une mine ou une zone urbaine). Le degré de précision des renseignements demandés par la Régie dépend de la nature et de l’envergure du projet.",
         "footer": "Pour obtenir un aperçu de l’aspect environnemental des EES, visionnez la vidéo sur la protection de l’environnement de la Régie de l’énergie du Canada.",
