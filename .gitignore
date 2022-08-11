@@ -12,6 +12,7 @@ LAST_MODIFIED
 VERSION
 storybook-static
 .storybook/__snapshots__/
+public/pdfjs/
 public/script/
 .env
 

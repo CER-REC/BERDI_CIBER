@@ -8,9 +8,9 @@ Quick Start
 
 1. Make a copy of `.env.example` in root called `.env`
 2. Set the URL for `MIDDLEWARE_PROXY_ADDRESS` to a server with the GraphQL API
-2. Install NPM dependencies `npm install`
-3. Run storybook `npm run storybook`
-4. Run preview `npm run verifyLazyLoad`
+3. Install NPM dependencies `npm install`
+4. Run storybook `npm run storybook`
+5. Run preview `npm run verifyLazyLoad`
 
 Commands
 --------
