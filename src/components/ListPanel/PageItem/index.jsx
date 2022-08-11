@@ -28,10 +28,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const PageItem = ({ page, active, rel }) => {
-  let label = page;
-  let ariaLabel = page;
-  const classes = useStyles();
   const intl = useIntl();
+  let label = page;
+  let ariaLabel = page !== undefined ? intl.formatMessage({ id: 'common.pageAriaText' }, { number: page }) : ariaLabel = intl.formatMessage({ id: 'common.previousAriaText' });
+  const classes = useStyles();
   const { configDispatch } = useConfig();
   const handleClick = (pageIndex) => configDispatch({ type: 'searchIndex/changed', payload: pageIndex });
 
@@ -49,8 +49,6 @@ const PageItem = ({ page, active, rel }) => {
   } else if (rel === 'next') {
     ariaLabel = intl.formatMessage({ id: 'common.nextAriaText' });
     label = intl.formatMessage({ id: 'common.next' });
-  } else if (page !== undefined) {
-    ariaLabel = intl.formatMessage({ id: 'common.pageAriaText' }, { number: page });
   }
 
   return (

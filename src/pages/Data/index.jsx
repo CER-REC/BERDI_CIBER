@@ -110,7 +110,7 @@ const Data = () => {
         </Grid>
 
         <Grid item className={classes.imageContainer}>
-          <img alt={intl.formatMessage({ id: 'pages.data.body.imgAlt1' })} src={lang === 'en' ? studyArea : studyAreaFR} />
+          <img alt={intl.formatMessage({ id: 'pages.data.body.imgAlt2' })} src={lang === 'en' ? studyArea : studyAreaFR} />
         </Grid>
 
         <Grid item>
