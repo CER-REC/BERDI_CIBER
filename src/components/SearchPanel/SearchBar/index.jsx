@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown, handleSearch }) => {
+const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown, onSearch }) => {
   const [searchHelpOpen, setSearchHelpOpen] = useState(false);
   const classes = useStyles();
   const intl = useIntl();
@@ -71,7 +71,7 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown, handleSearc
           className={classes.button}
           aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
           variant="contained"
-          onClick={handleSearch}
+          onClick={onSearch}
         >
           <SearchIcon />
         </Button>
@@ -94,7 +94,7 @@ SearchBar.propTypes = {
   textValue: PropTypes.string,
   onTextChanged: PropTypes.func.isRequired,
   onKeyDown: PropTypes.func.isRequired,
-  handleSearch: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 SearchBar.defaultProps = {
