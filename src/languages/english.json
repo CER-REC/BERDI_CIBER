@@ -458,6 +458,16 @@
     "unsupportedWarning": {
       "browser": "Your browser does not support the features required by this visualization.\nPlease use a recent version of Chrome, Firefox, Safari, or Edge.\nThank you!",
       "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
+    },
+    "youTube": {
+      "showCC": "Show closed captioning",
+      "play": "Play",
+      "pause": "Pause",
+      "mute": "Mute",
+      "unmute": "Unmute",
+      "volume": "Volume",
+      "currentPosition": "Current position:",
+      "totalTime": "Total time:"
     }
   },
   "pages": {
@@ -518,6 +528,44 @@
         "footer": "For a brief overview of the environmental aspect of ESAs, view the Canada Energy Regulator’s {link}.",
         "link3": "video on Environmental Protection",
         "url3": "https://www.youtube.com/watch?v=cXLfhAI9hhw"
+      },
+      "protectingEnvironment": {
+        "header1": "Protecting the Environment",
+        "transcript": {
+          "heading": "Transcript:",
+          "text1": "At the Canada Energy Regulator, we hold companies to some of the strictest safety and environmental standards in the world.",
+          "text2": "They must follow all rules in the CER Act, and its regulations.",
+          "text3": "They also have to follow any Canadian requirements, including the ones for the cities and provinces where they operate.",
+          "text4": "Our work protect habitats, animals, plants, water and farmland, and controls air emissions from projects.",
+          "text5": "We also expect companies to work with Indigenous Peoples and learn from their knowledge to protect the environment.",
+          "text6": "During the application process; companies must submit a plan for how the environment will be protected if their project is approved.",
+          "text7": "We listen to people who have any information or concerns that could improve the final project.",
+          "text8": "Next, our environmental specialists review all the information. They look at how the company will protect:",
+          "protections": {
+            "text1": "Plants",
+            "text2": "Animals and species at risk",
+            "text3": "Wetlands and waterways",
+            "text4": "Heritage resources",
+            "text5": "And traditional use of land and water by indigenous peoples"
+          },
+          "text9": "Before a project gets the green light, we often add extra requirements to make sure the project is even safer.",
+          "text10": "During construction and operation, companies must report to us on the steps they are taking to protect the environment.",
+          "text11": "Our highly trained inspectors make sure companies are doing what they promised.",
+          "text12": "We work alongside Indigenous Monitors on many inspections to build Indigenous perspectives into our findings.",
+          "text13": "Inspectors look for things like:",
+          "inspectors": {
+            "text1": "Handling of soil",
+            "text2": "Weed and erosion control",
+            "text3": "Chemical storage and",
+            "text4": "Waste management"
+          },
+          "text14":  "Companies must replant and repair areas impacted by projects during construction, and resolve environmental issues during construction and over the life of their projects.",
+          "text15": "Finally, we make sure the environment is protected when a project is no longer needed.",
+          "text16": "We even make sure money is set aside in case something comes up in the future.",
+          "text17": "Want to learn more about environmental protection and how the CER works for you? Visit us online or {contactUs} directly.",
+          "contactUsText": "contact us",
+          "contactUsUrl": "https://www.cer-rec.gc.ca/en/about/contact/index.html"
+        }
       }
     },
     "methods": {

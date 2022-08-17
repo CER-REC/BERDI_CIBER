@@ -1,9 +1,10 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
+import YouTube from '../../components/YouTube';
 import BackButton from '../../components/BackButton';
 import NavButtons from '../../components/NavButtons';
-import { lang } from '../../constants';
+import { lang, protectingEnvironmentYoutube } from '../../constants';
 import explainer from '../../images/explainer.svg';
 import explainerFR from '../../images/explainerFR.svg';
 import studyArea from '../../images/studyArea.svg';
@@ -38,11 +39,38 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
     color: theme.palette.teal.blue,
   },
+  videoTranscript: {
+    marginTop: '1em',
+    '& summary::marker': {
+      unicodeBidi: 'isolate',
+      fontVariantNumeric: 'tabular-nums',
+      textTransform: 'none',
+      textIndent: '0px !important',
+      textAlign: 'start !important',
+      textAlignLast: 'start !important',
+      content: ' ',
+    },
+    '& p': {
+      padding: 'unset',
+    },
+    '& p:not(:first-of-type)': {
+      paddingTop: 0,
+    },
+    '& p:last-of-type': {
+      paddingBottom: 0,
+    },
+  },
 }));
 
 const Data = () => {
   const classes = useStyles();
   const intl = useIntl();
+
+  const contactUs = (
+    <a href={intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.contactUsUrl' })}>
+      {intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.contactUsText' })}
+    </a>
+  );
 
   return (
     <div style={{ paddingTop: '2em' }}>
@@ -126,18 +154,44 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography>
-            {intl.formatMessage({ id: 'pages.data.body.footer' }, {
-              link: (
-                <a
-                  href={intl.messages['pages.data.body.url3']}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {intl.formatMessage({ id: 'pages.data.body.link3' })}
-                </a>),
-            })}
+          <Typography variant="h6">
+            <strong>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.header1' })}</strong>
           </Typography>
+          <br />
+          <YouTube videoId={protectingEnvironmentYoutube[lang]} />
+          <details className={classes.videoTranscript}>
+            <summary>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.heading' })}</summary>
+            <Typography variant="body1" component="div">
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text1' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text2' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text3' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text4' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text6' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text7' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text8' })}</p>
+              <ul>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.protections.text1' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.protections.text2' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.protections.text3' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.protections.text4' })}</li>
+              </ul>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text9' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text10' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text11' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text12' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text13' })}</p>
+              <ul>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.inspectors.text1' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.inspectors.text2' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.inspectors.text3' })}</li>
+                <li>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.inspectors.text4' })}</li>
+              </ul>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text14' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text15' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text16' })}</p>
+              <p>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.text17' }, { contactUs })}</p>
+            </Typography>
+          </details>
         </Grid>
       </Grid>
     </div>

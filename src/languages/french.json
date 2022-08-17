@@ -461,6 +461,16 @@
     "unsupportedWarning": {
       "browser": "Votre fureteur n’autorise pas les particularités propres à cette visualisation.\nVeuillez utiliser une version récente du logiciel de navigation Chrome, Firefox, Safari ou Edge.\nMerci!",
       "resolution": "Cette visualisation a été conçue pour des ordinateurs ou tablettes disposant d’un écran d’une largeur minimale de 768 pixels.\nMerci!"
+    },
+    "youTube": {
+      "showCC": "Afficher le sous-titrage",
+      "play": "Lire",
+      "pause": "Pause",
+      "mute": "Activer le mode muet",
+      "unmute": "Désactiver le mode muet",
+      "volume": "Volume",
+      "currentPosition": "Position actuelle :",
+      "totalTime": "Temps total :"
     }
   },
   "pages": {
@@ -521,6 +531,44 @@
         "footer": "Pour obtenir un aperçu de l’aspect environnemental des EES, visionnez la vidéo sur la protection de l’environnement de la Régie de l’énergie du Canada.",
         "link3": "vidéo sur la protection de l’environnement",
         "url3": "https://www.youtube.com/watch?v=Lmg_qIJtQmo"
+      },
+      "protectingEnvironment": {
+        "header1": "Protéger de l’environnement",
+        "transcript": {
+          "heading": "Transcription :",
+          "text1": "À la Régie de l’énergie du Canada, aucun effort n’est ménagé pour respecter et protéger l’environnement. C’est notre travail de veiller à ce que les sociétés fassent de même.",
+          "text2": "Les sociétés doivent se conformer à toutes les règles contenues dans la LRCE et ses règlements. Elles doivent aussi appliquer toutes les exigences canadiennes, notamment celles des villes et des provinces où elles se livrent à des activités.",
+          "text3": "Notre travail aide à protéger les habitats, la faune, la végétation, l’eau et les terres agricoles, ainsi qu’à contrôler les émissions atmosphériques découlant des projets.",
+          "text4": "Nous comptons sur les sociétés pour collaborer avec les peuples autochtones, afin de tirer des leçons de leurs connaissances sur la protection de l'environnement.",
+          "text5": "Durant le processus de demande, les sociétés doivent soumettre un plan détaillant ce qu’elles feront pour protéger l’environnement si leur projet est approuvé.",
+          "text6": "Nous écoutons aussi les gens qui possèdent des informations ou qui ont des préoccupations qui pourraient améliorer le projet définitif.",
+          "text7": "Puis, nos spécialistes de l’environnement étudient tous les renseignements recueillis. Ils s’intéressent particulièrement à la façon dont la société protégera :",
+          "text8": " ",
+          "protections": {
+            "text1": "la végétation;",
+            "text2": "la faune et les espèces en péril,",
+            "text3": "les milieux humides et les voies navigables;",
+            "text4": "les ressources patrimoniales;",
+            "text5": "l’utilisation des terres par les peuples autochtones à des fins traditionnelles."
+          },
+          "text9": "Avant de donner le feu vert à un projet, il n’est pas rare que nous lui attachions des exigences supplémentaires pour le rendre encore plus sécuritaire.",
+          "text10": "Durant la construction et l’exploitation, les sociétés doivent rendre compte de toutes les mesures qu’elles mettent en place pour protéger l’environnement.",
+          "text11": "Nos inspecteurs, hautement formés, garantissent que les sociétés respectent leurs engagements.",
+          "text12": "Nous travaillons avec des surveillants autochtones dans beaucoup de nos inspections, afin que nos conclusions prennent en compte leurs perspectives.",
+          "text13": "Les inspecteurs se penchent sur divers éléments, comme :",
+          "inspectors": {
+            "text1": "la manutention du sol;",
+            "text2": "la lutte contre les mauvaises herbes et l’érosion;",
+            "text3": "l’entreposage des produits chimiques;",
+            "text4": "la gestion des déchets."
+          },
+          "text14": "Les sociétés ont l’obligation de replanter des arbres et de remettre en état les zones touchées par la construction de leurs projets. Elles doivent aussi remédier à tout problème environnemental qui survient durant la construction et pendant toute la vie utile des projets.",
+          "text15": "Enfin, nous veillons même à la protection de l’environnement une fois que l’exploitation d’un projet énergétique a cessé. Nous nous assurons aussi que des sommes sont mises de côté pour parer à tout problème qui pourrait survenir dans l’avenir.",
+          "text16": "Vous souhaitez en apprendre davantage sur la protection de l’environnement et ce que la Régie fait pour vous?",
+          "text17": "Visitez notre site Web ou {contactUs} directement avec nous.",
+          "contactUsText": "communiquez",
+          "contactUsUrl": "https://www.cer-rec.gc.ca/fr/regie/coordonnees/index.html"
+        }
       }
     },
     "methods": {
