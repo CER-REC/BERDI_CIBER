@@ -17,6 +17,7 @@ const ShareCard = ({ open, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { config } = useConfig();
+  const isEmpty = config.cartIds.length === 0;
 
   // Slicing cardIds since compress modifies the provided array
   const cartURL = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}`;
@@ -59,7 +60,7 @@ const ShareCard = ({ open, onClose }) => {
         {/* Card body */}
         <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
           <Grid item xs={8}>
-            <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL}>
+            <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL} disabled={isEmpty}>
               <Typography variant="body2" noWrap>
                 {cartURL}
               </Typography>
@@ -70,6 +71,7 @@ const ShareCard = ({ open, onClose }) => {
               color="primary"
               onClick={handleCopyCartURL}
               disableFocusRipple
+              disabled={isEmpty}
             >
               <Typography variant="body2" style={{ fontWeight: 'bold' }}>
                 {intl.formatMessage({ id: 'components.cart.copyLink' })}
@@ -81,7 +83,7 @@ const ShareCard = ({ open, onClose }) => {
         <Divider style={{ margin: '0 1em' }} />
         <Grid item style={{ padding: '1em 1em 0.5em' }}>
           <Typography className={classes.shareDisclaimer}>
-            {intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
+            { isEmpty ? intl.formatMessage({ id: 'components.cart.shareNoItems' }) : intl.formatMessage({ id: 'components.cart.shareDisclaimer' })}
           </Typography>
         </Grid>
         <Snackbar

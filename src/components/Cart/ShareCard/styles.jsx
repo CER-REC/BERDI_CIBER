@@ -6,6 +6,9 @@ export default (theme) => ({
     right: '0',
     border: '1px solid #C7C7CD',
     zIndex: 1,
+    '& button:disabled': {
+      opacity: 0.25,
+    },
   },
   closeButton: {
     width: '1em',
