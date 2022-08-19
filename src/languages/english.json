@@ -458,16 +458,6 @@
     "unsupportedWarning": {
       "browser": "Your browser does not support the features required by this visualization.\nPlease use a recent version of Chrome, Firefox, Safari, or Edge.\nThank you!",
       "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
-    },
-    "youTube": {
-      "showCC": "Show closed captioning",
-      "play": "Play",
-      "pause": "Pause",
-      "mute": "Mute",
-      "unmute": "Unmute",
-      "volume": "Volume",
-      "currentPosition": "Current position:",
-      "totalTime": "Total time:"
     }
   },
   "pages": {
@@ -524,13 +514,11 @@
         "url2": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/filing-manual-appendix-1-filing-manual-checklist.pdf",
         "imgAlt2": "Diagram showing the study area along the proposed pipeline project and symbols representing the baseline and predicted effects data.",
         "header2": "Effects Analyses",
-        "text4": "Effects analysis predicts the effects associated with a proposed project. Companies are required to propose mitigation measures they will undertake to sustain this baseline, like undertaking pre-construction surveys for nesting birds at a certain time of the year to avoid interrupting bird nesting. These analyses also evaluate the potential impacts of a project once mitigation is applied (called residual effects), to assess the significance and likelihood of residual adverse environmental and socio-economic effects occurring. Companies are also required to assess cumulative effects, which result from the interaction with surrounding projects (for example, a mine, or an urban development). The level of detail required by the CER varies with the nature and scale of the project.",
-        "footer": "For a brief overview of the environmental aspect of ESAs, view the Canada Energy Regulator’s {link}.",
-        "link3": "video on Environmental Protection",
-        "url3": "https://www.youtube.com/watch?v=cXLfhAI9hhw"
+        "text4": "Effects analysis predicts the effects associated with a proposed project. Companies are required to propose mitigation measures they will undertake to sustain this baseline, like undertaking pre-construction surveys for nesting birds at a certain time of the year to avoid interrupting bird nesting. These analyses also evaluate the potential impacts of a project once mitigation is applied (called residual effects), to assess the significance and likelihood of residual adverse environmental and socio-economic effects occurring. Companies are also required to assess cumulative effects, which result from the interaction with surrounding projects (for example, a mine, or an urban development). The level of detail required by the CER varies with the nature and scale of the project."
       },
       "protectingEnvironment": {
         "header1": "Protecting the Environment",
+        "text1": "For a brief overview of the environmental aspect of ESAs, view the Canada Energy Regulator’s video on Environmental Protection.",
         "transcript": {
           "heading": "Transcript:",
           "text1": "At the Canada Energy Regulator, we hold companies to some of the strictest safety and environmental standards in the world.",

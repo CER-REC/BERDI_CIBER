@@ -39,17 +39,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
     color: theme.palette.teal.blue,
   },
+  video: {
+    width: '75%',
+    margin: 'auto',
+  },
   videoTranscript: {
     marginTop: '1em',
-    '& summary::marker': {
-      unicodeBidi: 'isolate',
-      fontVariantNumeric: 'tabular-nums',
-      textTransform: 'none',
-      textIndent: '0px !important',
-      textAlign: 'start !important',
-      textAlignLast: 'start !important',
-      content: ' ',
-    },
     '& p': {
       padding: 'unset',
     },
@@ -157,8 +152,10 @@ const Data = () => {
           <Typography variant="h6">
             <strong>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.header1' })}</strong>
           </Typography>
-          <br />
-          <YouTube videoId={protectingEnvironmentYoutube[lang]} />
+          <Typography>
+            {intl.formatMessage({ id: 'pages.data.protectingEnvironment.text1' })}
+          </Typography>
+          <YouTube videoId={protectingEnvironmentYoutube[lang]} className={classes.video} />
           <details className={classes.videoTranscript}>
             <summary>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.transcript.heading' })}</summary>
             <Typography variant="body1" component="div">
