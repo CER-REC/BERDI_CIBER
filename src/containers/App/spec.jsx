@@ -101,7 +101,7 @@ describe('Containers/App', () => {
   });
 
   it('should set the state from the URL parameters', async () => {
-    setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D');
+    setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&applicationIds=1&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi');
     render(<LazyApp />, { configMocked: false });
 
     const filterChipsPanel = screen.getByText('components.filterChipsPanel.title', { exact: false }).parentNode;
@@ -126,7 +126,7 @@ describe('Containers/App', () => {
 
   it('should push the state to the history', async () => {
     const expectedDates = 'startDate=2000-01-01&endDate=2000-01-31';
-    const expected = `page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&${expectedDates}&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D&applicationIds=WyJBcHBsaWNhdGlvbiBUZXN0IDEiXQ%3D%3D`;
+    const expected = `page=search&filter=project&searchIndex=1&cartIndex=&resultCount=10&${expectedDates}&applicationIds=1&regions=AB,BC,QC&commodities=OIL&projectTypes=SMALL,LARGE&statuses=APPROVED,REVOKED&contentTypes=TABLE&topics=&search=InRlc3Qgc2VhcmNoIg%3D%3D`;
 
     render(<LazyApp />, { configMocked: false });
     simulateSearch();

@@ -46,8 +46,8 @@ const useStyles = makeStyles({
       width: '100%',
     },
     height: '35vh',
-    // Select all treemap leaf nodes by getting all IDs that start with Application
-    "& div[id^='Application']": {
+    // Select all treemap leaf nodes which are labeled by their corresponding data IDs
+    '& div[id]': {
       borderRadius: '5px',
     },
     // Disable the tooltip when you hover over whitespace in the treemap

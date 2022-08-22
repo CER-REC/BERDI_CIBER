@@ -229,15 +229,15 @@
     },
     "applications": [
       {
-        "id": "Application Test 1",
+        "id": "1",
         "shortName": "Test1"
       },
       {
-        "id": "Application Test 2",
+        "id": "2",
         "shortName": "Test2"
       },
       {
-        "id": "Application Test A",
+        "id": "100",
         "shortName": "Test A"
       }
     ]

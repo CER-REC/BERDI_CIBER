@@ -12,8 +12,8 @@ import useAPI from './useAPI';
 
 const parameters = ['page', 'filter', 'searchIndex', 'cartIndex', 'resultCount'];
 const dateParameters = ['startDate', 'endDate'];
-const delimitedParameters = ['regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
-const encodedParameters = ['search', 'applicationIds'];
+const delimitedParameters = ['applicationIds', 'regions', 'commodities', 'projectTypes', 'statuses', 'contentTypes', 'topics'];
+const encodedParameters = ['search'];
 const history = createBrowserHistory();
 const ConfigContext = createContext();
 let unlistenHistory = () => {};
@@ -109,7 +109,7 @@ export const ConfigProvider = ({ children }) => {
       payload: {
         page: query.page,
         search: decodeParameter(query.search),
-        applicationIds: decodeParameter(query.applicationIds),
+        applicationIds: query.applicationIds?.split(','),
         regions: query.regions?.split(','),
         startDate,
         endDate,

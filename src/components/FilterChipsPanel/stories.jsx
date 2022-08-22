@@ -13,7 +13,7 @@ export default storiesForComponent(
     parameters: {
       config: {
         search: 'test search',
-        applicationIds: ['Application Test 1'],
+        applicationIds: ['1'],
         regions: ['AB', 'BC'],
         startDate: new Date(),
         endDate: new Date(),

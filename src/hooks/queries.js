@@ -27,7 +27,7 @@ export const CONFIGURATION = gql`
 export const SEARCH = gql`
   query(
     $search: String,
-    $applicationIds: [String!]!,
+    $applicationIds: [ID!]!,
     $regions: [Region!]!,
     $startDate: DateTime!,
     $endDate: DateTime!,
@@ -35,7 +35,7 @@ export const SEARCH = gql`
     $projectTypes: [ProjectType!]!,
     $statuses: [Status!]!,
     $contentTypes: [MediaType!]!,
-    $searchApplicationIds: [String!]!,
+    $searchApplicationIds: [ID!]!,
     $valueComponent: InputValueComponentType,
     $first: Int!,
     $offset: Int!
