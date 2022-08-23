@@ -48,3 +48,8 @@ export const environmentalTopics = [
   'electricity',
   'environmental',
 ];
+
+export const protectingEnvironmentYoutube = {
+  en: 'cXLfhAI9hhw',
+  fr: 'Lmg_qIJtQmo',
+};
