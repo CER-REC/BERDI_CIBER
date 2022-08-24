@@ -353,7 +353,7 @@
       "seeLess": "See less...",
       "foundOnPage": "Found on page: ",
       "originalPDF": "Open original PDF",
-      "externalLinksTitle": "External liks to original files in REGDOCS",
+      "externalLinksTitle": "External links to original files in REGDOCS",
       "esaFolder": "View ESA folder",
       "projectFolder": "View project folder",
       "viewFinalDecision": "View final decision",
@@ -463,7 +463,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Learn from the past and prepare the future.",
-      "tagline": "Search Biophysical, Economic, and Regional Data and Information from major pipeline projects, since 2003. Data last updated: {updateDate}. New data is added twice a year.",
+      "tagline": "Search Biophysical, Socio-Economic, and Regional Data and Information from major pipeline projects, since 2003. Data last updated: {updateDate}. New data is added twice a year.",
       "exploreTopics": "Explore the data based on topics",
       "disclaimer": {
         "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health. {learnMoreLink}",
