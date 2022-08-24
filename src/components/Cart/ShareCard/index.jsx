@@ -60,7 +60,11 @@ const ShareCard = ({ open, onClose }) => {
         {/* Card body */}
         <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
           <Grid item xs={8}>
-            <Button className={classes.shareCardCopyButton} onClick={handleCopyCartURL} disabled={isEmpty}>
+            <Button
+              className={classes.shareCardCopyButton}
+              onClick={handleCopyCartURL}
+              disabled={isEmpty}
+            >
               <Typography variant="body2" noWrap>
                 {cartURL}
               </Typography>
