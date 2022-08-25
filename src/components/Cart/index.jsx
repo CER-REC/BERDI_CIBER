@@ -10,6 +10,7 @@ import mergeRefs from 'react-merge-refs';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { VariableSizeList } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+import clsx from 'clsx';
 import useConfig from '../../hooks/useConfig';
 import useDownloadSize from '../../hooks/useDownloadSize';
 import useLazyCartData from '../../hooks/useLazyCartData';
@@ -224,7 +225,7 @@ const Cart = () => {
             </a>
           </Grid>
           <Grid item container xs={3} className={classes.headerButtonContainer}>
-            <IconButton disabled={isEmpty} aria-label={intl.formatMessage({ id: 'components.cart.shareAltText' })} onClick={handleShareOpen} className={classes.headerButton}>
+            <IconButton aria-label={intl.formatMessage({ id: 'components.cart.shareAltText' })} onClick={handleShareOpen} className={classes.headerButton}>
               <ShareIcon />
             </IconButton>
             <IconButton aria-label={intl.formatMessage({ id: 'components.cart.collapseShelfAriaText' })} onClick={handleClose} className={classes.headerButton}>
@@ -259,7 +260,8 @@ const Cart = () => {
               {intl.formatMessage({ id: 'components.cart.removeAll' })}
             </Button>
           </Grid>
-          <Grid item className={classes.bodyList}>
+          <Grid item className={clsx(classes.bodyList, { [classes.bodyListEmpty]: isEmpty })}>
+            { isEmpty && (<Typography style={{ fontSize: '1.2em' }}>{intl.formatMessage({ id: 'components.cart.noItems' })}</Typography>) }
             <AutoSizer>
               {({ height, width }) => (
                 <InfiniteLoader
