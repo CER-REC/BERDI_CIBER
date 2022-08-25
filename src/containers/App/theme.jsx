@@ -93,8 +93,11 @@ const theme = createMuiTheme({
     },
     environmental,
     socioEconomic,
+  },
+  mixins: {
     disabled: {
       opacity: 0.25,
+      pointerEvents: 'none',
     },
   },
   typography: {

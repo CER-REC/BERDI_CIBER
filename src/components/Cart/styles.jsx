@@ -85,8 +85,7 @@ export default (theme) => ({
     justifyContent: 'center',
   },
   footerDisabled: {
-    ...theme.palette.disabled,
-    pointerEvents: 'none',
+    ...theme.mixins.disabled,
   },
   footer: {
     borderTop: '8px solid',

@@ -7,7 +7,7 @@ export default (theme) => ({
     border: '1px solid #C7C7CD',
     zIndex: 1,
     '& button:disabled': {
-      ...theme.palette.disabled,
+      ...theme.mixins.disabled,
     },
   },
   closeButton: {
