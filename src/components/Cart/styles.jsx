@@ -85,7 +85,7 @@ export default (theme) => ({
     justifyContent: 'center',
   },
   footerDisabled: {
-    opacity: 0.25,
+    ...theme.palette.disabled,
     pointerEvents: 'none',
   },
   footer: {

@@ -93,6 +93,9 @@ const theme = createMuiTheme({
     },
     environmental,
     socioEconomic,
+    disabled: {
+      opacity: 0.25,
+    },
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',

@@ -7,7 +7,7 @@ export default (theme) => ({
     border: '1px solid #C7C7CD',
     zIndex: 1,
     '& button:disabled': {
-      opacity: 0.25,
+      ...theme.palette.disabled,
     },
   },
   closeButton: {
