@@ -1,6 +1,7 @@
 module.exports = {
   parser: 'babel-eslint',
   extends: '@vizworx/eslint-config-react',
+  env: { jquery: true },
   overrides: [
     {
       files: [
