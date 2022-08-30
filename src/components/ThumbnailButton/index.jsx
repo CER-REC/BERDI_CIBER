@@ -49,7 +49,7 @@ ThumbnailButton.propTypes = {
   className: PropTypes.string,
   src: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  ariaText: PropTypes.func.isRequired,
+  ariaText: PropTypes.string.isRequired,
 };
 
 ThumbnailButton.defaultProps = {

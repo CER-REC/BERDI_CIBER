@@ -9,6 +9,11 @@ import SearchHelpDialog from '../SearchHelpDialog';
 
 const useStyles = makeStyles((theme) => ({
   root: { width: '100%' },
+  bar: {
+    display: 'inline-flex',
+    margin: 'auto',
+    width: '100%',
+  },
   input: {
     width: '100%',
     margin: '0',
@@ -57,31 +62,33 @@ const SearchBar = ({ hasShrink, textValue, onTextChanged, onKeyDown, onSearch })
     <div className={`Keywords ${classes.root}`}>
       <SearchHelpDialog open={searchHelpOpen} onClose={() => setSearchHelpOpen(false)} />
       <Grid container wrap="nowrap">
-        <TextField
-          classes={{ root: classes.input }}
-          label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
-          variant="outlined"
-          margin="dense"
-          value={textValue}
-          InputLabelProps={{
-            classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
-          }}
-          InputProps={{ classes: { notchedOutline: classes.noBorder } }}
-          // Ignoring the next line because TextField has two props with slightly different casing.
-          // eslint-disable-next-line react/jsx-no-duplicate-props
-          inputProps={inputProps}
-          onChange={onTextChanged}
-          onKeyDown={onKeyDown}
-          autoFocus
-        />
-        <Button
-          className={classes.button}
-          aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
-          variant="contained"
-          onClick={onSearch}
-        >
-          <SearchIcon />
-        </Button>
+        <div className={classes.bar}>
+          <TextField
+            classes={{ root: classes.input }}
+            label={intl.formatMessage({ id: 'components.searchPanel.searchPlaceHolder' })}
+            variant="outlined"
+            margin="dense"
+            value={textValue}
+            InputLabelProps={{
+              classes: { shrink: hasShrink ? classes.labelShrink : classes.disabledLabelShrink },
+            }}
+            InputProps={{ classes: { notchedOutline: classes.noBorder } }}
+            // Ignoring the next line because TextField has two props with slightly different casing
+            // eslint-disable-next-line react/jsx-no-duplicate-props
+            inputProps={inputProps}
+            onChange={onTextChanged}
+            onKeyDown={onKeyDown}
+            autoFocus
+          />
+          <Button
+            className={classes.button}
+            aria-label={intl.formatMessage({ id: 'components.searchPanel.searchButton' })}
+            variant="contained"
+            onClick={onSearch}
+          >
+            <SearchIcon />
+          </Button>
+        </div>
         <Button
           className={classes.helpButton}
           aria-label={intl.formatMessage({ id: 'components.searchPanel.searchHelp' })}
