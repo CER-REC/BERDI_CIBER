@@ -1,6 +1,7 @@
 import { Button, Grid, makeStyles } from '@material-ui/core';
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { useIntl } from 'react-intl';
+import { reportSection } from '../../utilities/analytics';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
@@ -17,17 +18,35 @@ import TopicsFilter from '../../components/TopicsFilter';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
+import info from '../../images/info.svg';
+
+const iconSize = '1.5em';
 
 const useStyles = makeStyles((theme) => ({
   dataButton: {
     color: theme.palette.purple.twilight,
     borderColor: theme.palette.purple.twilight,
     padding: '0.3em 5em',
+    marginLeft: '0.5em',
+  },
+  icon: {
+    alignSelf: 'center',
+    backgroundColor: theme.palette.purple.twilight,
+    backgroundImage: `url(${info})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'auto 50%',
+    borderRadius: '50%',
+    height: iconSize,
+    marginRight: '1em',
+    padding: '0.5em',
+    width: iconSize,
   },
 }));
 
 const showOSDPFooter = false;
 const Search = () => {
+  const { configDispatch } = useConfig();
   const ref = useRef();
   const { loading } = useAPI();
   const { config } = useConfig();
@@ -37,6 +56,12 @@ const Search = () => {
   const [limitationsOpen, setLimitationsOpen] = useState(false);
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
   const handleClose = useCallback(() => setLimitationsOpen(false), [setLimitationsOpen]);
+
+  const handleClick = useCallback((page) => {
+    reportSection(page);
+    configDispatch({ type: 'page/changed', payload: page });
+  }, [configDispatch]);
+  const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
   useEffect(() => {
     if (config.fragment === 'search') {
@@ -60,6 +85,10 @@ const Search = () => {
         </Grid>
         {config.page === 'search' && (
           <Grid item>
+            <Button color="primary" variant="outlined" className={classes.dataButton} onClick={createHandleClick('project')}>
+              <div className={classes.icon} />
+              {intl.formatMessage({ id: 'components.resultsList.aboutBerdi' })}
+            </Button>
             <Button color="primary" variant="outlined" className={classes.dataButton} onClick={handleButtonClick}>
               {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
             </Button>

@@ -364,6 +364,7 @@
       "failedToLoad": "PDF viewer has failed to load."
     },
     "resultsList": {
+      "aboutBerdi": "About BERDI",
       "dataButton": {
         "label": "Access full dataset"
       },
