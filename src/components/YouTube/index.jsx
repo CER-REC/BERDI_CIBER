@@ -1,12 +1,11 @@
-/* eslint-disable no-undef */
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 const YouTube = ({ videoId, className }) => {
   useEffect(() => {
-    if (typeof jQuery !== 'undefined') {
-      jQuery('.wb-mltmd').trigger('wb-init.wb-mltmd');
+    if (typeof $ === 'function') {
+      $('.wb-mltmd').trigger('wb-init.wb-mltmd');
     }
   }, []);
 
