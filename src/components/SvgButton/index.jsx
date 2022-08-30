@@ -4,11 +4,9 @@ import React from 'react';
 import DotsRating from '../DotsRating';
 import Label from './Label';
 import Topic from './Topic';
-import info from '../../images/info.svg';
 
 const pulseMS = 1500;
 const circleWidth = '3.5em';
-const notificationWidth = '1.2em';
 
 const useStyles = makeStyles((theme) => ({
   root: { display: 'inline-block' },
@@ -35,19 +33,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '0.4em',
     width: circleWidth,
     '&> div': { position: 'relative' },
-  },
-  notification: {
-    backgroundColor: theme.palette.icon.grey,
-    backgroundImage: `url(${info})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'auto 50%',
-    borderRadius: '50%',
-    height: notificationWidth,
-    position: 'absolute',
-    right: `calc(${notificationWidth} / -2)`,
-    top: `calc(${notificationWidth} / -2)`,
-    width: notificationWidth,
   },
   pulse: {
     '&:before': {
@@ -127,7 +112,6 @@ const SvgButton = ({
           >
             <div>
               <img className={classes.svg} src={src} alt={label} />
-              {!disabled && notification && <div className={classes.notification} />}
             </div>
             <DotsRating score={score} type={type} />
           </Icon>
