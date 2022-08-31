@@ -1,6 +1,7 @@
 import { Button, Grid, makeStyles } from '@material-ui/core';
 import React, { useEffect, useCallback, useState, useRef } from 'react';
 import { useIntl } from 'react-intl';
+import { reportSection } from '../../utilities/analytics';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
@@ -17,17 +18,33 @@ import TopicsFilter from '../../components/TopicsFilter';
 import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
+import info from '../../images/info.svg';
+
+const iconSize = '1.5em';
 
 const useStyles = makeStyles((theme) => ({
-  dataButton: {
+  inlineButton: {
     color: theme.palette.purple.twilight,
     borderColor: theme.palette.purple.twilight,
     padding: '0.3em 5em',
+    marginLeft: '0.5em',
+  },
+  icon: {
+    backgroundColor: theme.palette.purple.twilight,
+    backgroundImage: `url(${info})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    backgroundSize: 'auto 50%',
+    borderRadius: '50%',
+    height: iconSize,
+    marginRight: '1em',
+    width: iconSize,
   },
 }));
 
 const showOSDPFooter = false;
 const Search = () => {
+  const { configDispatch } = useConfig();
   const ref = useRef();
   const { loading } = useAPI();
   const { config } = useConfig();
@@ -37,6 +54,12 @@ const Search = () => {
   const [limitationsOpen, setLimitationsOpen] = useState(false);
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
   const handleClose = useCallback(() => setLimitationsOpen(false), [setLimitationsOpen]);
+
+  const handleClick = useCallback(() => {
+    const page = 'project';
+    reportSection(page);
+    configDispatch({ type: 'page/changed', payload: page });
+  }, [configDispatch]);
 
   useEffect(() => {
     if (config.fragment === 'search') {
@@ -60,7 +83,11 @@ const Search = () => {
         </Grid>
         {config.page === 'search' && (
           <Grid item>
-            <Button color="primary" variant="outlined" className={classes.dataButton} onClick={handleButtonClick}>
+            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleClick}>
+              <div className={classes.icon} />
+              {intl.formatMessage({ id: 'pages.search.aboutBerdiButton' })}
+            </Button>
+            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleButtonClick}>
               {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
             </Button>
 
