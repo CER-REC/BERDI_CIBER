@@ -23,14 +23,13 @@ import info from '../../images/info.svg';
 const iconSize = '1.5em';
 
 const useStyles = makeStyles((theme) => ({
-  dataButton: {
+  inlineButton: {
     color: theme.palette.purple.twilight,
     borderColor: theme.palette.purple.twilight,
     padding: '0.3em 5em',
     marginLeft: '0.5em',
   },
   icon: {
-    alignSelf: 'center',
     backgroundColor: theme.palette.purple.twilight,
     backgroundImage: `url(${info})`,
     backgroundRepeat: 'no-repeat',
@@ -39,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '50%',
     height: iconSize,
     marginRight: '1em',
-    padding: '0.5em',
     width: iconSize,
   },
 }));
@@ -57,11 +55,11 @@ const Search = () => {
   const handleButtonClick = useCallback(() => setLimitationsOpen(true), [setLimitationsOpen]);
   const handleClose = useCallback(() => setLimitationsOpen(false), [setLimitationsOpen]);
 
-  const handleClick = useCallback((page) => {
+  const handleClick = useCallback(() => {
+    const page = 'project';
     reportSection(page);
     configDispatch({ type: 'page/changed', payload: page });
   }, [configDispatch]);
-  const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
   useEffect(() => {
     if (config.fragment === 'search') {
@@ -85,11 +83,11 @@ const Search = () => {
         </Grid>
         {config.page === 'search' && (
           <Grid item>
-            <Button color="primary" variant="outlined" className={classes.dataButton} onClick={createHandleClick('project')}>
+            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleClick}>
               <div className={classes.icon} />
-              {intl.formatMessage({ id: 'components.resultsList.aboutBerdi' })}
+              {intl.formatMessage({ id: 'pages.search.aboutBerdiButton' })}
             </Button>
-            <Button color="primary" variant="outlined" className={classes.dataButton} onClick={handleButtonClick}>
+            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleButtonClick}>
               {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
             </Button>
 
