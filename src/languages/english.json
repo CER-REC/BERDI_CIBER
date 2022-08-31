@@ -180,6 +180,8 @@
       "viewFullList": "View full list on page",
       "copyLink": "Copy link",
       "shareDisclaimer": "This is your unique link to a permanent collection. This means that items will not disappear, and can not be changed. This collection is viewable by anybody with the link.",
+      "shareNoItems": "There are no items in the shelf to share. Add items to the shelf to get a shareable link.",
+      "noItems": "No items in shelf.",
       "copyConfirmation": "Link copied!",
       "removeAll": "Remove all",
       "shareAltText": "Share icon",
@@ -353,7 +355,7 @@
       "seeLess": "See less...",
       "foundOnPage": "Found on page: ",
       "originalPDF": "Open original PDF",
-      "externalLinksTitle": "External liks to original files in REGDOCS",
+      "externalLinksTitle": "External links to original files in REGDOCS",
       "esaFolder": "View ESA folder",
       "projectFolder": "View project folder",
       "viewFinalDecision": "View final decision",
@@ -463,7 +465,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Learn from the past and prepare the future.",
-      "tagline": "Search Biophysical, Economic, and Regional Data and Information from major pipeline projects, since 2003. {learnMoreLink} Data last updated: {updateDate}. New data is added twice a year.",
+      "tagline": "Search Biophysical, Socio-Economic, and Regional Data and Information from major pipeline projects, since 2003. {learnMoreLink} Data last updated: {updateDate}. New data is added twice a year.",
       "learnMoreText": "Learn more about BERDI on our information pages.",
       "exploreTopics": "Explore the data based on topics",
       "disclaimer": {

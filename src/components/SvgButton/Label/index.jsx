@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     height: '3em',
     marginTop: '0.2em',
     overflow: 'hidden',
-    width: '6.8em',
+    width: '7em',
+    wordWrap: 'break-word',
     // TODO: Update to use the line-clamp property when CSS Overflow Module Level 3 is available
     WebkitLineClamp: 2,
     WebkitBoxOrient: 'vertical',

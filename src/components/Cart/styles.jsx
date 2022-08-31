@@ -77,12 +77,15 @@ export default (theme) => ({
     marginRight: '0.25em',
   },
   bodyList: {
-    height: '100%',
-    width: '100%',
+    flexGrow: 1,
+  },
+  bodyListEmpty: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   footerDisabled: {
-    opacity: 0.25,
-    pointerEvents: 'none',
+    ...theme.mixins.disabled,
   },
   footer: {
     borderTop: '8px solid',

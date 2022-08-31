@@ -182,6 +182,8 @@
       "viewFullList": "Voir la liste complète sur la page",
       "copyLink": "Copier le lien",
       "shareDisclaimer": "Il s’agit de votre lien unique vers une collection permanente. Cela signifie que les éléments qui y figurent ne disparaîtront pas et qu’ils ne pourront pas être modifiés. Cette collection peut être consultée par quiconque dispose de ce lien.",
+      "shareNoItems": "Il n’y a pas d’articles à partager. Ajoutez des articles à l’étagère pour obtenir un lien à partager.",
+      "noItems": "Aucun article sur l’étagère.",
       "copyConfirmation": "Lien copié!",
       "removeAll": "Supprimer tout",
       "removeAllAltText": "Supprimer un élément",
@@ -233,10 +235,10 @@
       "title": "Avis relatif aux connaissances autochtones dans CIBER",
       "ikDialog": {
         "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
-        "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada de la Régie",
+        "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada",
         "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/index.html",
         "body2": "La Régie, de concert avec l’Agence d’évaluation d’impact du Canada, Transports Canada et Pêches et Océans Canada, en partenariat avec les peuples autochtones, a élaboré un cadre stratégique sur les connaissances autochtones (le « cadre stratégique »). Ce cadre stratégique indique qu’il est nécessaire de bien saisir et de prendre en compte le contexte dans lequel ces informations ont été communiquées par la nation ou la communauté, ce qui inclut en réserver l’utilisation aux fins pour lesquelles elles ont été transmises.",
-        "body3": "En jumelant des moyens automatiques et une vérification manuelle, nous avons supprimé des entrées de notre index de recherche qui étaient susceptibles de diriger l’utilisateur vers des connaissances autochtones qui pourraient être délicates sur le plan culturel. Cela ne touche qu’un petit sous-ensemble d’entrées de CIBER, les informations se rapportant à des collectivités autochtones n’appartenant pas toutes à cette catégorie. Pour comprendre la façon dont nous avons relevé les connaissances autochtones, nous vous invitons à consulter la page portant sur celle-ci dans CIBER.",
+        "body3": "En jumelant des moyens automatiques et une vérification manuelle, nous avons supprimé des entrées de notre index de recherche qui étaient susceptibles de diriger l’utilisateur vers des connaissances autochtones qui pourraient être délicates sur le plan culturel. Cela ne touche qu’un petit sous-ensemble d’entrées de CIBER, les informations se rapportant à des collectivités autochtones n’appartenant pas toutes à cette catégorie. Pour comprendre la façon dont nous avons relevé les connaissances autochtones, nous vous invitons à consulter la page portant sur celles-ci dans CIBER.",
         "body4": "CIBER ne renferme aucun renseignement classé confidentiel. Veuillez consulter {link} pour en savoir davantage sur la façon dont les connaissances autochtones confidentielles sont protégées.",
         "link4": "cette page",
         "url4": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/connaissances-autochtones-confidentielles.html",
@@ -466,7 +468,7 @@
   "pages": {
     "landing": {
       "taglineBold": "Tirer des leçons du passé et préparer l’avenir.",
-      "tagline": "Explorez les contenus et les informations biophysiques, économiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. {learnMoreLink} Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
+      "tagline": "Explorez les contenus et les informations biophysiques, socioéconomiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. {learnMoreLink} Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
       "learnMoreText": "Pour en savoir plus sur CIBER, consultez nos pages d’information.",
       "exploreTopics": "Explorer les données par sujet",
       "disclaimer": {
@@ -512,7 +514,7 @@
         "text2": "Les conditions de base de la zone visée par un pipeline projeté et les effets potentiels du pipeline sur ces conditions sont deux éléments essentiels des EES.",
         "header1": "Renseignements sur les conditions de base",
         "text3": "Les renseignements sur les conditions de base décrivent l’état actuel d’une zone où on projette la construction d’un pipeline et sont fondés sur des recherches documentaires et sur le terrain, de même que sur des activités de mobilisation du public. Ces renseignements portent sur un vaste éventail de sujets, ou « composantes valorisées », qui vont des milieux humides, des espèces en péril et des émissions atmosphériques à l’utilisation des terres à des fins traditionnelles, au bien-être social et culturel et à la santé humaine. {link1} et les {link2} de la Régie fournissent des précisions sur les sujets à examiner dans les catégories biophysiques et socioéconomiques.",
-        "link1": "Guide de dépôt",
+        "link1": "Le Guide de dépôt",
         "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-annexe-1-listes-controle-guide-depot.html",
         "link2": "Listes de contrôle du Guide de dépôt",
         "url2": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/guide-depot-annexe-1-listes-controle-guide-depot.pdf",
