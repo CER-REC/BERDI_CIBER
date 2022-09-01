@@ -23,8 +23,8 @@ const suppressMissingTranslationError = (error) => {
 
 const messages = {
   'pages.landing.body': 'pages.landing.body {projectLink} {dataLink} {methodLink} {ikLink} {generalLimitations}',
-  'pages.landing.tagline': 'pages.landing.tagline {learnMoreLink}'
-}
+  'pages.landing.tagline': 'pages.landing.tagline {learnMoreLink}',
+};
 
 const AppProviders = ({ children }) => (
   <ApolloProvider client={client}>

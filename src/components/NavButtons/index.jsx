@@ -1,6 +1,7 @@
 import React from 'react';
 import SmallButtons from './SmallButtons';
 import BackButton from '../BackButton';
+import NavBlock from './NavBlock';
 
 import useConfig from '../../hooks/useConfig';
 
