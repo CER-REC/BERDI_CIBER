@@ -477,6 +477,9 @@
       "generalLimitationsText": "General Limitations disclaimer",
       "learnMoreButton": "Learn more about BERDI"
     },
+    "search": {
+      "aboutBerdiButton": "About BERDI"
+    },
     "project": {
       "title": "Why we created BERDI",
       "body": {
