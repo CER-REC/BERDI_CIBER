@@ -5,14 +5,12 @@ import NavButtons from '.';
 
 describe('Components/NavButtons', () => {
   // Landing page navigation buttons
-  const expectPageContentButtonsToBeRendered = () => {
-    expect(screen.getAllByRole('button')).toHaveLength(3);
-    expect(screen.getByText('pages.project.title').closest('button'))
-      .toHaveTextContent('pages.project.description');
-    expect(screen.getByText('pages.data.title').closest('button'))
-      .toHaveTextContent('pages.data.description');
-    expect(screen.getByText('pages.methods.title').closest('button'))
-      .toHaveTextContent('pages.methods.description');
+  const expectNavBlockToBeRendered = () => {
+    expect(screen.getByText('pages.landing.projectLinkText')).not.toBeEmpty();
+    expect(screen.getByText('pages.landing.dataLinkText')).not.toBeEmpty();
+    expect(screen.getByText('pages.landing.methodLinkText')).not.toBeEmpty();
+    expect(screen.getByText('pages.landing.ikLinkText')).not.toBeEmpty();
+    expect(screen.getByText('pages.landing.generalLimitationsText')).not.toBeEmpty();
   };
 
   const expectPageNavigationButtonsToBeRendered = () => {
@@ -35,9 +33,9 @@ describe('Components/NavButtons', () => {
     expect(screen.getByRole('button')).toHaveTextContent('pages.back');
   });
 
-  it('should render the page content buttons', () => {
+  it('should render the navigation block', () => {
     render(<NavButtons />);
-    expectPageContentButtonsToBeRendered();
+    expectNavBlockToBeRendered();
   });
 
   it('should render the page navigation buttons', () => {
@@ -45,27 +43,27 @@ describe('Components/NavButtons', () => {
     expectPageNavigationButtonsToBeRendered();
   });
 
-  it('should render the page content buttons after clicking the back button', () => {
+  it('should render the navigation block after clicking the back button', () => {
     render(<NavButtons />, { config: { page: 'search' } });
     fireEvent.click(screen.getByRole('button'));
-    expectPageContentButtonsToBeRendered();
+    expectNavBlockToBeRendered();
   });
 
-  it('should render the page navigation buttons after clicking the page button', () => {
+  it('should render the navigation block after clicking the page button', () => {
     render(<NavButtons />);
-    fireEvent.click(screen.getByText('pages.project.title'));
+    fireEvent.click(screen.getByText('pages.landing.projectLinkText'));
     expectPageNavigationButtonsToBeRendered();
 
     cleanup();
 
     render(<NavButtons />);
-    fireEvent.click(screen.getByText('pages.data.title'));
+    fireEvent.click(screen.getByText('pages.landing.dataLinkText'));
     expectPageNavigationButtonsToBeRendered();
 
     cleanup();
 
     render(<NavButtons />);
-    fireEvent.click(screen.getByText('pages.methods.title'));
+    fireEvent.click(screen.getByText('pages.landing.methodLinkText'));
     expectPageNavigationButtonsToBeRendered();
   });
 });

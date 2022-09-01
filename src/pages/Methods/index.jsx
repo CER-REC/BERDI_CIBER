@@ -1,6 +1,7 @@
 import { makeStyles, Typography } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useIntl } from 'react-intl';
+import useConfig from '../../hooks/useConfig';
 import NavButtons from '../../components/NavButtons';
 import BackButton from '../../components/BackButton';
 
@@ -34,8 +35,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Methods = () => {
+  const ref = useRef();
   const intl = useIntl();
   const classes = useStyles();
+  const { config } = useConfig();
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (config.fragment === 'ikInformation') {
+        ref.current.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }, [config]);
+
   return (
     <div style={{ paddingTop: '2em' }}>
       <BackButton />
@@ -236,7 +248,7 @@ const Methods = () => {
           </Typography>
         </section>
 
-        <section>
+        <section ref={ref}>
           <Typography variant="h5" style={{ paddingTop: '1em' }}>
             {intl.formatMessage({ id: 'pages.methods.body.section7.header' })}
           </Typography>

@@ -2,7 +2,6 @@ import React from 'react';
 import NavButtons from '../../components/NavButtons';
 import SearchPanel from '../../components/SearchPanel';
 import TopicsFilter from '../../components/TopicsFilter';
-import Disclaimer from './Disclaimer';
 import ExploreHeader from '../../components/ExploreHeader';
 import OSDPFooter from '../../components/OSDPFooter';
 
@@ -13,7 +12,6 @@ const Landing = () => (
     <ExploreHeader />
     <TopicsFilter />
     <NavButtons />
-    <Disclaimer />
     {showOSDPFooter && <OSDPFooter />}
   </div>
 );

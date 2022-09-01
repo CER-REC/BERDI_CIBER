@@ -162,7 +162,7 @@ describe('Containers/App', () => {
     // Using BigInt to mock a bad config state for throwing a error when setting data in URL
     // eslint-disable-next-line no-undef
     render(<LazyApp />, { config: { search: BigInt('1') } });
-    fireEvent.click(screen.getByText('pages.project.title'));
+    fireEvent.click(screen.getByText('pages.landing.learnMoreText'));
 
     expect(window.history.pushState).toHaveBeenLastCalledWith(
       expect.anything(),
