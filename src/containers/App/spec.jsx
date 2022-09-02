@@ -104,7 +104,7 @@ describe('Containers/App', () => {
     setURLSearchParams('?page=search&filter=project&searchIndex=2&cartIndex=&startDate=2000-12-01&endDate=2000-12-31&applicationIds=1&regions=MB&commodities=GAS&projectTypes=ABANDONMENT&statuses=WITHDRAWN&contentTypes=FIGURE,TABLE&topics=&search=ImZpc2gi');
     render(<LazyApp />, { configMocked: false });
 
-    const filterChipsPanel = screen.getByText('components.filterChipsPanel.title', { exact: false }).parentNode;
+    const filterChipsPanel = screen.getByText('components.filterChipsPanel.title', { exact: false }).parentNode.parentNode.parentNode;
 
     expect(screen.getByText('pages.back', { exact: false })).toBeInTheDocument();
     expect(getByText(filterChipsPanel, 'fish')).toBeInTheDocument();
