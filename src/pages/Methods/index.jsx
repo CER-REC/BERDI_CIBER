@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   typographyStyle: {
     fontSize: '2rem',
-    lineHeight: '1.65'
+    lineHeight: '1.65',
   },
   header: {
     fontWeight: '900',

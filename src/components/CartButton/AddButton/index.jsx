@@ -22,7 +22,7 @@ const AddButton = ({ data }) => {
   return (
     <Button aria-label={intl.formatMessage({ id: 'components.cartButton.add' })} className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
       <img alt={intl.formatMessage({ id: 'components.cartButton.addAltText' })} src={plus} />
-      <Typography variant='inherit' className={classes.buttonText}>
+      <Typography variant="inherit" className={classes.buttonText}>
         {intl.formatMessage({ id: 'components.cartButton.add' })}
       </Typography>
     </Button>

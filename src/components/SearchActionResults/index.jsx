@@ -16,17 +16,17 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'left',
     width: '100%',
     marginTop: topMargin,
-    borderColor: theme.palette.teal.blue
+    borderColor: theme.palette.teal.blue,
   },
   hrefButton: {
     '&:hover': {
       textDecoration: 'none',
-      color: 'inherit'
-    } 
+      color: 'inherit',
+    },
   },
   buttonText: {
     marginLeft: '0.5em',
-    color: theme.palette.teal.blue
+    color: theme.palette.teal.blue,
   },
   hr: {
     borderColor: theme.palette.grey.light,
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
   },
   svgIcon: {
     filter: 'brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(5458%) hue-rotate(181deg) brightness(96%) contrast(94%)',
-    paddingLeft: '0.5em'
-  }
+    paddingLeft: '0.5em',
+  },
 }));
 
 const SearchActionResults = ({ content }) => {
@@ -70,8 +70,8 @@ const SearchActionResults = ({ content }) => {
         className={`${classes.searchResultButton} ${classes.hrefButton}`}
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
-        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} className={classes.svgIcon}/>
-        <Typography variant='inherit' className={classes.buttonText}>
+        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} className={classes.svgIcon} />
+        <Typography variant="inherit" className={classes.buttonText}>
           {intl.formatMessage({
             id: 'components.searchActionResults.download',
           })}
@@ -84,8 +84,8 @@ const SearchActionResults = ({ content }) => {
         onClick={handleReportClick}
         className={classes.searchResultButton}
       >
-        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} className={classes.svgIcon}/>
-        <Typography variant='inherit' className={classes.buttonText}>
+        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} className={classes.svgIcon} />
+        <Typography variant="inherit" className={classes.buttonText}>
           {intl.formatMessage({
             id: 'components.searchActionResults.report',
           })}
