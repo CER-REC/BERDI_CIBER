@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
     transform: 'scale(1.15)',
   },
   clearAllButton: {
-    marginLeft: '0.5em',
+    marginLeft: '1.5em',
     textDecoration: 'none',
     '&:hover': { textDecoration: 'underline' },
   },
