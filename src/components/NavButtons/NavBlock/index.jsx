@@ -13,7 +13,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     backgroundColor: theme.palette.teal.blue,
-    color: 'white',
+  },
+  inlineButton: {
+    display: 'inline',
   },
 }));
 
@@ -42,7 +44,7 @@ const NavBlock = () => {
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
   return (
-    <Grid container spacing={3} className={`TitleContent ${classes.root} `}>
+    <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
         <img src={education} alt="education" />
       </Grid>
@@ -56,27 +58,57 @@ const NavBlock = () => {
               { id: 'pages.landing.body' },
               {
                 projectLink: (
-                  <Button color="inherit" onClick={createHandleClick('project')} disableRipple>
+                  <Button
+                    color="secondary"
+                    component="span"
+                    onClick={createHandleClick('project')}
+                    disableRipple
+                    className={classes.inlineButton}
+                  >
                     {intl.formatMessage({ id: 'pages.landing.projectLinkText' })}
                   </Button>
                 ),
                 dataLink: (
-                  <Button color="inherit" onClick={createHandleClick('data')} disableRipple>
+                  <Button
+                    color="secondary"
+                    component="span"
+                    onClick={createHandleClick('data')}
+                    disableRipple
+                    className={classes.inlineButton}
+                  >
                     {intl.formatMessage({ id: 'pages.landing.dataLinkText' })}
                   </Button>
                 ),
                 methodLink: (
-                  <Button color="inherit" onClick={createHandleClick('methods')} disableRipple>
+                  <Button
+                    color="secondary"
+                    component="span"
+                    onClick={createHandleClick('methods')}
+                    disableRipple
+                    className={classes.inlineButton}
+                  >
                     {intl.formatMessage({ id: 'pages.landing.methodLinkText' })}
                   </Button>
                 ),
                 ikLink: (
-                  <Button color="inherit" onClick={handleScrollClick} disableRipple>
+                  <Button
+                    color="secondary"
+                    component="span"
+                    onClick={handleScrollClick}
+                    disableRipple
+                    className={classes.inlineButton}
+                  >
                     {intl.formatMessage({ id: 'pages.landing.ikLinkText' })}
                   </Button>
                 ),
                 generalLimitations: (
-                  <Button color="inherit" onClick={handleButtonClick} disableRipple>
+                  <Button
+                    color="secondary"
+                    component="span"
+                    onClick={handleButtonClick}
+                    disableRipple
+                    className={classes.inlineButton}
+                  >
                     {intl.formatMessage({ id: 'pages.landing.generalLimitationsText' })}
                   </Button>
                 ),

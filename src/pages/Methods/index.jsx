@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Methods = () => {
+  // TODO: Move this ref to the new IK section when added
   const ref = useRef();
   const intl = useIntl();
   const classes = useStyles();
