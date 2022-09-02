@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
   clearAllButton: {
     marginLeft: '0.5em',
     textDecoration: 'none',
+    '&:hover': { textDecoration: 'underline' },
   },
 }));
 
@@ -81,7 +82,7 @@ const FilterChipsPanel = () => {
         {!noFilters
           && (
           <Grid item>
-            <Button color="inherit" classes={{ root: classes.clearAllButton }} onClick={handleClick}>
+            <Button color="inherit" className={classes.clearAllButton} onClick={handleClick}>
               <Typography variant="subtitle2" style={{ fontWeight: 'bold' }}>
                 {intl.formatMessage({ id: 'common.clearButton' })}
               </Typography>
