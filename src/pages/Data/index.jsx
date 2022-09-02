@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
       padding: '1em 0',
     },
   },
+  typographyStyle: {
+    fontSize: '2rem',
+    lineHeight: '1.65'
+  },
   imageContainer: {
     textAlign: 'center',
     backgroundColor: '#F8F8F8',
@@ -80,7 +84,7 @@ const Data = () => {
       <hr className={classes.hr} />
       <Grid container direction="column" className={classes.root}>
         <Grid item>
-          <Typography>
+          <Typography className={classes.typographyStyle}>
             {intl.formatMessage(
               { id: 'pages.data.body.text1' },
               {
@@ -95,7 +99,7 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography>
+          <Typography className={classes.typographyStyle}>
             {intl.formatMessage({ id: 'pages.data.body.text2' })}
           </Typography>
         </Grid>
@@ -107,7 +111,7 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography>
+          <Typography className={classes.typographyStyle}>
             {intl.formatMessage({ id: 'pages.data.body.text3' },
               {
                 link1: (
@@ -143,7 +147,7 @@ const Data = () => {
         </Grid>
 
         <Grid item>
-          <Typography>
+          <Typography className={classes.typographyStyle}>
             {intl.formatMessage({ id: 'pages.data.body.text4' })}
           </Typography>
         </Grid>
@@ -152,7 +156,7 @@ const Data = () => {
           <Typography variant="h6">
             <strong>{intl.formatMessage({ id: 'pages.data.protectingEnvironment.header1' })}</strong>
           </Typography>
-          <Typography>
+          <Typography className={classes.typographyStyle}>
             {intl.formatMessage({ id: 'pages.data.protectingEnvironment.text1' })}
           </Typography>
           <YouTube videoId={protectingEnvironmentYoutube[lang]} className={classes.video} />

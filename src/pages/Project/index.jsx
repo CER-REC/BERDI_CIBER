@@ -16,6 +16,10 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: '1em',
     },
   },
+  typographyStyle: {
+    fontSize: '2rem',
+    lineHeight: '1.65'
+  },
   imageSection: {
     '& img': {
       marginLeft: '20%',
@@ -63,7 +67,7 @@ const Project = () => {
       <div className={classes.root}>
         <Grid container>
           <Grid item xs={9} style={{ paddingTop: '2em' }}>
-            <Typography>
+            <Typography className={classes.typographyStyle}>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text1' },
                 {
@@ -76,7 +80,7 @@ const Project = () => {
               )}
             </Typography>
 
-            <Typography>
+            <Typography className={classes.typographyStyle}>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text2' },
                 {
@@ -100,7 +104,7 @@ const Project = () => {
               )}
             </Typography>
 
-            <Typography>
+            <Typography className={classes.typographyStyle}>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text3' },
                 {
@@ -136,7 +140,7 @@ const Project = () => {
             {intl.formatMessage({ id: 'pages.project.body.section2.header1' })}
           </Typography>
 
-          <Typography style={{ display: 'inline' }}>
+          <Typography className={classes.typographyStyle} style={{ display: 'inline' }}>
             {intl.formatMessage({ id: 'pages.project.body.section2.text1' })}
 
             <br />

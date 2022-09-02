@@ -5,9 +5,12 @@ export default (theme) => ({
     width: '100%',
     padding: '0.7em 1em',
     marginTop: '0.5em',
-    justifyContent: 'space-between',
+    justifyContent: 'left',
     color: theme.palette.cart.dark,
     '&.Mui-disabled': { color: theme.palette.cart.dark },
+  },
+  buttonText: {
+    marginLeft: '0.5em'
   },
   add: {
     backgroundColor: theme.palette.cart.light,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, makeStyles } from '@material-ui/core';
+import { Button, makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 
@@ -22,7 +22,9 @@ const AddButton = ({ data }) => {
   return (
     <Button aria-label={intl.formatMessage({ id: 'components.cartButton.add' })} className={`CartButton ${classes.root} ${classes.add}`} onClick={handleClick}>
       <img alt={intl.formatMessage({ id: 'components.cartButton.addAltText' })} src={plus} />
-      {intl.formatMessage({ id: 'components.cartButton.add' })}
+      <Typography variant='inherit' className={classes.buttonText}>
+        {intl.formatMessage({ id: 'components.cartButton.add' })}
+      </Typography>
     </Button>
   );
 };

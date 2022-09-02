@@ -10,12 +10,9 @@ import useConfig from '../../hooks/useConfig';
 const useStyles = makeStyles((theme) => ({
   body: {
     '& h6': {
-      fontSize: '14px',
       fontWeight: 700,
     },
     '& p': {
-      fontSize: '14px',
-      lineHeight: 'normal',
       margin: 0,
       paddingTop: '1em',
       '&:not(:last-child)': { paddingBottom: '2em' },
@@ -28,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1.5em',
     padding: '1.5em',
     '& p': {
-      fontSize: '14px',
-      lineHeight: 'normal',
       '&:not(:first-child)': { paddingTop: '1.5em' },
     },
     '& span': {
@@ -99,7 +94,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography style={{ paddingBottom: '1em' }}>
           {intl.formatMessage({ id: 'components.limitationsDialog.usage.header' })}
         </Typography>
-        <ul style={{ fontFamily: 'Noto Sans, sans-serif', fontSize: '14px' }}>
+        <ul style={{ fontFamily: 'Noto Sans, sans-serif' }}>
           <li>
             {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet1' })}
           </li>
