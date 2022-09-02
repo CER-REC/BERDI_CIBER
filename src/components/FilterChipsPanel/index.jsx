@@ -1,5 +1,5 @@
-import React from 'react';
-import { Chip, makeStyles, Typography } from '@material-ui/core';
+import React, { useCallback } from 'react';
+import { Chip, makeStyles, Typography, Button, Grid } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
@@ -19,6 +19,10 @@ const useStyles = makeStyles(() => ({
   closeButton: {
     fill: 'black',
     transform: 'scale(1.15)',
+  },
+  clearAllButton: {
+    marginLeft: '0.5em',
+    textDecoration: 'none',
   },
 }));
 
@@ -49,6 +53,8 @@ const FilterChipsPanel = () => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const chipLabels = useAssembledChipLabels();
+  const noFilters = Object.values(chipLabels).every((array) => array.length === 0);
+  const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
   // Assemble new state on chip click
   const removeFilter = (chipType, index, label) => () => {
@@ -66,9 +72,23 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Typography variant="subtitle2">
-        {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
-      </Typography>
+      <Grid container direction="row">
+        <Grid item>
+          <Typography variant="subtitle2">
+            {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
+          </Typography>
+        </Grid>
+        {!noFilters
+          && (
+          <Grid item>
+            <Button color="inherit" classes={{ root: classes.clearAllButton }} onClick={handleClick}>
+              <Typography variant="subtitle2" style={{ fontWeight: 'bold' }}>
+                {intl.formatMessage({ id: 'common.clearButton' })}
+              </Typography>
+            </Button>
+          </Grid>
+          )}
+      </Grid>
       {
         Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
           <Chip
