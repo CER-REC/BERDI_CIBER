@@ -42,11 +42,9 @@ const Methods = () => {
   const { config } = useConfig();
 
   useEffect(() => {
-    setTimeout(() => {
-      if (config.fragment === 'ikInformation') {
-        ref.current.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+    if (config.fragment === 'ikInformation') {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
   }, [config]);
 
   return (
