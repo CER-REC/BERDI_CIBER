@@ -11,17 +11,33 @@ import { reportDownload, reportReportData } from '../../utilities/analytics';
 
 const topMargin = '0.5em';
 
-const useStyles = makeStyles(() => ({
-  searchActionButton: {
+const useStyles = makeStyles((theme) => ({
+  searchResultButton: {
+    justifyContent: 'left',
     width: '100%',
-    justifyContent: 'space-between',
     marginTop: topMargin,
+    borderColor: theme.palette.teal.blue,
+    color: theme.palette.teal.blue,
+    fontSize: '1.375rem',
+  },
+  hrefButton: {
+    '&:hover, &:focus, &:active': {
+      textDecoration: 'none',
+      color: 'inherit',
+    },
   },
   hr: {
-    width: '100%',
-    borderTop: '1px dotted',
-    margin: '0',
-    marginTop: topMargin,
+    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 50%, transparent 0%)`,
+    backgroundSize: '10px 1px',
+    border: 'none',
+    height: '1px',
+    padding: '0',
+    margin: '0.5em 0 0 0',
+  },
+  svgIcon: {
+    filter: 'brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(5458%) hue-rotate(181deg) brightness(96%) contrast(94%)',
+    paddingLeft: '0.5em',
+    marginRight: '0.5em',
   },
 }));
 
@@ -51,25 +67,21 @@ const SearchActionResults = ({ content }) => {
         href={content.url}
         variant="outlined"
         onClick={() => reportDownload(content.title)}
-        className={classes.searchActionButton}
+        className={`${classes.searchResultButton} ${classes.hrefButton}`}
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
-        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} />
-        {intl.formatMessage({
-          id: 'components.searchActionResults.download',
-        })}
+        <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} className={classes.svgIcon} />
+        {intl.formatMessage({ id: 'components.searchActionResults.download' })}
       </Button>
       <hr className={classes.hr} />
       <Button
         aria-label={intl.formatMessage({ id: 'components.searchActionResults.report' })}
         variant="outlined"
         onClick={handleReportClick}
-        className={classes.searchActionButton}
+        className={classes.searchResultButton}
       >
-        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} />
-        {intl.formatMessage({
-          id: 'components.searchActionResults.report',
-        })}
+        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} className={classes.svgIcon} />
+        {intl.formatMessage({ id: 'components.searchActionResults.report' })}
       </Button>
     </>
   );

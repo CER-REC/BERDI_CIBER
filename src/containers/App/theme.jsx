@@ -132,6 +132,7 @@ const theme = createMuiTheme({
     },
     MuiButton: {
       root: {
+        padding: '0.5em 0.5em',
         borderRadius: '5px',
         textTransform: 'none',
         '&$disabled': {
@@ -141,7 +142,7 @@ const theme = createMuiTheme({
       contained: {
         backgroundColor: darkTeal,
         color: black,
-        padding: '0.5em 2em',
+        padding: '0.5em 0.5em',
         '&:hover': { backgroundColor: lighten(darkTeal, 0.2) },
         '&$disabled': {
           backgroundColor: null,
@@ -174,13 +175,16 @@ const theme = createMuiTheme({
         // TODO: Refactor button styles so textButtonStyle is in the default text variant setup
         ...textButtonStyle,
       },
+      outlined: {
+        padding: '0.5em 0.5em',
+      },
     },
     MuiToggleButton: {
       root: {
         borderRadius: '0.5em',
         color: '#333333',
         fontSize: 18,
-        padding: '0.2em 2.5em',
+        padding: '0.5em 0.5em',
         textTransform: 'none',
         '&$selected': {
           backgroundColor: twilightPurple,

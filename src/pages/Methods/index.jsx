@@ -7,16 +7,20 @@ import BackButton from '../../components/BackButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& p, h6': {
+    '& h6, p': {
       paddingTop: '1em',
     },
     '& h5': {
       color: theme.palette.blue.dark,
     },
+    '& p': {
+      fontSize: '2rem',
+      lineHeight: 1.65,
+    },
   },
   header: {
     fontWeight: '900',
-    fontSize: '17px',
+    fontSize: '2rem',
   },
   hr: {
     marginTop: 0,

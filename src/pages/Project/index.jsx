@@ -15,6 +15,10 @@ const useStyles = makeStyles((theme) => ({
     '& h6, p': {
       paddingBottom: '1em',
     },
+    '& p': {
+      fontSize: '2rem',
+      lineHeight: 1.65,
+    },
   },
   imageSection: {
     '& img': {

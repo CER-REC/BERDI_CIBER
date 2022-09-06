@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& p': {
       padding: '1em 0',
+      fontSize: '2rem',
+      lineHeight: 1.65,
     },
   },
   imageContainer: {
