@@ -7,11 +7,10 @@ export default (theme) => ({
     marginTop: '0.5em',
     justifyContent: 'left',
     color: theme.palette.cart.dark,
-    '&.Mui-disabled': { color: theme.palette.cart.dark },
-  },
-  buttonText: {
-    marginLeft: '0.5em',
     fontSize: '1.375rem',
+    '& img': {
+      marginRight: '0.5em',
+    },
   },
   add: {
     backgroundColor: theme.palette.cart.light,

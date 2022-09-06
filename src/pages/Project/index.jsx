@@ -12,11 +12,10 @@ const useStyles = makeStyles((theme) => ({
     '& .alert-info > :first-child::before': {
       paddingTop: '4px',
     },
-    '& h6': {
+    '& h6, p': {
       paddingBottom: '1em',
     },
     '& p': {
-      paddingBottom: '1em',
       fontSize: '2rem',
       lineHeight: 1.65,
     },

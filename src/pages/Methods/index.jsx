@@ -6,14 +6,13 @@ import BackButton from '../../components/BackButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& h6': {
+    '& h6, p': {
       paddingTop: '1em',
     },
     '& h5': {
       color: theme.palette.blue.dark,
     },
     '& p': {
-      paddingTop: '1em',
       fontSize: '2rem',
       lineHeight: 1.65,
     },

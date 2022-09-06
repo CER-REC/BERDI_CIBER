@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'react-intl';
@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     marginTop: topMargin,
     borderColor: theme.palette.teal.blue,
+    color: theme.palette.teal.blue,
+    fontSize: '1.375rem',
   },
   hrefButton: {
     '&:hover, &:focus, &:active': {
@@ -24,13 +26,8 @@ const useStyles = makeStyles((theme) => ({
       color: 'inherit',
     },
   },
-  buttonText: {
-    fontSize: '1.375rem',
-    marginLeft: '0.5em',
-    color: theme.palette.teal.blue,
-  },
   hr: {
-    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 33%, transparent 0%)`,
+    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 50%, transparent 0%)`,
     backgroundSize: '10px 1px',
     border: 'none',
     height: '1px',
@@ -40,6 +37,7 @@ const useStyles = makeStyles((theme) => ({
   svgIcon: {
     filter: 'brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(5458%) hue-rotate(181deg) brightness(96%) contrast(94%)',
     paddingLeft: '0.5em',
+    marginRight: '0.5em',
   },
 }));
 
@@ -73,11 +71,7 @@ const SearchActionResults = ({ content }) => {
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
         <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} className={classes.svgIcon} />
-        <Typography className={classes.buttonText}>
-          {intl.formatMessage({
-            id: 'components.searchActionResults.download',
-          })}
-        </Typography>
+        {intl.formatMessage({ id: 'components.searchActionResults.download' })}
       </Button>
       <hr className={classes.hr} />
       <Button
@@ -87,11 +81,7 @@ const SearchActionResults = ({ content }) => {
         className={classes.searchResultButton}
       >
         <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportAltText' })} src={flag} className={classes.svgIcon} />
-        <Typography variant="inherit" className={classes.buttonText}>
-          {intl.formatMessage({
-            id: 'components.searchActionResults.report',
-          })}
-        </Typography>
+        {intl.formatMessage({ id: 'components.searchActionResults.report' })}
       </Button>
     </>
   );
