@@ -37,6 +37,7 @@
     "logoAltText": "Lobo ciber",
     "closeAltText": "Fermer",
     "downloadAltText": "Télécharger",
+    "clearButton": "Effacer tous les filtres",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -381,7 +382,6 @@
       "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
-        "clearButton": "Effacer tous les filtres",
         "filters": "Filtres",
         "viewMore": "Plus de filtres",
         "viewFewer": "Moins de filtres"
@@ -454,7 +454,7 @@
       "noRelation": "Absence de lien avec les termes recherchés"
     },
     "topicsFilter": {
-      "notification": "Certains résultats ont été supprimés. Veuillez consulter l’avis ci-dessous relatif aux connaissances autochtones dans CIBER."
+      "notification": "Certains résultats ont été supprimés. Pour en savoir plus sur nos méthodes de traitement des données, consultez la page À propos de CIBER."
     },
     "loadingIndicator": {
       "api": "veuillez patienter",
@@ -479,6 +479,9 @@
       "ikLinkText": "la façon dont nous traitons les données sensibles comme les connaissances autochtones",
       "generalLimitationsText": "avertissement relatif aux restrictions générales",
       "learnMoreButton": "Pour en savoir plus sur CIBER"
+    },
+    "search": {
+      "aboutBerdiButton": "À propos de CIBER"
     },
     "project": {
       "title": "Pourquoi avoir créé CIBER",
