@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   hr: {
-    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 50%, transparent 0%)`,
+    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 3px, transparent 0)`,
     backgroundSize: '10px 1px',
     border: 'none',
     height: '1px',
