@@ -9,7 +9,7 @@ import education from '../../../images/landing/education.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: '2.5em 0',
+    padding: '2.5em 5em',
   },
   button: {
     backgroundColor: theme.palette.teal.blue,
@@ -46,13 +46,13 @@ const NavBlock = () => {
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
-        <img src={education} alt="education" />
+        <img src={education} alt="education" style={{ width: '70%' }}/>
       </Grid>
       <Grid item xs={9}>
         <Typography variant="h5">
           <b>{intl.formatMessage({ id: 'pages.landing.title' })}</b>
         </Typography>
-        <Typography variant="body1" style={{ padding: '0.5em 0' }}>
+        <Typography style={{ padding: '0.5em 0', lineHeight: '1.65' }}>
           {
             intl.formatMessage(
               { id: 'pages.landing.body' },
