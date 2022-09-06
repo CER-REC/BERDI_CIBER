@@ -52,7 +52,7 @@ const NavBlock = () => {
         <Typography variant="h5">
           <b>{intl.formatMessage({ id: 'pages.landing.title' })}</b>
         </Typography>
-        <Typography style={{ padding: '0.5em 0', lineHeight: '1.65' }}>
+        <Typography style={{ padding: '0.5em 0', lineHeight: 1.65 }}>
           {
             intl.formatMessage(
               { id: 'pages.landing.body' },
