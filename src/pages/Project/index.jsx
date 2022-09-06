@@ -141,7 +141,7 @@ const Project = () => {
             {intl.formatMessage({ id: 'pages.project.body.section2.header1' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle} style={{ display: 'inline' }}>
+          <Typography style={{ display: 'inline' }}>
             {intl.formatMessage({ id: 'pages.project.body.section2.text1' })}
 
             <br />
