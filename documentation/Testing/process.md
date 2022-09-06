@@ -112,6 +112,7 @@ services.  Google's Testing Blog explains
 - Overrides the `render` function to wrap components in all the required application providers
 - Mocks the config state if the state is set, otherwise uses the default config state
 - Translations are set to render the message IDs
+  - If the translation includes placeholders that are required for your test, add it to `messages` within `./src/test/utilities.jsx`.
 - GraphQL API results are mocked in `./src/tests/mocks`
 - If the component test requires API, translation, theme, or config functionality use `./src/test/utilities.jsx` in place of `@testing-library/react`
   - By default the component is wrapped in a ConfigProvider to enable mocking of the config state

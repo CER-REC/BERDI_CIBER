@@ -37,10 +37,12 @@ const Content = () => {
       case 'search':
         break;
       default:
-        window.scrollTo(0, 0);
+        if ((config.page !== 'search') && !config.fragment) {
+          window.scrollTo(0, 0);
+        }
         break;
     }
-  }, [config.page]);
+  }, [config.page, config.fragment]);
   return (
     <>
       <LegalDisclaimer

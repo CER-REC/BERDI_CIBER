@@ -468,18 +468,20 @@
       "tagline": "Search Biophysical, Socio-Economic, and Regional Data and Information from major pipeline projects, since 2003. {learnMoreLink} Data last updated: {updateDate}. New data is added twice a year.",
       "learnMoreText": "Learn more about BERDI on our information pages.",
       "exploreTopics": "Explore the data based on topics",
-      "disclaimer": {
-        "body": "Environmental and Socio-Economic Assessments cover many categories of “components” for assessment - including rare species, wetlands, and human health. {learnMoreLink}",
-        "button": "Read our disclaimer",
-        "link": "Learn more about the data."
-      }
+      "title": "Want to know more?",
+      "body": "Visit our information pages to learn more about {projectLink} and {dataLink} or you can {methodLink} and {ikLink}. Read our {generalLimitations} for additional context.",
+      "projectLinkText": "why we created BERDI",
+      "dataLinkText": "get an introduction to environmental socio-economic assessments (ESAs)",
+      "methodLinkText": "discover our data extraction method",
+      "ikLinkText": "how we handle sensitive data such as indigenous knowledge",
+      "generalLimitationsText": "General Limitations disclaimer",
+      "learnMoreButton": "Learn more about BERDI"
     },
     "search": {
       "aboutBerdiButton": "About BERDI"
     },
     "project": {
       "title": "Why we created BERDI",
-      "description": "The opportunity of a legacy, driven by policy - and our plans for the future.",
       "body": {
         "section1": {
           "header": "Why we created BERDI",
@@ -505,7 +507,6 @@
     },
     "data": {
       "title": "What are ESAs?",
-      "description": "An introduction to Environmental and Socio-Economic Assessments (\"ESA's\")",
       "body": {
         "title": "What is an Environmental Socio-Economic Assessment (ESA)?",
         "bold0": "Environmental and Socio-Economic Assessments (ESAs)",
@@ -564,7 +565,6 @@
     },
     "methods": {
       "title": "Our extraction method",
-      "description": "Learn how we turned regulatory documents into structured data.",
       "body": {
         "title": "Our Methods",
         "section1": {

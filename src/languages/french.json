@@ -471,18 +471,20 @@
       "tagline": "Explorez les contenus et les informations biophysiques, socioéconomiques et régionaux recueillis depuis 2003 sur de grands projets pipeliniers. {learnMoreLink} Dernière mise à jour : {updateDate}. De nouvelles données sont ajoutées deux fois par année.",
       "learnMoreText": "Pour en savoir plus sur CIBER, consultez nos pages d’information.",
       "exploreTopics": "Explorer les données par sujet",
-      "disclaimer": {
-        "body": "Les évaluations environnementales et socioéconomiques permettent d’évaluer de nombreuses catégories de composantes, notamment les espèces rares, les milieux humides et la santé humaine. {learnMoreLink}",
-        "button": "Lisez notre avertissement",
-        "link": "Pour en savoir plus sur les données."
-      }
+      "title": "Vous voulez en savoir plus?",
+      "body": "Consultez nos pages d’information pour savoir {projectLink} et {dataLink}. Vous pourrez aussi {methodLink} et {ikLink}. Lisez l’{generalLimitations} pour un complément d’information.",
+      "projectLinkText": "pourquoi nous avons créé CIBER",
+      "dataLinkText": "vous familiariser avec les évaluations environnementales et socioéconomiques (« EES »)",
+      "methodLinkText": "vous renseigner sur notre méthode d’extraction des données",
+      "ikLinkText": "la façon dont nous traitons les données sensibles comme les connaissances autochtones",
+      "generalLimitationsText": "avertissement relatif aux restrictions générales",
+      "learnMoreButton": "Pour en savoir plus sur CIBER"
     },
     "search": {
       "aboutBerdiButton": "À propos de CIBER"
     },
     "project": {
       "title": "Pourquoi avoir créé CIBER",
-      "description": "L’occasion de laisser un héritage, guidé par les politiques et nos plans pour l’avenir.",
       "body": {
         "section1": {
           "header": "Pourquoi avoir créé CIBER",
@@ -508,7 +510,6 @@
     },
     "data": {
       "title": "En quoi consiste une EES?",
-      "description": "Présentation des évaluations environnementales et socioéconomiques (« EES »).",
       "body": {
         "title": "Qu’est-ce qu’une évaluation environnementale et socioéconomique?",
         "bold0": "évaluations environnementales et socioéconomiques (« EES »)",
@@ -567,7 +568,6 @@
     },
     "methods": {
       "title": "Notre méthode d’extraction",
-      "description": "Voyez comment nous avons transformé des documents de réglementation en données structurées.",
       "body": {
         "title": "Méthodes",
         "section1": {

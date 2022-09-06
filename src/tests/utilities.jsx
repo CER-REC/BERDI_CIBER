@@ -21,9 +21,14 @@ const suppressMissingTranslationError = (error) => {
   throw error;
 };
 
+const messages = {
+  'pages.landing.body': 'pages.landing.body {projectLink} {dataLink} {methodLink} {ikLink} {generalLimitations}',
+  'pages.landing.tagline': 'pages.landing.tagline {learnMoreLink}',
+};
+
 const AppProviders = ({ children }) => (
   <ApolloProvider client={client}>
-    <IntlProvider locale="en" onError={suppressMissingTranslationError}>
+    <IntlProvider locale="en" onError={suppressMissingTranslationError} messages={messages}>
       <ThemeProvider theme={theme}>
         {children}
       </ThemeProvider>
