@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: topMargin,
     borderColor: theme.palette.teal.blue,
     color: theme.palette.teal.blue,
-    fontSize: '1.375rem',
   },
   hrefButton: {
     '&:hover, &:focus, &:active': {

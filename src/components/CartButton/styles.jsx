@@ -7,7 +7,6 @@ export default (theme) => ({
     marginTop: '0.5em',
     justifyContent: 'left',
     color: theme.palette.cart.dark,
-    fontSize: '1.375rem',
     '& img': {
       marginRight: '0.5em',
     },
