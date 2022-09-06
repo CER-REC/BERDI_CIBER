@@ -454,7 +454,7 @@
       "noRelation": "Absence de lien avec les termes recherchés"
     },
     "topicsFilter": {
-      "notification": "Certains résultats ont été supprimés. Pour en savoir plus sur nos méthodes de traitement des données, consultez la page À propos de CIBER. "
+      "notification": "Certains résultats ont été supprimés. Pour en savoir plus sur nos méthodes de traitement des données, consultez la page À propos de CIBER."
     },
     "loadingIndicator": {
       "api": "veuillez patienter",
