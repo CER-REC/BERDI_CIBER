@@ -37,6 +37,7 @@
     "logoAltText": "Lobo ciber",
     "closeAltText": "Fermer",
     "downloadAltText": "Télécharger",
+    "clearButton": "Effacer tous les filtres",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -381,7 +382,6 @@
       "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
-        "clearButton": "Effacer tous les filtres",
         "filters": "Filtres",
         "viewMore": "Plus de filtres",
         "viewFewer": "Moins de filtres"

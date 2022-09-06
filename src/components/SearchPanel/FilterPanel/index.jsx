@@ -115,7 +115,7 @@ const FilterPanel = ({ isSearchPage, onClick }) => {
               variant="contained"
               onClick={handleClick}
             >
-              {intl.formatMessage({ id: 'components.searchPanel.filterPanel.clearButton' })}
+              {intl.formatMessage({ id: 'common.clearButton' })}
             </Button>
           </Grid>
           <Grid item xs={12} style={{ textAlign: 'center' }}>

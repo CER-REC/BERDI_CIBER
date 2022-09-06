@@ -1,5 +1,5 @@
-import React from 'react';
-import { Chip, makeStyles, Typography } from '@material-ui/core';
+import React, { useCallback } from 'react';
+import { Chip, makeStyles, Typography, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
@@ -7,7 +7,7 @@ import useAPI from '../../hooks/useAPI';
 import { reportChip } from '../../utilities/analytics';
 import { lang } from '../../constants';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   chip: {
     background: '#EDEDED',
     borderRadius: '30px',
@@ -19,6 +19,11 @@ const useStyles = makeStyles(() => ({
   closeButton: {
     fill: 'black',
     transform: 'scale(1.15)',
+  },
+  clearAllButton: {
+    marginLeft: '1.5em',
+    color: theme.palette.teal.blue,
+    '&:hover': { textDecoration: 'underline' },
   },
 }));
 
@@ -49,6 +54,8 @@ const FilterChipsPanel = () => {
   const intl = useIntl();
   const { config, configDispatch } = useConfig();
   const chipLabels = useAssembledChipLabels();
+  const noFilters = Object.values(chipLabels).every((array) => array.length === 0);
+  const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
 
   // Assemble new state on chip click
   const removeFilter = (chipType, index, label) => () => {
@@ -66,9 +73,24 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Typography variant="subtitle2">
-        {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
-      </Typography>
+      <div>
+        <Typography variant="subtitle2">
+          {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
+
+          {
+            !noFilters && (
+            <Button
+              color="primary"
+              className={classes.clearAllButton}
+              onClick={handleClick}
+              style={{ fontWeight: 'bold' }}
+            >
+              {intl.formatMessage({ id: 'common.clearButton' })}
+            </Button>
+            )
+}
+        </Typography>
+      </div>
       {
         Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
           <Chip
