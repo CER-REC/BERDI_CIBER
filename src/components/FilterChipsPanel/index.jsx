@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { Chip, makeStyles, Typography, Button, Grid } from '@material-ui/core';
+import { Chip, makeStyles, Typography, Button } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
@@ -7,7 +7,7 @@ import useAPI from '../../hooks/useAPI';
 import { reportChip } from '../../utilities/analytics';
 import { lang } from '../../constants';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   chip: {
     background: '#EDEDED',
     borderRadius: '30px',
@@ -22,7 +22,7 @@ const useStyles = makeStyles(() => ({
   },
   clearAllButton: {
     marginLeft: '1.5em',
-    textDecoration: 'none',
+    color: theme.palette.teal.blue,
     '&:hover': { textDecoration: 'underline' },
   },
 }));
@@ -73,23 +73,24 @@ const FilterChipsPanel = () => {
   };
   return (
     <div>
-      <Grid container direction="row">
-        <Grid item>
-          <Typography variant="subtitle2">
-            {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
-          </Typography>
-        </Grid>
-        {!noFilters
-          && (
-          <Grid item>
-            <Button color="inherit" className={classes.clearAllButton} onClick={handleClick}>
-              <Typography variant="subtitle2" style={{ fontWeight: 'bold' }}>
-                {intl.formatMessage({ id: 'common.clearButton' })}
-              </Typography>
+      <div>
+        <Typography variant="subtitle2">
+          {intl.formatMessage({ id: 'components.filterChipsPanel.title' }).toUpperCase()}
+
+          {
+            !noFilters && (
+            <Button
+              color="primary"
+              className={classes.clearAllButton}
+              onClick={handleClick}
+              style={{ fontWeight: 'bold' }}
+            >
+              {intl.formatMessage({ id: 'common.clearButton' })}
             </Button>
-          </Grid>
-          )}
-      </Grid>
+            )
+}
+        </Typography>
+      </div>
       {
         Object.keys(chipLabels).map((chipType) => chipLabels[chipType].map((chipLabel, index) => (
           <Chip
