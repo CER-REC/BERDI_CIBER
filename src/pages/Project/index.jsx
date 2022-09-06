@@ -12,13 +12,14 @@ const useStyles = makeStyles((theme) => ({
     '& .alert-info > :first-child::before': {
       paddingTop: '4px',
     },
-    '& h6, p': {
+    '& h6': {
       paddingBottom: '1em',
     },
-  },
-  typographyStyle: {
-    fontSize: '2rem',
-    lineHeight: '1.65',
+    '& p': {
+      paddingBottom: '1em',
+      fontSize: '2rem',
+      lineHeight: 1.65,
+    },
   },
   imageSection: {
     '& img': {
@@ -67,7 +68,7 @@ const Project = () => {
       <div className={classes.root}>
         <Grid container>
           <Grid item xs={9} style={{ paddingTop: '2em' }}>
-            <Typography className={classes.typographyStyle}>
+            <Typography>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text1' },
                 {
@@ -80,7 +81,7 @@ const Project = () => {
               )}
             </Typography>
 
-            <Typography className={classes.typographyStyle}>
+            <Typography>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text2' },
                 {
@@ -104,7 +105,7 @@ const Project = () => {
               )}
             </Typography>
 
-            <Typography className={classes.typographyStyle}>
+            <Typography>
               {intl.formatMessage(
                 { id: 'pages.project.body.section1.text3' },
                 {

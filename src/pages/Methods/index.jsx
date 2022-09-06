@@ -6,16 +6,17 @@ import BackButton from '../../components/BackButton';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    '& p, h6': {
+    '& h6': {
       paddingTop: '1em',
     },
     '& h5': {
       color: theme.palette.blue.dark,
     },
-  },
-  typographyStyle: {
-    fontSize: '2rem',
-    lineHeight: '1.65',
+    '& p': {
+      paddingTop: '1em',
+      fontSize: '2rem',
+      lineHeight: 1.65,
+    },
   },
   header: {
     fontWeight: '900',
@@ -54,15 +55,15 @@ const Methods = () => {
 
       <div className={classes.root}>
         <section>
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section1.paragraph1' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section1.paragraph2' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage(
               { id: 'pages.methods.body.section1.paragraph3' },
               {
@@ -85,7 +86,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section2.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section2.paragraph1' },
               {
                 link1: (
@@ -115,7 +116,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section3.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section3.paragraph1' },
               {
                 link1: (
@@ -136,7 +137,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section4.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section4.paragraph1' },
               {
                 link1: (
@@ -150,7 +151,7 @@ const Methods = () => {
                 ),
               })}
           </Typography>
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section4.paragraph2' },
               {
                 link2: (
@@ -171,7 +172,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section4a.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section4a.paragraph1' })}
           </Typography>
         </section>
@@ -181,7 +182,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section5.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section5.paragraph1' })}
           </Typography>
         </section>
@@ -191,51 +192,51 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section6.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph1' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.part1' })}
           </Typography>
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.title' })}
           </Typography>
           <ul>
             <li>
-              <Typography className={classes.typographyStyle}>
+              <Typography>
                 {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet1' })}
               </Typography>
             </li>
 
             <li>
-              <Typography className={classes.typographyStyle}>
+              <Typography>
                 {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet2' })}
               </Typography>
             </li>
 
             <li>
-              <Typography className={classes.typographyStyle}>
+              <Typography>
                 {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet3' })}
               </Typography>
             </li>
 
             <li>
-              <Typography className={classes.typographyStyle}>
+              <Typography>
                 {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.table.bullet4' })}
               </Typography>
             </li>
           </ul>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph2.part2' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph3' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section6.paragraph4' })}
           </Typography>
         </section>
@@ -245,7 +246,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section7.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' })}
           </Typography>
         </section>
@@ -255,7 +256,7 @@ const Methods = () => {
             {intl.formatMessage({ id: 'pages.methods.body.section8.header' })}
           </Typography>
 
-          <Typography className={classes.typographyStyle}>
+          <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section8.paragraph1' },
               {
                 link1: (

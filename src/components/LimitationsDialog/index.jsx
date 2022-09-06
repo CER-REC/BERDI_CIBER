@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     '& p': {
       margin: 0,
       paddingTop: '1em',
-      lineHeight: '1.65',
+      lineHeight: 1.65,
       '&:not(:last-child)': { paddingBottom: '2em' },
     },
   },
@@ -95,7 +95,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography style={{ paddingBottom: '1em' }}>
           {intl.formatMessage({ id: 'components.limitationsDialog.usage.header' })}
         </Typography>
-        <ul style={{ fontFamily: 'Noto Sans, sans-serif', lineHeight: '1.65' }}>
+        <ul style={{ lineHeight: 1.65 }}>
           <li>
             {intl.formatMessage({ id: 'components.limitationsDialog.usage.bullet1' })}
           </li>

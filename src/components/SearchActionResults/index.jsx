@@ -19,21 +19,23 @@ const useStyles = makeStyles((theme) => ({
     borderColor: theme.palette.teal.blue,
   },
   hrefButton: {
-    '&:hover': {
+    '&:hover, &:focus, &:active': {
       textDecoration: 'none',
       color: 'inherit',
     },
   },
   buttonText: {
+    fontSize: '1.375rem',
     marginLeft: '0.5em',
     color: theme.palette.teal.blue,
   },
   hr: {
-    borderColor: theme.palette.grey.light,
-    width: '100%',
-    borderTop: '4px dotted',
-    margin: '0',
-    marginTop: topMargin,
+    backgroundImage: `linear-gradient(to right, ${theme.palette.teal.blue} 33%, transparent 0%)`,
+    backgroundSize: '10px 1px',
+    border: 'none',
+    height: '1px',
+    padding: '0',
+    margin: '0.5em 0 0 0',
   },
   svgIcon: {
     filter: 'brightness(0) saturate(100%) invert(17%) sepia(23%) saturate(5458%) hue-rotate(181deg) brightness(96%) contrast(94%)',
@@ -71,7 +73,7 @@ const SearchActionResults = ({ content }) => {
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >
         <img alt={intl.formatMessage({ id: 'common.downloadAltText' })} src={download} className={classes.svgIcon} />
-        <Typography variant="inherit" className={classes.buttonText}>
+        <Typography className={classes.buttonText}>
           {intl.formatMessage({
             id: 'components.searchActionResults.download',
           })}

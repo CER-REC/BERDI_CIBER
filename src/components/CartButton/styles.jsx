@@ -11,6 +11,7 @@ export default (theme) => ({
   },
   buttonText: {
     marginLeft: '0.5em',
+    fontSize: '1.375rem',
   },
   add: {
     backgroundColor: theme.palette.cart.light,
