@@ -253,6 +253,7 @@
       }
     },
     "legalDisclaimer": {
+      "logoAltText": "Régie de l’énergie du Canada",
       "attention": "Attention",
       "disclaimer1": "La base de données sur les CIBER favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
       "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
@@ -365,7 +366,8 @@
       "viewFinalDecision": "Voir la décision définitive",
       "finalDecisionNotApplicable": "Décision finale : Sans objet",
       "finalDecisionPending": "Décision finale : En attente",
-      "failedToLoad": "L’ouverture du visualiseur de PDF a échoué."
+      "failedToLoad": "L’ouverture du visualiseur de PDF a échoué.",
+      "pdfFailLoadIconAltText": "Document avec icône de fermeture"
     },
     "resultsList": {
       "dataButton": {
@@ -382,6 +384,8 @@
       "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
+        "upCaretAltText": "Icône de caret vers le haut",
+        "downCaretAltText": "Icône de caret vers le bas",
         "filters": "Filtres",
         "viewMore": "Plus de filtres",
         "viewFewer": "Moins de filtres"
@@ -429,6 +433,7 @@
       "download": "Télécharger le tableau",
       "tryAgainLater": "Veuillez nous faire part de vos commentaires à une date ultérieure.",
       "reportDataDialog": {
+        "imageAltText": "Deux mains tiennent une plante",
         "report": "Évaluer ces données :",
         "required": "Requis",
         "whatConcern": "Quel souci souhaitez-vous signaler?",
@@ -463,6 +468,9 @@
     "unsupportedWarning": {
       "browser": "Votre fureteur n’autorise pas les particularités propres à cette visualisation.\nVeuillez utiliser une version récente du logiciel de navigation Chrome, Firefox, Safari ou Edge.\nMerci!",
       "resolution": "Cette visualisation a été conçue pour des ordinateurs ou tablettes disposant d’un écran d’une largeur minimale de 768 pixels.\nMerci!"
+    },
+    "notification": {
+      "iconAltText": "Icône information"
     }
   },
   "pages": {

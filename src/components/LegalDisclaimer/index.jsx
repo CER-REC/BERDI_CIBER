@@ -52,7 +52,7 @@ const LegalDisclaimer = ({ onClose, open, setOpen }) => {
       disableEscapeKeyDown
       className={classes.root}
     >
-      <img alt="Canadian flag and text reading Canadas energy regulator" src={logo} style={{ maxWidth: '23em' }} />
+      <img alt={intl.formatMessage({ id: 'components.legalDisclaimer.logoAltText' })} src={logo} style={{ maxWidth: '23em' }} />
       <Grid container justify="center">
         <div>
           <Typography variant="h6" style={{ padding: '1.5em 0', color: 'black' }}>

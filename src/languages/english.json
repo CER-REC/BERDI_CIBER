@@ -250,6 +250,7 @@
       }
     },
     "legalDisclaimer": {
+      "logoAltText": "Canada Energy Regulator",
       "attention": "Attention",
       "disclaimer1": "The BERDI database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
       "disclaimer2": "By clicking “I agree” and accessing this database, you agree to:",
@@ -362,7 +363,8 @@
       "viewFinalDecision": "View final decision",
       "finalDecisionNotApplicable": "Final Decision: Not Applicable",
       "finalDecisionPending": "Final Decision: Pending",
-      "failedToLoad": "PDF viewer has failed to load."
+      "failedToLoad": "PDF viewer has failed to load.",
+      "pdfFailLoadIconAltText": "Document with a close icon"
     },
     "resultsList": {
       "dataButton": {
@@ -379,6 +381,8 @@
       "searchAriaText": "Search by keywords",
       "searchHelp": "See Advanced Search Tips",
       "filterPanel": {
+        "upCaretAltText": "Up caret icon",
+        "downCaretAltText": "Down caret icon",
         "filters": "Filters",
         "viewMore": "View more filters",
         "viewFewer": "View fewer filters"
@@ -426,6 +430,7 @@
       "download": "Download table",
       "tryAgainLater": "Please provide your feedback at a later time.",
       "reportDataDialog": {
+        "imageAltText": "Two hands holding a plant",
         "report": "Report this data:",
         "required": "required",
         "whatConcern": "What concern would you like to report?",
@@ -460,6 +465,9 @@
     "unsupportedWarning": {
       "browser": "Your browser does not support the features required by this visualization.\nPlease use a recent version of Chrome, Firefox, Safari, or Edge.\nThank you!",
       "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
+    },
+    "notification": {
+      "iconAltText": "Info icon"
     }
   },
   "pages": {

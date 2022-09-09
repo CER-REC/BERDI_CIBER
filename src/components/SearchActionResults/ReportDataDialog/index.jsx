@@ -74,7 +74,7 @@ const ReportDataDialog = ({ title, open, onClose, contentId }) => {
         </>
       )}
       <Grid item className={classes.imageSection}>
-        <img alt="two hands holding a plant" src={hands} />
+        <img alt={intl.formatMessage({ id: 'components.searchActionResults.reportDataDialog.imageAltText' })} src={hands} />
       </Grid>
     </Grid>
   );
