@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   video: {
     width: '75%',
     margin: 'auto',
+    fontSize: '1.25em',
   },
   videoTranscript: {
     marginTop: '1em',
