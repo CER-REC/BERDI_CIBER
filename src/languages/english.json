@@ -36,6 +36,8 @@
     "closeAltText": "Close icon",
     "downloadAltText": "Download icon",
     "clearButton": "Clear all filters",
+    "upCaretAltText": "Up caret icon",
+    "downCaretAltText": "Down caret icon",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -381,8 +383,6 @@
       "searchAriaText": "Search by keywords",
       "searchHelp": "See Advanced Search Tips",
       "filterPanel": {
-        "upCaretAltText": "Up caret icon",
-        "downCaretAltText": "Down caret icon",
         "filters": "Filters",
         "viewMore": "View more filters",
         "viewFewer": "View fewer filters"

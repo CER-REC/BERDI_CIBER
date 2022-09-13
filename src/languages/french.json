@@ -38,6 +38,8 @@
     "closeAltText": "Fermer",
     "downloadAltText": "Télécharger",
     "clearButton": "Effacer tous les filtres",
+    "upCaretAltText": "Icône de caret vers le haut",
+    "downCaretAltText": "Icône de caret vers le bas",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -384,8 +386,6 @@
       "searchAriaText": "Recherche par mots-clés",
       "searchHelp": "Voir les conseils de recherche avancée",
       "filterPanel": {
-        "upCaretAltText": "Icône de caret vers le haut",
-        "downCaretAltText": "Icône de caret vers le bas",
         "filters": "Filtres",
         "viewMore": "Plus de filtres",
         "viewFewer": "Moins de filtres"
