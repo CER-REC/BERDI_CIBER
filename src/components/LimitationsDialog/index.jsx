@@ -6,6 +6,7 @@ import CERDialog from '../CERDialog';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
+import { lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -125,7 +126,22 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
               {
                 cite: (
                   <span className={classes.cite}>
-                    {intl.formatMessage({ id: 'components.limitationsDialog.citation.cite' })}
+                    {intl.formatMessage(
+                      { id: 'components.limitationsDialog.citation.cite' },
+                      {
+                        date: new Date().toLocaleDateString(`${lang}-CA`, { month: 'long', day: 'numeric', year: 'numeric' }),
+                        website: (
+                          <a href={intl.formatMessage({ id: 'components.limitationsDialog.citation.website' })} target="_blank" rel="noopener noreferrer">
+                            {intl.formatMessage({ id: 'components.limitationsDialog.citation.website' })}
+                          </a>
+                        ),
+                        doiWebsite: (
+                          <a href={intl.formatMessage({ id: 'components.limitationsDialog.citation.doiWebsite' })} target="_blank" rel="noopener noreferrer">
+                            {intl.formatMessage({ id: 'components.limitationsDialog.citation.doiWebsite' })}
+                          </a>
+                        ),
+                      },
+                    )}
                   </span>
                 ),
               },

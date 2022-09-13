@@ -290,7 +290,9 @@
       "citation": {
         "title": "Citation",
         "body": "To cite this search tool, please use the following template: {cite} To cite individual data tables, please refer to the original PDF documents for citation details.",
-        "cite": "Canada Energy Regulator (Accessed: [date]). BERDI. https://www.cer-rec.gc.ca/berdi DOI: ____________."
+        "cite": "Canada Energy Regulator (Accessed: {date}). BERDI. {website} DOI: {doiWebsite}",
+        "website": "https://www.cer-rec.gc.ca/berdi",
+        "doiWebsite": "https://doi.org/10.35002/pwbe-xm58"
       },
       "dataSection": {
         "zipText": "You are about to download a ZIP package including the below:",

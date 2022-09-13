@@ -292,8 +292,10 @@
       },
       "citation": {
         "title": "Référence des citations ",
-        "body": "Veuillez utiliser la référence suivante pour citer la banque de données {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
-        "cite": "Régie de l’énergie du Canada (2020) - Banque de données d’évaluation environnementale et socioéconomique."
+        "body": "Veuillez utiliser la référence suivante pour citer CIBER : {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
+        "cite": "Régie de l’énergie du Canada (Accédé : {date}). CIBER. {website} DOI : {doiWebsite}",
+        "website": "https://www.cer-rec.gc.ca/ciber",
+        "doiWebsite": "https://doi.org/10.35002/z8xs-3957"
       },
       "dataSection": {
         "zipText": "Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
