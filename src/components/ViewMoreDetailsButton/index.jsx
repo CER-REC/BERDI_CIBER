@@ -31,7 +31,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
     return (
       <Button color="primary" className={classes.root} onClick={handleClick} disableFocusRipple>
         <span>{intl.formatMessage({ id: 'components.listPanel.viewFewer' })}</span>
-        <img alt="Up caret" src={upCaret} />
+        <img alt={intl.formatMessage({ id: 'common.upCaretAltText' })} src={upCaret} />
       </Button>
     );
   }
@@ -39,7 +39,7 @@ const ViewMoreDetailsButton = ({ expandList, content, toggleExpand }) => {
   return (
     <Button color="primary" className={classes.root} onClick={handleClick} disableFocusRipple>
       <span>{intl.formatMessage({ id: 'components.listPanel.viewMore' })}</span>
-      <img alt="Down caret" src={downCaret} />
+      <img alt={intl.formatMessage({ id: 'common.downCaretAltText' })} src={downCaret} />
     </Button>
   );
 };

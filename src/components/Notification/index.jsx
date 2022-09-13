@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import info from '../../images/info.svg';
 
 const iconSize = '2.5em';
@@ -32,10 +33,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Notification = ({ children }) => {
   const classes = useStyles();
+  const intl = useIntl();
 
   return (
     <div className={classes.root}>
-      <img className={classes.icon} src={info} alt="info icon" />
+      <img className={classes.icon} src={info} alt={intl.formatMessage({ id: 'components.notification.iconAltText' })} />
       <Typography className={classes.content} variant="body2">
         {children}
       </Typography>

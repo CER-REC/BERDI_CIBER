@@ -27,7 +27,7 @@ const ViewMoreFiltersButton = ({ isOpen, toggleExpand }) => {
     return (
       <Button color="primary" className={classes.root} onClick={toggleExpand} disableFocusRipple>
         <span className={classes.spanStyle}>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewFewer' })}</span>
-        <img alt="Up caret" src={upCaret} className={classes.caret} />
+        <img alt={intl.formatMessage({ id: 'common.upCaretAltText' })} src={upCaret} className={classes.caret} />
       </Button>
     );
   }
@@ -35,7 +35,7 @@ const ViewMoreFiltersButton = ({ isOpen, toggleExpand }) => {
   return (
     <Button color="primary" className={classes.root} onClick={toggleExpand} disableFocusRipple>
       <span className={classes.spanStyle}>{intl.formatMessage({ id: 'components.searchPanel.filterPanel.viewMore' })}</span>
-      <img alt="Down caret" src={downCaret} className={classes.caret} />
+      <img alt={intl.formatMessage({ id: 'common.downCaretAltText' })} src={downCaret} className={classes.caret} />
     </Button>
   );
 };

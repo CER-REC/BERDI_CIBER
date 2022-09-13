@@ -78,7 +78,7 @@ const PDFPreviewer = ({ pdfURL, pageNumber }) => {
         */}
         {hasError && (
           <div className={classes.failureContainer}>
-            <img alt="Sheet of paper with X over it" src={pdfFailLoadIcon} />
+            <img alt={intl.formatMessage({ id: 'components.resultDialog.pdfFailLoadIconAltText' })} src={pdfFailLoadIcon} />
             <Typography className={classes.failureMessage}>
               {intl.formatMessage({ id: 'components.resultDialog.failedToLoad' })}
             </Typography>

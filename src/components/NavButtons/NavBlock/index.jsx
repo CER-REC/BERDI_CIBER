@@ -46,7 +46,7 @@ const NavBlock = () => {
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={3}>
-        <img src={education} alt="education" style={{ width: '70%' }} />
+        <img src={education} alt="" style={{ width: '70%' }} />
       </Grid>
       <Grid item xs={9}>
         <Typography variant="h5">
