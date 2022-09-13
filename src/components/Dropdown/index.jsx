@@ -83,6 +83,9 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     const sorted = options.map((entry) => (
       { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
+      if (type === 'resultCount') {
+        return a.key > b.key;
+      }
       const x = a.value.toLowerCase();
       const y = b.value.toLowerCase();
       return x.localeCompare(y);
