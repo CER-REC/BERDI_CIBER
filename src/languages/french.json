@@ -234,26 +234,6 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
-    "ikNotification": {
-      "title": "Avis relatif aux connaissances autochtones dans CIBER",
-      "ikDialog": {
-        "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
-        "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada",
-        "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/index.html",
-        "body2": "La Régie, de concert avec l’Agence d’évaluation d’impact du Canada, Transports Canada et Pêches et Océans Canada, en partenariat avec les peuples autochtones, a élaboré un cadre stratégique sur les connaissances autochtones (le « cadre stratégique »). Ce cadre stratégique indique qu’il est nécessaire de bien saisir et de prendre en compte le contexte dans lequel ces informations ont été communiquées par la nation ou la communauté, ce qui inclut en réserver l’utilisation aux fins pour lesquelles elles ont été transmises.",
-        "body3": "En jumelant des moyens automatiques et une vérification manuelle, nous avons supprimé des entrées de notre index de recherche qui étaient susceptibles de diriger l’utilisateur vers des connaissances autochtones qui pourraient être délicates sur le plan culturel. Cela ne touche qu’un petit sous-ensemble d’entrées de CIBER, les informations se rapportant à des collectivités autochtones n’appartenant pas toutes à cette catégorie. Pour comprendre la façon dont nous avons relevé les connaissances autochtones, nous vous invitons à consulter la page portant sur celles-ci dans CIBER.",
-        "body4": "CIBER ne renferme aucun renseignement classé confidentiel. Veuillez consulter {link} pour en savoir davantage sur la façon dont les connaissances autochtones confidentielles sont protégées.",
-        "link4": "cette page",
-        "url4": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/connaissances-autochtones-confidentielles.html",
-        "body5": "Si vous êtes un membre d’une communauté autochtone et que vous désirez vous renseigner sur les données portant sur celle-ci qui se trouvent dans CIBER, veuillez écrire à {link}.",
-        "body6": "Si vous êtes un chercheur, un éducateur, un journaliste, un analyste ou quelqu’un qui souhaite utiliser les données contenues dans CIBER, nous vous demandons d’en faire un usage respectueux. Nous vous encourageons à vous renseigner sur le cadre stratégique fédéral sur les connaissances autochtones et les {link} ainsi que sur les raisons historiques de leur nécessité. Veuillez aussi tenir compte du fait que chaque communauté autochtone a le droit de déterminer la façon dont ses informations peuvent être utilisées.",
-        "link6": "principes de propriété, de contrôle, d’accès et de possession des Premières Nations (« PCAP »)",
-        "url6": "https://fnigc.ca/fr/les-principes-de-pcap-des-premieres-nations/",
-        "footer": "Si vous découvrez des informations dans CIBER qui, à votre avis, constituent des connaissances autochtones, nous vous prions de les signaler en utilisant la fonction prévue à cette fin dans CIBER ou de les faire parvenir à l’adresse {link}.",
-        "emailLink": "data.donnees@cer-rec.gc.ca",
-        "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
-      }
-    },
     "legalDisclaimer": {
       "logoAltText": "Régie de l’énergie du Canada",
       "attention": "Attention",
@@ -636,10 +616,34 @@
           "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux fonctions qui n’existaient pas auparavant."
         },
         "section7": {
+          "header": "Étape 6 : Supprimer les connaissances autochtones de nature délicate",
+          "paragraph1": "Les tableaux, figures et cartes-tracés renfermant des connaissances autochtones de nature délicate ont dû être supprimés des résultats de recherche dans BERDI.",
+          "paragraph2": "L’équipe a utilisé le traitement du langage naturel et d’autres algorithmes d’apprentissage automatique pour déterminer si les textes extraits des pages de documents renfermant les tableaux, figures et cartes-tracés correspondants contiennent des connaissances autochtones. Nous avons utilisé la modélisation par sujet pour découvrir le nombre optimal de sujets dans les documents et nous nous sommes servis des sujets et de leur importance relative comme un ensemble de caractéristiques pour élaborer les modèles de classification. Nous avons également ajouté des mots-clés triés manuellement, absolus et normalisés par longueur de page.  Pour améliorer le rendement du modèle, les experts en la matière ont créé un ensemble de données étiquetées en repérant les tableaux, figures et cartes-tracés renfermant des connaissances autochtones.",
+          "paragraph3": "Plusieurs méthodes de classification ont été essayées et évaluées en fonction du taux de fausses omissions de connaissances autochtones de nature délicate dans les résultats de recherche : machines à vecteurs de soutien, arbre de décision, forêt aléatoire, XGBoost. Les modèles de classification ont été adaptés à l’aide d’une approche d’apprentissage d’ensemble selon une répartition 80/20 des données étiquetées. En raison de l’asymétrie de la proportion des étiquettes, une technique de suréchantillonnage a été mise en œuvre pour générer et injecter de façon synthétique des points de données de la classe de la minorité dans l’ensemble de données de formation. La classification par forêts aléatoires selon l’importance des sujets et la présence de mots-clés a été jugée le meilleur modèle en ce qui concerne le taux de fausses omissions (0,67 %), sans que soit pénalisé le taux de fausses découvertes (13 %)."
+        },
+        "section8": {
+          "header": "How do we handle sensitive Indigenous knowledge?",
+          "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
+          "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada",
+          "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/index.html",
+          "body2": "La Régie, de concert avec l’Agence d’évaluation d’impact du Canada, Transports Canada et Pêches et Océans Canada, en partenariat avec les peuples autochtones, a élaboré un cadre stratégique sur les connaissances autochtones (le « cadre stratégique »). Ce cadre stratégique indique qu’il est nécessaire de bien saisir et de prendre en compte le contexte dans lequel ces informations ont été communiquées par la nation ou la communauté, ce qui inclut en réserver l’utilisation aux fins pour lesquelles elles ont été transmises.",
+          "body3": "En jumelant des moyens automatiques et une vérification manuelle, nous avons supprimé des entrées de notre index de recherche qui étaient susceptibles de diriger l’utilisateur vers des connaissances autochtones qui pourraient être délicates sur le plan culturel. Cela ne touche qu’un petit sous-ensemble d’entrées de CIBER, les informations se rapportant à des collectivités autochtones n’appartenant pas toutes à cette catégorie. Pour comprendre la façon dont nous avons relevé les connaissances autochtones, nous vous invitons à consulter la page portant sur celles-ci dans CIBER.",
+          "body4": "CIBER ne renferme aucun renseignement classé confidentiel. Veuillez consulter {link} pour en savoir davantage sur la façon dont les connaissances autochtones confidentielles sont protégées.",
+          "link4": "cette page",
+          "url4": "https://www.cer-rec.gc.ca/fr/demandes-audiences/deposer-demande-documents/connaissances-autochtones-confidentielles.html",
+          "body5": "Si vous êtes un membre d’une communauté autochtone et que vous désirez vous renseigner sur les données portant sur celle-ci qui se trouvent dans CIBER, veuillez écrire à {link}.",
+          "body6": "Si vous êtes un chercheur, un éducateur, un journaliste, un analyste ou quelqu’un qui souhaite utiliser les données contenues dans CIBER, nous vous demandons d’en faire un usage respectueux. Nous vous encourageons à vous renseigner sur le cadre stratégique fédéral sur les connaissances autochtones et les {link} ainsi que sur les raisons historiques de leur nécessité. Veuillez aussi tenir compte du fait que chaque communauté autochtone a le droit de déterminer la façon dont ses informations peuvent être utilisées.",
+          "link6": "principes de propriété, de contrôle, d’accès et de possession des Premières Nations (« PCAP »)",
+          "url6": "https://fnigc.ca/fr/les-principes-de-pcap-des-premieres-nations/",
+          "notice": "Si vous découvrez des informations dans CIBER qui, à votre avis, constituent des connaissances autochtones, nous vous prions de les signaler en utilisant la fonction prévue à cette fin dans CIBER ou de les faire parvenir à l’adresse {link}.",
+          "emailLink": "data.donnees@cer-rec.gc.ca",
+          "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
+        },
+        "section9": {
           "header": "À quel moment mettons-nous à jour les données?",
           "paragraph1": "Nous consultons le dépôt central de documents publics de la Régie, REGDOCS, pour connaître les nouvelles données admissibles pour CIBER deux fois par année. Ces données proviennent d’évaluations environnementales et socioéconomiques. Celles-ci font partie de la documentation courante que l’on trouve dans les demandes dûment remplies pour de grands projets pipeliniers (de plus de 20 km de longueur). Les demandes dûment remplies sont celles que la Régie juge prêtes à être traitées. REGDOCS contient des documents de réglementation remontant à 2003."
         },
-        "section8": {
+        "section10": {
           "header": "Remerciements",
           "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
           "link1": "Centre for Operations Excellence",
