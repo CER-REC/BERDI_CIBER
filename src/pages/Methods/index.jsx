@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
     color: theme.palette.teal.blue,
   },
+  notice: {
+    marginTop: '1em',
+    backgroundColor: theme.palette.teal.light,
+    borderRadius: 10,
+    padding: '1em',
+  },
 }));
 
 const Methods = () => {
@@ -251,31 +257,153 @@ const Methods = () => {
           </Typography>
         </section>
 
-        <section ref={ref}>
-          <Typography variant="h5" style={{ paddingTop: '1em' }}>
+        <section>
+          <Typography className={classes.header}>
             {intl.formatMessage({ id: 'pages.methods.body.section7.header' })}
           </Typography>
 
           <Typography>
             {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph1' })}
           </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph2' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section7.paragraph3' })}
+          </Typography>
         </section>
 
-        <section>
-          <Typography className={classes.header}>
+        <section ref={ref}>
+          <Typography variant="h5" style={{ paddingTop: '1em' }}>
             {intl.formatMessage({ id: 'pages.methods.body.section8.header' })}
           </Typography>
 
           <Typography>
-            {intl.formatMessage({ id: 'pages.methods.body.section8.paragraph1' },
+            {
+            intl.formatMessage(
+              { id: 'pages.methods.body.section8.body1' },
               {
-                link1: (
+                link: (
                   <a
                     href={intl.messages['pages.methods.body.section8.url1']}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
                     {intl.formatMessage({ id: 'pages.methods.body.section8.link1' })}
+                  </a>
+                ),
+              },
+            )
+          }
+          </Typography>
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section8.body2' })}
+          </Typography>
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section8.body3' })}
+          </Typography>
+          <Typography>
+            {
+            intl.formatMessage(
+              { id: 'pages.methods.body.section8.body4' },
+              {
+                link: (
+                  <a
+                    href={intl.messages['pages.methods.body.section8.url4']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'pages.methods.body.section8.link4' })}
+                  </a>
+                ),
+              },
+            )
+          }
+          </Typography>
+          <Typography>
+            {
+            intl.formatMessage(
+              { id: 'pages.methods.body.section8.body5' },
+              {
+                link: (
+                  <a
+                    href={intl.messages['pages.methods.body.section8.emailURL']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'pages.methods.body.section8.emailLink' })}
+                  </a>
+                ),
+              },
+            )
+          }
+          </Typography>
+          <Typography>
+            {
+            intl.formatMessage(
+              { id: 'pages.methods.body.section8.body6' },
+              {
+                link: (
+                  <a
+                    href={intl.messages['pages.methods.body.section8.url6']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'pages.methods.body.section8.link6' })}
+                  </a>
+                ),
+              },
+            )
+          }
+          </Typography>
+
+          <Typography classes={{ root: classes.notice }}>
+            {
+          intl.formatMessage(
+            { id: 'pages.methods.body.section8.notice' },
+            {
+              link: (
+                <a
+                  href={intl.messages['pages.methods.body.section8.emailURL']}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {intl.formatMessage({ id: 'pages.methods.body.section8.emailLink' })}
+                </a>
+              ),
+            },
+          )
+        }
+          </Typography>
+        </section>
+
+        <section>
+          <Typography variant="h5" style={{ paddingTop: '1em' }}>
+            {intl.formatMessage({ id: 'pages.methods.body.section9.header' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section9.paragraph1' })}
+          </Typography>
+        </section>
+
+        <section>
+          <Typography className={classes.header}>
+            {intl.formatMessage({ id: 'pages.methods.body.section10.header' })}
+          </Typography>
+
+          <Typography>
+            {intl.formatMessage({ id: 'pages.methods.body.section10.paragraph1' },
+              {
+                link1: (
+                  <a
+                    href={intl.messages['pages.methods.body.section10.url1']}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage({ id: 'pages.methods.body.section10.link1' })}
                   </a>
                 ),
               })}
