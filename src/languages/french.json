@@ -622,7 +622,7 @@
           "paragraph3": "Plusieurs méthodes de classification ont été essayées et évaluées en fonction du taux de fausses omissions de connaissances autochtones de nature délicate dans les résultats de recherche : machines à vecteurs de soutien, arbre de décision, forêt aléatoire, XGBoost. Les modèles de classification ont été adaptés à l’aide d’une approche d’apprentissage d’ensemble selon une répartition 80/20 des données étiquetées. En raison de l’asymétrie de la proportion des étiquettes, une technique de suréchantillonnage a été mise en œuvre pour générer et injecter de façon synthétique des points de données de la classe de la minorité dans l’ensemble de données de formation. La classification par forêts aléatoires selon l’importance des sujets et la présence de mots-clés a été jugée le meilleur modèle en ce qui concerne le taux de fausses omissions (0,67 %), sans que soit pénalisé le taux de fausses découvertes (13 %)."
         },
         "section8": {
-          "header": "How do we handle sensitive Indigenous knowledge?",
+          "header": "Comment traitons-nous les connaissances autochtones de nature délicate?",
           "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
           "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada",
           "url1": "https://www.rec-cer.gc.ca/fr/demandes-audiences/deposer-demande-documents/guides-depot/guide-depot/index.html",
