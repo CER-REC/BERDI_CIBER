@@ -613,12 +613,16 @@
           "paragraph4": "While it is not a perfect process due to inconsistency in formatting, tables and figures can now be searched quickly, and tables can be downloaded in a machine-readable format - both features that did not previously exist."
         },
         "section7": {
-          "header": "Step 6: Remove Sensitive Indigenous Knowledge",
+          "header": "Step 6: Extract VECs and VSCs labels",
+          "paragraph1": "ESA documents include the analysis of potential effects of constructing and operating the proposed pipeline project on the components of the biophysical and socio-economic environment. These biophysical components are also known as Valued Environmental Components (VECs), whereas socio-economic components are also referred to as Valued Socio-economic Components (VSCs). To extract VECs and VSCs, a list of keywords synonymous to each of the 22 VECs and VSCs, was compiled and a simple keyword search approach was utilized to find the keywords of our interest in the titles extracted (in Step 4 above) and the CSV text in case of tables. For figures and alignment sheets, the VECs and VSCs related keywords were searched in just the titles."
+        },
+        "section8": {
+          "header": "Step 7: Remove Sensitive Indigenous Knowledge",
           "paragraph1": "Tables, Figures, and Alignment sheets containing sensitive Indigenous Knowledge (IK) had to be removed from the search results in BERDI.",
           "paragraph2": "The team used Natural Language Processing and other Machine Learning algorithms to identify if extracted texts from the document pages with corresponding tables, figures, and alignment sheets contain Indigenous Knowledge (IK). We used Topic Modeling to discover the optimum number of topics in the documents and used the topics and their relative weights as a set of features to build the classification models. We also included as input the presence of manually curated keywords, absolute and normalized by page length.  To improve model performance, subject matter experts created a labelled dataset by identifying tables, figures, and alignment sheets containing IK.",
           "paragraph3": "Several classification methods were tested and measured on false omission rate of sensitive IK in search results: support vector machines, decision tree, random forest, XGBoost. Classification models were fit using an ensemble learning approach on an 80:20 split of the labeled data. Due to the skew in proportion of the labels, an Upsampling technique was implemented to synthetically generate and inject datapoints from the minority class into the training dataset. Random forest classification on topic weights and presence of keywords was found to be the best performing model in terms of false omission rate (0.67%) without penalizing the false discovery rate (13%)."
         },
-        "section8": {
+        "section9": {
           "header": "How do we handle sensitive Indigenous knowledge?",
           "body1": "Publicly available Environmental and Socio-Economic Assessment files occasionally contain Indigenous Knowledge that, while not marked as confidential, could still be considered culturally sensitive.  Such information is collected as necessary by proponents as part of their Indigenous engagement processes in order to meet the {link}.",
           "link1": "CER’s Filing Manual requirements",
@@ -636,11 +640,11 @@
           "emailLink": "data.donnees@cer-rec.gc.ca",
           "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
         },
-        "section9": {
+        "section10": {
           "header": "When do we update the data?",
           "paragraph1": "We check the CER’s public document repository, REGDOCS, for eligible new data twice per year. Data eligible for BERDI comes from environmental and socio-economic assessments. These assessments are a routine part of documentation found in  completed applications for major pipeline projects (>20km in length). Completed applications are those deemed ready for processing by the CER. REGDOCS contains regulatory documents dating back to 2003."
         },
-        "section10": {
+        "section11": {
           "header": "Acknowledgements",
           "paragraph1": "The data science team at the University of British Columbia was instrumental in guiding this project in its early days. The Canada Energy Regulator acknowledges the work of Nipun Goyal, Louis (Xiang) Luo, and Prakhar Sinha (with support from Martha Essak, Erin Martin-Serrano, Stuart Donald, and Gene Moo Lee) at the {link1}, UBC Sauder School of Business.",
           "link1": "Centre for Operations Excellence",
