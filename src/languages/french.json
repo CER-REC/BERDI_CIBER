@@ -616,12 +616,16 @@
           "paragraph4": "Bien qu’il ne s’agisse pas d’un processus parfait en raison d’un manque d’uniformité quant à la mise en page, les tableaux et les figures peuvent maintenant être consultés rapidement et les tableaux peuvent être téléchargés dans un format lisible par machine, deux fonctions qui n’existaient pas auparavant."
         },
         "section7": {
-          "header": "Étape 6 : Supprimer les connaissances autochtones de nature délicate",
-          "paragraph1": "Les tableaux, figures et cartes-tracés renfermant des connaissances autochtones de nature délicate ont dû être supprimés des résultats de recherche dans CIBER.",
+          "header": "Étape 6 : Extraction des étiquettes CEV ou CSV",
+          "paragraph1": "Les documents de l’EES comprennent l’analyse des possibles effets biophysiques et socioéconomiques de la construction et de l’exploitation du projet pipelinier proposé. Les composantes biophysiques sont aussi connues sous le nom de composantes environnementales valorisées (« CEV »), et les composantes socioéconomiques, sous celui de composantes socioéconomiques valorisées (« CSV »). Pour extraire ces composantes, une liste de mots-clés correspondant à chacune des 22 CEV et CSV a été compilée, et une méthode de recherche simple par mots-clés a été utilisée pour trouver les mots-clés d’intérêt dans les titres extraits (à l’étape 4 ci-dessus) et le texte CSV correspondant pour les tableaux."
+        },
+        "section8": {
+          "header": "Étape 7 : Supprimer les connaissances autochtones de nature délicate",
+          "paragraph1": "Les tableaux, figures et cartes-tracés renfermant des connaissances autochtones de nature délicate ont dû être supprimés des résultats de recherche dans BERDI.",
           "paragraph2": "L’équipe a utilisé le traitement du langage naturel et d’autres algorithmes d’apprentissage automatique pour déterminer si les textes extraits des pages de documents renfermant les tableaux, figures et cartes-tracés correspondants contiennent des connaissances autochtones. Nous avons utilisé la modélisation par sujet pour découvrir le nombre optimal de sujets dans les documents et nous nous sommes servis des sujets et de leur importance relative comme un ensemble de caractéristiques pour élaborer les modèles de classification. Nous avons également ajouté des mots-clés triés manuellement, absolus et normalisés par longueur de page.  Pour améliorer le rendement du modèle, les experts en la matière ont créé un ensemble de données étiquetées en repérant les tableaux, figures et cartes-tracés renfermant des connaissances autochtones.",
           "paragraph3": "Plusieurs méthodes de classification ont été essayées et évaluées en fonction du taux de fausses omissions de connaissances autochtones de nature délicate dans les résultats de recherche : machines à vecteurs de soutien, arbre de décision, forêt aléatoire, XGBoost. Les modèles de classification ont été adaptés à l’aide d’une approche d’apprentissage d’ensemble selon une répartition 80/20 des données étiquetées. En raison de l’asymétrie de la proportion des étiquettes, une technique de suréchantillonnage a été mise en œuvre pour générer et injecter de façon synthétique des points de données de la classe de la minorité dans l’ensemble de données de formation. La classification par forêts aléatoires selon l’importance des sujets et la présence de mots-clés a été jugée le meilleur modèle en ce qui concerne le taux de fausses omissions (0,67 %), sans que soit pénalisé le taux de fausses découvertes (13 %)."
         },
-        "section8": {
+        "section9": {
           "header": "Comment traitons-nous les connaissances autochtones de nature délicate?",
           "body1": "Il arrive que des dossiers relatifs à l’évaluation environnementale et socioéconomique accessibles au public renferment des connaissances autochtones qui, sans être signalées comme confidentielles, peuvent tout de même être jugées délicates sur le plan culturel. Afin de satisfaire aux {link}, les promoteurs sont tenus de collecter ces informations.",
           "link1": "exigences du Guide de dépôt de la Régie de l’énergie du Canada",
@@ -639,11 +643,11 @@
           "emailLink": "data.donnees@cer-rec.gc.ca",
           "emailURL": "mailto:data.donnees@cer-rec.gc.ca"
         },
-        "section9": {
+        "section10": {
           "header": "À quel moment mettons-nous à jour les données?",
           "paragraph1": "Nous consultons le dépôt central de documents publics de la Régie, REGDOCS, pour connaître les nouvelles données admissibles pour CIBER deux fois par année. Ces données proviennent d’évaluations environnementales et socioéconomiques. Celles-ci font partie de la documentation courante que l’on trouve dans les demandes dûment remplies pour de grands projets pipeliniers (de plus de 20 km de longueur). Les demandes dûment remplies sont celles que la Régie juge prêtes à être traitées. REGDOCS contient des documents de réglementation remontant à 2003."
         },
-        "section10": {
+        "section11": {
           "header": "Remerciements",
           "paragraph1": "L’équipe responsable de la science des données de l’Université de la Colombie-Britannique a joué un rôle déterminant quant à l’orientation de ce projet à ses débuts. La Régie de l’énergie du Canada tient à souligner le travail de Nipun Goyal, Louis (Xiang) Luo et Prakhar Sinha (avec le soutien de Martha Essak, Erin Martin-Serrano, Stuart Donald et Gene Moo Lee) du {link1} de la Sauder School of Business de l’Université de la Colombie-Britannique.",
           "link1": "Centre for Operations Excellence",
