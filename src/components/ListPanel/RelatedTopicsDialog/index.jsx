@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
+import { reportReportRelatedDetails } from '../../../utilities/analytics';
 import DotsRating from '../../DotsRating';
 
 const useStyles = makeStyles((theme) => ({
@@ -52,6 +53,7 @@ const RelatedTopicsDialog = ({ open, onClose, data }) => {
 
   const handleClick = () => {
     configDispatch({ type: 'topics/added', payload: data.topic });
+    reportReportRelatedDetails(data.topic);
     onClose();
   };
 

@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import LimitationsDialog from '../../LimitationsDialog';
 import useConfig from '../../../hooks/useConfig';
-import { reportDisclaimer, reportSection } from '../../../utilities/analytics';
+import { reportDisclaimer, reportSectionLinks } from '../../../utilities/analytics';
 import education from '../../../images/landing/education.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,16 +32,17 @@ const NavBlock = () => {
   const handleClose = useCallback(() => setOpen(false), [setOpen]);
 
   const handleScrollClick = useCallback(() => {
+    const fragment = 'ikInformation';
     const page = 'methods';
-    reportSection(page);
-    configDispatch({ type: 'page/fragment/changed', payload: { page, fragment: 'ikInformation' } });
+    reportSectionLinks(fragment);
+    configDispatch({ type: 'page/fragment/changed', payload: { page, fragment } });
   }, [configDispatch]);
 
   const handleClick = useCallback((page) => {
-    reportSection(page);
+    reportSectionLinks(page);
     configDispatch({ type: 'page/changed', payload: page });
   }, [configDispatch]);
-  const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
+  const createHandleClick = useCallback((page) => () => handleClick(page), [handleClick]);
 
   return (
     <Grid container spacing={3} className={classes.root}>

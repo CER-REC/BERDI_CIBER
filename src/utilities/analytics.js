@@ -30,17 +30,20 @@ const report = (category, action, data) => {
     userID: userId,
     ...(data || {}),
   };
-
   dataLayer.push(event);
 };
 
 const reportSection = (page) => report('section', 'click', { value: page });
+
+const reportSectionLinks = (page) => report('section', 'links', { value: page });
 
 const reportDisclaimer = () => report('disclaimer', 'click', { value: 'Read Our Disclaimer' });
 
 const reportSearch = (search) => report('search', 'search', { value: search });
 
 const reportShowFilter = () => report('search', 'filter', { label: 'show' });
+
+const reportClearFilter = () => report('search', 'filter', { label: 'clear filter' });
 
 const reportFilter = (type, value, checked) => (
   report(type, 'filter', { label: value, value: (checked ? 'check' : 'uncheck') })
@@ -66,6 +69,10 @@ const reportDetails = (name) => report('details', 'click', { value: name });
 
 const reportReportData = () => report('details', 'click', { value: 'reportdata' });
 
+const reportReportRelated = (topic) => report('details', 'related', { label: topic });
+
+const reportReportRelatedDetails = (topic) => report('details', 'relateddetails', { label: topic });
+
 const reportExpand = () => report('navbutton', 'click', { value: 'Expand' });
 
 const reportCollapse = () => report('navbutton', 'click', { value: 'Collapse' });
@@ -86,9 +93,11 @@ const reportSearchHelp = () => report('searchhelp', 'click', { value: 'searchhel
 
 export {
   reportSearch,
+  reportSectionLinks,
   reportSection,
   reportDisclaimer,
   reportShowFilter,
+  reportClearFilter,
   reportFilter,
   reportProject,
   reportContent,
@@ -100,6 +109,8 @@ export {
   reportFilterToggle,
   reportDetails,
   reportReportData,
+  reportReportRelated,
+  reportReportRelatedDetails,
   reportExpand,
   reportCollapse,
   reportCartDownload,
