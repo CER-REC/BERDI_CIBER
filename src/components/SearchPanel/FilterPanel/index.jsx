@@ -8,7 +8,7 @@ import useConfig from '../../../hooks/useConfig';
 import DateSlider from '../../DateSlider';
 import Filter from '../Filter';
 import ViewMoreFiltersButton from '../ViewMoreFiltersButton';
-import { reportShowFilter } from '../../../utilities/analytics';
+import { reportShowFilter, reportClearFilter } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,7 +37,10 @@ const FilterPanel = ({ isSearchPage, onClick }) => {
     configDispatch({ type: 'startDate/changed', payload: start });
     configDispatch({ type: 'endDate/changed', payload: end });
   }, [configDispatch]);
-  const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
+  const handleClick = useCallback(() => {
+    configDispatch({ type: 'filters/removed' });
+    reportClearFilter();
+  }, [configDispatch]);
 
   const searchButtonText = isSearchPage
     ? intl.formatMessage({ id: 'components.searchPanel.seeResultsButton' })

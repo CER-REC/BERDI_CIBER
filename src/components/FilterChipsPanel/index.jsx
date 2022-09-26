@@ -4,7 +4,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
 import useAPI from '../../hooks/useAPI';
-import { reportChip } from '../../utilities/analytics';
+import { reportChip, reportClearFilter } from '../../utilities/analytics';
 import { lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +55,10 @@ const FilterChipsPanel = () => {
   const { config, configDispatch } = useConfig();
   const chipLabels = useAssembledChipLabels();
   const noFilters = Object.values(chipLabels).every((array) => array.length === 0);
-  const handleClick = useCallback(() => configDispatch({ type: 'filters/removed' }), [configDispatch]);
+  const handleClick = useCallback(() => {
+    reportClearFilter();
+    configDispatch({ type: 'filters/removed' });
+  }, [configDispatch]);
 
   // Assemble new state on chip click
   const removeFilter = (chipType, index, label) => () => {
@@ -88,7 +91,7 @@ const FilterChipsPanel = () => {
               {intl.formatMessage({ id: 'common.clearButton' })}
             </Button>
             )
-}
+          }
         </Typography>
       </div>
       {

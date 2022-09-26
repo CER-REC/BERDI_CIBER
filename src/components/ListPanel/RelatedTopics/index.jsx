@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import RelatedTopicsDialog from '../RelatedTopicsDialog';
 import getScore from '../../../utilities/getScore';
 import { socioEconomicTopics } from '../../../constants';
+import { reportReportRelated } from '../../../utilities/analytics';
 
 const masculineTypes = ['ALIGNMENT_SHEET'];
 
@@ -57,6 +58,7 @@ const RelatedTopics = ({ valueComponents, type }) => {
         type: socioEconomicTopics.find((item) => item === topic) ? 'socioEconomic' : 'environmental',
       },
     );
+    reportReportRelated(topic);
   };
 
   const handleClose = () => {
