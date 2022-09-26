@@ -159,7 +159,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
                                       <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.esaFolder' })}</a>
                                       {(content.application.finalDecisionURL
                                         && content.application.finalDecisionURL.toLowerCase() !== 'pending')
-                                        && <a target="_blank" rel="noopener noreferrer" href={content.esaFolderURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
+                                        && <a target="_blank" rel="noopener noreferrer" href={content.application.finalDecisionURL}>{intl.formatMessage({ id: 'components.listPanel.finalDecision' })}</a>}
                                     </Typography>
                                   </td>
                                 </tr>
