@@ -1,7 +1,7 @@
 {
   "name": "esa-visualization",
   "codename": "sequoia",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Environmental and Socio-Economic Assessments",
   "main": "src/index.jsx",
   "scripts": {
