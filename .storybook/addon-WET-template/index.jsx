@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeDecorator } from '@storybook/addons';
 
-const addWETTemplate = (storyFn, context) => (context.parameters.fileName.includes('components/') ? (
+const addWETTemplate = (storyFn, context) => (context.parameters.fileName.toString().includes('components/') ? (
   <>
     <link rel="stylesheet" href="./themes-dist-4.0.20-theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css" />
     <style>
