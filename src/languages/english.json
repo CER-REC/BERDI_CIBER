@@ -446,7 +446,7 @@
     },
     "unsupportedWarning": {
       "browser": "Your browser does not support the features required by this visualization.\nPlease use a recent version of Chrome, Firefox, Safari, or Edge.\nThank you!",
-      "resolution": "This visualization has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
+      "resolution": "This search tool has been designed for use on computers and tablets with a screen width of at least 768 pixels.\nThank you!"
     },
     "notification": {
       "iconAltText": "Info icon"
@@ -627,7 +627,9 @@
           "body1": "Publicly available Environmental and Socio-Economic Assessment files occasionally contain Indigenous Knowledge that, while not marked as confidential, could still be considered culturally sensitive.  Such information is collected as necessary by proponents as part of their Indigenous engagement processes in order to meet the {link}.",
           "link1": "CER’s Filing Manual requirements",
           "url1": "https://www.cer-rec.gc.ca/en/applications-hearings/submit-applications-documents/filing-manuals/filing-manual/",
-          "body2": "The CER, along with the Impact Assessment Agency of Canada, Transport Canada, and Fisheries and Oceans Canada have developed an Indigenous Knowledge Policy Framework (the Framework)  in consultation with Indigenous peoples. Within this Framework, it is noted that Indigenous Knowledge needs to be understood and considered within the context provided by the Nation or community.  This includes considering Indigenous Knowledge only for the purpose for which it is provided.",
+          "body2": "The CER, along with the Impact Assessment Agency of Canada, Transport Canada, and Fisheries and Oceans Canada have developed an {link} in consultation with Indigenous peoples. Within this Framework, it is noted that Indigenous Knowledge needs to be understood and considered within the context provided by the Nation or community.  This includes considering Indigenous Knowledge only for the purpose for which it is provided.",
+          "link2": "Indigenous Knowledge Policy Framework (the Framework)",
+          "url2": "https://www.canada.ca/en/impact-assessment-agency/programs/aboriginal-consultation-federal-environmental-assessment/indigenous-knowledge-policy-framework-initiative/indigenous-knowledge-policy-framework.html",
           "body3": "Using a mix of automatic methods and manual verification, we have removed items from our search index that could be culturally sensitive Indigenous Knowledge. This represents a small subset of the information available in BERDI – not all information about or relating to Indigenous communities is culturally sensitive. To understand our methods of identifying Indigenous Knowledge, please see BERDI’s methods page.",
           "body4": "BERDI does not contain any information that is classified as confidential. Please see {link} for information about how Confidential Indigenous Knowledge is protected.",
           "link4": "this page",
