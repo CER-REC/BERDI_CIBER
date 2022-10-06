@@ -4,6 +4,14 @@ export default (theme) => ({
     '& .tableCellInner': {
       padding: '1em 1em 1em 0',
       boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
+      borderLeft: '3px solid',
+      borderLeftColor: theme.palette.warning.main,
+    },
+  },
+  tableHeaderNotice: {
+    '& .tableCellInner': {
+      borderLeft: '3px solid',
+      borderLeftColor: theme.palette.warning.main,
     },
   },
   tableParent: {

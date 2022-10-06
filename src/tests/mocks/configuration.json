@@ -18,32 +18,6 @@
       "fileDownloadURL": "http://localhost/berdi/csv/en/en.zip",
       "tableCount": 10,
       "csvCount": 20,
-      "keywords": [
-        {
-          "key": "fish",
-          "count": 1
-        },
-        {
-          "key": "plants",
-          "count": 2
-        },
-        {
-          "key": "emissions",
-          "count": 5
-        },
-        {
-          "key": "health",
-          "count": 5
-        },
-        {
-          "key": "community",
-          "count": 15
-        },
-        {
-          "key": "risk",
-          "count": 8
-        }
-      ],
       "translations": [
         {
           "group": "CONTENT_TYPE",
@@ -190,40 +164,22 @@
           "french": "Tableau"
         },
         {
-          "group": "KEYWORD",
-          "key": "fish",
-          "english": "fish",
-          "french": "poissons"
+          "group": "NOTICE",
+          "key": "SEARCH_TITLE",
+          "english": "Title",
+          "french": "Title"
         },
         {
-          "group": "KEYWORD",
-          "key": "plants",
-          "english": "plants",
-          "french": "plantes"
+          "group": "NOTICE",
+          "key": "SEARCH_TEXT",
+          "english": "Text",
+          "french": "Text"
         },
         {
-          "group": "KEYWORD",
-          "key": "emissions",
-          "english": "emissions",
-          "french": "émissions"
-        },
-        {
-          "group": "KEYWORD",
-          "key": "health",
-          "english": "health",
-          "french": "santé"
-        },
-        {
-          "group": "KEYWORD",
-          "key": "community",
-          "english": "community",
-          "french": "communauté"
-        },
-        {
-          "group": "KEYWORD",
-          "key": "risk",
-          "english": "risk",
-          "french": "risque"
+          "group": "NOTICE",
+          "key": "SEARCH_RESULT",
+          "english": "This is a result notice",
+          "french": "This is a result notice"
         }
       ]
     },

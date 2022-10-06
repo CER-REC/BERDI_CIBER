@@ -9,6 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import PropTypes from 'prop-types';
 import React, { useMemo, useState } from 'react';
 import { useIntl } from 'react-intl';
+import clsx from 'clsx';
 import { lang } from '../../../constants';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
@@ -25,6 +26,7 @@ import TitleSection from '../TitleSection';
 import ApplicationDialog from '../../ApplicationDialog';
 import ThumbnailButton from '../../ThumbnailButton';
 import SearchActionResults from '../../SearchActionResults';
+import NoticeSection from '../NoticeSection';
 
 const useStyles = makeStyles(styles);
 
@@ -116,7 +118,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
           <TableBody>
             {contents.map((content) => (
               <TableRow key={content.id} aria-label="content card">
-                <TableCell component="th" scope="row" className={classes.tableHeader}>
+                <TableCell component="th" scope="row" className={clsx(classes.tableHeader, { [classes.tableHeaderNotice]: content.application.notification })}>
                   <Grid className="tableCellInner" container>
                     <Grid item xs={3} md={2} xl={1}>
                       <ThumbnailButton
@@ -126,6 +128,11 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       />
                     </Grid>
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
+                      { content.application.notification && (
+                        <NoticeSection
+                          message={intl.formatMessage({ id: 'api.notice.SEARCH_RESULT' })}
+                        />
+                      )}
                       <TitleSection
                         title={content.title}
                         onClick={() => handleClickOpen(content)}

@@ -24,6 +24,7 @@ const environmental = '#744A95';
 const socioEconomic = '#E14977';
 const darkBluePurple = '#222546';
 const twilightPurple = '#4F5395';
+const warning = '#FF9900';
 
 const textButtonStyle = {
   fontSize: 'inherit',
@@ -93,6 +94,7 @@ const theme = createMuiTheme({
     },
     environmental,
     socioEconomic,
+    warning: { main: warning },
   },
   mixins: {
     disabled: {

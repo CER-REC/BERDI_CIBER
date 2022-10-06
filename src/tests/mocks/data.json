@@ -17,7 +17,8 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 1,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885"
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885",
+        "notification": false
       },
       {
         "id": "2",
@@ -35,7 +36,8 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 12,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
+        "notification": false
       },
       {
         "id": "3",
@@ -53,7 +55,8 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 22,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549"
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549",
+        "notification": false
       }
     ],
     "contentSearch": {
@@ -80,7 +83,8 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239
+            "figureCount": 239,
+            "notification": false
           },
           "type": "FIGURE",
           "url": null,
@@ -132,7 +136,8 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239
+            "figureCount": 239,
+            "notification": false
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-19_doc-num-A4K2S6.zip",
@@ -184,7 +189,8 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239
+            "figureCount": 239,
+            "notification": false
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-20_doc-num-A4K2S3.zip",
@@ -236,7 +242,8 @@
             "hearingOrder": "OH-4-2007",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
             "tableCount": 2131,
-            "figureCount": 239
+            "figureCount": 239,
+            "notification": false
           },
           "type": "TABLE",
           "url": null,
