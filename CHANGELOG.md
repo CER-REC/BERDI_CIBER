@@ -1,3 +1,15 @@
+## [2.0.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.0.1) (2022-09-29)
+
+
+### package.json
+
+* **Documentation:** Add me to contributors (ed37a86)
+
+
+### pages/Methods
+
+* **Bug Fixes:** Add additional link to methods page + resolution warning tweak (73260ca)
+
 # [2.0.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.0.0) (2022-09-27)
 
 
