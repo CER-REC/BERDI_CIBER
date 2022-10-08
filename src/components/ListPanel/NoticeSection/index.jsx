@@ -1,7 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useIntl } from 'react-intl';
 import { IconExclamation } from '../../../icons';
+import useAPI from '../../../hooks/useAPI';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,20 +17,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NoticeSection = ({ message }) => {
+const NoticeSection = () => {
   const classes = useStyles();
+  const { notices } = useAPI();
+  const intl = useIntl();
   return (
     <div className={classes.container}>
       <IconExclamation className={classes.icon} />
-      <Typography>
-        { message }
-      </Typography>
+      { notices.indexOf('SEARCH_RESULT') !== -1 && (
+        <Typography>
+          {intl.formatMessage({ id: 'api.notice.SEARCH_RESULT' })}
+        </Typography>
+      )}
     </div>
   );
-};
-
-NoticeSection.propTypes = {
-  message: PropTypes.func.isRequired,
 };
 
 export default NoticeSection;

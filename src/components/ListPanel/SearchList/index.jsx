@@ -118,7 +118,7 @@ const SearchList = ({ toggleExpand, expandList }) => {
           <TableBody>
             {contents.map((content) => (
               <TableRow key={content.id} aria-label="content card">
-                <TableCell component="th" scope="row" className={clsx(classes.tableHeader, { [classes.tableHeaderNotice]: content.application.notification })}>
+                <TableCell component="th" scope="row" className={clsx(classes.tableHeader, { [classes.tableHeaderNotice]: content.hasNotification })}>
                   <Grid className="tableCellInner" container>
                     <Grid item xs={3} md={2} xl={1}>
                       <ThumbnailButton
@@ -128,10 +128,8 @@ const SearchList = ({ toggleExpand, expandList }) => {
                       />
                     </Grid>
                     <Grid item xs={7} md={8} xl={9} style={{ paddingLeft: '1em' }}>
-                      { content.application.notification && (
-                        <NoticeSection
-                          message={intl.formatMessage({ id: 'api.notice.SEARCH_RESULT' })}
-                        />
+                      { content.hasNotification && (
+                        <NoticeSection />
                       )}
                       <TitleSection
                         title={content.title}

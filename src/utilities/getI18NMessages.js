@@ -18,9 +18,6 @@ export default (translations) => (
       case 'COMMODITY':
         key = `api.commodities.${translation.key}`;
         break;
-      case 'ALERT':
-        key = `api.alert.${translation.key}`;
-        break;
       case 'NOTICE':
         key = `api.notice.${translation.key}`;
         break;

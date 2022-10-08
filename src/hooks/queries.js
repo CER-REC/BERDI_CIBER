@@ -67,7 +67,6 @@ export const SEARCH = gql`
       alignmentSheetCount(search: $search, valueComponent: $valueComponent)
       url
       finalDecisionURL
-      notification
     }
     contentSearch(
       search: $search,
@@ -94,6 +93,7 @@ export const SEARCH = gql`
         url
         esaFolderURL
         thumbnailURL
+        hasNotification
         application {
           name
           shortName
@@ -109,7 +109,6 @@ export const SEARCH = gql`
           finalDecisionURL
           tableCount
           figureCount
-          notification
         }
         valueComponent {
           landscape
@@ -184,6 +183,7 @@ export const CART_ITEMS = gql`
       pdfURL
       type
       pdfPageNumber
+      hasNotification
       application {
         name
         shortName

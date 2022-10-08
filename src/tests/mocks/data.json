@@ -17,8 +17,7 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 1,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885",
-        "notification": false
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/499885"
       },
       {
         "id": "2",
@@ -36,8 +35,7 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 12,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
-        "notification": false
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099"
       },
       {
         "id": "3",
@@ -55,8 +53,7 @@
         "tableCount":3,
         "figureCount":10,
         "alignmentSheetCount": 22,
-        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549",
-        "notification": false
+        "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/506549"
       }
     ],
     "contentSearch": {
@@ -69,6 +66,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2393484",
           "pdfName": "B10-4 - V5D_TR_5D1_3of4_TRAD_LAND_RESOURCE - A3S2H0",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -83,8 +81,7 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239,
-            "notification": false
+            "figureCount": 239
           },
           "type": "FIGURE",
           "url": null,
@@ -122,6 +119,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758520",
           "pdfName": "B2-21_ESA_Appendix_1D_LiegeLateral_EPP_Part1of1 - A4K2S6",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -136,8 +134,7 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239,
-            "notification": false
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-19_doc-num-A4K2S6.zip",
@@ -175,6 +172,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758826",
           "pdfName": "B2-18_ESA_Appendix_1A_Boundary_EPP_Part1of1 - A4K2S3",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -189,8 +187,7 @@
             "applicationURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/3891451",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/659850",
             "tableCount": 2131,
-            "figureCount": 239,
-            "notification": false
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": "http://localhost/berdi/csv/en/tables/2017ngtl_table-1-resource-specific-mitigation-table_pt-1_pg-20_doc-num-A4K2S3.zip",
@@ -228,6 +225,7 @@
           "pdfURL": "https://test",
           "pdfName": "Test",
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",
@@ -242,8 +240,7 @@
             "hearingOrder": "OH-4-2007",
             "finalDecisionURL": "https://apps.cer-rec.gc.ca/REGDOCS/Item/View/500099",
             "tableCount": 2131,
-            "figureCount": 239,
-            "notification": false
+            "figureCount": 239
           },
           "type": "TABLE",
           "url": null,
@@ -281,6 +278,7 @@
           "pdfURL": "https://test",
           "pdfName": "Test",
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",
