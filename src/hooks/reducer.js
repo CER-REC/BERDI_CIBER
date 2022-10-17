@@ -61,6 +61,7 @@ export const initialState = {
   cartIds: [],
   unreadCartIds: [],
   resultCount: 10,
+  isCartOpen: false,
 };
 
 export const getReducer = (
@@ -97,6 +98,7 @@ export const getReducer = (
         cartIds: action.payload.cartIds || initialState.cartIds,
         unreadCartIds: action.payload.unreadCartIds || initialState.unreadCartIds,
         resultCount: action.payload.resultCount || initialState.resultCount,
+        isCartOpen: action.payload.isCartOpen || initialState.isCartOpen,
       };
     case 'page/changed':
       return {
@@ -119,6 +121,7 @@ export const getReducer = (
         cartIds: state.cartIds || initialState.cartIds,
         unreadCartIds: state.unreadCartIds || initialState.unreadCartIds,
         resultCount: state.resultCount || initialState.resultCount,
+        isCartOpen: false,
       };
     case 'search/changed':
       return {
@@ -258,13 +261,6 @@ export const getReducer = (
         cartIds: [...new Set(state.cartIds.concat(action.payload))],
         unreadCartIds: [...new Set(state.unreadCartIds.concat(action.payload))],
       };
-    case 'cartIds/changed':
-      return {
-        ...state,
-        cartIndex: 0,
-        cartIds: action.payload || initialState.cartIds,
-        unreadCartIds: action.payload || initialState.unreadCartIds,
-      };
     case 'cartIds/removed':
       ids = [].concat(action.payload);
 
@@ -284,6 +280,11 @@ export const getReducer = (
         ...state,
         resultCount: action.payload || initialState.resultCount,
         searchIndex: 0,
+      };
+    case 'isCartOpen/changed':
+      return {
+        ...state,
+        isCartOpen: action.payload || initialState.isCartOpen,
       };
     default:
       return state;

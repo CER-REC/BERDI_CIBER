@@ -20,7 +20,7 @@ const ShareCard = ({ open, onClose }) => {
   const isEmpty = config.cartIds.length === 0;
 
   // Slicing cardIds since compress modifies the provided array
-  const cartURL = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}`;
+  const cartURL = `${window.location.origin}${window.location.pathname}?cartIds=${compress(config.cartIds.slice())}&isCartOpen=1&page=search`;
 
   const [copySuccess, setCopySuccess] = useState(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
