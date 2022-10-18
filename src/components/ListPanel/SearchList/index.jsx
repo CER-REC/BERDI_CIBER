@@ -26,7 +26,7 @@ import TitleSection from '../TitleSection';
 import ApplicationDialog from '../../ApplicationDialog';
 import ThumbnailButton from '../../ThumbnailButton';
 import SearchActionResults from '../../SearchActionResults';
-import NoticeSection from '../NoticeSection';
+import NoticeSection from '../../NoticeSection';
 
 const useStyles = makeStyles(styles);
 

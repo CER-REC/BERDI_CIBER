@@ -1,8 +1,8 @@
 import { makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { IconExclamation } from '../../../icons';
-import useAPI from '../../../hooks/useAPI';
+import { IconExclamation } from '../../icons';
+import useAPI from '../../hooks/useAPI';
 
 const useStyles = makeStyles((theme) => ({
   container: {

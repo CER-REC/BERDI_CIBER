@@ -101,6 +101,9 @@ const theme = createMuiTheme({
       opacity: 0.25,
       pointerEvents: 'none',
     },
+    noticeAccent: {
+      borderLeft: `3px solid ${warning}`,
+    },
   },
   typography: {
     fontFamily: '"Noto Sans", sans-serif',
