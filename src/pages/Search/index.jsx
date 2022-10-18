@@ -18,6 +18,7 @@ import TreeMapPanel from '../../components/TreeMapPanel';
 import useAPI from '../../hooks/useAPI';
 import useConfig from '../../hooks/useConfig';
 import info from '../../images/info.svg';
+import Alert from '../../components/Alert';
 
 const iconSize = '1.5em';
 
@@ -45,7 +46,7 @@ const showOSDPFooter = false;
 const Search = () => {
   const { configDispatch } = useConfig();
   const ref = useRef();
-  const { loading } = useAPI();
+  const { loading, notices } = useAPI();
   const { config } = useConfig();
   const classes = useStyles();
   const intl = useIntl();
@@ -113,6 +114,13 @@ const Search = () => {
           <AddContentIdsButton />
         </Grid>
       </Grid>
+      { (notices.indexOf('SEARCH_TITLE') !== -1) && (
+        <Alert
+          className="SearchAlert alert-warning"
+          title={intl.formatMessage({ id: 'api.notice.SEARCH_TITLE' })}
+          body={intl.formatMessage({ id: 'api.notice.SEARCH_TEXT' })}
+        />
+      )}
       <Cart />
       <ListSection />
       {showOSDPFooter && <OSDPFooter />}

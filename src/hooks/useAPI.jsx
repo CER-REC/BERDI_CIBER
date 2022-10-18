@@ -45,6 +45,16 @@ const getContentTypes = (translations) => {
   return contentTypes;
 };
 
+const getNotices = (translations) => {
+  const notices = translations.filter(
+    (translation) => translation.group === 'NOTICE',
+  ).map(
+    (translation) => translation.key,
+  );
+
+  return notices;
+};
+
 export default () => {
   const { loading, error, data } = useQuery(CONFIGURATION);
 
@@ -70,6 +80,11 @@ export default () => {
 
   const contentTypes = useMemo(
     () => (data ? getContentTypes(data.configuration.translations) : []),
+    [data],
+  );
+
+  const notices = useMemo(
+    () => (data ? getNotices(data.configuration.translations) : []),
     [data],
   );
 
@@ -119,6 +134,7 @@ export default () => {
     projectTypes,
     commodities,
     contentTypes,
+    notices,
     applicationIds,
     applicationIdLabels,
     translations,

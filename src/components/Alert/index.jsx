@@ -18,24 +18,31 @@ const Alert = ({ className, title, body, link, onClick }) => {
         &nbsp;-&nbsp;
         {body}
         &nbsp;
-        <Button
-          color="inherit"
-          onClick={onClick}
-          disableRipple
-        >
-          {link}
-        </Button>
+        {link && (
+          <Button
+            color="inherit"
+            onClick={onClick}
+            disableRipple
+          >
+            {link}
+          </Button>
+        )}
       </span>
     </div>
   );
+};
+
+Alert.defaultProps = {
+  link: '',
+  onClick: () => {},
 };
 
 Alert.propTypes = {
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Alert;

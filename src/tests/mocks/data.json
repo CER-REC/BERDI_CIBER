@@ -66,6 +66,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2393484",
           "pdfName": "B10-4 - V5D_TR_5D1_3of4_TRAD_LAND_RESOURCE - A3S2H0",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -118,6 +119,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758520",
           "pdfName": "B2-21_ESA_Appendix_1D_LiegeLateral_EPP_Part1of1 - A4K2S6",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -170,6 +172,7 @@
           "pdfURL": "https://apps.cer-rec.gc.ca/REGDOCS/File/Download/2758826",
           "pdfName": "B2-18_ESA_Appendix_1A_Boundary_EPP_Part1of1 - A4K2S3",
           "thumbnailURL": "https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
             "shortName": "Mackenzie Gas",
@@ -222,6 +225,7 @@
           "pdfURL": "https://test",
           "pdfName": "Test",
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",
@@ -274,6 +278,7 @@
           "pdfURL": "https://test",
           "pdfName": "Test",
           "thumbnailURL":"https://en.wikipedia.org/wiki/Main_Page#/media/File:Sega-Saturn-Console-Set-Mk1.jpg",
+          "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
             "shortName": "Application Test 2 Short Name",

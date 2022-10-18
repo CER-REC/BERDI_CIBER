@@ -6,6 +6,11 @@ export default (theme) => ({
       boxShadow: '2px 2px 4px rgba(131,131,131,0.25)',
     },
   },
+  tableHeaderNotice: {
+    '& .tableCellInner': {
+      borderLeft: `3px solid ${theme.palette.warning.main}`,
+    },
+  },
   tableParent: {
     boxShadow: 'none',
   },

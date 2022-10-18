@@ -18,8 +18,8 @@ export default (translations) => (
       case 'COMMODITY':
         key = `api.commodities.${translation.key}`;
         break;
-      case 'KEYWORD':
-        key = `api.keywords.${translation.key}`;
+      case 'NOTICE':
+        key = `api.notice.${translation.key}`;
         break;
       default:
         return i18nMessages;

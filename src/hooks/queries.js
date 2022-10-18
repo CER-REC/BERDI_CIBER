@@ -93,6 +93,7 @@ export const SEARCH = gql`
         url
         esaFolderURL
         thumbnailURL
+        hasNotification
         application {
           name
           shortName
@@ -182,6 +183,7 @@ export const CART_ITEMS = gql`
       pdfURL
       type
       pdfPageNumber
+      hasNotification
       application {
         name
         shortName
