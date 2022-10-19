@@ -8,7 +8,7 @@ export default (theme) => ({
   },
   tableHeaderNotice: {
     '& .tableCellInner': {
-      borderLeft: `3px solid ${theme.palette.warning.main}`,
+      ...theme.mixins.noticeAccent,
     },
   },
   tableParent: {

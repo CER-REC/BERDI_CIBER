@@ -7,11 +7,13 @@ import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { useIntl } from 'react-intl';
 
+import clsx from 'clsx';
 import useGetFullRegions from '../../../hooks/useGetFullRegions';
 import useConfig from '../../../hooks/useConfig';
 import { reportCartRemove } from '../../../utilities/analytics';
 import ThumbnailButton from '../../ThumbnailButton';
 import ViewMoreDetailsButton from '../../ViewMoreDetailsButton';
+import NoticeSection from '../../NoticeSection';
 
 const useStyles = makeStyles((theme) => ({
   '@keyframes fade': {
@@ -22,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '5px',
     padding: '1em',
     width: '100%',
+  },
+  rootNotice: {
+    ...theme.mixins.noticeAccent,
   },
   rootNew: {
     animation: '$fade 0.3s ease-out 3s forwards',
@@ -113,11 +118,17 @@ const CartItem = ({
   return (
     <ListItem ref={rowRef}>
       <Grid
-        className={`${classes.root} ${(unreadCartIds.includes(data.id)) ? classes.rootNew : ''}`}
+        className={clsx(classes.root, {
+          [classes.rootNew]: unreadCartIds.includes(data.id),
+          [classes.rootNotice]: data.hasNotification,
+        })}
         onAnimationEnd={() => configDispatch({ type: 'unreadCartIds/removed' })}
       >
         <Grid container wrap="nowrap" className={classes.header}>
           <Grid item xs={10}>
+            { data.hasNotification && (
+              <NoticeSection />
+            )}
             <Typography
               className={(expandList.includes(data.id) ? classes.title : classes.titleTruncated)}
             >
@@ -219,6 +230,7 @@ CartItem.propTypes = {
       companyName: PropTypes.string,
       regions: PropTypes.arrayOf(PropTypes.string),
     }),
+    hasNotification: PropTypes.bool,
   }),
   index: PropTypes.number.isRequired,
   onHeightChange: PropTypes.func.isRequired,
