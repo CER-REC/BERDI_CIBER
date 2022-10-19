@@ -124,6 +124,7 @@ export const ConfigProvider = ({ children }) => {
         fragment,
         cartIds: JSON.parse(localStorage.getItem('cartIds')),
         unreadCartIds: JSON.parse(localStorage.getItem('unreadCartIds')),
+        isCartOpen: !!query.isCartOpen,
         resultCount,
       },
     });

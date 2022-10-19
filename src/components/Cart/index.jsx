@@ -43,7 +43,7 @@ const Cart = () => {
   const rowHeights = useRef({});
   const infiniteLoaderRef = useRef();
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(config.isCartOpen);
   const [shareOpen, setShareOpen] = useState(false);
   const [limitationsOpen, setLimitationsOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
