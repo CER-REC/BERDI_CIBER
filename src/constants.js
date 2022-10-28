@@ -19,7 +19,7 @@ export const ENV_SOCIO_GRADIENT_ID = 'environmentalSocioEconomicGradient';
 
 export const NEB_ACT_CUTOFF_DATE = new Date('2019-08-28T00:00');
 
-export const DATA_UPDATE_DATE = new Date('2022-05-20T00:00');
+export const DATA_UPDATE_DATE = new Date('2022-10-03T00:00');
 
 export const socioEconomicTopics = [
   'infrastructure',
