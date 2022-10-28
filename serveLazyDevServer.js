@@ -7,7 +7,7 @@ import { applicationPath } from './src/constants';
 import proxyMiddleware from './.storybook/middleware';
 import webpackConfig from './webpack.config.babel';
 
-const PATH = `/${applicationPath.en}`;
+const PATH = `/${applicationPath.en}/`;
 const PORT = 6007;
 
 webpackConfig.plugins.push(new HtmlWebpackPlugin({
