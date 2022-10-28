@@ -1,3 +1,42 @@
+# [2.1.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.0) (2022-10-28)
+
+
+* **Code Formatting:** Fixed linting (016dea5)
+* **Project Maintenance:** Fixed development environment Firefox relative paths loading (0a0911e)
+* **Project Maintenance:** Fixed development environment PDFJS path (4ba224a)
+
+
+### All
+
+* **Features:** Ability to display helpful search notices besides results (02a4caa)
+
+
+### Cart
+
+* **Features:** Ability to show notices for cart items (283fd40)
+* **Features:** Add ability for isCartOpen state to be shared (764d280)
+
+
+### constants
+
+* **Features:** Touch last updated date (796db08)
+
+
+### Dropdown
+
+* **Bug Fixes:** Sort in numerical descending order for results in Firefox (85507cf)
+
+
+### test
+
+* **Bug Fixes:** Resolve test failures (99b8e8d)
+
+
+### translations
+
+* **Bug Fixes:** Remove sentence from methods page (9a4062f)
+* **Bug Fixes:** Update browser support messages (4f7ecdd)
+
 ## [2.0.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.0.1) (2022-09-29)
 
 
