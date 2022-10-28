@@ -24,7 +24,7 @@ app.use(middleware(compiler, {
   publicPath: PATH,
 }));
 app.use(PATH, express.static('.storybook/wet-template'));
-app.use(`${PATH}/pdfjs`, express.static('public/pdfjs'));
+app.use(`${PATH}pdfjs`, express.static('public/pdfjs'));
 proxyMiddleware(app);
 
 app.listen(PORT, () => {
