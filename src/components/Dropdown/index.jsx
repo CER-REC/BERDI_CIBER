@@ -81,14 +81,13 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
       ));
     }
 
-    const sorted = options.map((entry) => (
-      { key: entry, value: getDropdownItemName(entry) })).sort((a, b) => {
-      if (type === 'resultCount') {
-        return a.key > b.key;
-      }
+    const sorted = options.map((entry) => ({
+      key: entry,
+      value: getDropdownItemName(entry)
+    })).sort((a, b) => {
       const x = a.value.toLowerCase();
       const y = b.value.toLowerCase();
-      return x.localeCompare(y);
+      return x.localeCompare(y, undefined, { numeric: true });
     });
 
     return sorted;
