@@ -1,3 +1,10 @@
+## [2.1.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.1) (2022-10-28)
+
+
+### TitleCard
+
+* **Features:** Changed date format (79e3f4d)
+
 # [2.1.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.0) (2022-10-28)
 
 
