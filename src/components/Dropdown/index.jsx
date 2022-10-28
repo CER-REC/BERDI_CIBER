@@ -83,7 +83,7 @@ const DropDown = ({ type, hasHelp, options, value, onChange }) => {
 
     const sorted = options.map((entry) => ({
       key: entry,
-      value: getDropdownItemName(entry)
+      value: getDropdownItemName(entry),
     })).sort((a, b) => {
       const x = a.value.toLowerCase();
       const y = b.value.toLowerCase();
