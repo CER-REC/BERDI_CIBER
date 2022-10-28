@@ -40,7 +40,7 @@ export default () => {
             intl.formatMessage(
               { id: 'pages.landing.tagline' },
               {
-                updateDate: DATA_UPDATE_DATE.toLocaleDateString(lang, { year: 'numeric', month: 'short', day: 'numeric' }),
+                updateDate: DATA_UPDATE_DATE.toLocaleDateString(lang, { year: 'numeric', month: 'long', day: 'numeric' }),
                 learnMoreLink: (
                   <Button
                     className={classes.link}
