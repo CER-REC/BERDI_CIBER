@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 
 import useConfig, { ConfigProvider } from '../../hooks/useConfig';
-import Landing from '../../pages/Landing';
-import Project from '../../pages/Project';
-import Data from '../../pages/Data';
-import Methods from '../../pages/Methods';
-import Search from '../../pages/Search';
+import Landing from '../Landing';
+import Project from '../Project';
+import Data from '../Data';
+import Methods from '../Methods';
+import Search from '../Search';
 import theme from './theme';
 import LegalDisclaimer from '../../components/LegalDisclaimer';
 
