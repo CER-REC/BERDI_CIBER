@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Button, Grid, IconButton, makeStyles, Typography, Card, Divider, Snackbar,
+  Button, Grid, IconButton, makeStyles, Typography, Card, Divider, Snackbar, TextField,
 } from '@material-ui/core';
 import { useIntl } from 'react-intl';
 import DoneIcon from '@material-ui/icons/Done';
@@ -60,15 +60,12 @@ const ShareCard = ({ open, onClose }) => {
         {/* Card body */}
         <Grid container spacing={2} style={{ padding: '0.5em 1em' }}>
           <Grid item xs={8}>
-            <Button
-              className={classes.shareCardCopyButton}
-              onClick={handleCopyCartURL}
-              disabled={isEmpty}
-            >
-              <Typography variant="body2" noWrap>
-                {cartURL}
-              </Typography>
-            </Button>
+            <TextField
+              InputProps={{ className: classes.shareCardTextbox }}
+              value={isEmpty ? intl.formatMessage({ id: 'components.cart.noItems' }) : cartURL}
+              fullWidth
+              disabled
+            />
           </Grid>
           <Grid container alignItems="center" item xs={4}>
             <Button

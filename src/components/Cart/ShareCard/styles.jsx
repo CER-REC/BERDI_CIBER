@@ -15,11 +15,14 @@ export default (theme) => ({
     height: '1em',
     fontSize: '10px',
   },
-  shareCardCopyButton: {
+  shareCardTextbox: {
     backgroundColor: theme.palette.cart.light,
-    color: theme.palette.cart.dark,
-    width: '100%',
-    justifyContent: 'flex-start',
+    padding: '0.25em 0.7em',
+    fontSize: '0.8em',
+    borderRadius: '4px',
+    '&.Mui-disabled': {
+      color: theme.palette.cart.dark,
+    },
   },
   doneIcon: {
     color: '#669B37',
