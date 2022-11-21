@@ -36,12 +36,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1em',
     color: theme.palette.teal.blue,
   },
-  notice: {
-    marginTop: '1em',
-    backgroundColor: theme.palette.teal.light,
-    borderRadius: 10,
-    padding: '1em',
-  },
 }));
 
 const Methods = () => {
