@@ -1,3 +1,28 @@
+## [2.1.2](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.2) (2022-12-13)
+
+
+* **Bug Fixes:** removed unneeded file (7c68bad)
+
+
+### Methods
+
+* **Features:** removed unused styles (233d892)
+
+
+### package-lock.json
+
+* **Bug Fixes:** fixed packages (4c75b03)
+
+
+### pages
+
+* **Bug Fixes:** Move pages to components (4450050)
+
+
+### ShareCard
+
+* **Bug Fixes:** Convert to textbox so text can be selectable (211e21c)
+
 ## [2.1.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.1) (2022-10-28)
 
 
