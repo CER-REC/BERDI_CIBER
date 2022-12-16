@@ -201,6 +201,13 @@
       "remove": "Retirer de l’étagère",
       "removeAltText": "Supprimer"
     },
+    "citation": {
+      "title": "Référence des citations ",
+      "body": "Veuillez utiliser la référence suivante pour citer CIBER : {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
+      "cite": "Régie de l’énergie du Canada (Accédé : {date}). CIBER. {website} DOI : {doiWebsite}",
+      "website": "https://www.cer-rec.gc.ca/ciber",
+      "doiWebsite": "https://doi.org/10.35002/z8xs-3957"
+    },
     "dateSlider": {
       "dateLabel": "Date de dépôt"
     },
@@ -237,7 +244,7 @@
     "legalDisclaimer": {
       "logoAltText": "Régie de l’énergie du Canada",
       "attention": "Attention",
-      "disclaimer1": "La base de données sur les CIBER favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
+      "disclaimer1": "",
       "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
       "bullet1": "d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
       "bullet2": "de ne pas distribuer ni diffuser les documents;",
@@ -245,8 +252,14 @@
       "bullet4": "de détruire toute copie après utilisation;",
       "bullet5": "de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
       "not": "NE PAS",
-      "agree": "J’accepte",
-      "enter": "Accéder à CIBER"
+      "footer": {
+        "label": ""
+      },
+      "downloadFooter": {
+        "agree": "J’accepte",
+        "cancel": "",
+        "download": ""
+      }
     },
     "limitationsDialog": {
       "title": "Restrictions générales",
@@ -269,13 +282,6 @@
       "termsTitle": {
         "body": "Veuillez vous reporter à {link} qui se trouve dans le site Web de la Régie pour vous renseigner au sujet des limites qui s’appliquent à ce dépôt.",
         "link": "\"l’Avis\""
-      },
-      "citation": {
-        "title": "Référence des citations ",
-        "body": "Veuillez utiliser la référence suivante pour citer CIBER : {cite} Pour citer un tableau particulier, prière de donner la référence au document PDF original de l’EES dans REGDOCS.",
-        "cite": "Régie de l’énergie du Canada (Accédé : {date}). CIBER. {website} DOI : {doiWebsite}",
-        "website": "https://www.cer-rec.gc.ca/ciber",
-        "doiWebsite": "https://doi.org/10.35002/z8xs-3957"
       },
       "dataSection": {
         "zipText": "Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",

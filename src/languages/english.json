@@ -198,6 +198,13 @@
       "remove": "Remove from shelf",
       "removeAltText": "Remove icon"
     },
+    "citation": {
+      "title": "Citation",
+      "body": "To cite this search tool, please use the following template: {cite} To cite individual data tables, please refer to the original PDF documents for citation details.",
+      "cite": "Canada Energy Regulator (Accessed: {date}). BERDI. {website} DOI: {doiWebsite}",
+      "website": "https://www.cer-rec.gc.ca/berdi",
+      "doiWebsite": "https://doi.org/10.35002/pwbe-xm58"
+    },
     "dateSlider": {
       "dateLabel": "Filing date"
     },
@@ -234,7 +241,7 @@
     "legalDisclaimer": {
       "logoAltText": "Canada Energy Regulator",
       "attention": "Attention",
-      "disclaimer1": "The BERDI database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
+      "disclaimer1": "The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
       "disclaimer2": "By clicking “I agree” and accessing this database, you agree to:",
       "bullet1": "use the database for research, private study and/or education only;",
       "bullet2": "not distribute or publish any document;",
@@ -242,8 +249,14 @@
       "bullet4": "destroy any copy after use; and",
       "bullet5": "{not} use the database for any commercial or competitive purposes.",
       "not": "NOT",
-      "agree": "I agree",
-      "enter": "Enter BERDI"
+      "footer": {
+        "label": "I understand"
+      },
+      "downloadFooter": {
+        "agree": "I agree",
+        "cancel": "No thanks.",
+        "download": "Download File(s)"
+      }
     },
     "limitationsDialog": {
       "title": "General Limitations",
@@ -266,13 +279,6 @@
       "termsTitle": {
         "body": "Please refer to the CER website's {link} for limitations, which apply to this repository.",
         "link": "\"Terms and Conditions\""
-      },
-      "citation": {
-        "title": "Citation",
-        "body": "To cite this search tool, please use the following template: {cite} To cite individual data tables, please refer to the original PDF documents for citation details.",
-        "cite": "Canada Energy Regulator (Accessed: {date}). BERDI. {website} DOI: {doiWebsite}",
-        "website": "https://www.cer-rec.gc.ca/berdi",
-        "doiWebsite": "https://doi.org/10.35002/pwbe-xm58"
       },
       "dataSection": {
         "zipText": "You are about to download a ZIP package including the below:",
