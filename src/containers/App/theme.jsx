@@ -161,6 +161,7 @@ const theme = createMuiTheme({
         backgroundColor: navyBlue,
         '&:hover': {
           backgroundColor: '#5B7495',
+          color: 'white',
         },
       },
       colorInherit: textButtonStyle,
@@ -228,6 +229,13 @@ const theme = createMuiTheme({
         backgroundColor: white,
         '&:focus': { backgroundColor: white },
         '&:focus-visible': { backgroundColor: lightGrey },
+      },
+    },
+    MuiCheckbox: {
+      root: {
+        color: 'grey',
+        padding: '0.2em',
+        '&$checked': { color: darkBlue },
       },
     },
   },
