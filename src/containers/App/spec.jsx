@@ -65,39 +65,10 @@ const simulateFilter = () => {
 };
 
 describe('Containers/App', () => {
-  beforeEach(() => {
-    const dayMS = 172800000;
-    // Certain large numbers will cause the setTimeout in Jest tests to trigger immediately
-    const expiry = new Date().getTime() + dayMS;
-
-    sessionStorage.setItem('expiryDate', expiry);
-  });
-
   it('should render component', () => {
     const { container } = render(<LazyApp />, { configMocked: false });
 
     expect(container).not.toBeEmpty();
-  });
-
-  it('should render the legal disclaimer', async () => {
-    sessionStorage.setItem('expiryDate', new Date().getTime());
-    render(<LazyApp />, { configMocked: false });
-
-    await waitFor(() => expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument());
-
-    cleanup();
-
-    sessionStorage.setItem('expiryDate', new Date().getTime() + 1000);
-    render(<LazyApp />, { configMocked: false });
-
-    await waitFor(() => expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument());
-
-    cleanup();
-
-    sessionStorage.removeItem('expiryDate');
-    render(<LazyApp />, { configMocked: false });
-
-    expect(screen.getByText('components.legalDisclaimer.attention')).toBeInTheDocument();
   });
 
   it('should set the state from the URL parameters', async () => {

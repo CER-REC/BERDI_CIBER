@@ -51,7 +51,6 @@ afterEach(() => {
   window.location.search = '';
 
   window.localStorage.clear();
-  window.sessionStorage.clear();
   global.app.history.push({
     pathname: global.app.history.location.pathname,
     search: window.location.search,
