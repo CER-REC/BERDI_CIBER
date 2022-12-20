@@ -38,6 +38,8 @@
     "clearButton": "Clear all filters",
     "upCaretAltText": "Up caret icon",
     "downCaretAltText": "Down caret icon",
+    "agreeToTermsAndConditions": "I have read and agree to {usageTerms}",
+    "usageTerms": "BERDI's usage terms",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
@@ -239,6 +241,7 @@
       "resetMessage": "Please click on the link to reset the session:"
     },
     "legalDisclaimer": {
+      "downloadingTitle": "Downloading from BERDI",
       "logoAltText": "Canada Energy Regulator",
       "attention": "Attention",
       "disclaimer1": "The ESA database promotes public accessibility to ESA information, which is used in the CER’s processes and decision-making. The database may contain works subject to copyright.",
