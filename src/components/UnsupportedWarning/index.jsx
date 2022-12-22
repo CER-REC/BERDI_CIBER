@@ -75,7 +75,6 @@ const useStyles = makeStyles((theme) => createStyles({
 
     '& p': {
       fontSize: 16,
-      fontFamily: 'FiraSansCondensedLight',
       color: theme.palette.grey[800],
       marginTop: '1em',
     },
