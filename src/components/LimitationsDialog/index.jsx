@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import CERDialog from '../CERDialog';
+import Citation from '../Citation';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
-import { lang } from '../../constants';
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -38,15 +38,8 @@ const useStyles = makeStyles((theme) => ({
       marginTop: '1.5em',
     },
     '& a:visited': {
-      color: '#theme.palette.blue.dark',
+      color: theme.palette.blue.dark,
     },
-  },
-  cite: {
-    background: 'white',
-    display: 'block',
-    fontWeight: 500,
-    padding: '0.5em 0',
-    fontFamily: 'Roboto Mono',
   },
 }));
 
@@ -116,38 +109,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
         <Typography style={{ paddingTop: 0 }}>
           {intl.formatMessage({ id: 'components.limitationsDialog.usage.footer' })}
         </Typography>
-        <Typography component="h6">
-          {intl.formatMessage({ id: 'components.limitationsDialog.citation.title' })}
-        </Typography>
-        <Typography>
-          {
-            intl.formatMessage(
-              { id: 'components.limitationsDialog.citation.body' },
-              {
-                cite: (
-                  <span className={classes.cite}>
-                    {intl.formatMessage(
-                      { id: 'components.limitationsDialog.citation.cite' },
-                      {
-                        date: new Date().toLocaleDateString(`${lang}-CA`, { month: 'long', day: 'numeric', year: 'numeric' }),
-                        website: (
-                          <a href={intl.formatMessage({ id: 'components.limitationsDialog.citation.website' })} target="_blank" rel="noopener noreferrer">
-                            {intl.formatMessage({ id: 'components.limitationsDialog.citation.website' })}
-                          </a>
-                        ),
-                        doiWebsite: (
-                          <a href={intl.formatMessage({ id: 'components.limitationsDialog.citation.doiWebsite' })} target="_blank" rel="noopener noreferrer">
-                            {intl.formatMessage({ id: 'components.limitationsDialog.citation.doiWebsite' })}
-                          </a>
-                        ),
-                      },
-                    )}
-                  </span>
-                ),
-              },
-            )
-          }
-        </Typography>
+        <Citation />
       </div>
       { hasDownload && (
         <div className={classes.downloadSection}>
