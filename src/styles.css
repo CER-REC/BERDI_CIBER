@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
 /* Overwriting styles from theme */
 #reactRoot {
   font-size: 16px;
