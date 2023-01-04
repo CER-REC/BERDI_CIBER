@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { ThemeProvider } from '@material-ui/core';
 
 import useConfig, { ConfigProvider } from '../../hooks/useConfig';
+import { ConfirmationProvider } from '../../hooks/useConfirmation';
 import Landing from '../Landing';
 import Project from '../Project';
 import Data from '../Data';
@@ -37,8 +38,10 @@ const Content = () => {
 
 export default () => (
   <ThemeProvider theme={theme}>
-    <ConfigProvider>
-      <Content />
-    </ConfigProvider>
+    <ConfirmationProvider>
+      <ConfigProvider>
+        <Content />
+      </ConfigProvider>
+    </ConfirmationProvider>
   </ThemeProvider>
 );
