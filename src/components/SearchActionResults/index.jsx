@@ -59,7 +59,7 @@ const SearchActionResults = ({ content }) => {
       {content.url && (
         <LegalDisclaimer
           content={content}
-          title={intl.formatMessage({ id: 'components.legalDisclaimer.downloadingTitle' })}
+          title={intl.formatMessage({ id: 'common.downloadingTitle' })}
           open={legalDisclaimerOpen}
           onClose={() => setLegalDisclaimerOpen(false)}
         />
