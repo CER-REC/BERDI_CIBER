@@ -108,7 +108,7 @@ export default (theme) => ({
     padding: '0.3em 3em',
   },
   disabledButton: {
-    opacity: 0.25,
+    ...theme.mixins.disabled,
   },
   footerDownloadButtonIcon: {
     overflow: 'visible',

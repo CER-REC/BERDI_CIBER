@@ -88,7 +88,6 @@ const Cart = () => {
   const handleLimitationsClose = () => setLimitationsOpen(false);
 
   const handleLegalDisclaimerOpen = () => {
-    reportDisclaimer();
     setLegalDisclaimerOpen(true);
   };
   const handleLegalDisclaimerClose = () => setLegalDisclaimerOpen(false);
@@ -181,7 +180,7 @@ const Cart = () => {
         onClose={handleLimitationsClose}
       />
       <LegalDisclaimer
-        title={intl.formatMessage({ id: 'components.legalDisclaimer.downloadingTitle' })}
+        title={intl.formatMessage({ id: 'common.downloadingTitle' })}
         open={legalDisclaimerOpen}
         onClose={handleLegalDisclaimerClose}
       />
@@ -330,20 +329,20 @@ const Cart = () => {
             </Typography>
             <FormControl>
               <FormControlLabel
+                classes={{ label: classes.disclaimerText }}
                 value="agreed"
                 control={<Checkbox color="default" checked={hasConfirmation} />}
-                label={(
-                  <Typography className={classes.disclaimerText}>
-                    {intl.formatMessage({ id: 'common.agreeToTermsAndConditions' },
-                      {
-                        usageTerms: (
-                          <Button color="secondary" disabled={isEmpty} onClick={handleLegalDisclaimerOpen} disableRipple>
-                            {intl.formatMessage({ id: 'common.usageTerms' })}
-                          </Button>
-                        ),
-                      })}
-                  </Typography>
-                )}
+                label={
+                  intl.formatMessage({ id: 'common.agreeToTermsAndConditions' },
+                  {
+                    usageTerms: (
+                      <Button color="secondary" disabled={isEmpty} onClick={handleLegalDisclaimerOpen} disableRipple>
+                        {intl.formatMessage({ id: 'common.usageTerms' })}
+                      </Button>
+                    ),
+                  })
+                }
+                
                 labelPlacement="end"
                 onChange={toggleChecked}
               />
