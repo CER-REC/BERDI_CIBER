@@ -285,9 +285,9 @@
       },
       "dataSection": {
         "zipText": "You are about to download a ZIP package including the below:",
-        "countsText": "{csvCount} CSV files ({tableCount} tables) {part2}",
-        "countsPart2": "packaged in their respective Project folders, and including an index of tables",
-        "limitationsText": "By downloading these files, you understand the above limitations and agree to adhere to all requirements."
+        "countsText": "{tableCount} tables (in their respective Project folders)",
+        "parentText": "a parent index file",
+        "limitationsText": "To access your download, you must agree to BERDI's usage terms displayed above."
       }
     },
     "listPanel": {

@@ -7,6 +7,9 @@ import Citation from '../Citation';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
+import downloadIcon from '../../images/Download.svg';
+import LegalAgreeCheckbox from '../LegalAgreeCheckbox';
+import useConfirmation from '../../hooks/useConfirmation';
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -27,19 +30,29 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1.5em',
     padding: '1.5em',
     '& p': {
-      '&:not(:first-child)': { paddingTop: '1.5em' },
-    },
-    '& span': {
-      fontWeight: '700',
-    },
-    '& a': {
-      backgroundColor: '#DFE1E3',
-      color: theme.palette.blue.dark,
-      marginTop: '1.5em',
+      '&:not(:first-child)': { paddingTop: '1em' },
     },
     '& a:visited': {
-      color: theme.palette.blue.dark,
+      color: 'white',
     },
+  },
+  list: {
+    marginTop: '1em',
+  },
+  footerDownloadButton: {
+    marginTop: '1.5em',
+    marginLeft: 0,
+    marginRight: 0,
+    backgroundColor: theme.palette.cart.dark,
+    padding: '0.3em 3em',
+  },
+  disabledButton: {
+    ...theme.mixins.disabled,
+  },
+  footerDownloadButtonIcon: {
+    overflow: 'visible',
+    paddingRight: '0.5em',
+    maxWidth: '1.2em',
   },
 }));
 
@@ -47,7 +60,12 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { configDispatch } = useConfig();
-  const { fileSize, csvCount, tableCount, fileDownloadURL } = useAPI();
+  const { fileSize, tableCount, fileDownloadURL } = useAPI();
+  const { hasConfirmation, setHasConfirmation } = useConfirmation();
+
+  const toggleChecked = () => setHasConfirmation(!hasConfirmation);
+  const getChecked = () => hasConfirmation;
+
   const handleClick = useCallback(() => {
     reportDownload(intl.messages['common.downloadAllTables']);
     onClose();
@@ -116,41 +134,45 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           <Typography>
             {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.zipText' })}
           </Typography>
-          <Typography>
-            <span>
-              &#8226;
+          <ul className={classes.list}>
+            <li>
               {intl.formatMessage(
                 { id: 'components.limitationsDialog.dataSection.countsText' },
                 {
-                  csvCount: intl.formatNumber(csvCount),
                   tableCount: intl.formatNumber(tableCount),
-                  part2: (
-                    <span style={{ fontWeight: 'normal' }}>
-                      {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.countsPart2' })}
-                    </span>
-                  ),
                 },
               )}
-            </span>
+            </li>
+            <li>
+              {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.parentText' })}
+            </li>
+          </ul>
+
+          <Typography style={{ marginBottom: '0.8em' }}>
+            {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.limitationsText' })}
           </Typography>
 
-          <Typography>
-            <span>
-              {intl.formatMessage({ id: 'components.limitationsDialog.dataSection.limitationsText' })}
-            </span>
-          </Typography>
-
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={handleClick}
-            href={fileDownloadURL}
-          >
-            <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-            <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-              {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
-            </span>
-          </Button>
+          <LegalAgreeCheckbox
+            isChecked={getChecked}
+            toggleChecked={toggleChecked}
+          />
+          <div style={{ textAlign: 'center' }}>
+            <Button
+              color="primary"
+              variant="contained"
+              disabled={!hasConfirmation}
+              className={classes.footerDownloadButton}
+              classes={{ disabled: classes.disabledButton }}
+              onClick={handleClick}
+              href={fileDownloadURL}
+            >
+              <img src={downloadIcon} alt={intl.formatMessage({ id: 'common.downloadAltText' })} className={classes.footerDownloadButtonIcon} />
+              <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
+              <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
+                {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
+              </span>
+            </Button>
+          </div>
         </div>
       )}
     </CERDialog>
