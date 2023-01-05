@@ -38,6 +38,9 @@
     "clearButton": "Clear all filters",
     "upCaretAltText": "Up caret icon",
     "downCaretAltText": "Down caret icon",
+    "agreeToTermsAndConditions": "I have read and agree to {usageTerms}",
+    "usageTerms": "BERDI's usage terms",
+    "downloadingTitle": "Downloading from BERDI",
     "a11y": {
       "header": "header background",
       "redirect": "redirect to page",
