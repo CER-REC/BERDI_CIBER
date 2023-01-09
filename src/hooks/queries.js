@@ -20,6 +20,7 @@ export const CONFIGURATION = gql`
     applications {
       id
       shortName
+      nameId
     }
   }
 `;

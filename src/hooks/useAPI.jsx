@@ -104,6 +104,17 @@ export default () => {
     }), {});
   }, [data]);
 
+  const nameIds = useMemo(() => {
+    if (!data) {
+      return {};
+    }
+
+    return data.applications.reduce((acc, application) => ({
+      ...acc,
+      [application.id]: application.nameId,
+    }), {});
+  }, [data]);
+
   const applicationIds = useMemo(
     () => Object.keys(applicationIdLabels), [applicationIdLabels],
   );
@@ -137,6 +148,7 @@ export default () => {
     notices,
     applicationIds,
     applicationIdLabels,
+    nameIds,
     translations,
     maxDate,
     minDate,

@@ -186,14 +186,17 @@
     "applications": [
       {
         "id": "1",
+        "nameId": "Test1",
         "shortName": "Test1"
       },
       {
         "id": "2",
+        "nameId": "Test2",
         "shortName": "Test2"
       },
       {
         "id": "100",
+        "nameId": "Test A",
         "shortName": "Test A"
       }
     ]
