@@ -334,15 +334,14 @@ const Cart = () => {
                 control={<Checkbox color="default" checked={hasConfirmation} />}
                 label={
                   intl.formatMessage({ id: 'common.agreeToTermsAndConditions' },
-                  {
-                    usageTerms: (
-                      <Button color="secondary" disabled={isEmpty} onClick={handleLegalDisclaimerOpen} disableRipple>
-                        {intl.formatMessage({ id: 'common.usageTerms' })}
-                      </Button>
-                    ),
-                  })
+                    {
+                      usageTerms: (
+                        <Button color="secondary" disabled={isEmpty} onClick={handleLegalDisclaimerOpen} disableRipple>
+                          {intl.formatMessage({ id: 'common.usageTerms' })}
+                        </Button>
+                      ),
+                    })
                 }
-                
                 labelPlacement="end"
                 onChange={toggleChecked}
               />
