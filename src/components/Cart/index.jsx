@@ -1,5 +1,6 @@
 import {
-  Button, Drawer, Grid, Icon, IconButton, makeStyles, Typography,
+  Button, Checkbox, Drawer, FormControl, FormControlLabel,
+  Grid, Icon, IconButton, makeStyles, Typography,
 } from '@material-ui/core';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import RemoveCircleOutlineIcon from '@material-ui/icons/RemoveCircleOutline';
@@ -21,10 +22,12 @@ import { reportCartDownload, reportCartOpen, reportCartRemoveAll, reportDisclaim
 import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import ApplicationDialog from '../ApplicationDialog';
 import LimitationsDialog from '../LimitationsDialog';
+import LegalDisclaimer from '../LegalDisclaimer';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
 import ShareCard from './ShareCard';
 import styles from './styles';
+import useConfirmation from '../../hooks/useConfirmation';
 
 const useStyles = makeStyles(styles);
 
@@ -46,13 +49,16 @@ const Cart = () => {
   const [open, setOpen] = useState(config.isCartOpen);
   const [shareOpen, setShareOpen] = useState(false);
   const [limitationsOpen, setLimitationsOpen] = useState(false);
+  const [legalDisclaimerOpen, setLegalDisclaimerOpen] = useState(false);
   const [removeButtonHover, setRemoveButtonHover] = useState(false);
   const [expandList, setExpandList] = useState([]);
   const [resultsOpen, setResultsOpen] = useState(false);
   const [resultsData, setResultsData] = useState();
   const [projectData, setProjectData] = useState();
+  const { hasConfirmation, setHasConfirmation } = useConfirmation();
   const isEmpty = config.cartIds.length === 0;
 
+  const toggleChecked = () => setHasConfirmation(!hasConfirmation);
   const handleOpen = () => {
     setOpen(true);
     reportCartOpen();
@@ -80,6 +86,11 @@ const Cart = () => {
     setLimitationsOpen(true);
   };
   const handleLimitationsClose = () => setLimitationsOpen(false);
+
+  const handleLegalDisclaimerOpen = () => {
+    setLegalDisclaimerOpen(true);
+  };
+  const handleLegalDisclaimerClose = () => setLegalDisclaimerOpen(false);
 
   const toggleExpand = (id) => {
     if (expandList.find((entry) => entry === id)) {
@@ -167,6 +178,11 @@ const Cart = () => {
       <LimitationsDialog
         open={limitationsOpen}
         onClose={handleLimitationsClose}
+      />
+      <LegalDisclaimer
+        title={intl.formatMessage({ id: 'common.downloadingTitle' })}
+        open={legalDisclaimerOpen}
+        onClose={handleLegalDisclaimerClose}
       />
       <ResultDialog
         open={resultsOpen}
@@ -311,13 +327,33 @@ const Cart = () => {
             <Typography className={classes.disclaimerText}>
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
+            <FormControl>
+              <FormControlLabel
+                classes={{ label: classes.disclaimerText }}
+                value="agreed"
+                control={<Checkbox color="default" checked={hasConfirmation} />}
+                label={
+                  intl.formatMessage({ id: 'common.agreeToTermsAndConditions' },
+                    {
+                      usageTerms: (
+                        <Button color="secondary" disabled={isEmpty} onClick={handleLegalDisclaimerOpen} disableRipple>
+                          {intl.formatMessage({ id: 'common.usageTerms' })}
+                        </Button>
+                      ),
+                    })
+                }
+                labelPlacement="end"
+                onChange={toggleChecked}
+              />
+            </FormControl>
           </Grid>
           <Grid item>
             <Button
               variant="contained"
               color="primary"
-              disabled={isEmpty}
+              disabled={isEmpty || !hasConfirmation}
               className={classes.footerDownloadButton}
+              classes={{ disabled: classes.disabledButton }}
               onClick={handleDownloadClick}
             >
               <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
