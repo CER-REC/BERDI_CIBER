@@ -38,8 +38,6 @@
     "clearButton": "Clear all filters",
     "upCaretAltText": "Up caret icon",
     "downCaretAltText": "Down caret icon",
-    "agreeToTermsAndConditions": "I have read and agree to {usageTerms}",
-    "usageTerms": "BERDI's usage terms",
     "downloadingTitle": "Downloading from BERDI",
     "a11y": {
       "header": "header background",
@@ -241,6 +239,10 @@
       "resetLinkText": "Reset Session",
       "resetMessage": "Please click on the link to reset the session:"
     },
+    "legalAgreeCheckbox": {
+      "agreeToTermsAndConditions": "I have read and agree to {usageTerms}",
+      "usageTerms": "BERDI's usage terms"
+    },
     "legalDisclaimer": {
       "logoAltText": "Canada Energy Regulator",
       "attention": "Attention",
@@ -284,7 +286,7 @@
         "link": "\"Terms and Conditions\""
       },
       "dataSection": {
-        "zipText": "You are about to download a ZIP package including the below:",
+        "zipText": "You are about to download a ZIP package including:",
         "countsText": "{tableCount} tables (in their respective Project folders)",
         "parentText": "a parent index file",
         "limitationsText": "To access your download, you must agree to BERDI's usage terms displayed above."

@@ -10,7 +10,7 @@ const useStyles = makeStyles({
   },
 });
 
-const LegalAgreeCheckbox = ({ isChecked, toggleChecked }) => {
+const LegalAgreeCheckbox = ({ isChecked, toggleChecked, disabled }) => {
   const classes = useStyles();
   const intl = useIntl();
   const [legalDisclaimerOpen, setLegalDisclaimerOpen] = useState(false);
@@ -29,15 +29,16 @@ const LegalAgreeCheckbox = ({ isChecked, toggleChecked }) => {
       />
       <FormControl>
         <FormControlLabel
+          disabled={disabled}
           classes={{ label: classes.disclaimerText }}
           value="agreed"
-          control={<Checkbox color="default" checked={isChecked()} />}
+          control={<Checkbox color="default" checked={isChecked} />}
           label={
-            intl.formatMessage({ id: 'common.agreeToTermsAndConditions' },
+            intl.formatMessage({ id: 'components.legalAgreeCheckbox.agreeToTermsAndConditions' },
               {
                 usageTerms: (
                   <Button color="secondary" onClick={handleLegalDisclaimerOpen} disableRipple>
-                    {intl.formatMessage({ id: 'common.usageTerms' })}
+                    {intl.formatMessage({ id: 'components.legalAgreeCheckbox.usageTerms' })}
                   </Button>
                 ),
               })
@@ -53,6 +54,11 @@ const LegalAgreeCheckbox = ({ isChecked, toggleChecked }) => {
 export default LegalAgreeCheckbox;
 
 LegalAgreeCheckbox.propTypes = {
-  isChecked: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  isChecked: PropTypes.bool.isRequired,
   toggleChecked: PropTypes.func.isRequired,
+};
+
+LegalAgreeCheckbox.defaultProps = {
+  disabled: false,
 };

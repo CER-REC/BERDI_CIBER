@@ -57,7 +57,6 @@ const Cart = () => {
   const isEmpty = config.cartIds.length === 0;
 
   const toggleChecked = () => setHasConfirmation(!hasConfirmation);
-  const getChecked = () => hasConfirmation;
   const handleOpen = () => {
     setOpen(true);
     reportCartOpen();
@@ -317,8 +316,9 @@ const Cart = () => {
               {intl.formatMessage({ id: 'components.cart.dataDisclaimer' })}
             </Typography>
             <LegalAgreeCheckbox
-              isChecked={getChecked}
+              isChecked={hasConfirmation}
               toggleChecked={toggleChecked}
+              disabled={isEmpty}
             />
           </Grid>
           <Grid item>

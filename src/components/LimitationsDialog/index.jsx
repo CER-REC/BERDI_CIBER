@@ -41,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
   footerDownloadButton: {
     marginTop: '1.5em',
-    marginLeft: 0,
-    marginRight: 0,
     backgroundColor: theme.palette.cart.dark,
     padding: '0.3em 3em',
   },
@@ -50,7 +48,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.disabled,
   },
   footerDownloadButtonIcon: {
-    overflow: 'visible',
     paddingRight: '0.5em',
     maxWidth: '1.2em',
   },
@@ -64,7 +61,6 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
   const { hasConfirmation, setHasConfirmation } = useConfirmation();
 
   const toggleChecked = () => setHasConfirmation(!hasConfirmation);
-  const getChecked = () => hasConfirmation;
 
   const handleClick = useCallback(() => {
     reportDownload(intl.messages['common.downloadAllTables']);
@@ -153,7 +149,7 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
           </Typography>
 
           <LegalAgreeCheckbox
-            isChecked={getChecked}
+            isChecked={hasConfirmation}
             toggleChecked={toggleChecked}
           />
           <div style={{ textAlign: 'center' }}>
