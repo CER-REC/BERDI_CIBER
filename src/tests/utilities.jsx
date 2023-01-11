@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { IntlProvider } from 'react-intl';
 
 import theme from '../containers/App/theme';
+import { ConfirmationProvider } from '../hooks/useConfirmation';
 import { ConfigProvider } from '../hooks/useConfig';
 import client from './mocks/apolloClient';
 import MockConfig from './MockConfig';
@@ -50,11 +51,13 @@ const App = ({ configMocked, config, children }) => {
 
   return (
     <AppProviders>
-      <ConfigProvider>
-        <MockConfig state={config}>
-          {children}
-        </MockConfig>
-      </ConfigProvider>
+      <ConfirmationProvider>
+        <ConfigProvider>
+          <MockConfig state={config}>
+            {children}
+          </MockConfig>
+        </ConfigProvider>
+      </ConfirmationProvider>
     </AppProviders>
   );
 };

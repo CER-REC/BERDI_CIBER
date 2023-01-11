@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const LegalDisclaimer = ({ title, url, open, onClose }) => {
+const LegalDisclaimer = ({ content, title, open, onClose }) => {
   const classes = useStyles();
   const intl = useIntl();
   const logo = lang === 'fr' ? cerLogoFr : cerLogoEn;
@@ -79,21 +79,28 @@ const LegalDisclaimer = ({ title, url, open, onClose }) => {
           </ul>
         </div>
         <Citation />
-        { url ? <DownloadFooter url={url} onClick={onClose} /> : <Footer onClick={onClose} /> }
+        {
+          content
+            ? <DownloadFooter content={content} onClick={onClose} />
+            : <Footer onClick={onClose} />
+        }
       </Grid>
     </Dialog>
   );
 };
 
 LegalDisclaimer.propTypes = {
+  content: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }),
   open: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
-  url: PropTypes.string,
   onClose: PropTypes.func.isRequired,
 };
 
 LegalDisclaimer.defaultProps = {
-  url: '',
+  content: null,
 };
 
 export default LegalDisclaimer;

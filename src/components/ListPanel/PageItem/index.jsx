@@ -11,10 +11,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     // Overriding WET template styles
     '&.active > a:only-child:only-of-type': {
-      backgroundColor: theme.palette.blue.navy,
+      backgroundColor: theme.palette.teal.blue,
     },
     '& > a:only-child': {
-      color: theme.palette.blue.navy,
+      color: theme.palette.teal.blue,
     },
     '& > a:only-child:focus': {
       backgroundColor: theme.palette.grey.athens,

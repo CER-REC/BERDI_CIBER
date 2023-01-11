@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
   },
   footerDownloadButton: {
     marginTop: '1.5em',
-    backgroundColor: theme.palette.cart.dark,
     padding: '0.3em 3em',
   },
   disabledButton: {

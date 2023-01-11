@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { useIntl } from 'react-intl';
 import CartButton from '../CartButton';
+import LegalDisclaimer from '../LegalDisclaimer';
 import ReportDataDialog from './ReportDataDialog';
 import flag from '../../images/searchActionResults/flag.svg';
 import download from '../../images/searchActionResults/download.svg';
-import { reportDownload, reportReportData } from '../../utilities/analytics';
+import { reportReportData } from '../../utilities/analytics';
 
 const topMargin = '0.5em';
 
@@ -44,6 +45,7 @@ const SearchActionResults = ({ content }) => {
   const classes = useStyles();
   const intl = useIntl();
 
+  const [legalDisclaimerOpen, setLegalDisclaimerOpen] = useState(false);
   const [reportOpen, setReportOpen] = useState(false);
 
   const handleReportClose = () => setReportOpen(false);
@@ -54,6 +56,14 @@ const SearchActionResults = ({ content }) => {
 
   return (
     <>
+      {content.url && (
+        <LegalDisclaimer
+          content={content}
+          title={intl.formatMessage({ id: 'common.downloadingTitle' })}
+          open={legalDisclaimerOpen}
+          onClose={() => setLegalDisclaimerOpen(false)}
+        />
+      )}
       <ReportDataDialog
         open={reportOpen}
         onClose={handleReportClose}
@@ -63,9 +73,8 @@ const SearchActionResults = ({ content }) => {
       <CartButton data={content} />
       <Button
         aria-label={intl.formatMessage({ id: 'components.searchActionResults.download' })}
-        href={content.url}
         variant="outlined"
-        onClick={() => reportDownload(content.title)}
+        onClick={() => setLegalDisclaimerOpen(true)}
         className={`${classes.searchResultButton} ${classes.hrefButton}`}
         style={{ visibility: content.url === null ? 'hidden' : 'visible' }}
       >

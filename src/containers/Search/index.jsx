@@ -5,6 +5,7 @@ import { reportSection } from '../../utilities/analytics';
 import AccuracyAlert from '../../components/AccuracyAlert';
 import AddContentIdsButton from '../../components/AddContentIdsButton';
 import Cart from '../../components/Cart';
+import DisclaimerNotification from '../../components/DisclaimerNotification';
 import FilterChipsPanel from '../../components/FilterChipsPanel';
 import FilterToggle from '../../components/FilterToggle';
 import LimitationsDialog from '../../components/LimitationsDialog';
@@ -81,24 +82,22 @@ const Search = () => {
         <Grid item>
           <NavButtons />
         </Grid>
-        {config.page === 'search' && (
-          <Grid item>
-            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleClick}>
-              <div className={classes.icon} />
-              {intl.formatMessage({ id: 'pages.search.aboutBerdiButton' })}
-            </Button>
-            <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleButtonClick}>
-              {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
-            </Button>
-
-            <LimitationsDialog
-              open={limitationsOpen}
-              hasDownload
-              onClose={handleClose}
-            />
-          </Grid>
-        )}
+        <Grid item>
+          <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleClick}>
+            <div className={classes.icon} />
+            {intl.formatMessage({ id: 'pages.search.aboutBerdiButton' })}
+          </Button>
+          <Button color="primary" variant="outlined" className={classes.inlineButton} onClick={handleButtonClick}>
+            {intl.formatMessage({ id: 'components.resultsList.dataButton.label' })}
+          </Button>
+          <LimitationsDialog
+            open={limitationsOpen}
+            hasDownload
+            onClose={handleClose}
+          />
+        </Grid>
       </Grid>
+      <DisclaimerNotification />
       <SearchPanel hasTagline />
       <FilterToggle />
       {(config.filter === 'topic') && <TopicsFilter />}
