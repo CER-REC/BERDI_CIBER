@@ -104,7 +104,6 @@ export default (theme) => ({
   },
   footerDownloadButton: {
     marginBottom: '2em',
-    backgroundColor: theme.palette.cart.dark,
     padding: '0.3em 3em',
   },
   footerDownloadButtonIcon: {

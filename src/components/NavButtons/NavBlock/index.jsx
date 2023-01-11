@@ -7,17 +7,14 @@ import useConfig from '../../../hooks/useConfig';
 import { reportDisclaimer, reportSectionLinks } from '../../../utilities/analytics';
 import education from '../../../images/landing/education.png';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     padding: '2.5em 5em',
-  },
-  button: {
-    backgroundColor: theme.palette.teal.blue,
   },
   inlineButton: {
     display: 'inline',
   },
-}));
+});
 
 const NavBlock = () => {
   const { configDispatch } = useConfig();
@@ -117,7 +114,7 @@ const NavBlock = () => {
             )
           }
         </Typography>
-        <Button variant="contained" color="primary" classes={{ root: classes.button }} onClick={createHandleClick('project')}>
+        <Button variant="contained" color="primary" onClick={createHandleClick('project')}>
           {intl.formatMessage({ id: 'pages.landing.learnMoreButton' })}
         </Button>
       </Grid>
