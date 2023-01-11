@@ -37,7 +37,7 @@ const LegalAgreeCheckbox = ({ isChecked, toggleChecked, disabled }) => {
             intl.formatMessage({ id: 'components.legalAgreeCheckbox.agreeToTermsAndConditions' },
               {
                 usageTerms: (
-                  <Button color="secondary" onClick={handleLegalDisclaimerOpen} disableRipple>
+                  <Button color="secondary" onClick={handleLegalDisclaimerOpen} disabled={disabled} disableRipple>
                     {intl.formatMessage({ id: 'components.legalAgreeCheckbox.usageTerms' })}
                   </Button>
                 ),
