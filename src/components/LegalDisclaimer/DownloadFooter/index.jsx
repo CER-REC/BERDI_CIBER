@@ -3,6 +3,7 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import PropTypes from 'prop-types';
 import useConfirmation from '../../../hooks/useConfirmation';
+import { reportDownload } from '../../../utilities/analytics';
 
 const useStyles = makeStyles({
   download: {
@@ -11,11 +12,15 @@ const useStyles = makeStyles({
   },
 });
 
-const DownloadFooter = ({ url, onClick }) => {
+const DownloadFooter = ({ content, onClick }) => {
   const classes = useStyles();
   const intl = useIntl();
   const { hasConfirmation, setHasConfirmation } = useConfirmation();
   const toggleChecked = () => setHasConfirmation(!hasConfirmation);
+  const handleClick = (event) => {
+    onClick(event);
+    reportDownload(content.title);
+  };
 
   return (
     <Grid container justify="space-between" alignItems="center">
@@ -38,11 +43,11 @@ const DownloadFooter = ({ url, onClick }) => {
         </FormControl>
         <Button
           component="a"
-          href={url}
+          href={content.url}
           disabled={!hasConfirmation}
           variant="contained"
           color="primary"
-          onClick={onClick}
+          onClick={handleClick}
         >
           {intl.formatMessage({ id: 'components.legalDisclaimer.downloadFooter.download' })}
         </Button>
@@ -52,7 +57,10 @@ const DownloadFooter = ({ url, onClick }) => {
 };
 
 DownloadFooter.propTypes = {
-  url: PropTypes.string.isRequired,
+  content: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+  }).isRequired,
   onClick: PropTypes.func.isRequired,
 };
 
