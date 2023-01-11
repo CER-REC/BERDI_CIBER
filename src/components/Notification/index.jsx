@@ -31,14 +31,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Notification = ({ children }) => {
+const Notification = ({ className, children }) => {
   const classes = useStyles();
   const intl = useIntl();
 
   return (
-    <div className={classes.root}>
+    <div className={`${classes.root} ${className}`}>
       <img className={classes.icon} src={info} alt={intl.formatMessage({ id: 'components.notification.iconAltText' })} />
-      <Typography className={classes.content} variant="body2">
+      <Typography className={classes.content} component="div" variant="body2">
         {children}
       </Typography>
     </div>
@@ -46,7 +46,12 @@ const Notification = ({ children }) => {
 };
 
 Notification.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
+};
+
+Notification.defaultProps = {
+  className: '',
 };
 
 export default Notification;

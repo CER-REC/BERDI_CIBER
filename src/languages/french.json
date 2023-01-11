@@ -211,6 +211,13 @@
     "dateSlider": {
       "dateLabel": "Date de dépôt"
     },
+    "disclaimerNotification": {
+      "modal": "",
+      "title": "",
+      "body": "",
+      "link": "",
+      "button": ""
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "État – pipeline",

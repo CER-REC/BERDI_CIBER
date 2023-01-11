@@ -8,7 +8,6 @@ const darkGrey = '#616060';
 const athensGrey = '#EAEBED';
 const darkBlue = '#284162';
 const charcoal = '#CCCCCC';
-const navyBlue = '#26374A';
 const buttonBlue = '#054169';
 const inlineBlue = '#BBEBFF';
 const lightBlue = '#D7FAFF';
@@ -57,7 +56,6 @@ const theme = createMuiTheme({
       blue: buttonBlue,
     },
     blue: {
-      navy: navyBlue,
       dark: darkBlue,
       light: lightBlue,
       darkBluePurple,
@@ -158,7 +156,7 @@ const theme = createMuiTheme({
         },
       },
       containedPrimary: {
-        backgroundColor: navyBlue,
+        backgroundColor: tealBlue,
         '&:hover': {
           backgroundColor: '#5B7495',
           color: 'white',

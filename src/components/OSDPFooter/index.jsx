@@ -3,7 +3,7 @@ import { Grid, Typography, Button, makeStyles } from '@material-ui/core';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { useIntl } from 'react-intl';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles({
   root: {
     background: '#D0EDF8',
     borderRadius: '10px',
@@ -11,15 +11,13 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '1em',
   },
   button: {
-    color: theme.palette.common.white,
-    backgroundColor: theme.palette.teal.blue,
     maxHeight: '6em',
     padding: '0.4em 2em',
   },
   buttonIcon: {
     marginLeft: '0.75em',
   },
-}));
+});
 
 const OSDPFooter = () => {
   const classes = useStyles();

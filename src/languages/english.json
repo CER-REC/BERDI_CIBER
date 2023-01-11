@@ -211,6 +211,13 @@
     "dateSlider": {
       "dateLabel": "Filing date"
     },
+    "disclaimerNotification": {
+      "modal": "Accessing BERDI",
+      "title": "LEGAL DISCLAIMER",
+      "body": "By accessing BERDI you agree to {link}. You agree to only use the database for research, private study and/or education. The database may not be used for commercial or competitive purposes.",
+      "link": "the terms of use",
+      "button": "View terms and services"
+    },
     "dropdown": {
       "REGIONS": "Province",
       "STATUSES": "Pipeline status",
