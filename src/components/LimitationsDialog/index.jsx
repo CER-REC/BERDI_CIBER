@@ -4,10 +4,10 @@ import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import CERDialog from '../CERDialog';
 import Citation from '../Citation';
+import DownloadTablesButton from '../DownloadTablesButton';
 import useAPI from '../../hooks/useAPI';
 import { reportDownload, reportSection } from '../../utilities/analytics';
 import useConfig from '../../hooks/useConfig';
-import downloadIcon from '../../images/Download.svg';
 import LegalAgreeCheckbox from '../LegalAgreeCheckbox';
 import useConfirmation from '../../hooks/useConfirmation';
 
@@ -36,19 +36,12 @@ const useStyles = makeStyles((theme) => ({
       color: 'white',
     },
   },
+  downloadFooter: {
+    paddingTop: '1.5em',
+    textAlign: 'center',
+  },
   list: {
     marginTop: '1em',
-  },
-  footerDownloadButton: {
-    marginTop: '1.5em',
-    padding: '0.3em 3em',
-  },
-  disabledButton: {
-    ...theme.mixins.disabled,
-  },
-  footerDownloadButtonIcon: {
-    paddingRight: '0.5em',
-    maxWidth: '1.2em',
   },
 }));
 
@@ -151,22 +144,13 @@ const LimitationsDialog = ({ open, hasDownload, onClose }) => {
             isChecked={hasConfirmation}
             toggleChecked={toggleChecked}
           />
-          <div style={{ textAlign: 'center' }}>
-            <Button
-              color="primary"
-              variant="contained"
-              disabled={!hasConfirmation}
-              className={classes.footerDownloadButton}
-              classes={{ disabled: classes.disabledButton }}
-              onClick={handleClick}
+          <div className={classes.downloadFooter}>
+            <DownloadTablesButton
+              fileSize={fileSize}
               href={fileDownloadURL}
-            >
-              <img src={downloadIcon} alt={intl.formatMessage({ id: 'common.downloadAltText' })} className={classes.footerDownloadButtonIcon} />
-              <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-              <span style={{ fontWeight: 'normal', marginLeft: '5px' }}>
-                {fileSize > 999 ? `[${intl.formatNumber((fileSize / 1024).toFixed(2))} MB]` : `[${intl.formatNumber(fileSize.toFixed(2))} KB]`}
-              </span>
-            </Button>
+              disabled={!hasConfirmation}
+              onClick={handleClick}
+            />
           </div>
         </div>
       )}

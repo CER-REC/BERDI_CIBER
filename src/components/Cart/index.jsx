@@ -16,10 +16,9 @@ import useDownloadSize from '../../hooks/useDownloadSize';
 import useLazyCartData from '../../hooks/useLazyCartData';
 import rightArrow from '../../images/cart/rightArrow.png';
 import shelfIcon from '../../images/cart/shelf.svg';
-import downloadIcon from '../../images/Download.svg';
 import { reportCartDownload, reportCartOpen, reportCartRemoveAll, reportDisclaimer, reportProject } from '../../utilities/analytics';
-import fileSizeFormatter from '../../utilities/fileSizeFormatter';
 import ApplicationDialog from '../ApplicationDialog';
+import DownloadTablesButton from '../DownloadTablesButton';
 import LimitationsDialog from '../LimitationsDialog';
 import ResultDialog from '../ResultDialog';
 import CartItem from './CartItem';
@@ -103,7 +102,6 @@ const Cart = () => {
   let { fileSize } = useDownloadSize(config.cartIds);
   // TODO: remove this once API is updated to handle 0 sizes
   if (config.cartIds.length === 0) fileSize = 0;
-  const formattedFileSize = fileSizeFormatter(fileSize, intl);
 
   const getRowHeight = (index) => rowHeights.current[index] || 150;
 
@@ -321,24 +319,15 @@ const Cart = () => {
               disabled={isEmpty}
             />
           </Grid>
-          <Grid item>
-            <Button
-              variant="contained"
-              color="primary"
+          <Grid item style={{ paddingBottom: '2em' }}>
+            <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
+              <input type="hidden" name="ids" value={config.cartIds} />
+            </form>
+            <DownloadTablesButton
+              fileSize={fileSize}
               disabled={isEmpty || !hasConfirmation}
-              className={classes.footerDownloadButton}
-              classes={{ disabled: classes.disabledButton }}
               onClick={handleDownloadClick}
-            >
-              <form ref={formRef} method="post" action={`zip?lang=${intl.locale}`} style={{ display: 'none' }}>
-                <input type="hidden" name="ids" value={config.cartIds} />
-              </form>
-              <img src={downloadIcon} alt={intl.formatMessage({ id: 'common.downloadAltText' })} className={classes.footerDownloadButtonIcon} />
-              <span>{intl.formatMessage({ id: 'common.downloadAllTables' })}</span>
-              <span style={{ fontWeight: 'bold', marginLeft: '5px' }}>
-                {formattedFileSize}
-              </span>
-            </Button>
+            />
           </Grid>
         </Grid>
       </Drawer>
