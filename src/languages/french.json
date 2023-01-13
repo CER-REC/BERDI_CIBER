@@ -6,9 +6,6 @@
     "figures": "Figures",
     "previous": "Précédente",
     "previousAriaText": "Page précédente",
-    "downloadAllTables": "Télécharger tous les tableaux",
-    "megabytes": "Mo",
-    "kilobytes": "Ko",
     "limitations": "restrictions",
     "limitationsURL": "https://www.cer-rec.gc.ca/fr/avis.html",
     "next": "Suivant",
@@ -40,13 +37,7 @@
     "clearButton": "Effacer tous les filtres",
     "upCaretAltText": "Icône de caret vers le haut",
     "downCaretAltText": "Icône de caret vers le bas",
-    "a11y": {
-      "header": "header background",
-      "redirect": "redirect to page",
-      "open": "open description dialog",
-      "close": "close",
-      "downloadReport": "download report"
-    },
+	"downloadingTitle": "Téléchargement à partir de CIBER",
     "vcLabels": {
       "headers": {
         "socioEconomic": "Questions socioéconomiques",
@@ -189,7 +180,6 @@
       "noItems": "Aucun article sur l’étagère.",
       "copyConfirmation": "Lien copié!",
       "removeAll": "Supprimer tout",
-      "removeAllAltText": "Supprimer un élément",
       "shareAltText": "Partager",
       "collapseShelfAltText": "Réduire la tablette",
       "collapseShelfAriaText": "Réduire la tablette",
@@ -212,11 +202,16 @@
       "dateLabel": "Date de dépôt"
     },
     "disclaimerNotification": {
-      "modal": "",
-      "title": "",
-      "body": "",
-      "link": "",
-      "button": ""
+      "modal": "Accès à CIBER",
+      "title": "AVIS DE NON-RESPONSABILITÉ",
+      "body": "En accédant à CIBER, vous en acceptez les {link}. Vous consentez à utiliser la base de données uniquement pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études. La base de données ne peut pas être utilisée à des fins commerciales ou concurrentielles.",
+      "link": "conditions d’utilisation",
+      "button": "Afficher les conditions et les services"
+    },
+    "downloadTablesButton": {
+      "label": "Télécharger tous les tableaux",
+      "megabytes": "Mo",
+      "kilobytes": "Ko"
     },
     "dropdown": {
       "REGIONS": "Province",
@@ -248,10 +243,14 @@
       "resetLinkText": "Réinitialiser la session.",
       "resetMessage": "Veuillez cliquer sur le lien pour réinitialiser la session."
     },
+    "legalAgreeCheckbox": {
+      "agreeToTermsAndConditions": "J’ai lu et j’accepte les {usageTerms}.",
+      "usageTerms": "conditions d’utilisation de CIBER"
+    },
     "legalDisclaimer": {
       "logoAltText": "Régie de l’énergie du Canada",
       "attention": "Attention",
-      "disclaimer1": "",
+      "disclaimer1": "La base de données sur les EES favorise l’accès du public à l’information provenant de ces évaluations et utilisée dans les processus de la Régie menant aux décisions rendues. Elle peut renfermer des ouvrages protégés par le droit d’auteur.",
       "disclaimer2": "En cliquant sur « J’accepte » et en accédant à cette base de données, vous acceptez ce qui suit :",
       "bullet1": "d’utiliser exclusivement la base de données pour des travaux de recherche, par intérêt personnel ou dans le cadre d’études;",
       "bullet2": "de ne pas distribuer ni diffuser les documents;",
@@ -260,12 +259,12 @@
       "bullet5": "de {not} vous servir de la base de données à des fins commerciales ou concurrentielles.",
       "not": "NE PAS",
       "footer": {
-        "label": ""
+        "label": "Je comprends."
       },
       "downloadFooter": {
         "agree": "J’accepte",
-        "cancel": "",
-        "download": ""
+        "cancel": "Non, merci.",
+        "download": "Télécharger le(s) fichier(s)"
       }
     },
     "limitationsDialog": {
@@ -291,10 +290,10 @@
         "link": "\"l’Avis\""
       },
       "dataSection": {
-        "zipText": "Vous êtes sur le point de télécharger un fichier auto-décompactable qui comprend ce qui suit : ",
-        "countsText": "{csvCount} fichiers CSV (tableaux {tableCount}) {part2}",
-        "countsPart2": "fichiers regroupés par dossier de projet, y compris un index des tableaux.",
-        "limitationsText": "En téléchargeant ces fichiers, vous comprenez les limites susmentionnées et vous acceptez de respecter toutes les exigences."
+        "zipText": "Vous êtes sur le point de télécharger un ensemble auto-décompactable qui comprend ce qui suit : ",
+        "countsText": "{tableCount} tableaux (dans leurs dossiers de projet respectifs);",
+        "parentText": "un fichier index principal.",
+        "limitationsText": "Pour accéder au contenu téléchargé, vous devez accepter les conditions d’utilisation de CIBER indiquées ci-dessus."
       }
     },
     "listPanel": {
