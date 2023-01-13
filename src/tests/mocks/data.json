@@ -4,6 +4,7 @@
       {
         "id": "1",
         "name": "Application Test 3 Long Name",
+        "nameId": "Test1",
         "shortName": "Test1",
         "companyName": "Enbridge Southern Lights GP Inc.",
         "commodity": "OIL",
@@ -22,6 +23,7 @@
       {
         "id": "2",
         "name": "Application Test 2 Long Name",
+        "nameId": "Test2",
         "shortName": "Test2",
         "companyName": "Enbridge Pipelines Inc.",
         "commodity": "OIL",
@@ -40,6 +42,7 @@
       {
         "id": "3",
         "name": "Application Test 3 Long Name",
+        "nameId": "Test3",
         "shortName": "Test3",
         "companyName": "Enbridge Pipelines Inc.",
         "commodity": "OIL",
@@ -69,6 +72,7 @@
           "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "nameId": "Mackenzie Gas",
             "shortName": "Mackenzie Gas",
             "regions": ["AB"],
             "consultants": "Imperial Oil",
@@ -122,6 +126,7 @@
           "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "nameId": "Mackenzie Gas",
             "shortName": "Mackenzie Gas",
             "regions": ["AB"],
             "consultants": "Imperial Oil",
@@ -175,6 +180,7 @@
           "hasNotification": false,
           "application": {
             "name": "Application for the construction and operation of the Mackenzie Gas Pipeline",
+            "nameId": "Mackenzie Gas",
             "shortName": "Mackenzie Gas",
             "regions": ["AB"],
             "consultants": "Imperial Oil",
@@ -228,6 +234,7 @@
           "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
+            "nameId": "Application Test 2 Short Name",
             "shortName": "Application Test 2 Short Name",
             "regions": ["BC"],
             "companyName": "Enbridge Pipelines Inc.",
@@ -281,6 +288,7 @@
           "hasNotification": false,
           "application": {
             "name": "Application Test 2 Long Name",
+            "nameId": "Application Test 2 Short Name",
             "shortName": "Application Test 2 Short Name",
             "regions": ["BC"],
             "companyName": "Enbridge Pipelines Inc.",

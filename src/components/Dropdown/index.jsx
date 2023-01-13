@@ -38,19 +38,23 @@ const useStyles = makeStyles((theme) => ({
 const DropDown = ({ type, hasHelp, options, value, onChange }) => {
   const classes = useStyles();
   const intl = useIntl();
-  const { applicationIdLabels } = useAPI();
+  const { applicationIdLabels, nameIds } = useAPI();
 
   const handleChange = useCallback((event) => {
     const selected = event.target.value;
 
-    const selectedItem = (
+    let selectedItem = (
       value.filter((item) => !selected.includes(item))[0]
       || selected.filter((item) => !value.includes(item))[0]
     );
 
+    if (type === 'APPLICATION_NAMES') {
+      selectedItem = nameIds[selectedItem];
+    }
+
     reportFilter(type, selectedItem, (selected.length > value.length));
     onChange(selected);
-  }, [type, value, onChange]);
+  }, [type, value, onChange, nameIds]);
 
   const getDropdownItemName = useCallback((name) => {
     switch (type) {
