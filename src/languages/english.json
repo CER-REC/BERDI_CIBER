@@ -6,9 +6,6 @@
     "figures": "Figures",
     "previous": "Previous",
     "previousAriaText": "Previous page",
-    "downloadAllTables": "Download all tables",
-    "megabytes": "MB",
-    "kilobytes": "KB",
     "limitations": "limitations",
     "limitationsURL": "https://www.cer-rec.gc.ca/en/terms-conditions.html",
     "next": "Next",
@@ -39,13 +36,6 @@
     "upCaretAltText": "Up caret icon",
     "downCaretAltText": "Down caret icon",
     "downloadingTitle": "Downloading from BERDI",
-    "a11y": {
-      "header": "header background",
-      "redirect": "redirect to page",
-      "open": "open description dialog",
-      "close": "close",
-      "downloadReport": "download report"
-    },
     "vcLabels": {
       "headers": {
         "socioEconomic": "Socio-economic",
@@ -215,6 +205,11 @@
       "body": "By accessing BERDI you agree to {link}. You agree to only use the database for research, private study and/or education. The database may not be used for commercial or competitive purposes.",
       "link": "the terms of use",
       "button": "View terms and services"
+    },
+    "downloadTablesButton": {
+      "label": "Download all tables",
+      "megabytes": "MB",
+      "kilobytes": "KB"
     },
     "dropdown": {
       "REGIONS": "Province",

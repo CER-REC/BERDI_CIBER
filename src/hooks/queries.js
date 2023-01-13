@@ -108,6 +108,7 @@ export const SEARCH = gql`
           hearingOrder
           applicationURL
           finalDecisionURL
+          url
           tableCount
           figureCount
         }

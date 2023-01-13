@@ -102,16 +102,4 @@ export default (theme) => ({
   disclaimerText: {
     fontSize: '14px',
   },
-  footerDownloadButton: {
-    marginBottom: '2em',
-    padding: '0.3em 3em',
-  },
-  disabledButton: {
-    ...theme.mixins.disabled,
-  },
-  footerDownloadButtonIcon: {
-    overflow: 'visible',
-    paddingRight: '0.5em',
-    maxWidth: '1.2em',
-  },
 });
