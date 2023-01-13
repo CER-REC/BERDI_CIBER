@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
   icon: {
     alignSelf: 'center',
-    backgroundColor: theme.palette.blue.navy,
+    backgroundColor: theme.palette.teal.blue,
     borderRadius: '50%',
     flexShrink: 0,
     height: iconSize,
