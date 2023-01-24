@@ -264,7 +264,7 @@ const Cart = () => {
           </Grid>
           <Grid item className={clsx(classes.bodyList, { [classes.bodyListEmpty]: isEmpty })}>
             { isEmpty && (<Typography style={{ fontSize: '1.2em' }}>{intl.formatMessage({ id: 'components.cart.noItems' })}</Typography>) }
-            <AutoSizer>
+            <AutoSizer style={{ minHeight: '200px' }}>
               {({ height, width }) => (
                 <InfiniteLoader
                   ref={infiniteLoaderRef}
