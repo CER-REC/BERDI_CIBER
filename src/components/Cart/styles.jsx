@@ -59,6 +59,8 @@ export default (theme) => ({
   body: {
     height: '100%',
     width: '100%',
+    overflowY: 'auto',
+    overflowX: 'hidden',
   },
   removeButton: {
     margin: '0.85em 0.35em',
