@@ -3,7 +3,7 @@ export default (theme) => ({
     padding: '0 20px',
     '& span': { fontWeight: 900 },
   },
-  figures: {
+  italicized: {
     fontStyle: 'italic',
     color: '#A0A4A5',
   },

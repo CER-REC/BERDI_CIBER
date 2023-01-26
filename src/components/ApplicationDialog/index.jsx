@@ -65,6 +65,7 @@ const ApplicationDialog = ({ data, onClose }) => {
       open
       fullWidth
     >
+      {console.log(data)}
       <Grid container>
         {/* Left Side */}
         <Grid item xs={10} className={classes.left}>
@@ -105,7 +106,7 @@ const ApplicationDialog = ({ data, onClose }) => {
       {/* Footer */}
       <Grid container wrap="nowrap" justify="space-around" className={classes.footer}>
         {/* Table / Figure Counts */}
-        <Grid item container spacing={1} xs={4} alignItems="center" className={classes.counts}>
+        <Grid item container spacing={1} xs={6} alignItems="center" className={classes.counts}>
           <Grid item>
             <Typography>
               <span>{`${intl.formatNumber(data.tableCount)} `}</span>
@@ -114,15 +115,22 @@ const ApplicationDialog = ({ data, onClose }) => {
           </Grid>
 
           <Grid item>
-            <Typography className={classes.figures}>
+            <Typography className={classes.italicized}>
               {`${intl.formatNumber(data.figureCount)} `}
               {intl.formatMessage({ id: 'common.figureCount' }, { figures: data.figureCount })}
+            </Typography>
+          </Grid>
+
+          <Grid item>
+            <Typography className={classes.italicized}>
+              {`${intl.formatNumber(data.alignmentSheetCount)} `}
+              {intl.formatMessage({ id: 'common.alignmentSheetCount' }, { alignmentSheets: data.alignmentSheetCount })}
             </Typography>
           </Grid>
         </Grid>
 
         {/* Buttons */}
-        <Grid item spacing={1} container wrap="nowrap" xs={8} justify="flex-end">
+        <Grid item spacing={1} container wrap="nowrap" xs={6} justify="flex-end">
           {data.applicationURL && (
             <Grid item>
               <Button
@@ -182,6 +190,7 @@ ApplicationDialog.propTypes = {
     applicationURL: PropTypes.string,
     figureCount: PropTypes.number,
     tableCount: PropTypes.number,
+    alignmentSheetCount: PropTypes.number,
     hearingOrder: PropTypes.string,
     companyName: PropTypes.string,
     name: PropTypes.string,
