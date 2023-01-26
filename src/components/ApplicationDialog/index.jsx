@@ -65,7 +65,6 @@ const ApplicationDialog = ({ data, onClose }) => {
       open
       fullWidth
     >
-      {console.log(data)}
       <Grid container>
         {/* Left Side */}
         <Grid item xs={10} className={classes.left}>

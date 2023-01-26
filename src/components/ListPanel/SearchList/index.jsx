@@ -62,7 +62,6 @@ const SearchList = ({ toggleExpand, expandList }) => {
   };
 
   const handleProjectClick = (data) => {
-    console.log(contents);
     setProjectData(data);
     reportProject(data.shortName);
   };
