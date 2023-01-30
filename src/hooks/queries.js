@@ -111,6 +111,7 @@ export const SEARCH = gql`
           url
           tableCount
           figureCount
+          alignmentSheetCount
         }
         valueComponent {
           landscape
