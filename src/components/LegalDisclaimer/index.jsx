@@ -61,7 +61,11 @@ const LegalDisclaimer = ({ content, title, open, onClose }) => {
             {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer1' })}
           </Typography>
           <Typography style={{ paddingBottom: '1em' }}>
-            {intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2' })}
+            {
+              content
+                ? intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2Explicit' })
+                : intl.formatMessage({ id: 'components.legalDisclaimer.disclaimer2Implicit' })
+            }
           </Typography>
         </div>
 
