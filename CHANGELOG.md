@@ -1,3 +1,112 @@
+# [2.2.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.0) (2023-02-13)
+
+
+* **Features:** Updated French disclaimer I understand label (f51b015)
+* **Features:** Added French messages for legal disclaimer (e92dce6)
+* **Features:** Updated primary color of contained buttons and removed blue shade (caeea9b)
+* **Features:** Added disclaimer notification to the landing and search pages (0117ffc)
+* **Bug Fixes:** Enabled the download ESA tables button for the application dialog (3f87794)
+* **Bug Fixes:** Removed old font (9c8c581)
+* **Bug Fixes:** Added missing font (9145bd2)
+
+
+### App
+
+* **Features:** Removed caching of legal agreement in session storage and legal disclaimer pop up (862a7b6)
+
+
+### ApplicationDialog
+
+* **Features:** started working on adding alignment sheet count to project application dial (7fc2d6f)
+
+
+### Cart
+
+* **Features:** updated some scroll CSS (2ee9727)
+* **Features:** updated cart in short window (9011fc6)
+* **Features:** updated styles for cart and removed a google analytics call, possibly temporarily. (47b8ea9)
+* **Features:** added in disclaimer link and check for Cart. (c5a190f)
+* **Code Formatting:** updated linting (2050443)
+
+
+### DisclaimerNotification
+
+* **Features:** Created disclaimer notification (7a5f1bb)
+
+
+### DownloadTablesButton
+
+* **Features:** Refactored download table button out into a component and updated data text style (ee4bdfa)
+
+
+### hooks
+
+* **Features:** Have applicationIdLabels use the new nameId field (1fa589b)
+
+
+### hooks/useConfirmation
+
+* **Features:** Changed confirmation to use context to sync across components (b6e86e2)
+* **Features:** Created hook for download agreement caching (daefde2)
+
+
+### languages
+
+* **Features:** Added French legal disclaimer messages and cleaned up language files (27cc6f1)
+* **Features:** Added messages for disclaimer notification (e0e169c)
+* **Features:** Updated messages for legal disclaimer changes (cde2636)
+
+
+### Languages
+
+* **Bug Fixes:** updated disclaimer language. (fa0fb0d)
+
+
+### LegalAgreeCheckbox
+
+* **Features:** disabled button when cart is disabled. (e0f271f)
+* **Features:** updated disable for LegalAgreeCheckbox and some other small changes. (cbf7310)
+
+
+### LegalDisclaimer
+
+* **Features:** added additional line for implicit vs explicit for legal disclaimer (2118548)
+* **Features:** Changed url parameter to full content object to send the download title for analytics (3566eda)
+* **Features:** Updated legal disclaimer to design (aa131b0)
+
+
+### LegalDisclaimer/DownloadFooter
+
+* **Features:** Created download version of the legal disclaimer footer (2f6c7c0)
+
+
+### LegalDisclaimer/Footer
+
+* **Features:** Created standard version of the legal disclaimer footer (5416188)
+
+
+### LimitationsDialog
+
+* **Features:** added LegalAgreeCheckbox and implemented it in LimitationsDialog and Cart (830cd4d)
+* **Code Refactoring:** Moved out citation into another component and restyled to design (7480504)
+
+
+### Notification
+
+* **Features:** Updated component for disclaimer usage (3d16840)
+* **Bug Fixes:** Changed removed color reference (5fe47fd)
+
+
+### Queries
+
+* **Features:** updated query to include alignment sheet count (4b01c73)
+
+
+### SearchActionResults
+
+* **Features:** Changed downloading title ID path (5b56a05)
+* **Features:** Added legal disclaimer dialog for download table button (5d42831)
+
 ## [2.1.2](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.2) (2022-12-13)
 
 
