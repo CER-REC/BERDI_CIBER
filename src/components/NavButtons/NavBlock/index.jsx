@@ -31,12 +31,12 @@ const NavBlock = () => {
   const handleScrollClick = useCallback(() => {
     const fragment = 'ikInformation';
     const page = 'methods';
-    reportSectionLinks(fragment);
+    reportSectionLinks();
     configDispatch({ type: 'page/fragment/changed', payload: { page, fragment } });
   }, [configDispatch]);
 
   const handleClick = useCallback((page) => {
-    reportSectionLinks(page);
+    reportSectionLinks();
     configDispatch({ type: 'page/changed', payload: page });
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => () => handleClick(page), [handleClick]);

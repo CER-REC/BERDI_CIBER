@@ -3,7 +3,7 @@ import { ResponsiveTreeMapHtml } from '@nivo/treemap';
 import React, { useMemo } from 'react';
 import useConfig from '../../../hooks/useConfig';
 import useESAData from '../../../hooks/useESAData';
-import { reportFilter } from '../../../utilities/analytics';
+import { reportTreemap } from '../../../utilities/analytics';
 import Tooltip from '../Tooltip';
 import TreeNode from '../TreeNode';
 
@@ -80,7 +80,7 @@ const TreeMap = () => {
       configDispatch({ type: 'applicationIds/added', payload: node.id });
     }
 
-    reportFilter('treemap', node.data.shortName, !node.data.selected);
+    reportTreemap(node.data.shortName);
   };
 
   return (

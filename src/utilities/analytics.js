@@ -24,72 +24,84 @@ const report = (category, action, data) => {
   }
 
   const event = {
-    event: 'esa databank interaction',
-    category,
-    action,
-    userID: userId,
+    event: 'visualization event',
+    event_visualization: 'esa databank interaction',
+    event_subvisualization: undefined,
+    event_category: category,
+    event_action: action,
+    event_value: undefined,
+    event_label: undefined,
+    event_path: undefined,
+    event_language: undefined,
+    event_userID: userId,
+    event_count: undefined,
+    event_doccount: undefined,
+    event_hittimestamp: undefined,
+    event_hitcount: undefined,
     ...(data || {}),
   };
   dataLayer.push(event);
 };
 
-const reportSection = (page) => report('section', 'click', { value: page });
+const reportSection = (page) => report('section', 'click', { event_value: page });
 
-const reportSectionLinks = (page) => report('section', 'links', { value: page });
+const reportSectionLinks = () => report('section', 'links', { event_label: 'section links' });
 
-const reportDisclaimer = () => report('disclaimer', 'click', { value: 'Read Our Disclaimer' });
+const reportDisclaimer = () => report('disclaimer', 'click', { event_value: 'Read Our Disclaimer' });
 
-const reportSearch = (search) => report('search', 'search', { value: search });
+const reportSearch = (search) => report('search', 'search', { event_value: search });
 
-const reportShowFilter = () => report('search', 'filter', { label: 'show' });
+const reportShowFilter = () => report('search', 'filter', { event_label: 'show' });
 
-const reportClearFilter = () => report('search', 'filter', { label: 'clear filter' });
+const reportClearFilter = () => report('search', 'filter', { event_label: 'clear filter' });
 
 const reportFilter = (type, value, checked) => (
-  report(type, 'filter', { label: value, value: (checked ? 'check' : 'uncheck') })
+  report(type, 'filter', { event_value: value, event_label: (checked ? 'check' : 'uncheck') })
 );
 
-const reportProject = (application) => report('project', 'view', { label: 'project name', value: application });
+const reportProject = (application) => report('project', 'view', { event_label: 'project name', event_value: application });
 
-const reportContent = (content) => report('title', 'view', { label: content });
+const reportTreemap = (application) => report('project', 'view', { event_label: 'results', event_value: application });
 
-const reportDownload = (name) => report('TABLE', 'Download', { value: name });
+const reportContent = (content) => report('title', 'view', { event_label: content });
 
-const reportView = (type, name) => report(type, 'View', { value: name });
+const reportDownload = (name) => report('TABLE', 'Download', { event_value: name });
 
-const reportAddTopicFilter = (topic) => report('circleclassification', 'click', { value: topic });
+const reportView = (type, name) => report(type, 'View', { event_value: name });
 
-const reportRemoveTopicFilter = (topic) => report('circleclassification', 'unclick', { value: topic });
+const reportAddTopicFilter = (topic) => report('circleclassification', 'click', { event_value: topic });
 
-const reportChip = (name) => report('keywordtags', 'click', { value: name });
+const reportRemoveTopicFilter = (topic) => report('circleclassification', 'unclick', { event_value: topic });
 
-const reportFilterToggle = (filter) => report('toggle', 'click', { value: filter });
+const reportChip = (name) => report('keywordtags', 'click', { event_value: name });
 
-const reportDetails = (name) => report('details', 'click', { value: name });
+const reportFilterToggle = (filter) => report('toggle', 'click', { event_value: filter });
 
-const reportReportData = () => report('details', 'click', { value: 'reportdata' });
+const reportDetails = (name) => report('details', 'click', { event_value: name });
 
-const reportReportRelated = (topic) => report('details', 'related', { label: topic });
+const reportReportData = () => report('details', 'click', { event_value: 'reportdata' });
 
-const reportReportRelatedDetails = (topic) => report('details', 'relateddetails', { label: topic });
+const reportReportRelated = (topic) => report('details', 'related', { event_label: topic });
 
-const reportExpand = () => report('navbutton', 'click', { value: 'Expand' });
+const reportReportRelatedDetails = (topic) => report('details', 'relateddetails', { event_label: topic });
 
-const reportCollapse = () => report('navbutton', 'click', { value: 'Collapse' });
+const reportExpand = () => report('navbutton', 'click', { event_value: 'Expand' });
 
-const reportCartDownload = () => report('download', 'click', { value: 'downloadalltable' });
+const reportCollapse = () => report('navbutton', 'click', { event_value: 'Collapse' });
 
-const reportCartOpen = () => report('shelf', 'click', { value: 'open' });
+const reportCartDownload = () => report('download', 'click', { event_value: 'downloadalltable' });
 
-const reportCartAdd = (name) => report('shelf', 'add to shelf', { value: name });
+const reportCartOpen = () => report('shelf', 'click', { event_value: 'open' });
 
-const reportCartRemove = (name) => report('shelf', 'remove from shelf', { value: name });
+const reportCartAdd = (name) => report('shelf', 'add to shelf', { event_value: name });
 
-const reportCartShare = () => report('shelf', 'click', { value: 'share' });
+const reportCartRemove = (name) => report('shelf', 'remove from shelf', { event_value: name });
 
-const reportCartRemoveAll = () => report('shelf', 'click', { value: 'removeall' });
+const reportCartShare = () => report('shelf', 'click', { event_value: 'share' });
 
-const reportSearchHelp = () => report('searchhelp', 'click', { value: 'searchhelp' });
+const reportCartRemoveAll = () => report('shelf', 'click', { event_value: 'removeall' });
+
+const reportSearchHelp = () => report('searchhelp', 'click', { event_value: 'searchhelp' });
 
 export {
   reportSearch,
@@ -100,6 +112,7 @@ export {
   reportClearFilter,
   reportFilter,
   reportProject,
+  reportTreemap,
   reportContent,
   reportDownload,
   reportView,
