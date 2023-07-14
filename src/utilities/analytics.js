@@ -51,9 +51,9 @@ const reportDisclaimer = () => report('disclaimer', 'click', { event_value: 'Rea
 
 const reportSearch = (search) => report('search', 'search', { event_value: search });
 
-const reportShowFilter = () => report('search', 'filter', { event_label: 'show' });
+const reportShowFilter = () => report('search', 'filter', { event_value: 'show' });
 
-const reportClearFilter = () => report('search', 'filter', { event_label: 'clear filter' });
+const reportClearFilter = () => report('search', 'filter', { event_value: 'clear filter' });
 
 const reportFilter = (type, value, checked) => (
   report(type, 'filter', { event_value: value, event_label: (checked ? 'check' : 'uncheck') })
