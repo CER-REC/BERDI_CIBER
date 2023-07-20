@@ -1,3 +1,11 @@
+## [2.2.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.1) (2023-07-20)
+
+
+### analytics
+
+* **Features:** updated filter analytics (5f133d6)
+* **Features:** updated analytics (af13ddc)
+
 # [2.2.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.0) (2023-02-13)
 
 
