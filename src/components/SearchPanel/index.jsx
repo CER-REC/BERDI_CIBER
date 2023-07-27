@@ -3,7 +3,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
 import useConfig from '../../hooks/useConfig';
-import { reportSearch } from '../../utilities/analytics';
+import { reportPageView, reportSearch } from '../../utilities/analytics';
 import SearchBar from './SearchBar';
 import ToolLogo from '../ToolLogo';
 import TitleCard from '../TitleCard';
@@ -46,11 +46,16 @@ const SearchPanel = ({ hasTagline }) => {
     configDispatch({ type: 'search/changed', payload: search.trim() });
   }, [search, configDispatch]);
 
+  const handleTextSearch = useCallback(() => {
+    handleClick();
+    reportPageView('search');
+  }, [handleClick]);
+
   const handleKeyDown = useCallback((event) => {
     if (event.key === 'Enter') {
-      handleClick();
+      handleTextSearch();
     }
-  }, [handleClick]);
+  }, [handleTextSearch]);
 
   useEffect(() => setSearch(config.search), [config.search]);
 
@@ -70,7 +75,7 @@ const SearchPanel = ({ hasTagline }) => {
             textValue={search}
             onTextChanged={handleChange}
             onKeyDown={handleKeyDown}
-            onSearch={handleClick}
+            onSearch={handleTextSearch}
           />
         </Grid>
         <Grid item xs={9}>

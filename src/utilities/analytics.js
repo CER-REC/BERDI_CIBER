@@ -43,6 +43,16 @@ const report = (category, action, data) => {
   dataLayer.push(event);
 };
 
+const reportPageView = (title) => {
+  setTimeout(() => {
+    dataLayer.push({
+      event: 'virtualPageview',
+      pageURL: window.location.href,
+      pageTitle: title,
+    });
+  }, 0);
+};
+
 const reportSection = (page) => report('section', 'click', { event_value: page });
 
 const reportSectionLinks = () => report('section', 'links', { event_label: 'section links' });
@@ -104,6 +114,7 @@ const reportCartRemoveAll = () => report('shelf', 'click', { event_value: 'remov
 const reportSearchHelp = () => report('searchhelp', 'click', { event_value: 'searchhelp' });
 
 export {
+  reportPageView,
   reportSearch,
   reportSectionLinks,
   reportSection,

@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 
 import LimitationsDialog from '../../LimitationsDialog';
 import useConfig from '../../../hooks/useConfig';
-import { reportDisclaimer, reportSectionLinks } from '../../../utilities/analytics';
+import { reportDisclaimer, reportPageView, reportSectionLinks } from '../../../utilities/analytics';
 import education from '../../../images/landing/education.png';
 
 const useStyles = makeStyles({
@@ -32,12 +32,14 @@ const NavBlock = () => {
     const fragment = 'ikInformation';
     const page = 'methods';
     reportSectionLinks();
+    reportPageView(fragment);
     configDispatch({ type: 'page/fragment/changed', payload: { page, fragment } });
   }, [configDispatch]);
 
   const handleClick = useCallback((page) => {
     reportSectionLinks();
     configDispatch({ type: 'page/changed', payload: page });
+    reportPageView(page);
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => () => handleClick(page), [handleClick]);
 
