@@ -32,13 +32,14 @@ const NavBlock = () => {
     const fragment = 'ikInformation';
     const page = 'methods';
     reportSectionLinks();
+    reportPageView(fragment);
     configDispatch({ type: 'page/fragment/changed', payload: { page, fragment } });
   }, [configDispatch]);
 
   const handleClick = useCallback((page) => {
     reportSectionLinks();
     configDispatch({ type: 'page/changed', payload: page });
-    reportPageView();
+    reportPageView(page);
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => () => handleClick(page), [handleClick]);
 

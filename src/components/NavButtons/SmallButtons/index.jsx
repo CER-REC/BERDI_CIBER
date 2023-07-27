@@ -39,7 +39,7 @@ const SmallButtons = () => {
   const handleClick = useCallback((page) => {
     reportSection(page);
     configDispatch({ type: 'page/changed', payload: page });
-    reportPageView();
+    reportPageView(page);
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 

@@ -48,7 +48,7 @@ const SearchPanel = ({ hasTagline }) => {
 
   const handleTextSearch = useCallback(() => {
     handleClick();
-    reportPageView();
+    reportPageView('search');
   }, [handleClick]);
 
   const handleKeyDown = useCallback((event) => {

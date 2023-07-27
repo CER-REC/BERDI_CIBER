@@ -43,12 +43,12 @@ const report = (category, action, data) => {
   dataLayer.push(event);
 };
 
-const reportPageView = () => {
+const reportPageView = (title) => {
   setTimeout(() => {
-    window.dataLayer.push({
+    dataLayer.push({
       event: 'virtualPageview',
       pageURL: window.location.href,
-      pageTitle: window.document.title,
+      pageTitle: title,
     });
   }, 0);
 };
