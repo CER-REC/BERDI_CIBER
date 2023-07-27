@@ -2,7 +2,7 @@ import { Button, Grid, makeStyles } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../../hooks/useConfig';
-import { reportSection } from '../../../utilities/analytics';
+import { reportPageView, reportSection } from '../../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   selectedButton: {
@@ -39,6 +39,7 @@ const SmallButtons = () => {
   const handleClick = useCallback((page) => {
     reportSection(page);
     configDispatch({ type: 'page/changed', payload: page });
+    reportPageView();
   }, [configDispatch]);
   const createHandleClick = useCallback((page) => (() => handleClick(page)), [handleClick]);
 
