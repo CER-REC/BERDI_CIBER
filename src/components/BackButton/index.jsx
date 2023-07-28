@@ -3,7 +3,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import useConfig from '../../hooks/useConfig';
-import { reportSection } from '../../utilities/analytics';
+import { reportPageView, reportSection } from '../../utilities/analytics';
 
 const useStyles = makeStyles((theme) => ({
   button: {
