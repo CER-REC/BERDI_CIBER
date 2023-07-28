@@ -24,6 +24,7 @@ const BackButton = () => {
     configDispatch({ type: 'filters/removed' });
     configDispatch({ type: 'search/removed' });
     configDispatch({ type: 'page/changed', payload: 'landing' });
+    reportPageView('landing');
   }, [configDispatch]);
   const createHandleClick = useCallback(() => (() => handleClick()), [handleClick]);
 
