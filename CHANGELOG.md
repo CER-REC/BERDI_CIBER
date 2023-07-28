@@ -1,3 +1,15 @@
+## [2.2.2](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.2) (2023-07-28)
+
+
+* **Features:** Added import for the report call (8ac7bfb)
+* **Features:** Added virtual page view event to back button (78f0c4e)
+
+
+### analytics
+
+* **Features:** added title for page view analytics (d49d314)
+* **Features:** added virtual page view analytics (3647659)
+
 ## [2.2.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.1) (2023-07-20)
 
 
