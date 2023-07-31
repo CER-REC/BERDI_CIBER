@@ -1,4 +1,4 @@
-## [2.2.2](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.2) (2023-07-28)
+## 2.2.2 (2023-07-28)
 
 
 * **Features:** Added import for the report call (8ac7bfb)
@@ -10,7 +10,7 @@
 * **Features:** added title for page view analytics (d49d314)
 * **Features:** added virtual page view analytics (3647659)
 
-## [2.2.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.1) (2023-07-20)
+## 2.2.1 (2023-07-20)
 
 
 ### analytics
@@ -18,7 +18,7 @@
 * **Features:** updated filter analytics (5f133d6)
 * **Features:** updated analytics (af13ddc)
 
-# [2.2.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.2.0) (2023-02-13)
+# 2.2.0 (2023-02-13)
 
 
 * **Features:** Updated French disclaimer I understand label (f51b015)
@@ -127,7 +127,7 @@
 * **Features:** Changed downloading title ID path (5b56a05)
 * **Features:** Added legal disclaimer dialog for download table button (5d42831)
 
-## [2.1.2](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.2) (2022-12-13)
+## 2.1.2 (2022-12-13)
 
 
 * **Bug Fixes:** removed unneeded file (7c68bad)
@@ -152,14 +152,14 @@
 
 * **Bug Fixes:** Convert to textbox so text can be selectable (211e21c)
 
-## [2.1.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.1) (2022-10-28)
+## 2.1.1 (2022-10-28)
 
 
 ### TitleCard
 
 * **Features:** Changed date format (79e3f4d)
 
-# [2.1.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.1.0) (2022-10-28)
+# 2.1.0 (2022-10-28)
 
 
 * **Code Formatting:** Fixed linting (016dea5)
@@ -198,7 +198,7 @@
 * **Bug Fixes:** Remove sentence from methods page (9a4062f)
 * **Bug Fixes:** Update browser support messages (4f7ecdd)
 
-## [2.0.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.0.1) (2022-09-29)
+## 2.0.1 (2022-09-29)
 
 
 ### package.json
@@ -210,7 +210,7 @@
 
 * **Bug Fixes:** Add additional link to methods page + resolution warning tweak (73260ca)
 
-# [2.0.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v2.0.0) (2022-09-27)
+# 2.0.0 (2022-09-27)
 
 
 ### .storybook/middleware; Cart
@@ -1949,7 +1949,7 @@
 
 * **Bug Fixes:** Adapt to use jQuery global for video initialization + WEP toolkit (7a626e5)
 
-## [1.0.1](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v1.0.1) (2021-06-18)
+## 1.0.1 (2021-06-18)
 
 
 ### date slider
@@ -2102,7 +2102,7 @@
 * **Features:** slimmed down TreeMapPanel component code now that it is using NoResultsSta (88c4e8b)
 * **Features:** refactored rendering logic to show different search messages (440c2bb)
 
-# [1.0.0](http://neb-esa-devdoc.s3-website.us-west-2.amazonaws.com/v1.0.0) (2021-04-30)
+# 1.0.0 (2021-04-30)
 
 
 * **Features:** Updated logos (85ff8e3)
